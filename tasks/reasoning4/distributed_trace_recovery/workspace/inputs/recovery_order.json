@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "id": "freeze",
+      "duration": 2,
+      "requires": []
+    },
+    {
+      "id": "snapshot",
+      "duration": 5,
+      "requires": [
+        "freeze"
+      ]
+    },
+    {
+      "id": "isolate",
+      "duration": 4,
+      "requires": [
+        "freeze"
+      ]
+    },
+    {
+      "id": "repair_db",
+      "duration": 9,
+      "requires": [
+        "snapshot"
+      ]
+    },
+    {
+      "id": "drain_queue",
+      "duration": 6,
+      "requires": [
+        "isolate"
+      ]
+    },
+    {
+      "id": "warm_cache",
+      "duration": 5,
+      "requires": [
+        "repair_db"
+      ]
+    },
+    {
+      "id": "replay",
+      "duration": 8,
+      "requires": [
+        "repair_db",
+        "drain_queue"
+      ]
+    },
+    {
+      "id": "verify",
+      "duration": 4,
+      "requires": [
+        "warm_cache",
+        "replay"
+      ]
+    }
+  ]
+}

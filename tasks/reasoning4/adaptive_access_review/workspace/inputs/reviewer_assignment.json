@@ -1,0 +1,161 @@
+{
+  "workers": [
+    {
+      "id": "alice",
+      "capacity": 1,
+      "skills": [
+        "iam",
+        "privacy"
+      ]
+    },
+    {
+      "id": "bob",
+      "capacity": 1,
+      "skills": [
+        "pci",
+        "sre"
+      ]
+    },
+    {
+      "id": "chen",
+      "capacity": 2,
+      "skills": [
+        "iam",
+        "sre",
+        "privacy"
+      ]
+    },
+    {
+      "id": "dina",
+      "capacity": 1,
+      "skills": [
+        "pci",
+        "privacy"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "identity",
+      "requires": [
+        "iam"
+      ]
+    },
+    {
+      "id": "payments",
+      "requires": [
+        "pci"
+      ]
+    },
+    {
+      "id": "prod",
+      "requires": [
+        "sre"
+      ]
+    },
+    {
+      "id": "data",
+      "requires": [
+        "privacy"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "item": "identity",
+      "worker": "alice",
+      "score": 13,
+      "cost": 3
+    },
+    {
+      "item": "identity",
+      "worker": "bob",
+      "score": 8,
+      "cost": 4
+    },
+    {
+      "item": "identity",
+      "worker": "chen",
+      "score": 11,
+      "cost": 5
+    },
+    {
+      "item": "identity",
+      "worker": "dina",
+      "score": 14,
+      "cost": 6
+    },
+    {
+      "item": "payments",
+      "worker": "alice",
+      "score": 10,
+      "cost": 5
+    },
+    {
+      "item": "payments",
+      "worker": "bob",
+      "score": 13,
+      "cost": 6
+    },
+    {
+      "item": "payments",
+      "worker": "chen",
+      "score": 8,
+      "cost": 1
+    },
+    {
+      "item": "payments",
+      "worker": "dina",
+      "score": 11,
+      "cost": 2
+    },
+    {
+      "item": "prod",
+      "worker": "alice",
+      "score": 7,
+      "cost": 3
+    },
+    {
+      "item": "prod",
+      "worker": "bob",
+      "score": 10,
+      "cost": 4
+    },
+    {
+      "item": "prod",
+      "worker": "chen",
+      "score": 13,
+      "cost": 5
+    },
+    {
+      "item": "prod",
+      "worker": "dina",
+      "score": 8,
+      "cost": 6
+    },
+    {
+      "item": "data",
+      "worker": "alice",
+      "score": 12,
+      "cost": 5
+    },
+    {
+      "item": "data",
+      "worker": "bob",
+      "score": 7,
+      "cost": 6
+    },
+    {
+      "item": "data",
+      "worker": "chen",
+      "score": 10,
+      "cost": 1
+    },
+    {
+      "item": "data",
+      "worker": "dina",
+      "score": 13,
+      "cost": 2
+    }
+  ]
+}

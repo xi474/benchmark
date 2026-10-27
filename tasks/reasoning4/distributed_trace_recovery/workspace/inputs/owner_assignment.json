@@ -1,0 +1,160 @@
+{
+  "workers": [
+    {
+      "id": "sana",
+      "capacity": 1,
+      "skills": [
+        "network",
+        "security"
+      ]
+    },
+    {
+      "id": "tomas",
+      "capacity": 2,
+      "skills": [
+        "sql",
+        "queue"
+      ]
+    },
+    {
+      "id": "uma",
+      "capacity": 1,
+      "skills": [
+        "network",
+        "queue"
+      ]
+    },
+    {
+      "id": "victor",
+      "capacity": 1,
+      "skills": [
+        "security",
+        "sql"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "edge",
+      "requires": [
+        "network"
+      ]
+    },
+    {
+      "id": "identity",
+      "requires": [
+        "security"
+      ]
+    },
+    {
+      "id": "database",
+      "requires": [
+        "sql"
+      ]
+    },
+    {
+      "id": "async",
+      "requires": [
+        "queue"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "item": "edge",
+      "worker": "sana",
+      "score": 12,
+      "cost": 5
+    },
+    {
+      "item": "edge",
+      "worker": "tomas",
+      "score": 7,
+      "cost": 6
+    },
+    {
+      "item": "edge",
+      "worker": "uma",
+      "score": 10,
+      "cost": 1
+    },
+    {
+      "item": "edge",
+      "worker": "victor",
+      "score": 13,
+      "cost": 2
+    },
+    {
+      "item": "identity",
+      "worker": "sana",
+      "score": 9,
+      "cost": 5
+    },
+    {
+      "item": "identity",
+      "worker": "tomas",
+      "score": 12,
+      "cost": 6
+    },
+    {
+      "item": "identity",
+      "worker": "uma",
+      "score": 7,
+      "cost": 1
+    },
+    {
+      "item": "identity",
+      "worker": "victor",
+      "score": 10,
+      "cost": 2
+    },
+    {
+      "item": "database",
+      "worker": "sana",
+      "score": 14,
+      "cost": 1
+    },
+    {
+      "item": "database",
+      "worker": "tomas",
+      "score": 9,
+      "cost": 2
+    },
+    {
+      "item": "database",
+      "worker": "uma",
+      "score": 12,
+      "cost": 3
+    },
+    {
+      "item": "database",
+      "worker": "victor",
+      "score": 7,
+      "cost": 4
+    },
+    {
+      "item": "async",
+      "worker": "sana",
+      "score": 11,
+      "cost": 6
+    },
+    {
+      "item": "async",
+      "worker": "tomas",
+      "score": 14,
+      "cost": 1
+    },
+    {
+      "item": "async",
+      "worker": "uma",
+      "score": 9,
+      "cost": 2
+    },
+    {
+      "item": "async",
+      "worker": "victor",
+      "score": 12,
+      "cost": 3
+    }
+  ]
+}

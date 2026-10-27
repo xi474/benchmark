@@ -1,0 +1,59 @@
+{
+  "nodes": [
+    {
+      "id": "snapshot",
+      "duration": 4,
+      "requires": []
+    },
+    {
+      "id": "shadow",
+      "duration": 6,
+      "requires": [
+        "snapshot"
+      ]
+    },
+    {
+      "id": "backfill",
+      "duration": 10,
+      "requires": [
+        "shadow"
+      ]
+    },
+    {
+      "id": "dualwrite",
+      "duration": 7,
+      "requires": [
+        "shadow"
+      ]
+    },
+    {
+      "id": "verify",
+      "duration": 5,
+      "requires": [
+        "backfill",
+        "dualwrite"
+      ]
+    },
+    {
+      "id": "cutover",
+      "duration": 3,
+      "requires": [
+        "verify"
+      ]
+    },
+    {
+      "id": "cleanup",
+      "duration": 4,
+      "requires": [
+        "cutover"
+      ]
+    },
+    {
+      "id": "attest",
+      "duration": 2,
+      "requires": [
+        "cleanup"
+      ]
+    }
+  ]
+}

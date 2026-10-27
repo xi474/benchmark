@@ -1,0 +1,160 @@
+{
+  "workers": [
+    {
+      "id": "wen",
+      "capacity": 1,
+      "skills": [
+        "sql",
+        "contract"
+      ]
+    },
+    {
+      "id": "xavier",
+      "capacity": 2,
+      "skills": [
+        "etl",
+        "recovery"
+      ]
+    },
+    {
+      "id": "yara",
+      "capacity": 1,
+      "skills": [
+        "sql",
+        "recovery"
+      ]
+    },
+    {
+      "id": "zoe",
+      "capacity": 1,
+      "skills": [
+        "contract",
+        "etl"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ddl",
+      "requires": [
+        "sql"
+      ]
+    },
+    {
+      "id": "backfill",
+      "requires": [
+        "etl"
+      ]
+    },
+    {
+      "id": "api",
+      "requires": [
+        "contract"
+      ]
+    },
+    {
+      "id": "rollback",
+      "requires": [
+        "recovery"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "item": "ddl",
+      "worker": "wen",
+      "score": 13,
+      "cost": 4
+    },
+    {
+      "item": "ddl",
+      "worker": "xavier",
+      "score": 8,
+      "cost": 5
+    },
+    {
+      "item": "ddl",
+      "worker": "yara",
+      "score": 11,
+      "cost": 6
+    },
+    {
+      "item": "ddl",
+      "worker": "zoe",
+      "score": 14,
+      "cost": 1
+    },
+    {
+      "item": "backfill",
+      "worker": "wen",
+      "score": 10,
+      "cost": 5
+    },
+    {
+      "item": "backfill",
+      "worker": "xavier",
+      "score": 13,
+      "cost": 6
+    },
+    {
+      "item": "backfill",
+      "worker": "yara",
+      "score": 8,
+      "cost": 1
+    },
+    {
+      "item": "backfill",
+      "worker": "zoe",
+      "score": 11,
+      "cost": 2
+    },
+    {
+      "item": "api",
+      "worker": "wen",
+      "score": 7,
+      "cost": 2
+    },
+    {
+      "item": "api",
+      "worker": "xavier",
+      "score": 10,
+      "cost": 3
+    },
+    {
+      "item": "api",
+      "worker": "yara",
+      "score": 13,
+      "cost": 4
+    },
+    {
+      "item": "api",
+      "worker": "zoe",
+      "score": 8,
+      "cost": 5
+    },
+    {
+      "item": "rollback",
+      "worker": "wen",
+      "score": 12,
+      "cost": 3
+    },
+    {
+      "item": "rollback",
+      "worker": "xavier",
+      "score": 7,
+      "cost": 4
+    },
+    {
+      "item": "rollback",
+      "worker": "yara",
+      "score": 10,
+      "cost": 5
+    },
+    {
+      "item": "rollback",
+      "worker": "zoe",
+      "score": 13,
+      "cost": 6
+    }
+  ]
+}

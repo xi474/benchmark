@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "id": "lockfile",
+      "duration": 2,
+      "requires": []
+    },
+    {
+      "id": "corelib",
+      "duration": 7,
+      "requires": [
+        "lockfile"
+      ]
+    },
+    {
+      "id": "adapter",
+      "duration": 5,
+      "requires": [
+        "corelib"
+      ]
+    },
+    {
+      "id": "database",
+      "duration": 8,
+      "requires": [
+        "lockfile"
+      ]
+    },
+    {
+      "id": "gateway",
+      "duration": 6,
+      "requires": [
+        "adapter"
+      ]
+    },
+    {
+      "id": "worker",
+      "duration": 4,
+      "requires": [
+        "adapter",
+        "database"
+      ]
+    },
+    {
+      "id": "integration",
+      "duration": 9,
+      "requires": [
+        "gateway",
+        "worker"
+      ]
+    },
+    {
+      "id": "publish",
+      "duration": 3,
+      "requires": [
+        "integration"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": "inventory",
+      "duration": 3,
+      "requires": []
+    },
+    {
+      "id": "risk",
+      "duration": 6,
+      "requires": [
+        "inventory"
+      ]
+    },
+    {
+      "id": "sandbox",
+      "duration": 5,
+      "requires": [
+        "inventory"
+      ]
+    },
+    {
+      "id": "owners",
+      "duration": 2,
+      "requires": [
+        "inventory"
+      ]
+    },
+    {
+      "id": "pilot",
+      "duration": 7,
+      "requires": [
+        "risk",
+        "sandbox"
+      ]
+    },
+    {
+      "id": "approval",
+      "duration": 4,
+      "requires": [
+        "risk",
+        "owners"
+      ]
+    },
+    {
+      "id": "rollout",
+      "duration": 8,
+      "requires": [
+        "pilot",
+        "approval"
+      ]
+    },
+    {
+      "id": "attest",
+      "duration": 3,
+      "requires": [
+        "rollout"
+      ]
+    }
+  ]
+}
