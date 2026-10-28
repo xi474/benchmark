@@ -1,0 +1,90 @@
+{
+  "version": "3.0.0",
+  "unchanged_v2_task_count": 9,
+  "unchanged_v2_tasks": [
+    "multistage4/regional_failover_readiness",
+    "multistage4/warehouse_cutover_assurance",
+    "multistage4/artifact_provenance_release",
+    "multistage4/storage_tiering_migration",
+    "reasoning4/edge_fleet_rollout",
+    "reasoning4/tenant_quota_rebalance",
+    "reasoning4/batch_scheduler_transition",
+    "context8/payment_settlement_reconciliation",
+    "context8/streaming_checkpoint_recovery"
+  ],
+  "strengthened_task_count": 7,
+  "strengthened_tasks": [
+    {
+      "entry": "reasoning4/api_deprecation_campaign",
+      "upstream": [
+        "notice_windows",
+        "support_assignment"
+      ],
+      "consumer": "retirement_order",
+      "consumer_operation": "resource_cutover"
+    },
+    {
+      "entry": "context8/identity_federation_transition",
+      "upstream": [
+        "claims",
+        "sessions"
+      ],
+      "consumer": "authorization",
+      "consumer_operation": "federation_authorize"
+    },
+    {
+      "entry": "context8/search_index_rebuild",
+      "upstream": [
+        "mapping_compat",
+        "shard_replay"
+      ],
+      "consumer": "cutover_plan",
+      "consumer_operation": "quorum_cutover"
+    },
+    {
+      "entry": "linux2/certificate_rotation_readiness",
+      "upstream": [
+        "trust_graph",
+        "trust_policy"
+      ],
+      "consumer": "renewal_windows",
+      "consumer_operation": "certificate_schedule"
+    },
+    {
+      "entry": "linux2/backup_restore_certification",
+      "upstream": [
+        "backup_graph",
+        "journal_restore"
+      ],
+      "consumer": "backup_windows",
+      "consumer_operation": "restore_join"
+    },
+    {
+      "entry": "linux2/observability_retention_upgrade",
+      "upstream": [
+        "archive_logs",
+        "retention_windows"
+      ],
+      "consumer": "retention_policy",
+      "consumer_operation": "retention_audit"
+    },
+    {
+      "entry": "linux2/network_policy_convergence",
+      "upstream": [
+        "route_graph",
+        "firewall_policy"
+      ],
+      "consumer": "network_traces",
+      "consumer_operation": "network_join"
+    }
+  ],
+  "manifest_and_protected_hashes_valid": true,
+  "initial_workspaces_contain_no_answers": true,
+  "task_level_duplicates": false,
+  "shared_component_fixture_groups": [
+    [
+      "reasoning4/edge_fleet_rollout:rollout_order",
+      "reasoning4/batch_scheduler_transition:job_order"
+    ]
+  ]
+}
