@@ -1,0 +1,193 @@
+{
+  "entry_id": "reasoning4/api_deprecation_campaign",
+  "title": "API 下线管理",
+  "suite": "reasoning4",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 6,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:notice_windows",
+      "component:support_assignment"
+    ],
+    [
+      "component:retirement_order"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:notice_windows",
+      "name": "notice_windows",
+      "kind": "component",
+      "role": "engines",
+      "label": "预算与期限下的公告覆盖",
+      "operation": "notice_coverage",
+      "folder": "engines/notice_windows",
+      "output": "outputs/notice_windows.json",
+      "contract": "engines/notice_windows/contract.json",
+      "contract_sha256": "e720634cff580ba97adcc3e55a84d6734b6582dbb5055992c931dffaaa74eb1b",
+      "local_inputs": [
+        "inputs/notice_windows.json"
+      ]
+    },
+    {
+      "id": "component:support_assignment",
+      "name": "support_assignment",
+      "kind": "component",
+      "role": "engines",
+      "label": "技能与容量约束分配",
+      "operation": "capacity_assignment",
+      "folder": "engines/support_assignment",
+      "output": "outputs/support_assignment.json",
+      "contract": "engines/support_assignment/contract.json",
+      "contract_sha256": "b1d09e47717a4b301ea723ea906b859350ec632773d3171e308354f0d43e5845",
+      "local_inputs": [
+        "inputs/support_assignment.json"
+      ]
+    },
+    {
+      "id": "component:retirement_order",
+      "name": "retirement_order",
+      "kind": "component",
+      "role": "engines",
+      "label": "精确资源受限下线调度",
+      "operation": "resource_cutover",
+      "folder": "engines/retirement_order",
+      "output": "outputs/retirement_order.json",
+      "contract": "engines/retirement_order/contract.json",
+      "contract_sha256": "359cb12b1c24409a597d8cb5cf6412aee5d2f06e304abbbf3e975aa63a4f1408",
+      "local_inputs": [
+        "inputs/retirement_order.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:notice_windows",
+      "target": "component:retirement_order",
+      "reason": "contract input",
+      "path": "outputs/notice_windows.json"
+    },
+    {
+      "source": "component:notice_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/notice_windows.json"
+    },
+    {
+      "source": "component:support_assignment",
+      "target": "component:retirement_order",
+      "reason": "contract input",
+      "path": "outputs/support_assignment.json"
+    },
+    {
+      "source": "component:support_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/support_assignment.json"
+    },
+    {
+      "source": "component:retirement_order",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/retirement_order.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:notice_windows",
+      "target": "component:retirement_order"
+    },
+    {
+      "source": "component:support_assignment",
+      "target": "component:retirement_order"
+    },
+    {
+      "source": "component:retirement_order",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/notice_windows.json",
+      "generated": false,
+      "consumers": [
+        "component:notice_windows"
+      ]
+    },
+    {
+      "path": "inputs/support_assignment.json",
+      "generated": false,
+      "consumers": [
+        "component:support_assignment"
+      ]
+    },
+    {
+      "path": "inputs/retirement_order.json",
+      "generated": false,
+      "consumers": [
+        "component:retirement_order"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:notice_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/notice_windows.json"
+    },
+    {
+      "source": "component:support_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/support_assignment.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

@@ -1,0 +1,172 @@
+{
+  "entry_id": "context8/payment_settlement_reconciliation",
+  "title": "支付清算对账",
+  "suite": "context8",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 5,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:payment_traces",
+      "component:settlements"
+    ],
+    [
+      "component:settlement_windows"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:settlements",
+      "name": "settlements",
+      "kind": "component",
+      "role": "package",
+      "label": "新旧清算事件兼容",
+      "operation": "settlement_decode",
+      "folder": "settlements",
+      "output": "outputs/settlements.json",
+      "contract": "settlements/contract.json",
+      "contract_sha256": "b224735f46fa5f69210e2d62b7663da737696d12151f04cd08fe70ee15241b4b",
+      "local_inputs": [
+        "inputs/settlements.json"
+      ]
+    },
+    {
+      "id": "component:settlement_windows",
+      "name": "settlement_windows",
+      "kind": "component",
+      "role": "package",
+      "label": "修订去重与窗口统计",
+      "operation": "event_windows",
+      "folder": "settlement_windows",
+      "output": "outputs/settlement_windows.json",
+      "contract": "settlement_windows/contract.json",
+      "contract_sha256": "528ca98632bc0e222084cb3491cf51b2e400e1427ad2e44ac7b733cdd2b5f09e",
+      "local_inputs": []
+    },
+    {
+      "id": "component:payment_traces",
+      "name": "payment_traces",
+      "kind": "component",
+      "role": "package",
+      "label": "扁平 / 嵌套链路关联",
+      "operation": "trace_correlation",
+      "folder": "payment_traces",
+      "output": "outputs/payment_traces.json",
+      "contract": "payment_traces/contract.json",
+      "contract_sha256": "601d6d844029261d96502d8ffa35730509dcf5816f16c1aa71c81e7bce7896d1",
+      "local_inputs": [
+        "inputs/payment_traces.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:settlements",
+      "target": "component:settlement_windows",
+      "reason": "contract input",
+      "path": "outputs/settlements.json"
+    },
+    {
+      "source": "component:settlements",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/settlements.json"
+    },
+    {
+      "source": "component:settlement_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/settlement_windows.json"
+    },
+    {
+      "source": "component:payment_traces",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/payment_traces.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:settlements",
+      "target": "component:settlement_windows"
+    },
+    {
+      "source": "component:settlement_windows",
+      "target": "integration:all"
+    },
+    {
+      "source": "component:payment_traces",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/settlements.json",
+      "generated": false,
+      "consumers": [
+        "component:settlements"
+      ]
+    },
+    {
+      "path": "inputs/payment_traces.json",
+      "generated": false,
+      "consumers": [
+        "component:payment_traces"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:settlements",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/settlements.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

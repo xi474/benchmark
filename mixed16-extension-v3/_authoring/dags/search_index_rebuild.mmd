@@ -1,0 +1,23 @@
+flowchart TD
+  n0["mapping_compat<br/>重命名图与模式迁移"]:::component
+  n1["shard_replay<br/>分片缺口与墓碑恢复"]:::component
+  n2["cutover_plan<br/>预算与副本仲裁优化"]:::component
+  n3["integrate.py<br/>读取全部 3 个组件产物"]:::integration
+  n4["final_report.py<br/>报告摘要与关注项"]:::report
+  n0 --> n2
+  n0 --> n3
+  n1 --> n2
+  n1 --> n3
+  n2 --> n3
+  n3 --> n4
+  input0[/"inputs/mapping_compat.json"/]:::input
+  input0 -.-> n0
+  input1[/"inputs/shard_replay.json"/]:::input
+  input1 -.-> n1
+  input2[/"inputs/cutover_plan.json"/]:::input
+  input2 -.-> n2
+  classDef component fill:#eff6ff,stroke:#2563eb,color:#172033
+  classDef materialize fill:#fff7ed,stroke:#c2410c,color:#172033
+  classDef integration fill:#f5f3ff,stroke:#7c3aed,color:#172033
+  classDef report fill:#ecfdf5,stroke:#047857,color:#172033
+  classDef input fill:#f8fafc,stroke:#94a3b8,color:#475569,stroke-dasharray:4 3

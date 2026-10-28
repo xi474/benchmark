@@ -1,0 +1,314 @@
+{
+  "entry_id": "multistage4/warehouse_cutover_assurance",
+  "title": "数仓切换保障",
+  "suite": "multistage4",
+  "view": "logical component execution DAG",
+  "component_count": 6,
+  "execution_node_count": 8,
+  "full_execution_edge_count": 13,
+  "reduced_execution_edge_count": 8,
+  "maximum_independent_frontier": 4,
+  "earliest_layer_sizes": [
+    3,
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:backfill",
+      "component:checksums",
+      "component:freshness"
+    ],
+    [
+      "component:cutover_risk",
+      "component:reviewer_load"
+    ],
+    [
+      "component:repair_waves"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:backfill",
+      "name": "backfill",
+      "kind": "component",
+      "role": "domains",
+      "label": "失败率证据与修订去重",
+      "operation": "failure_evidence",
+      "folder": "domains/backfill",
+      "output": "outputs/backfill.json",
+      "contract": "domains/backfill/contract.json",
+      "contract_sha256": "ef99e349ddc26f0d9b4e6eb5bb4674240397627aaf6abe828b23ea850985f5a2",
+      "local_inputs": [
+        "inputs/backfill.json"
+      ]
+    },
+    {
+      "id": "component:freshness",
+      "name": "freshness",
+      "kind": "component",
+      "role": "domains",
+      "label": "延迟证据与修订去重",
+      "operation": "lag_evidence",
+      "folder": "domains/freshness",
+      "output": "outputs/freshness.json",
+      "contract": "domains/freshness/contract.json",
+      "contract_sha256": "c5d3575cd6478d7b4fd604dc19c19ae5cc8a0afc0563bb368bdcbc52b4662717",
+      "local_inputs": [
+        "inputs/freshness.json"
+      ]
+    },
+    {
+      "id": "component:checksums",
+      "name": "checksums",
+      "kind": "component",
+      "role": "domains",
+      "label": "完整性证据与修订去重",
+      "operation": "integrity_evidence",
+      "folder": "domains/checksums",
+      "output": "outputs/checksums.json",
+      "contract": "domains/checksums/contract.json",
+      "contract_sha256": "ff6658fe33135b9106c7915d1b102433e25396b0b13a9324f0f20ef325b384bf",
+      "local_inputs": [
+        "inputs/checksums.json"
+      ]
+    },
+    {
+      "id": "component:cutover_risk",
+      "name": "cutover_risk",
+      "kind": "component",
+      "role": "views",
+      "label": "阈值筛选与风险排序",
+      "operation": "risk_ranking",
+      "folder": "views/cutover_risk",
+      "output": "outputs/cutover_risk.json",
+      "contract": "views/cutover_risk/contract.json",
+      "contract_sha256": "fd9e9566928536749c4f2bd717b573be2cd0da91d5cf11168146c3f62eef7313",
+      "local_inputs": []
+    },
+    {
+      "id": "component:reviewer_load",
+      "name": "reviewer_load",
+      "kind": "component",
+      "role": "views",
+      "label": "审核负载分配",
+      "operation": "review_balance",
+      "folder": "views/reviewer_load",
+      "output": "outputs/reviewer_load.json",
+      "contract": "views/reviewer_load/contract.json",
+      "contract_sha256": "aee75a74b95aaa30e7c815e9c607a67c75648d3fca998a561c83ba668577d329",
+      "local_inputs": []
+    },
+    {
+      "id": "component:repair_waves",
+      "name": "repair_waves",
+      "kind": "component",
+      "role": "views",
+      "label": "修复波次与关键路径",
+      "operation": "remediation_plan",
+      "folder": "views/repair_waves",
+      "output": "outputs/repair_waves.json",
+      "contract": "views/repair_waves/contract.json",
+      "contract_sha256": "ad45f4326a91918c19ab5bad23b1853631ac5f8300bec435cb3d12b4e1a07a68",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 6 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:backfill",
+      "target": "component:cutover_risk",
+      "reason": "contract input",
+      "path": "outputs/backfill.json"
+    },
+    {
+      "source": "component:backfill",
+      "target": "component:reviewer_load",
+      "reason": "contract input",
+      "path": "outputs/backfill.json"
+    },
+    {
+      "source": "component:backfill",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/backfill.json"
+    },
+    {
+      "source": "component:freshness",
+      "target": "component:repair_waves",
+      "reason": "contract input",
+      "path": "outputs/freshness.json"
+    },
+    {
+      "source": "component:freshness",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/freshness.json"
+    },
+    {
+      "source": "component:checksums",
+      "target": "component:repair_waves",
+      "reason": "contract input",
+      "path": "outputs/checksums.json"
+    },
+    {
+      "source": "component:checksums",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/checksums.json"
+    },
+    {
+      "source": "component:cutover_risk",
+      "target": "component:repair_waves",
+      "reason": "contract input",
+      "path": "outputs/cutover_risk.json"
+    },
+    {
+      "source": "component:cutover_risk",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/cutover_risk.json"
+    },
+    {
+      "source": "component:reviewer_load",
+      "target": "component:repair_waves",
+      "reason": "contract input",
+      "path": "outputs/reviewer_load.json"
+    },
+    {
+      "source": "component:reviewer_load",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/reviewer_load.json"
+    },
+    {
+      "source": "component:repair_waves",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/repair_waves.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:backfill",
+      "target": "component:reviewer_load"
+    },
+    {
+      "source": "component:backfill",
+      "target": "component:cutover_risk"
+    },
+    {
+      "source": "component:freshness",
+      "target": "component:repair_waves"
+    },
+    {
+      "source": "component:checksums",
+      "target": "component:repair_waves"
+    },
+    {
+      "source": "component:cutover_risk",
+      "target": "component:repair_waves"
+    },
+    {
+      "source": "component:reviewer_load",
+      "target": "component:repair_waves"
+    },
+    {
+      "source": "component:repair_waves",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/backfill.json",
+      "generated": false,
+      "consumers": [
+        "component:backfill"
+      ]
+    },
+    {
+      "path": "inputs/freshness.json",
+      "generated": false,
+      "consumers": [
+        "component:freshness"
+      ]
+    },
+    {
+      "path": "inputs/checksums.json",
+      "generated": false,
+      "consumers": [
+        "component:checksums"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:backfill",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/backfill.json"
+    },
+    {
+      "source": "component:freshness",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/freshness.json"
+    },
+    {
+      "source": "component:checksums",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/checksums.json"
+    },
+    {
+      "source": "component:cutover_risk",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/cutover_risk.json"
+    },
+    {
+      "source": "component:reviewer_load",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/reviewer_load.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

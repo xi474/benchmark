@@ -1,0 +1,22 @@
+flowchart TD
+  n0["maintenance_windows<br/>加权区间选择"]:::component
+  n1["crew_assignment<br/>技能与容量约束分配"]:::component
+  n2["rollout_order<br/>依赖波次与关键路径"]:::component
+  n3["integrate.py<br/>读取全部 3 个组件产物"]:::integration
+  n4["final_report.py<br/>报告摘要与关注项"]:::report
+  n0 --> n3
+  n1 --> n2
+  n1 --> n3
+  n2 --> n3
+  n3 --> n4
+  input0[/"inputs/maintenance_windows.json"/]:::input
+  input0 -.-> n0
+  input1[/"inputs/crew_assignment.json"/]:::input
+  input1 -.-> n1
+  input2[/"inputs/rollout_order.json"/]:::input
+  input2 -.-> n2
+  classDef component fill:#eff6ff,stroke:#2563eb,color:#172033
+  classDef materialize fill:#fff7ed,stroke:#c2410c,color:#172033
+  classDef integration fill:#f5f3ff,stroke:#7c3aed,color:#172033
+  classDef report fill:#ecfdf5,stroke:#047857,color:#172033
+  classDef input fill:#f8fafc,stroke:#94a3b8,color:#475569,stroke-dasharray:4 3

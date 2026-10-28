@@ -1,0 +1,30 @@
+flowchart TD
+  n0["route_graph<br/>故障后的等价最短路径集"]:::component
+  n1["firewall_policy<br/>时序连接状态防火墙"]:::component
+  n2["network_traces<br/>路由与状态决策联合核验"]:::component
+  n3[["materialize.py<br/>校验边界并生成 inputs / products"]]:::materialize
+  n4["integrate.py<br/>读取全部 3 个组件产物"]:::integration
+  n5["final_report.py<br/>报告摘要与关注项"]:::report
+  n0 --> n2
+  n0 --> n4
+  n1 --> n2
+  n1 --> n4
+  n2 --> n4
+  n3 --> n0
+  n3 --> n1
+  n3 --> n2
+  n4 --> n5
+  input0[/"inputs/route_graph.json"/]:::input
+  n3 -.-> input0
+  input0 -.-> n0
+  input1[/"inputs/firewall_policy.json"/]:::input
+  n3 -.-> input1
+  input1 -.-> n1
+  input2[/"inputs/network_traces.json"/]:::input
+  n3 -.-> input2
+  input2 -.-> n2
+  classDef component fill:#eff6ff,stroke:#2563eb,color:#172033
+  classDef materialize fill:#fff7ed,stroke:#c2410c,color:#172033
+  classDef integration fill:#f5f3ff,stroke:#7c3aed,color:#172033
+  classDef report fill:#ecfdf5,stroke:#047857,color:#172033
+  classDef input fill:#f8fafc,stroke:#94a3b8,color:#475569,stroke-dasharray:4 3

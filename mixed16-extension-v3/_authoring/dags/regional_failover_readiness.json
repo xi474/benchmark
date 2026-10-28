@@ -1,0 +1,319 @@
+{
+  "entry_id": "multistage4/regional_failover_readiness",
+  "title": "跨区域故障切换",
+  "suite": "multistage4",
+  "view": "logical component execution DAG",
+  "component_count": 6,
+  "execution_node_count": 9,
+  "full_execution_edge_count": 13,
+  "reduced_execution_edge_count": 10,
+  "maximum_independent_frontier": 3,
+  "earliest_layer_sizes": [
+    3,
+    1,
+    3,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:failover",
+      "component:replication",
+      "component:snapshots"
+    ],
+    [
+      "integration:domains"
+    ],
+    [
+      "component:duty_queue",
+      "component:recovery_waves",
+      "component:risk_queue"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:replication",
+      "name": "replication",
+      "kind": "component",
+      "role": "domains",
+      "label": "延迟证据与修订去重",
+      "operation": "lag_evidence",
+      "folder": "domains/replication",
+      "output": "outputs/replication.json",
+      "contract": "domains/replication/contract.json",
+      "contract_sha256": "78bf66c8cad05e7705c44ba5629f4d5bea53821c20fa1edb66ae90a64e090fcb",
+      "local_inputs": [
+        "inputs/replication.json"
+      ]
+    },
+    {
+      "id": "component:failover",
+      "name": "failover",
+      "kind": "component",
+      "role": "domains",
+      "label": "失败率证据与修订去重",
+      "operation": "failure_evidence",
+      "folder": "domains/failover",
+      "output": "outputs/failover.json",
+      "contract": "domains/failover/contract.json",
+      "contract_sha256": "fedde00cb3513b299ff8bf447de00480d641866a0d709e8fcc607796923a1923",
+      "local_inputs": [
+        "inputs/failover.json"
+      ]
+    },
+    {
+      "id": "component:snapshots",
+      "name": "snapshots",
+      "kind": "component",
+      "role": "domains",
+      "label": "完整性证据与修订去重",
+      "operation": "integrity_evidence",
+      "folder": "domains/snapshots",
+      "output": "outputs/snapshots.json",
+      "contract": "domains/snapshots/contract.json",
+      "contract_sha256": "0fba150e555b6d98783750f861b46211d10b3e0c485a269d52b00e52447d6859",
+      "local_inputs": [
+        "inputs/snapshots.json"
+      ]
+    },
+    {
+      "id": "component:risk_queue",
+      "name": "risk_queue",
+      "kind": "component",
+      "role": "views",
+      "label": "阈值筛选与风险排序",
+      "operation": "risk_ranking",
+      "folder": "views/risk_queue",
+      "output": "outputs/risk_queue.json",
+      "contract": "views/risk_queue/contract.json",
+      "contract_sha256": "afbdd4eaf75875e750465ec14fd6ed881a6634c793359568030155161188da64",
+      "local_inputs": []
+    },
+    {
+      "id": "component:duty_queue",
+      "name": "duty_queue",
+      "kind": "component",
+      "role": "views",
+      "label": "审核负载分配",
+      "operation": "review_balance",
+      "folder": "views/duty_queue",
+      "output": "outputs/duty_queue.json",
+      "contract": "views/duty_queue/contract.json",
+      "contract_sha256": "9584e533b085c9cabfad9bc9b5b64db15850d6e3146c161cdaf0cdd8fcf130e0",
+      "local_inputs": []
+    },
+    {
+      "id": "component:recovery_waves",
+      "name": "recovery_waves",
+      "kind": "component",
+      "role": "views",
+      "label": "修复波次与关键路径",
+      "operation": "remediation_plan",
+      "folder": "views/recovery_waves",
+      "output": "outputs/recovery_waves.json",
+      "contract": "views/recovery_waves/contract.json",
+      "contract_sha256": "c6661f31f8728fa7de022df9666c1fa6af86a8fbacf782970d5d2c103279b3ea",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:domains",
+      "name": "integrate.py domains",
+      "kind": "integration",
+      "label": "合并全部 domains 证据",
+      "output": "outputs/domain_core.json",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 6 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:replication",
+      "target": "integration:domains",
+      "reason": "domain evidence read",
+      "path": "outputs/replication.json"
+    },
+    {
+      "source": "component:replication",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/replication.json"
+    },
+    {
+      "source": "component:failover",
+      "target": "integration:domains",
+      "reason": "domain evidence read",
+      "path": "outputs/failover.json"
+    },
+    {
+      "source": "component:failover",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/failover.json"
+    },
+    {
+      "source": "component:snapshots",
+      "target": "integration:domains",
+      "reason": "domain evidence read",
+      "path": "outputs/snapshots.json"
+    },
+    {
+      "source": "component:snapshots",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/snapshots.json"
+    },
+    {
+      "source": "component:risk_queue",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/risk_queue.json"
+    },
+    {
+      "source": "component:duty_queue",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/duty_queue.json"
+    },
+    {
+      "source": "component:recovery_waves",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/recovery_waves.json"
+    },
+    {
+      "source": "integration:domains",
+      "target": "component:risk_queue",
+      "reason": "contract input",
+      "path": "outputs/domain_core.json"
+    },
+    {
+      "source": "integration:domains",
+      "target": "component:duty_queue",
+      "reason": "contract input",
+      "path": "outputs/domain_core.json"
+    },
+    {
+      "source": "integration:domains",
+      "target": "component:recovery_waves",
+      "reason": "contract input",
+      "path": "outputs/domain_core.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:replication",
+      "target": "integration:domains"
+    },
+    {
+      "source": "component:failover",
+      "target": "integration:domains"
+    },
+    {
+      "source": "component:snapshots",
+      "target": "integration:domains"
+    },
+    {
+      "source": "component:risk_queue",
+      "target": "integration:all"
+    },
+    {
+      "source": "component:duty_queue",
+      "target": "integration:all"
+    },
+    {
+      "source": "component:recovery_waves",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:domains",
+      "target": "component:risk_queue"
+    },
+    {
+      "source": "integration:domains",
+      "target": "component:duty_queue"
+    },
+    {
+      "source": "integration:domains",
+      "target": "component:recovery_waves"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/replication.json",
+      "generated": false,
+      "consumers": [
+        "component:replication"
+      ]
+    },
+    {
+      "path": "inputs/failover.json",
+      "generated": false,
+      "consumers": [
+        "component:failover"
+      ]
+    },
+    {
+      "path": "inputs/snapshots.json",
+      "generated": false,
+      "consumers": [
+        "component:snapshots"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:replication",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/replication.json"
+    },
+    {
+      "source": "component:failover",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/failover.json"
+    },
+    {
+      "source": "component:snapshots",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/snapshots.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

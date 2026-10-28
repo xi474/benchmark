@@ -1,0 +1,20 @@
+flowchart TD
+  n0["settlements<br/>新旧清算事件兼容"]:::component
+  n1["settlement_windows<br/>修订去重与窗口统计"]:::component
+  n2["payment_traces<br/>扁平 / 嵌套链路关联"]:::component
+  n3["integrate.py<br/>读取全部 3 个组件产物"]:::integration
+  n4["final_report.py<br/>报告摘要与关注项"]:::report
+  n0 --> n1
+  n0 --> n3
+  n1 --> n3
+  n2 --> n3
+  n3 --> n4
+  input0[/"inputs/settlements.json"/]:::input
+  input0 -.-> n0
+  input1[/"inputs/payment_traces.json"/]:::input
+  input1 -.-> n2
+  classDef component fill:#eff6ff,stroke:#2563eb,color:#172033
+  classDef materialize fill:#fff7ed,stroke:#c2410c,color:#172033
+  classDef integration fill:#f5f3ff,stroke:#7c3aed,color:#172033
+  classDef report fill:#ecfdf5,stroke:#047857,color:#172033
+  classDef input fill:#f8fafc,stroke:#94a3b8,color:#475569,stroke-dasharray:4 3

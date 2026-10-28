@@ -1,0 +1,32 @@
+flowchart TD
+  n0["builds<br/>失败率证据与修订去重"]:::component
+  n1["signatures<br/>完整性证据与修订去重"]:::component
+  n2["scans<br/>延迟证据与修订去重"]:::component
+  n3["release_risk<br/>阈值筛选与风险排序"]:::component
+  n4["audit_assignment<br/>审核负载分配"]:::component
+  n5["remediation_waves<br/>修复波次与关键路径"]:::component
+  n6["integrate.py<br/>读取全部 6 个组件产物"]:::integration
+  n7["final_report.py<br/>报告摘要与关注项"]:::report
+  n0 --> n3
+  n0 --> n6
+  n1 --> n3
+  n1 --> n6
+  n2 --> n4
+  n2 --> n6
+  n3 --> n5
+  n3 --> n6
+  n4 --> n5
+  n4 --> n6
+  n5 --> n6
+  n6 --> n7
+  input0[/"inputs/builds.json"/]:::input
+  input0 -.-> n0
+  input1[/"inputs/signatures.json"/]:::input
+  input1 -.-> n1
+  input2[/"inputs/scans.json"/]:::input
+  input2 -.-> n2
+  classDef component fill:#eff6ff,stroke:#2563eb,color:#172033
+  classDef materialize fill:#fff7ed,stroke:#c2410c,color:#172033
+  classDef integration fill:#f5f3ff,stroke:#7c3aed,color:#172033
+  classDef report fill:#ecfdf5,stroke:#047857,color:#172033
+  classDef input fill:#f8fafc,stroke:#94a3b8,color:#475569,stroke-dasharray:4 3

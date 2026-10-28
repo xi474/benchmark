@@ -1,0 +1,181 @@
+{
+  "entry_id": "reasoning4/batch_scheduler_transition",
+  "title": "批处理调度迁移",
+  "suite": "reasoning4",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 5,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:calendar_windows",
+      "component:job_order"
+    ],
+    [
+      "component:worker_assignment"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:calendar_windows",
+      "name": "calendar_windows",
+      "kind": "component",
+      "role": "engines",
+      "label": "加权区间选择",
+      "operation": "weighted_intervals",
+      "folder": "engines/calendar_windows",
+      "output": "outputs/calendar_windows.json",
+      "contract": "engines/calendar_windows/contract.json",
+      "contract_sha256": "eaedd80bfc57ddb3d21a5431bd6964e83e034d96426b6995a166b35c237f304d",
+      "local_inputs": [
+        "inputs/calendar_windows.json"
+      ]
+    },
+    {
+      "id": "component:worker_assignment",
+      "name": "worker_assignment",
+      "kind": "component",
+      "role": "engines",
+      "label": "技能与容量约束分配",
+      "operation": "capacity_assignment",
+      "folder": "engines/worker_assignment",
+      "output": "outputs/worker_assignment.json",
+      "contract": "engines/worker_assignment/contract.json",
+      "contract_sha256": "617782b6f35068a2f1e3e521aed2852c34ed4e3ae922509862dd4020a1733288",
+      "local_inputs": [
+        "inputs/worker_assignment.json"
+      ]
+    },
+    {
+      "id": "component:job_order",
+      "name": "job_order",
+      "kind": "component",
+      "role": "engines",
+      "label": "依赖波次与关键路径",
+      "operation": "critical_path",
+      "folder": "engines/job_order",
+      "output": "outputs/job_order.json",
+      "contract": "engines/job_order/contract.json",
+      "contract_sha256": "e3a4365442460291e6ac91f93776de439c82d7c9f3887dbb0620281927417099",
+      "local_inputs": [
+        "inputs/job_order.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:calendar_windows",
+      "target": "component:worker_assignment",
+      "reason": "contract input",
+      "path": "outputs/calendar_windows.json"
+    },
+    {
+      "source": "component:calendar_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/calendar_windows.json"
+    },
+    {
+      "source": "component:worker_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/worker_assignment.json"
+    },
+    {
+      "source": "component:job_order",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/job_order.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:calendar_windows",
+      "target": "component:worker_assignment"
+    },
+    {
+      "source": "component:worker_assignment",
+      "target": "integration:all"
+    },
+    {
+      "source": "component:job_order",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/calendar_windows.json",
+      "generated": false,
+      "consumers": [
+        "component:calendar_windows"
+      ]
+    },
+    {
+      "path": "inputs/worker_assignment.json",
+      "generated": false,
+      "consumers": [
+        "component:worker_assignment"
+      ]
+    },
+    {
+      "path": "inputs/job_order.json",
+      "generated": false,
+      "consumers": [
+        "component:job_order"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:calendar_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/calendar_windows.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

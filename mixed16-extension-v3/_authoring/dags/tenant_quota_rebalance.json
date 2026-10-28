@@ -1,0 +1,193 @@
+{
+  "entry_id": "reasoning4/tenant_quota_rebalance",
+  "title": "租户配额再平衡",
+  "suite": "reasoning4",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 6,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:rebalance_windows",
+      "component:resource_order"
+    ],
+    [
+      "component:operator_assignment"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:rebalance_windows",
+      "name": "rebalance_windows",
+      "kind": "component",
+      "role": "engines",
+      "label": "加权区间选择",
+      "operation": "weighted_intervals",
+      "folder": "engines/rebalance_windows",
+      "output": "outputs/rebalance_windows.json",
+      "contract": "engines/rebalance_windows/contract.json",
+      "contract_sha256": "d65534b914fe03405272fe11c54ddd5217c43a80bc216aa4920e254691f33b81",
+      "local_inputs": [
+        "inputs/rebalance_windows.json"
+      ]
+    },
+    {
+      "id": "component:resource_order",
+      "name": "resource_order",
+      "kind": "component",
+      "role": "engines",
+      "label": "依赖波次与关键路径",
+      "operation": "critical_path",
+      "folder": "engines/resource_order",
+      "output": "outputs/resource_order.json",
+      "contract": "engines/resource_order/contract.json",
+      "contract_sha256": "627a520b5c58e5e50b230dddd6dc5a68b67672df03be22685ccff10f282c4638",
+      "local_inputs": [
+        "inputs/resource_order.json"
+      ]
+    },
+    {
+      "id": "component:operator_assignment",
+      "name": "operator_assignment",
+      "kind": "component",
+      "role": "engines",
+      "label": "技能与容量约束分配",
+      "operation": "capacity_assignment",
+      "folder": "engines/operator_assignment",
+      "output": "outputs/operator_assignment.json",
+      "contract": "engines/operator_assignment/contract.json",
+      "contract_sha256": "2b95ab105ac821845025a068608174fca07863d2a98cac7414cc00c86c562b4b",
+      "local_inputs": [
+        "inputs/operator_assignment.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:rebalance_windows",
+      "target": "component:operator_assignment",
+      "reason": "contract input",
+      "path": "outputs/rebalance_windows.json"
+    },
+    {
+      "source": "component:rebalance_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/rebalance_windows.json"
+    },
+    {
+      "source": "component:resource_order",
+      "target": "component:operator_assignment",
+      "reason": "contract input",
+      "path": "outputs/resource_order.json"
+    },
+    {
+      "source": "component:resource_order",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/resource_order.json"
+    },
+    {
+      "source": "component:operator_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/operator_assignment.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:rebalance_windows",
+      "target": "component:operator_assignment"
+    },
+    {
+      "source": "component:resource_order",
+      "target": "component:operator_assignment"
+    },
+    {
+      "source": "component:operator_assignment",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/rebalance_windows.json",
+      "generated": false,
+      "consumers": [
+        "component:rebalance_windows"
+      ]
+    },
+    {
+      "path": "inputs/resource_order.json",
+      "generated": false,
+      "consumers": [
+        "component:resource_order"
+      ]
+    },
+    {
+      "path": "inputs/operator_assignment.json",
+      "generated": false,
+      "consumers": [
+        "component:operator_assignment"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:rebalance_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/rebalance_windows.json"
+    },
+    {
+      "source": "component:resource_order",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/resource_order.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

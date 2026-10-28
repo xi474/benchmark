@@ -1,0 +1,233 @@
+{
+  "entry_id": "linux2/backup_restore_certification",
+  "title": "备份恢复认证",
+  "suite": "linux2",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 6,
+  "full_execution_edge_count": 9,
+  "reduced_execution_edge_count": 6,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "materialize"
+    ],
+    [
+      "component:backup_graph",
+      "component:journal_restore"
+    ],
+    [
+      "component:backup_windows"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:backup_graph",
+      "name": "backup_graph",
+      "kind": "component",
+      "role": "products",
+      "label": "恢复点与备份链成本优化",
+      "operation": "recovery_chain",
+      "folder": "products/backup_graph",
+      "output": "outputs/backup_graph.json",
+      "contract": "products/backup_graph/contract.json",
+      "contract_sha256": "d00be34e5668ac1a1d193670c3f5799183ee6f5fff4f52765c1434631d4d7d2c",
+      "local_inputs": [
+        "inputs/backup_graph.json"
+      ]
+    },
+    {
+      "id": "component:journal_restore",
+      "name": "journal_restore",
+      "kind": "component",
+      "role": "products",
+      "label": "连续 LSN 与原子事务重放",
+      "operation": "transaction_replay",
+      "folder": "products/journal_restore",
+      "output": "outputs/journal_restore.json",
+      "contract": "products/journal_restore/contract.json",
+      "contract_sha256": "8aa6f5ad9662fe5b24207b9f581646d56523a46e31eb6f44dae1dda71cc135bc",
+      "local_inputs": [
+        "inputs/journal_restore.json"
+      ]
+    },
+    {
+      "id": "component:backup_windows",
+      "name": "backup_windows",
+      "kind": "component",
+      "role": "products",
+      "label": "快照与日志恢复一致性核验",
+      "operation": "restore_join",
+      "folder": "products/backup_windows",
+      "output": "outputs/backup_windows.json",
+      "contract": "products/backup_windows/contract.json",
+      "contract_sha256": "fbb1b4ef86346828e223c5ba9ef0011a67e4c1a88c1de23c82f5592eb3ff7b8a",
+      "local_inputs": [
+        "inputs/backup_windows.json"
+      ]
+    },
+    {
+      "id": "materialize",
+      "name": "materialize.py",
+      "kind": "materialize",
+      "label": "校验边界并生成 inputs / products",
+      "output": "inputs/ + products/",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:backup_graph",
+      "target": "component:backup_windows",
+      "reason": "contract input",
+      "path": "outputs/backup_graph.json"
+    },
+    {
+      "source": "component:backup_graph",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/backup_graph.json"
+    },
+    {
+      "source": "component:journal_restore",
+      "target": "component:backup_windows",
+      "reason": "contract input",
+      "path": "outputs/journal_restore.json"
+    },
+    {
+      "source": "component:journal_restore",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/journal_restore.json"
+    },
+    {
+      "source": "component:backup_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/backup_windows.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:backup_graph",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:journal_restore",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:backup_windows",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:backup_graph",
+      "target": "component:backup_windows"
+    },
+    {
+      "source": "component:journal_restore",
+      "target": "component:backup_windows"
+    },
+    {
+      "source": "component:backup_windows",
+      "target": "integration:all"
+    },
+    {
+      "source": "materialize",
+      "target": "component:journal_restore"
+    },
+    {
+      "source": "materialize",
+      "target": "component:backup_graph"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/backup_graph.json",
+      "generated": true,
+      "consumers": [
+        "component:backup_graph"
+      ]
+    },
+    {
+      "path": "inputs/journal_restore.json",
+      "generated": true,
+      "consumers": [
+        "component:journal_restore"
+      ]
+    },
+    {
+      "path": "inputs/backup_windows.json",
+      "generated": true,
+      "consumers": [
+        "component:backup_windows"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:backup_graph",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/backup_graph.json"
+    },
+    {
+      "source": "component:journal_restore",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/journal_restore.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:backup_windows",
+      "reason": "generated package/contract/input boundary"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

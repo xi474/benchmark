@@ -47,3 +47,10 @@ Keep the extension's `_authoring/` and `verifier/` directories outside agent
 mounts; they contain reference algorithms, hidden checks, and trusted hashes.
 Local `check.py` is a smoke test; official scoring uses the external verifier.
 Do not mount the whole repository as an agent workspace.
+
+### Component DAG gallery
+
+[Browse the DAGs for all 16 Mixed16 v3 tasks](mixed16-extension-v3/_authoring/dags/README.md).
+Each task includes SVG/PNG diagrams, editable Mermaid source, and validated
+dependency data. Diagrams are author-only metadata; keep them outside agent
+mounts along with the rest of `_authoring/`.

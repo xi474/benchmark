@@ -1,0 +1,193 @@
+{
+  "entry_id": "context8/search_index_rebuild",
+  "title": "搜索索引重建",
+  "suite": "context8",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 6,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:mapping_compat",
+      "component:shard_replay"
+    ],
+    [
+      "component:cutover_plan"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:mapping_compat",
+      "name": "mapping_compat",
+      "kind": "component",
+      "role": "package",
+      "label": "重命名图与模式迁移",
+      "operation": "schema_migration",
+      "folder": "mapping_compat",
+      "output": "outputs/mapping_compat.json",
+      "contract": "mapping_compat/contract.json",
+      "contract_sha256": "b1d6847c0f4112175961c722aaf32c8eeb3a17f13a7d1c6bfe2d1c40112d4ee7",
+      "local_inputs": [
+        "inputs/mapping_compat.json"
+      ]
+    },
+    {
+      "id": "component:shard_replay",
+      "name": "shard_replay",
+      "kind": "component",
+      "role": "package",
+      "label": "分片缺口与墓碑恢复",
+      "operation": "shard_replay",
+      "folder": "shard_replay",
+      "output": "outputs/shard_replay.json",
+      "contract": "shard_replay/contract.json",
+      "contract_sha256": "98b831fe4c23d112a64f48709a363a0614d7c0ee39a46190924aadb23e6a11c4",
+      "local_inputs": [
+        "inputs/shard_replay.json"
+      ]
+    },
+    {
+      "id": "component:cutover_plan",
+      "name": "cutover_plan",
+      "kind": "component",
+      "role": "package",
+      "label": "预算与副本仲裁优化",
+      "operation": "quorum_cutover",
+      "folder": "cutover_plan",
+      "output": "outputs/cutover_plan.json",
+      "contract": "cutover_plan/contract.json",
+      "contract_sha256": "6dd0561c3b51e14af3000a499081a3a0da129a60e3a706179cd4d3f140f6dc92",
+      "local_inputs": [
+        "inputs/cutover_plan.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:mapping_compat",
+      "target": "component:cutover_plan",
+      "reason": "contract input",
+      "path": "outputs/mapping_compat.json"
+    },
+    {
+      "source": "component:mapping_compat",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/mapping_compat.json"
+    },
+    {
+      "source": "component:shard_replay",
+      "target": "component:cutover_plan",
+      "reason": "contract input",
+      "path": "outputs/shard_replay.json"
+    },
+    {
+      "source": "component:shard_replay",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/shard_replay.json"
+    },
+    {
+      "source": "component:cutover_plan",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/cutover_plan.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:mapping_compat",
+      "target": "component:cutover_plan"
+    },
+    {
+      "source": "component:shard_replay",
+      "target": "component:cutover_plan"
+    },
+    {
+      "source": "component:cutover_plan",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/mapping_compat.json",
+      "generated": false,
+      "consumers": [
+        "component:mapping_compat"
+      ]
+    },
+    {
+      "path": "inputs/shard_replay.json",
+      "generated": false,
+      "consumers": [
+        "component:shard_replay"
+      ]
+    },
+    {
+      "path": "inputs/cutover_plan.json",
+      "generated": false,
+      "consumers": [
+        "component:cutover_plan"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:mapping_compat",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/mapping_compat.json"
+    },
+    {
+      "source": "component:shard_replay",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/shard_replay.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

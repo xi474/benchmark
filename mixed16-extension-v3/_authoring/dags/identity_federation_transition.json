@@ -1,0 +1,193 @@
+{
+  "entry_id": "context8/identity_federation_transition",
+  "title": "身份联邦迁移",
+  "suite": "context8",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 6,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:claims",
+      "component:sessions"
+    ],
+    [
+      "component:authorization"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:claims",
+      "name": "claims",
+      "kind": "component",
+      "role": "package",
+      "label": "声明模式兼容判定",
+      "operation": "schema_compatibility",
+      "folder": "claims",
+      "output": "outputs/claims.json",
+      "contract": "claims/contract.json",
+      "contract_sha256": "8d080ec7e07814b89354421e4b59cc2cb695d86e198a4913073b1b9b483eff85",
+      "local_inputs": [
+        "inputs/claims.json"
+      ]
+    },
+    {
+      "id": "component:sessions",
+      "name": "sessions",
+      "kind": "component",
+      "role": "package",
+      "label": "令牌轮换与撤销传播",
+      "operation": "session_replay",
+      "folder": "sessions",
+      "output": "outputs/sessions.json",
+      "contract": "sessions/contract.json",
+      "contract_sha256": "a775466cd4f112ab3483eb936c9e7eec8c40c529f4162e698ca9ced6aea990bb",
+      "local_inputs": [
+        "inputs/sessions.json"
+      ]
+    },
+    {
+      "id": "component:authorization",
+      "name": "authorization",
+      "kind": "component",
+      "role": "package",
+      "label": "组继承闭包与联合授权",
+      "operation": "federation_authorize",
+      "folder": "authorization",
+      "output": "outputs/authorization.json",
+      "contract": "authorization/contract.json",
+      "contract_sha256": "c9a5a5765f746aafd5989f86a0d7e37da93e3b25bbf24b4dc4989240afa3e5f7",
+      "local_inputs": [
+        "inputs/authorization.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:claims",
+      "target": "component:authorization",
+      "reason": "contract input",
+      "path": "outputs/claims.json"
+    },
+    {
+      "source": "component:claims",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/claims.json"
+    },
+    {
+      "source": "component:sessions",
+      "target": "component:authorization",
+      "reason": "contract input",
+      "path": "outputs/sessions.json"
+    },
+    {
+      "source": "component:sessions",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/sessions.json"
+    },
+    {
+      "source": "component:authorization",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/authorization.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:claims",
+      "target": "component:authorization"
+    },
+    {
+      "source": "component:sessions",
+      "target": "component:authorization"
+    },
+    {
+      "source": "component:authorization",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/claims.json",
+      "generated": false,
+      "consumers": [
+        "component:claims"
+      ]
+    },
+    {
+      "path": "inputs/sessions.json",
+      "generated": false,
+      "consumers": [
+        "component:sessions"
+      ]
+    },
+    {
+      "path": "inputs/authorization.json",
+      "generated": false,
+      "consumers": [
+        "component:authorization"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:claims",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/claims.json"
+    },
+    {
+      "source": "component:sessions",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/sessions.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

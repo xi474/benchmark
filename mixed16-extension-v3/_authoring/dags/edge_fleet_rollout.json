@@ -1,0 +1,181 @@
+{
+  "entry_id": "reasoning4/edge_fleet_rollout",
+  "title": "边缘设备灰度发布",
+  "suite": "reasoning4",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 5,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:crew_assignment",
+      "component:maintenance_windows"
+    ],
+    [
+      "component:rollout_order"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:maintenance_windows",
+      "name": "maintenance_windows",
+      "kind": "component",
+      "role": "engines",
+      "label": "加权区间选择",
+      "operation": "weighted_intervals",
+      "folder": "engines/maintenance_windows",
+      "output": "outputs/maintenance_windows.json",
+      "contract": "engines/maintenance_windows/contract.json",
+      "contract_sha256": "4a6f4122e733e74606ff2e14c2ab527d0c6a36ee3d7394b3ee4503832fd782d7",
+      "local_inputs": [
+        "inputs/maintenance_windows.json"
+      ]
+    },
+    {
+      "id": "component:crew_assignment",
+      "name": "crew_assignment",
+      "kind": "component",
+      "role": "engines",
+      "label": "技能与容量约束分配",
+      "operation": "capacity_assignment",
+      "folder": "engines/crew_assignment",
+      "output": "outputs/crew_assignment.json",
+      "contract": "engines/crew_assignment/contract.json",
+      "contract_sha256": "185978d34e6c6e60b398f83e522972b105cdb97cb0374dca9f66d3f1e279d28d",
+      "local_inputs": [
+        "inputs/crew_assignment.json"
+      ]
+    },
+    {
+      "id": "component:rollout_order",
+      "name": "rollout_order",
+      "kind": "component",
+      "role": "engines",
+      "label": "依赖波次与关键路径",
+      "operation": "critical_path",
+      "folder": "engines/rollout_order",
+      "output": "outputs/rollout_order.json",
+      "contract": "engines/rollout_order/contract.json",
+      "contract_sha256": "cea7a5d5355f2c4175b5c91b235d2b79b2fc07b2bf49de4fb6b4690377b045db",
+      "local_inputs": [
+        "inputs/rollout_order.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:maintenance_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/maintenance_windows.json"
+    },
+    {
+      "source": "component:crew_assignment",
+      "target": "component:rollout_order",
+      "reason": "contract input",
+      "path": "outputs/crew_assignment.json"
+    },
+    {
+      "source": "component:crew_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/crew_assignment.json"
+    },
+    {
+      "source": "component:rollout_order",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/rollout_order.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:maintenance_windows",
+      "target": "integration:all"
+    },
+    {
+      "source": "component:crew_assignment",
+      "target": "component:rollout_order"
+    },
+    {
+      "source": "component:rollout_order",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/maintenance_windows.json",
+      "generated": false,
+      "consumers": [
+        "component:maintenance_windows"
+      ]
+    },
+    {
+      "path": "inputs/crew_assignment.json",
+      "generated": false,
+      "consumers": [
+        "component:crew_assignment"
+      ]
+    },
+    {
+      "path": "inputs/rollout_order.json",
+      "generated": false,
+      "consumers": [
+        "component:rollout_order"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:crew_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/crew_assignment.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

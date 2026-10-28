@@ -1,0 +1,307 @@
+{
+  "entry_id": "multistage4/storage_tiering_migration",
+  "title": "存储分层迁移",
+  "suite": "multistage4",
+  "view": "logical component execution DAG",
+  "component_count": 6,
+  "execution_node_count": 8,
+  "full_execution_edge_count": 12,
+  "reduced_execution_edge_count": 7,
+  "maximum_independent_frontier": 3,
+  "earliest_layer_sizes": [
+    3,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:objects",
+      "component:replication",
+      "component:transfers"
+    ],
+    [
+      "component:migration_risk"
+    ],
+    [
+      "component:approval_load"
+    ],
+    [
+      "component:migration_waves"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:objects",
+      "name": "objects",
+      "kind": "component",
+      "role": "domains",
+      "label": "完整性证据与修订去重",
+      "operation": "integrity_evidence",
+      "folder": "domains/objects",
+      "output": "outputs/objects.json",
+      "contract": "domains/objects/contract.json",
+      "contract_sha256": "b7802b976d74f164bcf969cfc26738120d15fd248356b5b652ae4644f1bb8789",
+      "local_inputs": [
+        "inputs/objects.json"
+      ]
+    },
+    {
+      "id": "component:replication",
+      "name": "replication",
+      "kind": "component",
+      "role": "domains",
+      "label": "延迟证据与修订去重",
+      "operation": "lag_evidence",
+      "folder": "domains/replication",
+      "output": "outputs/replication.json",
+      "contract": "domains/replication/contract.json",
+      "contract_sha256": "3a1fa9e273444502e6bb2f1daf21496464eb5d6c0983927a39854775bf6c9e93",
+      "local_inputs": [
+        "inputs/replication.json"
+      ]
+    },
+    {
+      "id": "component:transfers",
+      "name": "transfers",
+      "kind": "component",
+      "role": "domains",
+      "label": "失败率证据与修订去重",
+      "operation": "failure_evidence",
+      "folder": "domains/transfers",
+      "output": "outputs/transfers.json",
+      "contract": "domains/transfers/contract.json",
+      "contract_sha256": "c9ba69c9712ae7688751e6588799e4e9e7461f2cb4b91f0e8382af544d16ab7f",
+      "local_inputs": [
+        "inputs/transfers.json"
+      ]
+    },
+    {
+      "id": "component:migration_risk",
+      "name": "migration_risk",
+      "kind": "component",
+      "role": "views",
+      "label": "阈值筛选与风险排序",
+      "operation": "risk_ranking",
+      "folder": "views/migration_risk",
+      "output": "outputs/migration_risk.json",
+      "contract": "views/migration_risk/contract.json",
+      "contract_sha256": "cdcde67e6e13a222c04382e276fa2c48162dc07e9fc32d59a45c092bb2c9516d",
+      "local_inputs": []
+    },
+    {
+      "id": "component:approval_load",
+      "name": "approval_load",
+      "kind": "component",
+      "role": "views",
+      "label": "审核负载分配",
+      "operation": "review_balance",
+      "folder": "views/approval_load",
+      "output": "outputs/approval_load.json",
+      "contract": "views/approval_load/contract.json",
+      "contract_sha256": "f707ddaacd30294d94914018e76e60574d636fb70c693cc69a206886091ee460",
+      "local_inputs": []
+    },
+    {
+      "id": "component:migration_waves",
+      "name": "migration_waves",
+      "kind": "component",
+      "role": "views",
+      "label": "修复波次与关键路径",
+      "operation": "remediation_plan",
+      "folder": "views/migration_waves",
+      "output": "outputs/migration_waves.json",
+      "contract": "views/migration_waves/contract.json",
+      "contract_sha256": "a85ffe11deb91420ed84fd1504660af7756372ab198f917f82eeaa72f0da95a8",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 6 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:objects",
+      "target": "component:migration_risk",
+      "reason": "contract input",
+      "path": "outputs/objects.json"
+    },
+    {
+      "source": "component:objects",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/objects.json"
+    },
+    {
+      "source": "component:replication",
+      "target": "component:migration_waves",
+      "reason": "contract input",
+      "path": "outputs/replication.json"
+    },
+    {
+      "source": "component:replication",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/replication.json"
+    },
+    {
+      "source": "component:transfers",
+      "target": "component:migration_waves",
+      "reason": "contract input",
+      "path": "outputs/transfers.json"
+    },
+    {
+      "source": "component:transfers",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/transfers.json"
+    },
+    {
+      "source": "component:migration_risk",
+      "target": "component:approval_load",
+      "reason": "contract input",
+      "path": "outputs/migration_risk.json"
+    },
+    {
+      "source": "component:migration_risk",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/migration_risk.json"
+    },
+    {
+      "source": "component:approval_load",
+      "target": "component:migration_waves",
+      "reason": "contract input",
+      "path": "outputs/approval_load.json"
+    },
+    {
+      "source": "component:approval_load",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/approval_load.json"
+    },
+    {
+      "source": "component:migration_waves",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/migration_waves.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:objects",
+      "target": "component:migration_risk"
+    },
+    {
+      "source": "component:replication",
+      "target": "component:migration_waves"
+    },
+    {
+      "source": "component:transfers",
+      "target": "component:migration_waves"
+    },
+    {
+      "source": "component:migration_risk",
+      "target": "component:approval_load"
+    },
+    {
+      "source": "component:approval_load",
+      "target": "component:migration_waves"
+    },
+    {
+      "source": "component:migration_waves",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/objects.json",
+      "generated": false,
+      "consumers": [
+        "component:objects"
+      ]
+    },
+    {
+      "path": "inputs/replication.json",
+      "generated": false,
+      "consumers": [
+        "component:replication"
+      ]
+    },
+    {
+      "path": "inputs/transfers.json",
+      "generated": false,
+      "consumers": [
+        "component:transfers"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:objects",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/objects.json"
+    },
+    {
+      "source": "component:replication",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/replication.json"
+    },
+    {
+      "source": "component:transfers",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/transfers.json"
+    },
+    {
+      "source": "component:migration_risk",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/migration_risk.json"
+    },
+    {
+      "source": "component:approval_load",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/approval_load.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1330
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

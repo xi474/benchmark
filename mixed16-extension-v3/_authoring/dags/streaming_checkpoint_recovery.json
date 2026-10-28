@@ -1,0 +1,172 @@
+{
+  "entry_id": "context8/streaming_checkpoint_recovery",
+  "title": "流处理检查点恢复",
+  "suite": "context8",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 5,
+  "full_execution_edge_count": 5,
+  "reduced_execution_edge_count": 4,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:diagnostic_logs",
+      "component:event_codec"
+    ],
+    [
+      "component:checkpoint_restore"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:event_codec",
+      "name": "event_codec",
+      "kind": "component",
+      "role": "package",
+      "label": "新旧事件编码兼容",
+      "operation": "event_decode",
+      "folder": "event_codec",
+      "output": "outputs/event_codec.json",
+      "contract": "event_codec/contract.json",
+      "contract_sha256": "c5e5eb393b6dc899a1bcdda3c8f2a39890d6a0b2c5f34b7370e2381a52bb7c07",
+      "local_inputs": [
+        "inputs/event_codec.json"
+      ]
+    },
+    {
+      "id": "component:checkpoint_restore",
+      "name": "checkpoint_restore",
+      "kind": "component",
+      "role": "package",
+      "label": "连续确认偏移恢复",
+      "operation": "checkpoint_replay",
+      "folder": "checkpoint_restore",
+      "output": "outputs/checkpoint_restore.json",
+      "contract": "checkpoint_restore/contract.json",
+      "contract_sha256": "959fcb6bcdce7eeb0f9c4fa759d4bbe3613841afa499227c4e154161d696ef18",
+      "local_inputs": []
+    },
+    {
+      "id": "component:diagnostic_logs",
+      "name": "diagnostic_logs",
+      "kind": "component",
+      "role": "package",
+      "label": "混合格式日志脱敏",
+      "operation": "log_compatibility",
+      "folder": "diagnostic_logs",
+      "output": "outputs/diagnostic_logs.json",
+      "contract": "diagnostic_logs/contract.json",
+      "contract_sha256": "eed0ced967988cac69a5f30c584e0c26b5f87775682344abaff21ace2c60939c",
+      "local_inputs": [
+        "inputs/diagnostic_logs.json"
+      ]
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:event_codec",
+      "target": "component:checkpoint_restore",
+      "reason": "contract input",
+      "path": "outputs/event_codec.json"
+    },
+    {
+      "source": "component:event_codec",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/event_codec.json"
+    },
+    {
+      "source": "component:checkpoint_restore",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/checkpoint_restore.json"
+    },
+    {
+      "source": "component:diagnostic_logs",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/diagnostic_logs.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:event_codec",
+      "target": "component:checkpoint_restore"
+    },
+    {
+      "source": "component:checkpoint_restore",
+      "target": "integration:all"
+    },
+    {
+      "source": "component:diagnostic_logs",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/event_codec.json",
+      "generated": false,
+      "consumers": [
+        "component:event_codec"
+      ]
+    },
+    {
+      "path": "inputs/diagnostic_logs.json",
+      "generated": false,
+      "consumers": [
+        "component:diagnostic_logs"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:event_codec",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/event_codec.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 962
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

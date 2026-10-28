@@ -1,0 +1,233 @@
+{
+  "entry_id": "linux2/observability_retention_upgrade",
+  "title": "可观测数据保留升级",
+  "suite": "linux2",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 6,
+  "full_execution_edge_count": 9,
+  "reduced_execution_edge_count": 6,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "materialize"
+    ],
+    [
+      "component:archive_logs",
+      "component:retention_windows"
+    ],
+    [
+      "component:retention_policy"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:archive_logs",
+      "name": "archive_logs",
+      "kind": "component",
+      "role": "products",
+      "label": "混合格式日志脱敏",
+      "operation": "log_compatibility",
+      "folder": "products/archive_logs",
+      "output": "outputs/archive_logs.json",
+      "contract": "products/archive_logs/contract.json",
+      "contract_sha256": "d4a3f31875fbd0a67b20afd1cf10763871e3a3268a2565f2134176dfc6bccab5",
+      "local_inputs": [
+        "inputs/archive_logs.json"
+      ]
+    },
+    {
+      "id": "component:retention_windows",
+      "name": "retention_windows",
+      "kind": "component",
+      "role": "products",
+      "label": "法律保留与分类配额背包",
+      "operation": "retention_optimizer",
+      "folder": "products/retention_windows",
+      "output": "outputs/retention_windows.json",
+      "contract": "products/retention_windows/contract.json",
+      "contract_sha256": "a609543cf2116f7672283e08a471c87a8bd40d87ac7227e036004b1c0f773d08",
+      "local_inputs": [
+        "inputs/retention_windows.json"
+      ]
+    },
+    {
+      "id": "component:retention_policy",
+      "name": "retention_policy",
+      "kind": "component",
+      "role": "products",
+      "label": "保留计划与审计覆盖授权",
+      "operation": "retention_audit",
+      "folder": "products/retention_policy",
+      "output": "outputs/retention_policy.json",
+      "contract": "products/retention_policy/contract.json",
+      "contract_sha256": "43f31bcb8cd3e07d0a423077f1f3ca9612510d707423125785db5f88f20054e4",
+      "local_inputs": [
+        "inputs/retention_policy.json"
+      ]
+    },
+    {
+      "id": "materialize",
+      "name": "materialize.py",
+      "kind": "materialize",
+      "label": "校验边界并生成 inputs / products",
+      "output": "inputs/ + products/",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:archive_logs",
+      "target": "component:retention_policy",
+      "reason": "contract input",
+      "path": "outputs/archive_logs.json"
+    },
+    {
+      "source": "component:archive_logs",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/archive_logs.json"
+    },
+    {
+      "source": "component:retention_windows",
+      "target": "component:retention_policy",
+      "reason": "contract input",
+      "path": "outputs/retention_windows.json"
+    },
+    {
+      "source": "component:retention_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/retention_windows.json"
+    },
+    {
+      "source": "component:retention_policy",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/retention_policy.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:archive_logs",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:retention_windows",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:retention_policy",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:archive_logs",
+      "target": "component:retention_policy"
+    },
+    {
+      "source": "component:retention_windows",
+      "target": "component:retention_policy"
+    },
+    {
+      "source": "component:retention_policy",
+      "target": "integration:all"
+    },
+    {
+      "source": "materialize",
+      "target": "component:retention_windows"
+    },
+    {
+      "source": "materialize",
+      "target": "component:archive_logs"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/archive_logs.json",
+      "generated": true,
+      "consumers": [
+        "component:archive_logs"
+      ]
+    },
+    {
+      "path": "inputs/retention_windows.json",
+      "generated": true,
+      "consumers": [
+        "component:retention_windows"
+      ]
+    },
+    {
+      "path": "inputs/retention_policy.json",
+      "generated": true,
+      "consumers": [
+        "component:retention_policy"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:archive_logs",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/archive_logs.json"
+    },
+    {
+      "source": "component:retention_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/retention_windows.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:retention_policy",
+      "reason": "generated package/contract/input boundary"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

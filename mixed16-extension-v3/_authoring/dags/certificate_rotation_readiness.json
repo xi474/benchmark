@@ -1,0 +1,233 @@
+{
+  "entry_id": "linux2/certificate_rotation_readiness",
+  "title": "证书轮换准备",
+  "suite": "linux2",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 6,
+  "full_execution_edge_count": 9,
+  "reduced_execution_edge_count": 6,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "materialize"
+    ],
+    [
+      "component:trust_graph",
+      "component:trust_policy"
+    ],
+    [
+      "component:renewal_windows"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:trust_graph",
+      "name": "trust_graph",
+      "kind": "component",
+      "role": "products",
+      "label": "最宽有效信任路径",
+      "operation": "trust_paths",
+      "folder": "products/trust_graph",
+      "output": "outputs/trust_graph.json",
+      "contract": "products/trust_graph/contract.json",
+      "contract_sha256": "83d15590d1ba31ead192d8ef19524282439c60b4e9c7ef5e911f8a32e44c56fe",
+      "local_inputs": [
+        "inputs/trust_graph.json"
+      ]
+    },
+    {
+      "id": "component:trust_policy",
+      "name": "trust_policy",
+      "kind": "component",
+      "role": "products",
+      "label": "通配策略优先级判定",
+      "operation": "policy_precedence",
+      "folder": "products/trust_policy",
+      "output": "outputs/trust_policy.json",
+      "contract": "products/trust_policy/contract.json",
+      "contract_sha256": "e21702b597a130c3c1c4213e8381034c934fc94d4e5f80ae0bfcfa677e4ba29c",
+      "local_inputs": [
+        "inputs/trust_policy.json"
+      ]
+    },
+    {
+      "id": "component:renewal_windows",
+      "name": "renewal_windows",
+      "kind": "component",
+      "role": "products",
+      "label": "信任与策略约束的轮换覆盖",
+      "operation": "certificate_schedule",
+      "folder": "products/renewal_windows",
+      "output": "outputs/renewal_windows.json",
+      "contract": "products/renewal_windows/contract.json",
+      "contract_sha256": "8853b1f7f5bae1d913afcbd97de15ce69bfc1319362869cc33a85cbd699be969",
+      "local_inputs": [
+        "inputs/renewal_windows.json"
+      ]
+    },
+    {
+      "id": "materialize",
+      "name": "materialize.py",
+      "kind": "materialize",
+      "label": "校验边界并生成 inputs / products",
+      "output": "inputs/ + products/",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:trust_graph",
+      "target": "component:renewal_windows",
+      "reason": "contract input",
+      "path": "outputs/trust_graph.json"
+    },
+    {
+      "source": "component:trust_graph",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/trust_graph.json"
+    },
+    {
+      "source": "component:trust_policy",
+      "target": "component:renewal_windows",
+      "reason": "contract input",
+      "path": "outputs/trust_policy.json"
+    },
+    {
+      "source": "component:trust_policy",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/trust_policy.json"
+    },
+    {
+      "source": "component:renewal_windows",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/renewal_windows.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:trust_graph",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:trust_policy",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:renewal_windows",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:trust_graph",
+      "target": "component:renewal_windows"
+    },
+    {
+      "source": "component:trust_policy",
+      "target": "component:renewal_windows"
+    },
+    {
+      "source": "component:renewal_windows",
+      "target": "integration:all"
+    },
+    {
+      "source": "materialize",
+      "target": "component:trust_policy"
+    },
+    {
+      "source": "materialize",
+      "target": "component:trust_graph"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/trust_graph.json",
+      "generated": true,
+      "consumers": [
+        "component:trust_graph"
+      ]
+    },
+    {
+      "path": "inputs/trust_policy.json",
+      "generated": true,
+      "consumers": [
+        "component:trust_policy"
+      ]
+    },
+    {
+      "path": "inputs/renewal_windows.json",
+      "generated": true,
+      "consumers": [
+        "component:renewal_windows"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:trust_graph",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/trust_graph.json"
+    },
+    {
+      "source": "component:trust_policy",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/trust_policy.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:renewal_windows",
+      "reason": "generated package/contract/input boundary"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

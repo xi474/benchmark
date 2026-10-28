@@ -30,3 +30,9 @@
 _authoring/含任务规格、参考算法和构建/QA脚本；verifier/含独立评分入口、API探针与可信哈希。python3 _authoring/qa.py --root . 重跑参考实现、初始失败、算法捷径及上游结果忽略负例，输出validation_report.json、structure_audit.json、duplicate_audit.json。查重同时比较提示、工作区、完整输入包，以及忽略任务/组件命名后的算法依赖图；共享基础算法或单个夹具不等于任务级重复。正式评测不会填充代理工作区。
 
 本包SHA256SUMS覆盖除其自身及__pycache__之外的分发文件。manifest.workspace_tree_sha256：按相对路径排序，拼接 path+NUL+文件sha256+LF，对UTF-8字节计算SHA-256。原仓库的manifest不合并或篡改；此扩充包独立记录16条目。
+
+## 组件执行 DAG 图集
+
+[查看全部16个任务的DAG图](_authoring/dags/README.md)。每项提供SVG、PNG、Mermaid源码、完整边表和契约摘要；主图采用执行DAG传递约简，完整直接读取边保留在Mermaid/JSON中。
+
+图集仅用于作者分析，位于`_authoring/`，不得向被测代理提供或与workspace一起挂载。分层与宽度是静态依赖指标，不是实测耗时或加速比。

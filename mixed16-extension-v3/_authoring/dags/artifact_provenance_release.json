@@ -1,0 +1,304 @@
+{
+  "entry_id": "multistage4/artifact_provenance_release",
+  "title": "制品溯源发布",
+  "suite": "multistage4",
+  "view": "logical component execution DAG",
+  "component_count": 6,
+  "execution_node_count": 8,
+  "full_execution_edge_count": 12,
+  "reduced_execution_edge_count": 7,
+  "maximum_independent_frontier": 3,
+  "earliest_layer_sizes": [
+    3,
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "component:builds",
+      "component:scans",
+      "component:signatures"
+    ],
+    [
+      "component:audit_assignment",
+      "component:release_risk"
+    ],
+    [
+      "component:remediation_waves"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:builds",
+      "name": "builds",
+      "kind": "component",
+      "role": "domains",
+      "label": "失败率证据与修订去重",
+      "operation": "failure_evidence",
+      "folder": "domains/builds",
+      "output": "outputs/builds.json",
+      "contract": "domains/builds/contract.json",
+      "contract_sha256": "056f14104f376ce71280088b77642ca0c181d6f1764c149af7924ac4305db57f",
+      "local_inputs": [
+        "inputs/builds.json"
+      ]
+    },
+    {
+      "id": "component:signatures",
+      "name": "signatures",
+      "kind": "component",
+      "role": "domains",
+      "label": "完整性证据与修订去重",
+      "operation": "integrity_evidence",
+      "folder": "domains/signatures",
+      "output": "outputs/signatures.json",
+      "contract": "domains/signatures/contract.json",
+      "contract_sha256": "0eff4da93f41989978ee21bad102d9b2d52967cba3fb2d7d7b19fa03ca183be5",
+      "local_inputs": [
+        "inputs/signatures.json"
+      ]
+    },
+    {
+      "id": "component:scans",
+      "name": "scans",
+      "kind": "component",
+      "role": "domains",
+      "label": "延迟证据与修订去重",
+      "operation": "lag_evidence",
+      "folder": "domains/scans",
+      "output": "outputs/scans.json",
+      "contract": "domains/scans/contract.json",
+      "contract_sha256": "77debf66ab8c74eee38e50b80ab660842a9f9d7a967775af845e6fc447ade835",
+      "local_inputs": [
+        "inputs/scans.json"
+      ]
+    },
+    {
+      "id": "component:release_risk",
+      "name": "release_risk",
+      "kind": "component",
+      "role": "views",
+      "label": "阈值筛选与风险排序",
+      "operation": "risk_ranking",
+      "folder": "views/release_risk",
+      "output": "outputs/release_risk.json",
+      "contract": "views/release_risk/contract.json",
+      "contract_sha256": "ad64c209df28d9db994be75e6747415867f56263f66ca56ed7a43dda934f95b8",
+      "local_inputs": []
+    },
+    {
+      "id": "component:audit_assignment",
+      "name": "audit_assignment",
+      "kind": "component",
+      "role": "views",
+      "label": "审核负载分配",
+      "operation": "review_balance",
+      "folder": "views/audit_assignment",
+      "output": "outputs/audit_assignment.json",
+      "contract": "views/audit_assignment/contract.json",
+      "contract_sha256": "9b5f2e72bd5c42c6b9bec6ba01b2cf339258c9a19fcd343e6289e011812e780f",
+      "local_inputs": []
+    },
+    {
+      "id": "component:remediation_waves",
+      "name": "remediation_waves",
+      "kind": "component",
+      "role": "views",
+      "label": "修复波次与关键路径",
+      "operation": "remediation_plan",
+      "folder": "views/remediation_waves",
+      "output": "outputs/remediation_waves.json",
+      "contract": "views/remediation_waves/contract.json",
+      "contract_sha256": "a8e19270bf51bc70c297ce5ada151a27f15ade0bb4eb8070dced33fc0413a487",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 6 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:builds",
+      "target": "component:release_risk",
+      "reason": "contract input",
+      "path": "outputs/builds.json"
+    },
+    {
+      "source": "component:builds",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/builds.json"
+    },
+    {
+      "source": "component:signatures",
+      "target": "component:release_risk",
+      "reason": "contract input",
+      "path": "outputs/signatures.json"
+    },
+    {
+      "source": "component:signatures",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/signatures.json"
+    },
+    {
+      "source": "component:scans",
+      "target": "component:audit_assignment",
+      "reason": "contract input",
+      "path": "outputs/scans.json"
+    },
+    {
+      "source": "component:scans",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/scans.json"
+    },
+    {
+      "source": "component:release_risk",
+      "target": "component:remediation_waves",
+      "reason": "contract input",
+      "path": "outputs/release_risk.json"
+    },
+    {
+      "source": "component:release_risk",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/release_risk.json"
+    },
+    {
+      "source": "component:audit_assignment",
+      "target": "component:remediation_waves",
+      "reason": "contract input",
+      "path": "outputs/audit_assignment.json"
+    },
+    {
+      "source": "component:audit_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/audit_assignment.json"
+    },
+    {
+      "source": "component:remediation_waves",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/remediation_waves.json"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:builds",
+      "target": "component:release_risk"
+    },
+    {
+      "source": "component:signatures",
+      "target": "component:release_risk"
+    },
+    {
+      "source": "component:scans",
+      "target": "component:audit_assignment"
+    },
+    {
+      "source": "component:release_risk",
+      "target": "component:remediation_waves"
+    },
+    {
+      "source": "component:audit_assignment",
+      "target": "component:remediation_waves"
+    },
+    {
+      "source": "component:remediation_waves",
+      "target": "integration:all"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/builds.json",
+      "generated": false,
+      "consumers": [
+        "component:builds"
+      ]
+    },
+    {
+      "path": "inputs/signatures.json",
+      "generated": false,
+      "consumers": [
+        "component:signatures"
+      ]
+    },
+    {
+      "path": "inputs/scans.json",
+      "generated": false,
+      "consumers": [
+        "component:scans"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:builds",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/builds.json"
+    },
+    {
+      "source": "component:signatures",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/signatures.json"
+    },
+    {
+      "source": "component:scans",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/scans.json"
+    },
+    {
+      "source": "component:release_risk",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/release_risk.json"
+    },
+    {
+      "source": "component:audit_assignment",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/audit_assignment.json"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}

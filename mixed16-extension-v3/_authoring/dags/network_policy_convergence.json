@@ -1,0 +1,233 @@
+{
+  "entry_id": "linux2/network_policy_convergence",
+  "title": "网络策略收敛",
+  "suite": "linux2",
+  "view": "logical component execution DAG",
+  "component_count": 3,
+  "execution_node_count": 6,
+  "full_execution_edge_count": 9,
+  "reduced_execution_edge_count": 6,
+  "maximum_independent_frontier": 2,
+  "earliest_layer_sizes": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "execution_layers": [
+    [
+      "materialize"
+    ],
+    [
+      "component:firewall_policy",
+      "component:route_graph"
+    ],
+    [
+      "component:network_traces"
+    ],
+    [
+      "integration:all"
+    ],
+    [
+      "report"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "component:route_graph",
+      "name": "route_graph",
+      "kind": "component",
+      "role": "products",
+      "label": "故障后的等价最短路径集",
+      "operation": "ecmp_routes",
+      "folder": "products/route_graph",
+      "output": "outputs/route_graph.json",
+      "contract": "products/route_graph/contract.json",
+      "contract_sha256": "9db6ac7fdca1ee1b58e78a96c418b7b1e1a73c707535b6615e046821714ae882",
+      "local_inputs": [
+        "inputs/route_graph.json"
+      ]
+    },
+    {
+      "id": "component:firewall_policy",
+      "name": "firewall_policy",
+      "kind": "component",
+      "role": "products",
+      "label": "时序连接状态防火墙",
+      "operation": "stateful_acl",
+      "folder": "products/firewall_policy",
+      "output": "outputs/firewall_policy.json",
+      "contract": "products/firewall_policy/contract.json",
+      "contract_sha256": "1575c1702e81f64f016fd2ef97c53cc64492aaaaf0b9276d214d9d63b79e9a51",
+      "local_inputs": [
+        "inputs/firewall_policy.json"
+      ]
+    },
+    {
+      "id": "component:network_traces",
+      "name": "network_traces",
+      "kind": "component",
+      "role": "products",
+      "label": "路由与状态决策联合核验",
+      "operation": "network_join",
+      "folder": "products/network_traces",
+      "output": "outputs/network_traces.json",
+      "contract": "products/network_traces/contract.json",
+      "contract_sha256": "967253782701ab965bb5f64e1d4dd75a86b0f5baf46ce722ecd9e002852f6ef6",
+      "local_inputs": [
+        "inputs/network_traces.json"
+      ]
+    },
+    {
+      "id": "materialize",
+      "name": "materialize.py",
+      "kind": "materialize",
+      "label": "校验边界并生成 inputs / products",
+      "output": "inputs/ + products/",
+      "local_inputs": []
+    },
+    {
+      "id": "integration:all",
+      "name": "integrate.py",
+      "kind": "integration",
+      "label": "读取全部 3 个组件产物",
+      "output": "outputs/core_manifest.json",
+      "local_inputs": []
+    },
+    {
+      "id": "report",
+      "name": "final_report.py",
+      "kind": "report",
+      "label": "报告摘要与关注项",
+      "output": "outputs/final_report.json",
+      "local_inputs": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "component:route_graph",
+      "target": "component:network_traces",
+      "reason": "contract input",
+      "path": "outputs/route_graph.json"
+    },
+    {
+      "source": "component:route_graph",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/route_graph.json"
+    },
+    {
+      "source": "component:firewall_policy",
+      "target": "component:network_traces",
+      "reason": "contract input",
+      "path": "outputs/firewall_policy.json"
+    },
+    {
+      "source": "component:firewall_policy",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/firewall_policy.json"
+    },
+    {
+      "source": "component:network_traces",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/network_traces.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:route_graph",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:firewall_policy",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "materialize",
+      "target": "component:network_traces",
+      "reason": "generated package/contract/input boundary"
+    },
+    {
+      "source": "integration:all",
+      "target": "report",
+      "reason": "core manifest read",
+      "path": "outputs/core_manifest.json"
+    }
+  ],
+  "reduced_edges": [
+    {
+      "source": "component:route_graph",
+      "target": "component:network_traces"
+    },
+    {
+      "source": "component:firewall_policy",
+      "target": "component:network_traces"
+    },
+    {
+      "source": "component:network_traces",
+      "target": "integration:all"
+    },
+    {
+      "source": "materialize",
+      "target": "component:route_graph"
+    },
+    {
+      "source": "materialize",
+      "target": "component:firewall_policy"
+    },
+    {
+      "source": "integration:all",
+      "target": "report"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "inputs/route_graph.json",
+      "generated": true,
+      "consumers": [
+        "component:route_graph"
+      ]
+    },
+    {
+      "path": "inputs/firewall_policy.json",
+      "generated": true,
+      "consumers": [
+        "component:firewall_policy"
+      ]
+    },
+    {
+      "path": "inputs/network_traces.json",
+      "generated": true,
+      "consumers": [
+        "component:network_traces"
+      ]
+    }
+  ],
+  "omitted_transitive_read_edges": [
+    {
+      "source": "component:route_graph",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/route_graph.json"
+    },
+    {
+      "source": "component:firewall_policy",
+      "target": "integration:all",
+      "reason": "all component outputs collected",
+      "path": "outputs/firewall_policy.json"
+    },
+    {
+      "source": "materialize",
+      "target": "component:network_traces",
+      "reason": "generated package/contract/input boundary"
+    }
+  ],
+  "render_dimensions": {
+    "width": 1360,
+    "height": 1146
+  },
+  "png_svg_view": "transitive reduction of the execution DAG"
+}
