@@ -1,0 +1,97 @@
+{
+  "now": 10,
+  "events": [
+    {
+      "id": "c",
+      "kind": "issue",
+      "token": "bob",
+      "ts": 1,
+      "expires": 40,
+      "subject": "bob",
+      "groups": [
+        "contractor"
+      ]
+    },
+    {
+      "id": "h",
+      "kind": "issue",
+      "token": "pre_revoked",
+      "ts": 1,
+      "expires": 30,
+      "subject": "eve",
+      "groups": [
+        "contractor"
+      ]
+    },
+    {
+      "id": "e",
+      "kind": "issue",
+      "token": "expired",
+      "ts": 0,
+      "expires": 4,
+      "subject": "eve",
+      "groups": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "a",
+      "kind": "issue",
+      "token": "old",
+      "ts": 0,
+      "expires": 30,
+      "subject": "alice",
+      "groups": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "f",
+      "kind": "refresh",
+      "token": "too_late",
+      "parent": "expired",
+      "ts": 5,
+      "expires": 30
+    },
+    {
+      "id": "b",
+      "kind": "refresh",
+      "token": "new",
+      "parent": "old",
+      "ts": 2,
+      "expires": 50
+    },
+    {
+      "id": "d",
+      "kind": "revoke",
+      "token": "bob",
+      "ts": 3
+    },
+    {
+      "id": "g",
+      "kind": "revoke",
+      "token": "pre_revoked",
+      "ts": 0
+    },
+    {
+      "id": "j",
+      "kind": "issue",
+      "token": "future",
+      "ts": 70,
+      "expires": 90,
+      "subject": "future",
+      "groups": []
+    },
+    {
+      "id": "i",
+      "kind": "issue",
+      "token": "service",
+      "ts": 4,
+      "expires": 40,
+      "subject": "svc",
+      "groups": [
+        "service"
+      ]
+    }
+  ]
+}

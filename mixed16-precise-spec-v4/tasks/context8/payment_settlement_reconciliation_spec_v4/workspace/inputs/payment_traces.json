@@ -1,0 +1,228 @@
+{
+  "spans": [
+    {
+      "id": "s00",
+      "service": "API",
+      "duration": 4,
+      "error": true,
+      "parent": null
+    },
+    {
+      "id": "s01",
+      "service": "db",
+      "duration": 11,
+      "error": false,
+      "parent": null
+    },
+    {
+      "id": "s02",
+      "service": "cache",
+      "duration": 5,
+      "error": false,
+      "parent": "s00"
+    },
+    {
+      "id": "s03",
+      "service": "API",
+      "duration": 12,
+      "error": false,
+      "parent": "s00"
+    },
+    {
+      "id": "s04",
+      "service": "db",
+      "duration": 6,
+      "error": false,
+      "parent": "s01"
+    },
+    {
+      "id": "s05",
+      "service": "cache",
+      "duration": 0,
+      "error": false,
+      "parent": "s01"
+    },
+    {
+      "id": "s06",
+      "service": "API",
+      "duration": 7,
+      "error": false,
+      "parent": "s02"
+    },
+    {
+      "id": "s07",
+      "service": "db",
+      "duration": 1,
+      "error": true,
+      "parent": "s02"
+    },
+    {
+      "id": "s08",
+      "service": "cache",
+      "duration": 8,
+      "error": false,
+      "parent": "s03"
+    },
+    {
+      "id": "s09",
+      "service": "API",
+      "duration": 2,
+      "error": false,
+      "parent": "s03"
+    },
+    {
+      "id": "s10",
+      "service": "db",
+      "duration": 9,
+      "error": false,
+      "parent": "s04"
+    },
+    {
+      "id": "s11",
+      "service": "cache",
+      "duration": 3,
+      "error": false,
+      "parent": "s04"
+    },
+    {
+      "id": "s12",
+      "service": "API",
+      "duration": 10,
+      "error": false,
+      "parent": "s05"
+    },
+    {
+      "id": "s13",
+      "service": "db",
+      "duration": 4,
+      "error": false,
+      "parent": "s05"
+    },
+    {
+      "id": "s14",
+      "service": "cache",
+      "duration": 11,
+      "error": true,
+      "parent": "s06"
+    },
+    {
+      "id": "s15",
+      "service": "API",
+      "duration": 5,
+      "error": false,
+      "parent": "s06"
+    },
+    {
+      "id": "s16",
+      "service": "db",
+      "duration": 12,
+      "error": false,
+      "parent": "s07"
+    },
+    {
+      "id": "s17",
+      "service": "cache",
+      "duration": 6,
+      "error": false,
+      "parent": "s07"
+    },
+    {
+      "id": "s18",
+      "service": "API",
+      "duration": 0,
+      "error": false,
+      "parent": "s08"
+    },
+    {
+      "id": "s19",
+      "service": "db",
+      "duration": 7,
+      "error": false,
+      "parent": "s08"
+    },
+    {
+      "id": "s20",
+      "service": "cache",
+      "duration": 1,
+      "error": false,
+      "parent": "s09"
+    },
+    {
+      "id": "s21",
+      "service": "API",
+      "duration": 8,
+      "error": true,
+      "parent": "s09"
+    },
+    {
+      "id": "s22",
+      "service": "db",
+      "duration": 2,
+      "error": false,
+      "parent": "s10"
+    },
+    {
+      "id": "s23",
+      "service": "cache",
+      "duration": 9,
+      "error": false,
+      "parent": "s10"
+    },
+    {
+      "id": "s24",
+      "service": "API",
+      "duration": 3,
+      "error": false,
+      "parent": "s11"
+    },
+    {
+      "id": "s25",
+      "service": "db",
+      "duration": 10,
+      "error": false,
+      "parent": "s11"
+    },
+    {
+      "id": "s26",
+      "service": "cache",
+      "duration": 4,
+      "error": false,
+      "parent": "s12"
+    },
+    {
+      "id": "s27",
+      "service": "API",
+      "duration": 11,
+      "error": false,
+      "parent": "s12"
+    },
+    {
+      "id": "s28",
+      "service": "db",
+      "duration": 5,
+      "error": true,
+      "parent": "s13"
+    },
+    {
+      "id": "s29",
+      "service": "cache",
+      "duration": 12,
+      "error": false,
+      "parent": "s13"
+    },
+    {
+      "id": "nested",
+      "service": "gateway",
+      "duration": 2,
+      "error": false,
+      "children": [
+        {
+          "id": "leaf",
+          "service": "worker",
+          "duration": 3,
+          "error": true
+        }
+      ]
+    }
+  ]
+}
