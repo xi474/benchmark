@@ -1,6 +1,6 @@
 # mixed16-v4 逐题执行分析
 
-本目录包含 Codex / OpenCode / Nanobot 三个 Harness 在 16 个 v4 任务上的逐题分析。
+本目录包含 Codex / OpenCode / Nanobot / DSH 四个 Harness 在 16 个 v4 任务上的逐题分析。
 完整原始 trace 位于 `../traces/`，机器可读汇总为 `summary.csv`。
 
 ## codex
@@ -92,6 +92,39 @@
 | streaming_checkpoint_recovery_spec_v4 | 0.0 | 459.429 | 0.077447 | 0.52 | NonZeroAgentExitCodeError |
 | tenant_quota_rebalance_spec_v4 | 0.0 | 483.031 | 0.075129 | 0.5044 | NonZeroAgentExitCodeError |
 | warehouse_cutover_assurance_spec_v4 | 0.0 | 645.691 | 0.1953 | 1.3112 | {"status": "failed", "reason": "held-out API mismatch: views/repair_waves case 1"} |
+
+## dsh
+
+- 任务数：16
+- Reward 1：13
+- ACC：81.25%
+- E2E 平均：860.4s（14.34 min）
+- Agent 平均：829.3s
+- 成本：$3.4059 / ¥22.8667
+- missing cost：0
+- 有工具并发 trial：14 / 16；最大并发工具：9
+
+| 任务 | Reward | E2E (s) | Cost USD | Cost CNY | 主要异常/verifier |
+|---|---:|---:|---:|---:|---|
+| api_deprecation_campaign_spec_v4 | 1.0 | 952.411 | 0.246317 | 1.6537 | {"entry": "reasoning4/api_deprecation_campaign_spec_v4", "status": "passed", "output_count": 5, "api_cases": 28, "protected_file_count": 12} |
+| artifact_provenance_release_spec_v4 | 0.0 | 813.15 | 0.231608 | 1.555 | {"status": "failed", "reason": "held-out API mismatch: views/release_risk case 1"} |
+| backup_restore_certification_spec_v4 | 1.0 | 734.115 | 0.182574 | 1.2258 | {"entry": "linux2/backup_restore_certification_spec_v4", "status": "passed", "output_count": 5, "api_cases": 32, "protected_file_count": 13} |
+| batch_scheduler_transition_spec_v4 | 1.0 | 1352.192 | 0.310388 | 2.0839 | {"entry": "reasoning4/batch_scheduler_transition_spec_v4", "status": "passed", "output_count": 5, "api_cases": 21, "protected_file_count": 1 |
+| certificate_rotation_readiness_spec_v4 | 1.0 | 863.961 | 0.20063 | 1.347 | {"entry": "linux2/certificate_rotation_readiness_spec_v4", "status": "passed", "output_count": 5, "api_cases": 26, "protected_file_count": 1 |
+| edge_fleet_rollout_spec_v4 | 1.0 | 1209.899 | 0.295111 | 1.9813 | {"entry": "reasoning4/edge_fleet_rollout_spec_v4", "status": "passed", "output_count": 5, "api_cases": 21, "protected_file_count": 12} |
+| identity_federation_transition_spec_v4 | 1.0 | 758.59 | 0.171774 | 1.1533 | {"entry": "context8/identity_federation_transition_spec_v4", "status": "passed", "output_count": 5, "api_cases": 27, "protected_file_count": |
+| network_policy_convergence_spec_v4 | 1.0 | 779.506 | 0.207883 | 1.3957 | {"entry": "linux2/network_policy_convergence_spec_v4", "status": "passed", "output_count": 5, "api_cases": 31, "protected_file_count": 13} |
+| observability_retention_upgrade_spec_v4 | 0.0 | 997.105 | 0.25749 | 1.7287 | {"status": "failed", "reason": "incorrect output: outputs/archive_logs.json"} |
+| payment_settlement_reconciliation_spec_v4 | 1.0 | 525.532 | 0.129303 | 0.8681 | {"entry": "context8/payment_settlement_reconciliation_spec_v4", "status": "passed", "output_count": 5, "api_cases": 19, "protected_file_coun |
+| regional_failover_readiness_spec_v4 | 1.0 | 598.359 | 0.176291 | 1.1836 | {"entry": "multistage4/regional_failover_readiness_spec_v4", "status": "passed", "output_count": 9, "api_cases": 37, "protected_file_count": |
+| search_index_rebuild_spec_v4 | 1.0 | 772.384 | 0.200634 | 1.347 | {"entry": "context8/search_index_rebuild_spec_v4", "status": "passed", "output_count": 5, "api_cases": 32, "protected_file_count": 18} |
+| storage_tiering_migration_spec_v4 | 0.0 | 602.904 | 0.160526 | 1.0777 | {"status": "failed", "reason": "held-out API mismatch: views/migration_waves case 1"} |
+| streaming_checkpoint_recovery_spec_v4 | 1.0 | 675.863 | 0.163236 | 1.0959 | {"entry": "context8/streaming_checkpoint_recovery_spec_v4", "status": "passed", "output_count": 5, "api_cases": 19, "protected_file_count":  |
+| tenant_quota_rebalance_spec_v4 | 1.0 | 1544.686 | 0.314826 | 2.1137 | {"entry": "reasoning4/tenant_quota_rebalance_spec_v4", "status": "passed", "output_count": 5, "api_cases": 21, "protected_file_count": 12} |
+| warehouse_cutover_assurance_spec_v4 | 1.0 | 585.244 | 0.157331 | 1.0563 | {"entry": "multistage4/warehouse_cutover_assurance_spec_v4", "status": "passed", "output_count": 8, "api_cases": 37, "protected_file_count": |
+
+- DSH condition：`delegation_enabled`；但 telemetry `subagent_count` 全部为 0。
+- 因此这轮 DSH 的 ACC 提升不能直接归因于实际 subagent 并行。
 
 ## 说明
 
