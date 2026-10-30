@@ -135,7 +135,7 @@ E2E 包含 verifier 和环境启动，因此与 Agent 执行时间略有差异�
 
 - **DSH 存在明显的工具级并发**，最大 9 个工具同时未完成；
 - Codex / LangGraph / Nanobot / OpenCode 都有工具级并发；
-- OpenCode 当前 trace 不提供工具 start/end 时间，无法判断并发。
+- OpenCode 已通过 `opencode.db` 的 `part.data.state.time.start/end` 重建，14/16 可观测；剩余 2 个 trial 的 DB 缺失。
 
 ### 4.2 并行分支 / 多 Agent
 
