@@ -1,0 +1,25 @@
+Implemented and verified.
+
+Created the missing files:
+- engines/{maintenance_windows,crew_assignment,rollout_order}/model.py
+- engines/{maintenance_windows,crew_assignment,rollout_order}/transform.py
+- engines/{maintenance_windows,crew_assignment,rollout_order}/render.py
+- run_all.py
+- final_report.py
+
+Key points of the implementation:
+- All three transforms validate inputs per the README (int-vs-bool, non-empty text, duplicate ids, cycles, unknown/self deps, etc.) and return exactly {name, result}.
+- maintenance_windows: exact max-value subset with lexicographically smallest sorted id list, including negative/zero-value handling and the zero-window tie case.
+- crew_assignment: exact lexicographic optimization (affinity, then cost, then sorted job/worker tuples) with capacity/skill checks and upstream selected/makespan consumption.
+- rollout_order: waves, earliest_finish, deterministic critical path, and personnel dependency edges from crew assignments; blocked result for feasible=false.
+- run_all.py: topologically runs components by contract dependencies, then integrate.py and final_report.py, propagating subprocess failures.
+- final_report.py: exactly title/component_count/sha256/attention, with the sha256 computed over the full core_manifest object using the specified compact serialization.
+
+Local checks pass:
+
+MODULE_OK crew_assignment
+MODULE_OK maintenance_windows
+MODULE_OK rollout_order
+LOCAL_CHECKS_PASSED; official scoring requires the external verifier
+
+(Note: this sandbox reports an empty sys.executable, so I ran check.py through a tiny wrapper that sets sys.executable to "python3". run_all.py also has a `sys.executable or 'python3'` fallback for that case.)

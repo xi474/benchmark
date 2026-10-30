@@ -1,0 +1,23 @@
+已完成工作区修复，补齐了全部缺失实现并跑通本地检查。
+
+实现内容
+- mapping_compat、shard_replay、cutover_plan 各自新增 model.py、render.py，并重写 transform.py 的算法逻辑。
+- 根目录新增 run_all.py（按契约 inputs 的 outputs 依赖做拓扑排序执行，不按文件名排序）和 final_report.py。
+- 保留 parser.py、__init__.py、check_module.py、contract.json、inputs、integrate.py、check.py、README 不变。
+
+关键规则落实
+- model.load_payload：仅顶层对象/数组合法，非法 JSON、null/bool/数字/字符串抛 ValueError。
+- transform 返回严格 {name, result}，不修改 payloads/contract，统一 unwrap {"name","result"} 封装。
+- 三个强化 operation 均递归检查嵌套 NaN/Infinity。
+- schema_migration：rename 环（含未使用分量）、重复 from、多 old 归一冲突、int→float 非破坏、required/default、field_map 与 changes 字段名规则。
+- shard_replay：全量 offset/epoch 冲突校验、连续前缀处理、缺口停止、版本/墓碑/幂等/冲突规则、按 id 排序、documents 紧凑 sort_keys 的 SHA-256。
+- quorum_cutover：先做输入校验再判断 blocked，精确子集枚举（<=14 候选），value→cost→候选 ID 字典序三级优化，恰好 quorum 且同 partition 独立 host。
+- final_report：完整 core_object 的紧凑序列化 SHA-256，attention 去重排序及显式 false/数值边界。
+
+验证
+- 本沙箱中直接 `python3 check.py` 会因解释器 `sys.executable` 为空字符串而在其内部 subprocess 处报 PermissionError（环境问题，check.py 受保护不能改）。我用等价方式（注入 sys.executable='python3' 后加载 check.py 执行 main）跑通：
+  - MODULE_OK mapping_compat / shard_replay / cutover_plan
+  - LOCAL_CHECKS_PASSED
+- 三个 check_module.py 单独运行全部通过，run_all.py 从子目录启动也通过。
+
+如需，我也可以说明具体产物（outputs/*.json）的数值结果。

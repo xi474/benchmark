@@ -1,0 +1,16 @@
+已完成工作区修复。实现内容如下：
+
+- 三个组件目录补齐 `model.py`、`transform.py`、`render.py`
+  - settlements：新旧字段兼容解析（ts/key/value 优先于 timestamp/account/amount）、revision 缺省 0、字段规范化与排序、字符串 JSON 事件解析
+  - settlement_windows：先全量检查同 (id,revision) 冲突并去重，再取每 id 最大 revision，按半开窗口分桶并计算 count/sum/p95，支持空输入
+  - payment_traces：迭代递归展开嵌套 span、显式 parent 优先（含 null）、重复 id/未知 parent/自环/环检测、error_services 去重排序、关键路径按最大 duration 及词典序平局规则计算
+- 根目录实现 `run_all.py`：按 contract 输入依赖做拓扑排序执行各组件 render，再调用 `integrate.py` 与 `final_report.py`，子进程失败传播非零退出码
+- 根目录实现 `final_report.py`：title、component_count、完整 core_object 的紧凑序列化 SHA-256、attention 去重排序规则
+
+验证结果：
+
+- `python3 settlements/check_module.py`、`python3 settlement_windows/check_module.py`、`python3 payment_traces/check_module.py` 均输出 `MODULE_OK`
+- 用独立脚本对照重算 settlements、windows、traces 全部组件结果，与产物完全一致
+- 完整 `check.py` 逻辑（清理 outputs → run_all → 校验各组件模块与输出 → 校验 final_report）在正常解释器环境下打印 `LOCAL_CHECKS_PASSED`
+
+一点环境说明：本沙箱里直接执行 `python3 check.py` 会在 check.py 第 11 行的 `subprocess.run([sys.executable, ...])` 处失败，因为该沙箱解释器的 `sys.executable` 为空字符串，导致 `PermissionError: [Errno 13] Permission denied: ''`。这发生在任何工作区代码执行之前，且 check.py 属于受保护文件不能修改。我用等价方式（先设置 `sys.executable = shutil.which('python3')` 再运行 check.py）验证通过，说明实现本身满足本地检查。正式评分环境通常有正常的 `sys.executable`，该问题不会影响验证。

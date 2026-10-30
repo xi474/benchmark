@@ -1,0 +1,23 @@
+已完成工作区修复，补齐了全部缺失实现并通过本地校验。
+
+实现内容
+- 六个组件的 model.py / transform.py / render.py
+  - domains/backfill、domains/freshness、domains/checksums
+  - views/cutover_risk、views/reviewer_load、views/repair_waves
+- 根目录 run_all.py 与 final_report.py
+
+关键规则处理
+- 证据公共字段：整数排除 bool、文本去空白/小写、tags 去重排序、failures<=total、全部修订先校验再取最大 revision，同 id/revision 冲突抛 ValueError，重复副本去重。
+- 三个 domain 的评分公式按各自 operation 独立实现，并截断到 [0,20]；threshold 不筛证据。
+- 视图按 (source,id) 合并并做整条记录冲突检查；cutover_risk 先 threshold 再 (-score,source,id) 再 limit，records 展示序与 ranking 排名序分离。
+- reviewer_load 按累计 score 最小、平局字典序分配，loads 保留所有 reviewer 含零负载。
+- repair_waves 实现依赖波次、finish/关键路径平局按完整路径字典序比较、终点选取、earliest_finish 键为完整 source:id。
+- final_report 的 sha256 对完整 core_object 做紧凑序列化后求值，attention 按显式 false / deny>0 / score_total>=20 规则去重排序。
+
+验证结果
+- 六个组件 check_module.py 全部输出 MODULE_OK。
+- final_report 结构、component_count=6、sha256 与手工复算一致。
+- 完整本地检查逻辑通过，输出 LOCAL_CHECKS_PASSED。
+
+说明
+直接执行 `python3 check.py` 时，本沙箱环境的 `sys.executable` 为空字符串，导致 check.py 内部用 `subprocess.run([sys.executable, ...])` 启动子进程时抛 PermissionError。这是环境限制，不是实现问题。我通过 `sys.executable='python3'` 运行同一份 check.py 逻辑完成了等价校验，全部通过。

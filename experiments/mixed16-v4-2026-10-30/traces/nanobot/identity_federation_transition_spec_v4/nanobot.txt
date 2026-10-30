@@ -1,0 +1,22 @@
+已完成工作区修复并补齐全部缺失实现。
+
+实现内容
+- claims/model.py、transform.py、render.py
+- sessions/model.py、transform.py、render.py
+- authorization/model.py、transform.py、render.py
+- 根目录 run_all.py、final_report.py
+
+关键语义落实
+- model.load_payload：UTF-8 JSON，仅对象/数组顶层合法，其余抛 ValueError。
+- transform 返回恰为 {name, result} 两层；仅当对象键集合恰为 {name, result} 时视为上游封装并解包 result。
+- claims 按字段名并集升序生成 changes，正确处理 removed/added/type/required 及 default 存在性、int→float 非破坏。
+- sessions 全事件（含未来）校验，按 (ts, revoke<issue<refresh, id) 排序执行；未来事件不进入状态；token 仅可 issue/refresh 一次；有效 refresh 才置 superseded；撤销沿祖先链传播，自然到期/轮换不追溯。
+- authorization 组继承环闭包并合并角色，未知 parent、未知活动 token 组抛 ValueError；schema 优先于 session，deny 优先，同 effect 取最小 ID；roles 在合法 schema+活动 token 下始终返回。
+- run_all 按真实依赖拓扑执行（非文件名排序），再调用 integrate.py 与 final_report.py，子进程失败传播非零退出码。
+- final_report 以完整 core_object 计算 sha256，attention 条件按 blocked/feasible/compatible/deny/score_total 处理。
+
+验证结果
+- 三个 check_module 均输出 MODULE_OK。
+- 完整 check 流程通过，输出 LOCAL_CHECKS_PASSED。
+
+说明：本执行环境的 `sys.executable` 为空字符串，直接 `python3 check.py` 会在 check.py 内首次 subprocess 调用处报 PermissionError（环境问题，非实现问题）。我用临时 shim 将 `sys.executable` 指向 `/usr/local/bin/python3` 后运行 check.py，完整通过；shim 已删除，未改动任何受保护文件。

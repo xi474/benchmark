@@ -1,0 +1,22 @@
+{
+  "harness": "nanobot",
+  "task": "streaming_checkpoint_recovery_spec_v4",
+  "reward": 0.0,
+  "e2e_sec": 459.429,
+  "agent_exec_sec": 427.948,
+  "env_setup_sec": 9.131,
+  "agent_setup_sec": 2.165,
+  "verifier_sec": 13.958,
+  "input_tokens": 202957,
+  "cache_tokens": 193536,
+  "cache_miss_tokens": 9421,
+  "output_tokens": 33824,
+  "cost_usd": 0.077447,
+  "cost_cny": 0.52,
+  "token_source": "telemetry/model-throughput.json",
+  "exception": "NonZeroAgentExitCodeError",
+  "verifier_reason": "{\"status\": \"failed\", \"reason\": \"local execution failed:  Traceback (most recent call last):\\n  File \\\"/app/check.py\\\", line 23, in <module>\\n    if __name__=='__main__': main()\\n                             ^^^^^^\\n  File \\\"/app/check.py\\\", line 10, in main\\n    assert (ROOT/name).is_file(), 'missing implementation: '+name\\n           ^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: missing implementation: run_all.py\\n\"}",
+  "tool_calls": 23,
+  "max_concurrent_tools": 2,
+  "branch_opened": 6
+}

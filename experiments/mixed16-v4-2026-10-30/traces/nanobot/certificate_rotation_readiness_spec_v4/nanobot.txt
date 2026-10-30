@@ -1,0 +1,34 @@
+实现已完成并验证通过。
+
+已补齐的文件：
+- products/trust_graph/{model.py, transform.py, render.py}
+- products/trust_policy/{model.py, transform.py, render.py}
+- products/renewal_windows/{model.py, transform.py, render.py}
+- run_all.py
+- final_report.py
+
+实现要点：
+- 仅使用 Python 标准库（json、pathlib、hashlib、heapq、math、collections、fnmatch、subprocess、shutil、sys）。
+- model.load_payload 读取 UTF-8 JSON，仅接受顶层对象/数组，非法 JSON 与顶层 null/bool/数字/字符串抛 ValueError。
+- 各 transform 返回 {"name","result"} 两层结构，不修改 payloads/contract，并对上游封装做 {"name","result"} 识别与解包。
+- trust_graph 按“最大 valid_until → 最少边数 → 完整 ID 路径字典序最小”重建撤销感知信任路径。
+- trust_policy 按 priority 降序、specificity 降序、deny 优先、原 id 升序决定胜者。
+- renewal_windows 先完整校验本地 coverage，再按 trusted∩policy(rotate/allow) 过滤窗口客户，最后对窗口子集做精确优化（≤16 窗口）。
+- run_all 依据契约输入依赖做拓扑排序执行组件，再执行 integrate.py 与 final_report.py。
+- final_report 按规范生成 title、component_count、sha256（对完整 core_object 做紧凑序列化后 SHA-256）、attention。
+
+验证结果：
+- `python3 run_all.py` 直接运行成功（exit 0）。
+- 最终产物 final_report.json 内容正确：
+  title=证书轮换准备，component_count=3，attention=["trust_policy"]，sha256 与规范序列化一致。
+
+关于公开检查的本地说明：
+本沙箱中 `python3` 的 `sys.executable` 为空字符串，受保护的 check.py 在第一次调用 subprocess 时会因空解释器路径而报 PermissionError，这发生在任何业务代码执行之前，且 check.py 不可修改。我用等价方式（将 sys.executable 指向真实解释器后运行 check.py）验证，结果如下：
+
+MATERIALIZED 18
+MODULE_OK renewal_windows
+MODULE_OK trust_graph
+MODULE_OK trust_policy
+LOCAL_CHECKS_PASSED; official scoring requires the external verifier
+
+正式评分由工作区外的严格验证器完成。

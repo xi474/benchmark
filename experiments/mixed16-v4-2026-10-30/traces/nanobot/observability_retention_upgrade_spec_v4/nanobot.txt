@@ -1,0 +1,30 @@
+已完成工作区修复，补齐了全部缺失实现，并通过本地检查。
+
+实现内容
+- 三个组件的 model.py / transform.py / render.py
+  - products/archive_logs（log_compatibility 混合日志脱敏）
+  - products/retention_windows（retention_optimizer 分组背包）
+  - products/retention_policy（retention_audit 联合授权）
+- 根 run_all.py（按契约 inputs/outputs 做拓扑依赖排序，子进程失败传播非零退出码）
+- 根 final_report.py（完整 core_object 的 SHA-256、component_count、attention 去重排序）
+
+关键点均已按要求处理
+- model.load_payload 顶层仅允许对象/数组，非法 JSON 与标量顶层抛 ValueError
+- transform 返回恰为 name/result 两层，不修改 payloads/contract
+- retention_audit 正确消费全部三个输入，识别 {"name","result"} 封装并读取 result
+- 强化 operation 对全部嵌套 JSON 值做 NaN/Infinity 有限性检查
+- 静态策略 fnmatchcase、优先级/特异性/deny 优先/id 升序决胜
+- 背包为精确回溯，先最大 value、再最小 bytes、再 selected 元组列表字典序
+- 脱敏为单词边界 token/password/secret，替换为小写 key=[REDACTED]
+- 审计标记按空白边界提取，重复/未知/冲突均抛 ValueError
+- 未修改 README、inputs、contract、check_module.py、check.py、integrate.py、materialize.py
+
+验证结果
+- python3 run_all.py 成功
+- 三个局部检查均输出 MODULE_OK：
+  - products/archive_logs/check_module.py
+  - products/retention_windows/check_module.py
+  - products/retention_policy/check_module.py
+- 完整检查输出 LOCAL_CHECKS_PASSED
+
+一点说明：本运行环境里 `sys.executable` 为空字符串，导致受保护的 check.py 直接执行时在 `subprocess.run([sys.executable, ...])` 处报 PermissionError。这是运行时环境限制，不是实现问题。我通过给解释器补充 `sys.executable='python3'` 后运行同一份 check.py，得到 LOCAL_CHECKS_PASSED；正式外部验证环境若 sys.executable 正常，可直接 `python3 check.py` 通过。

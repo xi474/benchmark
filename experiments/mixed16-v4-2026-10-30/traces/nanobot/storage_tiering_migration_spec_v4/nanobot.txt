@@ -1,0 +1,22 @@
+已完成实现。新增/补齐的文件如下：
+
+- 根目录私有辅助模块 `_lib.py`：统一实现 `load_payload`、`write_json`、`build_component`、`transform_component` 以及证据规范化、评分、视图合并、风险排名、审核负载、迁移波次与关键路径等业务逻辑。
+- 六个组件目录各补齐 `model.py`、`transform.py`、`render.py`：
+  - domains/objects
+  - domains/replication
+  - domains/transfers
+  - views/migration_risk
+  - views/approval_load
+  - views/migration_waves
+- 根入口 `run_all.py`：从任意当前目录定位工作区，按契约 input/output 依赖关系做拓扑排序执行各 render.py，再调用 `integrate.py` 生成 core_manifest，最后调用 `final_report.py` 生成最终报告。
+- 根入口 `final_report.py`：读取 core_manifest，计算 title、component_count、规范化 JSON 的 SHA-256 摘要及 attention 列表。
+
+未修改 README、inputs、任何 contract.json、check_module.py、check.py 或 integrate.py。
+
+验证情况：
+
+- `python3 run_all.py` 成功，从干净状态重建了全部 outputs 与 final_report。
+- 六个组件的 `python3 <组件目录>/check_module.py` 全部输出 `MODULE_OK`。
+- 组件间接口自检（build_component == transform、不修改 payloads/contract）均通过。
+
+`python3 check.py` 在本沙箱中无法跑通，原因在受保护的 check.py 自身：它使用 `sys.executable` 作为子进程解释器，而当前运行环境里 `sys.executable` 是空字符串，导致 `subprocess.run([sys.executable, ...])` 报 `PermissionError: [Errno 13] Permission denied: ''`，在进入我们的 `run_all.py` 之前就已失败。这是环境限制，不是实现逻辑错误；在 `sys.executable` 正常的 Python 环境下，check.py 可继续执行完整验收流程。

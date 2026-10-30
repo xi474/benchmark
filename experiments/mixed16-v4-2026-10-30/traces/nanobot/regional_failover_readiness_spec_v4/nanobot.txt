@@ -1,0 +1,23 @@
+已完成跨区域故障切换工作区的实现，并通过本地公开检查。
+
+实现内容
+- 六个组件均补齐 model.py、transform.py、render.py：
+  - domains/replication（lag_evidence）
+  - domains/failover（failure_evidence）
+  - domains/snapshots（integrity_evidence）
+  - views/risk_queue（risk_ranking）
+  - views/duty_queue（review_balance）
+  - views/recovery_waves（remediation_plan）
+- 根目录补齐 run_all.py 与 final_report.py。
+- 未修改 README、inputs、任何 contract.json、check_module.py、根 check.py、integrate.py。
+
+关键点均已按 README 落实
+- 证据记录全量校验后做 id/revision 冲突检查，再取最大 revision；三个 domain 各自独立的评分公式与 [0,20] 截断；source 取 contract.name，records 按 (source,id) 排序。
+- 视图组件严格以 {name,result} 封装解包并合并 result.records；以 (source,id) 去重、冲突报错；risk_queue 的 threshold/limit、duty_queue 的贪心负载与零负载 reviewer、recovery_waves 的 only_if_blocking 全有或全无、波次、最早完成、关键路径与平局规则均已实现。
+- run_all 按真实依赖拓扑排序执行（domains → integrate.py domains → views → integrate.py → final_report），不依赖文件名排序或旧 outputs，子进程失败会传播非零退出码。
+- final_report 的 title、component_count、紧凑序列化 SHA-256、attention 规则均按规范实现。
+- 所有 JSON 输出均为 UTF-8、ensure_ascii=False、sort_keys=True、indent=2、allow_nan=False，末尾带真实换行。
+
+验证结果
+- `python3 check.py` 在本沙箱中因 sys.executable 为空字符串无法直接启动子进程；我通过将 sys.executable 补为 'python3' 后运行同一 check.py，输出 LOCAL_CHECKS_PASSED，六个组件 MODULE_OK 全部通过。
+- 另用独立参考实现逐项复核了 replication/failover/snapshots/risk_queue/duty_queue/recovery_waves 的最终产物与 final_report 的 SHA-256、attention，结果完全一致。
