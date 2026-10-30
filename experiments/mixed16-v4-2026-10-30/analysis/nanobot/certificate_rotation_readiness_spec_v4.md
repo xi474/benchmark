@@ -18,4 +18,11 @@
 | Max concurrent tools | 1 |
 | Branch opened | 7 |
 
-Trace: `traces/nanobot/certificate_rotation_readiness_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：72 次；最大并发工具：1。
+- E2E 为 1281.053 s，其中 agent execution 为 1252.268 s。
+- 成本：$0.292993 / ¥1.9671。
+
+Trace: `../../traces/nanobot/certificate_rotation_readiness_spec_v4`

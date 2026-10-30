@@ -16,6 +16,13 @@
 | Verifier | {"entry": "linux2/backup_restore_certification_spec_v4", "status": "passed", "output_count": 5, "api_cases": 32, "protected_file_count": 13} |
 | Tool calls | 62 |
 | Max concurrent tools | 2 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/opencode/backup_restore_certification_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：62 次；最大并发工具：2。
+- E2E 为 1122.441 s，其中 agent execution 为 1097.529 s。
+- 成本：$0.029097 / ¥0.1953。
+
+Trace: `../../traces/opencode/backup_restore_certification_spec_v4`

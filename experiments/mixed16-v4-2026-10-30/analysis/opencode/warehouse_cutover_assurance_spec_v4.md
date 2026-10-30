@@ -16,6 +16,13 @@
 | Verifier | {"entry": "multistage4/warehouse_cutover_assurance_spec_v4", "status": "passed", "output_count": 8, "api_cases": 37, "protected_file_count": 18} |
 | Tool calls | 64 |
 | Max concurrent tools | 3 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/opencode/warehouse_cutover_assurance_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：64 次；最大并发工具：3。
+- E2E 为 698.571 s，其中 agent execution 为 666.344 s。
+- 成本：$0.02627 / ¥0.1764。
+
+Trace: `../../traces/opencode/warehouse_cutover_assurance_spec_v4`

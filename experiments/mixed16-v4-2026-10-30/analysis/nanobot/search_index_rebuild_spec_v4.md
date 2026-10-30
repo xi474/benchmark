@@ -18,4 +18,11 @@
 | Max concurrent tools | 1 |
 | Branch opened | 13 |
 
-Trace: `traces/nanobot/search_index_rebuild_spec_v4`
+## 执行分析
+
+- 结论：未通过外部 verifier：held-out API mismatch: cutover_plan case 6
+- 工具调用：92 次；最大并发工具：1。
+- E2E 为 967.998 s，其中 agent execution 为 938.242 s。
+- 成本：$0.276072 / ¥1.8535。
+
+Trace: `../../traces/nanobot/search_index_rebuild_spec_v4`

@@ -16,6 +16,13 @@
 | Verifier | {"entry": "linux2/network_policy_convergence_spec_v4", "status": "passed", "output_count": 5, "api_cases": 31, "protected_file_count": 13} |
 | Tool calls | 35 |
 | Max concurrent tools | 1 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/opencode/network_policy_convergence_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：35 次；最大并发工具：1。
+- E2E 为 619.533 s，其中 agent execution 为 564.931 s。
+- 成本：$0.024255 / ¥0.1628。
+
+Trace: `../../traces/opencode/network_policy_convergence_spec_v4`

@@ -16,6 +16,13 @@
 | Verifier | {"entry": "context8/streaming_checkpoint_recovery_spec_v4", "status": "passed", "output_count": 5, "api_cases": 19, "protected_file_count": 17} |
 | Tool calls | 62 |
 | Max concurrent tools | 1 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/opencode/streaming_checkpoint_recovery_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：62 次；最大并发工具：1。
+- E2E 为 923.537 s，其中 agent execution 为 895.537 s。
+- 成本：$0.025053 / ¥0.1682。
+
+Trace: `../../traces/opencode/streaming_checkpoint_recovery_spec_v4`

@@ -16,6 +16,13 @@
 | Verifier | {"status": "failed", "reason": "incorrect output: outputs/audit_assignment.json"} |
 | Tool calls | 35 |
 | Max concurrent tools | 1 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/opencode/artifact_provenance_release_spec_v4`
+## 执行分析
+
+- 结论：未通过外部 verifier：incorrect output: outputs/audit_assignment.json
+- 工具调用：35 次；最大并发工具：1。
+- E2E 为 563.264 s，其中 agent execution 为 535.914 s。
+- 成本：$0.018428 / ¥0.1237。
+
+Trace: `../../traces/opencode/artifact_provenance_release_spec_v4`

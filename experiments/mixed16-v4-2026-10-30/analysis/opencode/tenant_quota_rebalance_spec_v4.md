@@ -16,6 +16,13 @@
 | Verifier | {"status": "failed", "reason": "held-out API mismatch: engines/operator_assignment case 3"} |
 | Tool calls | 75 |
 | Max concurrent tools | 3 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/opencode/tenant_quota_rebalance_spec_v4`
+## 执行分析
+
+- 结论：未通过外部 verifier：held-out API mismatch: engines/operator_assignment case 3
+- 工具调用：75 次；最大并发工具：3。
+- E2E 为 1509.619 s，其中 agent execution 为 1480.963 s。
+- 成本：$0.045229 / ¥0.3037。
+
+Trace: `../../traces/opencode/tenant_quota_rebalance_spec_v4`

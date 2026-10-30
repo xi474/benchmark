@@ -16,6 +16,13 @@
 | Verifier | {"entry": "multistage4/regional_failover_readiness_spec_v4", "status": "passed", "output_count": 9, "api_cases": 37, "protected_file_count": 18} |
 | Tool calls | 31 |
 | Max concurrent tools | 1 |
-| Branch opened | None |
+| Branch opened | not applicable |
 
-Trace: `traces/codex/regional_failover_readiness_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：31 次；最大并发工具：1。
+- E2E 为 1019.204 s，其中 agent execution 为 987.406 s。
+- 成本：$0.271374 / ¥1.822。
+
+Trace: `../../traces/codex/regional_failover_readiness_spec_v4`

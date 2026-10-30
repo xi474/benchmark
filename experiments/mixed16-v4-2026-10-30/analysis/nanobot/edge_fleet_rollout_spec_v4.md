@@ -18,4 +18,11 @@
 | Max concurrent tools | 1 |
 | Branch opened | 6 |
 
-Trace: `traces/nanobot/edge_fleet_rollout_spec_v4`
+## 执行分析
+
+- 结论：未通过外部 verifier：held-out API mismatch: engines/rollout_order case 3
+- 工具调用：102 次；最大并发工具：1。
+- E2E 为 2494.384 s，其中 agent execution 为 2463.55 s。
+- 成本：$0.686604 / ¥4.6097。
+
+Trace: `../../traces/nanobot/edge_fleet_rollout_spec_v4`

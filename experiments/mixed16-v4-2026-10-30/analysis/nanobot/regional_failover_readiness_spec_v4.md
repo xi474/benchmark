@@ -18,4 +18,11 @@
 | Max concurrent tools | 2 |
 | Branch opened | 14 |
 
-Trace: `traces/nanobot/regional_failover_readiness_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：92 次；最大并发工具：2。
+- E2E 为 973.245 s，其中 agent execution 为 943.452 s。
+- 成本：$0.295695 / ¥1.9852。
+
+Trace: `../../traces/nanobot/regional_failover_readiness_spec_v4`

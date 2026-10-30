@@ -18,4 +18,11 @@
 | Max concurrent tools | 1 |
 | Branch opened | 12 |
 
-Trace: `traces/nanobot/warehouse_cutover_assurance_spec_v4`
+## 执行分析
+
+- 结论：未通过外部 verifier：held-out API mismatch: views/repair_waves case 1
+- 工具调用：69 次；最大并发工具：1。
+- E2E 为 645.691 s，其中 agent execution 为 615.272 s。
+- 成本：$0.1953 / ¥1.3112。
+
+Trace: `../../traces/nanobot/warehouse_cutover_assurance_spec_v4`

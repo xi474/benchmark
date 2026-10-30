@@ -18,4 +18,11 @@
 | Max concurrent tools | 1 |
 | Branch opened | 8 |
 
-Trace: `traces/nanobot/payment_settlement_reconciliation_spec_v4`
+## 执行分析
+
+- 结论：通过外部 verifier。
+- 工具调用：65 次；最大并发工具：1。
+- E2E 为 786.226 s，其中 agent execution 为 756.35 s。
+- 成本：$0.169203 / ¥1.136。
+
+Trace: `../../traces/nanobot/payment_settlement_reconciliation_spec_v4`
