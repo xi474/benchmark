@@ -1,0 +1,28 @@
+schema_version = "1.0"
+version = "1.0.0"
+artifacts = ["/app"]
+
+[task]
+name = "mixed16-v4/batch_scheduler_transition_spec_v4"
+version = "1.0.0"
+description = "mixed16 precise-spec v4 task: batch_scheduler_transition_spec_v4"
+authors = [{ name = "xi474" }]
+
+[metadata]
+name = "batch_scheduler_transition_spec_v4"
+suite = "reasoning4"
+source = "mixed16-precise-spec-v4"
+entry_id = "reasoning4/batch_scheduler_transition_spec_v4"
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

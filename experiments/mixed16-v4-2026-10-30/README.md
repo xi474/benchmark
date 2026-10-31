@@ -67,3 +67,7 @@ E2E 平均：1096.8s = 18.28 min
   - cache miss：$0.66 / 1M
   - output：$1.98 / 1M
 - 汇率：1 USD = 6.7138 CNY
+
+## 反例验证行为分析与源码证据
+
+[Codex / OpenCode：找反例、修复与再验证](counterexample-review-2026-10-31/README.md)。包含可直接浏览的源码快照、32 份原生 trace、3 个详细案例结果，以及从运行事件提取的测试脚本。

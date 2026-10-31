@@ -1,0 +1,22 @@
+flowchart TD
+  A["任务输入<br/>TASK.md + workspace/"] --> B["构建 agent 环境<br/>/app/workspace"]
+  B --> H["Harness 选择"]
+
+  H --> N["Nanobot<br/>实现 + 反复 check.py<br/>无工具调用后结束"]
+  H --> LG["LangGraph<br/>planner → workers<br/>实现 + check.py"]
+  H --> OC["OpenCode<br/>session 实现 + check.py<br/>session 停止后结束"]
+  H --> CX["Codex<br/>turn 实现 + check.py<br/>turn 完成/超时后结束"]
+  H --> DS["DSH<br/>agent team 实现 + check.py<br/>delegation_enabled (sub=0)"]
+
+  N --> ART["收集最终 /app<br/>artifact 集合，只取最终状态"]
+  LG --> ART
+  OC --> ART
+  CX --> ART
+  DS --> ART
+
+  ART --> V["独立 verifier 环境<br/>tests/ + trusted_validation/"]
+  V --> I["protected_hashes 完整性校验<br/>check.py / 契约 / 输入未被篡改"]
+  I --> HV["hidden API/向量 + 输出校验<br/>held-out cases 与 canonical 输出"]
+  HV --> R["reward 0 / 1<br/>终结点，无反馈回路"]
+
+  %% 关键：verifier 结果不返回给 agent；无 V-->H 或 V-->agent 边
