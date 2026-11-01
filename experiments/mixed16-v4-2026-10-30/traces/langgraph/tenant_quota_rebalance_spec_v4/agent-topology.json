@@ -1,0 +1,117 @@
+{
+  "status": "observed",
+  "root_agent_id": "langgraph-root",
+  "agent_count": 5,
+  "subagent_count": 4,
+  "agents": [
+    {
+      "agent_id": "langgraph-root",
+      "role": null,
+      "parent_agent_id": null,
+      "session_id": null,
+      "test_harness": null
+    },
+    {
+      "agent_id": "langgraph-worker-t1",
+      "role": "worker",
+      "parent_agent_id": "langgraph-root",
+      "session_id": null,
+      "test_harness": null
+    },
+    {
+      "agent_id": "langgraph-worker-t2",
+      "role": "worker",
+      "parent_agent_id": "langgraph-root",
+      "session_id": null,
+      "test_harness": null
+    },
+    {
+      "agent_id": "langgraph-worker-t3",
+      "role": "worker",
+      "parent_agent_id": "langgraph-root",
+      "session_id": null,
+      "test_harness": null
+    },
+    {
+      "agent_id": "langgraph-worker-t4",
+      "role": "worker",
+      "parent_agent_id": "langgraph-root",
+      "session_id": null,
+      "test_harness": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "langgraph-root",
+      "target": "langgraph-worker-t1",
+      "kind": "created",
+      "evidence_event_ids": [
+        "evt-000011-8ff44189"
+      ]
+    },
+    {
+      "source": "langgraph-root",
+      "target": "langgraph-worker-t2",
+      "kind": "created",
+      "evidence_event_ids": [
+        "evt-000082-b21f4fef"
+      ]
+    },
+    {
+      "source": "langgraph-root",
+      "target": "langgraph-worker-t3",
+      "kind": "created",
+      "evidence_event_ids": [
+        "evt-000085-393bf952"
+      ]
+    },
+    {
+      "source": "langgraph-root",
+      "target": "langgraph-worker-t4",
+      "kind": "created",
+      "evidence_event_ids": [
+        "evt-000260-31722dac"
+      ]
+    }
+  ],
+  "delegation_count": 0,
+  "handoff_count": 0,
+  "max_concurrent_agents": 2,
+  "max_concurrent_subagents": 2,
+  "parallel_width": 2,
+  "parallel_agents_observed": true,
+  "run_intervals": [
+    {
+      "agent_id": "langgraph-worker-t1",
+      "attempt": 1,
+      "start_ns": 16311965795072,
+      "end_ns": 16410245228088,
+      "status": "completed",
+      "duration_sec": 98.279433
+    },
+    {
+      "agent_id": "langgraph-worker-t2",
+      "attempt": 1,
+      "start_ns": 16410265195868,
+      "end_ns": 16564848542326,
+      "status": "completed",
+      "duration_sec": 154.583346
+    },
+    {
+      "agent_id": "langgraph-worker-t3",
+      "attempt": 1,
+      "start_ns": 16410286283265,
+      "end_ns": 16573295251882,
+      "status": "completed",
+      "duration_sec": 163.008969
+    },
+    {
+      "agent_id": "langgraph-worker-t4",
+      "attempt": 1,
+      "start_ns": 16573325276774,
+      "end_ns": 16709611014571,
+      "status": "completed",
+      "duration_sec": 136.285738
+    }
+  ]
+}

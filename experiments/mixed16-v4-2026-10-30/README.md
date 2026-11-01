@@ -1,10 +1,33 @@
-# mixed16-v4 Codex / OpenCode / Nanobot / DSH 执行 trace 与逐题分析
+# mixed16-v4 执行 trace 与逐题分析
 
-数据日期：2026-10-30  
+数据日期：2026-10-30 / 2026-11-01  
 模型：`deepseek-v4-pro`  
 任务集：`mixed16-precise-spec-v4`  
-Harness：Codex / OpenCode / Nanobot / DSH  
-Trial：64（16 × 4）
+Trial：112（16 × 7 个实验条件）
+
+## 实验条件
+
+```text
+Codex
+OpenCode
+Nanobot
+DSH
+LangGraph
+LATTE 原生
+LATTE 注入提示
+```
+
+## LATTE 两种版本
+
+- **LATTE 原生**：`HARNESS_LATTE_NATIVE=1`，LATTE 原生动态发现任务，不注入预编译组件任务。
+- **LATTE 注入提示**：adapter 读取 `/opt/latte-task` 的预编译组件任务，属于注入提示/固定任务版本。
+
+两个版本分别位于：
+
+```text
+traces/latte-native/、analysis/latte-native/、results/latte-native/
+traces/latte-injected/、analysis/latte-injected/、results/latte-injected/
+```
 
 ## 内容
 
@@ -12,19 +35,14 @@ Trial：64（16 × 4）
 traces/
   codex/<task>/codex.txt
   opencode/<task>/opencode.txt
-  nanobot/<task>/nanobot.txt
-  nanobot/<task>/events-v2.jsonl
-  nanobot/<task>/summary.json
-  dsh/<task>/dsh-runner.log
-  dsh/<task>/dsh-stream.jsonl
-  dsh/<task>/summary.json
-  dsh/<task>/events-v2.jsonl
+  nanobot/<task>/...
+  dsh/<task>/...
+  langgraph/<task>/...
+  latte-native/<task>/...
+  latte-injected/<task>/...
 
 analysis/
-  codex/<task>.md
-  opencode/<task>.md
-  nanobot/<task>.md
-  dsh/<task>.md
+  <harness>/<task>.md
   summary.csv
   README.md
 
@@ -35,28 +53,32 @@ results/
 ## 汇总
 
 ```text
-完成：64 / 64
-Reward 1：39
-ACC：60.94%
-E2E 平均：1096.8s = 18.28 min
-总成本：$11.0719 / ¥74.3350
+完成：112 / 112
+Reward 1：40
+ACC：35.71%
+E2E 平均：921.8s = 15.36 min
+总成本：$30.6583 / ¥205.8336
+missing cost：31
 ```
 
 | Harness | Reward 1 | ACC | E2E 平均 | 成本（USD） | 成本（CNY） |
 |---|---:|---:|---:|---:|---:|
-| DSH | 13/16 | 81.25% | 14.34 min | $3.4059 | ¥22.8665 |
+| DSH | 13/16 | 81.25% | 14.34 min | $3.4059 | ¥22.8667 |
 | Codex | 10/16 | 62.50% | 25.19 min | $3.6351 | ¥24.4053 |
-| OpenCode | 10/16 | 62.50% | 17.53 min | $0.4662 | ¥3.1300 |
-| Nanobot | 6/16 | 37.50% | 16.06 min | $3.5647 | ¥23.9327 |
+| OpenCode | 10/16 | 62.50% | 17.53 min | $0.4662 | ¥3.1301 |
+| Nanobot | 6/16 | 37.50% | 16.06 min | $3.5647 | ¥23.9329 |
+| LangGraph | 1/16 | 6.25% | 5.40 min | $1.2401 | ¥8.3254 |
+| LATTE 原生 | 0/16 | 0.00% | 6.57 min | $3.7580 | ¥25.2302 |
+| LATTE 注入提示 | 0/16 | 0.00% | 22.46 min | $14.5883 | ¥97.9430 |
 
 ## 说明
 
 - 原始 `opencode.db` **未上传**，因为其中可能包含本地 credential/account 数据。
-- OpenCode 的工具并发统计由本地 SQLite `part.data.state.time.start/end` 计算，不随 DB 一起发布。
-- Codex 有 3 个 success trial 因 `max_output_tokens` 截断，没有 `turn.completed.usage`，成本记为 missing，未填 0。
-- DSH 本轮使用 `HARNESS_DSH_CONDITION=delegation_enabled` 和 delegation policy，但 telemetry 中 `subagent_count` 仍为 0；其 ACC 提升不能直接归因于实际 subagent 并行。
+- Codex 有 3 个 success trial 因 `max_output_tokens` 截断，没有 `turn.completed.usage`，成本记为 missing。
+- DSH 本轮使用 `delegation_enabled`，但 telemetry `subagent_count` 为 0；不能归因于实际 subagent 并行。
+- LATTE 原生有 12 个 trial 没有可读的 `latte_result`，token/cost 记为 missing。
+- LATTE 两个版本在本批 16 题上均未通过外部 verifier，Reward 1 为 0。
 - 所有 trace 已对 API key 做脱敏。
-- 任务集与 verifier 说明见仓库根目录的 `mixed16-precise-spec-v4/`。
 
 ## 数据口径
 

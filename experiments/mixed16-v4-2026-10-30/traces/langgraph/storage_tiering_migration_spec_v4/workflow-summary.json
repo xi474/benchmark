@@ -1,0 +1,251 @@
+{
+  "schema_version": 2,
+  "contract_revision": "2.1",
+  "trial_id": "mixed16-v4-storage_tiering_migra__SXs68WU__env",
+  "task_id": "mixed16-v4-storage_tiering_migration_spec_v4",
+  "harness": "langgraph",
+  "status": "observed",
+  "generated_at": "2026-10-29T16:23:00.227662Z",
+  "planning": {
+    "planning_level": "P3",
+    "plan_source": "model-explicit",
+    "plan_evidence_event_ids": [
+      "evt-000001-ba96395b",
+      "evt-000006-c904a04f",
+      "evt-000319-4ed8f838",
+      "evt-000320-a80c52b5",
+      "evt-000321-785f0512",
+      "evt-000400-2dca250d"
+    ],
+    "plan_snapshot_count": 1,
+    "plan_revision_count": 4,
+    "reason_if_not_observed": null,
+    "model_plan_observed": true,
+    "harness_control_dag_observed": false,
+    "provided_dag_observed": false,
+    "revision_event_ids": [
+      "evt-000319-4ed8f838",
+      "evt-000320-a80c52b5",
+      "evt-000321-785f0512",
+      "evt-000400-2dca250d"
+    ]
+  },
+  "graphs": {
+    "provided": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No Provided DAG was supplied for this trial.",
+      "node_count": 0,
+      "edge_count": 0
+    },
+    "harness-control": {
+      "status": "observed",
+      "source": "harness-generated",
+      "reason": null,
+      "node_count": 5,
+      "edge_count": 8
+    },
+    "observed-model-plan": {
+      "status": "observed",
+      "source": "model-explicit",
+      "reason": null,
+      "node_count": 4,
+      "edge_count": 3
+    }
+  },
+  "execution": {
+    "status": "observed",
+    "node_count": 250,
+    "edge_count": 5,
+    "observed_edge_count": 5,
+    "inferred_edge_count": 0,
+    "temporal_edge_count": 0,
+    "observed_dependency_edge_count": 5,
+    "inferred_dependency_edge_count": 0,
+    "trace_status": "observed",
+    "dependency_status": "observed",
+    "critical_path": [
+      "node:planner",
+      "node:parallel_workers",
+      "node:synthesizer"
+    ],
+    "critical_path_sec": 433.934725,
+    "makespan_sec": 433.967622
+  },
+  "agent_topology": {
+    "status": "observed",
+    "agent_count": 5,
+    "subagent_count": 4,
+    "delegation_count": 0,
+    "handoff_count": 0,
+    "parallel_width": 3
+  },
+  "data_dependency": {
+    "status": "not_observed",
+    "artifact_count": 0,
+    "message_count": 0,
+    "edge_count": 0
+  },
+  "conformance": {
+    "schema_version": 2,
+    "contract_revision": "2.1",
+    "provided_vs_execution": {
+      "label": "provided_vs_execution",
+      "status": "not_observed",
+      "reason": "No Provided DAG was supplied for this trial.",
+      "evidence_checked": [
+        "parallel sidecar provided/execution_graph.yaml",
+        "task workflow"
+      ],
+      "metrics": null
+    },
+    "harness_control_vs_execution": {
+      "label": "harness_control_vs_execution",
+      "status": "observed",
+      "reason": null,
+      "evidence_checked": [
+        "workflow.declared",
+        "workflow.revised"
+      ],
+      "metrics": {
+        "declared_node_count": 5,
+        "executed_node_count": 8,
+        "planned_not_executed_nodes": [
+          "tools"
+        ],
+        "executed_not_planned_nodes": [
+          "worker-t1",
+          "worker-t2",
+          "worker-t3",
+          "worker-t4"
+        ],
+        "node_overlap_count": 4,
+        "node_overlap_ratio": 0.8,
+        "declared_edge_count": 5,
+        "observed_dependency_edge_count": 3,
+        "edge_overlap_count": 3,
+        "edge_overlap_ratio": 0.6,
+        "skipped_nodes": [
+          "agent"
+        ],
+        "retried_nodes": [],
+        "cancelled_nodes": [],
+        "pruned_branches": [],
+        "workflow_revision_count": 4,
+        "branch_count": 0,
+        "declared_parallel_width": 1,
+        "observed_parallel_width": 1,
+        "join_wait_sec": null,
+        "critical_path_sec": 433.934725,
+        "scheduler_overhead_sec": null,
+        "scheduler_overhead_reason": "scheduler decision durations are not emitted by the harness",
+        "planning_level": "P3",
+        "critical_path": [
+          "node:planner",
+          "node:parallel_workers",
+          "node:synthesizer"
+        ]
+      }
+    },
+    "observed_model_plan_vs_execution": {
+      "label": "observed_model_plan_vs_execution",
+      "status": "observed",
+      "reason": null,
+      "evidence_checked": [
+        "plan.created",
+        "plan.revised",
+        "workflow.declared"
+      ],
+      "metrics": {
+        "declared_node_count": 4,
+        "executed_node_count": 8,
+        "planned_not_executed_nodes": [
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "executed_not_planned_nodes": [
+          "agent",
+          "parallel_workers",
+          "planner",
+          "synthesizer",
+          "worker-t1",
+          "worker-t2",
+          "worker-t3",
+          "worker-t4"
+        ],
+        "node_overlap_count": 0,
+        "node_overlap_ratio": 0.0,
+        "declared_edge_count": 3,
+        "observed_dependency_edge_count": 3,
+        "edge_overlap_count": 0,
+        "edge_overlap_ratio": 0.0,
+        "skipped_nodes": [
+          "agent"
+        ],
+        "retried_nodes": [],
+        "cancelled_nodes": [],
+        "pruned_branches": [],
+        "workflow_revision_count": 4,
+        "branch_count": 0,
+        "declared_parallel_width": 3,
+        "observed_parallel_width": 1,
+        "join_wait_sec": null,
+        "critical_path_sec": 433.934725,
+        "scheduler_overhead_sec": null,
+        "scheduler_overhead_reason": "scheduler decision durations are not emitted by the harness",
+        "planning_level": "P3",
+        "critical_path": [
+          "node:planner",
+          "node:parallel_workers",
+          "node:synthesizer"
+        ]
+      }
+    },
+    "note": "The three comparisons are reported separately and must not be merged into one score."
+  },
+  "capabilities": {
+    "harness": "langgraph",
+    "agent_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "workflow_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "plan_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "container_resources": {
+      "supported": true,
+      "enabled": false,
+      "status": "not_observed"
+    },
+    "per_agent_resources": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "inference_request_metrics": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "subagent_capability_available": true,
+    "subagent_count": 0,
+    "autonomous_delegation": false,
+    "reason_if_not_observed": null
+  },
+  "resource_summary": {},
+  "classification": {
+    "observed": "Events/graphs present in the trial.",
+    "inferred": "Temporal edges or derived relations without direct dependency evidence.",
+    "not_observed": "Capability/graph/metric not present; never filled with 0."
+  }
+}

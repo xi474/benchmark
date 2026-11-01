@@ -1,0 +1,48 @@
+{
+  "status": "observed",
+  "root_agent_id": "langgraph-root",
+  "agent_count": 2,
+  "subagent_count": 1,
+  "agents": [
+    {
+      "agent_id": "langgraph-root",
+      "role": null,
+      "parent_agent_id": null,
+      "session_id": null,
+      "test_harness": null
+    },
+    {
+      "agent_id": "langgraph-worker-t1",
+      "role": "worker",
+      "parent_agent_id": "langgraph-root",
+      "session_id": null,
+      "test_harness": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "langgraph-root",
+      "target": "langgraph-worker-t1",
+      "kind": "created",
+      "evidence_event_ids": [
+        "evt-000011-faa5d934"
+      ]
+    }
+  ],
+  "delegation_count": 0,
+  "handoff_count": 0,
+  "max_concurrent_agents": 1,
+  "max_concurrent_subagents": 1,
+  "parallel_width": 1,
+  "parallel_agents_observed": false,
+  "run_intervals": [
+    {
+      "agent_id": "langgraph-worker-t1",
+      "attempt": 1,
+      "start_ns": 12849096267248,
+      "end_ns": 12974212214695,
+      "status": "completed",
+      "duration_sec": 125.115947
+    }
+  ]
+}

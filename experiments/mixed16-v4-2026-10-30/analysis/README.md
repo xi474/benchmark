@@ -1,9 +1,14 @@
 # mixed16-v4 逐题执行分析
 
-本目录包含 Codex / OpenCode / Nanobot / DSH 四个 Harness 在 16 个 v4 任务上的逐题分析。
+本目录包含 7 个实验条件在 16 个 v4 任务上的逐题分析。
 完整原始 trace 位于 `../traces/`，机器可读汇总为 `summary.csv`。
 
-## codex
+## LATTE 两种版本
+
+- `latte-native`：`HARNESS_LATTE_NATIVE=1`，LATTE 原生动态发现任务。
+- `latte-injected`：adapter 读取 `/opt/latte-task` 的预编译组件任务，属于注入提示/固定任务版本。
+
+## Codex (`codex`)
 
 - 任务数：16
 - Reward 1：10
@@ -33,7 +38,7 @@
 | tenant_quota_rebalance_spec_v4 | 1.0 | 1130.926 | 0.286959 | 1.9266 | {"entry": "reasoning4/tenant_quota_rebalance_spec_v4", "status": "passed", "output_count": 5, "api_cases": 21, "protected_file_count": 12} |
 | warehouse_cutover_assurance_spec_v4 | 0.0 | 764.158 | 0.131661 | 0.8839 | {"status": "failed", "reason": "held-out API mismatch: views/repair_waves case 1"} |
 
-## opencode
+## OpenCode (`opencode`)
 
 - 任务数：16
 - Reward 1：10
@@ -63,7 +68,7 @@
 | tenant_quota_rebalance_spec_v4 | 0.0 | 1509.619 | 0.045229 | 0.3037 | {"status": "failed", "reason": "held-out API mismatch: engines/operator_assignment case 3"} |
 | warehouse_cutover_assurance_spec_v4 | 1.0 | 698.571 | 0.02627 | 0.1764 | {"entry": "multistage4/warehouse_cutover_assurance_spec_v4", "status": "passed", "output_count": 8, "api_cases": 37, "protected_file_count": |
 
-## nanobot
+## Nanobot (`nanobot`)
 
 - 任务数：16
 - Reward 1：6
@@ -93,7 +98,7 @@
 | tenant_quota_rebalance_spec_v4 | 0.0 | 483.031 | 0.075129 | 0.5044 | NonZeroAgentExitCodeError |
 | warehouse_cutover_assurance_spec_v4 | 0.0 | 645.691 | 0.1953 | 1.3112 | {"status": "failed", "reason": "held-out API mismatch: views/repair_waves case 1"} |
 
-## dsh
+## DSH (`dsh`)
 
 - 任务数：16
 - Reward 1：13
@@ -126,8 +131,99 @@
 - DSH condition：`delegation_enabled`；但 telemetry `subagent_count` 全部为 0。
 - 因此这轮 DSH 的 ACC 提升不能直接归因于实际 subagent 并行。
 
+## LangGraph (`langgraph`)
+
+- 任务数：16
+- Reward 1：1
+- ACC：6.25%
+- E2E 平均：323.9s（5.40 min）
+- Agent 平均：290.7s
+- 成本：$1.2401 / ¥8.3254
+- missing cost：0
+- 有工具并发 trial：4 / 16；最大并发工具：3
+
+| 任务 | Reward | E2E (s) | Cost USD | Cost CNY | 主要异常/verifier |
+|---|---:|---:|---:|---:|---|
+| api_deprecation_campaign_spec_v4 | 0.0 | 219.785 | 0.02967 | 0.1992 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| artifact_provenance_release_spec_v4 | 0.0 | 214.031 | 0.034585 | 0.2322 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| backup_restore_certification_spec_v4 | 0.0 | 638.984 | 0.199204 | 1.3374 | {"status": "failed", "reason": "local execution failed: MATERIALIZED 18\n Traceback (most recent call last):\n  File \"/app/products/backup_ |
+| batch_scheduler_transition_spec_v4 | 0.0 | 422.975 | 0.130893 | 0.8788 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| certificate_rotation_readiness_spec_v4 | 0.0 | 201.153 | 0.03219 | 0.2161 | {"status": "failed", "reason": "local execution failed: MATERIALIZED 18\n Traceback (most recent call last):\n  File \"/app/check.py\", line |
+| edge_fleet_rollout_spec_v4 | 0.0 | 215.164 | 0.027674 | 0.1858 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| identity_federation_transition_spec_v4 | 0.0 | 421.163 | 0.132859 | 0.8920 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| network_policy_convergence_spec_v4 | 0.0 | 203.279 | 0.030426 | 0.2043 | {"status": "failed", "reason": "local execution failed: MATERIALIZED 18\n Traceback (most recent call last):\n  File \"/app/check.py\", line |
+| observability_retention_upgrade_spec_v4 | 0.0 | 201.271 | 0.029498 | 0.1980 | {"status": "failed", "reason": "local execution failed: MATERIALIZED 18\n Traceback (most recent call last):\n  File \"/app/check.py\", line |
+| payment_settlement_reconciliation_spec_v4 | 0.0 | 188.613 | 0.029268 | 0.1965 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| regional_failover_readiness_spec_v4 | 0.0 | 197.718 | 0.033299 | 0.2236 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| search_index_rebuild_spec_v4 | 0.0 | 184.199 | 0.02939 | 0.1973 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| storage_tiering_migration_spec_v4 | 0.0 | 461.773 | 0.172558 | 1.1585 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| streaming_checkpoint_recovery_spec_v4 | 1.0 | 770.194 | 0.161887 | 1.0869 | {"entry": "context8/streaming_checkpoint_recovery_spec_v4", "status": "passed", "output_count": 5, "api_cases": 19, "protected_file_count":  |
+| tenant_quota_rebalance_spec_v4 | 0.0 | 452.146 | 0.12856 | 0.8631 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+| warehouse_cutover_assurance_spec_v4 | 0.0 | 190.077 | 0.038089 | 0.2557 | {"status": "failed", "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/app/check.py\", line 23, in <module>\ |
+
+## LATTE 原生 (`latte-native`)
+
+- 任务数：16
+- Reward 1：0
+- ACC：0.00%
+- E2E 平均：394.0s（6.57 min）
+- Agent 平均：376.3s
+- 成本：$3.7580 / ¥25.2302
+- missing cost：12
+- 有工具并发 trial：0 / 16；最大并发工具：not observed
+
+| 任务 | Reward | E2E (s) | Cost USD | Cost CNY | 主要异常/verifier |
+|---|---:|---:|---:|---:|---|
+| api_deprecation_campaign_spec_v4 | 0.0 | 37.859 |  |  | NonZeroAgentExitCodeError |
+| artifact_provenance_release_spec_v4 | 0.0 | 45.091 |  |  | NonZeroAgentExitCodeError |
+| backup_restore_certification_spec_v4 | 0.0 | 1516.985 | 1.383565 | 9.289 | NonZeroAgentExitCodeError |
+| batch_scheduler_transition_spec_v4 | 0.0 | 63.351 |  |  | NonZeroAgentExitCodeError |
+| certificate_rotation_readiness_spec_v4 | 0.0 | 46.2 |  |  | NonZeroAgentExitCodeError |
+| edge_fleet_rollout_spec_v4 | 0.0 | 129.338 |  |  | NonZeroAgentExitCodeError |
+| identity_federation_transition_spec_v4 | 0.0 | 34.017 |  |  | NonZeroAgentExitCodeError |
+| network_policy_convergence_spec_v4 | 0.0 | 57.488 |  |  | NonZeroAgentExitCodeError |
+| observability_retention_upgrade_spec_v4 | 0.0 | 1506.334 | 1.034337 | 6.9443 | NonZeroAgentExitCodeError |
+| payment_settlement_reconciliation_spec_v4 | 0.0 | 37.527 |  |  | NonZeroAgentExitCodeError |
+| regional_failover_readiness_spec_v4 | 0.0 | 82.762 |  |  | NonZeroAgentExitCodeError |
+| search_index_rebuild_spec_v4 | 0.0 | 1353.691 | 0.915773 | 6.1483 | NonZeroAgentExitCodeError |
+| storage_tiering_migration_spec_v4 | 0.0 | 67.18 |  |  | NonZeroAgentExitCodeError |
+| streaming_checkpoint_recovery_spec_v4 | 0.0 | 37.184 |  |  | NonZeroAgentExitCodeError |
+| tenant_quota_rebalance_spec_v4 | 0.0 | 1242.709 | 0.424288 | 2.8486 | NonZeroAgentExitCodeError |
+| warehouse_cutover_assurance_spec_v4 | 0.0 | 45.933 |  |  | NonZeroAgentExitCodeError |
+
+## LATTE 注入提示 (`latte-injected`)
+
+- 任务数：16
+- Reward 1：0
+- ACC：0.00%
+- E2E 平均：1347.6s（22.46 min）
+- Agent 平均：1331.0s
+- 成本：$14.5883 / ¥97.9430
+- missing cost：0
+- 有工具并发 trial：0 / 16；最大并发工具：not observed
+
+| 任务 | Reward | E2E (s) | Cost USD | Cost CNY | 主要异常/verifier |
+|---|---:|---:|---:|---:|---|
+| api_deprecation_campaign_spec_v4 | 0.0 | 1790.393 | 0.797915 | 5.357 | NonZeroAgentExitCodeError |
+| artifact_provenance_release_spec_v4 | 0.0 | 1252.905 | 1.024269 | 6.8767 | NonZeroAgentExitCodeError |
+| backup_restore_certification_spec_v4 | 0.0 | 1277.261 | 0.906112 | 6.0835 | NonZeroAgentExitCodeError |
+| batch_scheduler_transition_spec_v4 | 0.0 | 1917.692 | 1.1649 | 7.8209 | NonZeroAgentExitCodeError |
+| certificate_rotation_readiness_spec_v4 | 0.0 | 1239.797 | 0.86627 | 5.816 | NonZeroAgentExitCodeError |
+| edge_fleet_rollout_spec_v4 | 0.0 | 1650.262 | 0.836545 | 5.6164 | NonZeroAgentExitCodeError |
+| identity_federation_transition_spec_v4 | 0.0 | 879.596 | 0.705024 | 4.7334 | NonZeroAgentExitCodeError |
+| network_policy_convergence_spec_v4 | 0.0 | 975.604 | 0.697002 | 4.6795 | NonZeroAgentExitCodeError |
+| observability_retention_upgrade_spec_v4 | 0.0 | 1112.206 | 0.582628 | 3.9116 | NonZeroAgentExitCodeError |
+| payment_settlement_reconciliation_spec_v4 | 0.0 | 1376.562 | 0.78051 | 5.2402 | NonZeroAgentExitCodeError |
+| regional_failover_readiness_spec_v4 | 0.0 | 1398.573 | 1.346084 | 9.0373 | NonZeroAgentExitCodeError |
+| search_index_rebuild_spec_v4 | 0.0 | 1045.067 | 0.68245 | 4.5818 | NonZeroAgentExitCodeError |
+| storage_tiering_migration_spec_v4 | 0.0 | 1367.697 | 1.421276 | 9.5422 | NonZeroAgentExitCodeError |
+| streaming_checkpoint_recovery_spec_v4 | 0.0 | 1423.08 | 0.707292 | 4.7486 | NonZeroAgentExitCodeError |
+| tenant_quota_rebalance_spec_v4 | 0.0 | 1403.825 | 0.663617 | 4.4554 | NonZeroAgentExitCodeError |
+| warehouse_cutover_assurance_spec_v4 | 0.0 | 1451.209 | 1.406433 | 9.4425 | NonZeroAgentExitCodeError |
+
 ## 说明
 
 - Codex 有 3 个 success trial 因 `max_output_tokens` / `turn.completed` 缺失，成本为 missing。
-- OpenCode 有 2 个 trial 的本地 SQLite DB 缺失，工具并发无法观测。
-- 工具并发不等于多 Agent 并行；详细 trace 并发审计见交付报告。
+- LATTE 两种版本均未通过外部 verifier，Reward 1 为 0。
+- LATTE native 有 12 个 trial 没有可读的 `latte_result`，token/cost 记为 missing。
+- 工具并发不等于多 Agent 并行。
