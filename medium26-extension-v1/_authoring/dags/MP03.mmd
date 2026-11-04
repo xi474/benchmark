@@ -1,0 +1,21 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    fstab["fstab文本解析"]
+    aix["AIX段落解析"]
+    mount["Linux mount解析"]
+    merged["来源优先归并与冲突"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> fstab
+    input --> aix
+    input --> mount
+    fstab --> merged
+    aix --> merged
+    mount --> merged
+    fstab --> _core
+    aix --> _core
+    mount --> _core
+    merged --> _core
+    _core --> _report
+    _report --> _verify

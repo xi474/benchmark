@@ -1,0 +1,17 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    chunks["字节保真分块"]
+    layout["索引分块与目录布局"]
+    restore["容量验证及精确恢复"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> chunks
+    input --> layout
+    chunks --> layout
+    layout --> restore
+    chunks --> _core
+    layout --> _core
+    restore --> _core
+    _core --> _report
+    _report --> _verify

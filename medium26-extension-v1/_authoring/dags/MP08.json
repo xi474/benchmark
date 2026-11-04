@@ -1,0 +1,94 @@
+{
+  "id": "MP08",
+  "title": "节日照片迁移后发送与缺失报告",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "classify",
+      "label": "节日分类与缺失集合",
+      "kind": "work",
+      "folder": "products/classify",
+      "operation": "photo_classification"
+    },
+    {
+      "id": "migrate",
+      "label": "照片路径迁移",
+      "kind": "work",
+      "folder": "products/migrate",
+      "operation": "photo_migration"
+    },
+    {
+      "id": "outbox",
+      "label": "迁移后附件与报告",
+      "kind": "work",
+      "folder": "products/outbox",
+      "operation": "photo_outbox"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "classify"
+    },
+    {
+      "source": "input",
+      "target": "migrate"
+    },
+    {
+      "source": "classify",
+      "target": "migrate"
+    },
+    {
+      "source": "input",
+      "target": "outbox"
+    },
+    {
+      "source": "classify",
+      "target": "outbox"
+    },
+    {
+      "source": "migrate",
+      "target": "outbox"
+    },
+    {
+      "source": "classify",
+      "target": "_core"
+    },
+    {
+      "source": "migrate",
+      "target": "_core"
+    },
+    {
+      "source": "outbox",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

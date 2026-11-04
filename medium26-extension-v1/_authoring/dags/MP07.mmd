@@ -1,0 +1,18 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    receipts["附件摘要与成功回执"]
+    cleanup["独立目录清理"]
+    archive["成功门控与归档重放"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> receipts
+    input --> cleanup
+    input --> archive
+    receipts --> archive
+    cleanup --> archive
+    receipts --> _core
+    cleanup --> _core
+    archive --> _core
+    _core --> _report
+    _report --> _verify

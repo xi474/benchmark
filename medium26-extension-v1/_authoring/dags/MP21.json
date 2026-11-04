@@ -1,0 +1,82 @@
+{
+  "id": "MP21",
+  "title": "播放列表重写、条件查询与 M3U 导出",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "playlist",
+      "label": "完整替换及统计重建",
+      "kind": "work",
+      "folder": "playlist",
+      "operation": "playlist_replace"
+    },
+    {
+      "id": "query",
+      "label": "白名单条件SQL",
+      "kind": "work",
+      "folder": "query",
+      "operation": "playlist_query"
+    },
+    {
+      "id": "export",
+      "label": "半入舍入M3U导出",
+      "kind": "work",
+      "folder": "export",
+      "operation": "playlist_m3u"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "playlist"
+    },
+    {
+      "source": "input",
+      "target": "query"
+    },
+    {
+      "source": "playlist",
+      "target": "export"
+    },
+    {
+      "source": "playlist",
+      "target": "_core"
+    },
+    {
+      "source": "query",
+      "target": "_core"
+    },
+    {
+      "source": "export",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

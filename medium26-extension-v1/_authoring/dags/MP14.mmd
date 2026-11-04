@@ -1,0 +1,17 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    chain["异常因果链与抑制"]
+    frames["可移植帧及局部变量"]
+    report["异常报告重建"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> chain
+    input --> frames
+    chain --> report
+    frames --> report
+    chain --> _core
+    frames --> _core
+    report --> _core
+    _core --> _report
+    _report --> _verify

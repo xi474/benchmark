@@ -1,0 +1,16 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    cancellations["取消范围与通知快照"]
+    ride["研讨会提前叫车"]
+    books["书目条件与评分"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> cancellations
+    input --> ride
+    input --> books
+    cancellations --> _core
+    ride --> _core
+    books --> _core
+    _core --> _report
+    _report --> _verify

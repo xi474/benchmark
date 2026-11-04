@@ -1,0 +1,18 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    scanner["静态及相对导入扫描"]
+    dependencies["循环依赖与包初始化"]
+    payload["可重复ZIP载荷"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> scanner
+    input --> dependencies
+    scanner --> dependencies
+    input --> payload
+    dependencies --> payload
+    scanner --> _core
+    dependencies --> _core
+    payload --> _core
+    _core --> _report
+    _report --> _verify

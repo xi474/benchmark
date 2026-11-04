@@ -1,0 +1,22 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    schema["模式结构校验"]
+    attachments["嵌套附件编解码"]
+    references["分阶段引用检查"]
+    snapshot["原子快照及导出"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> schema
+    input --> attachments
+    schema --> references
+    input --> snapshot
+    schema --> snapshot
+    attachments --> snapshot
+    references --> snapshot
+    schema --> _core
+    attachments --> _core
+    references --> _core
+    snapshot --> _core
+    _core --> _report
+    _report --> _verify

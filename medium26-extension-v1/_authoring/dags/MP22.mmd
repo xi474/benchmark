@@ -1,0 +1,25 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    reader["有限MARC XML读取"]
+    names["作者标题与替代文字"]
+    languages["定长及分组语言代码"]
+    subjects["主题细分与次数"]
+    catalog["书目语义汇合"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> reader
+    reader --> names
+    input --> languages
+    reader --> languages
+    reader --> subjects
+    names --> catalog
+    languages --> catalog
+    subjects --> catalog
+    reader --> _core
+    names --> _core
+    languages --> _core
+    subjects --> _core
+    catalog --> _core
+    _core --> _report
+    _report --> _verify

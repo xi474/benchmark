@@ -1,0 +1,86 @@
+{
+  "id": "MP14",
+  "title": "异常链的可移植序列化与报告",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "chain",
+      "label": "异常因果链与抑制",
+      "kind": "work",
+      "folder": "chain",
+      "operation": "exception_chain"
+    },
+    {
+      "id": "frames",
+      "label": "可移植帧及局部变量",
+      "kind": "work",
+      "folder": "frames",
+      "operation": "portable_frames"
+    },
+    {
+      "id": "report",
+      "label": "异常报告重建",
+      "kind": "work",
+      "folder": "report",
+      "operation": "exception_report"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "chain"
+    },
+    {
+      "source": "input",
+      "target": "frames"
+    },
+    {
+      "source": "chain",
+      "target": "report"
+    },
+    {
+      "source": "frames",
+      "target": "report"
+    },
+    {
+      "source": "chain",
+      "target": "_core"
+    },
+    {
+      "source": "frames",
+      "target": "_core"
+    },
+    {
+      "source": "report",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

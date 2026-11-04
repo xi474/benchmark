@@ -1,0 +1,22 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    eu["欧盟任职资格"]
+    students["逐部门在读人数"]
+    countries["全部任职国家"]
+    query["存在性条件与国家汇合"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> eu
+    input --> students
+    input --> countries
+    input --> query
+    eu --> query
+    students --> query
+    countries --> query
+    eu --> _core
+    students --> _core
+    countries --> _core
+    query --> _core
+    _core --> _report
+    _report --> _verify

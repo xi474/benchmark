@@ -1,0 +1,20 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    fit["成员筛选与拟合记录"]
+    hard["硬加权投票"]
+    soft["概率列对齐与软投票"]
+    comparison["两路结果比较"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> fit
+    fit --> hard
+    fit --> soft
+    hard --> comparison
+    soft --> comparison
+    fit --> _core
+    hard --> _core
+    soft --> _core
+    comparison --> _core
+    _core --> _report
+    _report --> _verify

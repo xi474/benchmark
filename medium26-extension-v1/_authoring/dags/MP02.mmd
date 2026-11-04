@@ -1,0 +1,18 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    index["坐标索引与旁观轴"]
+    attributes["属性优先级与冲突"]
+    table["按坐标装配数据"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> index
+    input --> attributes
+    input --> table
+    index --> table
+    attributes --> table
+    index --> _core
+    attributes --> _core
+    table --> _core
+    _core --> _report
+    _report --> _verify

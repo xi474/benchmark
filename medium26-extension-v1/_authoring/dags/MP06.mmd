@@ -1,0 +1,17 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    calendar["取消目标及前置快照"]
+    channels["联系人渠道与回退"]
+    notifications["取消后多渠道通知"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> calendar
+    input --> channels
+    calendar --> notifications
+    channels --> notifications
+    calendar --> _core
+    channels --> _core
+    notifications --> _core
+    _core --> _report
+    _report --> _verify

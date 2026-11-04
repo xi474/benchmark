@@ -54,3 +54,15 @@ Do not mount the whole repository as an agent workspace.
 Each task includes SVG/PNG diagrams, editable Mermaid source, and validated
 dependency data. Diagrams are author-only metadata; keep them outside agent
 mounts along with the rest of `_authoring/`.
+
+## Medium26 extension v1
+
+The [Medium26 add-on](medium26-extension-v1/README.md) adds 26 tasks with a medium design target, adapted from SWE-bench Verified, SWE-bench Pro, Terminal-Bench and GAIA2. It preserves the four suite styles: 9 multistage4, 7 reasoning4, 5 context8 and 5 linux2 tasks, using only the Python standard library.
+
+See the [Chinese task catalogue and author DAGs](medium26-extension-v1/docs/26题中文目录与DAG.md), [current difficulty standard](medium26-extension-v1/docs/难度分级标准_v1.1.md), [validation report](medium26-extension-v1/review/交付与验收.md), and [Agent-only archive](medium26-extension-v1-agent.zip). Reference solutions, hidden probes and author diagrams are kept outside each initial workspace. Difficulty and parallel speedup remain uncalibrated by model experiments.
+
+## Reward evaluation v2
+
+[Evaluation v2](evaluation-v2/README.md) adds fixed-count partial credit without changing existing task inputs or requirements. Easy, medium and hard tasks have maximum rewards of 1, 2 and 3; each reward is the difficulty maximum multiplied by passed verifiers divided by the task's fixed verifier count. It retains existing checks, records all results, and gives zero for protected-file tampering. Original binary scores remain versioned separately.
+
+See the [policy](evaluation-v2/policy.json), [fixed catalog](evaluation-v2/catalog.json), [offline five-task re-score](evaluation-v2/review/离线重评分.md), and [validation report](evaluation-v2/review/validation_report.json). Future Harbor runs should use the new external test adapter so fractional rewards are read directly instead of mapped from exit status.

@@ -1,0 +1,86 @@
+{
+  "id": "MP17",
+  "title": "文本、内联内容和文件的 multipart 组装",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "parts",
+      "label": "部件类型与MIME元数据",
+      "kind": "work",
+      "folder": "parts",
+      "operation": "multipart_parts"
+    },
+    {
+      "id": "encoding",
+      "label": "内联与文件载荷编码",
+      "kind": "work",
+      "folder": "encoding",
+      "operation": "multipart_encoding"
+    },
+    {
+      "id": "body",
+      "label": "边界及请求体组装",
+      "kind": "work",
+      "folder": "body",
+      "operation": "multipart_body"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "parts"
+    },
+    {
+      "source": "parts",
+      "target": "encoding"
+    },
+    {
+      "source": "input",
+      "target": "body"
+    },
+    {
+      "source": "encoding",
+      "target": "body"
+    },
+    {
+      "source": "parts",
+      "target": "_core"
+    },
+    {
+      "source": "encoding",
+      "target": "_core"
+    },
+    {
+      "source": "body",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

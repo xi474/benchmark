@@ -1,0 +1,18 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    classification["文本票据分类"]
+    amounts["金额标签与精确小数"]
+    archive["字节归档与CSV汇总"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> classification
+    input --> amounts
+    input --> archive
+    classification --> archive
+    amounts --> archive
+    classification --> _core
+    amounts --> _core
+    archive --> _core
+    _core --> _report
+    _report --> _verify
