@@ -1,0 +1,145 @@
+{
+  "shards": [
+    {
+      "id": "s0",
+      "quorum": 1,
+      "min_regions": 1
+    },
+    {
+      "id": "s1",
+      "quorum": 1,
+      "min_regions": 2
+    },
+    {
+      "id": "s2",
+      "quorum": 2,
+      "min_regions": 1
+    }
+  ],
+  "hosts": [
+    {
+      "id": "h0",
+      "region": "r1",
+      "capacity": 2
+    },
+    {
+      "id": "h1",
+      "region": "r0",
+      "capacity": 2
+    },
+    {
+      "id": "h2",
+      "region": "r2",
+      "capacity": 2
+    },
+    {
+      "id": "h3",
+      "region": "r2",
+      "capacity": 3
+    }
+  ],
+  "replicas": [
+    {
+      "id": "x0",
+      "shard": "s1",
+      "host": "h3",
+      "cost": 3,
+      "lag": 2,
+      "healthy": true
+    },
+    {
+      "id": "x1",
+      "shard": "s0",
+      "host": "h2",
+      "cost": 2,
+      "lag": 5,
+      "healthy": true
+    },
+    {
+      "id": "x2",
+      "shard": "s1",
+      "host": "h1",
+      "cost": 1,
+      "lag": 3,
+      "healthy": true
+    },
+    {
+      "id": "x3",
+      "shard": "s2",
+      "host": "h3",
+      "cost": 3,
+      "lag": 0,
+      "healthy": false
+    },
+    {
+      "id": "x4",
+      "shard": "s2",
+      "host": "h2",
+      "cost": 5,
+      "lag": 3,
+      "healthy": true
+    },
+    {
+      "id": "x5",
+      "shard": "s0",
+      "host": "h3",
+      "cost": 5,
+      "lag": 1,
+      "healthy": true
+    },
+    {
+      "id": "x6",
+      "shard": "s2",
+      "host": "h3",
+      "cost": 0,
+      "lag": 6,
+      "healthy": true
+    },
+    {
+      "id": "x7",
+      "shard": "s1",
+      "host": "h3",
+      "cost": 3,
+      "lag": 5,
+      "healthy": false
+    },
+    {
+      "id": "x8",
+      "shard": "s2",
+      "host": "h3",
+      "cost": 1,
+      "lag": 6,
+      "healthy": true
+    },
+    {
+      "id": "x9",
+      "shard": "s1",
+      "host": "h2",
+      "cost": 4,
+      "lag": 2,
+      "healthy": true
+    },
+    {
+      "id": "x10",
+      "shard": "s1",
+      "host": "h3",
+      "cost": 4,
+      "lag": 1,
+      "healthy": true
+    },
+    {
+      "id": "x11",
+      "shard": "s2",
+      "host": "h0",
+      "cost": 5,
+      "lag": 7,
+      "healthy": true
+    }
+  ],
+  "budget": 17,
+  "max_lag": 7,
+  "policy": {
+    "routing_lag": 0,
+    "host_reserve": 1
+  }
+}

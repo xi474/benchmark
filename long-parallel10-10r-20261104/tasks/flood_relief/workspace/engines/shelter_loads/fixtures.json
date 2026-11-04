@@ -1,0 +1,2358 @@
+[
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 1,
+          "max_count": 4,
+          "fee": 3,
+          "classes": [
+            "c",
+            "a",
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 1,
+          "volume_capacity": 3,
+          "max_count": 1,
+          "fee": 1,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 11,
+          "volume_capacity": 5,
+          "max_count": 0,
+          "fee": 4,
+          "classes": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "b",
+          "mass": 3,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 1,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 1
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 1,
+          "max_count": 4,
+          "fee": 3,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 1,
+          "volume_capacity": 3,
+          "max_count": 1,
+          "fee": 1,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 11,
+          "volume_capacity": 5,
+          "max_count": 0,
+          "fee": 4,
+          "classes": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "b",
+          "mass": 3,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 1,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 1,
+          "max_count": 4,
+          "fee": 3,
+          "classes": [
+            "c",
+            "a",
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 1,
+          "volume_capacity": 3,
+          "max_count": 1,
+          "fee": 1,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 11,
+          "volume_capacity": 5,
+          "max_count": 0,
+          "fee": 4,
+          "classes": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "b",
+          "mass": 3,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 1,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 8,
+        "reserved_mass": 1
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 1,
+          "max_count": 4,
+          "fee": 3,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 1,
+          "volume_capacity": 3,
+          "max_count": 1,
+          "fee": 1,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 11,
+          "volume_capacity": 5,
+          "max_count": 0,
+          "fee": 4,
+          "classes": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "b",
+          "mass": 3,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 1,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 8,
+        "reserved_mass": 1
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "profit": 8,
+      "fee": 3,
+      "used_bins": [
+        "b0"
+      ],
+      "assignments": [
+        {
+          "item": "i1",
+          "bin": "b0"
+        }
+      ],
+      "rejected": [
+        "i0",
+        "i2"
+      ]
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 7,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ],
+        [
+          "i2",
+          "i3"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 0
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 7,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ],
+        [
+          "i2",
+          "i3"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "profit": 28,
+      "fee": 4,
+      "used_bins": [
+        "b0",
+        "b1"
+      ],
+      "assignments": [
+        {
+          "item": "i0",
+          "bin": "b0"
+        },
+        {
+          "item": "i1",
+          "bin": "b1"
+        },
+        {
+          "item": "i2",
+          "bin": "b0"
+        },
+        {
+          "item": "i3",
+          "bin": "b1"
+        },
+        {
+          "item": "i4",
+          "bin": "b0"
+        },
+        {
+          "item": "i5",
+          "bin": "b0"
+        },
+        {
+          "item": "i6",
+          "bin": "b1"
+        }
+      ],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 7,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ],
+        [
+          "i2",
+          "i3"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 8
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 7,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ],
+        [
+          "i2",
+          "i3"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 8
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 6,
+          "max_count": 0,
+          "fee": 1,
+          "classes": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 2,
+          "volume_capacity": 11,
+          "max_count": 1,
+          "fee": 1,
+          "classes": [
+            "a",
+            "c",
+            "b"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 3,
+          "volume_capacity": 0,
+          "max_count": 3,
+          "fee": 4,
+          "classes": []
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 4,
+          "volume": 2,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 4,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "d",
+          "mass": 2,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "a",
+          "mass": 2,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "d",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 1
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 6,
+          "max_count": 0,
+          "fee": 1,
+          "classes": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 2,
+          "volume_capacity": 11,
+          "max_count": 1,
+          "fee": 1,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 3,
+          "volume_capacity": 0,
+          "max_count": 3,
+          "fee": 4,
+          "classes": []
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 4,
+          "volume": 2,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 4,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "d",
+          "mass": 2,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "a",
+          "mass": 2,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "d",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 7,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ],
+        [
+          "i2",
+          "i3"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 2
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 9,
+          "volume_capacity": 9,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 2,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i6",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 7,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ],
+        [
+          "i2",
+          "i3"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 2
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "profit": 28,
+      "fee": 4,
+      "used_bins": [
+        "b0",
+        "b1"
+      ],
+      "assignments": [
+        {
+          "item": "i0",
+          "bin": "b0"
+        },
+        {
+          "item": "i1",
+          "bin": "b1"
+        },
+        {
+          "item": "i2",
+          "bin": "b0"
+        },
+        {
+          "item": "i3",
+          "bin": "b1"
+        },
+        {
+          "item": "i4",
+          "bin": "b0"
+        },
+        {
+          "item": "i5",
+          "bin": "b0"
+        },
+        {
+          "item": "i6",
+          "bin": "b1"
+        }
+      ],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 11,
+          "max_count": 0,
+          "fee": 1,
+          "classes": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "items": [],
+      "conflicts": [],
+      "policy": {
+        "critical_profit": 2,
+        "reserved_mass": 0
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 11,
+          "volume_capacity": 11,
+          "max_count": 0,
+          "fee": 1,
+          "classes": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "items": [],
+      "conflicts": [],
+      "policy": {
+        "critical_profit": 2,
+        "reserved_mass": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 6,
+          "volume_capacity": 0,
+          "max_count": 2,
+          "fee": 2,
+          "classes": [
+            "c",
+            "b",
+            "a"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 7,
+          "volume_capacity": 8,
+          "max_count": 4,
+          "fee": 3,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [],
+      "conflicts": [],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 1
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 6,
+          "volume_capacity": 0,
+          "max_count": 2,
+          "fee": 2,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 7,
+          "volume_capacity": 8,
+          "max_count": 4,
+          "fee": 3,
+          "classes": [
+            "c"
+          ]
+        }
+      ],
+      "items": [],
+      "conflicts": [],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 1
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 7,
+          "max_count": 3,
+          "fee": 1,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 6,
+          "volume_capacity": 0,
+          "max_count": 3,
+          "fee": 3,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 3,
+          "volume_capacity": 7,
+          "max_count": 4,
+          "fee": 4,
+          "classes": [
+            "b"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 4,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "a",
+          "mass": 2,
+          "volume": 3,
+          "profit": 7,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "d",
+          "mass": 3,
+          "volume": 1,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 1,
+          "volume": 4,
+          "profit": 4,
+          "mandatory": true
+        },
+        {
+          "id": "i4",
+          "category": "b",
+          "mass": 2,
+          "volume": 1,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "b",
+          "mass": 2,
+          "volume": 4,
+          "profit": 3,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 2
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 7,
+          "max_count": 3,
+          "fee": 1,
+          "classes": [
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 6,
+          "volume_capacity": 0,
+          "max_count": 3,
+          "fee": 3,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b2",
+          "mass_capacity": 3,
+          "volume_capacity": 7,
+          "max_count": 4,
+          "fee": 4,
+          "classes": [
+            "b"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 4,
+          "volume": 2,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "a",
+          "mass": 2,
+          "volume": 3,
+          "profit": 7,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "d",
+          "mass": 3,
+          "volume": 1,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 1,
+          "volume": 4,
+          "profit": 4,
+          "mandatory": true
+        },
+        {
+          "id": "i4",
+          "category": "b",
+          "mass": 2,
+          "volume": 1,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "b",
+          "mass": 2,
+          "volume": 4,
+          "profit": 3,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 2
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [],
+      "items": [],
+      "conflicts": [],
+      "policy": {
+        "critical_profit": 2,
+        "reserved_mass": 0
+      }
+    },
+    "normalized": {
+      "bins": [],
+      "items": [],
+      "conflicts": [],
+      "policy": {
+        "critical_profit": 2,
+        "reserved_mass": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 1,
+          "volume": 3,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "b",
+          "mass": 4,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": true
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 3,
+          "volume": 1,
+          "profit": 0,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 0
+      }
+    },
+    "normalized": {
+      "bins": [],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 1,
+          "volume": 3,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "b",
+          "mass": 4,
+          "volume": 2,
+          "profit": 4,
+          "mandatory": true
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 3,
+          "volume": 1,
+          "profit": 0,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 0
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 1,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "d",
+          "mass": 2,
+          "volume": 4,
+          "profit": 8,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 1
+      }
+    },
+    "normalized": {
+      "bins": [],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 1,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "d",
+          "mass": 2,
+          "volume": 4,
+          "profit": 8,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 1,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "d",
+          "mass": 4,
+          "volume": 4,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "a",
+          "mass": 1,
+          "volume": 1,
+          "profit": 4,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 3,
+        "reserved_mass": 1
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 1,
+          "max_count": 4,
+          "fee": 2,
+          "classes": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "d",
+          "mass": 4,
+          "volume": 4,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "a",
+          "mass": 1,
+          "volume": 1,
+          "profit": 4,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 3,
+        "reserved_mass": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 0,
+          "volume_capacity": 8,
+          "max_count": 4,
+          "fee": 4,
+          "classes": [
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 7,
+          "volume_capacity": 4,
+          "max_count": 2,
+          "fee": 4,
+          "classes": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "a",
+          "mass": 3,
+          "volume": 2,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 4,
+          "volume": 1,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 4,
+          "volume": 1,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "d",
+          "mass": 4,
+          "volume": 4,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 6,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 0
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 0,
+          "volume_capacity": 8,
+          "max_count": 4,
+          "fee": 4,
+          "classes": [
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 7,
+          "volume_capacity": 4,
+          "max_count": 2,
+          "fee": 4,
+          "classes": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "b",
+          "mass": 3,
+          "volume": 3,
+          "profit": 2,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "a",
+          "mass": 3,
+          "volume": 2,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "c",
+          "mass": 4,
+          "volume": 1,
+          "profit": 6,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 4,
+          "volume": 1,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i4",
+          "category": "d",
+          "mass": 4,
+          "volume": 4,
+          "profit": 4,
+          "mandatory": false
+        },
+        {
+          "id": "i5",
+          "category": "c",
+          "mass": 1,
+          "volume": 1,
+          "profit": 6,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 0
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 5,
+          "max_count": 2,
+          "fee": 4,
+          "classes": [
+            "c",
+            "a",
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 5,
+          "volume_capacity": 8,
+          "max_count": 3,
+          "fee": 0,
+          "classes": []
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 3,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "d",
+          "mass": 2,
+          "volume": 4,
+          "profit": 5,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 2
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 5,
+          "max_count": 2,
+          "fee": 4,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 5,
+          "volume_capacity": 8,
+          "max_count": 3,
+          "fee": 0,
+          "classes": []
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "c",
+          "mass": 3,
+          "volume": 2,
+          "profit": 3,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "c",
+          "mass": 1,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": false
+        },
+        {
+          "id": "i2",
+          "category": "d",
+          "mass": 2,
+          "volume": 4,
+          "profit": 5,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 1,
+        "reserved_mass": 2
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 1,
+          "max_count": 2,
+          "fee": 1,
+          "classes": [
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 6,
+          "volume_capacity": 2,
+          "max_count": 3,
+          "fee": 3,
+          "classes": [
+            "b",
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "d",
+          "mass": 3,
+          "volume": 1,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "d",
+          "mass": 3,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i2",
+          "category": "a",
+          "mass": 3,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 2,
+          "volume": 3,
+          "profit": 1,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 0
+      }
+    },
+    "normalized": {
+      "bins": [
+        {
+          "id": "b0",
+          "mass_capacity": 10,
+          "volume_capacity": 1,
+          "max_count": 2,
+          "fee": 1,
+          "classes": [
+            "b"
+          ]
+        },
+        {
+          "id": "b1",
+          "mass_capacity": 6,
+          "volume_capacity": 2,
+          "max_count": 3,
+          "fee": 3,
+          "classes": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "i0",
+          "category": "d",
+          "mass": 3,
+          "volume": 1,
+          "profit": 5,
+          "mandatory": false
+        },
+        {
+          "id": "i1",
+          "category": "d",
+          "mass": 3,
+          "volume": 2,
+          "profit": 1,
+          "mandatory": true
+        },
+        {
+          "id": "i2",
+          "category": "a",
+          "mass": 3,
+          "volume": 1,
+          "profit": 8,
+          "mandatory": false
+        },
+        {
+          "id": "i3",
+          "category": "a",
+          "mass": 2,
+          "volume": 3,
+          "profit": 1,
+          "mandatory": false
+        }
+      ],
+      "conflicts": [
+        [
+          "i0",
+          "i1"
+        ]
+      ],
+      "policy": {
+        "critical_profit": 0,
+        "reserved_mass": 0
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "profit": 0,
+      "fee": 0,
+      "used_bins": [],
+      "assignments": [],
+      "rejected": []
+    }
+  }
+]

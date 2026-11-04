@@ -1,0 +1,63 @@
+{
+  "accounts": [
+    {
+      "id": "a",
+      "balance": 5,
+      "version": 0
+    }
+  ],
+  "events": [
+    {
+      "id": "a",
+      "seq": 0,
+      "tx": "x",
+      "kind": "begin"
+    },
+    {
+      "id": "b",
+      "seq": 1,
+      "tx": "y",
+      "kind": "begin"
+    },
+    {
+      "id": "c",
+      "seq": 2,
+      "tx": "x",
+      "kind": "debit",
+      "account": "a",
+      "amount": 3,
+      "expected_version": 0
+    },
+    {
+      "id": "d",
+      "seq": 3,
+      "tx": "y",
+      "kind": "credit",
+      "account": "a",
+      "amount": 9,
+      "expected_version": 0
+    },
+    {
+      "id": "e",
+      "seq": 4,
+      "tx": "x",
+      "kind": "commit"
+    },
+    {
+      "id": "f",
+      "seq": 5,
+      "tx": "y",
+      "kind": "commit"
+    },
+    {
+      "id": "g",
+      "seq": 6,
+      "tx": "z",
+      "kind": "commit"
+    }
+  ],
+  "policy": {
+    "debit_fee": 0,
+    "credit_holdback": 1
+  }
+}

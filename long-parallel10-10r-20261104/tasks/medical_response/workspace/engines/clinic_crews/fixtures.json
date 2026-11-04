@@ -1,0 +1,2850 @@
+[
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "c",
+            "a"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "c",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "b",
+            "c",
+            "a"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 1
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 1
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 19,
+      "affinity": -1,
+      "cost": 3,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t2"
+        },
+        {
+          "job": "j1",
+          "team": "t1"
+        },
+        {
+          "job": "j2",
+          "team": "t1"
+        },
+        {
+          "job": "j4",
+          "team": "t0"
+        },
+        {
+          "job": "j5",
+          "team": "t1"
+        }
+      ],
+      "rejected": [
+        "j3",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "c",
+            "a"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "c",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "b",
+            "c",
+            "a"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 8,
+        "isolation_gap": 1
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 8,
+        "isolation_gap": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "c",
+            "a"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "c",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "b",
+            "c",
+            "a"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 16,
+      "affinity": 1,
+      "cost": 3,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t2"
+        },
+        {
+          "job": "j1",
+          "team": "t1"
+        },
+        {
+          "job": "j4",
+          "team": "t0"
+        },
+        {
+          "job": "j5",
+          "team": "t1"
+        }
+      ],
+      "rejected": [
+        "j2",
+        "j3",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "c",
+            "a"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "c",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "b",
+            "c",
+            "a"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 8
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 8
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 13,
+      "affinity": 2,
+      "cost": 3,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t2"
+        },
+        {
+          "job": "j1",
+          "team": "t1"
+        },
+        {
+          "job": "j4",
+          "team": "t0"
+        }
+      ],
+      "rejected": [
+        "j2",
+        "j3",
+        "j5",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "c",
+            "a"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "c",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "b",
+            "c",
+            "a"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 1
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 5,
+          "end": 8,
+          "skills": [
+            "a"
+          ],
+          "load": 1,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j2",
+          "start": 0,
+          "end": 2,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 2,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j6",
+          "start": 1,
+          "end": 4,
+          "skills": [],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 3,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 0,
+            "j2": -2,
+            "j3": 2,
+            "j4": -2,
+            "j5": 1,
+            "j6": -1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": -2,
+            "j1": 1,
+            "j2": -2,
+            "j3": 3,
+            "j4": -1,
+            "j5": -1,
+            "j6": 4
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 2,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": -1,
+            "j3": 0,
+            "j4": 1,
+            "j5": 0,
+            "j6": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 1
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 19,
+      "affinity": -1,
+      "cost": 3,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t2"
+        },
+        {
+          "job": "j1",
+          "team": "t1"
+        },
+        {
+          "job": "j2",
+          "team": "t1"
+        },
+        {
+          "job": "j4",
+          "team": "t0"
+        },
+        {
+          "job": "j5",
+          "team": "t1"
+        }
+      ],
+      "rejected": [
+        "j3",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 0,
+          "end": 2,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 6,
+          "end": 8,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 9,
+          "end": 11,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 12,
+          "end": 14,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 15,
+          "end": 17,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "s"
+          ],
+          "capacity": 4,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j2": 0
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "s"
+          ],
+          "capacity": 4,
+          "cost": 2,
+          "travel_gap": 1,
+          "affinity": {
+            "j2": 3
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "s"
+          ],
+          "capacity": 4,
+          "cost": 3,
+          "travel_gap": 1,
+          "affinity": {
+            "j2": 6
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 2
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 0,
+          "end": 2,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 6,
+          "end": 8,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 9,
+          "end": 11,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j4",
+          "start": 12,
+          "end": 14,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 15,
+          "end": 17,
+          "skills": [
+            "s"
+          ],
+          "load": 1,
+          "priority": 2,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "s"
+          ],
+          "capacity": 4,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j2": 0
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "s"
+          ],
+          "capacity": 4,
+          "cost": 2,
+          "travel_gap": 1,
+          "affinity": {
+            "j2": 3
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "s"
+          ],
+          "capacity": 4,
+          "cost": 3,
+          "travel_gap": 1,
+          "affinity": {
+            "j2": 6
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 2
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 12,
+      "affinity": 6,
+      "cost": 10,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t0"
+        },
+        {
+          "job": "j1",
+          "team": "t1"
+        },
+        {
+          "job": "j2",
+          "team": "t2"
+        },
+        {
+          "job": "j3",
+          "team": "t0"
+        },
+        {
+          "job": "j4",
+          "team": "t1"
+        },
+        {
+          "job": "j5",
+          "team": "t0"
+        }
+      ],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 2,
+          "cost": 2,
+          "travel_gap": 0,
+          "affinity": {}
+        }
+      ],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 2,
+          "cost": 2,
+          "travel_gap": 0,
+          "affinity": {}
+        }
+      ],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 7,
+          "cost": 2,
+          "travel_gap": 1,
+          "affinity": {}
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "c",
+            "b",
+            "a"
+          ],
+          "capacity": 7,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {}
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 1
+      }
+    },
+    "normalized": {
+      "jobs": [],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 7,
+          "cost": 2,
+          "travel_gap": 1,
+          "affinity": {}
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 7,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {}
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 1
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 3,
+          "end": 4,
+          "skills": [
+            "b",
+            "c"
+          ],
+          "load": 1,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 0,
+          "end": 3,
+          "skills": [
+            "b"
+          ],
+          "load": 2,
+          "priority": 0,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 2,
+          "end": 3,
+          "skills": [],
+          "load": 1,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 5,
+          "end": 6,
+          "skills": [
+            "a",
+            "b"
+          ],
+          "load": 2,
+          "priority": 7,
+          "mandatory": true
+        },
+        {
+          "id": "j4",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "c",
+            "a"
+          ],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "b"
+          ],
+          "load": 2,
+          "priority": 0,
+          "mandatory": false
+        }
+      ],
+      "teams": [],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 2
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 3,
+          "end": 4,
+          "skills": [
+            "b",
+            "c"
+          ],
+          "load": 1,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 0,
+          "end": 3,
+          "skills": [
+            "b"
+          ],
+          "load": 2,
+          "priority": 0,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 2,
+          "end": 3,
+          "skills": [],
+          "load": 1,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 5,
+          "end": 6,
+          "skills": [
+            "a",
+            "b"
+          ],
+          "load": 2,
+          "priority": 7,
+          "mandatory": true
+        },
+        {
+          "id": "j4",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "a",
+            "c"
+          ],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "b"
+          ],
+          "load": 2,
+          "priority": 0,
+          "mandatory": false
+        }
+      ],
+      "teams": [],
+      "policy": {
+        "standby_capacity": 1,
+        "isolation_gap": 2
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [],
+      "teams": [],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [],
+      "teams": [],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a"
+          ],
+          "capacity": 6,
+          "cost": 1,
+          "travel_gap": 0,
+          "affinity": {}
+        }
+      ],
+      "policy": {
+        "standby_capacity": 3,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a"
+          ],
+          "capacity": 6,
+          "cost": 1,
+          "travel_gap": 0,
+          "affinity": {}
+        }
+      ],
+      "policy": {
+        "standby_capacity": 3,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 3,
+          "priority": 6,
+          "mandatory": true
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 5,
+          "cost": 3,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 4
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 2
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 3,
+          "priority": 6,
+          "mandatory": true
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 5,
+          "cost": 3,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 4
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 0,
+        "isolation_gap": 2
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 6,
+      "affinity": 4,
+      "cost": 9,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t0"
+        }
+      ],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 2,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "b",
+            "c"
+          ],
+          "load": 1,
+          "priority": 0,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "b"
+          ],
+          "load": 2,
+          "priority": 0,
+          "mandatory": true
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "b"
+          ],
+          "capacity": 3,
+          "cost": 0,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 4,
+            "j2": 4
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "b",
+            "a"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 4,
+            "j1": -1,
+            "j2": 4
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 2
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 3,
+          "end": 4,
+          "skills": [],
+          "load": 2,
+          "priority": 2,
+          "mandatory": true
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 5,
+          "skills": [
+            "b",
+            "c"
+          ],
+          "load": 1,
+          "priority": 0,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 7,
+          "skills": [
+            "a",
+            "b"
+          ],
+          "load": 2,
+          "priority": 0,
+          "mandatory": true
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "b"
+          ],
+          "capacity": 3,
+          "cost": 0,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": 4,
+            "j2": 4
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [
+            "a",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 4,
+            "j1": -1,
+            "j2": 4
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 2
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 1,
+          "end": 3,
+          "skills": [],
+          "load": 2,
+          "priority": 5,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 0,
+          "end": 1,
+          "skills": [],
+          "load": 1,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 3,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 2,
+          "end": 4,
+          "skills": [],
+          "load": 1,
+          "priority": 6,
+          "mandatory": true
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "c",
+            "b",
+            "a"
+          ],
+          "capacity": 0,
+          "cost": 2,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": 0,
+            "j3": 4
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [],
+          "capacity": 0,
+          "cost": 3,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 3,
+            "j1": -1,
+            "j2": 1,
+            "j3": 2
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "c",
+            "b"
+          ],
+          "capacity": 0,
+          "cost": 3,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": -1,
+            "j2": 1,
+            "j3": 1
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 1,
+          "end": 3,
+          "skills": [],
+          "load": 2,
+          "priority": 5,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 0,
+          "end": 1,
+          "skills": [],
+          "load": 1,
+          "priority": 6,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 4,
+          "end": 7,
+          "skills": [],
+          "load": 3,
+          "priority": 7,
+          "mandatory": false
+        },
+        {
+          "id": "j3",
+          "start": 2,
+          "end": 4,
+          "skills": [],
+          "load": 1,
+          "priority": 6,
+          "mandatory": true
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 0,
+          "cost": 2,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -2,
+            "j2": 0,
+            "j3": 4
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [],
+          "capacity": 0,
+          "cost": 3,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 3,
+            "j1": -1,
+            "j2": 1,
+            "j3": 2
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 0,
+          "cost": 3,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": -1,
+            "j1": -1,
+            "j2": 1,
+            "j3": 1
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 2,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "priority": 0,
+      "affinity": 0,
+      "cost": 0,
+      "assignments": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 1,
+          "end": 2,
+          "skills": [
+            "a"
+          ],
+          "load": 2,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 2,
+          "end": 5,
+          "skills": [
+            "b"
+          ],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 8,
+          "skills": [],
+          "load": 3,
+          "priority": 1,
+          "mandatory": true
+        },
+        {
+          "id": "j3",
+          "start": 5,
+          "end": 6,
+          "skills": [
+            "b"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -1,
+            "j2": 1,
+            "j3": -2
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 3,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 1,
+          "end": 2,
+          "skills": [
+            "a"
+          ],
+          "load": 2,
+          "priority": 4,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 2,
+          "end": 5,
+          "skills": [
+            "b"
+          ],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 8,
+          "skills": [],
+          "load": 3,
+          "priority": 1,
+          "mandatory": true
+        },
+        {
+          "id": "j3",
+          "start": 5,
+          "end": 6,
+          "skills": [
+            "b"
+          ],
+          "load": 2,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [
+            "a",
+            "b"
+          ],
+          "capacity": 8,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": -1,
+            "j2": 1,
+            "j3": -2
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 3,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 5,
+      "affinity": 4,
+      "cost": 5,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t0"
+        },
+        {
+          "job": "j2",
+          "team": "t0"
+        }
+      ],
+      "rejected": [
+        "j1",
+        "j3"
+      ]
+    }
+  },
+  {
+    "input": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 2,
+          "end": 5,
+          "skills": [],
+          "load": 1,
+          "priority": 5,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 0,
+          "end": 1,
+          "skills": [
+            "c",
+            "b"
+          ],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 7,
+          "cost": 1,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 0,
+            "j1": 1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [],
+          "capacity": 6,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": 1
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [],
+          "capacity": 1,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 1,
+            "j1": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 3,
+        "isolation_gap": 0
+      }
+    },
+    "normalized": {
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 2,
+          "end": 5,
+          "skills": [],
+          "load": 1,
+          "priority": 5,
+          "mandatory": false
+        },
+        {
+          "id": "j1",
+          "start": 0,
+          "end": 1,
+          "skills": [
+            "b",
+            "c"
+          ],
+          "load": 3,
+          "priority": 3,
+          "mandatory": false
+        }
+      ],
+      "teams": [
+        {
+          "id": "t0",
+          "skills": [],
+          "capacity": 7,
+          "cost": 1,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 0,
+            "j1": 1
+          }
+        },
+        {
+          "id": "t1",
+          "skills": [],
+          "capacity": 6,
+          "cost": 1,
+          "travel_gap": 1,
+          "affinity": {
+            "j0": 3,
+            "j1": 1
+          }
+        },
+        {
+          "id": "t2",
+          "skills": [],
+          "capacity": 1,
+          "cost": 0,
+          "travel_gap": 0,
+          "affinity": {
+            "j0": 1,
+            "j1": 3
+          }
+        }
+      ],
+      "policy": {
+        "standby_capacity": 3,
+        "isolation_gap": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "priority": 5,
+      "affinity": 3,
+      "cost": 1,
+      "assignments": [
+        {
+          "job": "j0",
+          "team": "t1"
+        }
+      ],
+      "rejected": [
+        "j1"
+      ]
+    }
+  }
+]

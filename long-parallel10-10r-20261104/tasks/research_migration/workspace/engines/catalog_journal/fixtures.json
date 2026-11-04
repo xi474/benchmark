@@ -1,0 +1,4224 @@
+[
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e19",
+          "seq": 34,
+          "tx": "t4",
+          "kind": "commit"
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 2
+        },
+        {
+          "id": "e17",
+          "seq": 14,
+          "tx": "t4",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e16",
+          "seq": 4,
+          "tx": "t4",
+          "kind": "begin"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e18",
+          "seq": 24,
+          "tx": "t4",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e16",
+          "seq": 4,
+          "tx": "t4",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e17",
+          "seq": 14,
+          "tx": "t4",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 2
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e18",
+          "seq": 24,
+          "tx": "t4",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e19",
+          "seq": 34,
+          "tx": "t4",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t2",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t3",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t4",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e9",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e13",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e17",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e10",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e18",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e19",
+          "seq": 34,
+          "tx": "t4",
+          "kind": "commit"
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 2
+        },
+        {
+          "id": "e17",
+          "seq": 14,
+          "tx": "t4",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e16",
+          "seq": 4,
+          "tx": "t4",
+          "kind": "begin"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e18",
+          "seq": 24,
+          "tx": "t4",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        }
+      ],
+      "policy": {
+        "opening_bonus": 8,
+        "large_debit_fee": 1
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e16",
+          "seq": 4,
+          "tx": "t4",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e17",
+          "seq": 14,
+          "tx": "t4",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 2
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e18",
+          "seq": 24,
+          "tx": "t4",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e19",
+          "seq": 34,
+          "tx": "t4",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 8,
+        "large_debit_fee": 1
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 19,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 8,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 12,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t2",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t3",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t4",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e9",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e13",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e17",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e10",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e18",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 5,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "a",
+          "seq": 0,
+          "tx": "x",
+          "kind": "begin"
+        },
+        {
+          "id": "b",
+          "seq": 1,
+          "tx": "y",
+          "kind": "begin"
+        },
+        {
+          "id": "c",
+          "seq": 2,
+          "tx": "x",
+          "kind": "debit",
+          "account": "a",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "d",
+          "seq": 3,
+          "tx": "y",
+          "kind": "credit",
+          "account": "a",
+          "amount": 9,
+          "expected_version": 0
+        },
+        {
+          "id": "e",
+          "seq": 4,
+          "tx": "x",
+          "kind": "commit"
+        },
+        {
+          "id": "f",
+          "seq": 5,
+          "tx": "y",
+          "kind": "commit"
+        },
+        {
+          "id": "g",
+          "seq": 6,
+          "tx": "z",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 0
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 5,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "a",
+          "seq": 0,
+          "tx": "x",
+          "kind": "begin"
+        },
+        {
+          "id": "b",
+          "seq": 1,
+          "tx": "y",
+          "kind": "begin"
+        },
+        {
+          "id": "c",
+          "seq": 2,
+          "tx": "x",
+          "kind": "debit",
+          "account": "a",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "d",
+          "seq": 3,
+          "tx": "y",
+          "kind": "credit",
+          "account": "a",
+          "amount": 9,
+          "expected_version": 0
+        },
+        {
+          "id": "e",
+          "seq": 4,
+          "tx": "x",
+          "kind": "commit"
+        },
+        {
+          "id": "f",
+          "seq": 5,
+          "tx": "y",
+          "kind": "commit"
+        },
+        {
+          "id": "g",
+          "seq": 6,
+          "tx": "z",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 0
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 3,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "x",
+          "status": "committed",
+          "reason": ""
+        },
+        {
+          "tx": "y",
+          "status": "rejected",
+          "reason": "version_conflict"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "g",
+          "reason": "not_open"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 5,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "a",
+          "seq": 0,
+          "tx": "x",
+          "kind": "begin"
+        },
+        {
+          "id": "b",
+          "seq": 1,
+          "tx": "y",
+          "kind": "begin"
+        },
+        {
+          "id": "c",
+          "seq": 2,
+          "tx": "x",
+          "kind": "debit",
+          "account": "a",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "d",
+          "seq": 3,
+          "tx": "y",
+          "kind": "credit",
+          "account": "a",
+          "amount": 9,
+          "expected_version": 0
+        },
+        {
+          "id": "e",
+          "seq": 4,
+          "tx": "x",
+          "kind": "commit"
+        },
+        {
+          "id": "f",
+          "seq": 5,
+          "tx": "y",
+          "kind": "commit"
+        },
+        {
+          "id": "g",
+          "seq": 6,
+          "tx": "z",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 8
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 5,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "a",
+          "seq": 0,
+          "tx": "x",
+          "kind": "begin"
+        },
+        {
+          "id": "b",
+          "seq": 1,
+          "tx": "y",
+          "kind": "begin"
+        },
+        {
+          "id": "c",
+          "seq": 2,
+          "tx": "x",
+          "kind": "debit",
+          "account": "a",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "d",
+          "seq": 3,
+          "tx": "y",
+          "kind": "credit",
+          "account": "a",
+          "amount": 9,
+          "expected_version": 0
+        },
+        {
+          "id": "e",
+          "seq": 4,
+          "tx": "x",
+          "kind": "commit"
+        },
+        {
+          "id": "f",
+          "seq": 5,
+          "tx": "y",
+          "kind": "commit"
+        },
+        {
+          "id": "g",
+          "seq": 6,
+          "tx": "z",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 8
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 15,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "x",
+          "status": "rejected",
+          "reason": "insufficient_funds"
+        },
+        {
+          "tx": "y",
+          "status": "committed",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "g",
+          "reason": "not_open"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e19",
+          "seq": 34,
+          "tx": "t4",
+          "kind": "commit"
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 2
+        },
+        {
+          "id": "e17",
+          "seq": 14,
+          "tx": "t4",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e16",
+          "seq": 4,
+          "tx": "t4",
+          "kind": "begin"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e18",
+          "seq": 24,
+          "tx": "t4",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e16",
+          "seq": 4,
+          "tx": "t4",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e17",
+          "seq": 14,
+          "tx": "t4",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 2
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e18",
+          "seq": 24,
+          "tx": "t4",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e19",
+          "seq": 34,
+          "tx": "t4",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 0,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t2",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t3",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t4",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e9",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e13",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e17",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e10",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e18",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 5,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "a",
+          "seq": 0,
+          "tx": "x",
+          "kind": "begin"
+        },
+        {
+          "id": "b",
+          "seq": 1,
+          "tx": "y",
+          "kind": "begin"
+        },
+        {
+          "id": "c",
+          "seq": 2,
+          "tx": "x",
+          "kind": "debit",
+          "account": "a",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "d",
+          "seq": 3,
+          "tx": "y",
+          "kind": "credit",
+          "account": "a",
+          "amount": 9,
+          "expected_version": 0
+        },
+        {
+          "id": "e",
+          "seq": 4,
+          "tx": "x",
+          "kind": "commit"
+        },
+        {
+          "id": "f",
+          "seq": 5,
+          "tx": "y",
+          "kind": "commit"
+        },
+        {
+          "id": "g",
+          "seq": 6,
+          "tx": "z",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 2
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 5,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "a",
+          "seq": 0,
+          "tx": "x",
+          "kind": "begin"
+        },
+        {
+          "id": "b",
+          "seq": 1,
+          "tx": "y",
+          "kind": "begin"
+        },
+        {
+          "id": "c",
+          "seq": 2,
+          "tx": "x",
+          "kind": "debit",
+          "account": "a",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "d",
+          "seq": 3,
+          "tx": "y",
+          "kind": "credit",
+          "account": "a",
+          "amount": 9,
+          "expected_version": 0
+        },
+        {
+          "id": "e",
+          "seq": 4,
+          "tx": "x",
+          "kind": "commit"
+        },
+        {
+          "id": "f",
+          "seq": 5,
+          "tx": "y",
+          "kind": "commit"
+        },
+        {
+          "id": "g",
+          "seq": 6,
+          "tx": "z",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 2
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a",
+          "balance": 1,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "x",
+          "status": "committed",
+          "reason": ""
+        },
+        {
+          "tx": "y",
+          "status": "rejected",
+          "reason": "version_conflict"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "g",
+          "reason": "not_open"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 3,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 11,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 2,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 1
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 6,
+          "expected_version": 1
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 0,
+          "expected_version": 1
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 1,
+          "expected_version": 1
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 2,
+        "large_debit_fee": 0
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 3,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 11,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 2,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 0,
+          "expected_version": 1
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 6,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 1
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 1,
+          "expected_version": 1
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 2,
+        "large_debit_fee": 0
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 5,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 13,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 2
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 6,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 0
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 0
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 6,
+          "expected_version": 2
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 6,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 6,
+          "expected_version": 2
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 0
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 11,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 6,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 1
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "aborted",
+          "reason": ""
+        },
+        {
+          "tx": "t1",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t2",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e9",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 6,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 7,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 3,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "abort"
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 1
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 2
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 0
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 2
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 6,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 7,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 3,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 2
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 2
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 2
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 8,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 0
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "aborted",
+          "reason": ""
+        },
+        {
+          "tx": "t1",
+          "status": "aborted",
+          "reason": ""
+        },
+        {
+          "tx": "t2",
+          "status": "aborted",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e10",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 0,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 9,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 0,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 1,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 1,
+          "expected_version": 1
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 1,
+          "expected_version": 2
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 2,
+        "large_debit_fee": 0
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 0,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 9,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 0,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 1,
+          "expected_version": 2
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 1,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 1,
+          "expected_version": 1
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 2,
+        "large_debit_fee": 0
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 2,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 11,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 2,
+          "version": 2
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "aborted",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 4,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 2
+        },
+        {
+          "id": "a2",
+          "balance": 1,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 2
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 1,
+          "expected_version": 0
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "abort"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 0
+        }
+      ],
+      "policy": {
+        "opening_bonus": 3,
+        "large_debit_fee": 0
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 4,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 2
+        },
+        {
+          "id": "a2",
+          "balance": 1,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 6,
+          "expected_version": 2
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 1,
+          "expected_version": 0
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "commit"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 3,
+        "large_debit_fee": 0
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 2
+        },
+        {
+          "id": "a1",
+          "balance": 4,
+          "version": 2
+        },
+        {
+          "id": "a2",
+          "balance": 4,
+          "version": 2
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t2",
+          "status": "aborted",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e10",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 2,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 2
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 0
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 2,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 1
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 7,
+          "expected_version": 2
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 0
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 8,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 2,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 3,
+          "version": 0
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "aborted",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 9,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 1,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 2,
+          "expected_version": 1
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 2,
+          "expected_version": 2
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 6,
+          "expected_version": 1
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 0
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 1,
+          "expected_version": 0
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 1
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 3
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 9,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 1,
+          "version": 1
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e8",
+          "seq": 2,
+          "tx": "t2",
+          "kind": "begin"
+        },
+        {
+          "id": "e12",
+          "seq": 3,
+          "tx": "t3",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 3,
+          "expected_version": 1
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 2,
+          "expected_version": 2
+        },
+        {
+          "id": "e9",
+          "seq": 12,
+          "tx": "t2",
+          "kind": "credit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 1
+        },
+        {
+          "id": "e13",
+          "seq": 13,
+          "tx": "t3",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 4,
+          "expected_version": 0
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 2
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 6,
+          "expected_version": 1
+        },
+        {
+          "id": "e10",
+          "seq": 22,
+          "tx": "t2",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 2,
+          "expected_version": 1
+        },
+        {
+          "id": "e14",
+          "seq": 23,
+          "tx": "t3",
+          "kind": "debit",
+          "account": "a0",
+          "amount": 1,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e11",
+          "seq": 32,
+          "tx": "t2",
+          "kind": "commit"
+        },
+        {
+          "id": "e15",
+          "seq": 33,
+          "tx": "t3",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 3
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 7,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 9,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 6,
+          "version": 2
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "aborted",
+          "reason": ""
+        },
+        {
+          "tx": "t1",
+          "status": "aborted",
+          "reason": ""
+        },
+        {
+          "tx": "t2",
+          "status": "committed",
+          "reason": ""
+        },
+        {
+          "tx": "t3",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e5",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e13",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e6",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e14",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 1,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 3,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 9,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 0
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 1,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 3,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 9,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 5,
+          "expected_version": 1
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 1
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 1,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 3,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 9,
+          "version": 0
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 8,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 11,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 2
+        },
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 2,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 3
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 8,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 11,
+          "version": 2
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e4",
+          "seq": 1,
+          "tx": "t1",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 2,
+          "expected_version": 0
+        },
+        {
+          "id": "e5",
+          "seq": 11,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a2",
+          "amount": 7,
+          "expected_version": 2
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e6",
+          "seq": 21,
+          "tx": "t1",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 6,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "commit"
+        },
+        {
+          "id": "e7",
+          "seq": 31,
+          "tx": "t1",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 1,
+        "large_debit_fee": 3
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 9,
+          "version": 1
+        },
+        {
+          "id": "a1",
+          "balance": 2,
+          "version": 0
+        },
+        {
+          "id": "a2",
+          "balance": 12,
+          "version": 2
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "rejected",
+          "reason": "version_mismatch"
+        },
+        {
+          "tx": "t1",
+          "status": "aborted",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e1",
+          "reason": "version_mismatch"
+        },
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 5,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 8,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 3
+      }
+    },
+    "normalized": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 5,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 8,
+          "version": 0
+        }
+      ],
+      "events": [
+        {
+          "id": "e0",
+          "seq": 0,
+          "tx": "t0",
+          "kind": "begin"
+        },
+        {
+          "id": "e1",
+          "seq": 10,
+          "tx": "t0",
+          "kind": "credit",
+          "account": "a0",
+          "amount": 3,
+          "expected_version": 0
+        },
+        {
+          "id": "e2",
+          "seq": 20,
+          "tx": "t0",
+          "kind": "debit",
+          "account": "a1",
+          "amount": 0,
+          "expected_version": 0
+        },
+        {
+          "id": "e3",
+          "seq": 30,
+          "tx": "t0",
+          "kind": "abort"
+        }
+      ],
+      "policy": {
+        "opening_bonus": 0,
+        "large_debit_fee": 3
+      }
+    },
+    "expected": {
+      "accounts": [
+        {
+          "id": "a0",
+          "balance": 5,
+          "version": 0
+        },
+        {
+          "id": "a1",
+          "balance": 1,
+          "version": 1
+        },
+        {
+          "id": "a2",
+          "balance": 8,
+          "version": 0
+        }
+      ],
+      "transactions": [
+        {
+          "tx": "t0",
+          "status": "aborted",
+          "reason": ""
+        }
+      ],
+      "rejected_events": [
+        {
+          "id": "e2",
+          "reason": "version_mismatch"
+        }
+      ]
+    }
+  }
+]

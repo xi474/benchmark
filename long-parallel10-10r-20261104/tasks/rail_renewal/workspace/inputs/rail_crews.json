@@ -1,0 +1,137 @@
+{
+  "jobs": [
+    {
+      "id": "j0",
+      "start": 5,
+      "end": 8,
+      "skills": [
+        "a"
+      ],
+      "load": 1,
+      "priority": 4,
+      "mandatory": false
+    },
+    {
+      "id": "j1",
+      "start": 3,
+      "end": 4,
+      "skills": [],
+      "load": 3,
+      "priority": 2,
+      "mandatory": true
+    },
+    {
+      "id": "j2",
+      "start": 0,
+      "end": 2,
+      "skills": [],
+      "load": 3,
+      "priority": 3,
+      "mandatory": false
+    },
+    {
+      "id": "j3",
+      "start": 3,
+      "end": 5,
+      "skills": [
+        "a",
+        "c"
+      ],
+      "load": 3,
+      "priority": 6,
+      "mandatory": false
+    },
+    {
+      "id": "j4",
+      "start": 4,
+      "end": 7,
+      "skills": [],
+      "load": 2,
+      "priority": 7,
+      "mandatory": false
+    },
+    {
+      "id": "j5",
+      "start": 5,
+      "end": 7,
+      "skills": [
+        "c",
+        "a"
+      ],
+      "load": 2,
+      "priority": 3,
+      "mandatory": false
+    },
+    {
+      "id": "j6",
+      "start": 1,
+      "end": 4,
+      "skills": [],
+      "load": 3,
+      "priority": 3,
+      "mandatory": false
+    }
+  ],
+  "teams": [
+    {
+      "id": "t0",
+      "skills": [],
+      "capacity": 3,
+      "cost": 1,
+      "travel_gap": 1,
+      "affinity": {
+        "j0": -1,
+        "j1": 0,
+        "j2": -2,
+        "j3": 2,
+        "j4": -2,
+        "j5": 1,
+        "j6": -1
+      }
+    },
+    {
+      "id": "t1",
+      "skills": [
+        "a",
+        "c",
+        "b"
+      ],
+      "capacity": 8,
+      "cost": 0,
+      "travel_gap": 0,
+      "affinity": {
+        "j0": -2,
+        "j1": 1,
+        "j2": -2,
+        "j3": 3,
+        "j4": -1,
+        "j5": -1,
+        "j6": 4
+      }
+    },
+    {
+      "id": "t2",
+      "skills": [
+        "b",
+        "c",
+        "a"
+      ],
+      "capacity": 2,
+      "cost": 1,
+      "travel_gap": 1,
+      "affinity": {
+        "j0": 3,
+        "j1": -2,
+        "j2": -1,
+        "j3": 0,
+        "j4": 1,
+        "j5": 0,
+        "j6": 3
+      }
+    }
+  ],
+  "policy": {
+    "mobilization_gap": 0,
+    "certification_cost": 1
+  }
+}

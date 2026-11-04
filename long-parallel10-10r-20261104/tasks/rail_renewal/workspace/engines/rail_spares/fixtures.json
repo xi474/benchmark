@@ -1,0 +1,2745 @@
+[
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 1
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 1
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 6,
+      "weight": 2,
+      "carbon": 2,
+      "overfill": 0,
+      "purchases": [
+        {
+          "offer": "o3",
+          "count": 1
+        },
+        {
+          "offer": "o5",
+          "count": 1
+        }
+      ],
+      "delivered": [
+        {
+          "sku": "a",
+          "quantity": 4
+        },
+        {
+          "sku": "b",
+          "quantity": 3
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 8,
+        "handling_fee": 1
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 8,
+        "handling_fee": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 0
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 4,
+      "weight": 4,
+      "carbon": 2,
+      "overfill": 3,
+      "purchases": [
+        {
+          "offer": "o4",
+          "count": 2
+        }
+      ],
+      "delivered": [
+        {
+          "sku": "a",
+          "quantity": 4
+        },
+        {
+          "sku": "b",
+          "quantity": 6
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 8
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 8
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 6,
+      "weight": 4,
+      "carbon": 2,
+      "overfill": 0,
+      "purchases": [
+        {
+          "offer": "o3",
+          "count": 1
+        },
+        {
+          "offer": "o5",
+          "count": 1
+        }
+      ],
+      "delivered": [
+        {
+          "sku": "a",
+          "quantity": 4
+        },
+        {
+          "sku": "b",
+          "quantity": 3
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 0
+        },
+        {
+          "id": "s2",
+          "quantity": 1
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            },
+            {
+              "sku": "s2",
+              "quantity": 1
+            }
+          ],
+          "price": 1,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 1,
+          "weight": 3,
+          "carbon": 1,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 4,
+          "weight": 0,
+          "carbon": 2,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o3",
+          "contents": [],
+          "price": 1,
+          "weight": 2,
+          "carbon": 1,
+          "limit": 2,
+          "group": "g0"
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s2",
+              "quantity": 3
+            }
+          ],
+          "price": 1,
+          "weight": 2,
+          "carbon": 0,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 1,
+          "weight": 0,
+          "carbon": 4,
+          "limit": 1,
+          "group": ""
+        },
+        {
+          "id": "o6",
+          "contents": [
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 4,
+          "weight": 3,
+          "carbon": 3,
+          "limit": 3,
+          "group": "g0"
+        }
+      ],
+      "max_spend": 4,
+      "max_weight": 8,
+      "max_carbon": 7,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 1
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 0
+        },
+        {
+          "id": "s2",
+          "quantity": 1
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            },
+            {
+              "sku": "s2",
+              "quantity": 1
+            }
+          ],
+          "price": 1,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 1,
+          "weight": 3,
+          "carbon": 1,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 4,
+          "weight": 0,
+          "carbon": 2,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o3",
+          "contents": [],
+          "price": 1,
+          "weight": 2,
+          "carbon": 1,
+          "limit": 2,
+          "group": "g0"
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s2",
+              "quantity": 3
+            }
+          ],
+          "price": 1,
+          "weight": 2,
+          "carbon": 0,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 1,
+          "weight": 0,
+          "carbon": 4,
+          "limit": 1,
+          "group": ""
+        },
+        {
+          "id": "o6",
+          "contents": [
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 4,
+          "weight": 3,
+          "carbon": 3,
+          "limit": 3,
+          "group": "g0"
+        }
+      ],
+      "max_spend": 4,
+      "max_weight": 8,
+      "max_carbon": 7,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 2
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "a",
+          "quantity": 4
+        },
+        {
+          "id": "b",
+          "quantity": 3
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 1
+            },
+            {
+              "sku": "b",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 0,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 2
+            },
+            {
+              "sku": "b",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "a",
+              "quantity": 3
+            },
+            {
+              "sku": "b",
+              "quantity": 1
+            }
+          ],
+          "price": 3,
+          "weight": 1,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        }
+      ],
+      "max_spend": 12,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 2
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 6,
+      "weight": 4,
+      "carbon": 2,
+      "overfill": 0,
+      "purchases": [
+        {
+          "offer": "o3",
+          "count": 1
+        },
+        {
+          "offer": "o5",
+          "count": 1
+        }
+      ],
+      "delivered": [
+        {
+          "sku": "a",
+          "quantity": 4
+        },
+        {
+          "sku": "b",
+          "quantity": 3
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 0
+        }
+      ],
+      "offers": [],
+      "max_spend": 4,
+      "max_weight": 9,
+      "max_carbon": 8,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 0
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 0
+        }
+      ],
+      "offers": [],
+      "max_spend": 4,
+      "max_weight": 9,
+      "max_carbon": 8,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": [
+        {
+          "sku": "s0",
+          "quantity": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 0
+        }
+      ],
+      "offers": [],
+      "max_spend": 9,
+      "max_weight": 5,
+      "max_carbon": 15,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 1
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 0
+        }
+      ],
+      "offers": [],
+      "max_spend": 9,
+      "max_weight": 5,
+      "max_carbon": 15,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 3
+        },
+        {
+          "id": "s2",
+          "quantity": 1
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s2",
+              "quantity": 4
+            }
+          ],
+          "price": 0,
+          "weight": 2,
+          "carbon": 1,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 1,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s1",
+              "quantity": 3
+            },
+            {
+              "sku": "s2",
+              "quantity": 4
+            }
+          ],
+          "price": 2,
+          "weight": 0,
+          "carbon": 1,
+          "limit": 0,
+          "group": ""
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            },
+            {
+              "sku": "s2",
+              "quantity": 2
+            }
+          ],
+          "price": 1,
+          "weight": 1,
+          "carbon": 3,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "s1",
+              "quantity": 3
+            },
+            {
+              "sku": "s2",
+              "quantity": 4
+            }
+          ],
+          "price": 1,
+          "weight": 2,
+          "carbon": 0,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 3
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            },
+            {
+              "sku": "s2",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 0,
+          "carbon": 1,
+          "limit": 2,
+          "group": ""
+        }
+      ],
+      "max_spend": 2,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 2
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 3
+        },
+        {
+          "id": "s2",
+          "quantity": 1
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s2",
+              "quantity": 4
+            }
+          ],
+          "price": 0,
+          "weight": 2,
+          "carbon": 1,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 1,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 3,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s1",
+              "quantity": 3
+            },
+            {
+              "sku": "s2",
+              "quantity": 4
+            }
+          ],
+          "price": 2,
+          "weight": 0,
+          "carbon": 1,
+          "limit": 0,
+          "group": ""
+        },
+        {
+          "id": "o3",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            },
+            {
+              "sku": "s2",
+              "quantity": 2
+            }
+          ],
+          "price": 1,
+          "weight": 1,
+          "carbon": 3,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o4",
+          "contents": [
+            {
+              "sku": "s1",
+              "quantity": 3
+            },
+            {
+              "sku": "s2",
+              "quantity": 4
+            }
+          ],
+          "price": 1,
+          "weight": 2,
+          "carbon": 0,
+          "limit": 1,
+          "group": "g0"
+        },
+        {
+          "id": "o5",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 3
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            },
+            {
+              "sku": "s2",
+              "quantity": 3
+            }
+          ],
+          "price": 2,
+          "weight": 0,
+          "carbon": 1,
+          "limit": 2,
+          "group": ""
+        }
+      ],
+      "max_spend": 2,
+      "max_weight": 10,
+      "max_carbon": 12,
+      "policy": {
+        "package_weight": 1,
+        "handling_fee": 2
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [],
+      "offers": [],
+      "max_spend": 15,
+      "max_weight": 9,
+      "max_carbon": 6,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 0
+      }
+    },
+    "normalized": {
+      "needs": [],
+      "offers": [],
+      "max_spend": 15,
+      "max_weight": 9,
+      "max_carbon": 6,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 0
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 4
+        },
+        {
+          "id": "s1",
+          "quantity": 3
+        },
+        {
+          "id": "s2",
+          "quantity": 1
+        }
+      ],
+      "offers": [],
+      "max_spend": 15,
+      "max_weight": 8,
+      "max_carbon": 2,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 3
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 4
+        },
+        {
+          "id": "s1",
+          "quantity": 3
+        },
+        {
+          "id": "s2",
+          "quantity": 1
+        }
+      ],
+      "offers": [],
+      "max_spend": 15,
+      "max_weight": 8,
+      "max_carbon": 2,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 3
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [],
+          "price": 0,
+          "weight": 2,
+          "carbon": 1,
+          "limit": 2,
+          "group": "g1"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g0"
+        },
+        {
+          "id": "o2",
+          "contents": [],
+          "price": 5,
+          "weight": 2,
+          "carbon": 0,
+          "limit": 2,
+          "group": ""
+        },
+        {
+          "id": "o3",
+          "contents": [],
+          "price": 4,
+          "weight": 2,
+          "carbon": 3,
+          "limit": 2,
+          "group": "g1"
+        },
+        {
+          "id": "o4",
+          "contents": [],
+          "price": 2,
+          "weight": 2,
+          "carbon": 4,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o5",
+          "contents": [],
+          "price": 3,
+          "weight": 0,
+          "carbon": 4,
+          "limit": 3,
+          "group": "g1"
+        }
+      ],
+      "max_spend": 15,
+      "max_weight": 12,
+      "max_carbon": 0,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 2
+      }
+    },
+    "normalized": {
+      "needs": [],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [],
+          "price": 0,
+          "weight": 2,
+          "carbon": 1,
+          "limit": 2,
+          "group": "g1"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 2,
+          "weight": 1,
+          "carbon": 1,
+          "limit": 3,
+          "group": "g0"
+        },
+        {
+          "id": "o2",
+          "contents": [],
+          "price": 5,
+          "weight": 2,
+          "carbon": 0,
+          "limit": 2,
+          "group": ""
+        },
+        {
+          "id": "o3",
+          "contents": [],
+          "price": 4,
+          "weight": 2,
+          "carbon": 3,
+          "limit": 2,
+          "group": "g1"
+        },
+        {
+          "id": "o4",
+          "contents": [],
+          "price": 2,
+          "weight": 2,
+          "carbon": 4,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o5",
+          "contents": [],
+          "price": 3,
+          "weight": 0,
+          "carbon": 4,
+          "limit": 3,
+          "group": "g1"
+        }
+      ],
+      "max_spend": 15,
+      "max_weight": 12,
+      "max_carbon": 0,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 2
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 4
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 5,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g1"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 0,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g0"
+        },
+        {
+          "id": "o2",
+          "contents": [],
+          "price": 3,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 2,
+          "group": ""
+        }
+      ],
+      "max_spend": 14,
+      "max_weight": 4,
+      "max_carbon": 8,
+      "policy": {
+        "package_weight": 3,
+        "handling_fee": 2
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 3
+        },
+        {
+          "id": "s1",
+          "quantity": 4
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            },
+            {
+              "sku": "s1",
+              "quantity": 2
+            }
+          ],
+          "price": 5,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g1"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 2
+            }
+          ],
+          "price": 3,
+          "weight": 0,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g0"
+        },
+        {
+          "id": "o2",
+          "contents": [],
+          "price": 3,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 2,
+          "group": ""
+        }
+      ],
+      "max_spend": 14,
+      "max_weight": 4,
+      "max_carbon": 8,
+      "policy": {
+        "package_weight": 3,
+        "handling_fee": 2
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 2
+        },
+        {
+          "id": "s1",
+          "quantity": 2
+        }
+      ],
+      "offers": [],
+      "max_spend": 7,
+      "max_weight": 6,
+      "max_carbon": 7,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 1
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 2
+        },
+        {
+          "id": "s1",
+          "quantity": 2
+        }
+      ],
+      "offers": [],
+      "max_spend": 7,
+      "max_weight": 6,
+      "max_carbon": 7,
+      "policy": {
+        "package_weight": 2,
+        "handling_fee": 1
+      }
+    },
+    "expected": {
+      "feasible": false,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  },
+  {
+    "input": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 1
+        },
+        {
+          "id": "s1",
+          "quantity": 0
+        },
+        {
+          "id": "s2",
+          "quantity": 2
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            }
+          ],
+          "price": 2,
+          "weight": 2,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s1",
+              "quantity": 4
+            },
+            {
+              "sku": "s2",
+              "quantity": 2
+            }
+          ],
+          "price": 1,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g0"
+        }
+      ],
+      "max_spend": 8,
+      "max_weight": 13,
+      "max_carbon": 10,
+      "policy": {
+        "package_weight": 3,
+        "handling_fee": 3
+      }
+    },
+    "normalized": {
+      "needs": [
+        {
+          "id": "s0",
+          "quantity": 1
+        },
+        {
+          "id": "s1",
+          "quantity": 0
+        },
+        {
+          "id": "s2",
+          "quantity": 2
+        }
+      ],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 4
+            }
+          ],
+          "price": 2,
+          "weight": 2,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [
+            {
+              "sku": "s0",
+              "quantity": 1
+            },
+            {
+              "sku": "s1",
+              "quantity": 4
+            },
+            {
+              "sku": "s2",
+              "quantity": 2
+            }
+          ],
+          "price": 1,
+          "weight": 3,
+          "carbon": 2,
+          "limit": 2,
+          "group": "g0"
+        }
+      ],
+      "max_spend": 8,
+      "max_weight": 13,
+      "max_carbon": 10,
+      "policy": {
+        "package_weight": 3,
+        "handling_fee": 3
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 4,
+      "weight": 6,
+      "carbon": 2,
+      "overfill": 4,
+      "purchases": [
+        {
+          "offer": "o1",
+          "count": 1
+        }
+      ],
+      "delivered": [
+        {
+          "sku": "s0",
+          "quantity": 1
+        },
+        {
+          "sku": "s1",
+          "quantity": 4
+        },
+        {
+          "sku": "s2",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "needs": [],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [],
+          "price": 5,
+          "weight": 0,
+          "carbon": 4,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 2,
+          "weight": 2,
+          "carbon": 4,
+          "limit": 1,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [],
+          "price": 4,
+          "weight": 0,
+          "carbon": 3,
+          "limit": 2,
+          "group": ""
+        },
+        {
+          "id": "o3",
+          "contents": [],
+          "price": 5,
+          "weight": 0,
+          "carbon": 0,
+          "limit": 1,
+          "group": "g1"
+        }
+      ],
+      "max_spend": 11,
+      "max_weight": 3,
+      "max_carbon": 13,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 2
+      }
+    },
+    "normalized": {
+      "needs": [],
+      "offers": [
+        {
+          "id": "o0",
+          "contents": [],
+          "price": 5,
+          "weight": 0,
+          "carbon": 4,
+          "limit": 0,
+          "group": "g0"
+        },
+        {
+          "id": "o1",
+          "contents": [],
+          "price": 2,
+          "weight": 2,
+          "carbon": 4,
+          "limit": 1,
+          "group": ""
+        },
+        {
+          "id": "o2",
+          "contents": [],
+          "price": 4,
+          "weight": 0,
+          "carbon": 3,
+          "limit": 2,
+          "group": ""
+        },
+        {
+          "id": "o3",
+          "contents": [],
+          "price": 5,
+          "weight": 0,
+          "carbon": 0,
+          "limit": 1,
+          "group": "g1"
+        }
+      ],
+      "max_spend": 11,
+      "max_weight": 3,
+      "max_carbon": 13,
+      "policy": {
+        "package_weight": 0,
+        "handling_fee": 2
+      }
+    },
+    "expected": {
+      "feasible": true,
+      "cost": 0,
+      "weight": 0,
+      "carbon": 0,
+      "overfill": 0,
+      "purchases": [],
+      "delivered": []
+    }
+  }
+]

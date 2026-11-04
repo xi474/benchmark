@@ -1,0 +1,1756 @@
+[
+  {
+    "input": {
+      "crew_capacity": 4,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 3,
+          "risk": 3,
+          "deps": [
+            "j0"
+          ]
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 1,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 0,
+        "energize_load": 1
+      }
+    },
+    "normalized": {
+      "crew_capacity": 4,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 3,
+          "risk": 3,
+          "deps": [
+            "j0"
+          ]
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 1,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 0,
+        "energize_load": 1
+      }
+    },
+    "expected": {
+      "score": 13,
+      "exposure": 8,
+      "selected": [
+        "j0",
+        "j5",
+        "j6"
+      ],
+      "rejected": [
+        "j1",
+        "j2",
+        "j3",
+        "j4"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 4,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 3,
+          "risk": 3,
+          "deps": [
+            "j0"
+          ]
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 1,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 8,
+        "energize_load": 1
+      }
+    },
+    "normalized": {
+      "crew_capacity": 4,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 3,
+          "risk": 3,
+          "deps": [
+            "j0"
+          ]
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 1,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 8,
+        "energize_load": 1
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": [
+        "j0",
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 5,
+      "power_capacity": 3,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 2,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 6,
+          "crew": 2,
+          "power": 3,
+          "priority": 3,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 8,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 1,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 2,
+          "end": 6,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 6,
+          "end": 10,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 1,
+          "deps": [
+            "j3"
+          ]
+        },
+        {
+          "id": "j5",
+          "start": 1,
+          "end": 4,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 2,
+          "end": 6,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 1,
+          "deps": [
+            "j5"
+          ]
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 0
+      }
+    },
+    "normalized": {
+      "crew_capacity": 5,
+      "power_capacity": 3,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 2,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 6,
+          "crew": 2,
+          "power": 3,
+          "priority": 3,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 8,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 1,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 2,
+          "end": 6,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 6,
+          "end": 10,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 1,
+          "deps": [
+            "j3"
+          ]
+        },
+        {
+          "id": "j5",
+          "start": 1,
+          "end": 4,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 2,
+          "end": 6,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 1,
+          "deps": [
+            "j5"
+          ]
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 0
+      }
+    },
+    "expected": {
+      "score": 16,
+      "exposure": 13,
+      "selected": [
+        "j0",
+        "j3",
+        "j4",
+        "j5"
+      ],
+      "rejected": [
+        "j1",
+        "j2",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 5,
+      "power_capacity": 3,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 2,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 6,
+          "crew": 2,
+          "power": 3,
+          "priority": 3,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 8,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 1,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 2,
+          "end": 6,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 6,
+          "end": 10,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 1,
+          "deps": [
+            "j3"
+          ]
+        },
+        {
+          "id": "j5",
+          "start": 1,
+          "end": 4,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 2,
+          "end": 6,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 1,
+          "deps": [
+            "j5"
+          ]
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 8
+      }
+    },
+    "normalized": {
+      "crew_capacity": 5,
+      "power_capacity": 3,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 2,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 6,
+          "crew": 2,
+          "power": 3,
+          "priority": 3,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 8,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 1,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 2,
+          "end": 6,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 6,
+          "end": 10,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 1,
+          "deps": [
+            "j3"
+          ]
+        },
+        {
+          "id": "j5",
+          "start": 1,
+          "end": 4,
+          "crew": 2,
+          "power": 0,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 2,
+          "end": 6,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 1,
+          "deps": [
+            "j5"
+          ]
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 8
+      }
+    },
+    "expected": {
+      "score": 12,
+      "exposure": 9,
+      "selected": [
+        "j0",
+        "j3",
+        "j5"
+      ],
+      "rejected": [
+        "j1",
+        "j2",
+        "j4",
+        "j6"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 4,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 3,
+          "risk": 3,
+          "deps": [
+            "j0"
+          ]
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 1,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 0,
+        "energize_load": 1
+      }
+    },
+    "normalized": {
+      "crew_capacity": 4,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 7,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 3,
+          "risk": 3,
+          "deps": [
+            "j0"
+          ]
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": [
+            "j1"
+          ]
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 1,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 1,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j6",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 1,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 0,
+        "energize_load": 1
+      }
+    },
+    "expected": {
+      "score": 13,
+      "exposure": 8,
+      "selected": [
+        "j0",
+        "j5",
+        "j6"
+      ],
+      "rejected": [
+        "j1",
+        "j2",
+        "j3",
+        "j4"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 1,
+      "power_capacity": 2,
+      "jobs": [
+        {
+          "id": "a",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 2,
+          "priority": 3,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "b",
+          "start": 2,
+          "end": 4,
+          "crew": 1,
+          "power": 2,
+          "priority": 3,
+          "risk": 1,
+          "deps": [
+            "a"
+          ]
+        },
+        {
+          "id": "c",
+          "start": 1,
+          "end": 3,
+          "crew": 1,
+          "power": 1,
+          "priority": 6,
+          "risk": 3,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 2
+      }
+    },
+    "normalized": {
+      "crew_capacity": 1,
+      "power_capacity": 2,
+      "jobs": [
+        {
+          "id": "a",
+          "start": 0,
+          "end": 2,
+          "crew": 1,
+          "power": 2,
+          "priority": 3,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "b",
+          "start": 2,
+          "end": 4,
+          "crew": 1,
+          "power": 2,
+          "priority": 3,
+          "risk": 1,
+          "deps": [
+            "a"
+          ]
+        },
+        {
+          "id": "c",
+          "start": 1,
+          "end": 3,
+          "crew": 1,
+          "power": 1,
+          "priority": 6,
+          "risk": 3,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 2
+      }
+    },
+    "expected": {
+      "score": 6,
+      "exposure": 6,
+      "selected": [
+        "c"
+      ],
+      "rejected": [
+        "a",
+        "b"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 1,
+      "power_capacity": 5,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 0
+      }
+    },
+    "normalized": {
+      "crew_capacity": 1,
+      "power_capacity": 5,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 0
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 5,
+      "power_capacity": 2,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 0,
+        "energize_load": 1
+      }
+    },
+    "normalized": {
+      "crew_capacity": 5,
+      "power_capacity": 2,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 0,
+        "energize_load": 1
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 2,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 9,
+          "crew": 3,
+          "power": 3,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 7,
+          "end": 9,
+          "crew": 1,
+          "power": 2,
+          "priority": 3,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 2,
+          "priority": 7,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 0,
+          "end": 2,
+          "crew": 3,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 7,
+          "end": 8,
+          "crew": 2,
+          "power": 0,
+          "priority": 2,
+          "risk": 0,
+          "deps": [
+            "j4"
+          ]
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 2
+      }
+    },
+    "normalized": {
+      "crew_capacity": 2,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 9,
+          "crew": 3,
+          "power": 3,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 3,
+          "end": 4,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 7,
+          "end": 9,
+          "crew": 1,
+          "power": 2,
+          "priority": 3,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j3",
+          "start": 3,
+          "end": 5,
+          "crew": 2,
+          "power": 2,
+          "priority": 7,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j4",
+          "start": 0,
+          "end": 2,
+          "crew": 3,
+          "power": 1,
+          "priority": 4,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j5",
+          "start": 7,
+          "end": 8,
+          "crew": 2,
+          "power": 0,
+          "priority": 2,
+          "risk": 0,
+          "deps": [
+            "j4"
+          ]
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 2
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": [
+        "j0",
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 0,
+      "power_capacity": 6,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 0
+      }
+    },
+    "normalized": {
+      "crew_capacity": 0,
+      "power_capacity": 6,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 0
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 5,
+      "power_capacity": 4,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 0,
+          "end": 1,
+          "crew": 3,
+          "power": 2,
+          "priority": 5,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 5,
+          "end": 6,
+          "crew": 3,
+          "power": 3,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 2,
+          "power": 3,
+          "priority": 4,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 3
+      }
+    },
+    "normalized": {
+      "crew_capacity": 5,
+      "power_capacity": 4,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 0,
+          "end": 1,
+          "crew": 3,
+          "power": 2,
+          "priority": 5,
+          "risk": 3,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 5,
+          "end": 6,
+          "crew": 3,
+          "power": 3,
+          "priority": 4,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 3,
+          "end": 7,
+          "crew": 2,
+          "power": 3,
+          "priority": 4,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 1,
+        "energize_load": 3
+      }
+    },
+    "expected": {
+      "score": 9,
+      "exposure": 5,
+      "selected": [
+        "j0",
+        "j1"
+      ],
+      "rejected": [
+        "j2"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 3,
+      "power_capacity": 2,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 0
+      }
+    },
+    "normalized": {
+      "crew_capacity": 3,
+      "power_capacity": 2,
+      "jobs": [],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 0
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 1,
+      "power_capacity": 0,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 7,
+          "end": 11,
+          "crew": 3,
+          "power": 0,
+          "priority": 0,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 3,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 6,
+          "end": 10,
+          "crew": 1,
+          "power": 3,
+          "priority": 1,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j3",
+          "start": 4,
+          "end": 7,
+          "crew": 2,
+          "power": 2,
+          "priority": 1,
+          "risk": 3,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 3,
+        "energize_load": 2
+      }
+    },
+    "normalized": {
+      "crew_capacity": 1,
+      "power_capacity": 0,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 7,
+          "end": 11,
+          "crew": 3,
+          "power": 0,
+          "priority": 0,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 1,
+          "end": 5,
+          "crew": 2,
+          "power": 3,
+          "priority": 5,
+          "risk": 1,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 6,
+          "end": 10,
+          "crew": 1,
+          "power": 3,
+          "priority": 1,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j3",
+          "start": 4,
+          "end": 7,
+          "crew": 2,
+          "power": 2,
+          "priority": 1,
+          "risk": 3,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 3,
+        "energize_load": 2
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": [
+        "j0",
+        "j1",
+        "j2",
+        "j3"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 0,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 10,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 2,
+          "end": 4,
+          "crew": 3,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 2,
+          "end": 4,
+          "crew": 1,
+          "power": 3,
+          "priority": 7,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 3,
+          "power": 0,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 3,
+        "energize_load": 0
+      }
+    },
+    "normalized": {
+      "crew_capacity": 0,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 6,
+          "end": 10,
+          "crew": 3,
+          "power": 3,
+          "priority": 0,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 2,
+          "end": 4,
+          "crew": 3,
+          "power": 0,
+          "priority": 6,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 2,
+          "end": 4,
+          "crew": 1,
+          "power": 3,
+          "priority": 7,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j3",
+          "start": 6,
+          "end": 8,
+          "crew": 3,
+          "power": 0,
+          "priority": 6,
+          "risk": 1,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 3,
+        "energize_load": 0
+      }
+    },
+    "expected": {
+      "score": 0,
+      "exposure": 0,
+      "selected": [],
+      "rejected": [
+        "j0",
+        "j1",
+        "j2",
+        "j3"
+      ]
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 2,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 1,
+          "end": 4,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 2,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 3,
+        "energize_load": 3
+      }
+    },
+    "normalized": {
+      "crew_capacity": 2,
+      "power_capacity": 1,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 1,
+          "end": 4,
+          "crew": 1,
+          "power": 0,
+          "priority": 6,
+          "risk": 2,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 3,
+        "energize_load": 3
+      }
+    },
+    "expected": {
+      "score": 6,
+      "exposure": 6,
+      "selected": [
+        "j0"
+      ],
+      "rejected": []
+    }
+  },
+  {
+    "input": {
+      "crew_capacity": 2,
+      "power_capacity": 4,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 0,
+          "end": 2,
+          "crew": 3,
+          "power": 0,
+          "priority": 5,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 10,
+          "crew": 2,
+          "power": 1,
+          "priority": 7,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 7,
+          "crew": 2,
+          "power": 1,
+          "priority": 5,
+          "risk": 2,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 3
+      }
+    },
+    "normalized": {
+      "crew_capacity": 2,
+      "power_capacity": 4,
+      "jobs": [
+        {
+          "id": "j0",
+          "start": 0,
+          "end": 2,
+          "crew": 3,
+          "power": 0,
+          "priority": 5,
+          "risk": 0,
+          "deps": []
+        },
+        {
+          "id": "j1",
+          "start": 7,
+          "end": 10,
+          "crew": 2,
+          "power": 1,
+          "priority": 7,
+          "risk": 2,
+          "deps": []
+        },
+        {
+          "id": "j2",
+          "start": 5,
+          "end": 7,
+          "crew": 2,
+          "power": 1,
+          "priority": 5,
+          "risk": 2,
+          "deps": []
+        }
+      ],
+      "policy": {
+        "spinning_reserve": 2,
+        "energize_load": 3
+      }
+    },
+    "expected": {
+      "score": 12,
+      "exposure": 10,
+      "selected": [
+        "j1",
+        "j2"
+      ],
+      "rejected": [
+        "j0"
+      ]
+    }
+  }
+]

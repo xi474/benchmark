@@ -1,0 +1,161 @@
+{
+  "scenarios": [
+    {
+      "id": "s0",
+      "loss": 11,
+      "weight": 2
+    },
+    {
+      "id": "s1",
+      "loss": 0,
+      "weight": 1
+    },
+    {
+      "id": "s2",
+      "loss": 4,
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "loss": 7,
+      "weight": 1
+    }
+  ],
+  "options": [
+    {
+      "id": "o0",
+      "cost": 5,
+      "group": "",
+      "deps": [],
+      "effects": [
+        {
+          "scenario": "s3",
+          "reduction": 1
+        }
+      ]
+    },
+    {
+      "id": "o1",
+      "cost": 1,
+      "group": "g1",
+      "deps": [],
+      "effects": [
+        {
+          "scenario": "s0",
+          "reduction": 6
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "cost": 4,
+      "group": "",
+      "deps": [
+        "o1"
+      ],
+      "effects": [
+        {
+          "scenario": "s3",
+          "reduction": 7
+        },
+        {
+          "scenario": "s0",
+          "reduction": 2
+        },
+        {
+          "scenario": "s2",
+          "reduction": 1
+        },
+        {
+          "scenario": "s1",
+          "reduction": 4
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "cost": 1,
+      "group": "g0",
+      "deps": [],
+      "effects": [
+        {
+          "scenario": "s1",
+          "reduction": 4
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "cost": 5,
+      "group": "",
+      "deps": [],
+      "effects": [
+        {
+          "scenario": "s2",
+          "reduction": 0
+        },
+        {
+          "scenario": "s3",
+          "reduction": 3
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "cost": 1,
+      "group": "g0",
+      "deps": [],
+      "effects": [
+        {
+          "scenario": "s0",
+          "reduction": 1
+        },
+        {
+          "scenario": "s2",
+          "reduction": 6
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "cost": 1,
+      "group": "g1",
+      "deps": [],
+      "effects": [
+        {
+          "scenario": "s1",
+          "reduction": 2
+        }
+      ]
+    }
+  ],
+  "synergies": [
+    {
+      "left": "o0",
+      "right": "o1",
+      "effects": [
+        {
+          "scenario": "s0",
+          "reduction": 7
+        },
+        {
+          "scenario": "s2",
+          "reduction": 0
+        },
+        {
+          "scenario": "s3",
+          "reduction": 2
+        },
+        {
+          "scenario": "s1",
+          "reduction": 2
+        }
+      ]
+    }
+  ],
+  "budget": 12,
+  "policy": {
+    "rain_loss": 0,
+    "mobilization_cost": 1
+  }
+}

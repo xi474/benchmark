@@ -1,0 +1,131 @@
+{
+  "clients": [
+    {
+      "id": "c0",
+      "weight": 1,
+      "deadline": 10,
+      "mandatory": true
+    },
+    {
+      "id": "c1",
+      "weight": 2,
+      "deadline": 10,
+      "mandatory": false
+    },
+    {
+      "id": "c2",
+      "weight": 3,
+      "deadline": 10,
+      "mandatory": false
+    },
+    {
+      "id": "c3",
+      "weight": 4,
+      "deadline": 10,
+      "mandatory": false
+    },
+    {
+      "id": "c4",
+      "weight": 5,
+      "deadline": 10,
+      "mandatory": false
+    }
+  ],
+  "windows": [
+    {
+      "id": "w0",
+      "start": 0,
+      "end": 2,
+      "cost": 1,
+      "clients": [
+        "c0",
+        "c1"
+      ],
+      "group": "g"
+    },
+    {
+      "id": "w1",
+      "start": 1,
+      "end": 3,
+      "cost": 1,
+      "clients": [
+        "c1",
+        "c2"
+      ],
+      "group": ""
+    },
+    {
+      "id": "w2",
+      "start": 2,
+      "end": 4,
+      "cost": 1,
+      "clients": [
+        "c2",
+        "c3"
+      ],
+      "group": ""
+    },
+    {
+      "id": "w3",
+      "start": 3,
+      "end": 5,
+      "cost": 1,
+      "clients": [
+        "c3",
+        "c4"
+      ],
+      "group": "g"
+    },
+    {
+      "id": "w4",
+      "start": 4,
+      "end": 6,
+      "cost": 1,
+      "clients": [
+        "c4",
+        "c0"
+      ],
+      "group": ""
+    },
+    {
+      "id": "w5",
+      "start": 5,
+      "end": 7,
+      "cost": 1,
+      "clients": [
+        "c0",
+        "c1"
+      ],
+      "group": ""
+    },
+    {
+      "id": "w6",
+      "start": 6,
+      "end": 8,
+      "cost": 1,
+      "clients": [
+        "c1",
+        "c2"
+      ],
+      "group": "g"
+    },
+    {
+      "id": "w7",
+      "start": 7,
+      "end": 9,
+      "cost": 1,
+      "clients": [
+        "c2",
+        "c3"
+      ],
+      "group": ""
+    }
+  ],
+  "budget": 4,
+  "cooldown": 1,
+  "max_windows": 3,
+  "policy": {
+    "loading_delay": 0,
+    "emergency_budget": 1
+  }
+}

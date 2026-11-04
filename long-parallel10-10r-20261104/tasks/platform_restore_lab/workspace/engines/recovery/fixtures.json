@@ -1,0 +1,2011 @@
+[
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 3,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        },
+        {
+          "id": "c3",
+          "importance": 3,
+          "parents": [
+            "c2"
+          ]
+        },
+        {
+          "id": "c4",
+          "importance": 1,
+          "parents": [
+            "c3"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 2,
+          "age": 5,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 4,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 4,
+          "duration": 4,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b3",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 1,
+          "duration": 4,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 4
+          }
+        },
+        {
+          "id": "b4",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 1,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {
+            "c0": 3
+          }
+        },
+        {
+          "id": "b5",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 2,
+          "duration": 2,
+          "cost": 4,
+          "requires_lsn": {
+            "c0": 5
+          }
+        },
+        {
+          "id": "b6",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 1,
+          "duration": 2,
+          "cost": 1,
+          "requires_lsn": {
+            "c1": 4
+          }
+        },
+        {
+          "id": "b7",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 3,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {
+            "c1": 7
+          }
+        },
+        {
+          "id": "b8",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 2,
+          "age": 4,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {
+            "c1": 0
+          }
+        },
+        {
+          "id": "b9",
+          "component": "c3",
+          "epoch": "e0",
+          "lsn": 0,
+          "age": 3,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c2": 2
+          }
+        },
+        {
+          "id": "b10",
+          "component": "c3",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 5,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {
+            "c2": 6
+          }
+        },
+        {
+          "id": "b11",
+          "component": "c3",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 2,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c2": 5
+          }
+        },
+        {
+          "id": "b12",
+          "component": "c4",
+          "epoch": "e1",
+          "lsn": 5,
+          "age": 5,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {
+            "c3": 4
+          }
+        },
+        {
+          "id": "b13",
+          "component": "c4",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 3,
+          "duration": 2,
+          "cost": 0,
+          "requires_lsn": {
+            "c3": 0
+          }
+        },
+        {
+          "id": "b14",
+          "component": "c4",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 0,
+          "duration": 0,
+          "cost": 3,
+          "requires_lsn": {
+            "c3": 2
+          }
+        }
+      ],
+      "time_budget": 1
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 3,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        },
+        {
+          "id": "c3",
+          "importance": 3,
+          "parents": [
+            "c2"
+          ]
+        },
+        {
+          "id": "c4",
+          "importance": 1,
+          "parents": [
+            "c3"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 2,
+          "age": 5,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 4,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b10",
+          "component": "c3",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 5,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {
+            "c2": 6
+          }
+        },
+        {
+          "id": "b11",
+          "component": "c3",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 2,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c2": 5
+          }
+        },
+        {
+          "id": "b12",
+          "component": "c4",
+          "epoch": "e1",
+          "lsn": 5,
+          "age": 5,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {
+            "c3": 4
+          }
+        },
+        {
+          "id": "b13",
+          "component": "c4",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 3,
+          "duration": 2,
+          "cost": 0,
+          "requires_lsn": {
+            "c3": 0
+          }
+        },
+        {
+          "id": "b14",
+          "component": "c4",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 0,
+          "duration": 0,
+          "cost": 3,
+          "requires_lsn": {
+            "c3": 2
+          }
+        },
+        {
+          "id": "b2",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 4,
+          "duration": 4,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b3",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 1,
+          "duration": 4,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 4
+          }
+        },
+        {
+          "id": "b4",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 1,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {
+            "c0": 3
+          }
+        },
+        {
+          "id": "b5",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 2,
+          "duration": 2,
+          "cost": 4,
+          "requires_lsn": {
+            "c0": 5
+          }
+        },
+        {
+          "id": "b6",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 1,
+          "duration": 2,
+          "cost": 1,
+          "requires_lsn": {
+            "c1": 4
+          }
+        },
+        {
+          "id": "b7",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 3,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {
+            "c1": 7
+          }
+        },
+        {
+          "id": "b8",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 2,
+          "age": 4,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {
+            "c1": 0
+          }
+        },
+        {
+          "id": "b9",
+          "component": "c3",
+          "epoch": "e0",
+          "lsn": 0,
+          "age": 3,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c2": 2
+          }
+        }
+      ],
+      "time_budget": 1
+    },
+    "expected": {
+      "importance": 8,
+      "staleness": 23,
+      "cost": 5,
+      "duration": 1,
+      "epoch": "e0",
+      "selected": [
+        {
+          "component": "c0",
+          "backup": "b1"
+        },
+        {
+          "component": "c1",
+          "backup": "b4"
+        }
+      ],
+      "missing": [
+        "c2",
+        "c3",
+        "c4"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "a",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "b",
+          "importance": 5,
+          "parents": [
+            "a"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "a0",
+          "component": "a",
+          "epoch": "e",
+          "lsn": 4,
+          "age": 1,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "a1",
+          "component": "a",
+          "epoch": "e",
+          "lsn": 9,
+          "age": 2,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b0",
+          "component": "b",
+          "epoch": "e",
+          "lsn": 8,
+          "age": 0,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {
+            "a": 7
+          }
+        }
+      ],
+      "time_budget": 2
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "a",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "b",
+          "importance": 5,
+          "parents": [
+            "a"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "a0",
+          "component": "a",
+          "epoch": "e",
+          "lsn": 4,
+          "age": 1,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "a1",
+          "component": "a",
+          "epoch": "e",
+          "lsn": 9,
+          "age": 2,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b0",
+          "component": "b",
+          "epoch": "e",
+          "lsn": 8,
+          "age": 0,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {
+            "a": 7
+          }
+        }
+      ],
+      "time_budget": 2
+    },
+    "expected": {
+      "importance": 7,
+      "staleness": 4,
+      "cost": 2,
+      "duration": 2,
+      "epoch": "e",
+      "selected": [
+        {
+          "component": "a",
+          "backup": "a1"
+        },
+        {
+          "component": "b",
+          "backup": "b0"
+        }
+      ],
+      "missing": []
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        }
+      ],
+      "backups": [],
+      "time_budget": 2
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        }
+      ],
+      "backups": [],
+      "time_budget": 2
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": [
+        "c0"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 3,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 0,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 4,
+          "age": 3,
+          "duration": 3,
+          "cost": 4,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 2,
+          "age": 4,
+          "duration": 3,
+          "cost": 0,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 0,
+          "duration": 2,
+          "cost": 0,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 3
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 3,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 0,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 4,
+          "age": 3,
+          "duration": 3,
+          "cost": 4,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 2,
+          "age": 4,
+          "duration": 3,
+          "cost": 0,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 0,
+          "duration": 2,
+          "cost": 0,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 3
+    },
+    "expected": {
+      "importance": 3,
+      "staleness": 9,
+      "cost": 4,
+      "duration": 3,
+      "epoch": "e1",
+      "selected": [
+        {
+          "component": "c0",
+          "backup": "b0"
+        }
+      ],
+      "missing": [
+        "c1"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 3,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 3,
+          "duration": 3,
+          "cost": 0,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 1,
+          "duration": 3,
+          "cost": 4,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 2,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b3",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 0,
+          "age": 4,
+          "duration": 1,
+          "cost": 2,
+          "requires_lsn": {
+            "c0": 7
+          }
+        },
+        {
+          "id": "b4",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 2,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c0": 1
+          }
+        },
+        {
+          "id": "b5",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 2,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c0": 3
+          }
+        },
+        {
+          "id": "b6",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 5,
+          "age": 1,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {
+            "c1": 6
+          }
+        }
+      ],
+      "time_budget": 3
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 3,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 3,
+          "duration": 3,
+          "cost": 0,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 1,
+          "duration": 3,
+          "cost": 4,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 2,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b3",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 0,
+          "age": 4,
+          "duration": 1,
+          "cost": 2,
+          "requires_lsn": {
+            "c0": 7
+          }
+        },
+        {
+          "id": "b4",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 2,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c0": 1
+          }
+        },
+        {
+          "id": "b5",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 2,
+          "duration": 0,
+          "cost": 1,
+          "requires_lsn": {
+            "c0": 3
+          }
+        },
+        {
+          "id": "b6",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 5,
+          "age": 1,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {
+            "c1": 6
+          }
+        }
+      ],
+      "time_budget": 3
+    },
+    "expected": {
+      "importance": 8,
+      "staleness": 11,
+      "cost": 5,
+      "duration": 3,
+      "epoch": "e1",
+      "selected": [
+        {
+          "component": "c0",
+          "backup": "b1"
+        },
+        {
+          "component": "c1",
+          "backup": "b4"
+        }
+      ],
+      "missing": [
+        "c2"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [],
+      "backups": [],
+      "time_budget": 13
+    },
+    "normalized": {
+      "components": [],
+      "backups": [],
+      "time_budget": 13
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": []
+    }
+  },
+  {
+    "input": {
+      "components": [],
+      "backups": [],
+      "time_budget": 14
+    },
+    "normalized": {
+      "components": [],
+      "backups": [],
+      "time_budget": 14
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": []
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 0,
+          "parents": []
+        },
+        {
+          "id": "c2",
+          "importance": 3,
+          "parents": [
+            "c1"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 1,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 0,
+          "age": 4,
+          "duration": 2,
+          "cost": 2,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 1,
+          "age": 0,
+          "duration": 0,
+          "cost": 4,
+          "requires_lsn": {
+            "c1": 4
+          }
+        },
+        {
+          "id": "b3",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 4,
+          "age": 0,
+          "duration": 4,
+          "cost": 1,
+          "requires_lsn": {
+            "c1": 4
+          }
+        }
+      ],
+      "time_budget": 8
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 0,
+          "parents": []
+        },
+        {
+          "id": "c2",
+          "importance": 3,
+          "parents": [
+            "c1"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 1,
+          "duration": 1,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 0,
+          "age": 4,
+          "duration": 2,
+          "cost": 2,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 1,
+          "age": 0,
+          "duration": 0,
+          "cost": 4,
+          "requires_lsn": {
+            "c1": 4
+          }
+        },
+        {
+          "id": "b3",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 4,
+          "age": 0,
+          "duration": 4,
+          "cost": 1,
+          "requires_lsn": {
+            "c1": 4
+          }
+        }
+      ],
+      "time_budget": 8
+    },
+    "expected": {
+      "importance": 5,
+      "staleness": 5,
+      "cost": 1,
+      "duration": 1,
+      "epoch": "e0",
+      "selected": [
+        {
+          "component": "c0",
+          "backup": "b0"
+        }
+      ],
+      "missing": [
+        "c1",
+        "c2"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [],
+      "backups": [],
+      "time_budget": 4
+    },
+    "normalized": {
+      "components": [],
+      "backups": [],
+      "time_budget": 4
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": []
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 1,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 5,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c3",
+          "importance": 1,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 2,
+          "age": 1,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 3,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c3",
+          "epoch": "e0",
+          "lsn": 5,
+          "age": 0,
+          "duration": 4,
+          "cost": 1,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 11
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 1,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 5,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 5,
+          "parents": []
+        },
+        {
+          "id": "c3",
+          "importance": 1,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 2,
+          "age": 1,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 3,
+          "age": 3,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c3",
+          "epoch": "e0",
+          "lsn": 5,
+          "age": 0,
+          "duration": 4,
+          "cost": 1,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 11
+    },
+    "expected": {
+      "importance": 5,
+      "staleness": 5,
+      "cost": 2,
+      "duration": 0,
+      "epoch": "e1",
+      "selected": [
+        {
+          "component": "c2",
+          "backup": "b0"
+        }
+      ],
+      "missing": [
+        "c0",
+        "c1",
+        "c3"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 1,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        },
+        {
+          "id": "c3",
+          "importance": 4,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 4,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 2,
+          "age": 4,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 3,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b3",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 2,
+          "duration": 3,
+          "cost": 3,
+          "requires_lsn": {
+            "c1": 0
+          }
+        },
+        {
+          "id": "b4",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 2,
+          "duration": 0,
+          "cost": 3,
+          "requires_lsn": {
+            "c1": 4
+          }
+        },
+        {
+          "id": "b5",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 0,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {
+            "c1": 6
+          }
+        },
+        {
+          "id": "b6",
+          "component": "c3",
+          "epoch": "e1",
+          "lsn": 2,
+          "age": 5,
+          "duration": 4,
+          "cost": 4,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 8
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 1,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        },
+        {
+          "id": "c3",
+          "importance": 4,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 3,
+          "age": 4,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 2,
+          "age": 4,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 3,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b3",
+          "component": "c2",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 2,
+          "duration": 3,
+          "cost": 3,
+          "requires_lsn": {
+            "c1": 0
+          }
+        },
+        {
+          "id": "b4",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 2,
+          "duration": 0,
+          "cost": 3,
+          "requires_lsn": {
+            "c1": 4
+          }
+        },
+        {
+          "id": "b5",
+          "component": "c2",
+          "epoch": "e1",
+          "lsn": 7,
+          "age": 0,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {
+            "c1": 6
+          }
+        },
+        {
+          "id": "b6",
+          "component": "c3",
+          "epoch": "e1",
+          "lsn": 2,
+          "age": 5,
+          "duration": 4,
+          "cost": 4,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 8
+    },
+    "expected": {
+      "importance": 4,
+      "staleness": 20,
+      "cost": 4,
+      "duration": 4,
+      "epoch": "e1",
+      "selected": [
+        {
+          "component": "c3",
+          "backup": "b6"
+        }
+      ],
+      "missing": [
+        "c0",
+        "c1",
+        "c2"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 5,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 3,
+          "duration": 3,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 7,
+          "age": 0,
+          "duration": 4,
+          "cost": 2,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 13
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 5,
+          "parents": [
+            "c0"
+          ]
+        },
+        {
+          "id": "c2",
+          "importance": 1,
+          "parents": [
+            "c1"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 3,
+          "duration": 3,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 7,
+          "age": 0,
+          "duration": 4,
+          "cost": 2,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 13
+    },
+    "expected": {
+      "importance": 2,
+      "staleness": 0,
+      "cost": 2,
+      "duration": 4,
+      "epoch": "e0",
+      "selected": [
+        {
+          "component": "c0",
+          "backup": "b1"
+        }
+      ],
+      "missing": [
+        "c1",
+        "c2"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 4,
+          "parents": [
+            "c0"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 0,
+          "age": 0,
+          "duration": 4,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 6
+          }
+        },
+        {
+          "id": "b1",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 2,
+          "duration": 0,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 7
+          }
+        }
+      ],
+      "time_budget": 9
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 2,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 4,
+          "parents": [
+            "c0"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 0,
+          "age": 0,
+          "duration": 4,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 6
+          }
+        },
+        {
+          "id": "b1",
+          "component": "c1",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 2,
+          "duration": 0,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 7
+          }
+        }
+      ],
+      "time_budget": 9
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": [
+        "c0",
+        "c1"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 0,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 5,
+          "age": 3,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 7,
+          "age": 0,
+          "duration": 1,
+          "cost": 0,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 6
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 5,
+          "parents": []
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 1,
+          "age": 0,
+          "duration": 4,
+          "cost": 3,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 5,
+          "age": 3,
+          "duration": 0,
+          "cost": 2,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 7,
+          "age": 0,
+          "duration": 1,
+          "cost": 0,
+          "requires_lsn": {}
+        }
+      ],
+      "time_budget": 6
+    },
+    "expected": {
+      "importance": 5,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 1,
+      "epoch": "e0",
+      "selected": [
+        {
+          "component": "c0",
+          "backup": "b2"
+        }
+      ],
+      "missing": []
+    }
+  },
+  {
+    "input": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 0,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 5,
+          "parents": [
+            "c0"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 7,
+          "age": 1,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 5,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 0,
+          "age": 3,
+          "duration": 2,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 3
+          }
+        },
+        {
+          "id": "b3",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 5,
+          "age": 2,
+          "duration": 2,
+          "cost": 1,
+          "requires_lsn": {
+            "c0": 6
+          }
+        }
+      ],
+      "time_budget": 3
+    },
+    "normalized": {
+      "components": [
+        {
+          "id": "c0",
+          "importance": 0,
+          "parents": []
+        },
+        {
+          "id": "c1",
+          "importance": 5,
+          "parents": [
+            "c0"
+          ]
+        }
+      ],
+      "backups": [
+        {
+          "id": "b0",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 7,
+          "age": 1,
+          "duration": 3,
+          "cost": 1,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b1",
+          "component": "c0",
+          "epoch": "e0",
+          "lsn": 6,
+          "age": 5,
+          "duration": 1,
+          "cost": 4,
+          "requires_lsn": {}
+        },
+        {
+          "id": "b2",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 0,
+          "age": 3,
+          "duration": 2,
+          "cost": 0,
+          "requires_lsn": {
+            "c0": 3
+          }
+        },
+        {
+          "id": "b3",
+          "component": "c1",
+          "epoch": "e1",
+          "lsn": 5,
+          "age": 2,
+          "duration": 2,
+          "cost": 1,
+          "requires_lsn": {
+            "c0": 6
+          }
+        }
+      ],
+      "time_budget": 3
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": [
+        "c0",
+        "c1"
+      ]
+    }
+  },
+  {
+    "input": {
+      "components": [],
+      "backups": [],
+      "time_budget": 13
+    },
+    "normalized": {
+      "components": [],
+      "backups": [],
+      "time_budget": 13
+    },
+    "expected": {
+      "importance": 0,
+      "staleness": 0,
+      "cost": 0,
+      "duration": 0,
+      "epoch": "",
+      "selected": [],
+      "missing": []
+    }
+  }
+]

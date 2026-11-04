@@ -1,0 +1,108 @@
+{
+  "shards": [
+    {
+      "id": "a",
+      "quorum": 2,
+      "min_regions": 2
+    },
+    {
+      "id": "b",
+      "quorum": 1,
+      "min_regions": 1
+    }
+  ],
+  "hosts": [
+    {
+      "id": "h0",
+      "region": "r0",
+      "capacity": 1
+    },
+    {
+      "id": "h1",
+      "region": "r1",
+      "capacity": 1
+    },
+    {
+      "id": "h2",
+      "region": "r0",
+      "capacity": 1
+    },
+    {
+      "id": "h3",
+      "region": "r1",
+      "capacity": 1
+    }
+  ],
+  "replicas": [
+    {
+      "id": "x0",
+      "shard": "a",
+      "host": "h0",
+      "cost": 1,
+      "lag": 0,
+      "healthy": true
+    },
+    {
+      "id": "x1",
+      "shard": "a",
+      "host": "h1",
+      "cost": 1,
+      "lag": 1,
+      "healthy": true
+    },
+    {
+      "id": "x2",
+      "shard": "a",
+      "host": "h2",
+      "cost": 1,
+      "lag": 2,
+      "healthy": true
+    },
+    {
+      "id": "x3",
+      "shard": "a",
+      "host": "h3",
+      "cost": 1,
+      "lag": 0,
+      "healthy": true
+    },
+    {
+      "id": "x4",
+      "shard": "b",
+      "host": "h0",
+      "cost": 1,
+      "lag": 1,
+      "healthy": true
+    },
+    {
+      "id": "x5",
+      "shard": "b",
+      "host": "h1",
+      "cost": 1,
+      "lag": 2,
+      "healthy": true
+    },
+    {
+      "id": "x6",
+      "shard": "b",
+      "host": "h2",
+      "cost": 1,
+      "lag": 0,
+      "healthy": true
+    },
+    {
+      "id": "x7",
+      "shard": "b",
+      "host": "h3",
+      "cost": 1,
+      "lag": 1,
+      "healthy": true
+    }
+  ],
+  "budget": 6,
+  "max_lag": 3,
+  "policy": {
+    "cold_tier_cost": 0,
+    "lag_margin": 1
+  }
+}

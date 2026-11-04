@@ -1,0 +1,3437 @@
+[
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 4,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [
+            "o1"
+          ],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 7
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 1
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 4,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [
+            "o1"
+          ],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s3",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 1
+      }
+    },
+    "expected": {
+      "worst": 0,
+      "total": 0,
+      "cost": 11,
+      "selected": [
+        "o0",
+        "o1",
+        "o2",
+        "o5"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        },
+        {
+          "scenario": "s1",
+          "loss": 0
+        },
+        {
+          "scenario": "s2",
+          "loss": 0
+        },
+        {
+          "scenario": "s3",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 4,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [
+            "o1"
+          ],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 7
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 8,
+        "bonus_decay": 1
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 4,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [
+            "o1"
+          ],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s3",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 8,
+        "bonus_decay": 1
+      }
+    },
+    "expected": {
+      "worst": 7,
+      "total": 25,
+      "cost": 9,
+      "selected": [
+        "o1"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 5
+        },
+        {
+          "scenario": "s1",
+          "loss": 0
+        },
+        {
+          "scenario": "s2",
+          "loss": 4
+        },
+        {
+          "scenario": "s3",
+          "loss": 7
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 10,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 8,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s3",
+          "loss": 3,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 1,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s3",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s3",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            },
+            {
+              "scenario": "s0",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 3,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 2,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 2,
+          "group": "g1",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 7,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 0
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 10,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 8,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s3",
+          "loss": 3,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 1,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            },
+            {
+              "scenario": "s3",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            },
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 3,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 2,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 2,
+          "group": "g1",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 7,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 0
+      }
+    },
+    "expected": {
+      "worst": 2,
+      "total": 2,
+      "cost": 7,
+      "selected": [
+        "o0",
+        "o1",
+        "o5"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        },
+        {
+          "scenario": "s1",
+          "loss": 2
+        },
+        {
+          "scenario": "s2",
+          "loss": 0
+        },
+        {
+          "scenario": "s3",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 10,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 8,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s3",
+          "loss": 3,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 1,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s3",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s3",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            },
+            {
+              "scenario": "s0",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 3,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 2,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 2,
+          "group": "g1",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 7,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 8
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 10,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 8,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s3",
+          "loss": 3,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 1,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            },
+            {
+              "scenario": "s3",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            },
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 3,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 2,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 2,
+          "group": "g1",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 7,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 8
+      }
+    },
+    "expected": {
+      "worst": 2,
+      "total": 6,
+      "cost": 7,
+      "selected": [
+        "o0",
+        "o1",
+        "o5"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 2
+        },
+        {
+          "scenario": "s1",
+          "loss": 2
+        },
+        {
+          "scenario": "s2",
+          "loss": 0
+        },
+        {
+          "scenario": "s3",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 4,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [
+            "o1"
+          ],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 7
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 1
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 0,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 4,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [
+            "o1"
+          ],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s3",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 5,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        },
+        {
+          "id": "o6",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 1
+      }
+    },
+    "expected": {
+      "worst": 0,
+      "total": 0,
+      "cost": 11,
+      "selected": [
+        "o0",
+        "o1",
+        "o2",
+        "o5"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        },
+        {
+          "scenario": "s1",
+          "loss": 0
+        },
+        {
+          "scenario": "s2",
+          "loss": 0
+        },
+        {
+          "scenario": "s3",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s",
+          "loss": 10,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "cost": 1,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "b",
+          "cost": 1,
+          "group": "",
+          "deps": [
+            "a"
+          ],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "b",
+          "right": "a",
+          "effects": [
+            {
+              "scenario": "s",
+              "reduction": 20
+            }
+          ]
+        }
+      ],
+      "budget": 2,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 2
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s",
+          "loss": 10,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "cost": 1,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "b",
+          "cost": 1,
+          "group": "",
+          "deps": [
+            "a"
+          ],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "a",
+          "right": "b",
+          "effects": [
+            {
+              "scenario": "s",
+              "reduction": 20
+            }
+          ]
+        }
+      ],
+      "budget": 2,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 2
+      }
+    },
+    "expected": {
+      "worst": 0,
+      "total": 0,
+      "cost": 2,
+      "selected": [
+        "a",
+        "b"
+      ],
+      "remaining": [
+        {
+          "scenario": "s",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 3
+        }
+      ],
+      "options": [],
+      "synergies": [],
+      "budget": 0,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 0
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 11,
+          "weight": 3
+        }
+      ],
+      "options": [],
+      "synergies": [],
+      "budget": 0,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 0
+      }
+    },
+    "expected": {
+      "worst": 11,
+      "total": 33,
+      "cost": 0,
+      "selected": [],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 11
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 6,
+          "weight": 1
+        },
+        {
+          "id": "s1",
+          "loss": 4,
+          "weight": 2
+        }
+      ],
+      "options": [],
+      "synergies": [],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 1
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 6,
+          "weight": 1
+        },
+        {
+          "id": "s1",
+          "loss": 4,
+          "weight": 2
+        }
+      ],
+      "options": [],
+      "synergies": [],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 1
+      }
+    },
+    "expected": {
+      "worst": 6,
+      "total": 14,
+      "cost": 0,
+      "selected": [],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 6
+        },
+        {
+          "scenario": "s1",
+          "loss": 4
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 10,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 6,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 3,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            },
+            {
+              "scenario": "s0",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 3,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 5
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o3",
+          "cost": 4,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 0
+            },
+            {
+              "scenario": "s2",
+              "reduction": 2
+            },
+            {
+              "scenario": "s0",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 0,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g0",
+          "deps": [
+            "o4"
+          ],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 4
+            }
+          ]
+        }
+      ],
+      "budget": 5,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 2
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 10,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 6,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 3,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s1",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 3,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 5
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o3",
+          "cost": 4,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            },
+            {
+              "scenario": "s1",
+              "reduction": 0
+            },
+            {
+              "scenario": "s2",
+              "reduction": 2
+            }
+          ]
+        },
+        {
+          "id": "o4",
+          "cost": 0,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g0",
+          "deps": [
+            "o4"
+          ],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 3
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 3
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 4
+            }
+          ]
+        }
+      ],
+      "budget": 5,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 2
+      }
+    },
+    "expected": {
+      "worst": 4,
+      "total": 9,
+      "cost": 4,
+      "selected": [
+        "o0",
+        "o4"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 4
+        },
+        {
+          "scenario": "s1",
+          "loss": 1
+        },
+        {
+          "scenario": "s2",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [],
+      "options": [],
+      "synergies": [],
+      "budget": 13,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 0
+      }
+    },
+    "normalized": {
+      "scenarios": [],
+      "options": [],
+      "synergies": [],
+      "budget": 13,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 0
+      }
+    },
+    "expected": {
+      "worst": 0,
+      "total": 0,
+      "cost": 0,
+      "selected": [],
+      "remaining": []
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 8,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 3,
+          "weight": 2
+        },
+        {
+          "id": "s2",
+          "loss": 1,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 3,
+          "group": "g0",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": []
+        }
+      ],
+      "budget": 11,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 2
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 8,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 3,
+          "weight": 2
+        },
+        {
+          "id": "s2",
+          "loss": 1,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 3,
+          "group": "g0",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 0
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 4,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 1
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": []
+        }
+      ],
+      "budget": 11,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 2
+      }
+    },
+    "expected": {
+      "worst": 7,
+      "total": 23,
+      "cost": 4,
+      "selected": [
+        "o2"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 7
+        },
+        {
+          "scenario": "s1",
+          "loss": 3
+        },
+        {
+          "scenario": "s2",
+          "loss": 1
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 4,
+          "group": "g0",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": []
+        }
+      ],
+      "budget": 5,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 0
+      }
+    },
+    "normalized": {
+      "scenarios": [],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 4,
+          "group": "g0",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": []
+        }
+      ],
+      "budget": 5,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 0
+      }
+    },
+    "expected": {
+      "worst": 0,
+      "total": 0,
+      "cost": 0,
+      "selected": [],
+      "remaining": []
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 3,
+          "weight": 1
+        },
+        {
+          "id": "s1",
+          "loss": 3,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 8,
+          "weight": 3
+        },
+        {
+          "id": "s3",
+          "loss": 2,
+          "weight": 2
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 6
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 4
+            },
+            {
+              "scenario": "s1",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 5
+            },
+            {
+              "scenario": "s1",
+              "reduction": 0
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 9,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 3
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 3,
+          "weight": 1
+        },
+        {
+          "id": "s1",
+          "loss": 3,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 8,
+          "weight": 3
+        },
+        {
+          "id": "s3",
+          "loss": 2,
+          "weight": 2
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 1,
+          "group": "g1",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s1",
+              "reduction": 6
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 4
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 1,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s1",
+              "reduction": 0
+            },
+            {
+              "scenario": "s2",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 9,
+      "policy": {
+        "shared_option_fee": 2,
+        "bonus_decay": 3
+      }
+    },
+    "expected": {
+      "worst": 3,
+      "total": 11,
+      "cost": 6,
+      "selected": [
+        "o0",
+        "o2"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        },
+        {
+          "scenario": "s1",
+          "loss": 0
+        },
+        {
+          "scenario": "s2",
+          "loss": 3
+        },
+        {
+          "scenario": "s3",
+          "loss": 1
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 2,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 8,
+          "weight": 2
+        },
+        {
+          "id": "s2",
+          "loss": 7,
+          "weight": 1
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 4,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 2,
+          "group": "g0",
+          "deps": [
+            "o0"
+          ],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 1
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 0,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 5,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 4
+            },
+            {
+              "scenario": "s0",
+              "reduction": 0
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s3",
+              "reduction": 6
+            },
+            {
+              "scenario": "s2",
+              "reduction": 2
+            }
+          ]
+        }
+      ],
+      "budget": 2,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 2
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 2,
+          "weight": 2
+        },
+        {
+          "id": "s1",
+          "loss": 8,
+          "weight": 2
+        },
+        {
+          "id": "s2",
+          "loss": 7,
+          "weight": 1
+        },
+        {
+          "id": "s3",
+          "loss": 7,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 4,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            },
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 7
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "cost": 2,
+          "group": "g0",
+          "deps": [
+            "o0"
+          ],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 1
+            },
+            {
+              "scenario": "s3",
+              "reduction": 2
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 0,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 7
+            },
+            {
+              "scenario": "s3",
+              "reduction": 3
+            }
+          ]
+        },
+        {
+          "id": "o3",
+          "cost": 5,
+          "group": "g0",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 4
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            },
+            {
+              "scenario": "s1",
+              "reduction": 4
+            },
+            {
+              "scenario": "s2",
+              "reduction": 2
+            },
+            {
+              "scenario": "s3",
+              "reduction": 6
+            }
+          ]
+        }
+      ],
+      "budget": 2,
+      "policy": {
+        "shared_option_fee": 1,
+        "bonus_decay": 2
+      }
+    },
+    "expected": {
+      "worst": 8,
+      "total": 35,
+      "cost": 1,
+      "selected": [
+        "o2"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        },
+        {
+          "scenario": "s1",
+          "loss": 8
+        },
+        {
+          "scenario": "s2",
+          "loss": 7
+        },
+        {
+          "scenario": "s3",
+          "loss": 4
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 0,
+          "weight": 3
+        },
+        {
+          "id": "s1",
+          "loss": 11,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 9,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 10,
+          "weight": 2
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 4,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s3",
+              "reduction": 7
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s3",
+              "reduction": 5
+            },
+            {
+              "scenario": "s0",
+              "reduction": 6
+            },
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 2
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 0,
+          "weight": 3
+        },
+        {
+          "id": "s1",
+          "loss": 11,
+          "weight": 1
+        },
+        {
+          "id": "s2",
+          "loss": 9,
+          "weight": 2
+        },
+        {
+          "id": "s3",
+          "loss": 10,
+          "weight": 2
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 4,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            },
+            {
+              "scenario": "s2",
+              "reduction": 0
+            },
+            {
+              "scenario": "s3",
+              "reduction": 7
+            }
+          ]
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 6
+            },
+            {
+              "scenario": "s1",
+              "reduction": 1
+            },
+            {
+              "scenario": "s2",
+              "reduction": 6
+            },
+            {
+              "scenario": "s3",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 12,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 2
+      }
+    },
+    "expected": {
+      "worst": 11,
+      "total": 21,
+      "cost": 7,
+      "selected": [
+        "o0",
+        "o1"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        },
+        {
+          "scenario": "s1",
+          "loss": 11
+        },
+        {
+          "scenario": "s2",
+          "loss": 5
+        },
+        {
+          "scenario": "s3",
+          "loss": 0
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 1,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 4,
+          "group": "g0",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "g1",
+          "deps": [
+            "o0"
+          ],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 0,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o3",
+          "cost": 0,
+          "group": "g0",
+          "deps": [
+            "o2"
+          ],
+          "effects": []
+        },
+        {
+          "id": "o4",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g1",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 11,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 0
+      }
+    },
+    "normalized": {
+      "scenarios": [
+        {
+          "id": "s0",
+          "loss": 1,
+          "weight": 3
+        }
+      ],
+      "options": [
+        {
+          "id": "o0",
+          "cost": 4,
+          "group": "g0",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o1",
+          "cost": 5,
+          "group": "g1",
+          "deps": [
+            "o0"
+          ],
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 2
+            }
+          ]
+        },
+        {
+          "id": "o2",
+          "cost": 0,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o3",
+          "cost": 0,
+          "group": "g0",
+          "deps": [
+            "o2"
+          ],
+          "effects": []
+        },
+        {
+          "id": "o4",
+          "cost": 3,
+          "group": "",
+          "deps": [],
+          "effects": []
+        },
+        {
+          "id": "o5",
+          "cost": 0,
+          "group": "g1",
+          "deps": [],
+          "effects": []
+        }
+      ],
+      "synergies": [
+        {
+          "left": "o0",
+          "right": "o1",
+          "effects": [
+            {
+              "scenario": "s0",
+              "reduction": 5
+            }
+          ]
+        }
+      ],
+      "budget": 11,
+      "policy": {
+        "shared_option_fee": 0,
+        "bonus_decay": 0
+      }
+    },
+    "expected": {
+      "worst": 0,
+      "total": 0,
+      "cost": 9,
+      "selected": [
+        "o0",
+        "o1"
+      ],
+      "remaining": [
+        {
+          "scenario": "s0",
+          "loss": 0
+        }
+      ]
+    }
+  }
+]

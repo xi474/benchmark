@@ -1,0 +1,54 @@
+{
+  "crew_capacity": 3,
+  "power_capacity": 5,
+  "jobs": [
+    {
+      "id": "j0",
+      "start": 3,
+      "end": 5,
+      "crew": 3,
+      "power": 1,
+      "priority": 0,
+      "risk": 2,
+      "deps": []
+    },
+    {
+      "id": "j1",
+      "start": 2,
+      "end": 3,
+      "crew": 3,
+      "power": 3,
+      "priority": 1,
+      "risk": 0,
+      "deps": []
+    },
+    {
+      "id": "j2",
+      "start": 2,
+      "end": 5,
+      "crew": 1,
+      "power": 0,
+      "priority": 5,
+      "risk": 3,
+      "deps": [
+        "j1"
+      ]
+    },
+    {
+      "id": "j3",
+      "start": 6,
+      "end": 9,
+      "crew": 1,
+      "power": 1,
+      "priority": 1,
+      "risk": 2,
+      "deps": [
+        "j2"
+      ]
+    }
+  ],
+  "policy": {
+    "tool_crew": 0,
+    "thermal_reserve": 1
+  }
+}
