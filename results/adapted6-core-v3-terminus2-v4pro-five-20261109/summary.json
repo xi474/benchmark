@@ -1,0 +1,80 @@
+{
+  "schema": "benchmark.aggregate-calibration.v1",
+  "dataset": "adapted6-core-v3",
+  "dataset_version": "3.0.0",
+  "date": "2026-11-09",
+  "tasks": [
+    {
+      "task_id": "MP04",
+      "title": "多格式用户合并与完整冲突报告",
+      "valid_trials": 5,
+      "core_successes": 1,
+      "difficulty": "H"
+    },
+    {
+      "task_id": "MP08",
+      "title": "节日照片迁移后发送与缺失报告",
+      "valid_trials": 5,
+      "core_successes": 2,
+      "difficulty": "M"
+    },
+    {
+      "task_id": "MP09",
+      "title": "两场座谈会、群邀请与物资采购",
+      "valid_trials": 5,
+      "core_successes": 2,
+      "difficulty": "M"
+    },
+    {
+      "task_id": "MP10",
+      "title": "晚宴计划、联系人定位与餐具采购",
+      "valid_trials": 5,
+      "core_successes": 3,
+      "difficulty": "M"
+    },
+    {
+      "task_id": "MP11",
+      "title": "取消会面、研讨会叫车与图书采购",
+      "valid_trials": 5,
+      "core_successes": 5,
+      "difficulty": "E"
+    },
+    {
+      "task_id": "MP24",
+      "title": "大学任职、在读人数与国家集合查询",
+      "valid_trials": 5,
+      "core_successes": 1,
+      "difficulty": "H"
+    }
+  ],
+  "valid_trials": 30,
+  "core_successes": 14,
+  "difficulty_counts": {
+    "E": 1,
+    "M": 3,
+    "H": 2
+  },
+  "method": {
+    "agent": "Terminus 2",
+    "model": "DeepSeek V4 Pro",
+    "mode": "ordinary",
+    "repeats": 5,
+    "primary_success": "core_all_checks_passed",
+    "thresholds": {
+      "E": "4–5/5",
+      "M": "2–3/5",
+      "H": "0–1/5"
+    },
+    "agent_seconds": 3600,
+    "observed_token_budget": 2000000,
+    "verifier_seconds": 1800,
+    "cpus": 2,
+    "memory_mb": 4096,
+    "concurrency": 4
+  },
+  "robustness_affects_primary_score": false,
+  "conditional_difficulty_not_intrinsic_complexity": true,
+  "old_v2_trials_reused": false,
+  "contains_raw_model_outputs": false,
+  "contains_request_metadata": false
+}
