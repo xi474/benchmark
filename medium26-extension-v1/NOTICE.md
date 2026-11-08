@@ -6,6 +6,8 @@ GAIA2来源数据标注CC BY 4.0；本包保留来源ID和链接，并明确静�
 
 固定来源版本见[来源revision清单](review/source_revisions.json)。
 
+逐题原始难度、测试覆盖、运行环境与改编关系见[原题来源与难度标注](docs/原题来源与难度标注.md)。原标签不自动成为改编后难度。
+
 ## 明确的范围修订
 
 - MP02只拼一个变化轴，拒绝重叠坐标；MP03只做fstab/AIX/Linux mount三种固定离线语法。

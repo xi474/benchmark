@@ -16,6 +16,7 @@
 - [26题中文目录及DAG](docs/26题中文目录与DAG.md)
 - [当前难度分级标准v1.1](docs/难度分级标准_v1.1.md)
 - [来源与明确改造范围](NOTICE.md)
+- [逐题原始来源与官方难度信息](docs/原题来源与难度标注.md)
 - [作者验收结果](review/validation_report.json)
 - [去重与结构审查](review/duplicate_audit.json)
 - [26题Agent任务包](../medium26-extension-v1-agent.zip)
