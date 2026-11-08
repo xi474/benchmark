@@ -70,4 +70,4 @@ See the [policy](evaluation-v2/policy.json), [fixed catalog](evaluation-v2/catal
 
 ## 运行结果（独立实验材料）
 
-[查看V4 Pro普通模式 reward-v2 运行汇报](experiments/reward-v2-v4pro-2026-11-08/README.md)：原七臂392个题位、另列LATTE四次补跑及AOrchestra独立56题比较臂，包含API检查通过率、E2E、tokens、资源与multi-agent观测。结果与分析只放在experiments目录；不要将该目录或作者验证材料挂载给被测Agent。不同Harness限额、适配条件与异常终态在报告中分别标注。
+[查看V4 Pro普通模式 reward-v2 当前运行汇报](experiments/reward-v2-v4pro-2026-11-08/README.md)：2026-11-09按规格质量裁决，从八臂统一排除MP04、MP08、MP09、MP10、MP11、MP24，Medium26修订为Medium20；当前原14＋mixed16-v4的16＋Medium20，共八臂400个选定题位。API检查通过率、E2E、tokens、输入缓存、费用、资源及multi-agent指标已离线重算；旧448题位和LATTE四次独立补跑留档，原attempt及分数不覆盖。结果与分析只放在experiments目录；不要将该目录或作者验证材料挂载给被测Agent。不同Harness限额、适配条件与异常终态在报告中分别标注。

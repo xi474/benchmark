@@ -1,62 +1,35 @@
-# V4 Pro普通模式 reward-v2 运行结果汇报
+# V4 Pro普通模式 reward-v2：当前Medium20修订矩阵
 
-2026-11-08发布至xi474/benchmark。任务集合为原14题、mixed16-v4的16题、Medium26的26题。数据集基线分支为`data/mixed16-v4-execution-2026-10-30`，提交`76275fc1bb87be85a0fa72c7202f09633ad223c7`。模型为DeepSeek V4 Pro普通模式；Chat Completions为thinking.type=disabled，Responses为reasoning.effort=none。
+**2026-11-09更新：MP04、MP08、MP09、MP10、MP11、MP24因规格不一致/要求未明确，从八套Harness的正式统计中统一排除。当前为原14＋mixed16-v4的16＋Medium20，共50题/臂、400个选定题位。** 新增模型请求0，不改原题、verifier或既有分数。原26题/448题位只作历史审计留档，不再作为当前正式汇总。
 
-## 已完成范围
+[查看修订报告、排除原因及全部指标](medium20-revision-2026-11-09/README.md) · [机器入口](CURRENT.json) · [Medium20逐任务×Harness API矩阵](medium20-revision-2026-11-09/api-task-matrix-medium20-eight-arms.csv)
 
-- 原七臂：Nanobot、OpenCode、Codex、DSH、LangGraph、LATTE planning-adapted、ROMA-local-C0，7×56=392个选定基线题位；LATTE四个独立补跑另列，原基线不覆盖。
-- 新增独立AOrchestra比较臂：56个选定公开题位，全部有有效评分。它采用本地适配、串行委派及4096输出/160请求条件，不能称论文原条件或与其他Harness等限额排名。
-- 合计448个基线/比较臂题位，加4个单列补跑。448不是满分数、不是全部正常终态；七臂仍包含无效提交、发送前预算跳过和证据失败。SDK历史不进入本次矩阵，纯native LATTE和LATTE-frozen也不混入。
+## 当前正式范围与文件
 
-## Medium26（26题）
+八臂为Nanobot、OpenCode、Codex、DSH、LangGraph、LATTE planning-adapted、ROMA-local-C0、AOrchestra local-adapted。SDK、LATTE纯native和LATTE-frozen不混入。LATTE四个mixed16独立补跑仍单列，不替换baseline。400是保留题位数，不是正常完成数或成功数。
 
-| Harness | 题位 | API有效题数 | API微平均 | API宏平均 | 平均E2E秒 |
-|---|---:|---:|---:|---:|---:|
-| aorchestra | 26 | 26 | 15.17% | 14.76% | 279.90 |
-| codex | 26 | 26 | 88.32% | 87.53% | 1504.06 |
-| dsh | 26 | 26 | 81.49% | 81.71% | 640.04 |
-| langgraph | 26 | 26 | 44.01% | 43.12% | 602.44 |
-| latte-planning-adapted | 26 | 22 | 18.07% | 20.77% | 379.93 |
-| nanobot | 26 | 26 | 76.78% | 77.06% | 927.59 |
-| opencode | 26 | 26 | 29.14% | 31.49% | 282.06 |
-| roma | 26 | 25 | 9.53% | 10.45% | 375.20 |
+- [Medium20八臂汇总](medium20-revision-2026-11-09/medium20-summary-8.csv)：reward、API微/宏平均、E2E及各阶段时间、tokens、缓存、费用、资源与自检关联指标。
+- [Medium20的160题位全指标](medium20-revision-2026-11-09/medium20-cells-160.csv)。
+- [完整400题位CSV](medium20-revision-2026-11-09/cells-400.csv) / [JSON及来源字段](medium20-revision-2026-11-09/results.json)。
+- [24组Harness×数据集汇总](medium20-revision-2026-11-09/harness-dataset-summary-24.csv) / [JSON](medium20-revision-2026-11-09/harness-dataset-summary-24.json)，数据集为original14、mixed16-v4、medium20。
+- [八臂各50题汇总](medium20-revision-2026-11-09/harness-summary-8.csv)。
+- [Medium20 API数值矩阵](medium20-revision-2026-11-09/api-task-matrix-medium20-eight-arms.csv) / [覆盖与分类矩阵](medium20-revision-2026-11-09/api-coverage-medium20-eight-arms.csv)。
+- [Medium20输入缓存率矩阵](medium20-revision-2026-11-09/input-cache-matrix-medium20-eight-arms.csv) / [覆盖矩阵](medium20-revision-2026-11-09/cache-coverage-medium20-eight-arms.csv)。原14及mixed16逐题数值未变，当前完整长表保留相同数值。
+- [已排除48题位](medium20-revision-2026-11-09/excluded-cells-48.csv) / [仍实际发生的开销](medium20-revision-2026-11-09/excluded-summary-8.csv) / [排除策略](medium20-revision-2026-11-09/exclusion-policy.json)。原题号不重排，原attempt不删除、不改分。
+- [已过滤自检窗口](medium20-revision-2026-11-09/self-check-loops.csv) / [七臂350题位并行触发明细](medium20-revision-2026-11-09/parallel-trigger-cells-350.csv)。AOrchestra原生指标在完整JSON的native_metrics字段中，未与其他观测层强行合并。
 
-API微平均为api/通过检查总数除以有效检查总数，宏平均为有效题目准确率平均；无效提交/跳过/证据失败不伪装成可比较API 0%。原14题无api/分母，另列focused/检查。reward-v2按固定检查数量与难度上限计分，不能把reward归一化称为满分率。
+## 口径边界
 
-## 文件索引
+规格排除属于事后质量修订，所有臂使用同一名单；不解释为Harness性能提升，保留20题也未自动完成难度重新标定。API微平均按可比题api/通过检查数加总除以分母加总，宏平均按逐题比例平均。原14题无api/分母，focused检查另列。reward归一化不是满分率；invalid_submission/无评分题的API准确率保持null，实际开销仍计入保留集合。
 
-- [八臂×三数据集汇总CSV](harness-dataset-summary-24.csv) / [JSON](harness-dataset-summary-24.json)：reward、API、E2E、输入/输出/cache tokens、未知请求与估算费用。
-- [Medium26逐题×八臂API准确率](api-task-matrix-medium26-eight-arms.csv)。
-- [mixed16-v4逐题×八臂API准确率](api-task-matrix-mixed16-v4-eight-arms.csv)。
-- [七臂原发布报告](seven-harnesses/README.md)、[392题全指标](seven-harnesses/cells-392.csv)、[原始结构化导出](seven-harnesses/results.json)、[四个独立补跑](seven-harnesses/latte-independent-repeats-4.csv)。原七臂包从研究仓库提交`d724c143cc931f0bb2d469fb54123ee4967abb70`逐字复制，原审计校验继续可用。
-- [AOrchestra运行报告](aorchestra/REPORT.md)、[56题全指标JSON](aorchestra/results-56.json)、[逐题CSV](aorchestra/cells-56.csv)、[Medium26 CSV](aorchestra/medium26-cells.csv)、[来源验收](aorchestra/source-validation.json)。本地归档提交`114808e8c658faa5b697efd89360e77ce5a306af`，源文件SHA见审计。只转换本机路径为可移植定位符，不改数值或缺测状态。
-- [七臂运行中multi-agent证据审计](seven-harnesses/MULTIAGENT.md)、[并行触发原因分析](parallel-analysis/REPORT.md)、[392题触发证据CSV](parallel-analysis/parallel-trigger-cells-392.csv)。原因分析仍只针对原七臂，不将AOrchestra计入其中。
-- [自检关联窗口](seven-harnesses/self-check-loops.csv)：不代表完整模型分析/修复耗时或纯自检增量成本。
-- [发布校验脚本](scripts/validate_publication.py)、[发布文件与来源SHA256](publication-audit.json)。
+费用是已知结算tokens按历史统一峰价的估算，非账单。剔除规格问题题目不会撤销历史消费；保留集合与排除集合的开销分别报告。ROMA original/release_compatibility_program仍有1个真实未知请求，完整缓存率及完整用量不以0补齐；其他历史未知attempt也仍保留。
 
-## 并行、时间与费用边界
+跨题5/8并发、ROMA单Harbor/HTTP4和AOrchestra并发/输出限额不同，E2E不构成等资源加速排名。子生命周期、模型/HTTP/工具重叠及递归执行是不同观测层。资源为task-container，远程GPU/显存、内部K/V、能耗和per-agent cgroup未观测；自检关联窗口不代表全部思考/修复增量成本。
 
-跨题5/8并发与ROMA单Harbor/HTTP4不同，AOrchestra批次最多4/共享5；E2E含环境/Agent/verifier，属于各自资源条件下观测，不能直接推导Harness本身加速。
+## 历史来源与复核
 
-原七臂Codex1/56题创建3子线程；Nanobot/OpenCode/DSH的实际委派入口各56/56曾开放，但未调用；LangGraph27/56有worker生命周期重叠；LATTE adapted36/56有队友模型回合重叠、12/56执行期接受28个模型新任务，脚本/测试跨队友工具重叠未观察到；ROMA52/56叶活动重叠、39/56工具span重叠。AOrchestra47/56题触发子Agent、80份摘要回传、题内并行0。观测层不同，不能把调度/生命周期/模型回合/HTTP/工具并行合成一个指标，也不把固定Agent定义计作运行时新定义。
+- [原Medium26发布入口归档](README-medium26-archived-2026-11-08.md)：此处及旧命名文件里的26题、56题、448题位均属修订前口径。
+- 原七臂392题位、AOrchestra56题、缓存分析等文件保留原字节，作为当前过滤来源。旧机制分析仍为历史范围，不将其56题计数冒充新50题计数。
+- [生成器](scripts/build_medium20.py) / [独立校验器](scripts/validate_medium20.py) / [修订文件SHA](medium20-revision-2026-11-09/revision-audit.json) / [完整发布审计](publication-audit.json)。执行`python -B scripts/validate_publication.py`同时验证历史来源与当前400题位，无需API key或模型调用。
 
-token来自去重实际结算，cache是输入的子集。部分未知用量保留null及已知下界，不以0填补；AOrchestra两题native summary总量缺失与provider-egress已结算口径分别保留。费用是估算，非账单；历史排除attempt的HTTP400/402/中断未知用量仍保留，不声称跨历史总账完整。
-
-资源粒度为task-container；远程推理引擎GPU/显存/KV/queue/batch/能耗与per-agent cgroup等未观测项保持null。子任务完成/摘要回传不代表任务检查通过。
-
-## 发布范围与复核
-
-只发布结构化指标、公开任务标识、来源hash及分析报告；不上传原始提示、工具输出、凭据、私有任务或LATTE/ROMA上游源码。证据locator指向持有原始文件时可复核的位置，不表示GitHub包含原始日志。任务、verifier、policy与catalog字节不改。不要将本目录或作者验证材料挂载给被测Agent。
-
-在本目录执行`python scripts/validate_publication.py`，可离线核验文件指纹、题位唯一性、API聚合、AOrchestra数值不变以及脱敏边界，无需API key或模型调用。
-
-<!-- INPUT-CACHE-SUPPLEMENT -->
-
-## 输入缓存命中率补充
-
-[查看56任务×八套Harness完整矩阵与口径](cache-analysis/README.md) · [448行逐题明细](cache-analysis/cells-448.csv) · [八臂汇总](cache-analysis/harness-summary-8.csv)。原14/mixed16-v4/Medium26均已统计，LATTE四个补跑单列。447格完整；ROMA一格因未知请求只报告已结算部分，完整比例留空。总汇总CSV/JSON已追加缓存比例与覆盖字段，原指标不变。
-<!-- /INPUT-CACHE-SUPPLEMENT -->
-
-## 待运行的显式多Agent对照方案
-
-[查看Nanobot/OpenCode/DSH三条件对照与ROMA定义说明](planned-experiments/explicit-multiagent-v1.md)。方案建议先注册27个新attempt；当前未获新付费授权、未运行，不计入448个结果题位。
+只发布脱敏结构化指标、公开题号、hash及报告，不发布原始提示、工具输出、凭据、私有任务或LATTE/ROMA上游源码。正式数据集、reward policy和catalog未修改。不要将本目录或作者验证材料挂载给被测Agent。

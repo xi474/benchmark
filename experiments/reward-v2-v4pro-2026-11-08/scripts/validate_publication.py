@@ -70,6 +70,11 @@ pr=read_json(ROOT/'parallel-analysis/native-trigger-evidence.json')['rows'];asse
 assert len(read_csv(ROOT/'parallel-analysis/parallel-trigger-cells-392.csv'))==392
 assert read_json(ROOT/'parallel-analysis/checks.json')['source_results_sha256']==sha(ROOT/'seven-harnesses/results.json')
 subprocess.run([sys.executable,'-B',str(ROOT/'scripts/validate_input_cache_rates.py')],check=True)
+subprocess.run([sys.executable,'-B',str(ROOT/'scripts/validate_medium20.py')],check=True)
+current=read_json(ROOT/'CURRENT.json')
+assert current['current_selected_cells']==400 and current['medium_task_count']==20
+assert current['excluded_selected_cells']==48 and current['provider_requests']==0
+assert current['results']=='medium20-revision-2026-11-09/results.json'
 proposal=read_json(ROOT/'planned-experiments/explicit-multiagent-v1.json')
 assert proposal['status']=='proposed-not-registered-not-run' and proposal['paid_authorization'] is False
 assert proposal['provider_requests']==0 and proposal['budget_usd'] is None
@@ -92,4 +97,4 @@ for f in ROOT.rglob('*'):
             elif isinstance(v,list):
                 for value in v:check_keys(value)
         check_keys(x)
-print(json.dumps({'validation':'passed','selected_cells':448,'seven_harness_cells':392,'aorchestra_cells':56,'independent_repeats':4,'summary_groups':24,'api_matrices':'passed','artifact_hashes':'passed','sensitive_material_scan':'passed','provider_requests':0}))
+print(json.dumps({'validation':'passed','historical_selected_cells':448,'current_selected_cells':400,'current_medium_cells':160,'excluded_selected_cells':48,'seven_harness_historical_cells':392,'aorchestra_historical_cells':56,'independent_repeats':4,'summary_groups':24,'api_matrices':'passed','artifact_hashes':'passed','sensitive_material_scan':'passed','provider_requests':0}))
