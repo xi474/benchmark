@@ -1,0 +1,105 @@
+{
+  "id": "MP04",
+  "title": "多格式用户合并与完整冲突报告",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "json_users",
+      "label": "JSON用户适配",
+      "kind": "work",
+      "folder": "domains/json_users",
+      "operation": "users_json"
+    },
+    {
+      "id": "csv_users",
+      "label": "CSV用户适配",
+      "kind": "work",
+      "folder": "domains/csv_users",
+      "operation": "users_csv"
+    },
+    {
+      "id": "jsonl_users",
+      "label": "JSONL用户适配",
+      "kind": "work",
+      "folder": "domains/jsonl_users",
+      "operation": "users_jsonl"
+    },
+    {
+      "id": "directory",
+      "label": "用户并集与冲突证据",
+      "kind": "work",
+      "folder": "views/directory",
+      "operation": "users_merge"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "json_users"
+    },
+    {
+      "source": "input",
+      "target": "csv_users"
+    },
+    {
+      "source": "input",
+      "target": "jsonl_users"
+    },
+    {
+      "source": "json_users",
+      "target": "directory"
+    },
+    {
+      "source": "csv_users",
+      "target": "directory"
+    },
+    {
+      "source": "jsonl_users",
+      "target": "directory"
+    },
+    {
+      "source": "json_users",
+      "target": "_core"
+    },
+    {
+      "source": "csv_users",
+      "target": "_core"
+    },
+    {
+      "source": "jsonl_users",
+      "target": "_core"
+    },
+    {
+      "source": "directory",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

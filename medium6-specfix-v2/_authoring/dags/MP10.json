@@ -1,0 +1,90 @@
+{
+  "id": "MP10",
+  "title": "晚宴计划、联系人定位与餐具采购",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "dinner",
+      "label": "下个星期日程",
+      "kind": "work",
+      "folder": "dinner",
+      "operation": "dinner_date"
+    },
+    {
+      "id": "contact",
+      "label": "最近匹配会话身份",
+      "kind": "work",
+      "folder": "contact",
+      "operation": "recent_contact"
+    },
+    {
+      "id": "shopping",
+      "label": "多属性变体与结算",
+      "kind": "work",
+      "folder": "shopping",
+      "operation": "dinner_checkout"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "dinner"
+    },
+    {
+      "source": "input",
+      "target": "contact"
+    },
+    {
+      "source": "input",
+      "target": "shopping"
+    },
+    {
+      "source": "dinner",
+      "target": "shopping"
+    },
+    {
+      "source": "contact",
+      "target": "shopping"
+    },
+    {
+      "source": "dinner",
+      "target": "_core"
+    },
+    {
+      "source": "contact",
+      "target": "_core"
+    },
+    {
+      "source": "shopping",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

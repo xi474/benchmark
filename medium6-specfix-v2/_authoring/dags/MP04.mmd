@@ -1,0 +1,21 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    json_users["JSON用户适配"]
+    csv_users["CSV用户适配"]
+    jsonl_users["JSONL用户适配"]
+    directory["用户并集与冲突证据"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> json_users
+    input --> csv_users
+    input --> jsonl_users
+    json_users --> directory
+    csv_users --> directory
+    jsonl_users --> directory
+    json_users --> _core
+    csv_users --> _core
+    jsonl_users --> _core
+    directory --> _core
+    _core --> _report
+    _report --> _verify

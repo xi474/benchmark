@@ -61,6 +61,12 @@ The [Medium26 add-on](medium26-extension-v1/README.md) adds 26 tasks with a medi
 
 See the [Chinese task catalogue and author DAGs](medium26-extension-v1/docs/26题中文目录与DAG.md), [current difficulty standard](medium26-extension-v1/docs/难度分级标准_v1.1.md), [validation report](medium26-extension-v1/review/交付与验收.md), and [Agent-only archive](medium26-extension-v1-agent.zip). Reference solutions, hidden probes and author diagrams are kept outside each initial workspace. Difficulty and parallel speedup remain uncalibrated by model experiments.
 
+## Six-task specification revision v2
+
+The independent [six-task revision](medium6-specfix-v2/README.md) contains MP04, MP08, MP09, MP10, MP11 and MP24 from Medium26, with 21 components across the same four structure styles. It clarifies intermediate schemas, ordering and the bounded adaptation scope while retaining business algorithms, inputs, contracts, verifier expectations and the frozen reward policy. These are versioned replacements for six existing tasks, not six additional task families; the v1 dataset and baseline remain preserved.
+
+See the [per-task issues and reasons for changes](medium6-specfix-v2/docs/问题与修改原因汇总.md), [task catalogue and DAGs](medium6-specfix-v2/docs/六题中文目录与DAG.md), [validation](medium6-specfix-v2/review/交付与验收.md), [Agent-only archive](medium6-specfix-v2-agent.zip) and [full release archive](medium6-specfix-v2-full.zip). A new five-repeat Terminus 2 / DeepSeek V4 Pro ordinary-mode baseline is recorded independently; old results are not reused as v2 results.
+
 ## Reward evaluation v2
 
 [Evaluation v2](evaluation-v2/README.md) adds fixed-count partial credit without changing existing task inputs or requirements. Easy, medium and hard tasks have maximum rewards of 1, 2 and 3; each reward is the difficulty maximum multiplied by passed verifiers divided by the task's fixed verifier count. It retains existing checks, records all results, and gives zero for protected-file tampering. Original binary scores remain versioned separately.

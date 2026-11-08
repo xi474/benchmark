@@ -1,0 +1,19 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    classify["节日分类与缺失集合"]
+    migrate["照片路径迁移"]
+    outbox["迁移后附件与报告"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> classify
+    input --> migrate
+    classify --> migrate
+    input --> outbox
+    classify --> outbox
+    migrate --> outbox
+    classify --> _core
+    migrate --> _core
+    outbox --> _core
+    _core --> _report
+    _report --> _verify

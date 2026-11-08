@@ -1,0 +1,587 @@
+[
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "json_users"
+      },
+      {
+        "source": "input",
+        "target": "csv_users"
+      },
+      {
+        "source": "input",
+        "target": "jsonl_users"
+      },
+      {
+        "source": "json_users",
+        "target": "directory"
+      },
+      {
+        "source": "csv_users",
+        "target": "directory"
+      },
+      {
+        "source": "jsonl_users",
+        "target": "directory"
+      },
+      {
+        "source": "json_users",
+        "target": "_core"
+      },
+      {
+        "source": "csv_users",
+        "target": "_core"
+      },
+      {
+        "source": "jsonl_users",
+        "target": "_core"
+      },
+      {
+        "source": "directory",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP04",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/json_users",
+        "id": "json_users",
+        "kind": "work",
+        "label": "JSON用户适配",
+        "operation": "users_json"
+      },
+      {
+        "folder": "domains/csv_users",
+        "id": "csv_users",
+        "kind": "work",
+        "label": "CSV用户适配",
+        "operation": "users_csv"
+      },
+      {
+        "folder": "domains/jsonl_users",
+        "id": "jsonl_users",
+        "kind": "work",
+        "label": "JSONL用户适配",
+        "operation": "users_jsonl"
+      },
+      {
+        "folder": "views/directory",
+        "id": "directory",
+        "kind": "work",
+        "label": "用户并集与冲突证据",
+        "operation": "users_merge"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "多格式用户合并与完整冲突报告"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "classify"
+      },
+      {
+        "source": "input",
+        "target": "migrate"
+      },
+      {
+        "source": "classify",
+        "target": "migrate"
+      },
+      {
+        "source": "input",
+        "target": "outbox"
+      },
+      {
+        "source": "classify",
+        "target": "outbox"
+      },
+      {
+        "source": "migrate",
+        "target": "outbox"
+      },
+      {
+        "source": "classify",
+        "target": "_core"
+      },
+      {
+        "source": "migrate",
+        "target": "_core"
+      },
+      {
+        "source": "outbox",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP08",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "products/classify",
+        "id": "classify",
+        "kind": "work",
+        "label": "节日分类与缺失集合",
+        "operation": "photo_classification"
+      },
+      {
+        "folder": "products/migrate",
+        "id": "migrate",
+        "kind": "work",
+        "label": "照片路径迁移",
+        "operation": "photo_migration"
+      },
+      {
+        "folder": "products/outbox",
+        "id": "outbox",
+        "kind": "work",
+        "label": "迁移后附件与报告",
+        "operation": "photo_outbox"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "节日照片迁移后发送与缺失报告"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "calendar"
+      },
+      {
+        "source": "input",
+        "target": "invitees"
+      },
+      {
+        "source": "input",
+        "target": "supplies"
+      },
+      {
+        "source": "calendar",
+        "target": "commit"
+      },
+      {
+        "source": "invitees",
+        "target": "commit"
+      },
+      {
+        "source": "supplies",
+        "target": "commit"
+      },
+      {
+        "source": "calendar",
+        "target": "_core"
+      },
+      {
+        "source": "invitees",
+        "target": "_core"
+      },
+      {
+        "source": "supplies",
+        "target": "_core"
+      },
+      {
+        "source": "commit",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP09",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/calendar",
+        "id": "calendar",
+        "kind": "work",
+        "label": "两场最早空档选择",
+        "operation": "panel_slots"
+      },
+      {
+        "folder": "engines/invitees",
+        "id": "invitees",
+        "kind": "work",
+        "label": "邀请群成员并集",
+        "operation": "panel_invitees"
+      },
+      {
+        "folder": "engines/supplies",
+        "id": "supplies",
+        "kind": "work",
+        "label": "库存与评分采购",
+        "operation": "supply_selection"
+      },
+      {
+        "folder": "engines/commit",
+        "id": "commit",
+        "kind": "work",
+        "label": "活动创建与联合通知",
+        "operation": "panel_commit"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "两场座谈会、群邀请与物资采购"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "dinner"
+      },
+      {
+        "source": "input",
+        "target": "contact"
+      },
+      {
+        "source": "input",
+        "target": "shopping"
+      },
+      {
+        "source": "dinner",
+        "target": "shopping"
+      },
+      {
+        "source": "contact",
+        "target": "shopping"
+      },
+      {
+        "source": "dinner",
+        "target": "_core"
+      },
+      {
+        "source": "contact",
+        "target": "_core"
+      },
+      {
+        "source": "shopping",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP10",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "dinner",
+        "id": "dinner",
+        "kind": "work",
+        "label": "下个星期日程",
+        "operation": "dinner_date"
+      },
+      {
+        "folder": "contact",
+        "id": "contact",
+        "kind": "work",
+        "label": "最近匹配会话身份",
+        "operation": "recent_contact"
+      },
+      {
+        "folder": "shopping",
+        "id": "shopping",
+        "kind": "work",
+        "label": "多属性变体与结算",
+        "operation": "dinner_checkout"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "晚宴计划、联系人定位与餐具采购"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "cancellations"
+      },
+      {
+        "source": "input",
+        "target": "ride"
+      },
+      {
+        "source": "input",
+        "target": "books"
+      },
+      {
+        "source": "cancellations",
+        "target": "_core"
+      },
+      {
+        "source": "ride",
+        "target": "_core"
+      },
+      {
+        "source": "books",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP11",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/cancellations",
+        "id": "cancellations",
+        "kind": "work",
+        "label": "取消范围与通知快照",
+        "operation": "meeting_cancel_plan"
+      },
+      {
+        "folder": "engines/ride",
+        "id": "ride",
+        "kind": "work",
+        "label": "研讨会提前叫车",
+        "operation": "seminar_ride"
+      },
+      {
+        "folder": "engines/books",
+        "id": "books",
+        "kind": "work",
+        "label": "书目条件与评分",
+        "operation": "book_purchase"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "取消会面、研讨会叫车与图书采购"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "eu"
+      },
+      {
+        "source": "input",
+        "target": "students"
+      },
+      {
+        "source": "input",
+        "target": "countries"
+      },
+      {
+        "source": "input",
+        "target": "query"
+      },
+      {
+        "source": "eu",
+        "target": "query"
+      },
+      {
+        "source": "students",
+        "target": "query"
+      },
+      {
+        "source": "countries",
+        "target": "query"
+      },
+      {
+        "source": "eu",
+        "target": "_core"
+      },
+      {
+        "source": "students",
+        "target": "_core"
+      },
+      {
+        "source": "countries",
+        "target": "_core"
+      },
+      {
+        "source": "query",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP24",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/eu",
+        "id": "eu",
+        "kind": "work",
+        "label": "欧盟任职资格",
+        "operation": "eu_professors"
+      },
+      {
+        "folder": "engines/students",
+        "id": "students",
+        "kind": "work",
+        "label": "逐部门在读人数",
+        "operation": "department_students"
+      },
+      {
+        "folder": "engines/countries",
+        "id": "countries",
+        "kind": "work",
+        "label": "全部任职国家",
+        "operation": "employment_countries"
+      },
+      {
+        "folder": "engines/query",
+        "id": "query",
+        "kind": "work",
+        "label": "存在性条件与国家汇合",
+        "operation": "university_query"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "大学任职、在读人数与国家集合查询"
+  }
+]
