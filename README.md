@@ -66,3 +66,8 @@ See the [Chinese task catalogue and author DAGs](medium26-extension-v1/docs/26�
 [Evaluation v2](evaluation-v2/README.md) adds fixed-count partial credit without changing existing task inputs or requirements. Easy, medium and hard tasks have maximum rewards of 1, 2 and 3; each reward is the difficulty maximum multiplied by passed verifiers divided by the task's fixed verifier count. It retains existing checks, records all results, and gives zero for protected-file tampering. Original binary scores remain versioned separately.
 
 See the [policy](evaluation-v2/policy.json), [fixed catalog](evaluation-v2/catalog.json), [offline five-task re-score](evaluation-v2/review/离线重评分.md), and [validation report](evaluation-v2/review/validation_report.json). Future Harbor runs should use the new external test adapter so fractional rewards are read directly instead of mapped from exit status.
+
+
+## 运行结果（独立实验材料）
+
+[查看V4 Pro普通模式 reward-v2 运行汇报](experiments/reward-v2-v4pro-2026-11-08/README.md)：原七臂392个题位、另列LATTE四次补跑及AOrchestra独立56题比较臂，包含API检查通过率、E2E、tokens、资源与multi-agent观测。结果与分析只放在experiments目录；不要将该目录或作者验证材料挂载给被测Agent。不同Harness限额、适配条件与异常终态在报告中分别标注。

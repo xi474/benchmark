@@ -1,0 +1,1310 @@
+{
+  "summary": {
+    "latte": {
+      "runs": 56,
+      "with_teammate_model_responses": 39,
+      "with_multiple_teammate_model_responses": 38,
+      "teammate_turn_parallel_runs": 36,
+      "teammate_tool_parallel_runs": 0,
+      "max_teammate_turn_width": 3,
+      "max_teammate_tool_width": 1,
+      "model_dynamic_discovery_runs": 12,
+      "model_dynamic_discoveries": 28,
+      "events_missing_runs": 0
+    },
+    "langgraph": {
+      "runs": 56,
+      "worker_response_runs": 56,
+      "two_worker_response_runs": 56,
+      "parallel_worker_runs": 27,
+      "max_worker_width": 3,
+      "worker_count_distribution": {
+        "4": 52,
+        "3": 4
+      }
+    },
+    "latte_dynamic_examples": [
+      {
+        "task": "original/incident_pipeline_repair",
+        "classification": "scored",
+        "responding_teammates": 3,
+        "model_discover_task": 4,
+        "model_discover_task_during_execution": 1,
+        "system_discover_task": 1,
+        "teammate_turn_width": 3,
+        "teammate_tool_width": 1,
+        "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-05-reward-v2-original-incident_pipeline_repair/reward-v2-original-incident_pipe__wfiAwBW/agent/latte-run/events.jsonl",
+        "events_sha256": "58ac5a9cd58cc2c5ebbbc2a1e6b8502acc0c4f7c25d47df0e2de20ab58724f45",
+        "dynamic_agents": {
+          "Lead": 1
+        }
+      },
+      {
+        "task": "original/migration_control_plane",
+        "classification": "invalid_submission",
+        "responding_teammates": 3,
+        "model_discover_task": 10,
+        "model_discover_task_during_execution": 2,
+        "system_discover_task": 0,
+        "teammate_turn_width": 3,
+        "teammate_tool_width": 1,
+        "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-08-reward-v2-original-migration_control_plane/reward-v2-original-migration_con__d2VRJLY/agent/latte-run/events.jsonl",
+        "events_sha256": "b1a163db18597ac91ebd6f109c423a843c2dd83f3a466fa5fc290a9bcd054dfe",
+        "dynamic_agents": {
+          "Dev3": 1,
+          "Dev2": 1
+        }
+      },
+      {
+        "task": "original/supply_chain_assurance",
+        "classification": "scored_partial_max_rounds",
+        "responding_teammates": 3,
+        "model_discover_task": 13,
+        "model_discover_task_during_execution": 5,
+        "system_discover_task": 0,
+        "teammate_turn_width": 3,
+        "teammate_tool_width": 1,
+        "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r2/jobs/reward-v2-pro-stage2-latte-recovery-r2-13-reward-v2-original-supply_chain_assurance/reward-v2-original-supply_chain__3EDCkVf/agent/latte-run/events.jsonl",
+        "events_sha256": "4cf3d6d4dae36b344e141744d31a8ef2664a42cf5e569d3fd2ec6ac2063ce1a7",
+        "dynamic_agents": {
+          "Dev2": 1,
+          "Lead": 2,
+          "Dev1": 2
+        }
+      },
+      {
+        "task": "hard/batch_scheduler_transition_spec_v4",
+        "classification": "invalid_submission",
+        "responding_teammates": 3,
+        "model_discover_task": 6,
+        "model_discover_task_during_execution": 2,
+        "system_discover_task": 0,
+        "teammate_turn_width": 2,
+        "teammate_tool_width": 1,
+        "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-18-reward-v2-hard-batch_scheduler_transition_spec_v4/reward-v2-hard-batch_scheduler_t__9JexH2g/agent/latte-run/events.jsonl",
+        "events_sha256": "2226a18292dbdc767324c6d709c6b826546f715ef9c1323f6029da9a06296f0a",
+        "dynamic_agents": {
+          "Lead": 2
+        }
+      },
+      {
+        "task": "hard/identity_federation_transition_spec_v4",
+        "classification": "invalid_submission",
+        "responding_teammates": 3,
+        "model_discover_task": 10,
+        "model_discover_task_during_execution": 6,
+        "system_discover_task": 0,
+        "teammate_turn_width": 3,
+        "teammate_tool_width": 1,
+        "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-21-reward-v2-hard-identity_federation_transition_spec_v4/reward-v2-hard-identity_federati__ryvxdLg/agent/latte-run/events.jsonl",
+        "events_sha256": "dba9dcca48a47db2569fe9cc8b3ef3880868e4828794c334cb8b1d855723b6d7",
+        "dynamic_agents": {
+          "Dev3": 2,
+          "Dev2": 4
+        }
+      },
+      {
+        "task": "hard/regional_failover_readiness_spec_v4",
+        "classification": "scored_partial_max_rounds",
+        "responding_teammates": 3,
+        "model_discover_task": 8,
+        "model_discover_task_during_execution": 1,
+        "system_discover_task": 0,
+        "teammate_turn_width": 3,
+        "teammate_tool_width": 1,
+        "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-25-reward-v2-hard-regional_failover_readiness_spec_v4/reward-v2-hard-regional_failover__EHZjXx7/agent/latte-run/events.jsonl",
+        "events_sha256": "70e3e1ef6327cee35b78d635cb2e562941808e102fd8f73d2d476c3fc4cf11e9",
+        "dynamic_agents": {
+          "Dev1": 1
+        }
+      }
+    ],
+    "roma": {
+      "runs": 56,
+      "recursive_child_runs": 56,
+      "recursive_subplan_runs": 56,
+      "leaf_parallel_runs": 52,
+      "tool_parallel_runs": 39,
+      "max_leaf_parallel_width": 8,
+      "max_tool_parallel_width": 3,
+      "max_runtime_created_agent_definitions": 0
+    },
+    "codex": {
+      "runs": 56,
+      "positive_runs": 1,
+      "examples": [
+        {
+          "task": "original/linux_release_analysis",
+          "reported_children": 3,
+          "model_tool_spawn_observed": true,
+          "autonomous_delegation": null,
+          "completed_children": 3,
+          "parent_received": 3,
+          "entered_model_request": 3,
+          "explicit_sent_events": 0,
+          "explicit_sent_event_coverage": "unavailable",
+          "tool_parallel_execution": "unknown",
+          "sources": [
+            {
+              "locator": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-codex-06-reward-v2-original-linux_release_analysis/reward-v2-original-linux_release__XRemqnP/agent/monitoring/native-codex-observation.json",
+              "sha256": "f42a3cc382d8dfb9ece8a8aa06eab4b5032e9e473a7b90153b95f8e1b3ec0e7a"
+            },
+            {
+              "locator": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-codex-06-reward-v2-original-linux_release_analysis/reward-v2-original-linux_release__XRemqnP/agent/monitoring/outcome-loops.json",
+              "sha256": "9cda7da06fd21dcb4b402d9ca0e88b38aa22b07afb382712d505d330e4a27a87"
+            },
+            {
+              "locator": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-codex-06-reward-v2-original-linux_release_analysis/reward-v2-original-linux_release__XRemqnP/agent/monitoring/native-telemetry/summary.json",
+              "sha256": "c34e4d0c5fbf85344a9eb4afdda4f7725697bcbff73a11c7d8c0805ef0a45fa4"
+            }
+          ]
+        }
+      ]
+    },
+    "other_harnesses": {
+      "nanobot": {
+        "runs": 56,
+        "reported_subagent_positive_runs": 0,
+        "interpretation": "not observed in this selected reward-v2 cohort"
+      },
+      "opencode": {
+        "runs": 56,
+        "reported_subagent_positive_runs": 0,
+        "interpretation": "not observed in this selected reward-v2 cohort"
+      },
+      "dsh": {
+        "runs": 56,
+        "reported_subagent_positive_runs": 0,
+        "interpretation": "not observed in this selected reward-v2 cohort"
+      }
+    },
+    "non_matrix_aorchestra_mp17_pilot": {
+      "scope": "independent MP17 pilot; excluded from seven-arm counts",
+      "model": "deepseek-v4-pro",
+      "mode": "non-thinking",
+      "delegation_created": 3,
+      "delegation_completed": 3,
+      "subagent_count": 3,
+      "max_concurrent_subagents": 1,
+      "parallel_agents_observed": false,
+      "source_locator": "aorchestra-offline-20261107/mp17-finalization-r2/paid-pilot/pilot-analysis.json",
+      "source_sha256": "9979fafc267f8a6ffc84618a1698769049d6e31118539b83070de3f387a887fe"
+    }
+  },
+  "latte": [
+    {
+      "task": "original/adaptive_access_review",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 1,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-01-reward-v2-original-adaptive_access_review/reward-v2-original-adaptive_acce__3JGbzJM/agent/latte-run/events.jsonl",
+      "events_sha256": "02701e38a8842976f2bba30e42d40238b7b9903f056ae10cfe31f313c40b8d5f"
+    },
+    {
+      "task": "original/dependency_release_reasoner",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-02-reward-v2-original-dependency_release_reasoner/reward-v2-original-dependency_re__e6y9AcL/agent/latte-run/events.jsonl",
+      "events_sha256": "48ca3f3f5e638561e081c7b0fb5198d3e964e9e3140fb70ec87485d199fd94a3"
+    },
+    {
+      "task": "original/distributed_trace_recovery",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-03-reward-v2-original-distributed_trace_recovery/reward-v2-original-distributed_t__mWgtrXZ/agent/latte-run/events.jsonl",
+      "events_sha256": "117fca30a391f281e342e30bb1affff1a00c11c09f1f69fa6c905a2955f44ce2"
+    },
+    {
+      "task": "original/incident_federation_rebuild",
+      "classification": "scored",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-04-reward-v2-original-incident_federation_rebuild/reward-v2-original-incident_fede__7CYCkyT/agent/latte-run/events.jsonl",
+      "events_sha256": "5ffab281846c9d8fab87dede97a8a5bf4f0a7ebd308edcd715994d4c4d53374e"
+    },
+    {
+      "task": "original/incident_pipeline_repair",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 1,
+      "system_discover_task": 1,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-05-reward-v2-original-incident_pipeline_repair/reward-v2-original-incident_pipe__wfiAwBW/agent/latte-run/events.jsonl",
+      "events_sha256": "58ac5a9cd58cc2c5ebbbc2a1e6b8502acc0c4f7c25d47df0e2de20ab58724f45",
+      "dynamic_agents": {
+        "Lead": 1
+      }
+    },
+    {
+      "task": "original/linux_release_analysis",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-06-reward-v2-original-linux_release_analysis/reward-v2-original-linux_release__DDTyNQq/agent/latte-run/events.jsonl",
+      "events_sha256": "85a1d5c4fd336453e69b8cc637f1ef86cdf2bfe50437cf964b154a5b87127c83"
+    },
+    {
+      "task": "original/linux_supply_chain_recovery",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-07-reward-v2-original-linux_supply_chain_recovery/reward-v2-original-linux_supply__7GHacS9/agent/latte-run/events.jsonl",
+      "events_sha256": "c7bbd91bd3679c4552fd83b79fdfccf63f27e58dedf21989e7516a93c181832c"
+    },
+    {
+      "task": "original/migration_control_plane",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 10,
+      "model_discover_task_during_execution": 2,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-08-reward-v2-original-migration_control_plane/reward-v2-original-migration_con__d2VRJLY/agent/latte-run/events.jsonl",
+      "events_sha256": "b1a163db18597ac91ebd6f109c423a843c2dd83f3a466fa5fc290a9bcd054dfe",
+      "dynamic_agents": {
+        "Dev3": 1,
+        "Dev2": 1
+      }
+    },
+    {
+      "task": "original/release_compatibility_program",
+      "classification": "scored",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-09-reward-v2-original-release_compatibility_program/reward-v2-original-release_compa__X6oAzJb/agent/latte-run/events.jsonl",
+      "events_sha256": "c62f361d39d27450d8cf01f6891b8202189269adb100df37bdd13e2e90515596"
+    },
+    {
+      "task": "original/schema_evolution_reasoner",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-10-reward-v2-original-schema_evolution_reasoner/reward-v2-original-schema_evolut__r6vHnjC/agent/latte-run/events.jsonl",
+      "events_sha256": "d00b02c628f768c9bf6400593d4b66671a3761cbddb871b90a343ee66d647a6f"
+    },
+    {
+      "task": "original/sdk_compatibility_upgrade",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-11-reward-v2-original-sdk_compatibility_upgrade/reward-v2-original-sdk_compatibi__kKqvfz7/agent/latte-run/events.jsonl",
+      "events_sha256": "e738cc7ec14b2d53bfc4abffb88f8d6851deec474a23212f3c6acee81873cca8"
+    },
+    {
+      "task": "original/security_boundary_hardening",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-12-reward-v2-original-security_boundary_hardening/reward-v2-original-security_boun__DhKcS6Q/agent/latte-run/events.jsonl",
+      "events_sha256": "07a33235b1e95e6c1bbb9f981cf4c1986f6111cdc21aac03aed713ec0144c090"
+    },
+    {
+      "task": "original/supply_chain_assurance",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 13,
+      "model_discover_task_during_execution": 5,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r2/jobs/reward-v2-pro-stage2-latte-recovery-r2-13-reward-v2-original-supply_chain_assurance/reward-v2-original-supply_chain__3EDCkVf/agent/latte-run/events.jsonl",
+      "events_sha256": "4cf3d6d4dae36b344e141744d31a8ef2664a42cf5e569d3fd2ec6ac2063ce1a7",
+      "dynamic_agents": {
+        "Dev2": 1,
+        "Lead": 2,
+        "Dev1": 2
+      }
+    },
+    {
+      "task": "original/tenant_platform_upgrade",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 3,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-adapted-after-recovery-r1/jobs/reward-v2-pro-stage2-latte-adapted-14-reward-v2-original-tenant_platform_upgrade/reward-v2-original-tenant_platfo__hddAKdz/agent/latte-run/events.jsonl",
+      "events_sha256": "8b5ce232a9300d95c0228ba5204fe53d864275ca7e188245158e6fe1330a6712"
+    },
+    {
+      "task": "hard/api_deprecation_campaign_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 2,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-15-reward-v2-hard-api_deprecation_campaign_spec_v4/reward-v2-hard-api_deprecation_c__QytcCwz/agent/latte-run/events.jsonl",
+      "events_sha256": "e92b382cdb0d10ba15c6ccc0c2224eec717b8aee812cca69fc9dd3eac0860db1"
+    },
+    {
+      "task": "hard/artifact_provenance_release_spec_v4",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 7,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-16-reward-v2-hard-artifact_provenance_release_spec_v4/reward-v2-hard-artifact_provenan__HTR7BBD/agent/latte-run/events.jsonl",
+      "events_sha256": "c6e6135611b6cc083869e2178b44a1f673301904ef923c78811a41de813f8ab4"
+    },
+    {
+      "task": "hard/backup_restore_certification_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-17-reward-v2-hard-backup_restore_certification_spec_v4/reward-v2-hard-backup_restore_ce__LLbHqcz/agent/latte-run/events.jsonl",
+      "events_sha256": "902a6870e8ecad233a76e2354835a4bdab52e5acca5eae87f6b7a520ce4bdf19"
+    },
+    {
+      "task": "hard/batch_scheduler_transition_spec_v4",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 6,
+      "model_discover_task_during_execution": 2,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-18-reward-v2-hard-batch_scheduler_transition_spec_v4/reward-v2-hard-batch_scheduler_t__9JexH2g/agent/latte-run/events.jsonl",
+      "events_sha256": "2226a18292dbdc767324c6d709c6b826546f715ef9c1323f6029da9a06296f0a",
+      "dynamic_agents": {
+        "Lead": 2
+      }
+    },
+    {
+      "task": "hard/certificate_rotation_readiness_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-19-reward-v2-hard-certificate_rotation_readiness_spec_v4/reward-v2-hard-certificate_rotat__AGjPBRt/agent/latte-run/events.jsonl",
+      "events_sha256": "fb8a58fc3a91ad5254c640eeb5839d9d65fe1f12ebb1679930e6a14bcf1c96d9"
+    },
+    {
+      "task": "hard/edge_fleet_rollout_spec_v4",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-20-reward-v2-hard-edge_fleet_rollout_spec_v4/reward-v2-hard-edge_fleet_rollou__gXzmJ9V/agent/latte-run/events.jsonl",
+      "events_sha256": "f7186722e253b3a25341dbe05562215a47ac4ea0c7a67197cd5e358c9b988bc2"
+    },
+    {
+      "task": "hard/identity_federation_transition_spec_v4",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 10,
+      "model_discover_task_during_execution": 6,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-21-reward-v2-hard-identity_federation_transition_spec_v4/reward-v2-hard-identity_federati__ryvxdLg/agent/latte-run/events.jsonl",
+      "events_sha256": "dba9dcca48a47db2569fe9cc8b3ef3880868e4828794c334cb8b1d855723b6d7",
+      "dynamic_agents": {
+        "Dev3": 2,
+        "Dev2": 4
+      }
+    },
+    {
+      "task": "hard/network_policy_convergence_spec_v4",
+      "classification": "scored",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-22-reward-v2-hard-network_policy_convergence_spec_v4/reward-v2-hard-network_policy_co__QLednkd/agent/latte-run/events.jsonl",
+      "events_sha256": "e858751b4fd6888be3bca87cfad4ea207dc8d88443a3c751234f8c5daee2d6f0"
+    },
+    {
+      "task": "hard/observability_retention_upgrade_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-23-reward-v2-hard-observability_retention_upgrade_spec_v4/reward-v2-hard-observability_ret__Dd4qmrM/agent/latte-run/events.jsonl",
+      "events_sha256": "dbcfd541d990ac11e2b2dfb26e1206f01dab48dd446bd2d6c4431b0d3e60602f"
+    },
+    {
+      "task": "hard/payment_settlement_reconciliation_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-24-reward-v2-hard-payment_settlement_reconciliation_spec_v4/reward-v2-hard-payment_settlemen__b6ZodiE/agent/latte-run/events.jsonl",
+      "events_sha256": "3632f3aebabc0799ed2955f1329d2d8e58afc3c7a94f40c7cd07dbfb16e089f2"
+    },
+    {
+      "task": "hard/regional_failover_readiness_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 8,
+      "model_discover_task_during_execution": 1,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-25-reward-v2-hard-regional_failover_readiness_spec_v4/reward-v2-hard-regional_failover__EHZjXx7/agent/latte-run/events.jsonl",
+      "events_sha256": "70e3e1ef6327cee35b78d635cb2e562941808e102fd8f73d2d476c3fc4cf11e9",
+      "dynamic_agents": {
+        "Dev1": 1
+      }
+    },
+    {
+      "task": "hard/search_index_rebuild_spec_v4",
+      "classification": "scored",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-26-reward-v2-hard-search_index_rebuild_spec_v4/reward-v2-hard-search_index_rebu__qGUvhZt/agent/latte-run/events.jsonl",
+      "events_sha256": "ec70d558963959af13b760a3a639162d4c40b8138844cad5d7068dc2b6500ee2"
+    },
+    {
+      "task": "hard/storage_tiering_migration_spec_v4",
+      "classification": "scored",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r3/jobs/reward-v2-pro-stage2-latte-recovery-r3-27-reward-v2-hard-storage_tiering_migration_spec_v4/reward-v2-hard-storage_tiering_m__8cNaMLH/agent/latte-run/events.jsonl",
+      "events_sha256": "e7b0343ea7e8338bfca8b8b65748a01eb5f37ab9b57d62a0b2778e3eacdd2a5b"
+    },
+    {
+      "task": "hard/streaming_checkpoint_recovery_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 5,
+      "model_discover_task_during_execution": 1,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-28-reward-v2-hard-streaming_checkpoint_recovery_spec_v4/reward-v2-hard-streaming_checkpo__MA5j8Wc/agent/latte-run/events.jsonl",
+      "events_sha256": "ab70a4af72f619bdd694ee42eebc3831fbcc2e0377cb8787ff205f6951f33a82",
+      "dynamic_agents": {
+        "Lead": 1
+      }
+    },
+    {
+      "task": "hard/tenant_quota_rebalance_spec_v4",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 6,
+      "model_discover_task_during_execution": 2,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-29-reward-v2-hard-tenant_quota_rebalance_spec_v4/reward-v2-hard-tenant_quota_reba__JuVLGCx/agent/latte-run/events.jsonl",
+      "events_sha256": "375012e61ebf9c6bb034520949a1809deb2e199b99a93ad33ae3a67510dd0e1d",
+      "dynamic_agents": {
+        "Dev2": 2
+      }
+    },
+    {
+      "task": "hard/warehouse_cutover_assurance_spec_v4",
+      "classification": "scored_partial_max_rounds",
+      "responding_teammates": 3,
+      "model_discover_task": 7,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage2-latte-recovery-r4/jobs/reward-v2-pro-stage2-latte-recovery-r4-30-reward-v2-hard-warehouse_cutover_assurance_spec_v4/reward-v2-hard-warehouse_cutover__QyxQy5F/agent/latte-run/events.jsonl",
+      "events_sha256": "9ba103082e6baacb42b518bc7eb6239b4d0a7acfa055099e38c2d0b2a3c93d7e"
+    },
+    {
+      "task": "medium/MP01",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 2,
+      "model_discover_task": 5,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 1,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-01-MP01-after-five-merge-r1/reward-v2-medium-MP01__cdeffUf/agent/latte-run/events.jsonl",
+      "events_sha256": "d7554d3d4f4caca80ba3ee3c9ab059a741c3ce4676e6215b6772bd5a518931ec"
+    },
+    {
+      "task": "medium/MP03",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-03-MP03-after-five-merge-r1/reward-v2-medium-MP03__UKpkEBK/agent/latte-run/events.jsonl",
+      "events_sha256": "4ab1f2ad5be082890128692909d59b5892bdb62070257c693c9a0d319f109150"
+    },
+    {
+      "task": "medium/MP04",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-04-MP04-after-five-merge-r1/reward-v2-medium-MP04__rr2qGRg/agent/latte-run/events.jsonl",
+      "events_sha256": "86cf137834df451c7b51d67306e4e3aebc7eaf81c320c63ee5260f2bf22ebfdd"
+    },
+    {
+      "task": "medium/MP05",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-05-MP05-after-five-merge-r1/reward-v2-medium-MP05__Qzua2Ha/agent/latte-run/events.jsonl",
+      "events_sha256": "dbb37ca6d3909aded529bd840f2cb8e324ea1175232244c82c9548d7730d6abf"
+    },
+    {
+      "task": "medium/MP09",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-09-MP09-after-five-merge-r1/reward-v2-medium-MP09__KFa3pTb/agent/latte-run/events.jsonl",
+      "events_sha256": "76f309bd764a16ac5d3312c2691737fad3af25017df61365d4d571e47e3c6c1d"
+    },
+    {
+      "task": "medium/MP10",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-10-MP10-after-five-merge-r1/reward-v2-medium-MP10__Xr8vWgU/agent/latte-run/events.jsonl",
+      "events_sha256": "13d533fbbc882ed12cda789c16b9324a3c23893b20cb83c3249753a6ca5668d9"
+    },
+    {
+      "task": "medium/MP11",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-11-MP11-after-five-merge-r1/reward-v2-medium-MP11__CxJKZiq/agent/latte-run/events.jsonl",
+      "events_sha256": "a897ea0fabf26c55c8c107771de2badd7c413c4b42917ffe2d1fa32b2d07a1a0"
+    },
+    {
+      "task": "medium/MP12",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-12-MP12-after-five-merge-r1/reward-v2-medium-MP12__TGLpdqd/agent/latte-run/events.jsonl",
+      "events_sha256": "9b01ced966dffa442e23ad147d48a30df405fe00e1820a82cb30f95251595839"
+    },
+    {
+      "task": "medium/MP13",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-13-MP13-after-five-merge-r1/reward-v2-medium-MP13__25D4dsX/agent/latte-run/events.jsonl",
+      "events_sha256": "dadae91a2cda9608476082b7b60ea1c21b6a1ffea1e914cf4a16ff8dfad9915f"
+    },
+    {
+      "task": "medium/MP02",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-02-MP02-after-five-merge-r1/reward-v2-medium-MP02__9AsuXPG/agent/latte-run/events.jsonl",
+      "events_sha256": "6fcf3fe361c97275b08f13bb1e498ab97bacff1e2a679b46134b6246ccb10836"
+    },
+    {
+      "task": "medium/MP08",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 3,
+      "model_discover_task": 5,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-08-MP08-after-five-merge-r1/reward-v2-medium-MP08__FC4r75X/agent/latte-run/events.jsonl",
+      "events_sha256": "bbe142b7055fd5ec9997d2005ca4f993f4f71db8995247bfccebadcd0f9b73bd"
+    },
+    {
+      "task": "medium/MP06",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 3,
+      "model_discover_task": 7,
+      "model_discover_task_during_execution": 1,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-06-MP06-after-five-merge-r1/reward-v2-medium-MP06__BzZwchn/agent/latte-run/events.jsonl",
+      "events_sha256": "c71b50adbdac2e350de3eff3591e469d37d0a5524c0ddd25540092d81de6c0cf",
+      "dynamic_agents": {
+        "Lead": 1
+      }
+    },
+    {
+      "task": "medium/MP17",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-17-MP17-after-five-merge-r1/reward-v2-medium-MP17__Qdg4ZiA/agent/latte-run/events.jsonl",
+      "events_sha256": "6e3522094e174ecd227cb018c4025ab2e7b279d3ddb7342ab0c58e66e2c34313"
+    },
+    {
+      "task": "medium/MP07",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 3,
+      "model_discover_task": 5,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-07-MP07-after-five-merge-r1/reward-v2-medium-MP07__7cxLuXy/agent/latte-run/events.jsonl",
+      "events_sha256": "8e8ba9ba22bc197b651d96d1caf7cc4ff15e9daeb99fb55d6e9d8ed15329d0a4"
+    },
+    {
+      "task": "medium/MP18",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-18-MP18-after-five-merge-r1/reward-v2-medium-MP18__JCqPLDj/agent/latte-run/events.jsonl",
+      "events_sha256": "46a73dfb2a63b36887ba0249b327f4f0871ebf1d679e7be92d86f8e0429948ef"
+    },
+    {
+      "task": "medium/MP19",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-19-MP19-after-five-merge-r1/reward-v2-medium-MP19__razTudS/agent/latte-run/events.jsonl",
+      "events_sha256": "3ea954738c50de54dac1469733e0252e61f4c532b8b590962c3a87534c8bd4a9"
+    },
+    {
+      "task": "medium/MP14",
+      "classification": "scored",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 2,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-14-MP14-after-five-merge-r1/reward-v2-medium-MP14__LvLoHAt/agent/latte-run/events.jsonl",
+      "events_sha256": "09c86bfae19c7f522a1acf81c8a6f14c3d33f86c235fd3bdd6f675a7d8fd5300"
+    },
+    {
+      "task": "medium/MP15",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 2,
+      "model_discover_task": 6,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 1,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-15-MP15-after-five-merge-r1/reward-v2-medium-MP15__on3vqsB/agent/latte-run/events.jsonl",
+      "events_sha256": "2249edb72400493753403aab892f18462b2dbd8430f9fd88171c6899ac1a9c45"
+    },
+    {
+      "task": "medium/MP16",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 3,
+      "model_discover_task": 8,
+      "model_discover_task_during_execution": 2,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-16-MP16-after-five-merge-r1/reward-v2-medium-MP16__xuNMmkj/agent/latte-run/events.jsonl",
+      "events_sha256": "bc388a0d89e277ffe438834a5851d1208949b96fe71bc79e06d4a3e946e16bd0",
+      "dynamic_agents": {
+        "Dev2": 1,
+        "Lead": 1
+      }
+    },
+    {
+      "task": "medium/MP24",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 0,
+      "model_discover_task": 0,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 0,
+      "teammate_tool_width": 0,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-24-MP24-after-five-merge-r1/reward-v2-medium-MP24__wZ67DXA/agent/latte-run/events.jsonl",
+      "events_sha256": "5f9294924d1ce2d8cd95b4cebf9ba35112fd638e6ec9eaae4b8b7abf3774426c"
+    },
+    {
+      "task": "medium/MP20",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 1,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 1,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-20-MP20-after-five-merge-r1/reward-v2-medium-MP20__W6qqsu4/agent/latte-run/events.jsonl",
+      "events_sha256": "48142da432472f3e76263028a9fa30bf6e49155886ec4816db955db30bcc6e77"
+    },
+    {
+      "task": "medium/MP21",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 4,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-21-MP21-after-five-merge-r1/reward-v2-medium-MP21__rg3QqNA/agent/latte-run/events.jsonl",
+      "events_sha256": "5e20d0a7cba7c94926bfc4dbb44a94d4c9e9524161622be5efa453ea6b307ee9"
+    },
+    {
+      "task": "medium/MP22",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 7,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-22-MP22-after-five-merge-r1/reward-v2-medium-MP22__yLF7Moo/agent/latte-run/events.jsonl",
+      "events_sha256": "404a5f687c0e6061d3dc8655ab1e122de56e5da9a0346c6f818888bab5a9e95b"
+    },
+    {
+      "task": "medium/MP23",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 8,
+      "model_discover_task_during_execution": 4,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-23-MP23-after-five-merge-r1/reward-v2-medium-MP23__7jbcoiB/agent/latte-run/events.jsonl",
+      "events_sha256": "3b5a0c509afc60bda487e882b70a9f834b92acd1d6f8eaf96f0623c5f0404a54",
+      "dynamic_agents": {
+        "Lead": 4
+      }
+    },
+    {
+      "task": "medium/MP25",
+      "classification": "scored_with_agent_nonzero_exit",
+      "responding_teammates": 3,
+      "model_discover_task": 6,
+      "model_discover_task_during_execution": 1,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-25-MP25-after-five-merge-r1/reward-v2-medium-MP25__uNNuuVU/agent/latte-run/events.jsonl",
+      "events_sha256": "5a2eac5ace90a5af7368c534fff0296183f77634f525f2559aba8bcda4d49b41",
+      "dynamic_agents": {
+        "Dev1": 1
+      }
+    },
+    {
+      "task": "medium/MP26",
+      "classification": "invalid_submission",
+      "responding_teammates": 3,
+      "model_discover_task": 7,
+      "model_discover_task_during_execution": 0,
+      "system_discover_task": 0,
+      "teammate_turn_width": 3,
+      "teammate_tool_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/latte-adapted-after-five-merge-r1/jobs/reward-v2-medium26-20261105-latte-planning-adapted-26-MP26-after-five-merge-r1/reward-v2-medium-MP26__YPaf5fA/agent/latte-run/events.jsonl",
+      "events_sha256": "e037dbef32b772b8a54ee996424a1ca1b7fce330b6149de4a02370c22fdb1732"
+    }
+  ],
+  "langgraph": [
+    {
+      "task": "original/adaptive_access_review",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-01-reward-v2-original-adaptive_access_review/reward-v2-original-adaptive_acce__AWaYXaG/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "9228ccecf401c2c8bed084de293e6f2ea2e247e62187b7df73e9638ce42641d4"
+    },
+    {
+      "task": "original/dependency_release_reasoner",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-02-reward-v2-original-dependency_release_reasoner/reward-v2-original-dependency_re__dNU4PyC/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "3c9bcd5b8e393032506bd0c592647f41d8462175ee00cd04e0a6c43b840e2f13"
+    },
+    {
+      "task": "original/distributed_trace_recovery",
+      "workers_with_responses": 3,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-03-reward-v2-original-distributed_trace_recovery/reward-v2-original-distributed_t__VRngts4/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "176cf755591f5518d2d926790e6d692a53824fa4b63c4c0e6eb7a1678f8d3f16"
+    },
+    {
+      "task": "original/incident_federation_rebuild",
+      "workers_with_responses": 3,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-04-reward-v2-original-incident_federation_rebuild/reward-v2-original-incident_fede__q5Ebrcm/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "b0f4dd7dcd134cb9fdb29403f23027157d4e7b4e5f19234ac9d0a905705eb115"
+    },
+    {
+      "task": "original/incident_pipeline_repair",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-05-reward-v2-original-incident_pipeline_repair/reward-v2-original-incident_pipe__VpfNo55/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "59eebdd899879527cdfddf982d7c65abf25c08a3e242dccac78b6dddd1049024"
+    },
+    {
+      "task": "original/linux_release_analysis",
+      "workers_with_responses": 3,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-06-reward-v2-original-linux_release_analysis/reward-v2-original-linux_release__tVE5t93/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "aa58c1be1be6e59da89be7ff85d75ae4659319ff2b77c3e8839a41e8db97ce13"
+    },
+    {
+      "task": "original/linux_supply_chain_recovery",
+      "workers_with_responses": 3,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-07-reward-v2-original-linux_supply_chain_recovery/reward-v2-original-linux_supply__bEwK5jt/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "ef6396c84ec635135578290bc2abef187596057ecd180feda50e755d1a670a46"
+    },
+    {
+      "task": "original/migration_control_plane",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-08-reward-v2-original-migration_control_plane/reward-v2-original-migration_con__GgusHED/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "ea5c27d9854d821bbec5e42c7644d568c2220d84a649bfb78b13060b7ff3027b"
+    },
+    {
+      "task": "original/release_compatibility_program",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-09-reward-v2-original-release_compatibility_program/reward-v2-original-release_compa__r3TmTQ5/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "7ef3dd7e6d87ef5041099669599f5c9b38f6c6a3a3f94f89b6358a253af5f2bb"
+    },
+    {
+      "task": "original/schema_evolution_reasoner",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-10-reward-v2-original-schema_evolution_reasoner/reward-v2-original-schema_evolut__fR4dRZH/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "5be2e2b0839d45eb6340d67c4f78e32d1397b9783accde610a8d02f1cb8b6402"
+    },
+    {
+      "task": "original/sdk_compatibility_upgrade",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-11-reward-v2-original-sdk_compatibility_upgrade/reward-v2-original-sdk_compatibi__kcrTPgU/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "9210f319151c159af5b5f6fc0d8e7fa4d52df715204c49b0874bdc9e1f59fbd5"
+    },
+    {
+      "task": "original/security_boundary_hardening",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-12-reward-v2-original-security_boundary_hardening/reward-v2-original-security_boun__dE7y8H7/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "124077fa91941699b1757318c54b46b3996e79c23186df8bb7a0990a4309773b"
+    },
+    {
+      "task": "original/supply_chain_assurance",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-13-reward-v2-original-supply_chain_assurance/reward-v2-original-supply_chain__tTg5gqv/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "6471145e502cf4eb525d67eda6d6fba3c5c47a158d8a9b89bce6ae3ea4a22aaf"
+    },
+    {
+      "task": "original/tenant_platform_upgrade",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-14-reward-v2-original-tenant_platform_upgrade/reward-v2-original-tenant_platfo__qBtuPLV/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "be30e08b7dc5d07c13c78c5b3833f1b6cdee53b93506c986c2ca265a44299c1d"
+    },
+    {
+      "task": "hard/api_deprecation_campaign_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-15-reward-v2-hard-api_deprecation_campaign_spec_v4/reward-v2-hard-api_deprecation_c__5EBkaMs/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "f638fa08ec99f6af4f7db5b45650609b808f12849c861b74de25400ae0b01bc7"
+    },
+    {
+      "task": "hard/artifact_provenance_release_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-16-reward-v2-hard-artifact_provenance_release_spec_v4/reward-v2-hard-artifact_provenan__hFa4s8Y/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "3415c0b978eb811220722c6e7654641d539d53cc753df3ae34e73dafd811133a"
+    },
+    {
+      "task": "hard/backup_restore_certification_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-17-reward-v2-hard-backup_restore_certification_spec_v4/reward-v2-hard-backup_restore_ce__ZCmZPhu/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "784ed7dacaae6e31d32c82a50aca7bd1a2fde24221fdfd065f133025e4cbf390"
+    },
+    {
+      "task": "hard/batch_scheduler_transition_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-18-reward-v2-hard-batch_scheduler_transition_spec_v4/reward-v2-hard-batch_scheduler_t__RjB8bcE/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "9a0778ed80171552ebbf17ee325373b8540b97a62d54cd65d68feb1c1be7f675"
+    },
+    {
+      "task": "hard/certificate_rotation_readiness_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-19-reward-v2-hard-certificate_rotation_readiness_spec_v4/reward-v2-hard-certificate_rotat__RsLaEiu/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "18d407034e11efb8494485c2513558df79d5b49c4bd1feea8a30d76055ea0539"
+    },
+    {
+      "task": "hard/edge_fleet_rollout_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-20-reward-v2-hard-edge_fleet_rollout_spec_v4/reward-v2-hard-edge_fleet_rollou__X7eWvRg/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "60b6a07a3bad7299a3d0a66ccf2f76521b81c31958265a391b03957e678e7ccc"
+    },
+    {
+      "task": "hard/identity_federation_transition_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-21-reward-v2-hard-identity_federation_transition_spec_v4/reward-v2-hard-identity_federati__uBAD4oL/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "6f376dc06ee6bbb9a67de95b6a5cdd509dcd33e5a629c0605609d4a709a22075"
+    },
+    {
+      "task": "hard/network_policy_convergence_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-22-reward-v2-hard-network_policy_convergence_spec_v4/reward-v2-hard-network_policy_co__E4b9pVT/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "5f8c0564852d7e08af24da0f6748f3f8deeea4cbc61fca104fd16ca5e129977c"
+    },
+    {
+      "task": "hard/observability_retention_upgrade_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-23-reward-v2-hard-observability_retention_upgrade_spec_v4/reward-v2-hard-observability_ret__x6DFFNf/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "369784db27640d2ca4fa3b6291fab63e676820075ec182b8c44ba96e42c37bc4"
+    },
+    {
+      "task": "hard/payment_settlement_reconciliation_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-24-reward-v2-hard-payment_settlement_reconciliation_spec_v4/reward-v2-hard-payment_settlemen__zmNAfab/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "db04320194c10bcec05ea2b5ea40326637d5f3edbb52c92784eb4d527b440d96"
+    },
+    {
+      "task": "hard/regional_failover_readiness_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-25-reward-v2-hard-regional_failover_readiness_spec_v4/reward-v2-hard-regional_failover__mQ6GWex/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "370d8fb4d0e5292d59c6b623cd036dbb0f018d68484475af3a14e1caa6dad3ee"
+    },
+    {
+      "task": "hard/search_index_rebuild_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-26-reward-v2-hard-search_index_rebuild_spec_v4/reward-v2-hard-search_index_rebu__CXDm4S8/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "3169160105fb021c92b290b394a82ef8f24beb66b94cb10d8cd728f41eaf6289"
+    },
+    {
+      "task": "hard/storage_tiering_migration_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-27-reward-v2-hard-storage_tiering_migration_spec_v4/reward-v2-hard-storage_tiering_m__eBz6zeK/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "28b9c8a35bbd42693fff59fdfbb72f43d74e463a8496c1a4e27f5d83c1ef68ff"
+    },
+    {
+      "task": "hard/streaming_checkpoint_recovery_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-five-harnesses-r2/jobs/reward-v2-pro-stage1-r2-langgraph-28-reward-v2-hard-streaming_checkpoint_recovery_spec_v4/reward-v2-hard-streaming_checkpo__89ohEeB/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "632437dc611f89b802218f31a0a7ece9d15677312538bbf7c957079cc0162274"
+    },
+    {
+      "task": "hard/tenant_quota_rebalance_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-recovery-r3/jobs/reward-v2-pro-stage1-recovery-r3-langgraph-29-reward-v2-hard-tenant_quota_rebalance_spec_v4/reward-v2-hard-tenant_quota_reba__FmhExXB/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "1316dc05a4fe2f297c4d5a06983ec39702cbc593901ffd569c826f572ce0e30b"
+    },
+    {
+      "task": "hard/warehouse_cutover_assurance_spec_v4",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-matrix210-20261104/stage1-recovery-r3/jobs/reward-v2-pro-stage1-recovery-r3-langgraph-30-reward-v2-hard-warehouse_cutover_assurance_spec_v4/reward-v2-hard-warehouse_cutover__QA2vkfv/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "83b3eb467ba8d679b9575bc406f26096b57716352be21b779ec72fe61e892772"
+    },
+    {
+      "task": "medium/MP01",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-01-MP01/reward-v2-medium-MP01__yrmHR9s/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "e5b16a411c4048a2a669b3b22d79c4f0a84a16195032c974a6213ed5dbd934bf"
+    },
+    {
+      "task": "medium/MP02",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-02-MP02/reward-v2-medium-MP02__hFb6bQk/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "92e55da8f5274fd750a886479b85fcae9e707dc92ba34c52c88bc4c412c1ebf9"
+    },
+    {
+      "task": "medium/MP03",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-03-MP03/reward-v2-medium-MP03__HdGpJfu/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "20408741b18b6dc4d82192446d1ec2dbf35fbf0d3824539c59e2f791e40a8260"
+    },
+    {
+      "task": "medium/MP04",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-04-MP04/reward-v2-medium-MP04__jdeCbhz/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "07db71937203773df2ef4af889382e4630b46e42ed76618044da3e830e025ca0"
+    },
+    {
+      "task": "medium/MP05",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-05-MP05/reward-v2-medium-MP05__gNEe2ZM/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "d48517db55acbdd708d7fa8163e9b35b4890d592a02d2805818e3e10fee73251"
+    },
+    {
+      "task": "medium/MP06",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-06-MP06/reward-v2-medium-MP06__mxVnC85/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "f3b7377bd5d270235717b44967c5185fea5b670664beddff86ad00c6c698f50e"
+    },
+    {
+      "task": "medium/MP07",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-07-MP07/reward-v2-medium-MP07__fSvnpzc/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "58655ad8f4571214163dda9ecb11c4c86c8478c28a2be600cf37579c809b02ec"
+    },
+    {
+      "task": "medium/MP08",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-opencode-cap-r3/jobs/reward-v2-medium26-20261105-langgraph-08-MP08/reward-v2-medium-MP08__xZjHYQd/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "1f6357aa20666fb298c8450b0cc932d7539c65f88002894887d43c53510e9bf3"
+    },
+    {
+      "task": "medium/MP09",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-09-MP09-recovery-r4/reward-v2-medium-MP09__eKEpGpM/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "548cecce82fa8a19059380a9ad85b00a89c6d25c8d35492534dc51433b1b6cf1"
+    },
+    {
+      "task": "medium/MP10",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-10-MP10-recovery-r4/reward-v2-medium-MP10__kLDMsRM/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "a1f5aa112e3f1bb881833fffd648f14da780e9c19151e2261301587e1c3f71d4"
+    },
+    {
+      "task": "medium/MP11",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-11-MP11-recovery-r4/reward-v2-medium-MP11__nsbdQjS/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "586b460f5c7788ee364fbbc7f44e1354cd3110bcec13b15ad622197c3e58e053"
+    },
+    {
+      "task": "medium/MP12",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-12-MP12-recovery-r4/reward-v2-medium-MP12__bzHZiXQ/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "df338fedfd9426860e43a0701d24b3c86e0df160945a7076f30f3f6328bd96a7"
+    },
+    {
+      "task": "medium/MP13",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-13-MP13-recovery-r4/reward-v2-medium-MP13__4WcnXdx/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "f36bf14d6430dca4bc8fa7025a766546d80d5a75e9baa01f859e04294edaa6c3"
+    },
+    {
+      "task": "medium/MP14",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-14-MP14-recovery-r4/reward-v2-medium-MP14__vJATfB7/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "b2e1e1e44330bc34106e37392a2eba43a76d5895515a71673b90761845f7e422"
+    },
+    {
+      "task": "medium/MP15",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-15-MP15-recovery-r4/reward-v2-medium-MP15__2y8QWC7/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "f246015316b1bac7d7b1b961d4111e273e33f0bd6de95c736f83494b01c86d4d"
+    },
+    {
+      "task": "medium/MP16",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-cap-r4/jobs/reward-v2-medium26-20261105-langgraph-16-MP16-recovery-r4/reward-v2-medium-MP16__EpaGmKG/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "9d2b0cd2c40ed7602838be8539a32a560d9fa4edbac6420ea6f5df63967e7181"
+    },
+    {
+      "task": "medium/MP17",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-codex-timeout-r5/jobs/reward-v2-medium26-20261105-langgraph-17-MP17-recovery-r5/reward-v2-medium-MP17__fKwLWpr/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "bdd8d46612e9b9c708fd83e18ea5e77048d26606e5f39a82dc52f024f5e954b9"
+    },
+    {
+      "task": "medium/MP18",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-18-MP18-recovery-r6/reward-v2-medium-MP18__MbQdtTF/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "fff068b10b5fc57b005da84826bc3df77cebc27543af4df53508639f7d5f76ef"
+    },
+    {
+      "task": "medium/MP19",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-19-MP19-recovery-r6/reward-v2-medium-MP19__jZcS7yY/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "bd547d0834ceacfe6fe1e28ee05142506a5a3801406c67324e8b025f7723193e"
+    },
+    {
+      "task": "medium/MP20",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-20-MP20-recovery-r6/reward-v2-medium-MP20__tqtA6Yg/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "b015c2a53b78b13f017bad47eeb37ed9d30847a939b70b34cdcc2cf0980ee7fd"
+    },
+    {
+      "task": "medium/MP21",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-21-MP21-recovery-r6/reward-v2-medium-MP21__HVFe4s7/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "c7db37f2668a19a37598cf2835e44120c359101a7033b41007ab0323e1fe93b1"
+    },
+    {
+      "task": "medium/MP22",
+      "workers_with_responses": 4,
+      "worker_width": 1,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-22-MP22-recovery-r6/reward-v2-medium-MP22__ggeb83i/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "9fa047351b5e4e076c5a8cc723dcd26e129b14fca5ff65fef9d422ca79935740"
+    },
+    {
+      "task": "medium/MP23",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-23-MP23-recovery-r6/reward-v2-medium-MP23__8JzrVNq/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "659a1ab72d2d57e32e243c013f2f64e72bb0ddc1ffe623abd51f236478ed031d"
+    },
+    {
+      "task": "medium/MP24",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-24-MP24-recovery-r6/reward-v2-medium-MP24__icNDGNs/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "84ddb2ede49954f5c81430280374defcd44cfba496568296d7a2fd491a2d76e4"
+    },
+    {
+      "task": "medium/MP25",
+      "workers_with_responses": 4,
+      "worker_width": 2,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-25-MP25-recovery-r6/reward-v2-medium-MP25__yLjxAQT/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "37e9e10e06516615d22910d29fc7a4aa942224eeb43c3c59bb38e537e2b365c2"
+    },
+    {
+      "task": "medium/MP26",
+      "workers_with_responses": 4,
+      "worker_width": 3,
+      "events_source": "reward-v2-v4pro-medium26-seven-arm-20261105/five-harnesses-after-network-pool-recovery-r6/jobs/reward-v2-medium26-20261105-langgraph-26-MP26-recovery-r6/reward-v2-medium-MP26__9iuvKF5/agent/telemetry/events-v2.jsonl",
+      "events_sha256": "0f14753e88c42a374cfe030952a858c111b34fdc6d656cfe357846350c5ac0a3"
+    }
+  ],
+  "release_results_sha256": "23931e7f1974d388bd6f78d25c4415ddb6885745cf69893b7ad37e17ba41d2d2",
+  "methods": {
+    "latte_turns": "Explicit span_id pairs; different non-Lead/non-System teammates; ts wall clock seconds within native process.",
+    "latte_tools": "Explicit run_script/run_tests span_id pairs; synchronous subprocess boundaries.",
+    "dynamic_tasks": "Accepted discover_task with round>0, excluding System auto-injected fixes.",
+    "langgraph_workers": "Unique agent_id and node_id lifecycle pairs; monotonic_ns intervals."
+  }
+}
