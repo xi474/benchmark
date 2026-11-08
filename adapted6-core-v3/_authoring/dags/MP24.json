@@ -1,0 +1,109 @@
+{
+  "id": "MP24",
+  "title": "大学任职、在读人数与国家集合查询",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "eu",
+      "label": "欧盟任职资格",
+      "kind": "work",
+      "folder": "engines/eu",
+      "operation": "eu_professors"
+    },
+    {
+      "id": "students",
+      "label": "逐部门在读人数",
+      "kind": "work",
+      "folder": "engines/students",
+      "operation": "department_students"
+    },
+    {
+      "id": "countries",
+      "label": "全部任职国家",
+      "kind": "work",
+      "folder": "engines/countries",
+      "operation": "employment_countries"
+    },
+    {
+      "id": "query",
+      "label": "存在性条件与国家汇合",
+      "kind": "work",
+      "folder": "engines/query",
+      "operation": "university_query"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "eu"
+    },
+    {
+      "source": "input",
+      "target": "students"
+    },
+    {
+      "source": "input",
+      "target": "countries"
+    },
+    {
+      "source": "input",
+      "target": "query"
+    },
+    {
+      "source": "eu",
+      "target": "query"
+    },
+    {
+      "source": "students",
+      "target": "query"
+    },
+    {
+      "source": "countries",
+      "target": "query"
+    },
+    {
+      "source": "eu",
+      "target": "_core"
+    },
+    {
+      "source": "students",
+      "target": "_core"
+    },
+    {
+      "source": "countries",
+      "target": "_core"
+    },
+    {
+      "source": "query",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

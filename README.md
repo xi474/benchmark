@@ -2,6 +2,8 @@
 
 ## 数据集入口：改编26题已同步到 main
 
+- **[独立六题核心版 v3（本轮复测入口）](adapted6-core-v3/README.md)**：核心业务完成与通用稳健性分开评分；[六题目录与DAG](adapted6-core-v3/docs/六题中文目录与DAG.md)、[新评分与难度规则](adapted6-core-v3/docs/难度分级标准_v3.md)、[下载Agent包](adapted6-core-v3-agent.zip)、[下载完整包](adapted6-core-v3-full.zip)。这是原MP04/08/09/10/11/24的独立新版本；原26题包及v2成绩保留，不新增题型数量。
+
 - **[改编26题 v2：20题原版 + 6题修订版](medium26-extension-v2/README.md)**：26题统一入口，共93个组件；[直接浏览任务](medium26-extension-v2/tasks/)、[26题中文目录和DAG](medium26-extension-v2/docs/26题中文目录与DAG.md)、[下载Agent任务包](medium26-extension-v2-agent.zip)、[下载完整包](medium26-extension-v2-full.zip)。
 - [六题独立修订集](medium6-specfix-v2/README.md)：MP04、MP08、MP09、MP10、MP11、MP24；[下载六题Agent包](medium6-specfix-v2-agent.zip)。这是上述26题的子集，便于单独复测。
 - [原始14题](tasks/)：原始suite共18个入口、14个不同题目。
