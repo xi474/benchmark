@@ -1,0 +1,21 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    numeric["分组数值特征"]
+    category["固定词表类别特征"]
+    time["时间起止跨度"]
+    union["特征行键外连接"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> numeric
+    input --> category
+    input --> time
+    numeric --> union
+    category --> union
+    time --> union
+    numeric --> _core
+    category --> _core
+    time --> _core
+    union --> _core
+    _core --> _report
+    _report --> _verify

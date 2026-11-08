@@ -1,0 +1,5946 @@
+{
+  "dataset_version": "2.0.0",
+  "difficulty_role": "historical_design_target_for_frozen_reward_policy",
+  "schema": "benchmark.verifier-catalog.v2",
+  "tasks": {
+    "medium/MP01": {
+      "adapter": "medium",
+      "checks_sha256": "3ecdb65436cb81ca0aa6a360a237b86aba39efe86587b555e4c52db6f458ac15",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/weighted_voting",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "8d60642b5fce8568a48f55a82f776ac5281afd209888c157a1a71da296bcf42a"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/fit/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/fit/contract.json": [
+          "0f85a8268c713b20ceb9a17abf1076acdf7a1cbced902f89755637626f4220cf"
+        ],
+        "inputs/case.json": [
+          "3fad432f207b026bf43c64205ada1153aa19e02d4d01a5a971a530acf0774b4a"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/comparison/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/comparison/contract.json": [
+          "8c4c39ac31359d3652b26eaa0bd3be3c9e66cb96c7e1512236249d6430e3f132"
+        ],
+        "views/hard/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/hard/contract.json": [
+          "89a1b7f34cb98f036e533b39145ec3498e7c8d6114df0e903e3059d1b36a1428"
+        ],
+        "views/soft/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/soft/contract.json": [
+          "a6ce14b5e963032cd98951682de5547a825ec784e891ac9a5358e82c2c4cefc4"
+        ]
+      },
+      "source_task": "tasks/multistage4/weighted_voting",
+      "task_name": "weighted_voting",
+      "title": "可关闭成员的硬/软加权投票",
+      "verifier_count": 35,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/fit/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fit/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fit/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fit/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/fit/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/fit/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/fit/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/fit",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/fit",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/hard/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/hard/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/hard/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/hard/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/hard/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/hard/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/hard",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/hard",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/soft/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/soft/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/soft/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/soft/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/soft/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/soft/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/soft",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/soft",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/comparison/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comparison/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comparison/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comparison/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/comparison/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/comparison/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/comparison",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/comparison",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP02": {
+      "adapter": "medium",
+      "checks_sha256": "c8adbc47fdfd4a10e3f6415d1e32d4749be911a2b886c39e7da31b41b240baa8",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/single_axis_concat",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "2b1604a1ef0f23d751ee53ac7a3a8d24b8d171dbeb732a717d000d72f647c912"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/attributes/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/attributes/contract.json": [
+          "e754392d083bc58f7e74b4704d534dc2b95373e582ef3140cb35a085cfa78ddc"
+        ],
+        "domains/index/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/index/contract.json": [
+          "a72f782ccea27711141b4a473d39632a56d715a92fb0618262a87da6d1167e58"
+        ],
+        "inputs/case.json": [
+          "226eb73f3cb1225e17e25a38c0b51e9cbff8685ca9345578cd03391f522fc6c7"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/table/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/table/contract.json": [
+          "ef39ff6b1a2bf6461338da296b014c2c8899daeb5c8ce178a466a0c68deeb2b1"
+        ]
+      },
+      "source_task": "tasks/multistage4/single_axis_concat",
+      "task_name": "single_axis_concat",
+      "title": "单变化轴的数据分片拼接",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/index/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/index/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/index/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/index/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/index/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/index/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/index/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/index/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/index",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/index",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/attributes/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attributes/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attributes/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attributes/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attributes/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/attributes/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/attributes/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/attributes",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/attributes",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/table/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/table/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/table/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/table/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/table/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/table/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/table/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/table",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/table",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP03": {
+      "adapter": "medium",
+      "checks_sha256": "c310b0ed6da4fb3b814eb8e8623ad66c330f5fcc8ea8029dda803b13fdb8cbb9",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/offline_mount_facts",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "210e7b47fc9a15ab547c127d14157ff2862854fe46c1be610aa77e131d690ae9"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/aix/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/aix/contract.json": [
+          "3958e77c15074b54cbcc58e3fb6f2d229d95d1dae4b868b6f28cc81b2b225e5c"
+        ],
+        "domains/fstab/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/fstab/contract.json": [
+          "a64aab418670d69e18db66749a5a513c652f597761f057df2188b674cecc1bd1"
+        ],
+        "domains/mount/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/mount/contract.json": [
+          "0b701e1d65008973f2f79dfb7c02f3294255d0c55fac117b9c1f45a98b7de815"
+        ],
+        "inputs/case.json": [
+          "6181be5a1bf470e8ca8914b11a7bd6b317762b12b65cbc1431ebbe6650499e5d"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/merged/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/merged/contract.json": [
+          "3654e35423b274a722edcd679c6d5d5e1744fe016f2eff545c584fa0dc5e33a0"
+        ]
+      },
+      "source_task": "tasks/multistage4/offline_mount_facts",
+      "task_name": "offline_mount_facts",
+      "title": "三种挂载格式的离线事实归并",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/fstab/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fstab/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fstab/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fstab/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/fstab/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/fstab/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/fstab/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/fstab/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/fstab",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/fstab",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/aix/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/aix/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/aix/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/aix/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/aix/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/aix/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/aix/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/aix",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/aix",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/mount/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mount/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mount/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mount/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mount/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/mount/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/mount/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/mount",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/mount",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/merged/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/merged/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/merged/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/merged/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/merged/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/merged/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/merged/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/merged",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/merged",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP04": {
+      "adapter": "medium",
+      "checks_sha256": "c1fe0011a2f0c3606ea4965f82be62462357432c5e4164517f4157b6239679cd",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/multiformat_user_merge",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "8a3334fad33d55bfef092a02ce16fca20e6948d4192da4098e460f7f9a13e7f8"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/csv_users/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/csv_users/contract.json": [
+          "26bcb22570ea88d8ab469f6e776fb8a4a3a77838e5a529290186fa8cacb0ce58"
+        ],
+        "domains/json_users/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/json_users/contract.json": [
+          "fed2c931b86962587e4737632e43e19920acaf8acaa0999eca6adfcf34cde4e9"
+        ],
+        "domains/jsonl_users/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/jsonl_users/contract.json": [
+          "b1d3dc08e30120b60cf01d6af3a678161cad5323f9d6521550dea5de01934284"
+        ],
+        "inputs/case.json": [
+          "f751899b9773dcdeb4349a305bac0ba1f9a681f4d9b799e58c70830e4e610755"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/directory/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/directory/contract.json": [
+          "cb2f1434546b75a65bfc53c4454dbb0bcf97cc157d20173b4eb51713f4fafe42"
+        ]
+      },
+      "source_task": "tasks/multistage4/multiformat_user_merge",
+      "task_name": "multiformat_user_merge",
+      "title": "多格式用户合并与完整冲突报告",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/json_users/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/json_users/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/json_users/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/json_users/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/json_users/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/json_users/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/json_users/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/json_users/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/json_users",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/json_users",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/csv_users/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/csv_users/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/csv_users/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/csv_users/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/csv_users/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/csv_users/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/csv_users/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/csv_users",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/csv_users",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/jsonl_users/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/jsonl_users/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/jsonl_users/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/jsonl_users/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/jsonl_users/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/jsonl_users/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/jsonl_users/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/jsonl_users",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/jsonl_users",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/directory/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/directory/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/directory/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/directory/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/directory/empty-inputs",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/directory/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/directory/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/directory",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/directory",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP05": {
+      "adapter": "medium",
+      "checks_sha256": "cd464a4ef5dccdb20432d9c0a34da2159df31e3db8b3bdabd10ad6bc0d8563da",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/cross_app_contact_ranking",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "805202fba1ee18131350291caeb54bccdd61c621c8be44859b53bab80bcb3908"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/calendar/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/calendar/contract.json": [
+          "3d46bcca6a06d74c34b4831987dd62b97f60b3dcb45e9f13ed7bac493c050d3f"
+        ],
+        "domains/groups/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/groups/contract.json": [
+          "09d1ead5120459a5314ea1748c37b16aeb957cd60daf6cd6859824ca0df93860"
+        ],
+        "domains/mail/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/mail/contract.json": [
+          "61aedb37fc4ccd1a04985cba519d8abedb3e51aa503747affc2ba835db372df8"
+        ],
+        "inputs/case.json": [
+          "5216ae160ff5b2d25b1f0778632189e155a8b63b489dc48faf3c2d8f1eb01133"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/ranking/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/ranking/contract.json": [
+          "cda564b48993031df192e95dc4b1e3e6b98c1591ddd7b79c667701cd3c5ccafd"
+        ]
+      },
+      "source_task": "tasks/multistage4/cross_app_contact_ranking",
+      "task_name": "cross_app_contact_ranking",
+      "title": "跨应用候选并集与相处时长排名",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/groups/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/groups/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/groups/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/groups/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/groups/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/groups/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/groups/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/groups/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/groups",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/groups",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/mail/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/mail/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/mail",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/mail",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/calendar",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/calendar",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/ranking/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ranking/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ranking/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ranking/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ranking/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/ranking/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/ranking/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/ranking",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/ranking",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP06": {
+      "adapter": "medium",
+      "checks_sha256": "ec05771e171082ab6d7dcabd08aa03cb107025e057330eccd60ff8a12dd4fc42",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/calendar_cancel_notify",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "16b54445192c6581fb4e80ffeb0ae69f9df3bac75dc956cd7e04e99c96175be6"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/calendar/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/calendar/contract.json": [
+          "9ca0025f2628a8996273c8e6b72a9dec242bd94f2ec28a3fcbb389dd9fe6bb6b"
+        ],
+        "domains/channels/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/channels/contract.json": [
+          "8b1b1442366a368b4d62fc52d875254fa6b7bd1583a1a37a3c38b92e988dac22"
+        ],
+        "inputs/case.json": [
+          "e7bdd3c4e930f021443571a68941bcd38038a5a42bda231c23a8775a5fbe144b"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/notifications/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/notifications/contract.json": [
+          "801fdab6681a22c7b0d953ce766e99841607ce305111ce2a66601ba70d0b0039"
+        ]
+      },
+      "source_task": "tasks/multistage4/calendar_cancel_notify",
+      "task_name": "calendar_cancel_notify",
+      "title": "取消日程后多渠道通知",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/calendar/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/calendar",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/calendar",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/channels/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/channels/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/channels/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/channels/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/channels/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/channels/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/channels/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/channels",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/channels",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/notifications/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/notifications/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/notifications",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/notifications",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP07": {
+      "adapter": "medium",
+      "checks_sha256": "4fd9a82aee8daafdd995ed8d5f9d7e69824f69adb681f99ad46cc61db6ea0187",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "linux2/send_archive_cleanup",
+      "focused_folders": [],
+      "protected_generated": {
+        "inputs/case.json": [
+          "37de5df49f353460d2b0db17bd7127c947053dfd3200e06d3268ff5798b6c6c9"
+        ],
+        "products/archive/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/archive/contract.json": [
+          "c345c0694054072dd90082d2a99fe9fa4968f53c5d0b6ffcd8271753408d224d"
+        ],
+        "products/cleanup/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/cleanup/contract.json": [
+          "cbe5066d8fc8c365f1cb6b89bc9b70ca466c26f967881359cf2a00ad99d3d1f7"
+        ],
+        "products/receipts/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/receipts/contract.json": [
+          "bfc7c553706f4978aa9e935db7f55557711f75f231b37a6c5edb1e52978a4f40"
+        ]
+      },
+      "protected_initial": {
+        "README.md": [
+          "84caa0113efe6be3635b0057a96753cabce59fb35cc9ceee73adfcddf8d1b5df"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "materialize.py": [
+          "b26f166a971dadd217ea8a82c4ef0e7fa8ccb3aaa83cde330462010c3aaca399"
+        ]
+      },
+      "source_task": "tasks/linux2/send_archive_cleanup",
+      "task_name": "send_archive_cleanup",
+      "title": "附件发送后归档与独立清理",
+      "verifier_count": 27,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/receipts/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/receipts/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/receipts/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/receipts/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/receipts/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/receipts/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/receipts/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/receipts",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/receipts",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/cleanup/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cleanup/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cleanup/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cleanup/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/cleanup/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/cleanup/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/cleanup",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/cleanup",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/archive/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/archive/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/archive",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/archive",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP08": {
+      "adapter": "medium",
+      "checks_sha256": "c10d5b268f52e822f3b93b3987cceb31dd35c9562cd4dc552df93956e680f64b",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "linux2/holiday_photo_migration",
+      "focused_folders": [],
+      "protected_generated": {
+        "inputs/case.json": [
+          "ea923a0cf74de87e9a768cfa6273ec61a2022c431e97e4bc0f3c05aa7a1ed7bf"
+        ],
+        "products/classify/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/classify/contract.json": [
+          "16ff79022e965324b5bfe29a4dca8693b57d385ffd8a78d4a61c36cf7cef0592"
+        ],
+        "products/migrate/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/migrate/contract.json": [
+          "666d4a2a1ce3952c811c843f6f2e651b6dc2fbf904b2c20630be1424b185720b"
+        ],
+        "products/outbox/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/outbox/contract.json": [
+          "389486917f64e6ccf055e79babb0015b4f0fdb87653a245baabbe34ec1e24088"
+        ]
+      },
+      "protected_initial": {
+        "README.md": [
+          "eedefef24f3eafab243e63d7cf45c35ed8fae8e2ecb70d112930258c7a633bb0"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "materialize.py": [
+          "d9b4ec21874a1cf9c180af393c34eee1ece9485d6203decf6b02cd5cb31fcb6b"
+        ]
+      },
+      "source_task": "tasks/linux2/holiday_photo_migration",
+      "task_name": "holiday_photo_migration",
+      "title": "节日照片迁移后发送与缺失报告",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/classify/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classify/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classify/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classify/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classify/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/classify/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/classify/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/classify/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/classify",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/classify",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/migrate/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/migrate/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/migrate/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/migrate/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/migrate/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/migrate/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/migrate/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/migrate",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/migrate",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/outbox/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/outbox/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/outbox/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/outbox/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/outbox/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/outbox/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/outbox/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/outbox",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/outbox",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP09": {
+      "adapter": "medium",
+      "checks_sha256": "a73264c4f1cc044bad50083741a48357125b4c40b80177ce36f6f314703cac85",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/panel_events_procurement",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "07e5fd69b91384c16759f51d33808610077a521949f0108493cce98c56ec2dda"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/calendar/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/calendar/contract.json": [
+          "5c8222a838825564e6bc2795944f7ec2c65a9265aacd0d0ae01ab9a826004060"
+        ],
+        "engines/commit/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/commit/contract.json": [
+          "8772b5f4689a1d39732fce2676927b5e56091ae93da4e8c36b7c1b94670adaa9"
+        ],
+        "engines/invitees/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/invitees/contract.json": [
+          "ffda7c81cdfe180d28c2b228328f5ccf5c1823abdcffff1288c69c22a190fa19"
+        ],
+        "engines/supplies/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/supplies/contract.json": [
+          "25d307eadad03b0712cb4791d860aaa1bbc9ede6df1757deb59584471cd6dfe9"
+        ],
+        "inputs/case.json": [
+          "84cd8ff58a466d14931fdbb87e93b7c524bc61a21fb1af90af80848d7ead7459"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/panel_events_procurement",
+      "task_name": "panel_events_procurement",
+      "title": "两场座谈会、群邀请与物资采购",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/calendar/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/calendar",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/calendar",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/invitees/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/invitees/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/invitees/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/invitees/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/invitees/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/invitees/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/invitees/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/invitees",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/invitees",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/supplies/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/supplies/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/supplies/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/supplies/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/supplies/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/supplies/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/supplies/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/supplies",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/supplies",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/commit/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/commit/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/commit",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/commit",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP10": {
+      "adapter": "medium",
+      "checks_sha256": "c121517a61431b819e9a6372875872c34d9784f917efcc8bf6b8468648076abc",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "context8/dinner_contact_checkout",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "c0fe00c2f1e6911fa23904be5245f2ca3f087e0dc270b2aeb4a670c00d248d08"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "contact/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "contact/check_module.py": [
+          "e71e95468ae172c88a179d6025939d69ab55907ad286f2c45612849586db7829"
+        ],
+        "contact/contract.json": [
+          "a07339175aa0851388200b98efffe3f34d715e9fb979cbbb67b3196dcf7f370f"
+        ],
+        "contact/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "dinner/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "dinner/check_module.py": [
+          "e15640e6e0e3eaf666c42dcbf41f075cf472c243bd7b5b4c72e82cfa56e40c5a"
+        ],
+        "dinner/contract.json": [
+          "b25cc8cd9d88504f98d4ae388a9f876448013a62750914d5b61fe83f64b22c9f"
+        ],
+        "dinner/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "inputs/case.json": [
+          "18c9c89415d91716e05ba544cda57716ad40b56203d95b2b17fe24599d6f439c"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "shopping/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "shopping/check_module.py": [
+          "9bed6f00db6f33b9cf8d38c8663f2eb8f0298b287ca32434f0cf2a23a14c3126"
+        ],
+        "shopping/contract.json": [
+          "ff9b320fa5641320c4ea667e16d00e747aec0dda1e46dbe30916cf92d0e9728c"
+        ],
+        "shopping/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ]
+      },
+      "source_task": "tasks/context8/dinner_contact_checkout",
+      "task_name": "dinner_contact_checkout",
+      "title": "晚宴计划、联系人定位与餐具采购",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/dinner/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dinner/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dinner/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dinner/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dinner/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/dinner/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/dinner/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/dinner/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/dinner",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/dinner",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/contact/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/contact/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/contact/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/contact/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/contact/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/contact/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/contact/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/contact",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/contact",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/shopping/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/shopping/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/shopping/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/shopping/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/shopping/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/shopping/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/shopping/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/shopping",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/shopping",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP11": {
+      "adapter": "medium",
+      "checks_sha256": "a19012b490f430b85574cb4a8526b6dc8ba284ea986957b472011f0f0d8ef92a",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/meeting_ride_book_plan",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "3604bda78f8a2adec3539f37e7b76e43a9d5af427f735dfda0e91345e89086c1"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/books/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/books/contract.json": [
+          "b197e3fef0eddad0fa336cbb64d89a7d03e18ae54498955cc4e564e9b353e5d1"
+        ],
+        "engines/cancellations/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/cancellations/contract.json": [
+          "4fa240fabb9501178496008b1205f070c65ae4a5ccb1174a4353bb15c6e462b4"
+        ],
+        "engines/ride/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/ride/contract.json": [
+          "ce0453ba8cf6616260f42329dd94c522d6caab38928a56f121ee288ff5d98356"
+        ],
+        "inputs/case.json": [
+          "2d192c2eb2e0ef575b3145ec0668dd5ff93c86aa0ea3413aaa03758b0b7e2a2f"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/meeting_ride_book_plan",
+      "task_name": "meeting_ride_book_plan",
+      "title": "取消会面、研讨会叫车与图书采购",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/cancellations/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cancellations/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cancellations/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cancellations/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/cancellations/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/cancellations/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/cancellations/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/cancellations",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/cancellations",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/ride/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ride/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ride/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ride/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ride/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/ride/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/ride/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/ride/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/ride",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/ride",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/books/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/books/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/books/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/books/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/books/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/books/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/books/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/books",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/books",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP12": {
+      "adapter": "medium",
+      "checks_sha256": "a007c97bee3d85bf6bf846eb79dbde68ba212522cb328ea711ff5f3fe2a367e0",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "linux2/files_mail_workspace",
+      "focused_folders": [],
+      "protected_generated": {
+        "inputs/case.json": [
+          "dfe5b1398cd7f01367c57f2ac2b05bfb8b41e3d0181a11f22d92eb305d8243c6"
+        ],
+        "products/commit/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/commit/contract.json": [
+          "79a8cf217d1a7845e01c66ddb6b70e75cbff8c8f901c5dba2af105ed3b54d55d"
+        ],
+        "products/files/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/files/contract.json": [
+          "9c42f0f6f83085c274dc997a02d31a0fbd1c61436675b30dd8e639cbcfbaddaf"
+        ],
+        "products/mail/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/mail/contract.json": [
+          "3f36e508ad9a1a5cfcfbedbde2763b901cbb046f589bc2e9a9c342a96418eb5d"
+        ],
+        "products/reply/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/reply/contract.json": [
+          "93846516643c5aaec98fb4906433620c6786f08fb2b3d16af0e090811510bed6"
+        ]
+      },
+      "protected_initial": {
+        "README.md": [
+          "f084894ef24d354b3ba0427c23b091a84557e95a713e0ffce83b44554402b88c"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "materialize.py": [
+          "f59b2baa392c882f3a9246f70a282ffe82469f64d60413a81c6d57ad3b764c84"
+        ]
+      },
+      "source_task": "tasks/linux2/files_mail_workspace",
+      "task_name": "files_mail_workspace",
+      "title": "下载目录归档、邮件清理与目标回复",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/files/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/files/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/files/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/files/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/files/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/files/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/files/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/files",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/files",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/mail/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/mail/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/mail/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/mail/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/mail",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/mail",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/reply/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reply/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reply/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reply/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reply/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/reply/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/reply/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/reply",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/reply",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/commit/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/commit/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/commit/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/commit",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/commit",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP13": {
+      "adapter": "medium",
+      "checks_sha256": "1de95c063a088e03e986ee467bd3ec1d43c2e543198c8cc5ff725362d9e4b8c6",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/grouped_feature_union",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "aef275d779f32f1503e5909dd642bff649bc85b87936febf81a595ee7c3c399b"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/category/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/category/contract.json": [
+          "58874c26f51acfd8595637a73fa6e40a66d5ec52b550bd8b9d79c3c288217455"
+        ],
+        "engines/numeric/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/numeric/contract.json": [
+          "4791f95eca9cca3181dead5be2c19fdebf0e0ea8e2be1e588415ce658a496490"
+        ],
+        "engines/time/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/time/contract.json": [
+          "ed3d3f330d2b7ce9e7ff0b0031525a0c35ab8d76d62b5eaacae01e3d15b6c785"
+        ],
+        "engines/union/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/union/contract.json": [
+          "77fab1c0a20914d7a9ffd82ab1df89d7e96e3d2f3712255719037d1df48a0c3b"
+        ],
+        "inputs/case.json": [
+          "7c9eb5b74f46b12317b7a6e223ed9dc4e31cf8f433ab893914489436a2626aaf"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/grouped_feature_union",
+      "task_name": "grouped_feature_union",
+      "title": "聚合特征的行键保真与特征合并",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/numeric/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/numeric/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/numeric/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/numeric/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/numeric/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/numeric/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/numeric/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/numeric/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/numeric",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/numeric",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/category/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/category/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/category/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/category/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/category/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/category/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/category/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/category",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/category",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/time/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/time/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/time/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/time/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/time/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/time/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/time/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/time",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/time",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/union/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/union/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/union/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/union/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/union/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/union/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/union/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/union",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/union",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP14": {
+      "adapter": "medium",
+      "checks_sha256": "91ad2e11d4b218455445adf09e01d09b037bcd435b3445e8dd2c41a30218b4b5",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "context8/portable_exception_report",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "757463c183c6c2747c52b176e3dc577026eba696bfe5b46ae19e4fcbf4a195a9"
+        ],
+        "chain/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "chain/check_module.py": [
+          "69a78c72a638d55bc5b4c369acbcf69a70ca5982fbc2f177f67311ed31518d9d"
+        ],
+        "chain/contract.json": [
+          "75de34bcb5c20948ab093a684fed8d588ab958590f670725e5b839319c63c275"
+        ],
+        "chain/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "frames/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "frames/check_module.py": [
+          "bebfddf1ebdd7714f349c6e85ff34a50cda07648971e48b39639f42a9a3a3f1a"
+        ],
+        "frames/contract.json": [
+          "e5680c64ca0e8deb89860d5c4aa0d3bd57c2568c1a7eb387718a60c9da606a52"
+        ],
+        "frames/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "inputs/case.json": [
+          "e0755a905e57cdb80a65ae6cacaae52543bc4dfd33b0a62762d30e45bbe32ddc"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "report/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "report/check_module.py": [
+          "9b2b972b203d9dde94e800983115cf8ff42fbc540ceee3ad47c57590434794f3"
+        ],
+        "report/contract.json": [
+          "3ada4c01ee6d90373769b38de8efbe346fc7eccd7bf2ce93580edbe9503682d7"
+        ],
+        "report/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ]
+      },
+      "source_task": "tasks/context8/portable_exception_report",
+      "task_name": "portable_exception_report",
+      "title": "异常链的可移植序列化与报告",
+      "verifier_count": 27,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/chain/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chain/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chain/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chain/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/chain/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/chain/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/chain/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/chain",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/chain",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/frames/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/frames/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/frames/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/frames/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/frames/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/frames/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/frames",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/frames",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/report/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/report/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/report/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/report/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/report/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/report/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/report",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/report",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP15": {
+      "adapter": "medium",
+      "checks_sha256": "347d8404e13fc69df381fd3c862eb7d10e7e178a3cc7122ad62b07094bbd05a5",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/python_import_usage",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "6c73f28ab0916caf05107e210c1fcca688fa5a523f8b098a961b2f628bc56842"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/analysis/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/analysis/contract.json": [
+          "3b18c6527b98838bf7c43460c4cffd111f75b4d405bb3f27f0b442bdbe951c81"
+        ],
+        "engines/annotations/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/annotations/contract.json": [
+          "680138803b7f79908fb87e4ca223de024f2d53da9abcb39e6ba069f4b9a0d34b"
+        ],
+        "engines/comments/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/comments/contract.json": [
+          "9fe94a36b0cd708906dee80a91556a0bd66c0fc682864615be7e6e7aea358f1a"
+        ],
+        "engines/ordinary/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/ordinary/contract.json": [
+          "6c3a0c01dabf5cd593be8a8ccca118753a84637285c87b55333e6edcd89bd4ce"
+        ],
+        "inputs/case.json": [
+          "5e6f463375d2b067a07e1e98221ebe69eafec766b2ef14db1459275aee2c6fbf"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/python_import_usage",
+      "task_name": "python_import_usage",
+      "title": "普通引用、注解和类型注释的导入分析",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/ordinary/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ordinary/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ordinary/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ordinary/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/ordinary/signature-scope",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/ordinary/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/ordinary/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/ordinary",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/ordinary",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/annotations/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/annotations/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/annotations/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/annotations/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/annotations/signature-scope",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/annotations/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/annotations/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/annotations",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/annotations",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/comments/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comments/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comments/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comments/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/comments/signature-scope",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/comments/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/comments/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/comments",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/comments",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/analysis/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/analysis/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/analysis/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/analysis/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/analysis/signature-scope",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/analysis/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/analysis/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/analysis/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/analysis",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/analysis",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP16": {
+      "adapter": "medium",
+      "checks_sha256": "d209f6a0f92cd02269bc0adea4438798b0699bacef3f2718b6aff004bf9d4cbf",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "context8/api_documentation_merge",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "a5f90969a3cf6a93c6a2cfc7f940bb514723ae5564655a39a24f9d7c06f6587d"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "document/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "document/check_module.py": [
+          "614e2f844fd161f4437dd7c5d6b151f06840244032e31b3448a660c84d5820d5"
+        ],
+        "document/contract.json": [
+          "c18f9d72d55de75b3121670966136ad13736de1c8f8a689b14567e34e721d954"
+        ],
+        "document/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "inheritance/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "inheritance/check_module.py": [
+          "56a941ca44afc108e4d858f9c3a1f56c67e48a684879306290cbbb3ff1bc6632"
+        ],
+        "inheritance/contract.json": [
+          "61cafd33f2e40a64e242fcefd87dacb4d677a01a186f219de55216c7940684b0"
+        ],
+        "inheritance/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "inputs/case.json": [
+          "09ff8e4cfe2511d2d47af615c1f366f588ab58cd01278d45195059d5b26a1667"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "parameters/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "parameters/check_module.py": [
+          "94e1908ea70105e39698619de0c2ef2f714d729945f3af7dc0ad18216cef86ff"
+        ],
+        "parameters/contract.json": [
+          "6c049df25a06ca323af111cf27acf92c6e21e4072a408dd5c33c6dc217223dd5"
+        ],
+        "parameters/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "signatures/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "signatures/check_module.py": [
+          "60b92b80efa7b5c877ac0ffe3baddee372b1eba846efe5ab43a720acc0b07c87"
+        ],
+        "signatures/contract.json": [
+          "d618a3382875b88903788fe52edb3f83c000aeb0f0d3153739621b5c9c9337e4"
+        ],
+        "signatures/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ]
+      },
+      "source_task": "tasks/context8/api_documentation_merge",
+      "task_name": "api_documentation_merge",
+      "title": "API 文档的签名、参数与继承信息聚合",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/signatures/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/signatures/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/signatures/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/signatures/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/signatures/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/signatures/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/signatures/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/signatures",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/signatures",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/parameters/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parameters/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parameters/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parameters/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parameters/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/parameters/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/parameters/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/parameters/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/parameters",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/parameters",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/inheritance/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inheritance/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inheritance/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inheritance/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inheritance/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/inheritance/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/inheritance/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/inheritance",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/inheritance",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/document/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/document/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/document/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/document/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/document/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/document/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/document/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/document",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/document",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP17": {
+      "adapter": "medium",
+      "checks_sha256": "c543a96eaefcdadaced7631a1c5afbcb5f138e0b16a1b8e24e080a2d9710e1ba",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "context8/multipart_encoding",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "a163f8eb6e113f1dc71a523be2e85d2b6552b089b0b295641ebda32a018141ad"
+        ],
+        "body/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "body/check_module.py": [
+          "0c75a809f6ab169745186aa592e8d81e04de5f7e69e8463a03a9603acc2fcac4"
+        ],
+        "body/contract.json": [
+          "163bf9c7a9380fafa6b6f3d7fc3fe159851caf2b4ed66d3b803716385c296eed"
+        ],
+        "body/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "encoding/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "encoding/check_module.py": [
+          "d1e824fa8483de757b4edc9b48c5a7c2d8da8cda93328c2183c87a19e12f183d"
+        ],
+        "encoding/contract.json": [
+          "b45ac1df7b875f5ff0ae3536da6e44fde7e9858969617e70c86f3dd7a5ed1183"
+        ],
+        "encoding/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "inputs/case.json": [
+          "5564f59e61664a2110c223fb60127f5fb99b619ce2dfdfcc4374e9d44ac9d02b"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "parts/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "parts/check_module.py": [
+          "d224be4fb2ceda7b3715d5ed79c31f47dfda827aa34e48252d83b2bd5b6f715f"
+        ],
+        "parts/contract.json": [
+          "f869cf10936cdcfe3277d66d2afa9798e704cb50b523bee483a75fa4f538ad72"
+        ],
+        "parts/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ]
+      },
+      "source_task": "tasks/context8/multipart_encoding",
+      "task_name": "multipart_encoding",
+      "title": "文本、内联内容和文件的 multipart 组装",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/parts/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parts/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parts/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parts/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/parts/empty-parts",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/parts/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/parts/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/parts/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/parts",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/parts",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/encoding/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/encoding/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/encoding/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/encoding/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/encoding/empty-parts",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/encoding/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/encoding/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/encoding",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/encoding",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/body/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/body/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/body/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/body/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/body/empty-parts",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/body/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/body/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/body",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/body",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP18": {
+      "adapter": "medium",
+      "checks_sha256": "16f19cb911a6ea96b8c0e17a50cf370c91d0364c7892f32c1cabd08cbb952441",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "linux2/collection_manifest",
+      "focused_folders": [],
+      "protected_generated": {
+        "inputs/case.json": [
+          "c78b7b09fa175aeba309c1930eb1c189d60a199c2aa9754c16be329880cec9b9"
+        ],
+        "products/archive/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/archive/contract.json": [
+          "d1ff1eca0ce425efec153e5e63a16b25f451816c288331fd3688b8136caf1186"
+        ],
+        "products/inventory/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/inventory/contract.json": [
+          "f073d53dd14f82b4cf1f86621a21f178907e02c1ac0af96b3a5267a7a6354278"
+        ],
+        "products/selection/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/selection/contract.json": [
+          "49c6f8fa932894daf92b5bb378ed9aaae36924ce25cb472f7019883e3112cdad"
+        ]
+      },
+      "protected_initial": {
+        "README.md": [
+          "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "materialize.py": [
+          "8cb0c25c286ed089b10e8c1f9136897a57c360e2cfb21b6ae5f7de7721cd3a2c"
+        ]
+      },
+      "source_task": "tasks/linux2/collection_manifest",
+      "task_name": "collection_manifest",
+      "title": "集合文件清单的指令选择与归档元数据",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/inventory/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inventory/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inventory/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inventory/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/inventory/empty-files",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/inventory/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/inventory/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/inventory/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/inventory",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/inventory",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/selection/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/selection/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/selection/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/selection/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/selection/empty-files",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/selection/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/selection/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/selection",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/selection",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/empty-files",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/archive/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/archive/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/archive",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/archive",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP19": {
+      "adapter": "medium",
+      "checks_sha256": "d270b16cfeab6195f106c9b821587f946af8fc06b6f65a97167e2b2bab54399e",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/module_dependency_zip",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "c0d91a99fb4a59339f05a04a590aa899a4288189e4b759057486afa56f924c79"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/dependencies/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/dependencies/contract.json": [
+          "4624c31a4b4dd068a4a11eb8592a2a2c7654cb1e2436161ee0f3285d18716eea"
+        ],
+        "engines/payload/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/payload/contract.json": [
+          "89ccf08ae1fdfe45dee6a007c6d1b74a93b2731e5b231686035397623994f25c"
+        ],
+        "engines/scanner/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/scanner/contract.json": [
+          "f56f04729ad2fe92f679a6a59812d6f912034875f73272818cd311fa1f45c954"
+        ],
+        "inputs/case.json": [
+          "ab8d2928733af3be161f8818c415461d779a77e070f2b171e0404f9578bc81a8"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/module_dependency_zip",
+      "task_name": "module_dependency_zip",
+      "title": "Python 支持模块发现与可重复 ZIP 载荷",
+      "verifier_count": 27,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/scanner/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/scanner/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/scanner/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/scanner/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/scanner/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/scanner/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/scanner/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/scanner",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/scanner",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/dependencies/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dependencies/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dependencies/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dependencies/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/dependencies/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/dependencies/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/dependencies",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/dependencies",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/payload/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/payload/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/payload/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/payload/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/payload/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/payload/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/payload",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/payload",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP20": {
+      "adapter": "medium",
+      "checks_sha256": "e1e6d0877e481576442fb4a702f8df085f79a2f5fbeae438e251a6d4b422b1c2",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/feature_config_snapshot",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "27d18813e8d95f184a16734b55825cb865ae5b79c0acb6251301396c99621b6f"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/attachments/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/attachments/contract.json": [
+          "1e360343ac75ee7d85934a07d8d0b81c988a189dddff70cbffa757755492b927"
+        ],
+        "domains/schema/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/schema/contract.json": [
+          "752deaa33627145d48218023a230ca8c2fe8f1fb425c1de3e9ae6e3aceab655d"
+        ],
+        "inputs/case.json": [
+          "f963201c73bdc7a16eafa3da09c7e1db4d9a7a4578109d8a83fcc0ab089639f9"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/references/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/references/contract.json": [
+          "56f1b60c58a1ee73495bf0700c0f6562af9661658fad2b6492b80a4156881322"
+        ],
+        "views/snapshot/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/snapshot/contract.json": [
+          "bee1144957d343977d4750813bbb26bb26e1ab094867ff050cb371f9a7e28635"
+        ]
+      },
+      "source_task": "tasks/multistage4/feature_config_snapshot",
+      "task_name": "feature_config_snapshot",
+      "title": "特性配置的模式、附件与引用一致性",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/schema/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/schema/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/schema/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/schema/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/schema/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/schema/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/schema/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/schema/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/schema",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/schema",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/attachments/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attachments/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attachments/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attachments/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/attachments/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/attachments/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/attachments/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/attachments",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/attachments",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/references/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/references/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/references/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/references/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/references/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/references/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/references/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/references",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/references",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/snapshot/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/snapshot/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/snapshot/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/snapshot/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/snapshot/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/snapshot/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/snapshot/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/snapshot",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/snapshot",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP21": {
+      "adapter": "medium",
+      "checks_sha256": "bbf0e4a1cda0d53ecf5b1ab6067834b7d19a764936c848af4b2788345384654b",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "context8/playlist_query_export",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "97008f6af21a4c949773b257feebfc94c9500965d929c7b6ffaeba03863df895"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "export/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "export/check_module.py": [
+          "61fd0413d54b915f0b15391051d3e82e19aa52d2b206de3c12b49b3cac301894"
+        ],
+        "export/contract.json": [
+          "0743efdbb45673a833608ba3ac5369bebc05ecf819b08dd08b42d71c14a97eeb"
+        ],
+        "export/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "inputs/case.json": [
+          "7db82305ec20fb2ce252f6225671866d7bef7e7934d9eb268fccb16270040782"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "playlist/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "playlist/check_module.py": [
+          "24e324563d1d5b3e15190fc56c8d0a9d5c083de337742d81df66502682e1ca61"
+        ],
+        "playlist/contract.json": [
+          "7dbeefcede66207ce13dc62f558223dc7af16a0e11a88c9f3ea78681df399c3b"
+        ],
+        "playlist/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ],
+        "query/__init__.py": [
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "query/check_module.py": [
+          "4a7976de6120cef79aeb4bd6da23977f84f1bbab7aa403e424d85391c2556e34"
+        ],
+        "query/contract.json": [
+          "961090a190ae5afd94f468f0f942d1a12ce8833105760d28dd5efdc14eba6416"
+        ],
+        "query/parser.py": [
+          "4695b11ef8989aa1e8a8b3ed1db02871e1fc47f83f1098180c79b3679b32f701"
+        ]
+      },
+      "source_task": "tasks/context8/playlist_query_export",
+      "task_name": "playlist_query_export",
+      "title": "播放列表重写、条件查询与 M3U 导出",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/playlist/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/playlist/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/playlist/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/playlist/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/playlist/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/playlist/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/playlist/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/playlist",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/playlist",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/query/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/query/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/query/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/query/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/query",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/query",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/export/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/export/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/export/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/export/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/export/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/export/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/export/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/export",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/export",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP22": {
+      "adapter": "medium",
+      "checks_sha256": "1bcfdc153412185193196e3d29193c8444247cfa88e95318c2e43208b156548e",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/marc_catalog_import",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/languages/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/languages/contract.json": [
+          "c08d661549697feab9127bc3f8f12e721a08cdd3425cf196045b7fb9628ed84b"
+        ],
+        "domains/names/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/names/contract.json": [
+          "d9f86a2e2ae179f09f2fc6b48f13b752de8c5d8c311a3fa811584718cdb6fb45"
+        ],
+        "domains/reader/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/reader/contract.json": [
+          "17f9ec39d5f01239f29b7f257bdb16a45a48ec154f751aeb90d091e930abfda5"
+        ],
+        "domains/subjects/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/subjects/contract.json": [
+          "db6462316e12690285f6db6f2e7ad832a416cd9290067c0e205d7323be1dae5f"
+        ],
+        "inputs/case.json": [
+          "727edf77d0a445ff19b6da8213a001d083e9530f91d8fc7c8e1d384493fce571"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/catalog/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/catalog/contract.json": [
+          "bcda29bc479c40e8c0bc9f1c224efd8e61a42416b49a0979e9c86ed9a78bb75c"
+        ]
+      },
+      "source_task": "tasks/multistage4/marc_catalog_import",
+      "task_name": "marc_catalog_import",
+      "title": "MARC 作者标题、语言和主题导入",
+      "verifier_count": 43,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/reader/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reader/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reader/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/reader/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/reader/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/reader/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/reader/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/reader",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/reader",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/names/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/names/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/names/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/names/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/names/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/names/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/names",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/names",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/languages/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/languages/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/languages/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/languages/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/languages/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/languages/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/languages",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/languages",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/subjects/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/subjects/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/subjects/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/subjects/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/subjects/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/subjects/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/subjects",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/subjects",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/catalog/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/catalog/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/catalog/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/catalog/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/catalog/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/catalog/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/catalog",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/catalog",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP23": {
+      "adapter": "medium",
+      "checks_sha256": "73481a30150af0a90ad35980ad1d20f48cc508337b218dfad45471041872cb3f",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "linux2/reversible_file_resharding",
+      "focused_folders": [],
+      "protected_generated": {
+        "inputs/case.json": [
+          "6f038f84006edb807df304f5d755d7ba93eb37eb99246142ce2823710b3fd0f9"
+        ],
+        "products/chunks/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/chunks/contract.json": [
+          "66385a3a21e861fe42c559342f3d8deb53f1d1ad1697a05a278314e4f7b997bb"
+        ],
+        "products/layout/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/layout/contract.json": [
+          "a4752fcc77e16398538896f94dfe5d57a96646556e7a28e7c37b75e33de05fbd"
+        ],
+        "products/restore/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "products/restore/contract.json": [
+          "67c3ac05821db05839a8fabd52f29e3cb47cdb184b5867ce2f3550e8b377ca8e"
+        ]
+      },
+      "protected_initial": {
+        "README.md": [
+          "b39161908e02d4b52bfb629b9cdae9fa8f7e70de0a8070d597a84c65801e486c"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "materialize.py": [
+          "eb0a1f8970cd9fd9474366abe5908b6934ea538b06926b1f8a5576149cbd3226"
+        ]
+      },
+      "source_task": "tasks/linux2/reversible_file_resharding",
+      "task_name": "reversible_file_resharding",
+      "title": "受目录容量限制的可逆文件重分片",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/chunks/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chunks/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chunks/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chunks/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/chunks/empty-files",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/chunks/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/chunks/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/chunks/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/chunks",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/chunks",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/layout/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/layout/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/layout/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/layout/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/layout/empty-files",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/layout/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/layout/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/layout",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/layout",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/restore/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/restore/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/restore/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/restore/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/restore/empty-files",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/restore/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/restore/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/restore",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/restore",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP24": {
+      "adapter": "medium",
+      "checks_sha256": "943273c7556e21a9329d1a19eafcae8aa4123762d173e94e88aa29ae1b319ea4",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/university_relation_query",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "c5644af42e4bdc8f493278368e7a7aead960a2335dfa8988a80aee3123f195dd"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/countries/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/countries/contract.json": [
+          "91bd224ffbcd67136c315e738aaa7f8c999fa242ca6ed231621d6645e7f39daa"
+        ],
+        "engines/eu/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/eu/contract.json": [
+          "bff4507bda9d2e9d3e47dd2561a7ce00b8c67049669590148f789a9d518e2c3b"
+        ],
+        "engines/query/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/query/contract.json": [
+          "93a7aa6abc82dbff5b6324712d07838c4828821bb5deeede779c8932a59e8bd2"
+        ],
+        "engines/students/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/students/contract.json": [
+          "4eccfb161638299ec088fd6fa2958103cad4fbfae7a6af1011bf07dd98992a82"
+        ],
+        "inputs/case.json": [
+          "5603f6c4ebfdfce097f8850cf40b13421003175d451ad3e73b1388d0b508c1f2"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/university_relation_query",
+      "task_name": "university_relation_query",
+      "title": "大学任职、在读人数与国家集合查询",
+      "verifier_count": 39,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/eu/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/eu/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/eu/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/eu/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/eu/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/eu/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/eu/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/eu/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/eu",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/eu",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/students/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/students/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/students/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/students/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/students/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/students/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/students/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/students",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/students",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/countries/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/countries/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/countries/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/countries/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/countries/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/countries/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/countries/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/countries",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/countries",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/query/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/query/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/query/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/query/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/query",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/query",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP25": {
+      "adapter": "medium",
+      "checks_sha256": "b2e50a73c55a0779ab9a90fee1a6971f0e02f5edd589a2376f8387ceb149f442",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "multistage4/text_invoice_archive",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "da61d7ac8fa8a13d2622f32977ed87f555e08b39c000e5b36181bb22f953dd25"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "domains/amounts/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/amounts/contract.json": [
+          "9c605a967c887d4abfc8b7d94d72603ab9abbdc380d6eaff9d0823b4f7b658fa"
+        ],
+        "domains/classification/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "domains/classification/contract.json": [
+          "23cf5c8664074ee4860f8dbb4e5aa7ba81da220c52e99cc77423eff5875358f1"
+        ],
+        "inputs/case.json": [
+          "e9d42c147ab02b6f34eae4ec7315e962731cf339a21f1965638eb6371c03ed4c"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ],
+        "views/archive/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "views/archive/contract.json": [
+          "dc627343f748c3e8a7ea4843e42173fa82f3ab2809ff0c86d97f1142962bda07"
+        ]
+      },
+      "source_task": "tasks/multistage4/text_invoice_archive",
+      "task_name": "text_invoice_archive",
+      "title": "文本票据分类、金额提取与归档汇总",
+      "verifier_count": 30,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/classification/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classification/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classification/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classification/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/classification/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/classification/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/classification/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/classification",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/classification",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/amounts/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/amounts/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/amounts/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/amounts/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/amounts/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/amounts/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/amounts/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/amounts/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/amounts",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/amounts",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/archive/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/archive/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/archive/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/archive",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/archive",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    },
+    "medium/MP26": {
+      "adapter": "medium",
+      "checks_sha256": "c6de903c8a4b206ee255b9608e60e2097b25da242c5e620487f1fa643d150dd7",
+      "dataset_path": "",
+      "dataset_version": "2.0.0",
+      "difficulty": "M",
+      "entry_id": "reasoning4/recurring_dinner_calendar",
+      "focused_folders": [],
+      "protected_generated": {},
+      "protected_initial": {
+        "README.md": [
+          "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        ],
+        "check.py": [
+          "5444385768e427c119caaaa6c7de84bcec792db25a7d37c77a602f80ba0f0d76"
+        ],
+        "engines/apply/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/apply/contract.json": [
+          "25ac5b291cd69cec968a023fbedddcc6d9972895f3a8ef08b82334ced410115a"
+        ],
+        "engines/calendar/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/calendar/contract.json": [
+          "6d1fbb657dbc4065e49937ada4900705a7a072e5c2bd26ea08ef3bd881054519"
+        ],
+        "engines/dates/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/dates/contract.json": [
+          "151b9a956392626566d77301d3b92da048974ba4d6fd6ac9d1d98c9800f86fe9"
+        ],
+        "engines/notifications/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/notifications/contract.json": [
+          "5229cebfd03d937fa9c96c5dc1a8e06bba9ffaaed6f61a167ffa2f545c113279"
+        ],
+        "engines/plan/check_module.py": [
+          "1a17238d7a357f3f9baad5dd22dcccd35c3693097dc84aa5036096bc208c9f9f"
+        ],
+        "engines/plan/contract.json": [
+          "f60cf475bbfc0c1c273a6db90759091ba46846b9a0bbcfac6312956ff3babc99"
+        ],
+        "inputs/case.json": [
+          "9607601efbb03019cbccff05678f0e9e9f38f9e2db1aff5e41183212380916e4"
+        ],
+        "integrate.py": [
+          "fd8cbd2711d21f91f5bc51719c2c65da766d135a05738edd768260328fc7d47e"
+        ]
+      },
+      "source_task": "tasks/reasoning4/recurring_dinner_calendar",
+      "task_name": "recurring_dinner_calendar",
+      "title": "每日晚餐提醒的去重、冲突取消与通知",
+      "verifier_count": 48,
+      "verifiers": [
+        {
+          "category": "business",
+          "id": "api/dates/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dates/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dates/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dates/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/dates/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/dates/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/dates/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/dates",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/dates",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/calendar/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/calendar/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "domain_validation",
+          "id": "api/calendar/invalid-business-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/calendar",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/calendar",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/plan/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/plan/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/plan/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/plan/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/plan/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/plan/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/plan/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/plan",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/plan",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/notifications/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/notifications/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/notifications/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/notifications",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/notifications",
+          "kind": "output"
+        },
+        {
+          "category": "business",
+          "id": "api/apply/heldout-101",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/apply/heldout-202",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/apply/heldout-303",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/apply/boundary",
+          "kind": "api"
+        },
+        {
+          "category": "business",
+          "id": "api/apply/empty-collection",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/apply/invalid-top-level",
+          "kind": "api"
+        },
+        {
+          "category": "robustness",
+          "id": "api/apply/nonfinite-ignored-field",
+          "kind": "api"
+        },
+        {
+          "category": "interface",
+          "id": "io/apply",
+          "kind": "io"
+        },
+        {
+          "category": "integration",
+          "id": "output/apply",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/core_manifest",
+          "kind": "output"
+        },
+        {
+          "category": "integration",
+          "id": "output/final_report",
+          "kind": "report"
+        }
+      ]
+    }
+  }
+}

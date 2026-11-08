@@ -1,0 +1,21 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    signatures["重载与参数种类"]
+    parameters["复杂参数类型文档"]
+    inheritance["继承文档提供者"]
+    document["提供者命名空间合并"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> signatures
+    input --> parameters
+    input --> inheritance
+    signatures --> document
+    parameters --> document
+    inheritance --> document
+    signatures --> _core
+    parameters --> _core
+    inheritance --> _core
+    document --> _core
+    _core --> _report
+    _report --> _verify

@@ -1,0 +1,1377 @@
+{
+  "schema_version": "medium26.original-provenance.v1",
+  "audit_date": "2026-11-08",
+  "task_count": 26,
+  "unique_original_task_count": 32,
+  "source_counts_by_adapted_task": {
+    "SWE": 6,
+    "PRO": 7,
+    "TB": 4,
+    "GAIA": 9
+  },
+  "package_source_revisions": {
+    "gaia2_are_repository": "a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+    "gaia2_data": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+    "swe_pro_data": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+    "swe_pro_repository": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "swe_verified_data": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal_bench_repository": "2fd12b88aafdd04a52c298e3940bcb189f9766d6"
+  },
+  "verified_revision_caveat": "包内记录的历史 revision 的 README 请求返回 404；改用当前可访问的 c104f840cc67f8b6eec6f759ebc8b2693d585d4a 固定数据核验，同一 8 个来源题的 ID、题面、base_commit、难度和解码后测试列表均一致。未覆盖或改写历史记录。",
+  "records": [
+    {
+      "task_id": "MP01",
+      "title": "可关闭成员的硬/软加权投票",
+      "source_benchmark": "SWE-bench Verified",
+      "source_group": "SWE",
+      "entry_id": "multistage4/weighted_voting",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "修复 VotingClassifier 在关闭某个 estimator、同时传入 sample_weight 时 fit 失败的问题。",
+      "adaptation_zh": "保留关闭成员、样本权重与成员索引的一致性；扩成拟合适配、硬投票、软投票及汇总接口，使用 fake estimator 和合成数据，不安装完整 sklearn。",
+      "original_tasks": [
+        {
+          "source_id": "scikit-learn__scikit-learn-13779",
+          "original_task_url": "https://github.com/scikit-learn/scikit-learn/pull/13779",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "scikit-learn/scikit-learn",
+          "base_commit": "b34751b7ed02b2cfcc36037fb729d4360480a299",
+          "source_row": 363,
+          "original_title": "Voting estimator will fail at fit if weights are passed and an estimator is None",
+          "original_fail_to_pass_count": 2,
+          "original_pass_to_pass_count": 18,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_300.json",
+            "row": 363,
+            "sha256": "955abd565f3e69a231cbe3d2fb1b6823ad5c2cf7703954f2b3aca0e9b0e353a4"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "<15 min fix",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP02",
+      "title": "单变化轴的数据分片拼接",
+      "source_benchmark": "SWE-bench Verified",
+      "source_group": "SWE",
+      "entry_id": "multistage4/single_axis_concat",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "修复 combine_by_coords 把各分片共有且相同的非单调坐标也当作拼接排序轴，错误抛出异常的问题。",
+      "adaptation_zh": "只允许一个变化轴并拒绝重叠坐标；把排序、数据装配和属性合并写成独立接口，以 JSON 数组替代 xarray/numpy 工程环境。",
+      "original_tasks": [
+        {
+          "source_id": "pydata__xarray-3151",
+          "original_task_url": "https://github.com/pydata/xarray/pull/3151",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "pydata/xarray",
+          "base_commit": "118f4d996e7711c9aced916e6049af9f28d5ec66",
+          "source_row": 300,
+          "original_title": "xr.combine_by_coords raises ValueError if identical coordinates are non-monotonic",
+          "original_fail_to_pass_count": 1,
+          "original_pass_to_pass_count": 66,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_300.json",
+            "row": 300,
+            "sha256": "955abd565f3e69a231cbe3d2fb1b6823ad5c2cf7703954f2b3aca0e9b0e353a4"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "15 min - 1 hour",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP03",
+      "title": "三种挂载格式的离线事实归并",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "multistage4/offline_mount_facts",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "让 Ansible 汇集主机的多个静态、动态挂载来源，支持跨平台格式、来源选择、过滤和超时控制。",
+      "adaptation_zh": "缩为 fstab、AIX 和 Linux mount 三类离线文本，保留来源优先级与归并规则；移除真实主机探测、完整平台覆盖及超时回退。",
+      "original_tasks": [
+        {
+          "source_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "ansible/ansible",
+          "base_commit": "9ab63986ad528a6ad5bf4c59fe104d5106d6ef9b",
+          "source_row": 57,
+          "original_title": "Title",
+          "original_fail_to_pass_count": 48,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_0.json",
+            "row": 57,
+            "sha256": "574852531f5ab3bd4592f75ff8913f6137449f34e28c5c8ab56bf00923751fff"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": true
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "infrastructure_knowledge",
+            "devops_knowledge",
+            "api_knowledge"
+          ],
+          "issue_specificity": [
+            "major_bug",
+            "data_bug",
+            "edge_case_bug",
+            "compatibility_bug"
+          ],
+          "difficulty_note": "官方 HARD-51 成员"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP04",
+      "title": "多格式用户合并与完整冲突报告",
+      "source_benchmark": "Terminal-Bench",
+      "source_group": "TB",
+      "entry_id": "multistage4/multiformat_user_merge",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "合并 JSON、CSV、Parquet 中模式不一致的用户数据，按映射和来源优先级输出标准数据与冲突报告。",
+      "adaptation_zh": "把 Parquet 改成 JSONL，保留三路解析、字段归一、优先级和完整冲突证据；固定空值及类型语义，使用标准库和合成夹具。",
+      "original_tasks": [
+        {
+          "source_id": "multi-source-data-merger",
+          "original_task_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/multi-source-data-merger/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "author_metadata_label",
+          "official_difficulty": "medium",
+          "difficulty_note": "官方仓库的作者 metadata 标签；不是论文 Figure 6 多模型实测分档。",
+          "expert_time_estimate_min": 30.0,
+          "junior_time_estimate_min": 120.0,
+          "category": "data-processing",
+          "tags": [
+            "data-processing",
+            "etl",
+            "schema-mapping",
+            "conflict-resolution",
+            "pandas",
+            "parquet"
+          ],
+          "agent_timeout_sec": 900.0,
+          "verifier_timeout_sec": 900.0,
+          "environment": {
+            "cpus": 1,
+            "memory_mb": 2048,
+            "allow_internet": true
+          },
+          "data_revision_used_for_audit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/multi-source-data-merger/task.toml"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP05",
+      "title": "跨应用候选并集与相处时长排名",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "multistage4/cross_app_contact_ranking",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "从两个聊天应用与邮件搜集候选联系人，再按指定日期范围的日历相处总时长排序，平局选年龄较大者。",
+      "adaptation_zh": "保留候选并集、身份关联、日历时长和破平规则；用本地应用快照及确定性结果替代 ARE 内的工具交互。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_23_8pzn4g",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=34",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 34,
+          "row_id": "0004_zsnxn8rtxeqy64r6axi78wlnmodvvpb8",
+          "category": "search",
+          "tags": [
+            "Universe",
+            "Search"
+          ],
+          "oracle_event_count": 1,
+          "oracle_state_apps": [
+            "AgentUserInterface"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP06",
+      "title": "取消日程后多渠道通知",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "multistage4/calendar_cancel_notify",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "取消本月至月底符合标签和上午时间条件的日程，之后向参会人发群邮件、新建 Messages 群通知，对没有会话的人改用 Chats。",
+      "adaptation_zh": "保留取消前的参会人快照与取消后通知的因果顺序；输出本地状态和通知计划，不进行真实消息发送。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_24_lr8en2",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=64",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 64,
+          "row_id": "0054_1dgwdp6aym08vzmbkpfwdk0mo6bc2mn8",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 8,
+          "oracle_state_apps": [
+            "Calendar",
+            "Chats",
+            "Emails",
+            "Messages"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP07",
+      "title": "附件发送后归档与独立清理",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "linux2/send_archive_cleanup",
+      "structure_style": "linux2",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "按联系人条件定位两位朋友，发送指定新闻附件，发送后移动原文件；同时清理家庭照片并统计指定前缀文件数。",
+      "adaptation_zh": "保留先发后移及独立清理分支，明确附件字节、路径和两位接收人的成功凭据；输出模拟执行结果。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_21_2m6akl",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=69",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 69,
+          "row_id": "0074_o4zylqu4lbtumngdld10niqy7q2a2sd6",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 6,
+          "oracle_state_apps": [
+            "AgentUserInterface",
+            "Files",
+            "Messages"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP08",
+      "title": "节日照片迁移后发送与缺失报告",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "linux2/holiday_photo_migration",
+      "structure_style": "linux2",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "寻找三类节日照片并迁移，迁移后发圣诞照片给符合条件的女儿，报告缺失照片，并删除另一类旧照片。",
+      "adaptation_zh": "保留先迁移后发送、缺失报告及独立删除；把原 Ambiguity 场景改成静态、可判定的缺失处理，不运行追问对话。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_28_wy635e",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=110",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 110,
+          "row_id": "0200_ndh9u8xbnpvnqmyy787miw5glb62ecu0",
+          "category": "ambiguity",
+          "tags": [
+            "Universe",
+            "Ambiguity"
+          ],
+          "oracle_event_count": 7,
+          "oracle_state_apps": [
+            "AgentUserInterface",
+            "Emails",
+            "Files"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP09",
+      "title": "两场座谈会、群邀请与物资采购",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "reasoning4/panel_events_procurement",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "安排两场指定规则的座谈会，通知满足标题和活跃日期条件的群，并购买可用商品中最贵的指定玩具。",
+      "adaptation_zh": "保留空档搜索、日期计算、群筛选和商品选择；用本地日历、通知与采购计划替代跨应用真实副作用。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_29_8hgfug",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=65",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 65,
+          "row_id": "0058_0gz1go8jip8421i5ju1331o1xiavxc6q",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 8,
+          "oracle_state_apps": [
+            "Calendar",
+            "Messages",
+            "Shopping"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP10",
+      "title": "晚宴计划、联系人定位与餐具采购",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "context8/dinner_contact_checkout",
+      "structure_style": "context8",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "安排周日晚宴，从最近会话定位两名邀请对象，分别发邀请邮件，并采购满足规格的杯子和餐盘。",
+      "adaptation_zh": "保留日历、联系人及多属性商品三路处理；改为静态计划接口。本题改编规格存在独立审计争议，当前主难度仍待裁决，不能用原题类别替它背书。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_26_135a24",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=66",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 66,
+          "row_id": "0077_nhfl8dp2dlgn844d8fhx7mth1tiud6as",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 6,
+          "oracle_state_apps": [
+            "Calendar",
+            "Emails",
+            "Shopping"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP11",
+      "title": "取消会面、研讨会叫车与图书采购",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "reasoning4/meeting_ride_book_plan",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "取消与特定联系人的一段日期内会面并邮件通知；为研讨会提前叫默认服务类型的车，另采购指定精装书。",
+      "adaptation_zh": "保留取消→通知的局部顺序，以及交通与采购两条独立支路；用离线计划替代叫车、付款和发送。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_23_2gyolt",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=73",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 73,
+          "row_id": "0103_2eew091qx234vunawg1dvmneqq5l3jut",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 8,
+          "oracle_state_apps": [
+            "Cabs",
+            "Calendar",
+            "Emails",
+            "Shopping"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP12",
+      "title": "下载目录归档、邮件清理与目标回复",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "linux2/files_mail_workspace",
+      "structure_style": "linux2",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "在下载目录新建附件文件夹并迁移 PNG，清理本月特定主题邮件，再向社交媒体经理的目标邮件回复。",
+      "adaptation_zh": "保留文件、邮件清理、联系人定位与目标回复的作用域；显式检查提交冲突，输出本地状态和回复计划。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_28_nfnpyk",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=76",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 76,
+          "row_id": "0127_ce0xbgfn1xfcqjk0bqrbzvywl89jvlam",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 6,
+          "oracle_state_apps": [
+            "Emails",
+            "Files"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP13",
+      "title": "聚合特征的行键保真与特征合并",
+      "source_benchmark": "SWE-bench Verified",
+      "source_group": "SWE",
+      "entry_id": "reasoning4/grouped_feature_union",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "修复 FeatureUnion 在 pandas 输出模式下处理聚合变换结果时发生的索引/行数不一致问题。",
+      "adaptation_zh": "把行键保真扩成多类聚合特征提取与按键合并，固定列名冲突语义；以标准库数据结构代替 pandas/sklearn 的完整运行时。",
+      "original_tasks": [
+        {
+          "source_id": "scikit-learn__scikit-learn-25747",
+          "original_task_url": "https://github.com/scikit-learn/scikit-learn/pull/25747",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "scikit-learn/scikit-learn",
+          "base_commit": "2c867b8f822eb7a684f0d5c4359e4426e1c9cfe0",
+          "source_row": 375,
+          "original_title": "FeatureUnion not working when aggregating data and pandas transform output selected",
+          "original_fail_to_pass_count": 1,
+          "original_pass_to_pass_count": 14,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_300.json",
+            "row": 375,
+            "sha256": "955abd565f3e69a231cbe3d2fb1b6823ad5c2cf7703954f2b3aca0e9b0e353a4"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "15 min - 1 hour",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP14",
+      "title": "异常链的可移植序列化与报告",
+      "source_benchmark": "SWE-bench Verified",
+      "source_group": "SWE",
+      "entry_id": "context8/portable_exception_report",
+      "structure_style": "context8",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "让 pytest 异常序列化保留显式 cause 和隐式 context 构成的异常链，使跨进程显示与直接显示一致。",
+      "adaptation_zh": "移植为受限异常图、两种可移植编解码和统一报告；明确循环、抑制上下文等边界，不启动 pytest-xdist 集群。",
+      "original_tasks": [
+        {
+          "source_id": "pytest-dev__pytest-5787",
+          "original_task_url": "https://github.com/pytest-dev/pytest/pull/5787",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "pytest-dev/pytest",
+          "base_commit": "955e54221008aba577ecbaefa15679f6777d3bf8",
+          "source_row": 335,
+          "original_title": "exception serialization should include chained exceptions",
+          "original_fail_to_pass_count": 2,
+          "original_pass_to_pass_count": 123,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_300.json",
+            "row": 335,
+            "sha256": "955abd565f3e69a231cbe3d2fb1b6823ad5c2cf7703954f2b3aca0e9b0e353a4"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "1-4 hours",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP15",
+      "title": "普通引用、注解和类型注释的导入分析",
+      "source_benchmark": "SWE-bench Verified",
+      "source_group": "SWE",
+      "entry_id": "reasoning4/python_import_usage",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "消除 pylint 对只出现在类型注释中的导入产生的 unused-import 误报。",
+      "adaptation_zh": "扩为普通引用、注解和类型注释三路受限静态分析，再统一使用情况；限制源码语法范围，不实现完整类型推断。",
+      "original_tasks": [
+        {
+          "source_id": "pylint-dev__pylint-4604",
+          "original_task_url": "https://github.com/pylint-dev/pylint/pull/4604",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "pylint-dev/pylint",
+          "base_commit": "1e55ae64624d28c5fe8b63ad7979880ee2e6ef3f",
+          "source_row": 321,
+          "original_title": "unused-import false positive for a module used in a type comment",
+          "original_fail_to_pass_count": 21,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_300.json",
+            "row": 321,
+            "sha256": "955abd565f3e69a231cbe3d2fb1b6823ad5c2cf7703954f2b3aca0e9b0e353a4"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "15 min - 1 hour",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP16",
+      "title": "API 文档的签名、参数与继承信息聚合",
+      "source_benchmark": "SWE-bench Verified",
+      "source_group": "SWE",
+      "entry_id": "context8/api_documentation_merge",
+      "structure_style": "context8",
+      "source_relation": "multi_source_composition",
+      "source_task_count": 3,
+      "original_goal_zh": "组合 Sphinx 的三个问题：提取全部重载签名、正确解析带括号和逗号的参数类型、查找继承属性的基类文档缓存。",
+      "adaptation_zh": "三个来源分别对应签名、参数和继承分支，再合成 API 文档模型；给定 MRO，不实现完整 Sphinx、C++ 包装器或新 C3 算法。三路拓扑由本项目组合产生。",
+      "original_tasks": [
+        {
+          "source_id": "sphinx-doc__sphinx-7748",
+          "original_task_url": "https://github.com/sphinx-doc/sphinx/pull/7748",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "sphinx-doc/sphinx",
+          "base_commit": "9988d5ce267bf0df4791770b469431b1fb00dcdd",
+          "source_row": 393,
+          "original_title": "autodoc_docstring_signature with overloaded methods",
+          "original_fail_to_pass_count": 2,
+          "original_pass_to_pass_count": 12,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_300.json",
+            "row": 393,
+            "sha256": "955abd565f3e69a231cbe3d2fb1b6823ad5c2cf7703954f2b3aca0e9b0e353a4"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "15 min - 1 hour",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        },
+        {
+          "source_id": "sphinx-doc__sphinx-9230",
+          "original_task_url": "https://github.com/sphinx-doc/sphinx/pull/9230",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "sphinx-doc/sphinx",
+          "base_commit": "567ff22716ac258b9edd2c1711d766b440ac0b11",
+          "source_row": 413,
+          "original_title": "Doc rendering is incorrect when :param has datatype dict(str,str)",
+          "original_fail_to_pass_count": 1,
+          "original_pass_to_pass_count": 44,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_400.json",
+            "row": 413,
+            "sha256": "f14a5f186f66ff37f9b1800aa1a57860bad897ed7b2a52457397d34b6f15e405"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "<15 min fix",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        },
+        {
+          "source_id": "sphinx-doc__sphinx-8548",
+          "original_task_url": "https://github.com/sphinx-doc/sphinx/pull/8548",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "sphinx-doc/sphinx",
+          "base_commit": "dd1615c59dc6fff633e27dbb3861f2d27e1fb976",
+          "source_row": 405,
+          "original_title": "autodoc inherited-members won't work for inherited attributes (data members).",
+          "original_fail_to_pass_count": 1,
+          "original_pass_to_pass_count": 5,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/verified_400.json",
+            "row": 405,
+            "sha256": "f14a5f186f66ff37f9b1800aa1a57860bad897ed7b2a52457397d34b6f15e405"
+          },
+          "difficulty_kind": "human_estimated_fix_time",
+          "official_difficulty": "1-4 hours",
+          "data_revision_used_for_audit": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "data_revision_recorded_in_package": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+          "original_environment": "完整 Python 上游仓库及其测试/依赖环境",
+          "difficulty_note": "人工预估有经验工程师在熟悉代码库后理解问题、求解并编码所需时间；不是模型实测通过率。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP17",
+      "title": "文本、内联内容和文件的 multipart 组装",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "context8/multipart_encoding",
+      "structure_style": "context8",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "为 Ansible 提供公开 multipart/form-data helper，处理文本字段、内联内容、文件、MIME 推断和非法输入。",
+      "adaptation_zh": "移植协议子集并规定确定性边界、字节布局和错误行为；拆成可独立验证的部件，不依赖真实 HTTP 上传或 Ansible 服务。",
+      "original_tasks": [
+        {
+          "source_id": "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "ansible/ansible",
+          "base_commit": "08da8f49b83adec1427abb350d734e6c0569410e",
+          "source_row": 89,
+          "original_title": "Title",
+          "original_fail_to_pass_count": 5,
+          "original_pass_to_pass_count": 41,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_0.json",
+            "row": 89,
+            "sha256": "574852531f5ab3bd4592f75ff8913f6137449f34e28c5c8ab56bf00923751fff"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": true
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "api_knowledge",
+            "infrastructure_knowledge"
+          ],
+          "issue_specificity": [
+            "core_feat",
+            "api_feat",
+            "integration_feat"
+          ],
+          "difficulty_note": "官方 HARD-51 成员"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP18",
+      "title": "集合文件清单的指令选择与归档元数据",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "linux2/collection_manifest",
+      "structure_style": "linux2",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "让 Ansible collection build 支持 MANIFEST.in 风格指令及默认规则，并处理与 build_ignore 的冲突和依赖缺失。",
+      "adaptation_zh": "用四种自包含指令替换外部库机制，限制路径语义，输出选择清单及归档元数据；保留默认规则与显式指令的交互。",
+      "original_tasks": [
+        {
+          "source_id": "instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "ansible/ansible",
+          "base_commit": "f9a450551de47ac2b9d1d7e66a103cbf8f05c37f",
+          "source_row": 98,
+          "original_title": "Title: Collection build does not support MANIFEST.in style directives",
+          "original_fail_to_pass_count": 15,
+          "original_pass_to_pass_count": 56,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_0.json",
+            "row": 98,
+            "sha256": "574852531f5ab3bd4592f75ff8913f6137449f34e28c5c8ab56bf00923751fff"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "devops_knowledge"
+          ],
+          "issue_specificity": [
+            "core_feat"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP19",
+      "title": "Python 支持模块发现与可重复 ZIP 载荷",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "reasoning4/module_dependency_zip",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "稳定 Ansible 支持模块的依赖发现入口，保证基础包文件、统一语法错误报告，并正确处理 bundled six 与 moves 导入。",
+      "adaptation_zh": "采用不执行源码的受限 AST 扫描、依赖闭包和可重复 ZIP；保留基础包和 six 规则，移除完整远程模块部署环境。",
+      "original_tasks": [
+        {
+          "source_id": "instance_ansible__ansible-c616e54a6e23fa5616a1d56d243f69576164ef9b-v1055803c3a812189a1133297f7f5468579283f86",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-c616e54a6e23fa5616a1d56d243f69576164ef9b-v1055803c3a812189a1133297f7f5468579283f86/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "ansible/ansible",
+          "base_commit": "b479adddce8fe46a2df5469f130cf7b6ad70fdc4",
+          "source_row": 95,
+          "original_title": "Title",
+          "original_fail_to_pass_count": 6,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_0.json",
+            "row": 95,
+            "sha256": "574852531f5ab3bd4592f75ff8913f6137449f34e28c5c8ab56bf00923751fff"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "infrastructure_knowledge",
+            "devops_knowledge"
+          ],
+          "issue_specificity": [
+            "major_bug",
+            "integration_bug",
+            "regression_bug",
+            "refactoring_enh"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP20",
+      "title": "特性配置的模式、附件与引用一致性",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "multistage4/feature_config_snapshot",
+      "structure_style": "multistage4",
+      "source_relation": "multi_source_composition",
+      "source_task_count": 2,
+      "original_goal_zh": "组合 Flipt 两个问题：schema/引用校验与导入一致，以及结构化 variant attachment 的导入导出保真。",
+      "adaptation_zh": "将 Go/YAML/存储服务改成受限 Python/JSON 接口；保留结构、引用与附件三路处理，新增明确的原子提交边界。组合后的难度不可继承任一单题。",
+      "original_tasks": [
+        {
+          "source_id": "instance_flipt-io__flipt-c8d71ad7ea98d97546f01cce4ccb451dbcf37d3b",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_flipt-io__flipt-c8d71ad7ea98d97546f01cce4ccb451dbcf37d3b/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "flipt-io/flipt",
+          "base_commit": "29d3f9db40c83434d0e3cc082af8baec64c391a9",
+          "source_row": 229,
+          "original_title": "Title: Rules that reference an unknown variant or segment are not reported when a feature configuration file is validated",
+          "original_fail_to_pass_count": 8,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_200.json",
+            "row": 229,
+            "sha256": "5d566a7b1986f3c8a4fbd4b97a4c2e88f17f4b919acf370ed5f10556e2dd86d7"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "go",
+          "original_environment": "完整 go 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "database_knowledge",
+            "api_knowledge",
+            "devops_knowledge"
+          ],
+          "issue_specificity": [
+            "major_bug",
+            "data_bug",
+            "dev_ops_enh"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        },
+        {
+          "source_id": "instance_flipt-io__flipt-e91615cf07966da41756017a7d571f9fc0fdbe80",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_flipt-io__flipt-e91615cf07966da41756017a7d571f9fc0fdbe80/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "flipt-io/flipt",
+          "base_commit": "bdf53a4ec2288975416f9292634bb120ac47eef3",
+          "source_row": 242,
+          "original_title": "Title: Variant attachments are difficult to manage in exported configuration",
+          "original_fail_to_pass_count": 2,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_200.json",
+            "row": 242,
+            "sha256": "5d566a7b1986f3c8a4fbd4b97a4c2e88f17f4b919acf370ed5f10556e2dd86d7"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "go",
+          "original_environment": "完整 go 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "api_knowledge",
+            "devops_knowledge"
+          ],
+          "issue_specificity": [
+            "core_feat",
+            "integration_feat",
+            "api_feat"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP21",
+      "title": "播放列表重写、条件查询与 M3U 导出",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "context8/playlist_query_export",
+      "structure_style": "context8",
+      "source_relation": "multi_source_composition",
+      "source_task_count": 2,
+      "original_goal_zh": "组合 Navidrome 的播放列表重写和 smart-playlist 条件构建问题，以及 M3U8 导出基础能力问题。",
+      "adaptation_zh": "用 JSON 与内存 SQLite 替代 Go 服务及持久数据库，保留有序曲目、统计、过滤排序和导出一致性；明确可支持的查询与格式范围。",
+      "original_tasks": [
+        {
+          "source_id": "instance_navidrome__navidrome-d21932bd1b2379b0ebca2d19e5d8bae91040268a",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_navidrome__navidrome-d21932bd1b2379b0ebca2d19e5d8bae91040268a/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "navidrome/navidrome",
+          "base_commit": "c72add516a0f260e83a289c2355b2e74071311e0",
+          "source_row": 500,
+          "original_title": "Refactor Playlist Track Management and Smart Playlist Criteria Building",
+          "original_fail_to_pass_count": 1,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_500.json",
+            "row": 500,
+            "sha256": "da1c5c9e2d724c9d828cb0b62258999abc71741b0dade0714cd1edbd0c17ae89"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "go",
+          "original_environment": "完整 go 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "database_knowledge",
+            "back_end_knowledge"
+          ],
+          "issue_specificity": [
+            "core_feat",
+            "code_quality_enh",
+            "refactoring_enh"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        },
+        {
+          "source_id": "instance_navidrome__navidrome-28389fb05e1523564dfc61fa43ed8eb8a10f938c",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_navidrome__navidrome-28389fb05e1523564dfc61fa43ed8eb8a10f938c/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "navidrome/navidrome",
+          "base_commit": "5d8318f7b362c5b044f892f775d264a5d40e4e24",
+          "source_row": 466,
+          "original_title": "Title: Navidrome export playlist to M3U from command line option",
+          "original_fail_to_pass_count": 1,
+          "original_pass_to_pass_count": 0,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_400.json",
+            "row": 466,
+            "sha256": "5d46644fb11c9ef9f772d7f2d4523ca3071672988f385d085b337033fa1e740e"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "go",
+          "original_environment": "完整 go 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "database_knowledge",
+            "api_knowledge",
+            "authentication_authorization_knowledge"
+          ],
+          "issue_specificity": [
+            "core_feat",
+            "api_feat",
+            "code_quality_enh",
+            "refactoring_enh"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP22",
+      "title": "MARC 作者标题、语言和主题导入",
+      "source_benchmark": "SWE-bench Pro V2",
+      "source_group": "PRO",
+      "entry_id": "multistage4/marc_catalog_import",
+      "structure_style": "multistage4",
+      "source_relation": "multi_source_composition",
+      "source_task_count": 3,
+      "original_goal_zh": "组合 Open Library 的 MARC 备用文字链接、完整多语种提取及主题/组织去重三个问题。",
+      "adaptation_zh": "只保留有限 MARC XML 与给定语言表，分路提取后合并；不实现 MARC Binary 的完整对等解析或通用实体匹配。组合后的三路结构为本项目设计。",
+      "original_tasks": [
+        {
+          "source_id": "instance_internetarchive__openlibrary-111347e9583372e8ef91c82e0612ea437ae3a9c9-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-111347e9583372e8ef91c82e0612ea437ae3a9c9-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "internetarchive/openlibrary",
+          "base_commit": "c9795319b19c60e884f34df3eaf7e3e7f2bfd58c",
+          "source_row": 383,
+          "original_title": "Title MARC XML parsing does not resolve alternate-script linkages consistently with MARC Binary",
+          "original_fail_to_pass_count": 2,
+          "original_pass_to_pass_count": 57,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_300.json",
+            "row": 383,
+            "sha256": "e293229e5813c8cc3cfe3164e84c9ffa0ab9975af01a0405656b7b01046a8ff9"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "ds_knowledge"
+          ],
+          "issue_specificity": [
+            "code_quality_enh",
+            "refactoring_enh"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        },
+        {
+          "source_id": "instance_internetarchive__openlibrary-3c48b4bb782189e0858e6c3fc7956046cf3e1cfb-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-3c48b4bb782189e0858e6c3fc7956046cf3e1cfb-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "internetarchive/openlibrary",
+          "base_commit": "d38cb5a4162aa2942cdb5037dd679f37687b9d4f",
+          "source_row": 395,
+          "original_title": "Title: MARC import misses languages when a record has more than one",
+          "original_fail_to_pass_count": 3,
+          "original_pass_to_pass_count": 51,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_300.json",
+            "row": 395,
+            "sha256": "e293229e5813c8cc3cfe3164e84c9ffa0ab9975af01a0405656b7b01046a8ff9"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge"
+          ],
+          "issue_specificity": [
+            "data_bug"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        },
+        {
+          "source_id": "instance_internetarchive__openlibrary-7c8dc180281491ccaa1b4b43518506323750d1e4-v298a7a812ceed28c4c18355a091f1b268fe56d86",
+          "original_task_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-7c8dc180281491ccaa1b4b43518506323750d1e4-v298a7a812ceed28c4c18355a091f1b268fe56d86/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "repo": "internetarchive/openlibrary",
+          "base_commit": "a797a05d077f8896c5d8f480b3620eb1ee398f8c",
+          "source_row": 419,
+          "original_title": "Title Reduce MARC subject extraction complexity and prevent duplicate organization subjects",
+          "original_fail_to_pass_count": 3,
+          "original_pass_to_pass_count": 104,
+          "historic_evidence": {
+            "file": "outputs/public-benchmark-candidates-20261103/pro_400.json",
+            "row": 419,
+            "sha256": "5d46644fb11c9ef9f772d7f2d4523ca3071672988f385d085b337033fa1e740e"
+          },
+          "difficulty_kind": "official_hard_subset_membership",
+          "official_difficulty": {
+            "hard": false
+          },
+          "data_revision_used_for_audit": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "source_language": "python",
+          "original_environment": "完整 python 上游仓库、容器和隐藏测试",
+          "issue_categories": [
+            "back_end_knowledge",
+            "performance_knowledge"
+          ],
+          "issue_specificity": [
+            "code_quality_enh",
+            "refactoring_enh"
+          ],
+          "difficulty_note": "不属于官方 HARD-51；官方未据此提供 easy/medium 的细分，不能解释为中等。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP23",
+      "title": "受目录容量限制的可逆文件重分片",
+      "source_benchmark": "Terminal-Bench",
+      "source_group": "TB",
+      "entry_id": "linux2/reversible_file_resharding",
+      "structure_style": "linux2",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "实现数据重分片和原样恢复脚本，原题限制每目录最多 30 个条目、每文件最多 15MB，并要求通用于同类 C4 数据切片。",
+      "adaptation_zh": "用小型合成文件替代大切片，规范分块和索引接口；保留目录容量及可逆性，明确空文件、空行、无末尾换行等逐字节恢复边界。",
+      "original_tasks": [
+        {
+          "source_id": "reshard-c4-data",
+          "original_task_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/reshard-c4-data/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "author_metadata_label",
+          "official_difficulty": "medium",
+          "difficulty_note": "官方仓库的作者 metadata 标签；不是论文 Figure 6 多模型实测分档。",
+          "expert_time_estimate_min": 30,
+          "junior_time_estimate_min": 60,
+          "category": "data-science",
+          "tags": [
+            "coding",
+            "data-processing",
+            "file-operations"
+          ],
+          "agent_timeout_sec": 3600.0,
+          "verifier_timeout_sec": 3600.0,
+          "environment": {
+            "cpus": 1,
+            "memory_mb": 2048,
+            "allow_internet": true
+          },
+          "data_revision_used_for_audit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/reshard-c4-data/task.toml"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP24",
+      "title": "大学任职、在读人数与国家集合查询",
+      "source_benchmark": "Terminal-Bench",
+      "source_group": "TB",
+      "entry_id": "reasoning4/university_relation_query",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "编写 SPARQL，筛选满足职称、EU 任职和某个任职部门在读学生数条件的教授，并列出其当前任职国家。",
+      "adaptation_zh": "改成受限关系/日期/去重查询接口；修订原参考查询跨部门累计的歧义，要求至少一个部门自身人数超过阈值。无需搭建完整 RDF 工具栈。",
+      "original_tasks": [
+        {
+          "source_id": "sparql-university",
+          "original_task_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/sparql-university/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "author_metadata_label",
+          "official_difficulty": "hard",
+          "difficulty_note": "官方仓库的作者 metadata 标签；不是论文 Figure 6 多模型实测分档。",
+          "expert_time_estimate_min": 800.0,
+          "junior_time_estimate_min": 10000.0,
+          "category": "data-querying",
+          "tags": [
+            "knowledge-graph",
+            "sparql-query",
+            "information-retrieval"
+          ],
+          "agent_timeout_sec": 900.0,
+          "verifier_timeout_sec": 900.0,
+          "environment": {
+            "cpus": 1,
+            "memory_mb": 2048,
+            "allow_internet": true
+          },
+          "data_revision_used_for_audit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/sparql-university/task.toml",
+          "time_estimate_caveat": "800/10000 分钟为上游原值，未发现本次审计可验证的实测依据；不当作实际完成人时或本地超时。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP25",
+      "title": "文本票据分类、金额提取与归档汇总",
+      "source_benchmark": "Terminal-Bench",
+      "source_group": "TB",
+      "entry_id": "multistage4/text_invoice_archive",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "读取混合 JPG/PDF 文档，辨别发票、提取含税总额和税额，移动文件并输出带合计行的 CSV。",
+      "adaptation_zh": "直接提供文本并移除 OCR/PDF 识别环境，保留金额优先级、归档副作用和汇总一致性；独立验证分类、提取、归档与汇总。",
+      "original_tasks": [
+        {
+          "source_id": "financial-document-processor",
+          "original_task_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/financial-document-processor/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "author_metadata_label",
+          "official_difficulty": "medium",
+          "difficulty_note": "官方仓库的作者 metadata 标签；不是论文 Figure 6 多模型实测分档。",
+          "expert_time_estimate_min": 30.0,
+          "junior_time_estimate_min": 60.0,
+          "category": "data-processing",
+          "tags": [
+            "ocr",
+            "image-processing",
+            "financial",
+            "file-operations"
+          ],
+          "agent_timeout_sec": 1200.0,
+          "verifier_timeout_sec": 1200.0,
+          "environment": {
+            "cpus": 1,
+            "memory_mb": 4096,
+            "allow_internet": true
+          },
+          "data_revision_used_for_audit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/financial-document-processor/task.toml"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP26",
+      "title": "每日晚餐提醒的去重、冲突取消与通知",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "reasoning4/recurring_dinner_calendar",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "从今天到下周五每天安排晚餐提醒；已有晚餐则跳过，取消冲突日程并向受影响参会人发邮件。",
+      "adaptation_zh": "保留按日并行规划与取消→通知依赖；明确自然周、起止日和去重规则，并用夹具补足通知边界，输出本地计划而不等待外部反馈。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_25_642cr1",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=86",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 86,
+          "row_id": "0362_1v5mft3yjd8ikn998xxq5v20zyl885px",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 12,
+          "oracle_state_apps": [
+            "Calendar"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    }
+  ]
+}

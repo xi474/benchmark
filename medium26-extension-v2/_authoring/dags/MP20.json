@@ -1,0 +1,109 @@
+{
+  "id": "MP20",
+  "title": "特性配置的模式、附件与引用一致性",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "schema",
+      "label": "模式结构校验",
+      "kind": "work",
+      "folder": "domains/schema",
+      "operation": "feature_schema"
+    },
+    {
+      "id": "attachments",
+      "label": "嵌套附件编解码",
+      "kind": "work",
+      "folder": "domains/attachments",
+      "operation": "feature_attachments"
+    },
+    {
+      "id": "references",
+      "label": "分阶段引用检查",
+      "kind": "work",
+      "folder": "views/references",
+      "operation": "feature_references"
+    },
+    {
+      "id": "snapshot",
+      "label": "原子快照及导出",
+      "kind": "work",
+      "folder": "views/snapshot",
+      "operation": "feature_snapshot"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "schema"
+    },
+    {
+      "source": "input",
+      "target": "attachments"
+    },
+    {
+      "source": "schema",
+      "target": "references"
+    },
+    {
+      "source": "input",
+      "target": "snapshot"
+    },
+    {
+      "source": "schema",
+      "target": "snapshot"
+    },
+    {
+      "source": "attachments",
+      "target": "snapshot"
+    },
+    {
+      "source": "references",
+      "target": "snapshot"
+    },
+    {
+      "source": "schema",
+      "target": "_core"
+    },
+    {
+      "source": "attachments",
+      "target": "_core"
+    },
+    {
+      "source": "references",
+      "target": "_core"
+    },
+    {
+      "source": "snapshot",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    inventory["文件与链接清单"]
+    selection["有序指令及最终排除"]
+    archive["归档大小与字节摘要"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> inventory
+    input --> selection
+    inventory --> selection
+    inventory --> archive
+    selection --> archive
+    inventory --> _core
+    selection --> _core
+    archive --> _core
+    _core --> _report
+    _report --> _verify

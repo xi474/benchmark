@@ -1,0 +1,22 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    files["下载目录分类归档"]
+    mail["当月目标邮件清理"]
+    reply["精确邮件ID回复"]
+    commit["作用域冲突与状态提交"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> files
+    input --> mail
+    input --> reply
+    input --> commit
+    files --> commit
+    mail --> commit
+    reply --> commit
+    files --> _core
+    mail --> _core
+    reply --> _core
+    commit --> _core
+    _core --> _report
+    _report --> _verify

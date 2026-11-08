@@ -1,0 +1,101 @@
+{
+  "id": "MP01",
+  "title": "可关闭成员的硬/软加权投票",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "fit",
+      "label": "成员筛选与拟合记录",
+      "kind": "work",
+      "folder": "domains/fit",
+      "operation": "fit_members"
+    },
+    {
+      "id": "hard",
+      "label": "硬加权投票",
+      "kind": "work",
+      "folder": "views/hard",
+      "operation": "hard_vote"
+    },
+    {
+      "id": "soft",
+      "label": "概率列对齐与软投票",
+      "kind": "work",
+      "folder": "views/soft",
+      "operation": "soft_vote"
+    },
+    {
+      "id": "comparison",
+      "label": "两路结果比较",
+      "kind": "work",
+      "folder": "views/comparison",
+      "operation": "vote_comparison"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "fit"
+    },
+    {
+      "source": "fit",
+      "target": "hard"
+    },
+    {
+      "source": "fit",
+      "target": "soft"
+    },
+    {
+      "source": "hard",
+      "target": "comparison"
+    },
+    {
+      "source": "soft",
+      "target": "comparison"
+    },
+    {
+      "source": "fit",
+      "target": "_core"
+    },
+    {
+      "source": "hard",
+      "target": "_core"
+    },
+    {
+      "source": "soft",
+      "target": "_core"
+    },
+    {
+      "source": "comparison",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

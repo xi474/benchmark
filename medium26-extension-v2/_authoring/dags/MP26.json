@@ -1,0 +1,124 @@
+{
+  "id": "MP26",
+  "title": "每日晚餐提醒的去重、冲突取消与通知",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "dates",
+      "label": "下周五闭区间日期",
+      "kind": "work",
+      "folder": "engines/dates",
+      "operation": "dinner_days"
+    },
+    {
+      "id": "calendar",
+      "label": "区间及已有晚餐索引",
+      "kind": "work",
+      "folder": "engines/calendar",
+      "operation": "dinner_calendar_index"
+    },
+    {
+      "id": "plan",
+      "label": "冲突取消及新增计划",
+      "kind": "work",
+      "folder": "engines/plan",
+      "operation": "dinner_change_plan"
+    },
+    {
+      "id": "notifications",
+      "label": "受影响对象去重通知",
+      "kind": "work",
+      "folder": "engines/notifications",
+      "operation": "dinner_notifications"
+    },
+    {
+      "id": "apply",
+      "label": "最终日历与幂等状态",
+      "kind": "work",
+      "folder": "engines/apply",
+      "operation": "dinner_apply"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "dates"
+    },
+    {
+      "source": "input",
+      "target": "calendar"
+    },
+    {
+      "source": "dates",
+      "target": "plan"
+    },
+    {
+      "source": "calendar",
+      "target": "plan"
+    },
+    {
+      "source": "plan",
+      "target": "notifications"
+    },
+    {
+      "source": "calendar",
+      "target": "apply"
+    },
+    {
+      "source": "plan",
+      "target": "apply"
+    },
+    {
+      "source": "notifications",
+      "target": "apply"
+    },
+    {
+      "source": "dates",
+      "target": "_core"
+    },
+    {
+      "source": "calendar",
+      "target": "_core"
+    },
+    {
+      "source": "plan",
+      "target": "_core"
+    },
+    {
+      "source": "notifications",
+      "target": "_core"
+    },
+    {
+      "source": "apply",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "MP22",
+  "title": "MARC 作者标题、语言和主题导入",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "reader",
+      "label": "有限MARC XML读取",
+      "kind": "work",
+      "folder": "domains/reader",
+      "operation": "marc_xml_records"
+    },
+    {
+      "id": "names",
+      "label": "作者标题与替代文字",
+      "kind": "work",
+      "folder": "domains/names",
+      "operation": "marc_names_titles"
+    },
+    {
+      "id": "languages",
+      "label": "定长及分组语言代码",
+      "kind": "work",
+      "folder": "domains/languages",
+      "operation": "marc_languages"
+    },
+    {
+      "id": "subjects",
+      "label": "主题细分与次数",
+      "kind": "work",
+      "folder": "domains/subjects",
+      "operation": "marc_subjects"
+    },
+    {
+      "id": "catalog",
+      "label": "书目语义汇合",
+      "kind": "work",
+      "folder": "views/catalog",
+      "operation": "marc_catalog"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "reader"
+    },
+    {
+      "source": "reader",
+      "target": "names"
+    },
+    {
+      "source": "input",
+      "target": "languages"
+    },
+    {
+      "source": "reader",
+      "target": "languages"
+    },
+    {
+      "source": "reader",
+      "target": "subjects"
+    },
+    {
+      "source": "names",
+      "target": "catalog"
+    },
+    {
+      "source": "languages",
+      "target": "catalog"
+    },
+    {
+      "source": "subjects",
+      "target": "catalog"
+    },
+    {
+      "source": "reader",
+      "target": "_core"
+    },
+    {
+      "source": "names",
+      "target": "_core"
+    },
+    {
+      "source": "languages",
+      "target": "_core"
+    },
+    {
+      "source": "subjects",
+      "target": "_core"
+    },
+    {
+      "source": "catalog",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

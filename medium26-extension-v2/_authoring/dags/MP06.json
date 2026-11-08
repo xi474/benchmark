@@ -1,0 +1,86 @@
+{
+  "id": "MP06",
+  "title": "取消日程后多渠道通知",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "calendar",
+      "label": "取消目标及前置快照",
+      "kind": "work",
+      "folder": "domains/calendar",
+      "operation": "cancel_morning"
+    },
+    {
+      "id": "channels",
+      "label": "联系人渠道与回退",
+      "kind": "work",
+      "folder": "domains/channels",
+      "operation": "channel_directory"
+    },
+    {
+      "id": "notifications",
+      "label": "取消后多渠道通知",
+      "kind": "work",
+      "folder": "views/notifications",
+      "operation": "cancel_notifications"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "calendar"
+    },
+    {
+      "source": "input",
+      "target": "channels"
+    },
+    {
+      "source": "calendar",
+      "target": "notifications"
+    },
+    {
+      "source": "channels",
+      "target": "notifications"
+    },
+    {
+      "source": "calendar",
+      "target": "_core"
+    },
+    {
+      "source": "channels",
+      "target": "_core"
+    },
+    {
+      "source": "notifications",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

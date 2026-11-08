@@ -1,0 +1,109 @@
+{
+  "id": "MP05",
+  "title": "跨应用候选并集与相处时长排名",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "groups",
+      "label": "命中群成员候选",
+      "kind": "work",
+      "folder": "domains/groups",
+      "operation": "group_candidates"
+    },
+    {
+      "id": "mail",
+      "label": "邮件发件人候选",
+      "kind": "work",
+      "folder": "domains/mail",
+      "operation": "mail_candidates"
+    },
+    {
+      "id": "calendar",
+      "label": "共同活动时长",
+      "kind": "work",
+      "folder": "domains/calendar",
+      "operation": "shared_durations"
+    },
+    {
+      "id": "ranking",
+      "label": "候选并集与排名",
+      "kind": "work",
+      "folder": "views/ranking",
+      "operation": "contact_rank"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "groups"
+    },
+    {
+      "source": "input",
+      "target": "mail"
+    },
+    {
+      "source": "input",
+      "target": "calendar"
+    },
+    {
+      "source": "input",
+      "target": "ranking"
+    },
+    {
+      "source": "groups",
+      "target": "ranking"
+    },
+    {
+      "source": "mail",
+      "target": "ranking"
+    },
+    {
+      "source": "calendar",
+      "target": "ranking"
+    },
+    {
+      "source": "groups",
+      "target": "_core"
+    },
+    {
+      "source": "mail",
+      "target": "_core"
+    },
+    {
+      "source": "calendar",
+      "target": "_core"
+    },
+    {
+      "source": "ranking",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

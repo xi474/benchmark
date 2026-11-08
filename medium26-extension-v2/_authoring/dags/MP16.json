@@ -1,0 +1,105 @@
+{
+  "id": "MP16",
+  "title": "API 文档的签名、参数与继承信息聚合",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "signatures",
+      "label": "重载与参数种类",
+      "kind": "work",
+      "folder": "signatures",
+      "operation": "overload_signatures"
+    },
+    {
+      "id": "parameters",
+      "label": "复杂参数类型文档",
+      "kind": "work",
+      "folder": "parameters",
+      "operation": "parameter_docs"
+    },
+    {
+      "id": "inheritance",
+      "label": "继承文档提供者",
+      "kind": "work",
+      "folder": "inheritance",
+      "operation": "inherited_doc"
+    },
+    {
+      "id": "document",
+      "label": "提供者命名空间合并",
+      "kind": "work",
+      "folder": "document",
+      "operation": "api_documentation"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "signatures"
+    },
+    {
+      "source": "input",
+      "target": "parameters"
+    },
+    {
+      "source": "input",
+      "target": "inheritance"
+    },
+    {
+      "source": "signatures",
+      "target": "document"
+    },
+    {
+      "source": "parameters",
+      "target": "document"
+    },
+    {
+      "source": "inheritance",
+      "target": "document"
+    },
+    {
+      "source": "signatures",
+      "target": "_core"
+    },
+    {
+      "source": "parameters",
+      "target": "_core"
+    },
+    {
+      "source": "inheritance",
+      "target": "_core"
+    },
+    {
+      "source": "document",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

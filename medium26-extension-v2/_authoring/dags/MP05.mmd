@@ -1,0 +1,22 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    groups["命中群成员候选"]
+    mail["邮件发件人候选"]
+    calendar["共同活动时长"]
+    ranking["候选并集与排名"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> groups
+    input --> mail
+    input --> calendar
+    input --> ranking
+    groups --> ranking
+    mail --> ranking
+    calendar --> ranking
+    groups --> _core
+    mail --> _core
+    calendar --> _core
+    ranking --> _core
+    _core --> _report
+    _report --> _verify

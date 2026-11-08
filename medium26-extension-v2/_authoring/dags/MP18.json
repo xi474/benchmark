@@ -1,0 +1,90 @@
+{
+  "id": "MP18",
+  "title": "集合文件清单的指令选择与归档元数据",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "inventory",
+      "label": "文件与链接清单",
+      "kind": "work",
+      "folder": "products/inventory",
+      "operation": "manifest_inventory"
+    },
+    {
+      "id": "selection",
+      "label": "有序指令及最终排除",
+      "kind": "work",
+      "folder": "products/selection",
+      "operation": "manifest_selection"
+    },
+    {
+      "id": "archive",
+      "label": "归档大小与字节摘要",
+      "kind": "work",
+      "folder": "products/archive",
+      "operation": "manifest_archive"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "inventory"
+    },
+    {
+      "source": "input",
+      "target": "selection"
+    },
+    {
+      "source": "inventory",
+      "target": "selection"
+    },
+    {
+      "source": "inventory",
+      "target": "archive"
+    },
+    {
+      "source": "selection",
+      "target": "archive"
+    },
+    {
+      "source": "inventory",
+      "target": "_core"
+    },
+    {
+      "source": "selection",
+      "target": "_core"
+    },
+    {
+      "source": "archive",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

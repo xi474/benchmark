@@ -1,0 +1,90 @@
+{
+  "id": "MP19",
+  "title": "Python 支持模块发现与可重复 ZIP 载荷",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "scanner",
+      "label": "静态及相对导入扫描",
+      "kind": "work",
+      "folder": "engines/scanner",
+      "operation": "module_import_scan"
+    },
+    {
+      "id": "dependencies",
+      "label": "循环依赖与包初始化",
+      "kind": "work",
+      "folder": "engines/dependencies",
+      "operation": "module_dependency_closure"
+    },
+    {
+      "id": "payload",
+      "label": "可重复ZIP载荷",
+      "kind": "work",
+      "folder": "engines/payload",
+      "operation": "module_zip"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "scanner"
+    },
+    {
+      "source": "input",
+      "target": "dependencies"
+    },
+    {
+      "source": "scanner",
+      "target": "dependencies"
+    },
+    {
+      "source": "input",
+      "target": "payload"
+    },
+    {
+      "source": "dependencies",
+      "target": "payload"
+    },
+    {
+      "source": "scanner",
+      "target": "_core"
+    },
+    {
+      "source": "dependencies",
+      "target": "_core"
+    },
+    {
+      "source": "payload",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

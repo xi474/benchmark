@@ -1,0 +1,86 @@
+{
+  "id": "MP23",
+  "title": "受目录容量限制的可逆文件重分片",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "chunks",
+      "label": "字节保真分块",
+      "kind": "work",
+      "folder": "products/chunks",
+      "operation": "reshard_chunks"
+    },
+    {
+      "id": "layout",
+      "label": "索引分块与目录布局",
+      "kind": "work",
+      "folder": "products/layout",
+      "operation": "reshard_layout"
+    },
+    {
+      "id": "restore",
+      "label": "容量验证及精确恢复",
+      "kind": "work",
+      "folder": "products/restore",
+      "operation": "reshard_restore"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "chunks"
+    },
+    {
+      "source": "input",
+      "target": "layout"
+    },
+    {
+      "source": "chunks",
+      "target": "layout"
+    },
+    {
+      "source": "layout",
+      "target": "restore"
+    },
+    {
+      "source": "chunks",
+      "target": "_core"
+    },
+    {
+      "source": "layout",
+      "target": "_core"
+    },
+    {
+      "source": "restore",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

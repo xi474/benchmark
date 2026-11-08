@@ -1,0 +1,105 @@
+{
+  "id": "MP13",
+  "title": "聚合特征的行键保真与特征合并",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "numeric",
+      "label": "分组数值特征",
+      "kind": "work",
+      "folder": "engines/numeric",
+      "operation": "numeric_features"
+    },
+    {
+      "id": "category",
+      "label": "固定词表类别特征",
+      "kind": "work",
+      "folder": "engines/category",
+      "operation": "category_features"
+    },
+    {
+      "id": "time",
+      "label": "时间起止跨度",
+      "kind": "work",
+      "folder": "engines/time",
+      "operation": "time_features"
+    },
+    {
+      "id": "union",
+      "label": "特征行键外连接",
+      "kind": "work",
+      "folder": "engines/union",
+      "operation": "feature_union"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "numeric"
+    },
+    {
+      "source": "input",
+      "target": "category"
+    },
+    {
+      "source": "input",
+      "target": "time"
+    },
+    {
+      "source": "numeric",
+      "target": "union"
+    },
+    {
+      "source": "category",
+      "target": "union"
+    },
+    {
+      "source": "time",
+      "target": "union"
+    },
+    {
+      "source": "numeric",
+      "target": "_core"
+    },
+    {
+      "source": "category",
+      "target": "_core"
+    },
+    {
+      "source": "time",
+      "target": "_core"
+    },
+    {
+      "source": "union",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

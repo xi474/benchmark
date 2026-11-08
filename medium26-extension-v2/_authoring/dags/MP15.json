@@ -1,0 +1,109 @@
+{
+  "id": "MP15",
+  "title": "普通引用、注解和类型注释的导入分析",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "ordinary",
+      "label": "普通表达式引用",
+      "kind": "work",
+      "folder": "engines/ordinary",
+      "operation": "ordinary_uses"
+    },
+    {
+      "id": "annotations",
+      "label": "注解中的引用",
+      "kind": "work",
+      "folder": "engines/annotations",
+      "operation": "annotation_uses"
+    },
+    {
+      "id": "comments",
+      "label": "赋值类型注释引用",
+      "kind": "work",
+      "folder": "engines/comments",
+      "operation": "type_comment_uses"
+    },
+    {
+      "id": "analysis",
+      "label": "作用域遮蔽与未用导入",
+      "kind": "work",
+      "folder": "engines/analysis",
+      "operation": "import_usage_join"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "ordinary"
+    },
+    {
+      "source": "input",
+      "target": "annotations"
+    },
+    {
+      "source": "input",
+      "target": "comments"
+    },
+    {
+      "source": "input",
+      "target": "analysis"
+    },
+    {
+      "source": "ordinary",
+      "target": "analysis"
+    },
+    {
+      "source": "annotations",
+      "target": "analysis"
+    },
+    {
+      "source": "comments",
+      "target": "analysis"
+    },
+    {
+      "source": "ordinary",
+      "target": "_core"
+    },
+    {
+      "source": "annotations",
+      "target": "_core"
+    },
+    {
+      "source": "comments",
+      "target": "_core"
+    },
+    {
+      "source": "analysis",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

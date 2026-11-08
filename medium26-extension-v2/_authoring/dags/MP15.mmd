@@ -1,0 +1,22 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    ordinary["普通表达式引用"]
+    annotations["注解中的引用"]
+    comments["赋值类型注释引用"]
+    analysis["作用域遮蔽与未用导入"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> ordinary
+    input --> annotations
+    input --> comments
+    input --> analysis
+    ordinary --> analysis
+    annotations --> analysis
+    comments --> analysis
+    ordinary --> _core
+    annotations --> _core
+    comments --> _core
+    analysis --> _core
+    _core --> _report
+    _report --> _verify

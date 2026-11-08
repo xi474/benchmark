@@ -1,0 +1,90 @@
+{
+  "id": "MP25",
+  "title": "文本票据分类、金额提取与归档汇总",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "classification",
+      "label": "文本票据分类",
+      "kind": "work",
+      "folder": "domains/classification",
+      "operation": "invoice_classification"
+    },
+    {
+      "id": "amounts",
+      "label": "金额标签与精确小数",
+      "kind": "work",
+      "folder": "domains/amounts",
+      "operation": "invoice_amounts"
+    },
+    {
+      "id": "archive",
+      "label": "字节归档与CSV汇总",
+      "kind": "work",
+      "folder": "views/archive",
+      "operation": "invoice_archive_summary"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "classification"
+    },
+    {
+      "source": "input",
+      "target": "amounts"
+    },
+    {
+      "source": "input",
+      "target": "archive"
+    },
+    {
+      "source": "classification",
+      "target": "archive"
+    },
+    {
+      "source": "amounts",
+      "target": "archive"
+    },
+    {
+      "source": "classification",
+      "target": "_core"
+    },
+    {
+      "source": "amounts",
+      "target": "_core"
+    },
+    {
+      "source": "archive",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    playlist["完整替换及统计重建"]
+    query["白名单条件SQL"]
+    export["半入舍入M3U导出"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> playlist
+    input --> query
+    playlist --> export
+    playlist --> _core
+    query --> _core
+    export --> _core
+    _core --> _report
+    _report --> _verify

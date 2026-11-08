@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-09",
+  "previous_release": "medium26-extension-v1",
+  "new_release": "medium6-specfix-v2",
+  "base_commit": "76275fc1bb87be85a0fa72c7202f09633ad223c7",
+  "conclusion": "本次六项规格冲突均在本地改编后的接口、范围或描述对齐中引入；不据此断言上游不存在其他问题。",
+  "scope_policy": "保留v1业务算法、输入、契约和评分预期；精确说明本地子集，不恢复未实现的上游功能。",
+  "upstream_retrieval": {
+    "date": "2026-11-09",
+    "records": [
+      {
+        "task": "multi-source-data-merger",
+        "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2/2fd12b88aafdd04a52c298e3940bcb189f9766d6/multi-source-data-merger/instruction.md",
+        "revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "sha256": "d1d28bb6e37f7a255a1b7f78aae8591f35c0494f33e4913392424ad954aab944",
+        "bytes": 1912
+      },
+      {
+        "task": "sparql-university",
+        "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2/2fd12b88aafdd04a52c298e3940bcb189f9766d6/sparql-university/instruction.md",
+        "revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "sha256": "22eeab47d3b27b06df2627b3c21cfbd579ed7dcc85ebcb7c4b3a241c3c35f449",
+        "bytes": 1268
+      }
+    ]
+  },
+  "records": [
+    {
+      "task_id": "MP04",
+      "issue_origin": "local_adaptation",
+      "upstream_finding": "Terminal-Bench原题要求表格式合并输出和冲突报告，没有本地新增的三个解析器result.records接口。",
+      "local_introduction": "本地新建中间schema时，公开规则只写records按ID排序，遗漏容器类型。",
+      "v2_resolution": "三路records统一明确为按id字符串字典序排列的对象数组，空结果为[]，汇合接口读取同一schema。",
+      "v2_goal": "读取JSON、CSV、JSONL用户源，分别输出records数组，再按字段优先级合并用户目录和完整冲突证据。",
+      "sources": [
+        {
+          "id": "multi-source-data-merger",
+          "url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/multi-source-data-merger/instruction.md"
+        }
+      ],
+      "status": "clarified_and_standalone_qa_passed"
+    },
+    {
+      "task_id": "MP08",
+      "issue_origin": "local_adaptation",
+      "upstream_finding": "GAIA2原题明确要求在2020年照片中搜索多个节日，并含女儿定位、指定照片发送和独立清理。",
+      "local_introduction": "本地已将输入投影成photos:{path,festival}，但概要保留年份识别及清理要求，未声明投影范围。",
+      "v2_resolution": "明确photos由数据准备阶段限定目标年份并附节日标注；本地只做节日分类、迁移和全部迁移照片的发送清单，不解析年份、不另做清理或身份搜索。",
+      "v2_goal": "处理已限定目标年份并附节日标注的照片元数据，按所需节日分类、迁移，再用新路径生成发送清单和缺失报告；本地子集不解析年份、不执行独立清理。",
+      "sources": [
+        {
+          "id": "scenario_universe_28_wy635e",
+          "url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=110"
+        }
+      ],
+      "status": "clarified_and_standalone_qa_passed",
+      "gaia_source_evidence": {
+        "scenario_id": "scenario_universe_28_wy635e",
+        "category": "ambiguity",
+        "metadata_snapshot_sha256": "b16462eedb5747eb4837dd10bda9cbd7af6bfad48c39220ce63d002ad7b19617",
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "license": "CC BY 4.0; Meta Agents Research Environments"
+      }
+    },
+    {
+      "task_id": "MP09",
+      "issue_origin": "local_adaptation",
+      "upstream_finding": "GAIA2原题明确第一场空档、下月第二个周日、群标题/活跃日期筛选及最贵可用商品。",
+      "local_introduction": "本地改为分钟窗口、显式群ID和评分优先采购，概要却仍沿用原题规则。",
+      "v2_resolution": "概要与组件统一为最早两场分钟时段、显式群ID并集、最高评分再低价和ID；不宣称保留第二周日及最贵商品规则。",
+      "v2_goal": "按给定分钟窗口选择最早两场可用时段，按显式群ID归并成员，按评分、价格和ID选择物资；两场齐备后生成活动及通知计划。",
+      "sources": [
+        {
+          "id": "scenario_universe_29_8hgfug",
+          "url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=65"
+        }
+      ],
+      "status": "clarified_and_standalone_qa_passed",
+      "gaia_source_evidence": {
+        "scenario_id": "scenario_universe_29_8hgfug",
+        "category": "execution",
+        "metadata_snapshot_sha256": "b16462eedb5747eb4837dd10bda9cbd7af6bfad48c39220ce63d002ad7b19617",
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "license": "CC BY 4.0; Meta Agents Research Environments"
+      }
+    },
+    {
+      "task_id": "MP10",
+      "issue_origin": "local_adaptation",
+      "upstream_finding": "GAIA2原题明确向两位对象分别发邮件。没有本地dinner_checkout中间结果的items/unavailable排序接口。",
+      "local_introduction": "本地简化成单一主要联系人却未同步概要；新增采购结果数组时未公开参考实现的排序约定。",
+      "v2_resolution": "明确单一主要联系人、guest_count仅为餐具份数；items按kind、unavailable按字符串字典序升序。",
+      "v2_goal": "按给定weekday和hour计算下一次晚宴，定位最近匹配话题会话中的单一主要联系人，为guest_count人数匹配餐具并生成一次采购计划。",
+      "sources": [
+        {
+          "id": "scenario_universe_26_135a24",
+          "url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=66"
+        }
+      ],
+      "status": "clarified_and_standalone_qa_passed",
+      "gaia_source_evidence": {
+        "scenario_id": "scenario_universe_26_135a24",
+        "category": "execution",
+        "metadata_snapshot_sha256": "b16462eedb5747eb4837dd10bda9cbd7af6bfad48c39220ce63d002ad7b19617",
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "license": "CC BY 4.0; Meta Agents Research Environments"
+      }
+    },
+    {
+      "task_id": "MP11",
+      "issue_origin": "local_adaptation",
+      "upstream_finding": "GAIA2原题明确要求hardcover精装书，并指定提前30分钟叫车。",
+      "local_introduction": "本地图书输入和筛选没有装帧，接送提前量已参数化，但概要仍保留精装与固定30分钟。",
+      "v2_resolution": "公开受限改编不测装帧；按输入关键词、语言、预算、评分价格选择；接送使用lead_minutes。",
+      "v2_goal": "按组织者与日期窗口取消会面并生成通知，按lead_minutes计算研讨会接送时刻，再按关键词、语言、预算及评分价格规则选择图书；本地子集不按装帧筛选。",
+      "sources": [
+        {
+          "id": "scenario_universe_23_2gyolt",
+          "url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=73"
+        }
+      ],
+      "status": "clarified_and_standalone_qa_passed",
+      "gaia_source_evidence": {
+        "scenario_id": "scenario_universe_23_2gyolt",
+        "category": "execution",
+        "metadata_snapshot_sha256": "b16462eedb5747eb4837dd10bda9cbd7af6bfad48c39220ce63d002ad7b19617",
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "license": "CC BY 4.0; Meta Agents Research Environments"
+      }
+    },
+    {
+      "task_id": "MP24",
+      "issue_origin": "local_adaptation",
+      "upstream_finding": "Terminal-Bench原题明确full professors，原知识图及查询包含职称/role概念。",
+      "local_introduction": "本地将人员投影成professors:{id,departments}，未声明名单已按职称预筛，概要却要求正式教授筛选。",
+      "v2_resolution": "明确输入名单已预筛为正式教授，本地不实现职称判断；保留EU任职、逐部门在读人数与国家集合规则。",
+      "v2_goal": "在输入已预筛为正式教授的名单中，按EU任职及至少一个单独任职部门在读人数超过10的条件查询，并返回全部任职国家。",
+      "sources": [
+        {
+          "id": "sparql-university",
+          "url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/sparql-university/instruction.md"
+        }
+      ],
+      "status": "clarified_and_standalone_qa_passed"
+    }
+  ],
+  "independent_subset": true,
+  "validation_status": "passed_standalone_qa",
+  "model_baseline_status": "not_started"
+}

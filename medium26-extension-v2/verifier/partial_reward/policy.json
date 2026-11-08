@@ -1,0 +1,16 @@
+{
+  "schema": "benchmark.reward-policy.v2",
+  "version": "2.0.0",
+  "difficulty_max_reward": {"E": 1, "M": 2, "H": 3},
+  "formula": "max_reward * passed_verifiers / total_registered_verifiers",
+  "decimal_places": 6,
+  "rounding": "ROUND_HALF_UP",
+  "verifier_weight": "equal_per_registered_verifier",
+  "integrity_violation_reward": 0,
+  "missing_timeout_exception": "failed_verifier_fixed_denominator",
+  "model_retries": 0,
+  "io_bundle": "existing loader/parser/render contract checks form one verifier per component",
+  "task_content_changes": false,
+  "legacy_scores_overwritten": false,
+  "difficulty_labels": "project design anchors; not empirically calibrated"
+}

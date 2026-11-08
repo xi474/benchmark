@@ -1,0 +1,109 @@
+{
+  "id": "MP12",
+  "title": "下载目录归档、邮件清理与目标回复",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "files",
+      "label": "下载目录分类归档",
+      "kind": "work",
+      "folder": "products/files",
+      "operation": "download_archive"
+    },
+    {
+      "id": "mail",
+      "label": "当月目标邮件清理",
+      "kind": "work",
+      "folder": "products/mail",
+      "operation": "mail_trash"
+    },
+    {
+      "id": "reply",
+      "label": "精确邮件ID回复",
+      "kind": "work",
+      "folder": "products/reply",
+      "operation": "manager_reply"
+    },
+    {
+      "id": "commit",
+      "label": "作用域冲突与状态提交",
+      "kind": "work",
+      "folder": "products/commit",
+      "operation": "workspace_commit"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "files"
+    },
+    {
+      "source": "input",
+      "target": "mail"
+    },
+    {
+      "source": "input",
+      "target": "reply"
+    },
+    {
+      "source": "input",
+      "target": "commit"
+    },
+    {
+      "source": "files",
+      "target": "commit"
+    },
+    {
+      "source": "mail",
+      "target": "commit"
+    },
+    {
+      "source": "reply",
+      "target": "commit"
+    },
+    {
+      "source": "files",
+      "target": "_core"
+    },
+    {
+      "source": "mail",
+      "target": "_core"
+    },
+    {
+      "source": "reply",
+      "target": "_core"
+    },
+    {
+      "source": "commit",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

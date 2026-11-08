@@ -1,0 +1,17 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    parts["部件类型与MIME元数据"]
+    encoding["内联与文件载荷编码"]
+    body["边界及请求体组装"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> parts
+    parts --> encoding
+    input --> body
+    encoding --> body
+    parts --> _core
+    encoding --> _core
+    body --> _core
+    _core --> _report
+    _report --> _verify
