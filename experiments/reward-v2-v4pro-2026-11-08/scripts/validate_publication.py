@@ -69,6 +69,13 @@ for ds,expected in [('medium26',26),('mixed16-v4',16)]:
 pr=read_json(ROOT/'parallel-analysis/native-trigger-evidence.json')['rows'];assert len(pr)==392
 assert len(read_csv(ROOT/'parallel-analysis/parallel-trigger-cells-392.csv'))==392
 assert read_json(ROOT/'parallel-analysis/checks.json')['source_results_sha256']==sha(ROOT/'seven-harnesses/results.json')
+subprocess.run([sys.executable,'-B',str(ROOT/'scripts/validate_input_cache_rates.py')],check=True)
+proposal=read_json(ROOT/'planned-experiments/explicit-multiagent-v1.json')
+assert proposal['status']=='proposed-not-registered-not-run' and proposal['paid_authorization'] is False
+assert proposal['provider_requests']==0 and proposal['budget_usd'] is None
+assert len(proposal['entries'])==len({r['proposed_id'] for r in proposal['entries']})==27
+assert len(proposal['pilot_proposed_ids'])==3
+assert proposal['design_md_sha256']==sha(ROOT/'planned-experiments/explicit-multiagent-v1.md')
 for f in ROOT.rglob('*'):
     if not f.is_file():continue
     assert f.suffix in ['.md','.json','.csv','.py',''] or f.name=='.gitattributes',f.name

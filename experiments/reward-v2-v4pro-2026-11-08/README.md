@@ -49,3 +49,14 @@ token来自去重实际结算，cache是输入的子集。部分未知用量保�
 只发布结构化指标、公开任务标识、来源hash及分析报告；不上传原始提示、工具输出、凭据、私有任务或LATTE/ROMA上游源码。证据locator指向持有原始文件时可复核的位置，不表示GitHub包含原始日志。任务、verifier、policy与catalog字节不改。不要将本目录或作者验证材料挂载给被测Agent。
 
 在本目录执行`python scripts/validate_publication.py`，可离线核验文件指纹、题位唯一性、API聚合、AOrchestra数值不变以及脱敏边界，无需API key或模型调用。
+
+<!-- INPUT-CACHE-SUPPLEMENT -->
+
+## 输入缓存命中率补充
+
+[查看56任务×八套Harness完整矩阵与口径](cache-analysis/README.md) · [448行逐题明细](cache-analysis/cells-448.csv) · [八臂汇总](cache-analysis/harness-summary-8.csv)。原14/mixed16-v4/Medium26均已统计，LATTE四个补跑单列。447格完整；ROMA一格因未知请求只报告已结算部分，完整比例留空。总汇总CSV/JSON已追加缓存比例与覆盖字段，原指标不变。
+<!-- /INPUT-CACHE-SUPPLEMENT -->
+
+## 待运行的显式多Agent对照方案
+
+[查看Nanobot/OpenCode/DSH三条件对照与ROMA定义说明](planned-experiments/explicit-multiagent-v1.md)。方案建议先注册27个新attempt；当前未获新付费授权、未运行，不计入448个结果题位。
