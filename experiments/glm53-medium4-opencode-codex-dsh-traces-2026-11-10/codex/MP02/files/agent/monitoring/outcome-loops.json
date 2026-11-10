@@ -1,0 +1,440 @@
+{
+  "schema": "outcome-loop-analysis/1",
+  "event_count": 76,
+  "duplicate_event_ids": 0,
+  "observed_delivery_chains": [],
+  "delivery_ambiguities": [],
+  "delivery_summary": {
+    "messages": 0,
+    "sent": 0,
+    "parent_received": 0,
+    "entered_model_request": 0,
+    "complete_observed_chains": 0
+  },
+  "correlated_check_loops": [
+    {
+      "failed_check_event_id": "evt-000007-4874b4ec",
+      "agent_id": "codex:01a1c384-dabd-7bb3-b8b3-7574c895b2d8",
+      "check_key": "command-sha256:2a6798b565fd02d86b6a1f9c01427622733e4dc0f964810de12a379469493a0e",
+      "check_classification_source": "inferred-executed-check-command",
+      "classification": "correlated-check-fix-recheck-window",
+      "analysis_of_failure_observed": false,
+      "model_input_contains_failed_result": true,
+      "fix_tool_call_ids": [
+        "call_dfcfdbc70a30407886808df3"
+      ],
+      "recheck_event_id": "evt-000009-022852f3",
+      "recheck_passed": false,
+      "post_failure_window_ms": null,
+      "pure_self_reflection_incremental_cost_usd": null,
+      "failed_check_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "inference": "Temporal/control-span correlation only; not proof of private analysis, causal repair, or incremental self-reflection cost.",
+      "observation_window_ms": 9358.0,
+      "timing_basis": "wrapper-or-result-observation-only",
+      "model_timing": {
+        "union_ms": 139228.44576,
+        "known_union_lower_bound_ms": 139228.44576,
+        "complete_spans": 19,
+        "spans": 19,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "recheck_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "check_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 2,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "all_observed_activity_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": 139228.44576,
+        "complete_spans": 19,
+        "spans": 21,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_link_basis": [
+        {
+          "tool_call_id": "call_dfcfdbc70a30407886808df3",
+          "basis": "temporal-window-only"
+        }
+      ],
+      "fix_tool_classification_sources": [
+        {
+          "tool_call_id": "call_dfcfdbc70a30407886808df3",
+          "source": "typed-mutation-tool"
+        }
+      ],
+      "model_to_fix_order_observed": false,
+      "unique_model_usage": {
+        "unique_requests": 19,
+        "input_tokens": null,
+        "input_tokens_known_lower_bound": null,
+        "output_tokens": null,
+        "output_tokens_known_lower_bound": null,
+        "estimated_cost_usd": null,
+        "estimated_cost_usd_known_lower_bound": null
+      },
+      "missing_evidence": []
+    },
+    {
+      "failed_check_event_id": "evt-000009-022852f3",
+      "agent_id": "codex:01a1c384-dabd-7bb3-b8b3-7574c895b2d8",
+      "check_key": "command-sha256:2a6798b565fd02d86b6a1f9c01427622733e4dc0f964810de12a379469493a0e",
+      "check_classification_source": "inferred-executed-check-command",
+      "classification": "correlated-check-fix-recheck-window",
+      "analysis_of_failure_observed": false,
+      "model_input_contains_failed_result": true,
+      "fix_tool_call_ids": [
+        "call_d78bcd8b199e403b88729442"
+      ],
+      "recheck_event_id": "evt-000011-0b9d8dd3",
+      "recheck_passed": false,
+      "post_failure_window_ms": null,
+      "pure_self_reflection_incremental_cost_usd": null,
+      "failed_check_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "inference": "Temporal/control-span correlation only; not proof of private analysis, causal repair, or incremental self-reflection cost.",
+      "observation_window_ms": 10875.0,
+      "timing_basis": "wrapper-or-result-observation-only",
+      "model_timing": {
+        "union_ms": 130012.227773,
+        "known_union_lower_bound_ms": 130012.227773,
+        "complete_spans": 17,
+        "spans": 17,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "recheck_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "check_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 2,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "all_observed_activity_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": 130012.227773,
+        "complete_spans": 17,
+        "spans": 19,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_link_basis": [
+        {
+          "tool_call_id": "call_d78bcd8b199e403b88729442",
+          "basis": "temporal-window-only"
+        }
+      ],
+      "fix_tool_classification_sources": [
+        {
+          "tool_call_id": "call_d78bcd8b199e403b88729442",
+          "source": "typed-mutation-tool"
+        }
+      ],
+      "model_to_fix_order_observed": false,
+      "unique_model_usage": {
+        "unique_requests": 17,
+        "input_tokens": null,
+        "input_tokens_known_lower_bound": null,
+        "output_tokens": null,
+        "output_tokens_known_lower_bound": null,
+        "estimated_cost_usd": null,
+        "estimated_cost_usd_known_lower_bound": null
+      },
+      "missing_evidence": []
+    },
+    {
+      "failed_check_event_id": "evt-000011-0b9d8dd3",
+      "agent_id": "codex:01a1c384-dabd-7bb3-b8b3-7574c895b2d8",
+      "check_key": "command-sha256:2a6798b565fd02d86b6a1f9c01427622733e4dc0f964810de12a379469493a0e",
+      "check_classification_source": "inferred-executed-check-command",
+      "classification": "correlated-check-fix-recheck-window",
+      "analysis_of_failure_observed": false,
+      "model_input_contains_failed_result": true,
+      "fix_tool_call_ids": [
+        "call_5bf17c873f9e441a807124fa"
+      ],
+      "recheck_event_id": "evt-000013-83aecfe2",
+      "recheck_passed": false,
+      "post_failure_window_ms": null,
+      "pure_self_reflection_incremental_cost_usd": null,
+      "failed_check_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "inference": "Temporal/control-span correlation only; not proof of private analysis, causal repair, or incremental self-reflection cost.",
+      "observation_window_ms": 12889.0,
+      "timing_basis": "wrapper-or-result-observation-only",
+      "model_timing": {
+        "union_ms": 119300.405204,
+        "known_union_lower_bound_ms": 119300.405204,
+        "complete_spans": 15,
+        "spans": 15,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "recheck_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "check_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 2,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "all_observed_activity_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": 119300.405204,
+        "complete_spans": 15,
+        "spans": 17,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_link_basis": [
+        {
+          "tool_call_id": "call_5bf17c873f9e441a807124fa",
+          "basis": "temporal-window-only"
+        }
+      ],
+      "fix_tool_classification_sources": [
+        {
+          "tool_call_id": "call_5bf17c873f9e441a807124fa",
+          "source": "typed-mutation-tool"
+        }
+      ],
+      "model_to_fix_order_observed": false,
+      "unique_model_usage": {
+        "unique_requests": 15,
+        "input_tokens": null,
+        "input_tokens_known_lower_bound": null,
+        "output_tokens": null,
+        "output_tokens_known_lower_bound": null,
+        "estimated_cost_usd": null,
+        "estimated_cost_usd_known_lower_bound": null
+      },
+      "missing_evidence": []
+    },
+    {
+      "failed_check_event_id": "evt-000013-83aecfe2",
+      "agent_id": "codex:01a1c384-dabd-7bb3-b8b3-7574c895b2d8",
+      "check_key": "command-sha256:2a6798b565fd02d86b6a1f9c01427622733e4dc0f964810de12a379469493a0e",
+      "check_classification_source": "inferred-executed-check-command",
+      "classification": "correlated-check-fix-recheck-window",
+      "analysis_of_failure_observed": false,
+      "model_input_contains_failed_result": true,
+      "fix_tool_call_ids": [
+        "call_bd06ad6b10dc48edaeb196ce"
+      ],
+      "recheck_event_id": "evt-000015-e525e5c3",
+      "recheck_passed": true,
+      "post_failure_window_ms": null,
+      "pure_self_reflection_incremental_cost_usd": null,
+      "failed_check_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "inference": "Temporal/control-span correlation only; not proof of private analysis, causal repair, or incremental self-reflection cost.",
+      "observation_window_ms": 9416.0,
+      "timing_basis": "wrapper-or-result-observation-only",
+      "model_timing": {
+        "union_ms": 106579.265371,
+        "known_union_lower_bound_ms": 106579.265371,
+        "complete_spans": 13,
+        "spans": 13,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "recheck_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "check_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 2,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "all_observed_activity_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": 106579.265371,
+        "complete_spans": 13,
+        "spans": 15,
+        "clock_scope": "monotonic:codex-request-relay:124",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_link_basis": [
+        {
+          "tool_call_id": "call_bd06ad6b10dc48edaeb196ce",
+          "basis": "temporal-window-only"
+        }
+      ],
+      "fix_tool_classification_sources": [
+        {
+          "tool_call_id": "call_bd06ad6b10dc48edaeb196ce",
+          "source": "typed-mutation-tool"
+        }
+      ],
+      "model_to_fix_order_observed": false,
+      "unique_model_usage": {
+        "unique_requests": 13,
+        "input_tokens": null,
+        "input_tokens_known_lower_bound": null,
+        "output_tokens": null,
+        "output_tokens_known_lower_bound": null,
+        "estimated_cost_usd": null,
+        "estimated_cost_usd_known_lower_bound": null
+      },
+      "missing_evidence": []
+    }
+  ],
+  "model_span_timing": {
+    "union_ms": 292078.198009,
+    "known_union_lower_bound_ms": 292078.198009,
+    "complete_spans": 24,
+    "spans": 24,
+    "clock_scope": "monotonic:codex-request-relay:124",
+    "timing_basis": [
+      "monotonic_ns"
+    ]
+  },
+  "tool_span_timing": {
+    "union_ms": null,
+    "known_union_lower_bound_ms": null,
+    "complete_spans": 0,
+    "spans": 23,
+    "clock_scope": null,
+    "timing_basis": "incomparable-or-missing-clocks"
+  },
+  "all_unique_model_usage": {
+    "unique_requests": 24,
+    "input_tokens": null,
+    "input_tokens_known_lower_bound": null,
+    "output_tokens": null,
+    "output_tokens_known_lower_bound": null,
+    "estimated_cost_usd": null,
+    "estimated_cost_usd_known_lower_bound": null
+  },
+  "duplicate_usage_records": 0,
+  "conflicting_usage_requests": 0,
+  "warnings": [],
+  "execution_modes": [
+    "real",
+    "unlabelled"
+  ],
+  "limits": [
+    "A terminal event never fabricates sent, received or model-input evidence.",
+    "Captured model input proves inclusion, not semantic use or private reflection.",
+    "Temporal check windows may include ordinary task work; unions avoid overlapping-span double counting.",
+    "Collection-clock intervals are separate observations and can be distorted by log delay.",
+    "Mechanism/scripted fixtures do not establish autonomous delegation.",
+    "No counterfactual baseline: pure self-reflection incremental time/cost remains unknown."
+  ],
+  "experiment_evidence": {
+    "execution_mode": "real",
+    "synthetic": false,
+    "native_log_alone_proves_model_autonomy": false,
+    "source": "native rollout plus client request observer"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "contract_revision": "2.1",
+  "provided_vs_execution": {
+    "label": "provided_vs_execution",
+    "status": "not_observed",
+    "reason": "No Provided DAG was supplied for this trial.",
+    "evidence_checked": [
+      "parallel sidecar provided/execution_graph.yaml",
+      "task workflow"
+    ],
+    "metrics": null
+  },
+  "harness_control_vs_execution": {
+    "label": "harness_control_vs_execution",
+    "status": "not_observed",
+    "reason": "No Harness Control DAG (LangGraph/Strands/reference orchestrator) was declared.",
+    "evidence_checked": [
+      "workflow.declared",
+      "workflow.revised"
+    ],
+    "metrics": null
+  },
+  "observed_model_plan_vs_execution": {
+    "label": "observed_model_plan_vs_execution",
+    "status": "not_observed",
+    "reason": "No explicit model-created plan event was emitted.",
+    "evidence_checked": [
+      "plan.created",
+      "plan.revised",
+      "workflow.declared"
+    ],
+    "metrics": null
+  },
+  "note": "The three comparisons are reported separately and must not be merged into one score."
+}

@@ -1,0 +1,140 @@
+{
+  "id": "6d6c56d9-233c-4117-a9d1-2e5f64468bff",
+  "task_name": "reward-v2/medium-MP03",
+  "trial_name": "reward-v2-medium-MP03__Qk9mWb2",
+  "trial_uri": "file://local-artifacts://project/outputs/glm-v4-recovery9-20261110-r2/glm-codex-remaining4/jobs/glm53low-r2-codex-medium-MP03/reward-v2-medium-MP03__Qk9mWb2",
+  "task_id": {
+    "path": "local-artifacts://project/outputs/glm-v4-recovery9-20261110-r2/glm-codex-remaining4/tasks/five/reward-v2-medium-MP03"
+  },
+  "source": null,
+  "task_checksum": "9c8554addbdf868cbcaffe88fa218b2b3f170ab2f14aa9d384a6f245362e6fc3",
+  "config": {
+    "task": {
+      "path": "local-artifacts://project/outputs/glm-v4-recovery9-20261110-r2/glm-codex-remaining4/tasks/five/reward-v2-medium-MP03",
+      "git_url": null,
+      "git_commit_id": null,
+      "name": null,
+      "ref": null,
+      "overwrite": false,
+      "download_dir": null,
+      "source": null
+    },
+    "trial_name": "reward-v2-medium-MP03__Qk9mWb2",
+    "trials_dir": "local-artifacts://project/outputs/glm-v4-recovery9-20261110-r2/glm-codex-remaining4/jobs/glm53low-r2-codex-medium-MP03",
+    "install_only": false,
+    "timeout_multiplier": 1.0,
+    "agent_timeout_multiplier": null,
+    "verifier_timeout_multiplier": null,
+    "agent_setup_timeout_multiplier": 6.0,
+    "environment_build_timeout_multiplier": null,
+    "agent": {
+      "name": null,
+      "import_path": "glm_agents:BatchCodex",
+      "model_name": "openai/glm-5.3",
+      "n_concurrent": null,
+      "concurrency_group": null,
+      "skills": [],
+      "override_timeout_sec": null,
+      "override_setup_timeout_sec": 1800.0,
+      "max_timeout_sec": null,
+      "resume_trajectory": false,
+      "load_trajectory": null,
+      "extra_allowed_hosts": [],
+      "kwargs": {},
+      "mcp_servers": []
+    },
+    "user_agent": null,
+    "environment": {
+      "type": "docker",
+      "import_path": null,
+      "force_build": false,
+      "delete": true,
+      "stream": false,
+      "cpu_enforcement_policy": "auto",
+      "memory_enforcement_policy": "auto",
+      "override_cpus": null,
+      "override_memory_mb": null,
+      "override_storage_mb": null,
+      "override_gpus": null,
+      "override_tpu": null,
+      "mounts": null,
+      "extra_docker_compose": [],
+      "env": {
+        "DB_TYPE": "duckdb"
+      },
+      "kwargs": {},
+      "extra_allowed_hosts": []
+    },
+    "verifier": {
+      "override_timeout_sec": null,
+      "max_timeout_sec": null,
+      "disable": false
+    },
+    "artifacts": [],
+    "extra_instruction_paths": [],
+    "extra_instructions": [],
+    "job_id": "304f385f-8ec3-4402-b67b-28db194ce5b0",
+    "source_trial": null
+  },
+  "agent_info": {
+    "name": "codex",
+    "version": "WARNING: failed to clean up stale arg0 temp dirs: Cross-device link (os error 18)",
+    "model_info": {
+      "name": "glm-5.3",
+      "provider": "openai"
+    }
+  },
+  "agent_result": {
+    "n_input_tokens": 1090518,
+    "n_cache_tokens": 1042432,
+    "n_output_tokens": 29883,
+    "cost_usd": null,
+    "model_usage": {
+      "openai/glm-5.3": {
+        "n_input_tokens": 1090518,
+        "n_cache_tokens": 1042432,
+        "n_output_tokens": 29883,
+        "cost_usd": null
+      }
+    },
+    "rollout_details": null,
+    "metadata": {
+      "codex_monitoring": {
+        "run_context": "agent/monitoring/codex-run-context.json",
+        "native_observation": "agent/monitoring/native-codex-observation.json",
+        "runtime_snapshots": "agent/monitoring/runtime-snapshots",
+        "native_coverage": "observed",
+        "outcome_loops_path": "agent/monitoring/outcome-loops.json",
+        "outcome_loops_status": "written",
+        "actual_request_observer": true,
+        "root_thread_id": "01a1c389-fee6-7112-b051-b9f43674eeee"
+      }
+    }
+  },
+  "verifier_result": {
+    "rewards": {
+      "reward": 2.0
+    }
+  },
+  "verifier_environment_mode": "separate",
+  "exception_info": null,
+  "started_at": "2026-11-10T03:39:14.644994Z",
+  "finished_at": "2026-11-10T03:48:51.761732Z",
+  "environment_setup": {
+    "started_at": "2026-11-10T03:39:15.109590Z",
+    "finished_at": "2026-11-10T03:39:20.356058Z"
+  },
+  "agent_setup": {
+    "started_at": "2026-11-10T03:39:20.356108Z",
+    "finished_at": "2026-11-10T03:39:21.762545Z"
+  },
+  "agent_execution": {
+    "started_at": "2026-11-10T03:39:21.762700Z",
+    "finished_at": "2026-11-10T03:48:26.513675Z"
+  },
+  "verifier": {
+    "started_at": "2026-11-10T03:48:34.682721Z",
+    "finished_at": "2026-11-10T03:48:51.761717Z"
+  },
+  "step_results": null
+}

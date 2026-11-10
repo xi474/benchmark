@@ -1,0 +1,177 @@
+{
+  "id": "1fa4bf89-a3be-4e86-9eec-af8c694be0ea",
+  "task_name": "reward-v2/medium-MP03",
+  "trial_name": "reward-v2-medium-MP03__xXUjXJC",
+  "trial_uri": "file://local-artifacts://project/outputs/glm53-low-six-harness-11tasks-20261109-r1/jobs/glm53low-r1-dsh-medium-MP03/reward-v2-medium-MP03__xXUjXJC",
+  "task_id": {
+    "path": "local-artifacts://project/outputs/glm53-low-six-harness-11tasks-20261109-r1/tasks/five/reward-v2-medium-MP03"
+  },
+  "source": null,
+  "task_checksum": "9c8554addbdf868cbcaffe88fa218b2b3f170ab2f14aa9d384a6f245362e6fc3",
+  "config": {
+    "task": {
+      "path": "local-artifacts://project/outputs/glm53-low-six-harness-11tasks-20261109-r1/tasks/five/reward-v2-medium-MP03",
+      "git_url": null,
+      "git_commit_id": null,
+      "name": null,
+      "ref": null,
+      "overwrite": false,
+      "download_dir": null,
+      "source": null
+    },
+    "trial_name": "reward-v2-medium-MP03__xXUjXJC",
+    "trials_dir": "local-artifacts://project/outputs/glm53-low-six-harness-11tasks-20261109-r1/jobs/glm53low-r1-dsh-medium-MP03",
+    "install_only": false,
+    "timeout_multiplier": 1.0,
+    "agent_timeout_multiplier": null,
+    "verifier_timeout_multiplier": null,
+    "agent_setup_timeout_multiplier": 6.0,
+    "environment_build_timeout_multiplier": null,
+    "agent": {
+      "name": null,
+      "import_path": "glm_agents:BatchDsh",
+      "model_name": "openai/glm-5.3",
+      "n_concurrent": null,
+      "concurrency_group": null,
+      "skills": [],
+      "override_timeout_sec": null,
+      "override_setup_timeout_sec": 1800.0,
+      "max_timeout_sec": null,
+      "resume_trajectory": false,
+      "load_trajectory": null,
+      "extra_allowed_hosts": [],
+      "kwargs": {},
+      "mcp_servers": []
+    },
+    "user_agent": null,
+    "environment": {
+      "type": "docker",
+      "import_path": null,
+      "force_build": false,
+      "delete": true,
+      "stream": false,
+      "cpu_enforcement_policy": "auto",
+      "memory_enforcement_policy": "auto",
+      "override_cpus": null,
+      "override_memory_mb": null,
+      "override_storage_mb": null,
+      "override_gpus": null,
+      "override_tpu": null,
+      "mounts": null,
+      "extra_docker_compose": [],
+      "env": {
+        "DB_TYPE": "duckdb"
+      },
+      "kwargs": {},
+      "extra_allowed_hosts": []
+    },
+    "verifier": {
+      "override_timeout_sec": null,
+      "max_timeout_sec": null,
+      "disable": false
+    },
+    "artifacts": [],
+    "extra_instruction_paths": [],
+    "extra_instructions": [],
+    "job_id": "617025e6-6fa1-403a-9909-9a2bd161aa6e",
+    "source_trial": null
+  },
+  "agent_info": {
+    "name": "dsh-agent-team-harness-v3",
+    "version": "0.2.1-rc.2",
+    "model_info": {
+      "name": "glm-5.3",
+      "provider": "openai"
+    }
+  },
+  "agent_result": {
+    "n_input_tokens": 36949,
+    "n_cache_tokens": 1009664,
+    "n_output_tokens": 26146,
+    "cost_usd": null,
+    "model_usage": null,
+    "rollout_details": null,
+    "metadata": {
+      "telemetry": {
+        "observability_level": "L2-native-agent-team",
+        "resource_scope": "task-container",
+        "resource_samples": 0,
+        "summary_path": "agent/telemetry/summary.json",
+        "events_path": "agent/telemetry/events-v2.jsonl",
+        "resources_path": "agent/telemetry/resources.csv",
+        "execution_dag_path": "agent/telemetry/workflow/execution-dag.json",
+        "planning_analysis_path": "agent/telemetry/workflow/workflow-summary.json",
+        "events_v2_path": "agent/telemetry/events-v2.jsonl",
+        "workflow_dir": "agent/telemetry/workflow",
+        "planning_level": "P0",
+        "plan_source": "not-observed",
+        "subagent_capability_available": true,
+        "subagent_count": 0,
+        "autonomous_delegation": false,
+        "reason_if_not_observed": "Only root-Agent/model/tool execution events were observed; no local control decision or plan exists.",
+        "model_throughput_path": "agent/telemetry/model-throughput.json",
+        "model_throughput": {
+          "model_request_count": 41,
+          "model_response_count": 41,
+          "paired_model_call_count": 41,
+          "unmatched_request_count": 0,
+          "responses_with_token_usage": 41,
+          "per_response_token_coverage": 1.0,
+          "token_aggregation_level": "per-response",
+          "aggregate_usage_event_type": null,
+          "token_sources": {
+            "dsh-native-session": 41
+          },
+          "synthetic_or_estimated_tokens": false,
+          "input_tokens": 36949,
+          "output_tokens": 26146,
+          "cache_read_tokens": 1009664,
+          "cache_write_tokens": 0,
+          "cache_tokens": 1009664,
+          "total_tokens": 1072759,
+          "observed_wall_time_sec": 363.542,
+          "summed_model_call_time_sec": 361.331,
+          "summed_generation_time_sec": 0.051,
+          "model_calls_per_minute_wall": 6.766756,
+          "output_tokens_per_wall_second": 71.920163,
+          "total_tokens_per_wall_second": 2950.852995,
+          "output_tokens_per_model_second": 72.360246,
+          "decode_tokens_per_second": 512666.666667,
+          "latency_ms_median": 5555.999744,
+          "latency_ms_p95": 10849.999872,
+          "ttft_ms_median": 5555.0,
+          "ttft_ms_p95": 10849.0
+        },
+        "token_usage_status": null,
+        "orchestration_status": null,
+        "orchestration_reason": null
+      }
+    }
+  },
+  "verifier_result": {
+    "rewards": {
+      "reward": 1.846154
+    }
+  },
+  "verifier_environment_mode": "separate",
+  "exception_info": null,
+  "started_at": "2026-11-09T19:14:52.205020Z",
+  "finished_at": "2026-11-09T19:21:29.448963Z",
+  "environment_setup": {
+    "started_at": "2026-11-09T19:14:52.517774Z",
+    "finished_at": "2026-11-09T19:14:56.591271Z"
+  },
+  "agent_setup": {
+    "started_at": "2026-11-09T19:14:56.591320Z",
+    "finished_at": "2026-11-09T19:14:59.026840Z"
+  },
+  "agent_execution": {
+    "started_at": "2026-11-09T19:14:59.026945Z",
+    "finished_at": "2026-11-09T19:21:05.719703Z"
+  },
+  "verifier": {
+    "started_at": "2026-11-09T19:21:12.340624Z",
+    "finished_at": "2026-11-09T19:21:29.448926Z"
+  },
+  "step_results": null
+}

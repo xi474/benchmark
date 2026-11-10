@@ -1,0 +1,1666 @@
+{
+  "schema": "actual-model-request/1",
+  "request_id": "0e9de667e3b34f328d41bcd63659cf4a",
+  "trial_id": "glm53low-r3-opencode-medium-MP01-repair",
+  "protocol": "chat",
+  "ingress": {
+    "request_sha256": "4f3cd51168c35b3b48b6d48c70c253030f4dd12f13a767312dec4dd8b1664be6",
+    "model": "glm-5.3",
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": null,
+    "max_tokens": 65536,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "bash",
+          "description": "Executes a given bash command in a persistent shell session with optional timeout, ensuring proper handling and security measures.\n\nBe aware: OS: linux, Shell: bash\n\nAll commands run in the current working directory by default. Use the `workdir` parameter if you need to run a command in a different directory. AVOID using `cd <directory> && <command>` patterns - use `workdir` instead.\n\nUse `/tmp/opencode` for temporary work outside the workspace. This directory has already been created, already exists, and is pre-approved for external directory access.\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., rm \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - mkdir \"/Users/name/My Documents\" (correct)\n     - mkdir /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds. If not specified, commands will time out after 120000ms.\n  - If the output exceeds 2000 lines or 51200 bytes, it will be truncated and the full output will be written to a file. You can use Read with offset/limit to read specific sections or Grep to search the full content. Do NOT use `head`, `tail`, or other truncation commands to limit output; the full output will already be captured to a file for more precise searching.\n\n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - AVOID using `cd <directory> && <command>`. Use the `workdir` parameter to change directories instead.\n    <good-example>\n    Use workdir=\"/foo/bar\" with command: pytest tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Git and GitHub\n- Only commit, amend, push, or create PRs when explicitly requested.\n- Before committing, inspect `git status`, `git diff`, and `git log --oneline -10`; stage only intended files and never commit secrets.\n- Write a concise commit message that matches the repo style.\n- Do not update git config, skip hooks, use interactive `-i`, force-push, or create empty commits unless explicitly requested.\n- If a commit fails or hooks reject it, fix the issue and create a new commit; do not amend the failed commit.\n- Before creating a PR, inspect status, diff, remote tracking, recent commits, and the diff from the base branch.\n- Review all commits included in the PR, not just the latest commit.\n- Use `gh` for GitHub tasks, including PRs, issues, checks, and releases; return the PR URL when done.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The command to execute"
+              },
+              "timeout": {
+                "minimum": -9007199254740991,
+                "exclusiveMinimum": 0,
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "description": "Optional timeout in milliseconds"
+              },
+              "workdir": {
+                "type": "string",
+                "description": "The working directory to run the command in. Defaults to the current directory. Use this instead of 'cd' commands."
+              }
+            },
+            "required": [
+              "command"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "edit",
+          "description": "Performs exact string replacements in files. \n\nUsage:\n- You must use your `Read` tool at least once in the conversation before editing. This tool will error if you attempt an edit without reading the file. \n- When editing text from Read tool output, ensure you preserve the exact indentation (tabs/spaces) as it appears AFTER the line number prefix. The line number prefix format is: line number + colon + space (e.g., `1: `). Everything after that space is the actual file content to match. Never include any part of the line number prefix in the oldString or newString.\n- ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.\n- Only use emojis if the user explicitly requests it. Avoid adding emojis to files unless asked.\n- The edit will FAIL if `oldString` is not found in the file with an error \"oldString not found in content\".\n- The edit will FAIL if `oldString` is found multiple times in the file with an error \"Found multiple matches for oldString. Provide more surrounding lines in oldString to identify the correct match.\" Either provide a larger string with more surrounding context to make it unique or use `replaceAll` to change every instance of `oldString`. \n- Use `replaceAll` for replacing and renaming strings across the file. This parameter is useful if you want to rename a variable for instance.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "The absolute path to the file to modify"
+              },
+              "oldString": {
+                "type": "string",
+                "description": "The text to replace"
+              },
+              "newString": {
+                "type": "string",
+                "description": "The text to replace it with (must be different from oldString)"
+              },
+              "replaceAll": {
+                "type": "boolean",
+                "description": "Replace all occurrences of oldString (default false)"
+              }
+            },
+            "required": [
+              "filePath",
+              "oldString",
+              "newString"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "glob",
+          "description": "- Fast file pattern matching tool that works with any codebase size\n- Supports glob patterns like \"**/*.js\" or \"src/**/*.ts\"\n- Returns matching file paths\n- Use this tool when you need to find files by name patterns\n- When you are doing an open-ended search that may require multiple rounds of globbing and grepping, use the Task tool instead\n- You have the capability to call multiple tools in a single response. It is always better to speculatively perform multiple searches as a batch that are potentially useful.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "The glob pattern to match files against"
+              },
+              "path": {
+                "type": "string",
+                "description": "The directory to search in. If not specified, the current working directory will be used. IMPORTANT: Omit this field to use the default directory. DO NOT enter \"undefined\" or \"null\" - simply omit it for the default behavior. Must be a valid directory path if provided."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "grep",
+          "description": "- Fast content search tool that works with any codebase size\n- Searches file contents using regular expressions\n- Supports full regex syntax (eg. \"log.*Error\", \"function\\s+\\w+\", etc.)\n- Filter files by pattern with the include parameter (eg. \"*.js\", \"*.{ts,tsx}\")\n- Returns file paths and line numbers with matching lines\n- Use this tool when you need to find files containing specific patterns\n- If you need to identify/count the number of matches within files, use the Bash tool with `rg` (ripgrep) directly. Do NOT use `grep`.\n- When you are doing an open-ended search that may require multiple rounds of globbing and grepping, use the Task tool instead\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "The regex pattern to search for in file contents"
+              },
+              "path": {
+                "type": "string",
+                "description": "The directory to search in. Defaults to the current working directory."
+              },
+              "include": {
+                "type": "string",
+                "description": "File pattern to include in the search (e.g. \"*.js\", \"*.{ts,tsx}\")"
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "read",
+          "description": "Read a file or directory from the local filesystem. If the path does not exist, an error is returned.\n\nUsage:\n- The filePath parameter should be an absolute path.\n- By default, this tool returns up to 2000 lines from the start of the file.\n- The offset parameter is the line number to start from (1-indexed).\n- To read later sections, call this tool again with a larger offset.\n- Use the grep tool to find specific content in large files or files with long lines.\n- If you are unsure of the correct file path, use the glob tool to look up filenames by glob pattern.\n- Contents are returned with each line prefixed by its line number as `<line>: <content>`. For example, if a file has contents \"foo\\n\", you will receive \"1: foo\\n\". For directories, entries are returned one per line (without line numbers) with a trailing `/` for subdirectories.\n- Any line longer than 2000 characters is truncated.\n- Call this tool in parallel when you know there are multiple files you want to read.\n- Avoid tiny repeated slices (30 line chunks). If you need more context, read a larger window.\n- This tool can read image files and PDFs and return them as file attachments.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "The absolute path to the file or directory to read"
+              },
+              "offset": {
+                "minimum": 0,
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "description": "The line number to start reading from (1-indexed)"
+              },
+              "limit": {
+                "minimum": 0,
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "description": "The maximum number of lines to read (defaults to 2000)"
+              }
+            },
+            "required": [
+              "filePath"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "skill",
+          "description": "Load a specialized skill when the task at hand matches one of the skills listed in the system prompt.\n\nUse this tool to inject the skill's instructions and resources into current conversation. The output may contain detailed workflow guidance as well as references to scripts, files, etc in the same directory as the skill.\n\nThe skill name must match one of the skills listed in your system prompt.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of the skill from available_skills"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "task",
+          "description": "Launch a new agent to handle complex, multistep tasks autonomously.\n\nWhen using the Task tool, you must specify a subagent_type parameter to select which agent type to use.\n\nWhen NOT to use the Task tool:\n- If you want to read a specific file path, use the Read or Glob tool instead of the Task tool, to find the match more quickly\n- If you are searching for a specific class definition like \"class Foo\", use the Grep tool instead, to find the match more quickly\n- If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Task tool, to find the match more quickly\n- If no available agent is a good fit for the task, use other tools directly\n\n\nUsage notes:\n1. Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses\n2. Once you have delegated work to an agent, do not duplicate that work yourself. Continue with non-overlapping tasks, or wait for the result. For background tasks, you will be notified automatically when the result is ready.\n3. When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result. The output includes a task_id you can reuse later to continue the same subagent session.\n4. Each agent invocation starts with a fresh context unless you provide task_id to resume the same subagent session (which continues with its previous messages and tool outputs). When starting fresh, your prompt should contain a highly detailed task description for the agent to perform autonomously and you should specify exactly what information the agent should return back to you in its final and only message to you.\n5. The agent's outputs should generally be trusted\n6. Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent. Tell it how to verify its work if possible (e.g., relevant test commands).\n7. If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.\n\nAvailable agent types and the tools they have access to:\n- explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. \"src/components/**/*.tsx\"), search code for keywords (eg. \"API endpoints\"), or answer questions about the codebase (eg. \"how do API endpoints work?\"). When calling this agent, specify the desired thoroughness level: \"quick\" for basic searches, \"medium\" for moderate exploration, or \"very thorough\" for comprehensive analysis across multiple locations and naming conventions.\n- general: General-purpose agent for researching complex questions and executing multi-step tasks. Use this agent to execute multiple units of work in parallel.",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "A short (3-5 words) description of the task"
+              },
+              "prompt": {
+                "type": "string",
+                "description": "The task for the agent to perform"
+              },
+              "subagent_type": {
+                "type": "string",
+                "description": "The type of specialized agent to use for this task"
+              },
+              "task_id": {
+                "type": "string",
+                "description": "This should only be set if you mean to resume a previous task (you can pass a prior task_id and the task will continue the same subagent session as before instead of creating a fresh one)"
+              },
+              "command": {
+                "type": "string",
+                "description": "The command that triggered this task"
+              }
+            },
+            "required": [
+              "description",
+              "prompt",
+              "subagent_type"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "todowrite",
+          "description": "Create and maintain a structured task list for the current coding session. Tracks progress, organizes multi-step work, and surfaces status to the user.\n\n## When to use\nUse proactively when:\n- The task requires 3+ distinct steps or actions (not just 3 tool calls for a single conceptual step)\n- The work is non-trivial and benefits from planning\n- The user provides multiple tasks (numbered or comma-separated) or explicitly asks for a todo list\n- New instructions arrive - capture them as todos\n- You start a task - mark it `in_progress` (only one at a time) before working\n- You finish a task - mark it `completed` and add any follow-ups discovered during the work\n\n## When NOT to use\nSkip when:\n- The work is a single, straightforward task (or <3 trivial steps)\n- The request is purely informational or conversational\n- Tracking adds no organizational value\n\n## States\n- `pending` - not started\n- `in_progress` - actively working (exactly ONE at a time)\n- `completed` - finished successfully\n- `cancelled` - no longer needed\n\n## Rules\n- Update status in real time; don't batch completions\n- Mark `completed` only after the required work is actually done, including any required verification. Never based on intent.\n- Keep exactly one `in_progress` while work remains\n- If blocked or partial, keep it `in_progress` and add a follow-up todo describing the blocker\n- Preserve user-provided commands verbatim (flags, args, order)\n- Items should be specific and actionable; break large work into smaller steps\n\n## Examples\n\nUse it:\n- \"Add a dark mode toggle and run the tests\" -> multi-step feature + explicit verification\n- \"Rename getCwd -> getCurrentWorkingDirectory across the repo\" -> grep reveals 15 occurrences in 8 files\n- \"Implement registration, catalog, cart, checkout\" -> multiple complex features\n\nSkip it:\n- \"How do I print Hello World in Python?\" -> informational\n- \"Add a comment to calculateTotal\" -> single edit\n- \"Run npm install and tell me what happened\" -> one command\n\nWhen in doubt, use it.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "todos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "Brief description of the task"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current status of the task: pending, in_progress, completed, cancelled"
+                    },
+                    "priority": {
+                      "type": "string",
+                      "description": "Priority level of the task: high, medium, low"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "status",
+                    "priority"
+                  ]
+                },
+                "description": "The updated todo list"
+              }
+            },
+            "required": [
+              "todos"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "webfetch",
+          "description": "- Fetches content from a specified URL\n- Takes a URL and optional format as input\n- Fetches the URL content, converts to requested format (markdown by default)\n- Returns the content in the specified format\n- Use this tool when you need to retrieve and analyze web content\n\nUsage notes:\n  - IMPORTANT: if another tool is present that offers better web fetching capabilities, is more targeted to the task, or has fewer restrictions, prefer using that tool instead of this one.\n  - The URL must be a fully-formed valid URL\n  - HTTP URLs will be automatically upgraded to HTTPS\n  - Format options: \"markdown\" (default), \"text\", or \"html\"\n  - This tool is read-only and does not modify any files\n  - Results may be summarized if the content is very large\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "The URL to fetch content from"
+              },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "text",
+                  "markdown",
+                  "html"
+                ],
+                "description": "The format to return the content in (text, markdown, or html). Defaults to markdown.",
+                "default": "markdown"
+              },
+              "timeout": {
+                "type": "number",
+                "description": "Optional timeout in seconds (max 120)"
+              }
+            },
+            "required": [
+              "url"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "write",
+          "description": "Writes a file to the local filesystem.\n\nUsage:\n- This tool will overwrite the existing file if there is one at the provided path.\n- If this is an existing file, you MUST use the Read tool first to read the file's contents. This tool will fail if you did not read the file first.\n- ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.\n- NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.\n- Only use emojis if the user explicitly requests it. Avoid writing emojis to files unless asked.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "description": "The content to write to the file"
+              },
+              "filePath": {
+                "type": "string",
+                "description": "The absolute path to the file to write (must be absolute, not relative)"
+              }
+            },
+            "required": [
+              "content",
+              "filePath"
+            ]
+          }
+        }
+      }
+    ],
+    "tools_sha256": "6542a4e32ee8fc2540a87579de88b0b23911e10ba77346dff949bb95c7f86638",
+    "tools_status": "observed",
+    "messages_sha256": "cd3d985d2fe8026a1a4367b0797cf107cc0eae8211e8bc609f125d4b185c5af7",
+    "message_count": 63,
+    "message_metadata": [
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "a9a882eb7a5ace00170becc483c64c327638a76966396c8bfe125f5d76e3a53d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "c1b7caac7dfec1223a1069942dfdd8e77bba0837cac9faee12745a74637bfb72",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "fe6b5af42a4d0a4e1c048ab0e30aadda3ca4f5bd76542fa3e18e1ccf1329f20d",
+        "tool_call_ids": [
+          "call_41c1c3d8d80047b4939f2afa",
+          "call_6b6944e9eb9e478786664544"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "1eb0c1fdc6a72abc00878f09ec6c982347233d46a48c1db464a51497fe156323",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "12b6a923a77979e83f0ec93c181add0c0e11551dde8e2fb628eb8acf75b7fa8c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "98d03d7b68a1809e1a249ce1098145a2b7fe8efc596df93dbb6ab630863e2d71",
+        "tool_call_ids": [
+          "call_386ea07649cb480689faa668",
+          "call_cedaddff18db49eaa61e8aab",
+          "call_e3d9ed2b0e0646f5b500b0b9",
+          "call_00a97c28824b4d7ebee98738",
+          "call_9a48f54ce5254c9bbf321a67"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "b4b2c0eeb73d73512e94ffc006dbc0e91374816330997448ed5e8c6ff8e67228",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "25695afda323a2cf3568cc8d7f75e8fbf3ec1364732fb54551efba69853ffad9",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "e1de0f807510be9a63ff9e417155df6911455a28d4dd18352d7dc1bd73a3c630",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8df03c38b47e438fc64b15f435374092a424879da545862f18083eedce0d6a5d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "5360ac308615f850c4f9a1fbd87a5d90a0cee8007ec1602caf6cb52c0a37af94",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "91b90afe3ce07741e8b0f79784c65921fbc0b3ac6eeabf500cdb4b067d2966d5",
+        "tool_call_ids": [
+          "call_73229fc80dc94399b0263fd4"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "dcdf865a8de79ec5378f680b1db5a88f8cfc9b960646f479fce9a9a5303f8564",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "2c3c76f622c041a8c3d26c459b852a5afec7475ee5bc88322b4b1194d1fbe346",
+        "tool_call_ids": [
+          "call_d75d07f64dd44e86b81dea7c",
+          "call_185fb6d5d21047f788a714a7",
+          "call_1b63f6c9ed8a40c7b71f51fb",
+          "call_471960b05e144309ba9601a8",
+          "call_bc15f3bf47794124a28b3311"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "39706f8a7c4f5ceeb02d45f07867b60a0daec93174545acd9df75f2b48ed4c61",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7cd36b5765f848b1102186200bf698295130e82e870859146e4684133d1918a5",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "3c5f1cd62babf3471832a961ff13375891f8e5e2bb83963b826fdbd3989b6aea",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "53e1c8f7348312bbf4c380bf8622e9d4ad58388d520121c3b7a92dab60e7bdc3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "4a8e9af4bd7ff077273f190fd7d1fe9489293460c44ed4bb66dfd34614bb3045",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "de00cdc2b5fbbf2761b993fc12b75574fce7960e06f5648f751fc32d31961b75",
+        "tool_call_ids": [
+          "call_8ac42b245d834f0e8da3d45b",
+          "call_33bdfa3363004853bf31f596",
+          "call_02958888ff5a428581a11d13",
+          "call_d5582f2337d248aeb1cfce83"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "86a05a50066be0fdbb5eb8d1381d424cef28b77ea012e5a6e4c5ae2080da967f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "cfbfb4a4c8a405bb10b5efe3b78080b6b33d633e59eb2a255d3b35d9f8fd6ff8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ef6a32322053fe4a023118a7f34487ab4390190f683d39a312ef45070ce08e7a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "c4b1d2fd44f2bfb914dfaf91a772d9663dbc9b1e1041b09ac54f9de37e5c483e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "2b206bb5165456590e407e1e64a86e440913a680d7fbe7319e341984720d7561",
+        "tool_call_ids": [
+          "call_7131ba9fd2e2471bbe2b3b2a",
+          "call_07be97b6ba484beca5908728",
+          "call_aea8be50b6fd446781641366",
+          "call_1a0ba8bd290044f9b1e2e847",
+          "call_7a01aa3835824b0fb0c273ca",
+          "call_a5bbe9e56d194f22bbc54bb6",
+          "call_12115415f65546a9a6a8d0d0",
+          "call_95597542988043d481517a6a",
+          "call_f63673a5acd1413bb1efdb23",
+          "call_d9a1c52732e34e5ea818b3b7",
+          "call_4c59b522e82a49cc94023c19",
+          "call_83cbb464250946f2ba36043f"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "6d96b3245ef3c63a0ec8016d933d9077411d4f636cf2498b73efa24ef8ef5015",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "320acb02cc28f0bdc4a50e305d5b72fff94be661bf7060ef4cd067568afdaafb",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "4a6ac8968a11da6fd6df7335bbdb6fb3e0f54673a8a5ec976eeab72ed798045f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "29eac8a60417dc9b56eea7dd1832d4f102648351954a481717e25b1de88442d1",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2b8a63531a4ac8690303ebe9891529a06a60ee9beef7decb223589d0be859ee7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "34b77bb37511f197a671cafbe6096a4ba45402c319fd835655995acabddbf4b2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "e069ad6c303048786ff7841c825eec2c5fd41ccb6bbaea112a5e0c97cfab10a2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "d15dd95870b24e3a6e108ac7ec6a4506a1ee4cb63d994a73470e9726c90716dc",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "557e225efd2768e4aa4fe39757bd4e603776a9f462a8f4360e4ca7b702d6d3eb",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "9b670499999468af48182e8724a5f7d0b47cd915af7f833177d6d96518fd165e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "5151fb2c8866bd2a3a8c9a8f86785c2cd55177ffb6dc20d0a53b08041998c0e7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "45c51dd38f46aefe2310cdff4f62df4e687011f756956a349389943c16ed0c4d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "b162bf152a8e10697ddefa369bae6d8c223f764091498b3b3b794395a5ed151d",
+        "tool_call_ids": [
+          "call_109bdadc040f4c248da6cfa4"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "87c2d9583fac488b4bd763d2ba7cf409f87e640f6939d8c82db40d88030e93fa",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "d256afb5cec4fcb352717fcc441f01132fba4cc4a499ab6bd6b847d3675f3647",
+        "tool_call_ids": [
+          "call_7676756cc78842cc864484ec",
+          "call_448eaf4ad0f0455b828c39cd"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "acfae003953d72ab17b3637a6e1ea5774cb623ce47f5d6155265f2ca3acc44c6",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ca699db193cdc4055668d5e13945c9b82aaf0a2d8bcf7b92d24397fa236a9092",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "76c85ed0ce11377f25658c11fb65f9496ae26053e538b06626c4419d12765b45",
+        "tool_call_ids": [
+          "call_9146fcc83d9145b4b20ac889"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "aaf8100daf5b5dae25f4a23ab9076bea59e5e20906338f25438823ecb530fcf3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "1e2638e5d9538d121b3a9fad1283abb07ec2029d9c55d0af21162fd5197f5432",
+        "tool_call_ids": [
+          "call_7a59afd10f864dca8e66fe6b"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "053b5f6ebdfd09617f2f414396af5f8aecff53900bf70505df22a9cc4545708b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "00602cc5d0cbe39569ff066248207f9b496e8f01855cdc4e3924c1467dc2b6c6",
+        "tool_call_ids": [
+          "call_ac9a408295f44ccaa62a6029"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "35c60b70d5f07ec6c4262a2faf68ac844aba4f3cb0aeb1e3446f06e244f00d1d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "1cef7cb14ae44081f1c4bfa058401f526294bc4ef022dc11c18e59aad87d5914",
+        "tool_call_ids": [
+          "call_ee2e84bb2c95494dac4c59f6"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a57c201b8473d819c0cab817421780a8592c0a5a5a25c325979f85e66bc16e2d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "dd88bf4fd848227f5522cb44dbe5def383b4bc1504a14d7adc05b60ff7304d58",
+        "tool_call_ids": [
+          "call_165bd7be68e54d7192a10648",
+          "call_0e14e0eee9ed4f05bbd3d5e6"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "09e51954788ce9e6108e7ef8036d645b7bc8eec875f19d13a38a397207ca6b2e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "cf25c469871741c1bd4a186e107fff6ae8cfb176645c903b8ae53d6d4d6fd8a7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "f731350f0c7bf80de62beca95fd653786a5bb6e9e18d15cf887b1ab1b400eb9b",
+        "tool_call_ids": [
+          "call_6f3a3181325c49efb073670c",
+          "call_06805d9fff874c9bb6b8ed15"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "556424f51b5fb6cb2856ed4f527528ed3e784a638f5d2b507462a37adce54356",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7201652895cab32e08ff5689415ef83f9e4b188a8b93ef840684937968336d92",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "999bb07a32e9ec5824f3014dd47da62b1ab5bde7b625b5a3e22a1fad750262ac",
+        "tool_call_ids": [
+          "call_95d3cb41fa1b48a9aac3ef08"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ea6202513492a9f9436dd3e4281497dfaa47fbcb9d0f2ec42638f8796a4d5cd8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "c9f6138ff5bc308bf5ee784574078820b3f256d166b079efb3e4656168448a02",
+        "tool_call_ids": [
+          "call_2eb9462f13274394946359de",
+          "call_2212a9116aff462ba4adeec4"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "51abf5da2d95eb0f1bdb8400e92ac61aaa032e52ba29236c1ffcd0079f77bd21",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "43f1fb6a1667fb7d1329c8da4e3275f14ea8e492820bca0eddc5c26c0b34cda7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "b44348bf676a9f47f484077b0fcd83f72b84d18b5bcc3390efe66a8d0a77d373",
+        "tool_call_ids": [
+          "call_750d00d7ecd5466dabbd0923"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "42b5496e1847131ed6f4035c184eef7a11cf5cf5448eb19ab6636daade7c12fd",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      }
+    ],
+    "instructions_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "egress": {
+    "request_sha256": "490bec89f6c1a99e5e4bfa44a956c06cfc445400a3b3dc756679b1e36820ac5d",
+    "model": "glm-5.3",
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "low",
+    "max_tokens": 65536,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "bash",
+          "description": "Executes a given bash command in a persistent shell session with optional timeout, ensuring proper handling and security measures.\n\nBe aware: OS: linux, Shell: bash\n\nAll commands run in the current working directory by default. Use the `workdir` parameter if you need to run a command in a different directory. AVOID using `cd <directory> && <command>` patterns - use `workdir` instead.\n\nUse `/tmp/opencode` for temporary work outside the workspace. This directory has already been created, already exists, and is pre-approved for external directory access.\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., rm \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - mkdir \"/Users/name/My Documents\" (correct)\n     - mkdir /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds. If not specified, commands will time out after 120000ms.\n  - If the output exceeds 2000 lines or 51200 bytes, it will be truncated and the full output will be written to a file. You can use Read with offset/limit to read specific sections or Grep to search the full content. Do NOT use `head`, `tail`, or other truncation commands to limit output; the full output will already be captured to a file for more precise searching.\n\n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - AVOID using `cd <directory> && <command>`. Use the `workdir` parameter to change directories instead.\n    <good-example>\n    Use workdir=\"/foo/bar\" with command: pytest tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Git and GitHub\n- Only commit, amend, push, or create PRs when explicitly requested.\n- Before committing, inspect `git status`, `git diff`, and `git log --oneline -10`; stage only intended files and never commit secrets.\n- Write a concise commit message that matches the repo style.\n- Do not update git config, skip hooks, use interactive `-i`, force-push, or create empty commits unless explicitly requested.\n- If a commit fails or hooks reject it, fix the issue and create a new commit; do not amend the failed commit.\n- Before creating a PR, inspect status, diff, remote tracking, recent commits, and the diff from the base branch.\n- Review all commits included in the PR, not just the latest commit.\n- Use `gh` for GitHub tasks, including PRs, issues, checks, and releases; return the PR URL when done.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The command to execute"
+              },
+              "timeout": {
+                "minimum": -9007199254740991,
+                "exclusiveMinimum": 0,
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "description": "Optional timeout in milliseconds"
+              },
+              "workdir": {
+                "type": "string",
+                "description": "The working directory to run the command in. Defaults to the current directory. Use this instead of 'cd' commands."
+              }
+            },
+            "required": [
+              "command"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "edit",
+          "description": "Performs exact string replacements in files. \n\nUsage:\n- You must use your `Read` tool at least once in the conversation before editing. This tool will error if you attempt an edit without reading the file. \n- When editing text from Read tool output, ensure you preserve the exact indentation (tabs/spaces) as it appears AFTER the line number prefix. The line number prefix format is: line number + colon + space (e.g., `1: `). Everything after that space is the actual file content to match. Never include any part of the line number prefix in the oldString or newString.\n- ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.\n- Only use emojis if the user explicitly requests it. Avoid adding emojis to files unless asked.\n- The edit will FAIL if `oldString` is not found in the file with an error \"oldString not found in content\".\n- The edit will FAIL if `oldString` is found multiple times in the file with an error \"Found multiple matches for oldString. Provide more surrounding lines in oldString to identify the correct match.\" Either provide a larger string with more surrounding context to make it unique or use `replaceAll` to change every instance of `oldString`. \n- Use `replaceAll` for replacing and renaming strings across the file. This parameter is useful if you want to rename a variable for instance.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "The absolute path to the file to modify"
+              },
+              "oldString": {
+                "type": "string",
+                "description": "The text to replace"
+              },
+              "newString": {
+                "type": "string",
+                "description": "The text to replace it with (must be different from oldString)"
+              },
+              "replaceAll": {
+                "type": "boolean",
+                "description": "Replace all occurrences of oldString (default false)"
+              }
+            },
+            "required": [
+              "filePath",
+              "oldString",
+              "newString"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "glob",
+          "description": "- Fast file pattern matching tool that works with any codebase size\n- Supports glob patterns like \"**/*.js\" or \"src/**/*.ts\"\n- Returns matching file paths\n- Use this tool when you need to find files by name patterns\n- When you are doing an open-ended search that may require multiple rounds of globbing and grepping, use the Task tool instead\n- You have the capability to call multiple tools in a single response. It is always better to speculatively perform multiple searches as a batch that are potentially useful.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "The glob pattern to match files against"
+              },
+              "path": {
+                "type": "string",
+                "description": "The directory to search in. If not specified, the current working directory will be used. IMPORTANT: Omit this field to use the default directory. DO NOT enter \"undefined\" or \"null\" - simply omit it for the default behavior. Must be a valid directory path if provided."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "grep",
+          "description": "- Fast content search tool that works with any codebase size\n- Searches file contents using regular expressions\n- Supports full regex syntax (eg. \"log.*Error\", \"function\\s+\\w+\", etc.)\n- Filter files by pattern with the include parameter (eg. \"*.js\", \"*.{ts,tsx}\")\n- Returns file paths and line numbers with matching lines\n- Use this tool when you need to find files containing specific patterns\n- If you need to identify/count the number of matches within files, use the Bash tool with `rg` (ripgrep) directly. Do NOT use `grep`.\n- When you are doing an open-ended search that may require multiple rounds of globbing and grepping, use the Task tool instead\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "The regex pattern to search for in file contents"
+              },
+              "path": {
+                "type": "string",
+                "description": "The directory to search in. Defaults to the current working directory."
+              },
+              "include": {
+                "type": "string",
+                "description": "File pattern to include in the search (e.g. \"*.js\", \"*.{ts,tsx}\")"
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "read",
+          "description": "Read a file or directory from the local filesystem. If the path does not exist, an error is returned.\n\nUsage:\n- The filePath parameter should be an absolute path.\n- By default, this tool returns up to 2000 lines from the start of the file.\n- The offset parameter is the line number to start from (1-indexed).\n- To read later sections, call this tool again with a larger offset.\n- Use the grep tool to find specific content in large files or files with long lines.\n- If you are unsure of the correct file path, use the glob tool to look up filenames by glob pattern.\n- Contents are returned with each line prefixed by its line number as `<line>: <content>`. For example, if a file has contents \"foo\\n\", you will receive \"1: foo\\n\". For directories, entries are returned one per line (without line numbers) with a trailing `/` for subdirectories.\n- Any line longer than 2000 characters is truncated.\n- Call this tool in parallel when you know there are multiple files you want to read.\n- Avoid tiny repeated slices (30 line chunks). If you need more context, read a larger window.\n- This tool can read image files and PDFs and return them as file attachments.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "The absolute path to the file or directory to read"
+              },
+              "offset": {
+                "minimum": 0,
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "description": "The line number to start reading from (1-indexed)"
+              },
+              "limit": {
+                "minimum": 0,
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "description": "The maximum number of lines to read (defaults to 2000)"
+              }
+            },
+            "required": [
+              "filePath"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "skill",
+          "description": "Load a specialized skill when the task at hand matches one of the skills listed in the system prompt.\n\nUse this tool to inject the skill's instructions and resources into current conversation. The output may contain detailed workflow guidance as well as references to scripts, files, etc in the same directory as the skill.\n\nThe skill name must match one of the skills listed in your system prompt.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of the skill from available_skills"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "task",
+          "description": "Launch a new agent to handle complex, multistep tasks autonomously.\n\nWhen using the Task tool, you must specify a subagent_type parameter to select which agent type to use.\n\nWhen NOT to use the Task tool:\n- If you want to read a specific file path, use the Read or Glob tool instead of the Task tool, to find the match more quickly\n- If you are searching for a specific class definition like \"class Foo\", use the Grep tool instead, to find the match more quickly\n- If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Task tool, to find the match more quickly\n- If no available agent is a good fit for the task, use other tools directly\n\n\nUsage notes:\n1. Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses\n2. Once you have delegated work to an agent, do not duplicate that work yourself. Continue with non-overlapping tasks, or wait for the result. For background tasks, you will be notified automatically when the result is ready.\n3. When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result. The output includes a task_id you can reuse later to continue the same subagent session.\n4. Each agent invocation starts with a fresh context unless you provide task_id to resume the same subagent session (which continues with its previous messages and tool outputs). When starting fresh, your prompt should contain a highly detailed task description for the agent to perform autonomously and you should specify exactly what information the agent should return back to you in its final and only message to you.\n5. The agent's outputs should generally be trusted\n6. Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent. Tell it how to verify its work if possible (e.g., relevant test commands).\n7. If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.\n\nAvailable agent types and the tools they have access to:\n- explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. \"src/components/**/*.tsx\"), search code for keywords (eg. \"API endpoints\"), or answer questions about the codebase (eg. \"how do API endpoints work?\"). When calling this agent, specify the desired thoroughness level: \"quick\" for basic searches, \"medium\" for moderate exploration, or \"very thorough\" for comprehensive analysis across multiple locations and naming conventions.\n- general: General-purpose agent for researching complex questions and executing multi-step tasks. Use this agent to execute multiple units of work in parallel.",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "A short (3-5 words) description of the task"
+              },
+              "prompt": {
+                "type": "string",
+                "description": "The task for the agent to perform"
+              },
+              "subagent_type": {
+                "type": "string",
+                "description": "The type of specialized agent to use for this task"
+              },
+              "task_id": {
+                "type": "string",
+                "description": "This should only be set if you mean to resume a previous task (you can pass a prior task_id and the task will continue the same subagent session as before instead of creating a fresh one)"
+              },
+              "command": {
+                "type": "string",
+                "description": "The command that triggered this task"
+              }
+            },
+            "required": [
+              "description",
+              "prompt",
+              "subagent_type"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "todowrite",
+          "description": "Create and maintain a structured task list for the current coding session. Tracks progress, organizes multi-step work, and surfaces status to the user.\n\n## When to use\nUse proactively when:\n- The task requires 3+ distinct steps or actions (not just 3 tool calls for a single conceptual step)\n- The work is non-trivial and benefits from planning\n- The user provides multiple tasks (numbered or comma-separated) or explicitly asks for a todo list\n- New instructions arrive - capture them as todos\n- You start a task - mark it `in_progress` (only one at a time) before working\n- You finish a task - mark it `completed` and add any follow-ups discovered during the work\n\n## When NOT to use\nSkip when:\n- The work is a single, straightforward task (or <3 trivial steps)\n- The request is purely informational or conversational\n- Tracking adds no organizational value\n\n## States\n- `pending` - not started\n- `in_progress` - actively working (exactly ONE at a time)\n- `completed` - finished successfully\n- `cancelled` - no longer needed\n\n## Rules\n- Update status in real time; don't batch completions\n- Mark `completed` only after the required work is actually done, including any required verification. Never based on intent.\n- Keep exactly one `in_progress` while work remains\n- If blocked or partial, keep it `in_progress` and add a follow-up todo describing the blocker\n- Preserve user-provided commands verbatim (flags, args, order)\n- Items should be specific and actionable; break large work into smaller steps\n\n## Examples\n\nUse it:\n- \"Add a dark mode toggle and run the tests\" -> multi-step feature + explicit verification\n- \"Rename getCwd -> getCurrentWorkingDirectory across the repo\" -> grep reveals 15 occurrences in 8 files\n- \"Implement registration, catalog, cart, checkout\" -> multiple complex features\n\nSkip it:\n- \"How do I print Hello World in Python?\" -> informational\n- \"Add a comment to calculateTotal\" -> single edit\n- \"Run npm install and tell me what happened\" -> one command\n\nWhen in doubt, use it.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "todos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "Brief description of the task"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current status of the task: pending, in_progress, completed, cancelled"
+                    },
+                    "priority": {
+                      "type": "string",
+                      "description": "Priority level of the task: high, medium, low"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "status",
+                    "priority"
+                  ]
+                },
+                "description": "The updated todo list"
+              }
+            },
+            "required": [
+              "todos"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "webfetch",
+          "description": "- Fetches content from a specified URL\n- Takes a URL and optional format as input\n- Fetches the URL content, converts to requested format (markdown by default)\n- Returns the content in the specified format\n- Use this tool when you need to retrieve and analyze web content\n\nUsage notes:\n  - IMPORTANT: if another tool is present that offers better web fetching capabilities, is more targeted to the task, or has fewer restrictions, prefer using that tool instead of this one.\n  - The URL must be a fully-formed valid URL\n  - HTTP URLs will be automatically upgraded to HTTPS\n  - Format options: \"markdown\" (default), \"text\", or \"html\"\n  - This tool is read-only and does not modify any files\n  - Results may be summarized if the content is very large\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "The URL to fetch content from"
+              },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "text",
+                  "markdown",
+                  "html"
+                ],
+                "description": "The format to return the content in (text, markdown, or html). Defaults to markdown.",
+                "default": "markdown"
+              },
+              "timeout": {
+                "type": "number",
+                "description": "Optional timeout in seconds (max 120)"
+              }
+            },
+            "required": [
+              "url"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "write",
+          "description": "Writes a file to the local filesystem.\n\nUsage:\n- This tool will overwrite the existing file if there is one at the provided path.\n- If this is an existing file, you MUST use the Read tool first to read the file's contents. This tool will fail if you did not read the file first.\n- ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.\n- NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.\n- Only use emojis if the user explicitly requests it. Avoid writing emojis to files unless asked.\n",
+          "parameters": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "description": "The content to write to the file"
+              },
+              "filePath": {
+                "type": "string",
+                "description": "The absolute path to the file to write (must be absolute, not relative)"
+              }
+            },
+            "required": [
+              "content",
+              "filePath"
+            ]
+          }
+        }
+      }
+    ],
+    "tools_sha256": "6542a4e32ee8fc2540a87579de88b0b23911e10ba77346dff949bb95c7f86638",
+    "tools_status": "observed",
+    "messages_sha256": "cd3d985d2fe8026a1a4367b0797cf107cc0eae8211e8bc609f125d4b185c5af7",
+    "message_count": 63,
+    "message_metadata": [
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "a9a882eb7a5ace00170becc483c64c327638a76966396c8bfe125f5d76e3a53d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "c1b7caac7dfec1223a1069942dfdd8e77bba0837cac9faee12745a74637bfb72",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "fe6b5af42a4d0a4e1c048ab0e30aadda3ca4f5bd76542fa3e18e1ccf1329f20d",
+        "tool_call_ids": [
+          "call_41c1c3d8d80047b4939f2afa",
+          "call_6b6944e9eb9e478786664544"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "1eb0c1fdc6a72abc00878f09ec6c982347233d46a48c1db464a51497fe156323",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "12b6a923a77979e83f0ec93c181add0c0e11551dde8e2fb628eb8acf75b7fa8c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "98d03d7b68a1809e1a249ce1098145a2b7fe8efc596df93dbb6ab630863e2d71",
+        "tool_call_ids": [
+          "call_386ea07649cb480689faa668",
+          "call_cedaddff18db49eaa61e8aab",
+          "call_e3d9ed2b0e0646f5b500b0b9",
+          "call_00a97c28824b4d7ebee98738",
+          "call_9a48f54ce5254c9bbf321a67"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "b4b2c0eeb73d73512e94ffc006dbc0e91374816330997448ed5e8c6ff8e67228",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "25695afda323a2cf3568cc8d7f75e8fbf3ec1364732fb54551efba69853ffad9",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "e1de0f807510be9a63ff9e417155df6911455a28d4dd18352d7dc1bd73a3c630",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8df03c38b47e438fc64b15f435374092a424879da545862f18083eedce0d6a5d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "5360ac308615f850c4f9a1fbd87a5d90a0cee8007ec1602caf6cb52c0a37af94",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "91b90afe3ce07741e8b0f79784c65921fbc0b3ac6eeabf500cdb4b067d2966d5",
+        "tool_call_ids": [
+          "call_73229fc80dc94399b0263fd4"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "dcdf865a8de79ec5378f680b1db5a88f8cfc9b960646f479fce9a9a5303f8564",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "2c3c76f622c041a8c3d26c459b852a5afec7475ee5bc88322b4b1194d1fbe346",
+        "tool_call_ids": [
+          "call_d75d07f64dd44e86b81dea7c",
+          "call_185fb6d5d21047f788a714a7",
+          "call_1b63f6c9ed8a40c7b71f51fb",
+          "call_471960b05e144309ba9601a8",
+          "call_bc15f3bf47794124a28b3311"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "39706f8a7c4f5ceeb02d45f07867b60a0daec93174545acd9df75f2b48ed4c61",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7cd36b5765f848b1102186200bf698295130e82e870859146e4684133d1918a5",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "3c5f1cd62babf3471832a961ff13375891f8e5e2bb83963b826fdbd3989b6aea",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "53e1c8f7348312bbf4c380bf8622e9d4ad58388d520121c3b7a92dab60e7bdc3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "4a8e9af4bd7ff077273f190fd7d1fe9489293460c44ed4bb66dfd34614bb3045",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "de00cdc2b5fbbf2761b993fc12b75574fce7960e06f5648f751fc32d31961b75",
+        "tool_call_ids": [
+          "call_8ac42b245d834f0e8da3d45b",
+          "call_33bdfa3363004853bf31f596",
+          "call_02958888ff5a428581a11d13",
+          "call_d5582f2337d248aeb1cfce83"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "86a05a50066be0fdbb5eb8d1381d424cef28b77ea012e5a6e4c5ae2080da967f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "cfbfb4a4c8a405bb10b5efe3b78080b6b33d633e59eb2a255d3b35d9f8fd6ff8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ef6a32322053fe4a023118a7f34487ab4390190f683d39a312ef45070ce08e7a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "c4b1d2fd44f2bfb914dfaf91a772d9663dbc9b1e1041b09ac54f9de37e5c483e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "2b206bb5165456590e407e1e64a86e440913a680d7fbe7319e341984720d7561",
+        "tool_call_ids": [
+          "call_7131ba9fd2e2471bbe2b3b2a",
+          "call_07be97b6ba484beca5908728",
+          "call_aea8be50b6fd446781641366",
+          "call_1a0ba8bd290044f9b1e2e847",
+          "call_7a01aa3835824b0fb0c273ca",
+          "call_a5bbe9e56d194f22bbc54bb6",
+          "call_12115415f65546a9a6a8d0d0",
+          "call_95597542988043d481517a6a",
+          "call_f63673a5acd1413bb1efdb23",
+          "call_d9a1c52732e34e5ea818b3b7",
+          "call_4c59b522e82a49cc94023c19",
+          "call_83cbb464250946f2ba36043f"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "6d96b3245ef3c63a0ec8016d933d9077411d4f636cf2498b73efa24ef8ef5015",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "320acb02cc28f0bdc4a50e305d5b72fff94be661bf7060ef4cd067568afdaafb",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "4a6ac8968a11da6fd6df7335bbdb6fb3e0f54673a8a5ec976eeab72ed798045f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "29eac8a60417dc9b56eea7dd1832d4f102648351954a481717e25b1de88442d1",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2b8a63531a4ac8690303ebe9891529a06a60ee9beef7decb223589d0be859ee7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "34b77bb37511f197a671cafbe6096a4ba45402c319fd835655995acabddbf4b2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "e069ad6c303048786ff7841c825eec2c5fd41ccb6bbaea112a5e0c97cfab10a2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "d15dd95870b24e3a6e108ac7ec6a4506a1ee4cb63d994a73470e9726c90716dc",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "557e225efd2768e4aa4fe39757bd4e603776a9f462a8f4360e4ca7b702d6d3eb",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "9b670499999468af48182e8724a5f7d0b47cd915af7f833177d6d96518fd165e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "5151fb2c8866bd2a3a8c9a8f86785c2cd55177ffb6dc20d0a53b08041998c0e7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "45c51dd38f46aefe2310cdff4f62df4e687011f756956a349389943c16ed0c4d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "b162bf152a8e10697ddefa369bae6d8c223f764091498b3b3b794395a5ed151d",
+        "tool_call_ids": [
+          "call_109bdadc040f4c248da6cfa4"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "87c2d9583fac488b4bd763d2ba7cf409f87e640f6939d8c82db40d88030e93fa",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "d256afb5cec4fcb352717fcc441f01132fba4cc4a499ab6bd6b847d3675f3647",
+        "tool_call_ids": [
+          "call_7676756cc78842cc864484ec",
+          "call_448eaf4ad0f0455b828c39cd"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "acfae003953d72ab17b3637a6e1ea5774cb623ce47f5d6155265f2ca3acc44c6",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ca699db193cdc4055668d5e13945c9b82aaf0a2d8bcf7b92d24397fa236a9092",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "76c85ed0ce11377f25658c11fb65f9496ae26053e538b06626c4419d12765b45",
+        "tool_call_ids": [
+          "call_9146fcc83d9145b4b20ac889"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "aaf8100daf5b5dae25f4a23ab9076bea59e5e20906338f25438823ecb530fcf3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "1e2638e5d9538d121b3a9fad1283abb07ec2029d9c55d0af21162fd5197f5432",
+        "tool_call_ids": [
+          "call_7a59afd10f864dca8e66fe6b"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "053b5f6ebdfd09617f2f414396af5f8aecff53900bf70505df22a9cc4545708b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "00602cc5d0cbe39569ff066248207f9b496e8f01855cdc4e3924c1467dc2b6c6",
+        "tool_call_ids": [
+          "call_ac9a408295f44ccaa62a6029"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "35c60b70d5f07ec6c4262a2faf68ac844aba4f3cb0aeb1e3446f06e244f00d1d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "1cef7cb14ae44081f1c4bfa058401f526294bc4ef022dc11c18e59aad87d5914",
+        "tool_call_ids": [
+          "call_ee2e84bb2c95494dac4c59f6"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a57c201b8473d819c0cab817421780a8592c0a5a5a25c325979f85e66bc16e2d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "dd88bf4fd848227f5522cb44dbe5def383b4bc1504a14d7adc05b60ff7304d58",
+        "tool_call_ids": [
+          "call_165bd7be68e54d7192a10648",
+          "call_0e14e0eee9ed4f05bbd3d5e6"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "09e51954788ce9e6108e7ef8036d645b7bc8eec875f19d13a38a397207ca6b2e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "cf25c469871741c1bd4a186e107fff6ae8cfb176645c903b8ae53d6d4d6fd8a7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "f731350f0c7bf80de62beca95fd653786a5bb6e9e18d15cf887b1ab1b400eb9b",
+        "tool_call_ids": [
+          "call_6f3a3181325c49efb073670c",
+          "call_06805d9fff874c9bb6b8ed15"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "556424f51b5fb6cb2856ed4f527528ed3e784a638f5d2b507462a37adce54356",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7201652895cab32e08ff5689415ef83f9e4b188a8b93ef840684937968336d92",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "999bb07a32e9ec5824f3014dd47da62b1ab5bde7b625b5a3e22a1fad750262ac",
+        "tool_call_ids": [
+          "call_95d3cb41fa1b48a9aac3ef08"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ea6202513492a9f9436dd3e4281497dfaa47fbcb9d0f2ec42638f8796a4d5cd8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "c9f6138ff5bc308bf5ee784574078820b3f256d166b079efb3e4656168448a02",
+        "tool_call_ids": [
+          "call_2eb9462f13274394946359de",
+          "call_2212a9116aff462ba4adeec4"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "51abf5da2d95eb0f1bdb8400e92ac61aaa032e52ba29236c1ffcd0079f77bd21",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "43f1fb6a1667fb7d1329c8da4e3275f14ea8e492820bca0eddc5c26c0b34cda7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "b44348bf676a9f47f484077b0fcd83f72b84d18b5bcc3390efe66a8d0a77d373",
+        "tool_call_ids": [
+          "call_750d00d7ecd5466dabbd0923"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "42b5496e1847131ed6f4035c184eef7a11cf5cf5448eb19ab6636daade7c12fd",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      }
+    ],
+    "instructions_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "tool_mapping": {},
+  "reasoning_restored_for_messages": [],
+  "response_streaming": "passthrough",
+  "credentials_saved": false
+}

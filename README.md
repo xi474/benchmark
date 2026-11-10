@@ -1,5 +1,10 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+## GLM Medium四题：三Harness原生trace（2026-11-10）
+
+[下载/查看MP01、MP02、MP03、MP06在OpenCode、Codex、DSH上的12份trace](experiments/glm53-medium4-opencode-codex-dsh-traces-2026-11-10/README.md)：与四题对比报告选定attempt逐一匹配，含原生会话、工具调用与结果、逐请求模式/usage观察、资源、异常标签及脱敏哈希索引；原始结果保留，没有重新运行模型。
+
+
 ## 最新六Harness对比汇报（2026-11-10）
 
 [查看GLM low与V4 Pro普通模式的Core6＋Medium5图文报告](experiments/glm-v4pro-core6-medium5-2026-11-10/README.md)：六套正式baseline为Nanobot、OpenCode、Codex、DSH、LangGraph、LATTE planning-adapted；主对比132题位、推理/显式补充30题，共162份选定提交。包含13张图、逐题API/Strict/Reward、E2E、tokens、输入缓存、费用估算、异常标签及跨批次配置限制。采用独立冻结的50%交付奖评分迁移；此前八臂报告保留为历史，不混入当前六套范围。

@@ -1,0 +1,3159 @@
+{
+  "schema": "actual-model-request/1",
+  "request_id": "06901a829ebf415fae8eb89164b9575f",
+  "trial_id": "glm53low-r1-dsh-medium-MP06",
+  "protocol": "anthropic",
+  "ingress": {
+    "request_sha256": "33880306aa581369a11062ce14134efe2b8a1c33bdbee26b0f52e497c98584ed",
+    "model": "glm-5.3",
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": null,
+    "max_tokens": 131072,
+    "tools": [
+      {
+        "name": "bash",
+        "description": "Execute a bash command (`bash -c`) and return its stdout/stderr. Each call runs in a fresh shell; pass `workdir` instead of using `cd`. Managed `$DSH_*` variables expose current harness environment facts. Long output is truncated to its tail; the full output is saved to a file whose path is reported when available. Provide `description` before `command` in the arguments. Before any delete or move, verify that the resolved absolute target path is the intended one; never run it against a computed path you have not checked. An unset variable expands to an empty string, so guard variables in such paths with `${VAR:?}`. Commands may run under a file sandbox; a blocked file operation is reported as `[sandbox: file access denied under <mode> mode]`, a policy denial: do not retry another way.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Clear, concise description of what this command does in active voice, 5-10 words (shown in the UI). Examples: \"ls\" → \"List files in current directory\"; \"git status\" → \"Show working tree status\"; \"npm install\" → \"Install package dependencies\"."
+            },
+            "command": {
+              "type": "string",
+              "description": "The bash command to execute."
+            },
+            "timeoutMs": {
+              "type": "number",
+              "description": "Timeout in milliseconds. The executor applies its configured default and cap; on expiry the command moves to the background as a job instead of being killed."
+            },
+            "workdir": {
+              "type": "string",
+              "description": "Working directory for this command. Defaults to the session workspace; a relative path is resolved against it."
+            },
+            "run_in_background": {
+              "type": "boolean",
+              "description": "Run in the background and return a job id immediately (collect with job_output, stop with job_kill). No timeout applies."
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "The narrowest wider sandbox mode for a one-shot retry of the exact command the sandbox just denied; the retry asks the user for approval.",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string",
+              "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact command needs the wider access. Use the language of the user’s current request."
+            }
+          },
+          "required": [
+            "description",
+            "command"
+          ]
+        }
+      },
+      {
+        "name": "create_goal",
+        "description": "Create a persisted goal that keeps this session working across automatic continuation rounds. Use it when the direct human request is a long-running objective, even if the user did not say \"goal\"; not for single-turn work.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "objective": {
+              "type": "string",
+              "description": "The concrete completion objective inferred from the direct human request."
+            },
+            "max_goal_rounds": {
+              "type": "number",
+              "description": "Optional positive safe-integer limit on automatic continuation rounds."
+            }
+          },
+          "required": [
+            "objective"
+          ]
+        }
+      },
+      {
+        "name": "edit",
+        "description": "Edit an existing UTF-8 text file by replacing literal text.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to edit, resolved by the filesystem backend. Provide `file_path` before `old_string` and `new_string` in the arguments."
+            },
+            "old_string": {
+              "type": "string",
+              "description": "Literal text to replace."
+            },
+            "new_string": {
+              "type": "string",
+              "description": "Literal replacement text. Use an empty string to delete the match."
+            },
+            "replace_all": {
+              "type": "boolean",
+              "description": "Replace all matches. Defaults to false; when false, old_string must appear exactly once."
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "The narrowest wider sandbox mode for a one-shot retry of the exact operation the sandbox just denied; the retry asks the user for approval.",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string",
+              "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact file operation needs the wider access. Use the language of the user’s current request."
+            }
+          },
+          "required": [
+            "file_path",
+            "old_string",
+            "new_string"
+          ]
+        }
+      },
+      {
+        "name": "exit_plan_mode",
+        "description": "Use only in plan mode. Present your plan for the user's review and, on approval, leave plan mode. The user may approve (carry out the plan from your next step) or keep planning — their feedback comes back in the tool result; revise and present again.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string",
+              "description": "The complete plan, as markdown, starting with a # heading that names it."
+            }
+          },
+          "required": [
+            "plan"
+          ]
+        }
+      },
+      {
+        "name": "get_goal",
+        "description": "Read the current session goal, including the id and revision that update_goal requires.",
+        "input_schema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "glob",
+        "description": "Find files, not directories, whose paths match a glob pattern, including hidden and ignored files. Returns up to 100 paths in modification-time order; a larger result keeps the first paths and reports where the complete list was saved.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "description": "Glob pattern to match file paths against (e.g. \"**/*.ts\", \"src/**/*.test.js\"). A pattern with no \"/\" matches the basename at any depth, so \"*\" and \"*.ts\" both search the whole tree; include a separator to anchor the depth."
+            },
+            "path": {
+              "type": "string",
+              "description": "Directory to search in. Defaults to the session workspace; a relative path resolves against it."
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      },
+      {
+        "name": "grep",
+        "description": "Search file contents with a ripgrep regular expression. Returns matching lines with line numbers, grouped by file. Returns up to 250 matches; a larger result reports where the complete match list was saved.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "description": "Regular expression to search for (ripgrep syntax)."
+            },
+            "path": {
+              "type": "string",
+              "description": "File or directory to search. Defaults to the session workspace; a relative path resolves against it."
+            },
+            "include": {
+              "type": "string",
+              "description": "One glob filter for which files to search (e.g. \"*.ts\", \"*.{js,jsx}\"). Not a list; negation is not supported."
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      },
+      {
+        "name": "interrupt_agent",
+        "description": "Interrupt one teammate's current turn while preserving its pending inbox. Team Lead only.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Teammate target returned by spawn_teammate or list_agents."
+            }
+          },
+          "required": [
+            "target"
+          ]
+        }
+      },
+      {
+        "name": "job_kill",
+        "description": "Request cancellation of a running background job.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "description": "Job id returned by the tool that started the background work."
+            },
+            "reason": {
+              "type": "string",
+              "description": "Optional short reason, recorded in the log and forwarded to the job."
+            }
+          },
+          "required": [
+            "job_id"
+          ]
+        }
+      },
+      {
+        "name": "job_list",
+        "description": "List your background jobs (running and finished) with their ids, kinds, and statuses.",
+        "input_schema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "job_output",
+        "description": "Read a background job: output since the previous read for stream jobs, or the result of a finished final-output job.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "description": "Job id returned by the tool that started the background work."
+            },
+            "wait": {
+              "type": "boolean",
+              "description": "Block until the job finishes or the timeout expires; a timed-out wait leaves the job running. Defaults to false."
+            },
+            "timeout_ms": {
+              "type": "number",
+              "description": "Max wait in milliseconds with wait: true. Defaults to and is capped by configuration."
+            }
+          },
+          "required": [
+            "job_id"
+          ]
+        }
+      },
+      {
+        "name": "list_agents",
+        "description": "List the Lead and every durable teammate with an addressable target and current availability. inactive means no turn is executing, not a task result. provisioning and failed describe member creation.",
+        "input_schema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "read",
+        "description": "Read a UTF-8 text file and return line-numbered content.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to read, resolved by the filesystem backend."
+            },
+            "offset": {
+              "type": "number",
+              "description": "1-based first line to return. Defaults to 1."
+            },
+            "limit": {
+              "type": "number",
+              "description": "Maximum number of lines to return. Defaults to 2000."
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        }
+      },
+      {
+        "name": "read_image",
+        "description": "Read a PNG/JPEG/WebP/GIF file and return the image itself. Large images are downscaled automatically; do not install image libraries or create thumbnails to inspect an image.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to the image file, resolved by the filesystem backend."
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        }
+      },
+      {
+        "name": "send_message",
+        "description": "Send one message to another Team member. A running target receives it at the nearest step boundary; an inactive target starts or resumes a turn.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Member target returned by spawn_teammate or list_agents, including lead."
+            },
+            "message": {
+              "type": "string",
+              "description": "Self-contained message for the target."
+            }
+          },
+          "required": [
+            "target",
+            "message"
+          ]
+        }
+      },
+      {
+        "name": "skill",
+        "description": "Load the full instructions for a skill. Call it before acting on a task that names or clearly matches a skill in the session skill catalog.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The exact skill name from the available skills list."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      {
+        "name": "spawn_teammate",
+        "description": "Create one named, durable teammate. Only the Team Lead may call this tool.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Unique lower-kebab-case teammate name."
+            },
+            "description": {
+              "type": "string",
+              "description": "Short description of the delegated responsibility."
+            },
+            "prompt": {
+              "type": "string",
+              "description": "Complete initial task for the teammate."
+            },
+            "context": {
+              "type": "string",
+              "description": "fresh starts without Lead history; fork inherits completed Lead turns. Defaults to fresh.",
+              "enum": [
+                "fresh",
+                "fork"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "description",
+            "prompt"
+          ]
+        }
+      },
+      {
+        "name": "team_task_create",
+        "description": "Create one unowned pending task on the shared Team task board.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string",
+              "description": "Concise task title."
+            },
+            "description": {
+              "type": "string",
+              "description": "Complete task details and acceptance criteria."
+            },
+            "blocked_by": {
+              "type": "array",
+              "description": "Task ids that must complete first.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "write_scopes": {
+              "type": "array",
+              "description": "Advisory workspace-relative file or directory prefixes this task expects to modify.",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "subject",
+            "description"
+          ]
+        }
+      },
+      {
+        "name": "team_task_get",
+        "description": "Read the complete latest value of one shared task before changing or executing it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "description": "Shared task id."
+            }
+          },
+          "required": [
+            "task_id"
+          ]
+        }
+      },
+      {
+        "name": "team_task_list",
+        "description": "List shared tasks, including readiness, owner, revision, blockers, and write-scope warnings.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Optional exact status filter.",
+              "enum": [
+                "pending",
+                "in_progress",
+                "completed"
+              ]
+            },
+            "owner": {
+              "type": "string",
+              "description": "Optional member target from spawn_teammate or list_agents, matching ownerName; use unowned for tasks without an owner."
+            },
+            "ready": {
+              "type": "boolean",
+              "description": "Optional readiness filter."
+            },
+            "cursor": {
+              "type": "integer",
+              "description": "Zero-based result offset. Defaults to 0."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Number of rows, 1 through 100. Defaults to 50."
+            }
+          }
+        }
+      },
+      {
+        "name": "team_task_update",
+        "description": "Compare-and-set a shared task action using the latest revision from team_task_get or team_task_list.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "description": "Shared task id."
+            },
+            "expected_revision": {
+              "type": "integer",
+              "description": "Current task revision used as the CAS precondition."
+            },
+            "action": {
+              "type": "string",
+              "description": "Task transition to apply.",
+              "enum": [
+                "claim",
+                "release",
+                "edit",
+                "set_dependencies",
+                "complete",
+                "reopen",
+                "reassign",
+                "delete"
+              ]
+            },
+            "subject": {
+              "type": "string",
+              "description": "Replacement title for edit."
+            },
+            "description": {
+              "type": "string",
+              "description": "Replacement details for edit."
+            },
+            "blocked_by": {
+              "type": "array",
+              "description": "Complete blocker list for set_dependencies.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "write_scopes": {
+              "type": "array",
+              "description": "Replacement advisory write scopes for edit.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "owner": {
+              "type": "string",
+              "description": "Member target from spawn_teammate or list_agents for Lead-only reassign; omit to unassign."
+            }
+          },
+          "required": [
+            "task_id",
+            "expected_revision",
+            "action"
+          ]
+        }
+      },
+      {
+        "name": "todo_write",
+        "description": "Record and update a task list to plan multi-step work and show progress; skip it for trivial single-step tasks. Add one todo per concrete step before you start. While work remains, keep the todos being worked on `in_progress`, several only when work runs in parallel. Mark each todo `completed` as soon as it is done.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "todos": {
+              "type": "array",
+              "description": "The COMPLETE task list, replacing any previous list.",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "description": "What the task is — a short imperative line."
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "pending (not started) | in_progress (now) | completed (done).",
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed"
+                    ]
+                  }
+                },
+                "required": [
+                  "content",
+                  "status"
+                ]
+              }
+            }
+          },
+          "required": [
+            "todos"
+          ]
+        }
+      },
+      {
+        "name": "update_goal",
+        "description": "Update the current goal.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "goal_id": {
+              "type": "string",
+              "description": "Exact id returned by get_goal."
+            },
+            "revision": {
+              "type": "number",
+              "description": "Exact positive revision returned by get_goal."
+            },
+            "action": {
+              "type": "string",
+              "description": "edit, pause, and resume require a direct top-level human request. complete and blocked are also allowed during an automatic continuation of this goal; blocked is rejected before the configured minimum round count.",
+              "enum": [
+                "edit",
+                "pause",
+                "resume",
+                "complete",
+                "blocked"
+              ]
+            },
+            "objective": {
+              "type": "string",
+              "description": "Replacement objective; valid only with action edit."
+            },
+            "max_goal_rounds": {
+              "type": "number",
+              "description": "Replacement cap; valid only with action edit."
+            },
+            "blocked_reason": {
+              "type": "string",
+              "description": "Required only with action blocked: the concrete condition that persisted across rounds and blocks progress."
+            }
+          },
+          "required": [
+            "goal_id",
+            "revision",
+            "action"
+          ]
+        }
+      },
+      {
+        "name": "wait_agent",
+        "description": "Wait for the next teammate status, message, or shared-task change after this call starts. This never wakes inactive members and returns noProgress immediately when no other member is running or provisioning. Re-list after wakeup or timeout instead of polling.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "timeout_ms": {
+              "type": "integer",
+              "description": "Wait duration in milliseconds, from 10000 through 3600000. Defaults to 30000."
+            }
+          }
+        }
+      },
+      {
+        "name": "web_fetch",
+        "description": "Fetch the content of a specific HTTP(S) URL and return it decoded to text.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The HTTP(S) URL to fetch."
+            }
+          },
+          "required": [
+            "url"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "description": "Search the web for current information. Returns an optional summary answer and a list of source URLs.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "queries": {
+              "type": "array",
+              "description": "1–4 search queries; their results are merged.",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "queries"
+          ]
+        }
+      },
+      {
+        "name": "workflow",
+        "description": "Run a JavaScript workflow script that orchestrates subagents at scale. Use this for work that fans out across many independent pieces — an audit over many files, a migration, multi-angle research, adversarial verification of findings — where you write the orchestration as a script instead of delegating turn by turn.\n\nScript-body hooks:\n- `agent(prompt, opts?): Promise<any>` — run one subagent to completion. Without `opts.schema` it resolves to the child's final text; with `opts.schema` (an object-rooted JSON Schema using ONLY type/properties/required/additionalProperties/items/enum/const/oneOf) it resolves to the validated object. Resolves `null` when the child fails (filter with `.filter(Boolean)`). Other opts: `label` (display), `phase` (progress group), and independent `provider`/`model` LLM target overrides.\n- `pipeline(items, ...stages): Promise<any[]>` — run each item through the stages independently with NO barrier between stages (prefer this for multi-stage work). Each stage receives `(prev, item, index)`. A stage throw drops that ITEM to `null` and skips its remaining stages.\n- `parallel(thunks): Promise<any[]>` — run zero-argument functions concurrently and await ALL of them (a barrier; use only when a stage genuinely needs every prior result together). A throwing thunk resolves to `null`.\n- `phase(title)` — start a progress phase; `log(message)` — narrate progress; `args` — the tool call's `args` input, verbatim.\n\nMisused hooks (bad arguments, unknown options, unsupported schemas, tripped caps) end the whole script instead of producing `null`. The script has no filesystem, network, timer, or Node.js APIs; the agents do the work.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "script": {
+              "type": "string",
+              "description": "The plain JavaScript body, not TypeScript and without an `export const meta` statement; top-level await is allowed. End with `return <value>`; the JSON-serializable value is this tool's result."
+            },
+            "meta": {
+              "type": "object",
+              "description": "The workflow identity as plain JSON, not code.",
+              "additionalProperties": true,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Short kebab-case workflow name."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "One-line description of what the workflow does."
+                },
+                "whenToUse": {
+                  "type": "string",
+                  "description": "Optional guidance on when this workflow applies."
+                },
+                "phases": {
+                  "type": "array",
+                  "description": "Optional phase declarations matched by phase() calls.",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "The phase title phase() calls match by exact string."
+                      },
+                      "detail": {
+                        "type": "string",
+                        "description": "Optional one-line description of the phase."
+                      },
+                      "provider": {
+                        "type": "string",
+                        "description": "Optional provider override this phase is expected to use."
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "Optional model override this phase is expected to use."
+                      }
+                    },
+                    "required": [
+                      "title"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "description"
+              ]
+            },
+            "args": {
+              "type": "object",
+              "description": "Optional JSON input exposed to the script as the `args` global (wrap a bare list as a field, e.g. {\"files\": [...]}).",
+              "additionalProperties": true
+            },
+            "run_in_background": {
+              "type": "boolean",
+              "description": "Run as a background job: return a job id immediately instead of waiting; the return value arrives with the completion notice."
+            }
+          },
+          "required": [
+            "script",
+            "meta"
+          ]
+        }
+      },
+      {
+        "name": "working_directory",
+        "description": "Read the current working directory, or change it with cd. Relative paths use the current directory. Existing shells and running processes keep their own directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "cd": {
+              "type": "string",
+              "description": "Existing directory to enter. Omit to read the current directory."
+            }
+          }
+        }
+      },
+      {
+        "name": "write",
+        "description": "Create or fully replace a UTF-8 text file.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to write, resolved by the filesystem backend. Provide `file_path` before `content` in the arguments."
+            },
+            "content": {
+              "type": "string",
+              "description": "Full UTF-8 text content to write."
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "The narrowest wider sandbox mode for a one-shot retry of the exact operation the sandbox just denied; the retry asks the user for approval.",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string",
+              "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact file operation needs the wider access. Use the language of the user’s current request."
+            }
+          },
+          "required": [
+            "file_path",
+            "content"
+          ]
+        }
+      }
+    ],
+    "tools_sha256": "d586a614d6b472637996ffa33c13a96c68970b3665fc05c378f7edd644a59a5a",
+    "tools_status": "observed",
+    "messages_sha256": "d3fda669a48fee2ba293058b4f2429ac57211c26fb3d3da978d0d5a80cba2ea4",
+    "message_count": 29,
+    "message_metadata": [
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "3afaf5c31ce305320a416e0a6891dc119318bfa2fa844f4eaff6105dd1325f8e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "1a971fb1404dfefabc39e385f84ff06c43b75a2841585b4dc698f77c340b9363",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "e3d3f1a360175aad7ad9e77066df9a72071c26905e04b5448d59746e764675d2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "fdab330366a84ef845ea6c8921e83f95e6696cf6e5d6722836f125fd2d97d7ec",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "2b567aad2cfeda0b958459b3a9acafa971efbe0cb652c6e0e7992c6aaedc617a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "c49675fc4407843f4cee943ee17012f999edf88aeca358a53241ccb97a188220",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "5ffaa3a274881928d9b676a24e83ee2cafc9bffe0667c2a94209fc5ec1fc047e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "bb3ddc1a26496595a4269bb306a8152937cd755fe9f414fbfdc5a6697d929d63",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "0bdc636c2c64d371c95004eebe2df7cf55d6a93d8c74cac2c94a3227eacda116",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "a03672180d6989c017ba9c7457b4beb200c3e25926bab82076326937fbcfb0c4",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "601c996d94399943b7f07b484db12084f6e94de6a87eae1060d93a26e2bc63e3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "201904f6cfaf9e021c2f611091fa3ef88769ee0c89337e00d7d409ac610e5964",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "77f6dd59b5b5bc81290e7711983f2f76e90e7b463f6f2cba2e2bd0b24c79e56f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "a963cd95e83e8f4f79667105c133e4d276fa7134bb6a942c1ac745648a156e3b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "1aa21496d5c5e08368b5b713eed9cf797dec7832c10193ed48da5af587daba37",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "2f6e70688fbe81c2b1f96bc528e0277c7604aae7cf4b14f1edc6db193d143a53",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "d20dd5dc0cf6b7ba9d4bdb17049366a8426713db7a93a7807ea2b03647bf1c7d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "4c83da1a5c71ca16f98317ba03e4fbcb4d9effb38b523304666f69ef0a20c2d6",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "ec101f7e9af7e4736cc69679453f269dce921084ad3ea2287716b5659b898d45",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "ad092b7caeb97c4a4d360cd48b7fcd5fa84881dcd21d022f88ff557b47c64ead",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "7f9dc57670d0a1b4e6cef73a14909c9a7be39c43a05e879346a3e8877abefe87",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "3f04e77ab1a6531f1feca8ba97930b9acb132bf525d474797f2f2505140c62d4",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "e4359a70081f988f26b316ab9dae60d83e16d7f18db6d279806145b75fce17b2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "ae5b3aff68758a8d73d79ab9be12c4075355a7504d1db8bcf39a6a98e16115f2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "be8fef09eea02e4f34c1a08ecf615eeadff88b1fe057c564160e5ef7f1e56ce2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "563443676b4f3ddbfc1ada336113a255c6de4e43895e089748079404ea09b8c2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "f634b23a353716a1c811162906db8d9952105a2d2d9b260bbab62176ccf1a007",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "7892a78275b2d3f8a54720bde780c6954ecd12598eb3a7cfaecabb58a4aa61e0",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "6f2f2c019a31ce34b5226155f9c42afde5269259b5dd10963d6924e452ec95a7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      }
+    ],
+    "instructions_sha256": "7d453448ddfa8c346ba4f62bd594e70c58014c5eb8bdfc21723f8066106b516f"
+  },
+  "egress": {
+    "request_sha256": "d38bf9e773fd320261395417f3516792bdceb77e422ad5e01604c41a8e8158fb",
+    "model": "glm-5.3",
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "low",
+    "max_tokens": 131072,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "bash",
+          "description": "Execute a bash command (`bash -c`) and return its stdout/stderr. Each call runs in a fresh shell; pass `workdir` instead of using `cd`. Managed `$DSH_*` variables expose current harness environment facts. Long output is truncated to its tail; the full output is saved to a file whose path is reported when available. Provide `description` before `command` in the arguments. Before any delete or move, verify that the resolved absolute target path is the intended one; never run it against a computed path you have not checked. An unset variable expands to an empty string, so guard variables in such paths with `${VAR:?}`. Commands may run under a file sandbox; a blocked file operation is reported as `[sandbox: file access denied under <mode> mode]`, a policy denial: do not retry another way.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "Clear, concise description of what this command does in active voice, 5-10 words (shown in the UI). Examples: \"ls\" → \"List files in current directory\"; \"git status\" → \"Show working tree status\"; \"npm install\" → \"Install package dependencies\"."
+              },
+              "command": {
+                "type": "string",
+                "description": "The bash command to execute."
+              },
+              "timeoutMs": {
+                "type": "number",
+                "description": "Timeout in milliseconds. The executor applies its configured default and cap; on expiry the command moves to the background as a job instead of being killed."
+              },
+              "workdir": {
+                "type": "string",
+                "description": "Working directory for this command. Defaults to the session workspace; a relative path is resolved against it."
+              },
+              "run_in_background": {
+                "type": "boolean",
+                "description": "Run in the background and return a job id immediately (collect with job_output, stop with job_kill). No timeout applies."
+              },
+              "sandbox_permissions": {
+                "type": "string",
+                "description": "The narrowest wider sandbox mode for a one-shot retry of the exact command the sandbox just denied; the retry asks the user for approval.",
+                "enum": [
+                  "workspace-write",
+                  "danger-full-access"
+                ]
+              },
+              "justification": {
+                "type": "string",
+                "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact command needs the wider access. Use the language of the user’s current request."
+              }
+            },
+            "required": [
+              "description",
+              "command"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "create_goal",
+          "description": "Create a persisted goal that keeps this session working across automatic continuation rounds. Use it when the direct human request is a long-running objective, even if the user did not say \"goal\"; not for single-turn work.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "objective": {
+                "type": "string",
+                "description": "The concrete completion objective inferred from the direct human request."
+              },
+              "max_goal_rounds": {
+                "type": "number",
+                "description": "Optional positive safe-integer limit on automatic continuation rounds."
+              }
+            },
+            "required": [
+              "objective"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "edit",
+          "description": "Edit an existing UTF-8 text file by replacing literal text.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "file_path": {
+                "type": "string",
+                "description": "Path to edit, resolved by the filesystem backend. Provide `file_path` before `old_string` and `new_string` in the arguments."
+              },
+              "old_string": {
+                "type": "string",
+                "description": "Literal text to replace."
+              },
+              "new_string": {
+                "type": "string",
+                "description": "Literal replacement text. Use an empty string to delete the match."
+              },
+              "replace_all": {
+                "type": "boolean",
+                "description": "Replace all matches. Defaults to false; when false, old_string must appear exactly once."
+              },
+              "sandbox_permissions": {
+                "type": "string",
+                "description": "The narrowest wider sandbox mode for a one-shot retry of the exact operation the sandbox just denied; the retry asks the user for approval.",
+                "enum": [
+                  "workspace-write",
+                  "danger-full-access"
+                ]
+              },
+              "justification": {
+                "type": "string",
+                "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact file operation needs the wider access. Use the language of the user’s current request."
+              }
+            },
+            "required": [
+              "file_path",
+              "old_string",
+              "new_string"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "exit_plan_mode",
+          "description": "Use only in plan mode. Present your plan for the user's review and, on approval, leave plan mode. The user may approve (carry out the plan from your next step) or keep planning — their feedback comes back in the tool result; revise and present again.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "plan": {
+                "type": "string",
+                "description": "The complete plan, as markdown, starting with a # heading that names it."
+              }
+            },
+            "required": [
+              "plan"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_goal",
+          "description": "Read the current session goal, including the id and revision that update_goal requires.",
+          "parameters": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "glob",
+          "description": "Find files, not directories, whose paths match a glob pattern, including hidden and ignored files. Returns up to 100 paths in modification-time order; a larger result keeps the first paths and reports where the complete list was saved.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Glob pattern to match file paths against (e.g. \"**/*.ts\", \"src/**/*.test.js\"). A pattern with no \"/\" matches the basename at any depth, so \"*\" and \"*.ts\" both search the whole tree; include a separator to anchor the depth."
+              },
+              "path": {
+                "type": "string",
+                "description": "Directory to search in. Defaults to the session workspace; a relative path resolves against it."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "grep",
+          "description": "Search file contents with a ripgrep regular expression. Returns matching lines with line numbers, grouped by file. Returns up to 250 matches; a larger result reports where the complete match list was saved.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Regular expression to search for (ripgrep syntax)."
+              },
+              "path": {
+                "type": "string",
+                "description": "File or directory to search. Defaults to the session workspace; a relative path resolves against it."
+              },
+              "include": {
+                "type": "string",
+                "description": "One glob filter for which files to search (e.g. \"*.ts\", \"*.{js,jsx}\"). Not a list; negation is not supported."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "interrupt_agent",
+          "description": "Interrupt one teammate's current turn while preserving its pending inbox. Team Lead only.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Teammate target returned by spawn_teammate or list_agents."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "job_kill",
+          "description": "Request cancellation of a running background job.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "job_id": {
+                "type": "string",
+                "description": "Job id returned by the tool that started the background work."
+              },
+              "reason": {
+                "type": "string",
+                "description": "Optional short reason, recorded in the log and forwarded to the job."
+              }
+            },
+            "required": [
+              "job_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "job_list",
+          "description": "List your background jobs (running and finished) with their ids, kinds, and statuses.",
+          "parameters": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "job_output",
+          "description": "Read a background job: output since the previous read for stream jobs, or the result of a finished final-output job.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "job_id": {
+                "type": "string",
+                "description": "Job id returned by the tool that started the background work."
+              },
+              "wait": {
+                "type": "boolean",
+                "description": "Block until the job finishes or the timeout expires; a timed-out wait leaves the job running. Defaults to false."
+              },
+              "timeout_ms": {
+                "type": "number",
+                "description": "Max wait in milliseconds with wait: true. Defaults to and is capped by configuration."
+              }
+            },
+            "required": [
+              "job_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "list_agents",
+          "description": "List the Lead and every durable teammate with an addressable target and current availability. inactive means no turn is executing, not a task result. provisioning and failed describe member creation.",
+          "parameters": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "read",
+          "description": "Read a UTF-8 text file and return line-numbered content.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "file_path": {
+                "type": "string",
+                "description": "Path to read, resolved by the filesystem backend."
+              },
+              "offset": {
+                "type": "number",
+                "description": "1-based first line to return. Defaults to 1."
+              },
+              "limit": {
+                "type": "number",
+                "description": "Maximum number of lines to return. Defaults to 2000."
+              }
+            },
+            "required": [
+              "file_path"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "read_image",
+          "description": "Read a PNG/JPEG/WebP/GIF file and return the image itself. Large images are downscaled automatically; do not install image libraries or create thumbnails to inspect an image.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "file_path": {
+                "type": "string",
+                "description": "Path to the image file, resolved by the filesystem backend."
+              }
+            },
+            "required": [
+              "file_path"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "send_message",
+          "description": "Send one message to another Team member. A running target receives it at the nearest step boundary; an inactive target starts or resumes a turn.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Member target returned by spawn_teammate or list_agents, including lead."
+              },
+              "message": {
+                "type": "string",
+                "description": "Self-contained message for the target."
+              }
+            },
+            "required": [
+              "target",
+              "message"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "skill",
+          "description": "Load the full instructions for a skill. Call it before acting on a task that names or clearly matches a skill in the session skill catalog.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exact skill name from the available skills list."
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "spawn_teammate",
+          "description": "Create one named, durable teammate. Only the Team Lead may call this tool.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Unique lower-kebab-case teammate name."
+              },
+              "description": {
+                "type": "string",
+                "description": "Short description of the delegated responsibility."
+              },
+              "prompt": {
+                "type": "string",
+                "description": "Complete initial task for the teammate."
+              },
+              "context": {
+                "type": "string",
+                "description": "fresh starts without Lead history; fork inherits completed Lead turns. Defaults to fresh.",
+                "enum": [
+                  "fresh",
+                  "fork"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "description",
+              "prompt"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "team_task_create",
+          "description": "Create one unowned pending task on the shared Team task board.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "subject": {
+                "type": "string",
+                "description": "Concise task title."
+              },
+              "description": {
+                "type": "string",
+                "description": "Complete task details and acceptance criteria."
+              },
+              "blocked_by": {
+                "type": "array",
+                "description": "Task ids that must complete first.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "write_scopes": {
+                "type": "array",
+                "description": "Advisory workspace-relative file or directory prefixes this task expects to modify.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "subject",
+              "description"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "team_task_get",
+          "description": "Read the complete latest value of one shared task before changing or executing it.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "task_id": {
+                "type": "string",
+                "description": "Shared task id."
+              }
+            },
+            "required": [
+              "task_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "team_task_list",
+          "description": "List shared tasks, including readiness, owner, revision, blockers, and write-scope warnings.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "Optional exact status filter.",
+                "enum": [
+                  "pending",
+                  "in_progress",
+                  "completed"
+                ]
+              },
+              "owner": {
+                "type": "string",
+                "description": "Optional member target from spawn_teammate or list_agents, matching ownerName; use unowned for tasks without an owner."
+              },
+              "ready": {
+                "type": "boolean",
+                "description": "Optional readiness filter."
+              },
+              "cursor": {
+                "type": "integer",
+                "description": "Zero-based result offset. Defaults to 0."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Number of rows, 1 through 100. Defaults to 50."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "team_task_update",
+          "description": "Compare-and-set a shared task action using the latest revision from team_task_get or team_task_list.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "task_id": {
+                "type": "string",
+                "description": "Shared task id."
+              },
+              "expected_revision": {
+                "type": "integer",
+                "description": "Current task revision used as the CAS precondition."
+              },
+              "action": {
+                "type": "string",
+                "description": "Task transition to apply.",
+                "enum": [
+                  "claim",
+                  "release",
+                  "edit",
+                  "set_dependencies",
+                  "complete",
+                  "reopen",
+                  "reassign",
+                  "delete"
+                ]
+              },
+              "subject": {
+                "type": "string",
+                "description": "Replacement title for edit."
+              },
+              "description": {
+                "type": "string",
+                "description": "Replacement details for edit."
+              },
+              "blocked_by": {
+                "type": "array",
+                "description": "Complete blocker list for set_dependencies.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "write_scopes": {
+                "type": "array",
+                "description": "Replacement advisory write scopes for edit.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "owner": {
+                "type": "string",
+                "description": "Member target from spawn_teammate or list_agents for Lead-only reassign; omit to unassign."
+              }
+            },
+            "required": [
+              "task_id",
+              "expected_revision",
+              "action"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "todo_write",
+          "description": "Record and update a task list to plan multi-step work and show progress; skip it for trivial single-step tasks. Add one todo per concrete step before you start. While work remains, keep the todos being worked on `in_progress`, several only when work runs in parallel. Mark each todo `completed` as soon as it is done.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "todos": {
+                "type": "array",
+                "description": "The COMPLETE task list, replacing any previous list.",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "What the task is — a short imperative line."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "pending (not started) | in_progress (now) | completed (done).",
+                      "enum": [
+                        "pending",
+                        "in_progress",
+                        "completed"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "status"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "todos"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "update_goal",
+          "description": "Update the current goal.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "goal_id": {
+                "type": "string",
+                "description": "Exact id returned by get_goal."
+              },
+              "revision": {
+                "type": "number",
+                "description": "Exact positive revision returned by get_goal."
+              },
+              "action": {
+                "type": "string",
+                "description": "edit, pause, and resume require a direct top-level human request. complete and blocked are also allowed during an automatic continuation of this goal; blocked is rejected before the configured minimum round count.",
+                "enum": [
+                  "edit",
+                  "pause",
+                  "resume",
+                  "complete",
+                  "blocked"
+                ]
+              },
+              "objective": {
+                "type": "string",
+                "description": "Replacement objective; valid only with action edit."
+              },
+              "max_goal_rounds": {
+                "type": "number",
+                "description": "Replacement cap; valid only with action edit."
+              },
+              "blocked_reason": {
+                "type": "string",
+                "description": "Required only with action blocked: the concrete condition that persisted across rounds and blocks progress."
+              }
+            },
+            "required": [
+              "goal_id",
+              "revision",
+              "action"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "wait_agent",
+          "description": "Wait for the next teammate status, message, or shared-task change after this call starts. This never wakes inactive members and returns noProgress immediately when no other member is running or provisioning. Re-list after wakeup or timeout instead of polling.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "timeout_ms": {
+                "type": "integer",
+                "description": "Wait duration in milliseconds, from 10000 through 3600000. Defaults to 30000."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "web_fetch",
+          "description": "Fetch the content of a specific HTTP(S) URL and return it decoded to text.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "The HTTP(S) URL to fetch."
+              }
+            },
+            "required": [
+              "url"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "web_search",
+          "description": "Search the web for current information. Returns an optional summary answer and a list of source URLs.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "queries": {
+                "type": "array",
+                "description": "1–4 search queries; their results are merged.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "queries"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "workflow",
+          "description": "Run a JavaScript workflow script that orchestrates subagents at scale. Use this for work that fans out across many independent pieces — an audit over many files, a migration, multi-angle research, adversarial verification of findings — where you write the orchestration as a script instead of delegating turn by turn.\n\nScript-body hooks:\n- `agent(prompt, opts?): Promise<any>` — run one subagent to completion. Without `opts.schema` it resolves to the child's final text; with `opts.schema` (an object-rooted JSON Schema using ONLY type/properties/required/additionalProperties/items/enum/const/oneOf) it resolves to the validated object. Resolves `null` when the child fails (filter with `.filter(Boolean)`). Other opts: `label` (display), `phase` (progress group), and independent `provider`/`model` LLM target overrides.\n- `pipeline(items, ...stages): Promise<any[]>` — run each item through the stages independently with NO barrier between stages (prefer this for multi-stage work). Each stage receives `(prev, item, index)`. A stage throw drops that ITEM to `null` and skips its remaining stages.\n- `parallel(thunks): Promise<any[]>` — run zero-argument functions concurrently and await ALL of them (a barrier; use only when a stage genuinely needs every prior result together). A throwing thunk resolves to `null`.\n- `phase(title)` — start a progress phase; `log(message)` — narrate progress; `args` — the tool call's `args` input, verbatim.\n\nMisused hooks (bad arguments, unknown options, unsupported schemas, tripped caps) end the whole script instead of producing `null`. The script has no filesystem, network, timer, or Node.js APIs; the agents do the work.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "script": {
+                "type": "string",
+                "description": "The plain JavaScript body, not TypeScript and without an `export const meta` statement; top-level await is allowed. End with `return <value>`; the JSON-serializable value is this tool's result."
+              },
+              "meta": {
+                "type": "object",
+                "description": "The workflow identity as plain JSON, not code.",
+                "additionalProperties": true,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Short kebab-case workflow name."
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "One-line description of what the workflow does."
+                  },
+                  "whenToUse": {
+                    "type": "string",
+                    "description": "Optional guidance on when this workflow applies."
+                  },
+                  "phases": {
+                    "type": "array",
+                    "description": "Optional phase declarations matched by phase() calls.",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "The phase title phase() calls match by exact string."
+                        },
+                        "detail": {
+                          "type": "string",
+                          "description": "Optional one-line description of the phase."
+                        },
+                        "provider": {
+                          "type": "string",
+                          "description": "Optional provider override this phase is expected to use."
+                        },
+                        "model": {
+                          "type": "string",
+                          "description": "Optional model override this phase is expected to use."
+                        }
+                      },
+                      "required": [
+                        "title"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "description"
+                ]
+              },
+              "args": {
+                "type": "object",
+                "description": "Optional JSON input exposed to the script as the `args` global (wrap a bare list as a field, e.g. {\"files\": [...]}).",
+                "additionalProperties": true
+              },
+              "run_in_background": {
+                "type": "boolean",
+                "description": "Run as a background job: return a job id immediately instead of waiting; the return value arrives with the completion notice."
+              }
+            },
+            "required": [
+              "script",
+              "meta"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "working_directory",
+          "description": "Read the current working directory, or change it with cd. Relative paths use the current directory. Existing shells and running processes keep their own directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "cd": {
+                "type": "string",
+                "description": "Existing directory to enter. Omit to read the current directory."
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "write",
+          "description": "Create or fully replace a UTF-8 text file.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "file_path": {
+                "type": "string",
+                "description": "Path to write, resolved by the filesystem backend. Provide `file_path` before `content` in the arguments."
+              },
+              "content": {
+                "type": "string",
+                "description": "Full UTF-8 text content to write."
+              },
+              "sandbox_permissions": {
+                "type": "string",
+                "description": "The narrowest wider sandbox mode for a one-shot retry of the exact operation the sandbox just denied; the retry asks the user for approval.",
+                "enum": [
+                  "workspace-write",
+                  "danger-full-access"
+                ]
+              },
+              "justification": {
+                "type": "string",
+                "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact file operation needs the wider access. Use the language of the user’s current request."
+              }
+            },
+            "required": [
+              "file_path",
+              "content"
+            ]
+          }
+        }
+      }
+    ],
+    "tools_sha256": "8b3106bfc85d25c4ecb83c510407c6cb862832d6b40805930365df131888a61b",
+    "tools_status": "observed",
+    "messages_sha256": "8b0ae31c9c7a5021e2c0d933c0749a6577965298ac05f412736010555a701ea8",
+    "message_count": 48,
+    "message_metadata": [
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "e67e6318bfeeb67ffb2fab11378910524ec83697e2e2ff475e5222e026d7f91a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "e6227fef5f98b3afeb4951864ce6a962d9e0d9ea38086af3f2412b1c3c779bab",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "96b18b7051ffc006d37dda23023e028edfa6e617461402e0e73b065b0b543c30",
+        "tool_call_ids": [
+          "call_7c8fd9f9ee86412d89c60a12"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "393bd132225d533ea22352ee6ff8a453c7ee861e1913593263d867a9ee62beff",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "9adebe67a89ffc98d9bfa8f36eebcf21e6337d9aca53c7c20232d78c5974a94e",
+        "tool_call_ids": [
+          "call_afa17dd26a784c87be6d4328"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "e255bf3fbe1ed5b367648a404bdabe00b8b1f2ca1b090164670150ae24f5de99",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "054602cdd759615cbe580e4318aa034204ad716ce7e0d15271b15765cdac71ff",
+        "tool_call_ids": [
+          "call_bd166967be49473fb7635cd4"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2586c69688767f98c886e5a27d78b45144998da1edf7c2b870d26d31cce50381",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "46fee9a9db4b7ec921d822c8ae49c96fa0f8be81db5064cc3abdbfe93d69513a",
+        "tool_call_ids": [
+          "call_45cb53459c78493aa2073f2f"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "79f84ea8031bed1ea81a25f846292276ff772e2846bc3e4a2779420000bfa69e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "de608762ac323bab6fec580fb3c68fe7811613a21ae748c3cfca5fd568611802",
+        "tool_call_ids": [
+          "call_b23b7d85b88440e69cc46e80",
+          "call_b8bc34b7f56845e7ac8cffb2",
+          "call_78d19c0e176e4bd19dde784e",
+          "call_4f789930b1c84a4ea30c626f",
+          "call_5f91fec57042498da57fd33e",
+          "call_81022fadf2754c58af739548",
+          "call_ed5df9ebe54d4957b1173732",
+          "call_027f24f67f374556a4881a36",
+          "call_06ff303cb2cb4c0793a19fc7",
+          "call_7b95552079814e55acd3fa8f",
+          "call_cba80733b26a4bbea043a6db"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8a4241015561c8ab81bdfd242fb2bf8dd9255dc51b486e1c96e487aeae4f5f3d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2522485b2ac85ac12b8fee91673db944d6ab2a5700708b3f1b5d8a898932505b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "3323642335f5a05ab51c826c568daf4ed7ed34b774b3eee5f5632d58ddad0b84",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "02488b8b6ed04f3ee8b79fbbc2e71ba341ea72eff48d0383b8e4334a6b64a695",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "b804c7311d79c73a1ea28807c9d502c1c590c7a41d9d18560ff67fc095b10c22",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "b995df0407b6883045eb1fe7ac94d44745657d2a941547abb21cc455c402762f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2555842eb682a1bdc71d02c8cc60d7d93f2e389b6e583c692a0338825ca287a9",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "db78a9467d215603d2bf4379ab4687f199def24ee7ae1556e1c7ba3371c775d2",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "35fc75d95ce98c673b01322d0b801f72a18719e7b8fc7fcc75df90cba3e2bf85",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "fa3f22b8bcf34b91ce7a2239ef41a822cdb487d3396f8b198ea0089262f6a8f8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "d13b87a580aebd1c563de8d14a1db807d9cc6e722e8974e179add10e1ec3ac46",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "ce8dfc14dfdb34b63846f97f7708d9f46da6304dc55086b0ba53cc5d07a2acf5",
+        "tool_call_ids": [
+          "call_cba461a215c147c5822a7b55",
+          "call_192dbcada17b40d2832d93f3",
+          "call_612b5e8264dc41c9b30eecd0"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a5a2d1c8cb5e64c0736c68c648750cd0a315aa456110590f38fcb61127858d8c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a7182b77941458e1492e71d9991d7ad685e0cbf3d944212c867fb8beb936f32c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "37a1c46edc01acc790e6b762ff2f1e09de7280acfc7d801916d2a9874682691e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "f2d0d62a29d6a5014a42868bc04ca0d417a1481657deb582e9c0e3cd452c81a6",
+        "tool_call_ids": [
+          "call_4cef547715824656962b50dc",
+          "call_beacc5811131453fa2f09150"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ada99a29190251dbf1e18dbee73b0c1557f81eb7e0e4eec795b6bf7a26b97431",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "c4950879bca334d2a228a8f856c9a50065fc11cfb4c156ac88c51edcbe2118fc",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "83691b6351b139fae2e822cd7159817006b162ef404ff922b12da69eaaf95f64",
+        "tool_call_ids": [
+          "call_acdc9d492a8c4dce84e8bbb9"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2a8959ac1fe5b5c4c0ece836c9000bea1e622d10c01988180da618a325b5615b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "953aae7c344bd03e5618ecd374eaafcea4be95d986ed920ac445803dadff4e77",
+        "tool_call_ids": [
+          "call_919c14eaacd04b6eaec38500",
+          "call_5b255afb28ba4d0bb17a4878",
+          "call_8ce5ce9f4da44e2c80dbc89a"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "53a7f7fb055a7c680bb3eca425870b9c1baa97b2f97488b726a42585b869a3e0",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2bf4a3147d61f82b82786a895d674fedf3c67836d2e9dbb621de89274bb13a9e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a1fb30477641540d013cf64eba574fa996b4cad8d82fa5b6c9e02ecb06b27b61",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "483e21c4d6e8963916681aec4294f80233483526882908a01e5372d0cd709ea9",
+        "tool_call_ids": [
+          "call_8db6b31c62e240f98e0eb792",
+          "call_07a8f0a826d3466da42ba9f8"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a9610b548521223c0b4f2bbc9981d1f7748a3caad26cd64f9addbb23b978f50c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "27d306b5cb5eda42b5867b412b32bf4c69caa980bdc0ccaaea4fed2d5f6b1679",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "555aeec5e29d3ad586ba8368c506373b0f60cfecb62baffbdbb9fbc34e3746dd",
+        "tool_call_ids": [
+          "call_8e523f0ab9bb47e894f06508"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8729753c743d5a9ce1cc4eec039d323721377627e430127b0c5349123b343c96",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "d1c3677f6ea3d69a6f6524d6da671ad92adeb2a3ba0f4211f8bb4d9fb259a50c",
+        "tool_call_ids": [
+          "call_e5554c645c3d43d6ab4beabb",
+          "call_c5907802f62641fcb17f4d62",
+          "call_286c440b3ca04965a2bd35a1"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8121fd8e95318654a6abaf23add21e48c3e8d3781665e063713d6cce2cb6861c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "cd13b8cda1df1802912d438fe97e6af9debaaa0729b8b48b9eb3a5ce378d76f9",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a0f9c154c7571efd5fc26b1520dab47ac7e8f841e6af75d47a4e251ee768eb20",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "5af687fbbb9d90ba3beec5f4a755cc13ac8bfcb70f8e180e4c7c305cee626053",
+        "tool_call_ids": [
+          "call_54398711f08a497fafb2c229"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8201ca8cd6919a06db1f0f8da3f2d393be848f6c8aeb98f14b8e1c3907520394",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "008e10f3029efd2e1d5f6b5ef680617fcc5bbd32eaa8893828bd4a64e4fafb87",
+        "tool_call_ids": [
+          "call_d3790ff6d97d4aac966bc2ce"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "5687235d27b5405b52611a319b4c398f97e110bef0bf84288666fe70e5f92a41",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      }
+    ],
+    "instructions_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "tool_mapping": {
+    "bash": {
+      "name": "bash",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "bash",
+        "description": "Execute a bash command (`bash -c`) and return its stdout/stderr. Each call runs in a fresh shell; pass `workdir` instead of using `cd`. Managed `$DSH_*` variables expose current harness environment facts. Long output is truncated to its tail; the full output is saved to a file whose path is reported when available. Provide `description` before `command` in the arguments. Before any delete or move, verify that the resolved absolute target path is the intended one; never run it against a computed path you have not checked. An unset variable expands to an empty string, so guard variables in such paths with `${VAR:?}`. Commands may run under a file sandbox; a blocked file operation is reported as `[sandbox: file access denied under <mode> mode]`, a policy denial: do not retry another way.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Clear, concise description of what this command does in active voice, 5-10 words (shown in the UI). Examples: \"ls\" → \"List files in current directory\"; \"git status\" → \"Show working tree status\"; \"npm install\" → \"Install package dependencies\"."
+            },
+            "command": {
+              "type": "string",
+              "description": "The bash command to execute."
+            },
+            "timeoutMs": {
+              "type": "number",
+              "description": "Timeout in milliseconds. The executor applies its configured default and cap; on expiry the command moves to the background as a job instead of being killed."
+            },
+            "workdir": {
+              "type": "string",
+              "description": "Working directory for this command. Defaults to the session workspace; a relative path is resolved against it."
+            },
+            "run_in_background": {
+              "type": "boolean",
+              "description": "Run in the background and return a job id immediately (collect with job_output, stop with job_kill). No timeout applies."
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "The narrowest wider sandbox mode for a one-shot retry of the exact command the sandbox just denied; the retry asks the user for approval.",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string",
+              "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact command needs the wider access. Use the language of the user’s current request."
+            }
+          },
+          "required": [
+            "description",
+            "command"
+          ]
+        }
+      }
+    },
+    "create_goal": {
+      "name": "create_goal",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "create_goal",
+        "description": "Create a persisted goal that keeps this session working across automatic continuation rounds. Use it when the direct human request is a long-running objective, even if the user did not say \"goal\"; not for single-turn work.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "objective": {
+              "type": "string",
+              "description": "The concrete completion objective inferred from the direct human request."
+            },
+            "max_goal_rounds": {
+              "type": "number",
+              "description": "Optional positive safe-integer limit on automatic continuation rounds."
+            }
+          },
+          "required": [
+            "objective"
+          ]
+        }
+      }
+    },
+    "edit": {
+      "name": "edit",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "edit",
+        "description": "Edit an existing UTF-8 text file by replacing literal text.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to edit, resolved by the filesystem backend. Provide `file_path` before `old_string` and `new_string` in the arguments."
+            },
+            "old_string": {
+              "type": "string",
+              "description": "Literal text to replace."
+            },
+            "new_string": {
+              "type": "string",
+              "description": "Literal replacement text. Use an empty string to delete the match."
+            },
+            "replace_all": {
+              "type": "boolean",
+              "description": "Replace all matches. Defaults to false; when false, old_string must appear exactly once."
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "The narrowest wider sandbox mode for a one-shot retry of the exact operation the sandbox just denied; the retry asks the user for approval.",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string",
+              "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact file operation needs the wider access. Use the language of the user’s current request."
+            }
+          },
+          "required": [
+            "file_path",
+            "old_string",
+            "new_string"
+          ]
+        }
+      }
+    },
+    "exit_plan_mode": {
+      "name": "exit_plan_mode",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "exit_plan_mode",
+        "description": "Use only in plan mode. Present your plan for the user's review and, on approval, leave plan mode. The user may approve (carry out the plan from your next step) or keep planning — their feedback comes back in the tool result; revise and present again.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string",
+              "description": "The complete plan, as markdown, starting with a # heading that names it."
+            }
+          },
+          "required": [
+            "plan"
+          ]
+        }
+      }
+    },
+    "get_goal": {
+      "name": "get_goal",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "get_goal",
+        "description": "Read the current session goal, including the id and revision that update_goal requires.",
+        "input_schema": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "glob": {
+      "name": "glob",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "glob",
+        "description": "Find files, not directories, whose paths match a glob pattern, including hidden and ignored files. Returns up to 100 paths in modification-time order; a larger result keeps the first paths and reports where the complete list was saved.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "description": "Glob pattern to match file paths against (e.g. \"**/*.ts\", \"src/**/*.test.js\"). A pattern with no \"/\" matches the basename at any depth, so \"*\" and \"*.ts\" both search the whole tree; include a separator to anchor the depth."
+            },
+            "path": {
+              "type": "string",
+              "description": "Directory to search in. Defaults to the session workspace; a relative path resolves against it."
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      }
+    },
+    "grep": {
+      "name": "grep",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "grep",
+        "description": "Search file contents with a ripgrep regular expression. Returns matching lines with line numbers, grouped by file. Returns up to 250 matches; a larger result reports where the complete match list was saved.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "description": "Regular expression to search for (ripgrep syntax)."
+            },
+            "path": {
+              "type": "string",
+              "description": "File or directory to search. Defaults to the session workspace; a relative path resolves against it."
+            },
+            "include": {
+              "type": "string",
+              "description": "One glob filter for which files to search (e.g. \"*.ts\", \"*.{js,jsx}\"). Not a list; negation is not supported."
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      }
+    },
+    "interrupt_agent": {
+      "name": "interrupt_agent",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "interrupt_agent",
+        "description": "Interrupt one teammate's current turn while preserving its pending inbox. Team Lead only.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Teammate target returned by spawn_teammate or list_agents."
+            }
+          },
+          "required": [
+            "target"
+          ]
+        }
+      }
+    },
+    "job_kill": {
+      "name": "job_kill",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "job_kill",
+        "description": "Request cancellation of a running background job.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "description": "Job id returned by the tool that started the background work."
+            },
+            "reason": {
+              "type": "string",
+              "description": "Optional short reason, recorded in the log and forwarded to the job."
+            }
+          },
+          "required": [
+            "job_id"
+          ]
+        }
+      }
+    },
+    "job_list": {
+      "name": "job_list",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "job_list",
+        "description": "List your background jobs (running and finished) with their ids, kinds, and statuses.",
+        "input_schema": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "job_output": {
+      "name": "job_output",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "job_output",
+        "description": "Read a background job: output since the previous read for stream jobs, or the result of a finished final-output job.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "description": "Job id returned by the tool that started the background work."
+            },
+            "wait": {
+              "type": "boolean",
+              "description": "Block until the job finishes or the timeout expires; a timed-out wait leaves the job running. Defaults to false."
+            },
+            "timeout_ms": {
+              "type": "number",
+              "description": "Max wait in milliseconds with wait: true. Defaults to and is capped by configuration."
+            }
+          },
+          "required": [
+            "job_id"
+          ]
+        }
+      }
+    },
+    "list_agents": {
+      "name": "list_agents",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "list_agents",
+        "description": "List the Lead and every durable teammate with an addressable target and current availability. inactive means no turn is executing, not a task result. provisioning and failed describe member creation.",
+        "input_schema": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "read": {
+      "name": "read",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "read",
+        "description": "Read a UTF-8 text file and return line-numbered content.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to read, resolved by the filesystem backend."
+            },
+            "offset": {
+              "type": "number",
+              "description": "1-based first line to return. Defaults to 1."
+            },
+            "limit": {
+              "type": "number",
+              "description": "Maximum number of lines to return. Defaults to 2000."
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        }
+      }
+    },
+    "read_image": {
+      "name": "read_image",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "read_image",
+        "description": "Read a PNG/JPEG/WebP/GIF file and return the image itself. Large images are downscaled automatically; do not install image libraries or create thumbnails to inspect an image.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to the image file, resolved by the filesystem backend."
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        }
+      }
+    },
+    "send_message": {
+      "name": "send_message",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "send_message",
+        "description": "Send one message to another Team member. A running target receives it at the nearest step boundary; an inactive target starts or resumes a turn.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Member target returned by spawn_teammate or list_agents, including lead."
+            },
+            "message": {
+              "type": "string",
+              "description": "Self-contained message for the target."
+            }
+          },
+          "required": [
+            "target",
+            "message"
+          ]
+        }
+      }
+    },
+    "skill": {
+      "name": "skill",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "skill",
+        "description": "Load the full instructions for a skill. Call it before acting on a task that names or clearly matches a skill in the session skill catalog.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The exact skill name from the available skills list."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      }
+    },
+    "spawn_teammate": {
+      "name": "spawn_teammate",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "spawn_teammate",
+        "description": "Create one named, durable teammate. Only the Team Lead may call this tool.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Unique lower-kebab-case teammate name."
+            },
+            "description": {
+              "type": "string",
+              "description": "Short description of the delegated responsibility."
+            },
+            "prompt": {
+              "type": "string",
+              "description": "Complete initial task for the teammate."
+            },
+            "context": {
+              "type": "string",
+              "description": "fresh starts without Lead history; fork inherits completed Lead turns. Defaults to fresh.",
+              "enum": [
+                "fresh",
+                "fork"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "description",
+            "prompt"
+          ]
+        }
+      }
+    },
+    "team_task_create": {
+      "name": "team_task_create",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "team_task_create",
+        "description": "Create one unowned pending task on the shared Team task board.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string",
+              "description": "Concise task title."
+            },
+            "description": {
+              "type": "string",
+              "description": "Complete task details and acceptance criteria."
+            },
+            "blocked_by": {
+              "type": "array",
+              "description": "Task ids that must complete first.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "write_scopes": {
+              "type": "array",
+              "description": "Advisory workspace-relative file or directory prefixes this task expects to modify.",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "subject",
+            "description"
+          ]
+        }
+      }
+    },
+    "team_task_get": {
+      "name": "team_task_get",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "team_task_get",
+        "description": "Read the complete latest value of one shared task before changing or executing it.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "description": "Shared task id."
+            }
+          },
+          "required": [
+            "task_id"
+          ]
+        }
+      }
+    },
+    "team_task_list": {
+      "name": "team_task_list",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "team_task_list",
+        "description": "List shared tasks, including readiness, owner, revision, blockers, and write-scope warnings.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Optional exact status filter.",
+              "enum": [
+                "pending",
+                "in_progress",
+                "completed"
+              ]
+            },
+            "owner": {
+              "type": "string",
+              "description": "Optional member target from spawn_teammate or list_agents, matching ownerName; use unowned for tasks without an owner."
+            },
+            "ready": {
+              "type": "boolean",
+              "description": "Optional readiness filter."
+            },
+            "cursor": {
+              "type": "integer",
+              "description": "Zero-based result offset. Defaults to 0."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Number of rows, 1 through 100. Defaults to 50."
+            }
+          }
+        }
+      }
+    },
+    "team_task_update": {
+      "name": "team_task_update",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "team_task_update",
+        "description": "Compare-and-set a shared task action using the latest revision from team_task_get or team_task_list.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "description": "Shared task id."
+            },
+            "expected_revision": {
+              "type": "integer",
+              "description": "Current task revision used as the CAS precondition."
+            },
+            "action": {
+              "type": "string",
+              "description": "Task transition to apply.",
+              "enum": [
+                "claim",
+                "release",
+                "edit",
+                "set_dependencies",
+                "complete",
+                "reopen",
+                "reassign",
+                "delete"
+              ]
+            },
+            "subject": {
+              "type": "string",
+              "description": "Replacement title for edit."
+            },
+            "description": {
+              "type": "string",
+              "description": "Replacement details for edit."
+            },
+            "blocked_by": {
+              "type": "array",
+              "description": "Complete blocker list for set_dependencies.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "write_scopes": {
+              "type": "array",
+              "description": "Replacement advisory write scopes for edit.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "owner": {
+              "type": "string",
+              "description": "Member target from spawn_teammate or list_agents for Lead-only reassign; omit to unassign."
+            }
+          },
+          "required": [
+            "task_id",
+            "expected_revision",
+            "action"
+          ]
+        }
+      }
+    },
+    "todo_write": {
+      "name": "todo_write",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "todo_write",
+        "description": "Record and update a task list to plan multi-step work and show progress; skip it for trivial single-step tasks. Add one todo per concrete step before you start. While work remains, keep the todos being worked on `in_progress`, several only when work runs in parallel. Mark each todo `completed` as soon as it is done.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "todos": {
+              "type": "array",
+              "description": "The COMPLETE task list, replacing any previous list.",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "description": "What the task is — a short imperative line."
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "pending (not started) | in_progress (now) | completed (done).",
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed"
+                    ]
+                  }
+                },
+                "required": [
+                  "content",
+                  "status"
+                ]
+              }
+            }
+          },
+          "required": [
+            "todos"
+          ]
+        }
+      }
+    },
+    "update_goal": {
+      "name": "update_goal",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "update_goal",
+        "description": "Update the current goal.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "goal_id": {
+              "type": "string",
+              "description": "Exact id returned by get_goal."
+            },
+            "revision": {
+              "type": "number",
+              "description": "Exact positive revision returned by get_goal."
+            },
+            "action": {
+              "type": "string",
+              "description": "edit, pause, and resume require a direct top-level human request. complete and blocked are also allowed during an automatic continuation of this goal; blocked is rejected before the configured minimum round count.",
+              "enum": [
+                "edit",
+                "pause",
+                "resume",
+                "complete",
+                "blocked"
+              ]
+            },
+            "objective": {
+              "type": "string",
+              "description": "Replacement objective; valid only with action edit."
+            },
+            "max_goal_rounds": {
+              "type": "number",
+              "description": "Replacement cap; valid only with action edit."
+            },
+            "blocked_reason": {
+              "type": "string",
+              "description": "Required only with action blocked: the concrete condition that persisted across rounds and blocks progress."
+            }
+          },
+          "required": [
+            "goal_id",
+            "revision",
+            "action"
+          ]
+        }
+      }
+    },
+    "wait_agent": {
+      "name": "wait_agent",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "wait_agent",
+        "description": "Wait for the next teammate status, message, or shared-task change after this call starts. This never wakes inactive members and returns noProgress immediately when no other member is running or provisioning. Re-list after wakeup or timeout instead of polling.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "timeout_ms": {
+              "type": "integer",
+              "description": "Wait duration in milliseconds, from 10000 through 3600000. Defaults to 30000."
+            }
+          }
+        }
+      }
+    },
+    "web_fetch": {
+      "name": "web_fetch",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "web_fetch",
+        "description": "Fetch the content of a specific HTTP(S) URL and return it decoded to text.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The HTTP(S) URL to fetch."
+            }
+          },
+          "required": [
+            "url"
+          ]
+        }
+      }
+    },
+    "web_search": {
+      "name": "web_search",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "web_search",
+        "description": "Search the web for current information. Returns an optional summary answer and a list of source URLs.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "queries": {
+              "type": "array",
+              "description": "1–4 search queries; their results are merged.",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "queries"
+          ]
+        }
+      }
+    },
+    "workflow": {
+      "name": "workflow",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "workflow",
+        "description": "Run a JavaScript workflow script that orchestrates subagents at scale. Use this for work that fans out across many independent pieces — an audit over many files, a migration, multi-angle research, adversarial verification of findings — where you write the orchestration as a script instead of delegating turn by turn.\n\nScript-body hooks:\n- `agent(prompt, opts?): Promise<any>` — run one subagent to completion. Without `opts.schema` it resolves to the child's final text; with `opts.schema` (an object-rooted JSON Schema using ONLY type/properties/required/additionalProperties/items/enum/const/oneOf) it resolves to the validated object. Resolves `null` when the child fails (filter with `.filter(Boolean)`). Other opts: `label` (display), `phase` (progress group), and independent `provider`/`model` LLM target overrides.\n- `pipeline(items, ...stages): Promise<any[]>` — run each item through the stages independently with NO barrier between stages (prefer this for multi-stage work). Each stage receives `(prev, item, index)`. A stage throw drops that ITEM to `null` and skips its remaining stages.\n- `parallel(thunks): Promise<any[]>` — run zero-argument functions concurrently and await ALL of them (a barrier; use only when a stage genuinely needs every prior result together). A throwing thunk resolves to `null`.\n- `phase(title)` — start a progress phase; `log(message)` — narrate progress; `args` — the tool call's `args` input, verbatim.\n\nMisused hooks (bad arguments, unknown options, unsupported schemas, tripped caps) end the whole script instead of producing `null`. The script has no filesystem, network, timer, or Node.js APIs; the agents do the work.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "script": {
+              "type": "string",
+              "description": "The plain JavaScript body, not TypeScript and without an `export const meta` statement; top-level await is allowed. End with `return <value>`; the JSON-serializable value is this tool's result."
+            },
+            "meta": {
+              "type": "object",
+              "description": "The workflow identity as plain JSON, not code.",
+              "additionalProperties": true,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Short kebab-case workflow name."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "One-line description of what the workflow does."
+                },
+                "whenToUse": {
+                  "type": "string",
+                  "description": "Optional guidance on when this workflow applies."
+                },
+                "phases": {
+                  "type": "array",
+                  "description": "Optional phase declarations matched by phase() calls.",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "The phase title phase() calls match by exact string."
+                      },
+                      "detail": {
+                        "type": "string",
+                        "description": "Optional one-line description of the phase."
+                      },
+                      "provider": {
+                        "type": "string",
+                        "description": "Optional provider override this phase is expected to use."
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "Optional model override this phase is expected to use."
+                      }
+                    },
+                    "required": [
+                      "title"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "description"
+              ]
+            },
+            "args": {
+              "type": "object",
+              "description": "Optional JSON input exposed to the script as the `args` global (wrap a bare list as a field, e.g. {\"files\": [...]}).",
+              "additionalProperties": true
+            },
+            "run_in_background": {
+              "type": "boolean",
+              "description": "Run as a background job: return a job id immediately instead of waiting; the return value arrives with the completion notice."
+            }
+          },
+          "required": [
+            "script",
+            "meta"
+          ]
+        }
+      }
+    },
+    "working_directory": {
+      "name": "working_directory",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "working_directory",
+        "description": "Read the current working directory, or change it with cd. Relative paths use the current directory. Existing shells and running processes keep their own directories.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "cd": {
+              "type": "string",
+              "description": "Existing directory to enter. Omit to read the current directory."
+            }
+          }
+        }
+      }
+    },
+    "write": {
+      "name": "write",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "name": "write",
+        "description": "Create or fully replace a UTF-8 text file.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to write, resolved by the filesystem backend. Provide `file_path` before `content` in the arguments."
+            },
+            "content": {
+              "type": "string",
+              "description": "Full UTF-8 text content to write."
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "The narrowest wider sandbox mode for a one-shot retry of the exact operation the sandbox just denied; the retry asks the user for approval.",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string",
+              "description": "Required with sandbox_permissions: one sentence for the user explaining why this exact file operation needs the wider access. Use the language of the user’s current request."
+            }
+          },
+          "required": [
+            "file_path",
+            "content"
+          ]
+        }
+      }
+    }
+  },
+  "reasoning_restored_for_messages": [],
+  "response_streaming": "buffered-protocol-translation",
+  "credentials_saved": false
+}

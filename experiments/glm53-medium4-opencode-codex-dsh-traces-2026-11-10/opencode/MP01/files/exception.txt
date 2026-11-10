@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/runtime/harbor_agents/cli_agents.py", line 182, in run
+    await super().run(instruction, environment, context)
+  File "local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py", line 186, in wrapper
+    return await fn(self, instruction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/opencode.py", line 616, in run
+    await self.exec_as_agent(
+  File "local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/runtime/harbor_agents/glm_opencode.py", line 65, in exec_as_agent
+    return await super().exec_as_agent(environment,command=command,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py", line 1032, in exec_as_agent
+    return await self._exec(
+           ^^^^^^^^^^^^^^^^^
+  File "local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py", line 999, in _exec
+    raise self._classify_exec_error(command, result)
+harbor.agents.installed.base.NonZeroAgentExitCodeError: Command failed (exit 1): python3 /tmp/opencode_process.py eyJhcmdzIjogWyJvcGVuY29kZSIsICItLW1vZGVsPWxvY2FsL2dsbS01LjMiLCAicnVuIiwgIi0tZm9ybWF0PWpzb24iLCAiLS10aGlua2luZyIsICItLWRhbmdlcm91c2x5LXNraXAtcGVybWlzc2lvbnMiLCAiLS0iLCAiIyBcdTUzZWZcdTUxNzNcdTk1ZWRcdTYyMTBcdTU0NThcdTc2ODRcdTc4NmMvXHU4ZjZmXHU1MmEwXHU2NzQzXHU2Mjk1XHU3OTY4XG5cblx1NGZlZVx1NTkwZFx1N2VjNFx1NTQwOFx1NGYzMFx1OGJhMVx1NTY2OFx1NzY4NFx1NTE3M1x1OTVlZFx1NjIxMFx1NTQ1OFx1MzAwMVx1NjgzN1x1NjcyY1x1Njc0M1x1OTFjZFx1OGY2Y1x1NTNkMVx1NGUwZVx1NjI5NVx1Nzk2OFx1NWJmOVx1OWY1MFx1ZmYwY1x1NTQwY1x1NjVmNlx1ODk4MVx1NmM0Mlx1Nzg2Y1x1NjI5NVx1Nzk2OFx1NTQ4Y1x1OGY2Zlx1NjI5NVx1Nzk2OFx1OTBmZFx1NTNlZlx1NGY3Zlx1NzUyOFx1MzAwMlx1OTYwNVx1OGJmYlx1NWRlNVx1NGY1Y1x1NTMzYVJFQURNRS5tZFx1NTQ4Y1x1NTQwNFx1N2VjNFx1NGVmNmNvbnRyYWN0Lmpzb25cdWZmMGNcdTg4NjVcdTlmNTBcdTdmM2FcdTU5MzFQeXRob25cdTViOWVcdTczYjBcdTVlNzZcdTRlY2VcdThmOTNcdTUxNjVcdTkxY2RcdTY1YjBcdThiYTFcdTdiOTdcdTUxNjhcdTkwZThcdTdlYzRcdTRlZjZcdTdlZDNcdTY3OWNcdTRlMGVcdTY3MDBcdTdlYzhcdTYyYTVcdTU0NGFcdTMwMDJcdTRlYzVcdTRmN2ZcdTc1MjhcdTY4MDdcdTUxYzZcdTVlOTNcdWZmMGNcdTRmZGRcdTYzMDFcdTdhMzNcdTViOWFcdTYzYTVcdTUzZTNcdWZmMGNcdTRlMGRcdTVmOTdcdTc4NmNcdTdmMTZcdTc4MDFcdTY4MzdcdTRmOGJcdThmOTNcdTUxZmFcdTMwMDJcblxuXHU1YjllXHU3M2IwXHU1NDA0XHU3ZWM0XHU0ZWY2bW9kZWwucHlcdTMwMDF0cmFuc2Zvcm0ucHlcdTMwMDFyZW5kZXIucHlcdTRlZTVcdTUzY2FydW5fYWxsLnB5XHUzMDAxZmluYWxfcmVwb3J0LnB5XHVmZjFiXHU2ODM5XHU2MzZlXHU1YjllXHU5NjQ1XHU2NTg3XHU0ZWY2XHU2M2E1XHU1M2UzXHU3ODZlXHU1YjlhXHU2MjY3XHU4ODRjXHU2NzYxXHU0ZWY2XHUzMDAyXHU1YjhjXHU2MjEwXHU1NDBlXHU4ZmQwXHU4ODRjcHl0aG9uMyBjaGVjay5weVx1MzAwMlx1NGUwZFx1NWY5N1x1NGZlZVx1NjUzOVx1NGVmYlx1NTJhMVx1OGJmNFx1NjYwZVx1MzAwMVJFQURNRVx1MzAwMVx1OGY5M1x1NTE2NVx1MzAwMVx1NTk1MVx1N2VhNlx1MzAwMVx1NjhjMFx1NjdlNVx1NTY2OFx1MzAwMWludGVncmF0ZS5weVx1MzAwMVx1N2EzM1x1NWI5YXBhcnNlclx1NTNjYVx1OTAwMlx1NzUyOFx1NzY4NG1hdGVyaWFsaXplLnB5XHUzMDAyXHU1MTZjXHU1ZjAwXHU2OGMwXHU2N2U1XHU0ZWM1XHU0ZTNhXHU1MTkyXHU3MGRmXHVmZjBjXHU2YjYzXHU1ZjBmXHU4YmM0XHU1MjA2XHU1NzI4XHU1ZGU1XHU0ZjVjXHU1MzNhXHU1OTE2XHU4ZmRiXHU4ODRjXHUzMDAyXG4iXSwgImN3ZCI6ICIvYXBwIiwgImxvZyI6ICIvbG9ncy9hZ2VudC9vcGVuY29kZS50eHQiLCAib3V0cHV0X3Rva2VucyI6IDY1NTM2LCAidG9rZW5fc2NoZW1hIjogIm9wZW5jb2RlLTEuMTktc3BsaXQiLCAidGltZW91dF9zZWMiOiAzNjAwfQ==
+stdout: None
+stderr: None
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/single_step.py", line 76, in _run_agent
+    await self._run_agent_phase(
+  File "local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 651, in _run_agent_phase
+    await asyncio.wait_for(
+  File "local-artifacts://wsl-home/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/glm_agents.py", line 33, in run
+    return await super().run(*args,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/runtime/harbor_agents/cli_agents.py", line 196, in run
+    raise OpenCodeTerminalStateError(
+harbor_agents.cli_agents.OpenCodeTerminalStateError: OpenCode final state is incomplete or runtime failed; inspect opencode-termination.json

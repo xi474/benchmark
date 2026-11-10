@@ -1,0 +1,134 @@
+{
+  "id": "eba4ff3f-b7ef-4973-aa65-31535ca9976e",
+  "task_name": "reward-v2/medium-MP01",
+  "trial_name": "reward-v2-medium-MP01__Z37BeDf",
+  "trial_uri": "file://local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/jobs/glm53low-r3-opencode-medium-MP01-repair/reward-v2-medium-MP01__Z37BeDf",
+  "task_id": {
+    "path": "local-artifacts://wsl-runs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/tasks/five/reward-v2-medium-MP01"
+  },
+  "source": null,
+  "task_checksum": "0c7758bde6fe20bef9772c9fc9000971feedeeaeb0e157a6e642e52cf984d547",
+  "config": {
+    "task": {
+      "path": "local-artifacts://wsl-runs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/tasks/five/reward-v2-medium-MP01",
+      "git_url": null,
+      "git_commit_id": null,
+      "name": null,
+      "ref": null,
+      "overwrite": false,
+      "download_dir": null,
+      "source": null
+    },
+    "trial_name": "reward-v2-medium-MP01__Z37BeDf",
+    "trials_dir": "local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/jobs/glm53low-r3-opencode-medium-MP01-repair",
+    "install_only": false,
+    "timeout_multiplier": 1.0,
+    "agent_timeout_multiplier": null,
+    "verifier_timeout_multiplier": null,
+    "agent_setup_timeout_multiplier": 6.0,
+    "environment_build_timeout_multiplier": null,
+    "agent": {
+      "name": null,
+      "import_path": "glm_agents:BatchOpenCode",
+      "model_name": "local/glm-5.3",
+      "n_concurrent": null,
+      "concurrency_group": null,
+      "skills": [],
+      "override_timeout_sec": null,
+      "override_setup_timeout_sec": 1800.0,
+      "max_timeout_sec": null,
+      "resume_trajectory": false,
+      "load_trajectory": null,
+      "extra_allowed_hosts": [],
+      "kwargs": {},
+      "mcp_servers": []
+    },
+    "user_agent": null,
+    "environment": {
+      "type": "docker",
+      "import_path": null,
+      "force_build": false,
+      "delete": true,
+      "stream": false,
+      "cpu_enforcement_policy": "auto",
+      "memory_enforcement_policy": "auto",
+      "override_cpus": null,
+      "override_memory_mb": null,
+      "override_storage_mb": null,
+      "override_gpus": null,
+      "override_tpu": null,
+      "mounts": null,
+      "extra_docker_compose": [],
+      "env": {
+        "DB_TYPE": "duckdb"
+      },
+      "kwargs": {},
+      "extra_allowed_hosts": []
+    },
+    "verifier": {
+      "override_timeout_sec": null,
+      "max_timeout_sec": null,
+      "disable": false
+    },
+    "artifacts": [],
+    "extra_instruction_paths": [],
+    "extra_instructions": [],
+    "job_id": "30899222-ea89-43c4-ad1d-491b1a0b9fcd",
+    "source_trial": null
+  },
+  "agent_info": {
+    "name": "opencode",
+    "version": "1.19.4",
+    "model_info": {
+      "name": "glm-5.3",
+      "provider": "local"
+    }
+  },
+  "agent_result": {
+    "n_input_tokens": 729926,
+    "n_cache_tokens": 587968,
+    "n_output_tokens": 11569,
+    "cost_usd": null,
+    "model_usage": {
+      "local/glm-5.3": {
+        "n_input_tokens": 729926,
+        "n_cache_tokens": 587968,
+        "n_output_tokens": 11569,
+        "cost_usd": null
+      }
+    },
+    "rollout_details": null,
+    "metadata": null
+  },
+  "verifier_result": {
+    "rewards": {
+      "reward": 2.0
+    }
+  },
+  "verifier_environment_mode": "separate",
+  "exception_info": {
+    "exception_type": "OpenCodeTerminalStateError",
+    "exception_message": "OpenCode final state is incomplete or runtime failed; inspect opencode-termination.json",
+    "exception_traceback": "Traceback (most recent call last):\n  File \"local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/runtime/harbor_agents/cli_agents.py\", line 182, in run\n    await super().run(instruction, environment, context)\n  File \"local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 186, in wrapper\n    return await fn(self, instruction, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/opencode.py\", line 616, in run\n    await self.exec_as_agent(\n  File \"local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/runtime/harbor_agents/glm_opencode.py\", line 65, in exec_as_agent\n    return await super().exec_as_agent(environment,command=command,**kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 1032, in exec_as_agent\n    return await self._exec(\n           ^^^^^^^^^^^^^^^^^\n  File \"local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 999, in _exec\n    raise self._classify_exec_error(command, result)\nharbor.agents.installed.base.NonZeroAgentExitCodeError: Command failed (exit 1): python3 /tmp/opencode_process.py eyJhcmdzIjogWyJvcGVuY29kZSIsICItLW1vZGVsPWxvY2FsL2dsbS01LjMiLCAicnVuIiwgIi0tZm9ybWF0PWpzb24iLCAiLS10aGlua2luZyIsICItLWRhbmdlcm91c2x5LXNraXAtcGVybWlzc2lvbnMiLCAiLS0iLCAiIyBcdTUzZWZcdTUxNzNcdTk1ZWRcdTYyMTBcdTU0NThcdTc2ODRcdTc4NmMvXHU4ZjZmXHU1MmEwXHU2NzQzXHU2Mjk1XHU3OTY4XG5cblx1NGZlZVx1NTkwZFx1N2VjNFx1NTQwOFx1NGYzMFx1OGJhMVx1NTY2OFx1NzY4NFx1NTE3M1x1OTVlZFx1NjIxMFx1NTQ1OFx1MzAwMVx1NjgzN1x1NjcyY1x1Njc0M1x1OTFjZFx1OGY2Y1x1NTNkMVx1NGUwZVx1NjI5NVx1Nzk2OFx1NWJmOVx1OWY1MFx1ZmYwY1x1NTQwY1x1NjVmNlx1ODk4MVx1NmM0Mlx1Nzg2Y1x1NjI5NVx1Nzk2OFx1NTQ4Y1x1OGY2Zlx1NjI5NVx1Nzk2OFx1OTBmZFx1NTNlZlx1NGY3Zlx1NzUyOFx1MzAwMlx1OTYwNVx1OGJmYlx1NWRlNVx1NGY1Y1x1NTMzYVJFQURNRS5tZFx1NTQ4Y1x1NTQwNFx1N2VjNFx1NGVmNmNvbnRyYWN0Lmpzb25cdWZmMGNcdTg4NjVcdTlmNTBcdTdmM2FcdTU5MzFQeXRob25cdTViOWVcdTczYjBcdTVlNzZcdTRlY2VcdThmOTNcdTUxNjVcdTkxY2RcdTY1YjBcdThiYTFcdTdiOTdcdTUxNjhcdTkwZThcdTdlYzRcdTRlZjZcdTdlZDNcdTY3OWNcdTRlMGVcdTY3MDBcdTdlYzhcdTYyYTVcdTU0NGFcdTMwMDJcdTRlYzVcdTRmN2ZcdTc1MjhcdTY4MDdcdTUxYzZcdTVlOTNcdWZmMGNcdTRmZGRcdTYzMDFcdTdhMzNcdTViOWFcdTYzYTVcdTUzZTNcdWZmMGNcdTRlMGRcdTVmOTdcdTc4NmNcdTdmMTZcdTc4MDFcdTY4MzdcdTRmOGJcdThmOTNcdTUxZmFcdTMwMDJcblxuXHU1YjllXHU3M2IwXHU1NDA0XHU3ZWM0XHU0ZWY2bW9kZWwucHlcdTMwMDF0cmFuc2Zvcm0ucHlcdTMwMDFyZW5kZXIucHlcdTRlZTVcdTUzY2FydW5fYWxsLnB5XHUzMDAxZmluYWxfcmVwb3J0LnB5XHVmZjFiXHU2ODM5XHU2MzZlXHU1YjllXHU5NjQ1XHU2NTg3XHU0ZWY2XHU2M2E1XHU1M2UzXHU3ODZlXHU1YjlhXHU2MjY3XHU4ODRjXHU2NzYxXHU0ZWY2XHUzMDAyXHU1YjhjXHU2MjEwXHU1NDBlXHU4ZmQwXHU4ODRjcHl0aG9uMyBjaGVjay5weVx1MzAwMlx1NGUwZFx1NWY5N1x1NGZlZVx1NjUzOVx1NGVmYlx1NTJhMVx1OGJmNFx1NjYwZVx1MzAwMVJFQURNRVx1MzAwMVx1OGY5M1x1NTE2NVx1MzAwMVx1NTk1MVx1N2VhNlx1MzAwMVx1NjhjMFx1NjdlNVx1NTY2OFx1MzAwMWludGVncmF0ZS5weVx1MzAwMVx1N2EzM1x1NWI5YXBhcnNlclx1NTNjYVx1OTAwMlx1NzUyOFx1NzY4NG1hdGVyaWFsaXplLnB5XHUzMDAyXHU1MTZjXHU1ZjAwXHU2OGMwXHU2N2U1XHU0ZWM1XHU0ZTNhXHU1MTkyXHU3MGRmXHVmZjBjXHU2YjYzXHU1ZjBmXHU4YmM0XHU1MjA2XHU1NzI4XHU1ZGU1XHU0ZjVjXHU1MzNhXHU1OTE2XHU4ZmRiXHU4ODRjXHUzMDAyXG4iXSwgImN3ZCI6ICIvYXBwIiwgImxvZyI6ICIvbG9ncy9hZ2VudC9vcGVuY29kZS50eHQiLCAib3V0cHV0X3Rva2VucyI6IDY1NTM2LCAidG9rZW5fc2NoZW1hIjogIm9wZW5jb2RlLTEuMTktc3BsaXQiLCAidGltZW91dF9zZWMiOiAzNjAwfQ==\nstdout: None\nstderr: None\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/single_step.py\", line 76, in _run_agent\n    await self._run_agent_phase(\n  File \"local-artifacts://wsl-home/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 651, in _run_agent_phase\n    await asyncio.wait_for(\n  File \"local-artifacts://wsl-home/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/glm_agents.py\", line 33, in run\n    return await super().run(*args,**kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"local-artifacts://project/outputs/opencode-glm53-low-remaining7-20261110-r3-cwd-recovery/runtime/harbor_agents/cli_agents.py\", line 196, in run\n    raise OpenCodeTerminalStateError(\nharbor_agents.cli_agents.OpenCodeTerminalStateError: OpenCode final state is incomplete or runtime failed; inspect opencode-termination.json\n",
+    "occurred_at": "2026-11-10T06:35:25.816107Z"
+  },
+  "started_at": "2026-11-10T06:22:20.438702Z",
+  "finished_at": "2026-11-10T06:35:45.576011Z",
+  "environment_setup": {
+    "started_at": "2026-11-10T06:22:20.466106Z",
+    "finished_at": "2026-11-10T06:22:26.152997Z"
+  },
+  "agent_setup": {
+    "started_at": "2026-11-10T06:22:26.153044Z",
+    "finished_at": "2026-11-10T06:22:27.874044Z"
+  },
+  "agent_execution": {
+    "started_at": "2026-11-10T06:22:27.874209Z",
+    "finished_at": "2026-11-10T06:35:25.793026Z"
+  },
+  "verifier": {
+    "started_at": "2026-11-10T06:35:32.861270Z",
+    "finished_at": "2026-11-10T06:35:45.575997Z"
+  },
+  "step_results": null
+}

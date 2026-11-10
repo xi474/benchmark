@@ -1,0 +1,2186 @@
+{
+  "schema": "actual-model-request/1",
+  "request_id": "e2a46f8ce4c74643986c6cfde14b441c",
+  "trial_id": "glm53low-r2-codex-medium-MP02",
+  "protocol": "responses",
+  "ingress": {
+    "request_sha256": "8db8119d0f8c13a8e805fbebc619d74b3fe0afbeae5ad03c8e05090b3f1376ec",
+    "model": "glm-5.3",
+    "thinking": null,
+    "reasoning_effort": null,
+    "max_tokens": null,
+    "tools": [
+      {
+        "type": "function",
+        "name": "exec_command",
+        "description": "Runs a command in a PTY, returning output or a session ID for ongoing interaction.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "cmd": {
+              "type": "string",
+              "description": "Shell command to execute."
+            },
+            "justification": {
+              "type": "string",
+              "description": "User-facing approval question for `require_escalated`; omit otherwise."
+            },
+            "login": {
+              "type": "boolean",
+              "description": "True runs the shell with -l/-i semantics; false disables them. Defaults to true."
+            },
+            "max_output_tokens": {
+              "type": "number",
+              "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+            },
+            "prefix_rule": {
+              "type": "array",
+              "description": "Reusable approval prefix for `cmd`, only with `sandbox_permissions: \"require_escalated\"`; for example [\"git\", \"pull\"].",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "Per-command sandbox override. Defaults to `use_default`; use `require_escalated` for unsandboxed execution.",
+              "enum": [
+                "use_default",
+                "require_escalated"
+              ]
+            },
+            "shell": {
+              "type": "string",
+              "description": "Shell binary to launch. Defaults to the user's default shell."
+            },
+            "tty": {
+              "type": "boolean",
+              "description": "True allocates a PTY for the command; false or omitted uses plain pipes."
+            },
+            "workdir": {
+              "type": "string",
+              "description": "Working directory for the command. Defaults to the turn cwd."
+            },
+            "yield_time_ms": {
+              "type": "number",
+              "description": "Wait before yielding output. Defaults to 10000 ms; effective range is 250-30000 ms."
+            }
+          },
+          "required": [
+            "cmd"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "type": "function",
+        "name": "write_stdin",
+        "description": "Writes characters to an existing unified exec session and returns recent output.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "chars": {
+              "type": "string",
+              "description": "Bytes to write to stdin. Defaults to empty, which polls without writing."
+            },
+            "max_output_tokens": {
+              "type": "number",
+              "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+            },
+            "session_id": {
+              "type": "number",
+              "description": "Identifier of the running unified exec session."
+            },
+            "yield_time_ms": {
+              "type": "number",
+              "description": "Wait before yielding output. Non-empty writes default to 250 ms and cap at 30000 ms; empty polls wait 5000-300000 ms by default."
+            }
+          },
+          "required": [
+            "session_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "type": "function",
+        "name": "request_user_input",
+        "description": "Request user input for one to three short questions and wait for the response. This tool is only available in Plan mode.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "questions": {
+              "type": "array",
+              "description": "Questions to show the user. Prefer 1 and do not exceed 3",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "string",
+                    "description": "Short header label shown in the UI (12 or fewer chars)."
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "Stable identifier for mapping answers (snake_case)."
+                  },
+                  "options": {
+                    "type": "array",
+                    "description": "Provide 2-3 mutually exclusive choices. Put the recommended option first and suffix its label with \"(Recommended)\". Do not include an \"Other\" option in this list; the client will add a free-form \"Other\" option automatically.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string",
+                          "description": "One short sentence explaining impact/tradeoff if selected."
+                        },
+                        "label": {
+                          "type": "string",
+                          "description": "User-facing label (1-5 words)."
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "question": {
+                    "type": "string",
+                    "description": "Single-sentence prompt shown to the user."
+                  }
+                },
+                "required": [
+                  "id",
+                  "header",
+                  "question",
+                  "options"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "questions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "type": "custom",
+        "name": "apply_patch",
+        "description": "The `apply_patch` tool can be used to edit files. This is a FREEFORM tool, so do not wrap the patch in JSON.",
+        "format": {
+          "type": "grammar",
+          "syntax": "lark",
+          "definition": "start: begin_patch hunk+ end_patch\nbegin_patch: \"*** Begin Patch\" LF\nend_patch: \"*** End Patch\" LF?\n\nhunk: add_hunk | delete_hunk | update_hunk\nadd_hunk: \"*** Add File: \" filename LF add_line+\ndelete_hunk: \"*** Delete File: \" filename LF\nupdate_hunk: \"*** Update File: \" filename LF change_move? change?\n\nfilename: /(.+)/\nadd_line: \"+\" /(.*)/ LF -> line\n\nchange_move: \"*** Move to: \" filename LF\nchange: (change_context | change_line)+ eof_line?\nchange_context: (\"@@\" | \"@@ \" /(.+)/) LF\nchange_line: (\"+\" | \"-\" | \" \") /(.*)/ LF\neof_line: \"*** End of File\" LF\n\n%import common.LF\n"
+        }
+      },
+      {
+        "type": "function",
+        "name": "view_image",
+        "description": "View a local image file from the filesystem when visual inspection is needed. Use this for images already available on disk.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Local filesystem path to an image file."
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "type": "namespace",
+        "name": "collaboration",
+        "description": "Tools for spawning and managing sub-agents.",
+        "tools": [
+          {
+            "type": "function",
+            "name": "followup_task",
+            "description": "Send a follow-up task to an existing non-root target agent and trigger a turn if it is idle. If the target is already running, deliver the task promptly at message boundaries while sampling, or after the pending tool call completes.",
+            "strict": false,
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Message text to send to the target agent.",
+                  "encrypted": true
+                },
+                "target": {
+                  "type": "string",
+                  "description": "Agent id or canonical task name to send a follow-up task to (from spawn_agent)."
+                }
+              },
+              "required": [
+                "target",
+                "message"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "interrupt_agent",
+            "description": "Interrupt an agent's current turn, if any, and return its previous status. The agent remains available for messages and follow-up tasks.",
+            "strict": false,
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "target": {
+                  "type": "string",
+                  "description": "Agent id or canonical task name to interrupt (from spawn_agent)."
+                }
+              },
+              "required": [
+                "target"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "list_agents",
+            "description": "List live agents in the current root thread tree. Optionally filter by task-path prefix.",
+            "strict": false,
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path_prefix": {
+                  "type": "string",
+                  "description": "Task-path prefix filter without a trailing slash. Omit to list all live agents."
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "send_message",
+            "description": "Send a message to an existing agent. The message will be delivered promptly. Does not trigger a new turn.",
+            "strict": false,
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Message text to queue on the target agent.",
+                  "encrypted": true
+                },
+                "target": {
+                  "type": "string",
+                  "description": "Relative or canonical task name to message (from spawn_agent)."
+                }
+              },
+              "required": [
+                "target",
+                "message"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "spawn_agent",
+            "description": "\n        No picker-visible model overrides are currently loaded.\n        Spawns an agent to work on the specified task. If your current task is `/root/task1` and you spawn_agent with task_name \"task_3\" the agent will have canonical task name `/root/task1/task_3`.\nYou are then able to refer to this agent as `task_3` or `/root/task1/task_3` interchangeably. However an agent `/root/task2/task_3` would only be able to communicate with this agent via its canonical name `/root/task1/task_3`.\nThe spawned agent will have the same tools as you and the ability to spawn its own subagents.\n\nIt will be able to send you and other running agents messages, and its final answer will be provided to you when it finishes.\nThe new agent's canonical task name will be provided to it along with the message.\n\nNote that passing `fork_turns=\"none\"` will not pass any surrounding context to the spawned subagent, which may cause the agent to lack the context it needs to complete its task, whereas `fork_turns=\"all\"` will provide the subagent with all surrounding context.",
+            "strict": false,
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "fork_turns": {
+                  "type": "string",
+                  "description": "Parent history to inherit. Defaults to `all`; use `none` to start without parent history. Only `all` and `none` are supported."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "Initial plain-text task for the new agent.",
+                  "encrypted": true
+                },
+                "model": {
+                  "type": "string",
+                  "description": "Model override for the new agent. Omit unless an explicit override is needed."
+                },
+                "reasoning_effort": {
+                  "type": "string",
+                  "description": "Reasoning effort override for the new agent. Omit to inherit the parent effort."
+                },
+                "task_name": {
+                  "type": "string",
+                  "description": "Task name for the new agent. Use lowercase letters, digits, and underscores."
+                }
+              },
+              "required": [
+                "task_name",
+                "message"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "wait_agent",
+            "description": "Wait for a mailbox update from any live agent, including queued messages and final-status notifications. The wait also ends early when new user input is steered into the active turn. Does not return the content; returns either a summary of which agents have updates (if any), an interruption summary for steered input, or a timeout summary if no activity arrives before the deadline.",
+            "strict": false,
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timeout_ms": {
+                  "type": "number",
+                  "description": "Timeout in milliseconds. Defaults to 30000, min 10000, max 3600000."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ]
+      },
+      {
+        "type": "function",
+        "name": "get_goal",
+        "description": "Get the current goal for this thread, including status, budgets, token and elapsed-time usage, and remaining token budget.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      {
+        "type": "function",
+        "name": "create_goal",
+        "description": "Create a goal only when explicitly requested by the user or system/developer instructions; do not infer goals from ordinary tasks.\nSet token_budget only when an explicit token budget is requested. Fails if an unfinished goal exists; use update_goal only for status.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "objective": {
+              "type": "string",
+              "description": "Required. The concrete objective to start pursuing. This starts a new active goal when no goal exists or replaces the current goal when it is complete."
+            },
+            "token_budget": {
+              "type": "integer",
+              "description": "Positive token budget for the new goal. Omit unless explicitly requested."
+            }
+          },
+          "required": [
+            "objective"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "type": "function",
+        "name": "update_goal",
+        "description": "Update the existing goal.\nSet status to `paused` only at the user's explicit request to pause this goal, never on your own initiative. Ask if unclear; a later resume revokes that request. Report the returned status and stop goal work. Budget limits take precedence over pausing.\nSet status to `complete` only when the objective has actually been achieved and no required work remains.\nSet status to `blocked` only when the same blocking condition has repeated for at least three consecutive goal turns, counting the original/user-triggered turn and any automatic continuations, and the agent cannot make meaningful progress without user input or an external-state change.\nIf the user resumes a goal that was previously marked `blocked`, treat the resumed run as a fresh blocked audit. If the same blocking condition then repeats for at least three consecutive resumed goal turns, set status to `blocked` again.\nOnce the blocked threshold is satisfied, do not keep reporting that you are still blocked while leaving the goal active; set status to `blocked`.\nDo not use `blocked` merely because the work is hard, slow, uncertain, incomplete, or would benefit from clarification.\nDo not mark a goal complete merely because its budget is nearly exhausted or because you are stopping work.\nYou cannot use this tool to resume, budget-limit, or usage-limit a goal; those status changes are controlled by the user or system.\nWhen marking a budgeted goal achieved with status `complete`, report the final token usage from the tool result to the user.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Required. `paused` requires an explicit user request. Set to `complete` only when the objective is achieved and no required work remains. Set to `blocked` only after the same blocking condition has recurred for at least three consecutive goal turns and the agent is at an impasse. After a previously blocked goal is resumed, the resumed run starts a fresh blocked audit.",
+              "enum": [
+                "complete",
+                "blocked",
+                "paused"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "tools_sha256": "2e041f1945670060a9be0f78e1315f1d7326a9ecbc6e1e84c114f8db2eff4f85",
+    "tools_status": "observed",
+    "messages_sha256": "fd305dc19a2a50897d755d69cf3041949b7e26a1aae7a3511319b07881591165",
+    "message_count": 69,
+    "message_metadata": [
+      {
+        "role": "developer",
+        "type": "message",
+        "sha256": "c8e77b96627c8f43ca613f41497629ddaadd399b08d8e74ec02e88a67690511c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "developer",
+        "type": "message",
+        "sha256": "3e1178bd8f2d0ab0359f3aba0a667f74544497a96ac10b1101a6c8ee9108ce7d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "developer",
+        "type": "message",
+        "sha256": "4757d6f8ccb8bea2c82f0ca0d55c6341a8022cc12b1a17c9f20573973b93467f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "developer",
+        "type": "message",
+        "sha256": "0e0a514bc7eb8b807ec3b780c4080298c1a4b87d281671c16b153a0d82cc9730",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": "message",
+        "sha256": "2437e4125a76c01509075e9acced362efb1c54eef257cd7c07e4f18375d1e83f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": "message",
+        "sha256": "43ea8c44480bdb7f2bce29b4f41516c47ffdfa32e4d0b936954b376f96ff4d2e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "f61960bb1bef890d71aa8a88c2de787a4cd9451853fd5c5f7f2140bd3505448f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "36de8304e4fea24830af5f661087d5d01fb193332a417effb875b14a82bda67b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": "message",
+        "sha256": "5da00c167fdcfbec73a72976935ffd5acf2e154e8cd28a83252254d73fb307a7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "b88a9bf05b85ad78ccdd5c190300d3a57a0712b955e2711e25a53165b5335a55",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "422103d6ef7b926feedafa4a2c8b7cb34ea27f5679992526a1304369722e3a0b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "1b20e69e0ee35612c57ff5e65f6e2d777e7cb6e26dc6508e3262b679101e2621",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "884716f293db49eafc40ccf250655771a9a09f145796c79d2cff16ddc6e9cbb0",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "b05576ea2fe6c5572d8253663480e6f4b6749a2b9d0de5bda12cb823f5486eaf",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "503a1e7a943aca02fdd6fb6d48153129d37af074570f78ff31554c8a64bbdc25",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "dc5d2fe897b3ff7a96fbc5db71e860c8d86c5bc6c751d3a0feab9cb18ffc1b83",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "42f54bc3a02fdff583f14063e837a588e0abaf85147f3238da7db55729b83bc3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "adde700d50fb2f83c17e9113acbfde3234d4b95cdf98f425d3ea90181dae45b4",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": "message",
+        "sha256": "cd17fca256ff6141fbd8940e95f1a354d4e049d5cf3655849767a2debd4936e4",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "a00663a9b964e6fc1b0f779a4b14c3238de46476f7cae450c901c7b5176a3633",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "deb2f8baef67646962704273a268397cb1be84e061128de57e6d5c2b17198c83",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "fe16ee196693362d9771fef8e06867aee110cd006d1c899628e90f2aef9f5e18",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": "message",
+        "sha256": "474781114d6fee3dca45d3c0efc69586e50b7d0785b5a17fb135499cd0391426",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "16ed7ff7a937256c13aaf9e77690ee394aea808a17919e6826aa684c5d27c376",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "e387cb5d2be1deef8eec200cb3fc401fecee937f4dd3b3827f3c944f9b2314e8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "64d5fc7c9309cef41a5edd44fe216cd38df9880cab657b506e4a4eeab9e9a763",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "9a23ad578b898aa5cb4d891a88b2a7efa49bc1938debeb96614312d11d1325ea",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "488704e36ce2215028cfbfab28a64ed95ab500c34580c8d388f0cd4aba3b671f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "133c0b82351d110a394e69e006d7210d7b3c717285ec4859ea764cf492b38ef6",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "482f0e15b7b86716ab8241a4ffa05b79313e897cd4bfa6d90887d7c5aeeb3620",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "0defbfbeb078c05bb6300be1435470545fc94e1ab1739f740cffbbeaa73ab5d9",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "7f10eb1ada61e7c07552326c070b7ec6f076a62a7639779aa447fa7a64dfe06f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "83795f66de714254b9a83c7bd072aed490705ebd61b28a92b3795eac760f732d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "1c5a22f1fabed8f20d5c6fee950d1ee587b4c3ccdd081abd688ffdb9f9e15ebd",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "d2764df47ec8ee0423b0a4a2974dc6fc37962986819f4e3030094989bdc6efb7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "5ce31d284ea277a57882a16d291b17dafd8b5210d79c29b725c0817dfa0a9b3e",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "df75c95d24d6645154bf475914d811efc6e8dddedf01e370c142ab134c8d08dd",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "1a9c536b25067e96a1143306485554c95a1d53d6e34255c6fbf7a8d11e7bba42",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "280b70e4ea10adc42c27d8167f7c81a77140335d46f80dcf19980fe3815b807a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "dd899f306ad4fc6541148a3046f5bb3920482e0f11db9405d6e02067fc36bde7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "146b5df985c509232c752352ef2e170b6c97e1e3453ff6ea96a0dafd3a00cd4f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "760e16ed7f909626ac1d7dd0880a7087f71043f4b5251e034b9a3b0de871acef",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "b2700bec305719e13b681380ede0275e78f4dd1cf9831dd31a769a210dc84778",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "5b527247199bde333105277cb14b39f8edf22cf6bf259dc8e022aa1075f04704",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "7b2a225dd023d1b1572252e5eaf8ef4c72c88d65b0b0f82bcc4001b2db3b3187",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "9390b458c68d60544ec10b3e9ae512be711ebcd233f7d3c16e87eb197b1867e4",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "fb594991046ff2ae7a7f1c27e666252b8ab82e39e49603aa5f88cfe3ffa9cc95",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "64ea5c363f82c408500f3aa342208c40b8185faf29fbe741b3e5cadd3d906880",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "b23110fbf73718f93768eebe60400b86681ed2e1fba80890e97dbd4a89223d1c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": "message",
+        "sha256": "f17824fd06970026ecc1f4e16922c01d46436ab040bbd8774c670912170bf786",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "01e15ef21205d55463d86ece521d1f110bda12202c8a236fec8f7a731f9b0e71",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "de3cd49097f7b111512366d6b4f2723b7a3f1cce9eb7c47f70af76f7a8ab534c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "1386f3ef380cb53e72cbccbf5cfe6b4c5bc7d92b41e37889c5b1e0a364354cf1",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "bcec147c84554fa289d91706179f4c57e89a455647b6144027c08a86c953bcb3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "6fff5d283edb9ad1968e501f55b843d5a7af4ad50367fba33b2649b8e0397654",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "095f1614b3bc3d6808470458b27497896b355657aa821c1a883bbd20dcdbec64",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "f754b717af3864079679baaef1496d652f8f7786c71bc51d35609dd7231aeeb6",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "ad51291f9d805e9eb540938693f0aa94c773b2c79cf37fa8e63525f05cb904f3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call",
+        "sha256": "b1649a40cd9d03d46a83fd1b9da3661e0c82cfb64b49ecbb1e43fd9eb9ed904d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "custom_tool_call_output",
+        "sha256": "ffa5f137f9a57841ae58f7cb1b8b8514162f4b2f43790e234834ceb79db4eab8",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "37cf55cd58c5f75a4cc9729375b48fda9f3d4ae8047de276fd7fc7cce5743d08",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "7c0c0407737f8d5b335188236f0eec62ed8ffe56994b1166fef70dbe31385cef",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "c52c7df5df2add227e84db9628769c42513337bdedba2308d74c35e52de4628c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "b34c20816c35a004abed3a103f1c412daeae49dbfe29e0581b3fc5c3e77c1c43",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "36d74963ec11f6fa4991c43ac25fe3720d981ac5d2cd48c2f95ad465f3b85cec",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "e377b6192b85c8f3e8b88ddc9d0bceba9365a44cbc3fb684a66f1e0ebeb38b96",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "reasoning",
+        "sha256": "6f7c7dca5daeb64dd86bd3a25bac793ea9d7d440634772ac1f03fd8d89963391",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call",
+        "sha256": "aaa23d85d5a3bad4887bf14506d0c1c17fa60d287ce5366b116d8f973e02b960",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": null,
+        "type": "function_call_output",
+        "sha256": "bf39b6b81e59e748797261aa6d4fb7ceda112f220ac554ea309fd5919449ffc3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      }
+    ],
+    "instructions_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "egress": {
+    "request_sha256": "eb874d5ea254040b8d3c4f7500c5015407d375f0b7c94598dc67e4d580cb0526",
+    "model": "glm-5.3",
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "low",
+    "max_tokens": 65536,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "exec_command",
+          "description": "Runs a command in a PTY, returning output or a session ID for ongoing interaction.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "cmd": {
+                "type": "string",
+                "description": "Shell command to execute."
+              },
+              "justification": {
+                "type": "string",
+                "description": "User-facing approval question for `require_escalated`; omit otherwise."
+              },
+              "login": {
+                "type": "boolean",
+                "description": "True runs the shell with -l/-i semantics; false disables them. Defaults to true."
+              },
+              "max_output_tokens": {
+                "type": "number",
+                "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+              },
+              "prefix_rule": {
+                "type": "array",
+                "description": "Reusable approval prefix for `cmd`, only with `sandbox_permissions: \"require_escalated\"`; for example [\"git\", \"pull\"].",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sandbox_permissions": {
+                "type": "string",
+                "description": "Per-command sandbox override. Defaults to `use_default`; use `require_escalated` for unsandboxed execution.",
+                "enum": [
+                  "use_default",
+                  "require_escalated"
+                ]
+              },
+              "shell": {
+                "type": "string",
+                "description": "Shell binary to launch. Defaults to the user's default shell."
+              },
+              "tty": {
+                "type": "boolean",
+                "description": "True allocates a PTY for the command; false or omitted uses plain pipes."
+              },
+              "workdir": {
+                "type": "string",
+                "description": "Working directory for the command. Defaults to the turn cwd."
+              },
+              "yield_time_ms": {
+                "type": "number",
+                "description": "Wait before yielding output. Defaults to 10000 ms; effective range is 250-30000 ms."
+              }
+            },
+            "required": [
+              "cmd"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "write_stdin",
+          "description": "Writes characters to an existing unified exec session and returns recent output.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "chars": {
+                "type": "string",
+                "description": "Bytes to write to stdin. Defaults to empty, which polls without writing."
+              },
+              "max_output_tokens": {
+                "type": "number",
+                "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+              },
+              "session_id": {
+                "type": "number",
+                "description": "Identifier of the running unified exec session."
+              },
+              "yield_time_ms": {
+                "type": "number",
+                "description": "Wait before yielding output. Non-empty writes default to 250 ms and cap at 30000 ms; empty polls wait 5000-300000 ms by default."
+              }
+            },
+            "required": [
+              "session_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "request_user_input",
+          "description": "Request user input for one to three short questions and wait for the response. This tool is only available in Plan mode.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "questions": {
+                "type": "array",
+                "description": "Questions to show the user. Prefer 1 and do not exceed 3",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "string",
+                      "description": "Short header label shown in the UI (12 or fewer chars)."
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Stable identifier for mapping answers (snake_case)."
+                    },
+                    "options": {
+                      "type": "array",
+                      "description": "Provide 2-3 mutually exclusive choices. Put the recommended option first and suffix its label with \"(Recommended)\". Do not include an \"Other\" option in this list; the client will add a free-form \"Other\" option automatically.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "string",
+                            "description": "One short sentence explaining impact/tradeoff if selected."
+                          },
+                          "label": {
+                            "type": "string",
+                            "description": "User-facing label (1-5 words)."
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "description"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "question": {
+                      "type": "string",
+                      "description": "Single-sentence prompt shown to the user."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "header",
+                    "question",
+                    "options"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "questions"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "apply_patch",
+          "description": "The `apply_patch` tool can be used to edit files. This is a FREEFORM tool, so do not wrap the patch in JSON.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "input": {
+                "type": "string",
+                "description": "Raw input for the original custom tool."
+              }
+            },
+            "required": [
+              "input"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "view_image",
+          "description": "View a local image file from the filesystem when visual inspection is needed. Use this for images already available on disk.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Local filesystem path to an image file."
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "collaboration__followup_task",
+          "description": "Send a follow-up task to an existing non-root target agent and trigger a turn if it is idle. If the target is already running, deliver the task promptly at message boundaries while sampling, or after the pending tool call completes.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "Message text to send to the target agent.",
+                "encrypted": true
+              },
+              "target": {
+                "type": "string",
+                "description": "Agent id or canonical task name to send a follow-up task to (from spawn_agent)."
+              }
+            },
+            "required": [
+              "target",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "collaboration__interrupt_agent",
+          "description": "Interrupt an agent's current turn, if any, and return its previous status. The agent remains available for messages and follow-up tasks.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Agent id or canonical task name to interrupt (from spawn_agent)."
+              }
+            },
+            "required": [
+              "target"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "collaboration__list_agents",
+          "description": "List live agents in the current root thread tree. Optionally filter by task-path prefix.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path_prefix": {
+                "type": "string",
+                "description": "Task-path prefix filter without a trailing slash. Omit to list all live agents."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "collaboration__send_message",
+          "description": "Send a message to an existing agent. The message will be delivered promptly. Does not trigger a new turn.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "Message text to queue on the target agent.",
+                "encrypted": true
+              },
+              "target": {
+                "type": "string",
+                "description": "Relative or canonical task name to message (from spawn_agent)."
+              }
+            },
+            "required": [
+              "target",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "collaboration__spawn_agent",
+          "description": "\n        No picker-visible model overrides are currently loaded.\n        Spawns an agent to work on the specified task. If your current task is `/root/task1` and you spawn_agent with task_name \"task_3\" the agent will have canonical task name `/root/task1/task_3`.\nYou are then able to refer to this agent as `task_3` or `/root/task1/task_3` interchangeably. However an agent `/root/task2/task_3` would only be able to communicate with this agent via its canonical name `/root/task1/task_3`.\nThe spawned agent will have the same tools as you and the ability to spawn its own subagents.\n\nIt will be able to send you and other running agents messages, and its final answer will be provided to you when it finishes.\nThe new agent's canonical task name will be provided to it along with the message.\n\nNote that passing `fork_turns=\"none\"` will not pass any surrounding context to the spawned subagent, which may cause the agent to lack the context it needs to complete its task, whereas `fork_turns=\"all\"` will provide the subagent with all surrounding context.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "fork_turns": {
+                "type": "string",
+                "description": "Parent history to inherit. Defaults to `all`; use `none` to start without parent history. Only `all` and `none` are supported."
+              },
+              "message": {
+                "type": "string",
+                "description": "Initial plain-text task for the new agent.",
+                "encrypted": true
+              },
+              "model": {
+                "type": "string",
+                "description": "Model override for the new agent. Omit unless an explicit override is needed."
+              },
+              "reasoning_effort": {
+                "type": "string",
+                "description": "Reasoning effort override for the new agent. Omit to inherit the parent effort."
+              },
+              "task_name": {
+                "type": "string",
+                "description": "Task name for the new agent. Use lowercase letters, digits, and underscores."
+              }
+            },
+            "required": [
+              "task_name",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "collaboration__wait_agent",
+          "description": "Wait for a mailbox update from any live agent, including queued messages and final-status notifications. The wait also ends early when new user input is steered into the active turn. Does not return the content; returns either a summary of which agents have updates (if any), an interruption summary for steered input, or a timeout summary if no activity arrives before the deadline.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "timeout_ms": {
+                "type": "number",
+                "description": "Timeout in milliseconds. Defaults to 30000, min 10000, max 3600000."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_goal",
+          "description": "Get the current goal for this thread, including status, budgets, token and elapsed-time usage, and remaining token budget.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "create_goal",
+          "description": "Create a goal only when explicitly requested by the user or system/developer instructions; do not infer goals from ordinary tasks.\nSet token_budget only when an explicit token budget is requested. Fails if an unfinished goal exists; use update_goal only for status.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "objective": {
+                "type": "string",
+                "description": "Required. The concrete objective to start pursuing. This starts a new active goal when no goal exists or replaces the current goal when it is complete."
+              },
+              "token_budget": {
+                "type": "integer",
+                "description": "Positive token budget for the new goal. Omit unless explicitly requested."
+              }
+            },
+            "required": [
+              "objective"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "update_goal",
+          "description": "Update the existing goal.\nSet status to `paused` only at the user's explicit request to pause this goal, never on your own initiative. Ask if unclear; a later resume revokes that request. Report the returned status and stop goal work. Budget limits take precedence over pausing.\nSet status to `complete` only when the objective has actually been achieved and no required work remains.\nSet status to `blocked` only when the same blocking condition has repeated for at least three consecutive goal turns, counting the original/user-triggered turn and any automatic continuations, and the agent cannot make meaningful progress without user input or an external-state change.\nIf the user resumes a goal that was previously marked `blocked`, treat the resumed run as a fresh blocked audit. If the same blocking condition then repeats for at least three consecutive resumed goal turns, set status to `blocked` again.\nOnce the blocked threshold is satisfied, do not keep reporting that you are still blocked while leaving the goal active; set status to `blocked`.\nDo not use `blocked` merely because the work is hard, slow, uncertain, incomplete, or would benefit from clarification.\nDo not mark a goal complete merely because its budget is nearly exhausted or because you are stopping work.\nYou cannot use this tool to resume, budget-limit, or usage-limit a goal; those status changes are controlled by the user or system.\nWhen marking a budgeted goal achieved with status `complete`, report the final token usage from the tool result to the user.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "Required. `paused` requires an explicit user request. Set to `complete` only when the objective is achieved and no required work remains. Set to `blocked` only after the same blocking condition has recurred for at least three consecutive goal turns and the agent is at an impasse. After a previously blocked goal is resumed, the resumed run starts a fresh blocked audit.",
+                "enum": [
+                  "complete",
+                  "blocked",
+                  "paused"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    ],
+    "tools_sha256": "b9290bf16d727475d86f92b4248515eecc16a69a2707fc4f1782bf56e9032853",
+    "tools_status": "observed",
+    "messages_sha256": "9220aee9f9874190241ef28feb89aad86f79bf6dcbd898b76e2bb2869011023e",
+    "message_count": 52,
+    "message_metadata": [
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "18bf9a47ba9201f59a1d11b4c05c3d768d70362aa4708d809d188f938f1c18da",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "110b7f8405eedcbc9bb58ceca8db42c73726d49c70aef479c306309039eb4c2b",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "7d9679428354a1d5d9b3556c492b16960a5a21720431306547936eda8eb32993",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "system",
+        "type": null,
+        "sha256": "69ed7eafc214c1dc3b5979d08927b652fdfcee41878d483ec591d02f8af89fe3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "813cb771478dea9760403092bd11bd3d7045d7dd563d36261be624d06c3c09b9",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "user",
+        "type": null,
+        "sha256": "0e813c371d6039a52c0e5b92f4dde6890ecb197f028a32f1d3cc8eb2a02dd9a7",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "334ba341efb67114fb754b15582803abc8852dafc0fcdd2472a3a6d14326305b",
+        "tool_call_ids": [
+          "call_a26224c209b84d3ba1c8689c"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "968a9350e79fe6575b056b70fd274c70ae55cf9d5aaab6664a8e4da30d066e11",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "ee133b3fee6f3e64e7f56d6e61c04a5821278ebaa7072393d83c7de5af33fa07",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "7b1edd9eb043615fd3e47b31d527df6fc9762dd23b4a5a3705f767fc8066c5b2",
+        "tool_call_ids": [
+          "call_62fc27e9ebdf46b0acf1ada3"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7b93b7a89d5ed5c72172f40204e7af21509a10d6b1965715049bc5ab4c7ce891",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "0508fbfe011bf8c26756706aa089e0335df1f8a58e4ad8ed8a04f7a7dd089a05",
+        "tool_call_ids": [
+          "call_7715744f749d4fefaf883de6"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "2242611686efa33d3e003ffe1a4be869684bbdae5b0cd2a522794923edf6f701",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "a7138004cca73666e9ba6ff3bde665dc927aed6ae3bd0e1efd35999ab42edee3",
+        "tool_call_ids": [
+          "call_1e1f65e41ec44c00a918bd1c"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "8e6865d6f93da1bdfe79388a54fd679f0eca70b5ac0378e8329393438b1613f6",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "61d12ba087612ee146b4708ee05d484b3db01fd1699b64f0fdfcea9669b90f22",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "e48d66dd3e32a65bce62d831f4edc43706717fc2fb516b9bca46afff0e3fb212",
+        "tool_call_ids": [
+          "call_94658159b92c4d1c85fbfb6d"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "3b33a425f0c48a90c277b9ed3582ee5b60b4feae2b145a547d8ec536a83ac11c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "6c2f30f202744efde74d181ba210dcf3fd303b7af8af5cda2864579a13222363",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "94053ef4d83af2690555009734cb993775bd0260b35b6538f363ed8395bd7eb2",
+        "tool_call_ids": [
+          "call_dfcfdbc70a30407886808df3"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "761f91492f110d8327052d0397181ee04b543977d6844932b75896f2b0c66230",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "0121cde6d8867a0a4e3e353f8f3a6a5e246cb7b68c17725d4226945ecacfdd4e",
+        "tool_call_ids": [
+          "call_71c3beb440884d1e95c3f5e2"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "1b53c1c4a18e139581acbd1ac2f134e200e53e82f03dc54ff303c879879e35f3",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "66c6a297a3370a4f4931888cd73b8d90a5abc06951a8aea9fa44561178da867a",
+        "tool_call_ids": [
+          "call_d78bcd8b199e403b88729442"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7b8cf2daf02cdf37952245850e7cd958142fc2c177b759b745671bee9a7900ae",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "1bc0ed0a753d22c827e7ad5bc3c2b9c8879bdc11f3c9347aed112a654b862372",
+        "tool_call_ids": [
+          "call_131636955b5c4e699cd4b0b0"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "8d769464bc1bbc2c65bc42fd5b8aeb3421b6c058a087e100cdde22cf98b7a959",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "148c15a468aef607e8cbcbe97d3d0afc1d9c32886cb7283836af394b69dfe0a8",
+        "tool_call_ids": [
+          "call_5bf17c873f9e441a807124fa"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "a2d5d249b25ce6554af512999f754985488c90250718d121f8c884f66806c602",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "bf37de7bb68c852625482167893f3cd8f0099c53d00375d205a6254ca5b54063",
+        "tool_call_ids": [
+          "call_71aff437df4d422b9c8c0d75"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "22d79a37fb1ab2a4fd7e3e8e71962396ee3f08574e688c894e9820f304edb873",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "e1f303180fc7ae40c535014462e1a2a733f700acf07d5c49c8ffcc229fd99dfe",
+        "tool_call_ids": [
+          "call_bd06ad6b10dc48edaeb196ce"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "c35b9bf246a6bef21f8f130638740f67eb6578e3c0266235901b46ee19b52aa0",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "9abe7ee8bb0885b40cfee8e8a9214fa498fe0e18fb15516e593797be6a9f58d7",
+        "tool_call_ids": [
+          "call_10638f3822404a19ad881202"
+        ],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "7c00acfda00311877fbf3bf98de34a6b7877afe1d9fa52783439c64c87e9324a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "87b34bad1fc82d7466d066ca2a2a299c4bc0b4bcf052384792771f2e368ab0fb",
+        "tool_call_ids": [
+          "call_7a9a727aa4f54f2488258f8c"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "f0b724b48f519f2c1e1456cc80bf8136370e6d078a9188f3a4766e85c5616220",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "771dcbeed3f7225a79c5058f0ca1b0078596c8f2258bc8a6a6fcce58d4f49222",
+        "tool_call_ids": [
+          "call_f66a3ad8875c40378f2ccb3f"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "115f9219ae597653f1f705e7687baa8317c016a2677961c038361aa89a250daa",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "9062adf5c7291f925a707207e16769269528af79d88ad785d4d6d9c66df1bd85",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "6276a33540f341b5a17ac916976e84d5958fc2fa71d77c0dfbe31b1f2bd663b9",
+        "tool_call_ids": [
+          "call_5489f98b6e9e4c5d9c509008"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "47c65713823eb1ab9ac138ea8396f5b3fff78af8b5f33dc6f6635dc0233a964f",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "c8ef7b8f001d36a7921b398077a0a027e26de493109970ce531f957f3a35e653",
+        "tool_call_ids": [
+          "call_00b9d1b2e6be45dc8f56d29f"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "74b48568f94d44d2ebf8b1a5b0646d7e47d88c95cd49041bb89cc5b88d56ae0a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "641fc864a31ca1317d4ffc655c94aa92f5ed92b7b0be7e4846a4548267c1bc23",
+        "tool_call_ids": [
+          "call_34c71d448bb74fc2947478c2"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "68f7f1c2fc0f2f0b13d59148d2dcff28abd2d0f5b442073daaee4a791cdd7e72",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "57f492474c1c736725bd50d6e45666364b08efdf5d689677266da619136d9c39",
+        "tool_call_ids": [
+          "call_fdd85fe9ab804f91b253c8f7"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "25f73a05e56d0b9a9a037a183abed1b449be112ce77d36427abcd632d9a3d34c",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "4f465b413818a4c86eed73334f891534dda218e3c926ad3bbd4dc172258ceaef",
+        "tool_call_ids": [
+          "call_9e3dcbd4a99c4475a0648b8b"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "db7cb36b8358a1ce0d6d283d8a0a233492c1c4632b1cb390f8beec5e5cb4100a",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      },
+      {
+        "role": "assistant",
+        "type": null,
+        "sha256": "9f85f80ded0cd79a25e2eacf664caff53758928f4bdfd7bd4fb765d64076a972",
+        "tool_call_ids": [
+          "call_ad6c100cf0094f7ba2f220c6"
+        ],
+        "reasoning_content_present": true
+      },
+      {
+        "role": "tool",
+        "type": null,
+        "sha256": "343c143103bce8838529c4191b1d8777a3e986d6bc95cadcf4256a6b9bbac06d",
+        "tool_call_ids": [],
+        "reasoning_content_present": false
+      }
+    ],
+    "instructions_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "tool_mapping": {
+    "exec_command": {
+      "name": "exec_command",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "exec_command",
+        "description": "Runs a command in a PTY, returning output or a session ID for ongoing interaction.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "cmd": {
+              "type": "string",
+              "description": "Shell command to execute."
+            },
+            "justification": {
+              "type": "string",
+              "description": "User-facing approval question for `require_escalated`; omit otherwise."
+            },
+            "login": {
+              "type": "boolean",
+              "description": "True runs the shell with -l/-i semantics; false disables them. Defaults to true."
+            },
+            "max_output_tokens": {
+              "type": "number",
+              "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+            },
+            "prefix_rule": {
+              "type": "array",
+              "description": "Reusable approval prefix for `cmd`, only with `sandbox_permissions: \"require_escalated\"`; for example [\"git\", \"pull\"].",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "description": "Per-command sandbox override. Defaults to `use_default`; use `require_escalated` for unsandboxed execution.",
+              "enum": [
+                "use_default",
+                "require_escalated"
+              ]
+            },
+            "shell": {
+              "type": "string",
+              "description": "Shell binary to launch. Defaults to the user's default shell."
+            },
+            "tty": {
+              "type": "boolean",
+              "description": "True allocates a PTY for the command; false or omitted uses plain pipes."
+            },
+            "workdir": {
+              "type": "string",
+              "description": "Working directory for the command. Defaults to the turn cwd."
+            },
+            "yield_time_ms": {
+              "type": "number",
+              "description": "Wait before yielding output. Defaults to 10000 ms; effective range is 250-30000 ms."
+            }
+          },
+          "required": [
+            "cmd"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "write_stdin": {
+      "name": "write_stdin",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "write_stdin",
+        "description": "Writes characters to an existing unified exec session and returns recent output.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "chars": {
+              "type": "string",
+              "description": "Bytes to write to stdin. Defaults to empty, which polls without writing."
+            },
+            "max_output_tokens": {
+              "type": "number",
+              "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+            },
+            "session_id": {
+              "type": "number",
+              "description": "Identifier of the running unified exec session."
+            },
+            "yield_time_ms": {
+              "type": "number",
+              "description": "Wait before yielding output. Non-empty writes default to 250 ms and cap at 30000 ms; empty polls wait 5000-300000 ms by default."
+            }
+          },
+          "required": [
+            "session_id"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "request_user_input": {
+      "name": "request_user_input",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "request_user_input",
+        "description": "Request user input for one to three short questions and wait for the response. This tool is only available in Plan mode.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "questions": {
+              "type": "array",
+              "description": "Questions to show the user. Prefer 1 and do not exceed 3",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "string",
+                    "description": "Short header label shown in the UI (12 or fewer chars)."
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "Stable identifier for mapping answers (snake_case)."
+                  },
+                  "options": {
+                    "type": "array",
+                    "description": "Provide 2-3 mutually exclusive choices. Put the recommended option first and suffix its label with \"(Recommended)\". Do not include an \"Other\" option in this list; the client will add a free-form \"Other\" option automatically.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string",
+                          "description": "One short sentence explaining impact/tradeoff if selected."
+                        },
+                        "label": {
+                          "type": "string",
+                          "description": "User-facing label (1-5 words)."
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "question": {
+                    "type": "string",
+                    "description": "Single-sentence prompt shown to the user."
+                  }
+                },
+                "required": [
+                  "id",
+                  "header",
+                  "question",
+                  "options"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "questions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "apply_patch": {
+      "name": "apply_patch",
+      "namespace": "",
+      "type": "custom",
+      "original": {
+        "type": "custom",
+        "name": "apply_patch",
+        "description": "The `apply_patch` tool can be used to edit files. This is a FREEFORM tool, so do not wrap the patch in JSON.",
+        "format": {
+          "type": "grammar",
+          "syntax": "lark",
+          "definition": "start: begin_patch hunk+ end_patch\nbegin_patch: \"*** Begin Patch\" LF\nend_patch: \"*** End Patch\" LF?\n\nhunk: add_hunk | delete_hunk | update_hunk\nadd_hunk: \"*** Add File: \" filename LF add_line+\ndelete_hunk: \"*** Delete File: \" filename LF\nupdate_hunk: \"*** Update File: \" filename LF change_move? change?\n\nfilename: /(.+)/\nadd_line: \"+\" /(.*)/ LF -> line\n\nchange_move: \"*** Move to: \" filename LF\nchange: (change_context | change_line)+ eof_line?\nchange_context: (\"@@\" | \"@@ \" /(.+)/) LF\nchange_line: (\"+\" | \"-\" | \" \") /(.*)/ LF\neof_line: \"*** End of File\" LF\n\n%import common.LF\n"
+        }
+      }
+    },
+    "view_image": {
+      "name": "view_image",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "view_image",
+        "description": "View a local image file from the filesystem when visual inspection is needed. Use this for images already available on disk.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Local filesystem path to an image file."
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "collaboration__followup_task": {
+      "name": "followup_task",
+      "namespace": "collaboration",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "followup_task",
+        "description": "Send a follow-up task to an existing non-root target agent and trigger a turn if it is idle. If the target is already running, deliver the task promptly at message boundaries while sampling, or after the pending tool call completes.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message text to send to the target agent.",
+              "encrypted": true
+            },
+            "target": {
+              "type": "string",
+              "description": "Agent id or canonical task name to send a follow-up task to (from spawn_agent)."
+            }
+          },
+          "required": [
+            "target",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "collaboration__interrupt_agent": {
+      "name": "interrupt_agent",
+      "namespace": "collaboration",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "interrupt_agent",
+        "description": "Interrupt an agent's current turn, if any, and return its previous status. The agent remains available for messages and follow-up tasks.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Agent id or canonical task name to interrupt (from spawn_agent)."
+            }
+          },
+          "required": [
+            "target"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "collaboration__list_agents": {
+      "name": "list_agents",
+      "namespace": "collaboration",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "list_agents",
+        "description": "List live agents in the current root thread tree. Optionally filter by task-path prefix.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path_prefix": {
+              "type": "string",
+              "description": "Task-path prefix filter without a trailing slash. Omit to list all live agents."
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "collaboration__send_message": {
+      "name": "send_message",
+      "namespace": "collaboration",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "send_message",
+        "description": "Send a message to an existing agent. The message will be delivered promptly. Does not trigger a new turn.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message text to queue on the target agent.",
+              "encrypted": true
+            },
+            "target": {
+              "type": "string",
+              "description": "Relative or canonical task name to message (from spawn_agent)."
+            }
+          },
+          "required": [
+            "target",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "collaboration__spawn_agent": {
+      "name": "spawn_agent",
+      "namespace": "collaboration",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "spawn_agent",
+        "description": "\n        No picker-visible model overrides are currently loaded.\n        Spawns an agent to work on the specified task. If your current task is `/root/task1` and you spawn_agent with task_name \"task_3\" the agent will have canonical task name `/root/task1/task_3`.\nYou are then able to refer to this agent as `task_3` or `/root/task1/task_3` interchangeably. However an agent `/root/task2/task_3` would only be able to communicate with this agent via its canonical name `/root/task1/task_3`.\nThe spawned agent will have the same tools as you and the ability to spawn its own subagents.\n\nIt will be able to send you and other running agents messages, and its final answer will be provided to you when it finishes.\nThe new agent's canonical task name will be provided to it along with the message.\n\nNote that passing `fork_turns=\"none\"` will not pass any surrounding context to the spawned subagent, which may cause the agent to lack the context it needs to complete its task, whereas `fork_turns=\"all\"` will provide the subagent with all surrounding context.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "fork_turns": {
+              "type": "string",
+              "description": "Parent history to inherit. Defaults to `all`; use `none` to start without parent history. Only `all` and `none` are supported."
+            },
+            "message": {
+              "type": "string",
+              "description": "Initial plain-text task for the new agent.",
+              "encrypted": true
+            },
+            "model": {
+              "type": "string",
+              "description": "Model override for the new agent. Omit unless an explicit override is needed."
+            },
+            "reasoning_effort": {
+              "type": "string",
+              "description": "Reasoning effort override for the new agent. Omit to inherit the parent effort."
+            },
+            "task_name": {
+              "type": "string",
+              "description": "Task name for the new agent. Use lowercase letters, digits, and underscores."
+            }
+          },
+          "required": [
+            "task_name",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "collaboration__wait_agent": {
+      "name": "wait_agent",
+      "namespace": "collaboration",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "wait_agent",
+        "description": "Wait for a mailbox update from any live agent, including queued messages and final-status notifications. The wait also ends early when new user input is steered into the active turn. Does not return the content; returns either a summary of which agents have updates (if any), an interruption summary for steered input, or a timeout summary if no activity arrives before the deadline.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "timeout_ms": {
+              "type": "number",
+              "description": "Timeout in milliseconds. Defaults to 30000, min 10000, max 3600000."
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "get_goal": {
+      "name": "get_goal",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "get_goal",
+        "description": "Get the current goal for this thread, including status, budgets, token and elapsed-time usage, and remaining token budget.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      }
+    },
+    "create_goal": {
+      "name": "create_goal",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "create_goal",
+        "description": "Create a goal only when explicitly requested by the user or system/developer instructions; do not infer goals from ordinary tasks.\nSet token_budget only when an explicit token budget is requested. Fails if an unfinished goal exists; use update_goal only for status.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "objective": {
+              "type": "string",
+              "description": "Required. The concrete objective to start pursuing. This starts a new active goal when no goal exists or replaces the current goal when it is complete."
+            },
+            "token_budget": {
+              "type": "integer",
+              "description": "Positive token budget for the new goal. Omit unless explicitly requested."
+            }
+          },
+          "required": [
+            "objective"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "update_goal": {
+      "name": "update_goal",
+      "namespace": "",
+      "type": "function",
+      "original": {
+        "type": "function",
+        "name": "update_goal",
+        "description": "Update the existing goal.\nSet status to `paused` only at the user's explicit request to pause this goal, never on your own initiative. Ask if unclear; a later resume revokes that request. Report the returned status and stop goal work. Budget limits take precedence over pausing.\nSet status to `complete` only when the objective has actually been achieved and no required work remains.\nSet status to `blocked` only when the same blocking condition has repeated for at least three consecutive goal turns, counting the original/user-triggered turn and any automatic continuations, and the agent cannot make meaningful progress without user input or an external-state change.\nIf the user resumes a goal that was previously marked `blocked`, treat the resumed run as a fresh blocked audit. If the same blocking condition then repeats for at least three consecutive resumed goal turns, set status to `blocked` again.\nOnce the blocked threshold is satisfied, do not keep reporting that you are still blocked while leaving the goal active; set status to `blocked`.\nDo not use `blocked` merely because the work is hard, slow, uncertain, incomplete, or would benefit from clarification.\nDo not mark a goal complete merely because its budget is nearly exhausted or because you are stopping work.\nYou cannot use this tool to resume, budget-limit, or usage-limit a goal; those status changes are controlled by the user or system.\nWhen marking a budgeted goal achieved with status `complete`, report the final token usage from the tool result to the user.",
+        "strict": false,
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Required. `paused` requires an explicit user request. Set to `complete` only when the objective is achieved and no required work remains. Set to `blocked` only after the same blocking condition has recurred for at least three consecutive goal turns and the agent is at an impasse. After a previously blocked goal is resumed, the resumed run starts a fresh blocked audit.",
+              "enum": [
+                "complete",
+                "blocked",
+                "paused"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "reasoning_restored_for_messages": [],
+  "response_streaming": "buffered-protocol-translation",
+  "credentials_saved": false
+}

@@ -1,0 +1,184 @@
+{
+  "schema": "outcome-loop-analysis/1",
+  "event_count": 82,
+  "duplicate_event_ids": 0,
+  "observed_delivery_chains": [],
+  "delivery_ambiguities": [],
+  "delivery_summary": {
+    "messages": 0,
+    "sent": 0,
+    "parent_received": 0,
+    "entered_model_request": 0,
+    "complete_observed_chains": 0
+  },
+  "correlated_check_loops": [
+    {
+      "failed_check_event_id": "evt-000013-ad1603f6",
+      "agent_id": "codex:01a1c389-fe4a-7501-94c8-d1243166d2ae",
+      "check_key": "command-sha256:2a6798b565fd02d86b6a1f9c01427622733e4dc0f964810de12a379469493a0e",
+      "check_classification_source": "inferred-executed-check-command",
+      "classification": "incomplete",
+      "analysis_of_failure_observed": false,
+      "model_input_contains_failed_result": null,
+      "fix_tool_call_ids": [],
+      "recheck_event_id": null,
+      "recheck_passed": null,
+      "post_failure_window_ms": null,
+      "pure_self_reflection_incremental_cost_usd": null,
+      "failed_check_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "inference": "Temporal/control-span correlation only; not proof of private analysis, causal repair, or incremental self-reflection cost.",
+      "missing_evidence": [
+        "same-check-retest-or-comparable-clock"
+      ]
+    },
+    {
+      "failed_check_event_id": "evt-000015-910e713b",
+      "agent_id": "codex:01a1c389-fe4a-7501-94c8-d1243166d2ae",
+      "check_key": "command-sha256:ef224f2bc547297b1e40e1b375765e7385e401474f677db5d99ee36e014e101e",
+      "check_classification_source": "inferred-executed-check-command",
+      "classification": "correlated-check-fix-recheck-window",
+      "analysis_of_failure_observed": false,
+      "model_input_contains_failed_result": true,
+      "fix_tool_call_ids": [
+        "call_c5e32f5b3c544661a925ef82"
+      ],
+      "recheck_event_id": "evt-000018-e07c8d47",
+      "recheck_passed": true,
+      "post_failure_window_ms": null,
+      "pure_self_reflection_incremental_cost_usd": null,
+      "failed_check_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "inference": "Temporal/control-span correlation only; not proof of private analysis, causal repair, or incremental self-reflection cost.",
+      "observation_window_ms": 12350.0,
+      "timing_basis": "wrapper-or-result-observation-only",
+      "model_timing": {
+        "union_ms": 126103.026818,
+        "known_union_lower_bound_ms": 126103.026818,
+        "complete_spans": 13,
+        "spans": 13,
+        "clock_scope": "monotonic:codex-request-relay:123",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "recheck_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 1,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "check_tool_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": null,
+        "complete_spans": 0,
+        "spans": 2,
+        "clock_scope": null,
+        "timing_basis": "incomparable-or-missing-clocks"
+      },
+      "all_observed_activity_timing": {
+        "union_ms": null,
+        "known_union_lower_bound_ms": 126103.026818,
+        "complete_spans": 13,
+        "spans": 15,
+        "clock_scope": "monotonic:codex-request-relay:123",
+        "timing_basis": [
+          "monotonic_ns"
+        ]
+      },
+      "fix_tool_link_basis": [
+        {
+          "tool_call_id": "call_c5e32f5b3c544661a925ef82",
+          "basis": "temporal-window-only"
+        }
+      ],
+      "fix_tool_classification_sources": [
+        {
+          "tool_call_id": "call_c5e32f5b3c544661a925ef82",
+          "source": "typed-mutation-tool"
+        }
+      ],
+      "model_to_fix_order_observed": false,
+      "unique_model_usage": {
+        "unique_requests": 13,
+        "input_tokens": null,
+        "input_tokens_known_lower_bound": null,
+        "output_tokens": null,
+        "output_tokens_known_lower_bound": null,
+        "estimated_cost_usd": null,
+        "estimated_cost_usd_known_lower_bound": null
+      },
+      "missing_evidence": []
+    }
+  ],
+  "model_span_timing": {
+    "union_ms": 316747.140374,
+    "known_union_lower_bound_ms": 316747.140374,
+    "complete_spans": 26,
+    "spans": 26,
+    "clock_scope": "monotonic:codex-request-relay:123",
+    "timing_basis": [
+      "monotonic_ns"
+    ]
+  },
+  "tool_span_timing": {
+    "union_ms": null,
+    "known_union_lower_bound_ms": null,
+    "complete_spans": 0,
+    "spans": 25,
+    "clock_scope": null,
+    "timing_basis": "incomparable-or-missing-clocks"
+  },
+  "all_unique_model_usage": {
+    "unique_requests": 26,
+    "input_tokens": null,
+    "input_tokens_known_lower_bound": null,
+    "output_tokens": null,
+    "output_tokens_known_lower_bound": null,
+    "estimated_cost_usd": null,
+    "estimated_cost_usd_known_lower_bound": null
+  },
+  "duplicate_usage_records": 0,
+  "conflicting_usage_requests": 0,
+  "warnings": [],
+  "execution_modes": [
+    "real",
+    "unlabelled"
+  ],
+  "limits": [
+    "A terminal event never fabricates sent, received or model-input evidence.",
+    "Captured model input proves inclusion, not semantic use or private reflection.",
+    "Temporal check windows may include ordinary task work; unions avoid overlapping-span double counting.",
+    "Collection-clock intervals are separate observations and can be distorted by log delay.",
+    "Mechanism/scripted fixtures do not establish autonomous delegation.",
+    "No counterfactual baseline: pure self-reflection incremental time/cost remains unknown."
+  ],
+  "experiment_evidence": {
+    "execution_mode": "real",
+    "synthetic": false,
+    "native_log_alone_proves_model_autonomy": false,
+    "source": "native rollout plus client request observer"
+  }
+}

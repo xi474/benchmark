@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "contract_revision": "2.1",
+  "trial_id": "glm53low-r3-opencode-medium-MP02-repair",
+  "task_id": "medium/MP02",
+  "harness": "opencode",
+  "status": "observed",
+  "generated_at": "2026-11-10T06:36:34.421213Z",
+  "planning": {
+    "planning_level": "P0",
+    "plan_source": "not-observed",
+    "plan_evidence_event_ids": [],
+    "plan_snapshot_count": 0,
+    "plan_revision_count": 0,
+    "reason_if_not_observed": "Only root-Agent/model/tool execution events were observed; no local control decision or plan exists.",
+    "model_plan_observed": false,
+    "harness_control_dag_observed": false,
+    "provided_dag_observed": false,
+    "revision_event_ids": []
+  },
+  "graphs": {
+    "provided": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No Provided DAG was supplied for this trial.",
+      "node_count": 0,
+      "edge_count": 0
+    },
+    "harness-control": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No Harness Control DAG was declared.",
+      "node_count": 0,
+      "edge_count": 0
+    },
+    "observed-model-plan": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No explicit model-created plan event was emitted.",
+      "node_count": 0,
+      "edge_count": 0
+    }
+  },
+  "execution": {
+    "status": "observed",
+    "node_count": 19,
+    "edge_count": 18,
+    "observed_edge_count": 0,
+    "inferred_edge_count": 18,
+    "temporal_edge_count": 18,
+    "observed_dependency_edge_count": 0,
+    "inferred_dependency_edge_count": 0,
+    "trace_status": "observed",
+    "dependency_status": "not_observed",
+    "critical_path": [
+      "tool:opencode-root:call_d35b066fe654475abad8f2b1",
+      "tool:opencode-root:call_674caf98cd8e43b18f63c3cb",
+      "tool:opencode-root:call_a48d2fed2b1641e6a6e31b70",
+      "tool:opencode-root:call_6cae98e4f6fb4485954af86a",
+      "tool:opencode-root:call_2d12948094a94635890c4a2a",
+      "tool:opencode-root:call_60d0addfe81b4cf19420ab08",
+      "tool:opencode-root:call_5a3eb78457e54658a191eaa0",
+      "tool:opencode-root:call_62ec7a700bc5437d828753ad",
+      "tool:opencode-root:call_b59eb51755db41b9872193d6",
+      "tool:opencode-root:call_ecb656f966e1438b96c74bc8",
+      "tool:opencode-root:call_077241befc044bcc8a94f21e",
+      "tool:opencode-root:call_2226b9e1b5584cdb8f3ac741",
+      "tool:opencode-root:call_85fe2979c16446af98cc8958",
+      "tool:opencode-root:call_89b1762f3b1246e697e6ffca",
+      "tool:opencode-root:call_3cbcebd6962647cfa6409a20",
+      "tool:opencode-root:call_4a991cd6bed246ff94bd439a",
+      "tool:opencode-root:call_5f477da1731a4b0b8196e80e",
+      "tool:opencode-root:call_3be3b20c9d7349fdbfd50528"
+    ],
+    "critical_path_sec": 0.986,
+    "makespan_sec": 809.55
+  },
+  "agent_topology": {
+    "status": "observed",
+    "agent_count": 1,
+    "subagent_count": 0,
+    "delegation_count": 0,
+    "handoff_count": 0,
+    "parallel_width": 0
+  },
+  "data_dependency": {
+    "status": "not_observed",
+    "artifact_count": 0,
+    "message_count": 0,
+    "edge_count": 0
+  },
+  "conformance": {
+    "schema_version": 2,
+    "contract_revision": "2.1",
+    "provided_vs_execution": {
+      "label": "provided_vs_execution",
+      "status": "not_observed",
+      "reason": "No Provided DAG was supplied for this trial.",
+      "evidence_checked": [
+        "parallel sidecar provided/execution_graph.yaml",
+        "task workflow"
+      ],
+      "metrics": null
+    },
+    "harness_control_vs_execution": {
+      "label": "harness_control_vs_execution",
+      "status": "not_observed",
+      "reason": "No Harness Control DAG (LangGraph/Strands/reference orchestrator) was declared.",
+      "evidence_checked": [
+        "workflow.declared",
+        "workflow.revised"
+      ],
+      "metrics": null
+    },
+    "observed_model_plan_vs_execution": {
+      "label": "observed_model_plan_vs_execution",
+      "status": "not_observed",
+      "reason": "No explicit model-created plan event was emitted.",
+      "evidence_checked": [
+        "plan.created",
+        "plan.revised",
+        "workflow.declared"
+      ],
+      "metrics": null
+    },
+    "note": "The three comparisons are reported separately and must not be merged into one score."
+  },
+  "capabilities": {
+    "harness": "opencode",
+    "agent_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "tool_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "workflow_hooks": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "plan_hooks": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "scheduler_hooks": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "container_resources": {
+      "supported": false,
+      "enabled": false,
+      "status": "not_observed"
+    },
+    "per_agent_resources": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "inference_request_metrics": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "subagent_capability_available": true,
+    "subagent_count": 0,
+    "autonomous_delegation": false,
+    "reason_if_not_observed": "ATIF import: no explicit model plan or harness control graph."
+  },
+  "resource_summary": {},
+  "classification": {
+    "observed": "Events/graphs present in the trial.",
+    "inferred": "Temporal edges or derived relations without direct dependency evidence.",
+    "not_observed": "Capability/graph/metric not present; never filled with 0."
+  }
+}

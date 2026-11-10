@@ -1,0 +1,190 @@
+{
+  "schema_version": 2,
+  "contract_revision": "2.1",
+  "trial_id": "reward-v2-medium-MP06__LNcxhEs__env",
+  "task_id": "medium/MP06",
+  "harness": "deepseek-harness",
+  "status": "unknown",
+  "generated_at": "2026-11-09T19:32:30.704357Z",
+  "planning": {
+    "planning_level": "P0",
+    "plan_source": "not-observed",
+    "plan_evidence_event_ids": [],
+    "plan_snapshot_count": 0,
+    "plan_revision_count": 0,
+    "reason_if_not_observed": "Only root-Agent/model/tool execution events were observed; no local control decision or plan exists.",
+    "model_plan_observed": false,
+    "harness_control_dag_observed": false,
+    "provided_dag_observed": false,
+    "revision_event_ids": []
+  },
+  "graphs": {
+    "provided": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No Provided DAG was supplied for this trial.",
+      "node_count": 0,
+      "edge_count": 0
+    },
+    "harness-control": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No Harness Control DAG was declared.",
+      "node_count": 0,
+      "edge_count": 0
+    },
+    "observed-model-plan": {
+      "status": "not_observed",
+      "source": null,
+      "reason": "No explicit model-created plan event was emitted.",
+      "node_count": 0,
+      "edge_count": 0
+    }
+  },
+  "execution": {
+    "status": "observed",
+    "node_count": 36,
+    "edge_count": 35,
+    "observed_edge_count": 0,
+    "inferred_edge_count": 35,
+    "temporal_edge_count": 35,
+    "observed_dependency_edge_count": 0,
+    "inferred_dependency_edge_count": 0,
+    "trace_status": "observed",
+    "dependency_status": "not_observed",
+    "critical_path": [
+      "tool:dsh:lead:call_7c8fd9f9ee86412d89c60a12",
+      "tool:dsh:lead:call_afa17dd26a784c87be6d4328",
+      "tool:dsh:lead:call_bd166967be49473fb7635cd4",
+      "tool:dsh:lead:call_45cb53459c78493aa2073f2f",
+      "tool:dsh:lead:call_b23b7d85b88440e69cc46e80",
+      "tool:dsh:lead:call_b8bc34b7f56845e7ac8cffb2",
+      "tool:dsh:lead:call_78d19c0e176e4bd19dde784e",
+      "tool:dsh:lead:call_4f789930b1c84a4ea30c626f",
+      "tool:dsh:lead:call_5f91fec57042498da57fd33e",
+      "tool:dsh:lead:call_81022fadf2754c58af739548",
+      "tool:dsh:lead:call_ed5df9ebe54d4957b1173732",
+      "tool:dsh:lead:call_027f24f67f374556a4881a36",
+      "tool:dsh:lead:call_06ff303cb2cb4c0793a19fc7",
+      "tool:dsh:lead:call_7b95552079814e55acd3fa8f",
+      "tool:dsh:lead:call_cba80733b26a4bbea043a6db",
+      "tool:dsh:lead:call_cba461a215c147c5822a7b55",
+      "tool:dsh:lead:call_192dbcada17b40d2832d93f3",
+      "tool:dsh:lead:call_612b5e8264dc41c9b30eecd0",
+      "tool:dsh:lead:call_4cef547715824656962b50dc",
+      "tool:dsh:lead:call_beacc5811131453fa2f09150",
+      "tool:dsh:lead:call_acdc9d492a8c4dce84e8bbb9",
+      "tool:dsh:lead:call_919c14eaacd04b6eaec38500",
+      "tool:dsh:lead:call_5b255afb28ba4d0bb17a4878",
+      "tool:dsh:lead:call_8ce5ce9f4da44e2c80dbc89a",
+      "tool:dsh:lead:call_8db6b31c62e240f98e0eb792",
+      "tool:dsh:lead:call_07a8f0a826d3466da42ba9f8",
+      "tool:dsh:lead:call_8e523f0ab9bb47e894f06508",
+      "tool:dsh:lead:call_e5554c645c3d43d6ab4beabb",
+      "tool:dsh:lead:call_c5907802f62641fcb17f4d62",
+      "tool:dsh:lead:call_286c440b3ca04965a2bd35a1",
+      "tool:dsh:lead:call_54398711f08a497fafb2c229",
+      "tool:dsh:lead:call_d3790ff6d97d4aac966bc2ce",
+      "tool:dsh:lead:call_53aef9be16ea4a04a3b707d5",
+      "tool:dsh:lead:call_4c6e411f647941e9b999ec41",
+      "tool:dsh:lead:call_128893a440854e0280766d78"
+    ],
+    "critical_path_sec": 1.221,
+    "makespan_sec": 205.957
+  },
+  "agent_topology": {
+    "status": "observed",
+    "agent_count": 1,
+    "subagent_count": 0,
+    "delegation_count": 0,
+    "handoff_count": 0,
+    "parallel_width": 0
+  },
+  "data_dependency": {
+    "status": "not_observed",
+    "artifact_count": 0,
+    "message_count": 0,
+    "edge_count": 0
+  },
+  "conformance": {
+    "schema_version": 2,
+    "contract_revision": "2.1",
+    "provided_vs_execution": {
+      "label": "provided_vs_execution",
+      "status": "not_observed",
+      "reason": "No Provided DAG was supplied for this trial.",
+      "evidence_checked": [
+        "parallel sidecar provided/execution_graph.yaml",
+        "task workflow"
+      ],
+      "metrics": null
+    },
+    "harness_control_vs_execution": {
+      "label": "harness_control_vs_execution",
+      "status": "not_observed",
+      "reason": "No Harness Control DAG (LangGraph/Strands/reference orchestrator) was declared.",
+      "evidence_checked": [
+        "workflow.declared",
+        "workflow.revised"
+      ],
+      "metrics": null
+    },
+    "observed_model_plan_vs_execution": {
+      "label": "observed_model_plan_vs_execution",
+      "status": "not_observed",
+      "reason": "No explicit model-created plan event was emitted.",
+      "evidence_checked": [
+        "plan.created",
+        "plan.revised",
+        "workflow.declared"
+      ],
+      "metrics": null
+    },
+    "note": "The three comparisons are reported separately and must not be merged into one score."
+  },
+  "capabilities": {
+    "harness": "deepseek-harness",
+    "agent_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "tool_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "workflow_hooks": {
+      "supported": true,
+      "enabled": true,
+      "status": "available"
+    },
+    "plan_hooks": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "container_resources": {
+      "supported": true,
+      "enabled": false,
+      "status": "not_observed"
+    },
+    "per_agent_resources": {
+      "supported": false,
+      "enabled": false,
+      "status": "unsupported"
+    },
+    "subagent_capability_available": true,
+    "subagent_count": 0,
+    "condition": "neutral",
+    "autonomous_delegation": false,
+    "native_overlap_ms": 0,
+    "reason_if_not_observed": "neutral condition; no delegation or explicit model Plan DAG event was observed."
+  },
+  "resource_summary": {},
+  "classification": {
+    "observed": "Events/graphs present in the trial.",
+    "inferred": "Temporal edges or derived relations without direct dependency evidence.",
+    "not_observed": "Capability/graph/metric not present; never filled with 0."
+  }
+}

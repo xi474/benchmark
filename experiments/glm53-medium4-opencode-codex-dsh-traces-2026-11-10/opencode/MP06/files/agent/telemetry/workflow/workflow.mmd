@@ -1,0 +1,46 @@
+flowchart TD
+  subgraph execution["execution"]
+    exec_agent_opencode_root_1["opencode-root:1"]
+    exec_tool_opencode_root_call_087b521bd98c42efae217287["opencode-root / bash"]
+    exec_tool_opencode_root_call_0a7cb4c4eb0f4911b3e59f5e["opencode-root / bash"]
+    exec_tool_opencode_root_call_24e4e726c9d44797a58177ef["opencode-root / bash"]
+    exec_tool_opencode_root_call_3e1731b72a3f4731bbccf9e2["opencode-root / bash"]
+    exec_tool_opencode_root_call_4495e198f29343ee8251ac87["opencode-root / write"]
+    exec_tool_opencode_root_call_56f7990ebf0348d8868d13c7["opencode-root / bash"]
+    exec_tool_opencode_root_call_7cd209e25e1a4889881a7c31["opencode-root / bash"]
+    exec_tool_opencode_root_call_7f3ae322150342beb73411cc["opencode-root / read"]
+    exec_tool_opencode_root_call_8ea64e469a9243cf91334632["opencode-root / write"]
+    exec_tool_opencode_root_call_9a6ec3c097004d48ab79f6c9["opencode-root / write"]
+    exec_tool_opencode_root_call_9c8cf8357322458b864440ae["opencode-root / bash"]
+    exec_tool_opencode_root_call_a4d12764abf14436a792c757["opencode-root / write"]
+    exec_tool_opencode_root_call_b5a4a5f94aeb48f7ac96b452["opencode-root / write"]
+    exec_tool_opencode_root_call_bc5c275846374a67ba8dcddd["opencode-root / write"]
+    exec_tool_opencode_root_call_bcc897be311b449ab9ef4b53["opencode-root / bash"]
+    exec_tool_opencode_root_call_c6d4b7b312d845d0b571d893["opencode-root / write"]
+    exec_tool_opencode_root_call_c7627c9f08df4cf6a82f2752["opencode-root / write"]
+    exec_tool_opencode_root_call_c8584925f66649ceb1341d8e["opencode-root / write"]
+    exec_tool_opencode_root_call_c8920e88f6994887bedb6de5["opencode-root / write"]
+    exec_tool_opencode_root_call_d6ec326dab134f7da281b540["opencode-root / write"]
+    exec_tool_opencode_root_call_f54e3e62429f463896eab448["opencode-root / bash"]
+    exec_agent_opencode_root_1 -.->|temporal-order| exec_tool_opencode_root_call_7f3ae322150342beb73411cc
+    exec_tool_opencode_root_call_087b521bd98c42efae217287 -.->|temporal-order| exec_tool_opencode_root_call_7cd209e25e1a4889881a7c31
+    exec_tool_opencode_root_call_0a7cb4c4eb0f4911b3e59f5e -.->|temporal-order| exec_tool_opencode_root_call_a4d12764abf14436a792c757
+    exec_tool_opencode_root_call_3e1731b72a3f4731bbccf9e2 -.->|temporal-order| exec_tool_opencode_root_call_0a7cb4c4eb0f4911b3e59f5e
+    exec_tool_opencode_root_call_4495e198f29343ee8251ac87 -.->|temporal-order| exec_tool_opencode_root_call_bc5c275846374a67ba8dcddd
+    exec_tool_opencode_root_call_56f7990ebf0348d8868d13c7 -.->|temporal-order| exec_tool_opencode_root_call_bcc897be311b449ab9ef4b53
+    exec_tool_opencode_root_call_7cd209e25e1a4889881a7c31 -.->|temporal-order| exec_tool_opencode_root_call_9c8cf8357322458b864440ae
+    exec_tool_opencode_root_call_7f3ae322150342beb73411cc -.->|temporal-order| exec_tool_opencode_root_call_087b521bd98c42efae217287
+    exec_tool_opencode_root_call_8ea64e469a9243cf91334632 -.->|temporal-order| exec_tool_opencode_root_call_d6ec326dab134f7da281b540
+    exec_tool_opencode_root_call_9a6ec3c097004d48ab79f6c9 -.->|temporal-order| exec_tool_opencode_root_call_8ea64e469a9243cf91334632
+    exec_tool_opencode_root_call_9c8cf8357322458b864440ae -.->|temporal-order| exec_tool_opencode_root_call_f54e3e62429f463896eab448
+    exec_tool_opencode_root_call_a4d12764abf14436a792c757 -.->|temporal-order| exec_tool_opencode_root_call_9a6ec3c097004d48ab79f6c9
+    exec_tool_opencode_root_call_b5a4a5f94aeb48f7ac96b452 -.->|temporal-order| exec_tool_opencode_root_call_c6d4b7b312d845d0b571d893
+    exec_tool_opencode_root_call_bc5c275846374a67ba8dcddd -.->|temporal-order| exec_tool_opencode_root_call_c7627c9f08df4cf6a82f2752
+    exec_tool_opencode_root_call_bcc897be311b449ab9ef4b53 -.->|temporal-order| exec_tool_opencode_root_call_24e4e726c9d44797a58177ef
+    exec_tool_opencode_root_call_c6d4b7b312d845d0b571d893 -.->|temporal-order| exec_tool_opencode_root_call_c8920e88f6994887bedb6de5
+    exec_tool_opencode_root_call_c7627c9f08df4cf6a82f2752 -.->|temporal-order| exec_tool_opencode_root_call_56f7990ebf0348d8868d13c7
+    exec_tool_opencode_root_call_c8584925f66649ceb1341d8e -.->|temporal-order| exec_tool_opencode_root_call_b5a4a5f94aeb48f7ac96b452
+    exec_tool_opencode_root_call_c8920e88f6994887bedb6de5 -.->|temporal-order| exec_tool_opencode_root_call_4495e198f29343ee8251ac87
+    exec_tool_opencode_root_call_d6ec326dab134f7da281b540 -.->|temporal-order| exec_tool_opencode_root_call_c8584925f66649ceb1341d8e
+    exec_tool_opencode_root_call_f54e3e62429f463896eab448 -.->|temporal-order| exec_tool_opencode_root_call_3e1731b72a3f4731bbccf9e2
+  end

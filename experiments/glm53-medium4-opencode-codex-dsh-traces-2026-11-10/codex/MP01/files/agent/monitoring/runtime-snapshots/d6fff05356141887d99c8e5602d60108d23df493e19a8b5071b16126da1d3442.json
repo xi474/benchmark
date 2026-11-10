@@ -1,0 +1,61 @@
+{
+  "agent_id": "root",
+  "config": {
+    "features": {
+      "multi_agent_v2": {
+        "enabled": true
+      }
+    },
+    "model_catalog_json": "/tmp/codex-model-catalog.json",
+    "model_provider": "glm_chat_bridge",
+    "model_providers": {
+      "glm_chat_bridge": {
+        "base_url": "http://host.docker.internal:18763",
+        "name": "GLM Chat low protocol bridge",
+        "requires_openai_auth": true,
+        "supports_websockets": false,
+        "wire_api": "responses"
+      }
+    },
+    "model_reasoning_effort": "low",
+    "openai_base_url": "http://host.docker.internal:18763/v1",
+    "web_search": "disabled"
+  },
+  "coverage": {
+    "config": "observed",
+    "permissions": "observed",
+    "prompts": "observed",
+    "tools": "unavailable"
+  },
+  "effective_tool_names": null,
+  "harness": "codex",
+  "kind": "configured-intent",
+  "permissions": {
+    "config_permissions": {
+      "approval_policy": null,
+      "sandbox_mode": null,
+      "sandbox_workspace_write": null
+    },
+    "flags": [
+      "--dangerously-bypass-approvals-and-sandbox",
+      "--skip-git-repo-check"
+    ],
+    "optional_flags": "",
+    "source": "harbor-native-run-command"
+  },
+  "prompts": {
+    "configured_policy": {
+      "multi_agent_v2": {
+        "enabled": true
+      }
+    },
+    "task_body_stored": false,
+    "task_instruction_sha256": "d0bb5e71979ec5df38372e3ad6e5445bedfd496e171f1ec97f38cc9161e4d691"
+  },
+  "proves_actual_model_exposure": false,
+  "run_id": "reward-v2-medium-MP01__4aTqjx2__env",
+  "schema": "harness-runtime-snapshot/1",
+  "source": "harbor-effective-config",
+  "tools": null,
+  "version": "0.164.0"
+}

@@ -1,0 +1,9 @@
+Skipping image OS validation for hb__ee4e6a8518f92bbdeb3ea9db1b03a95c: docker inspect returned 1
+Running command: set -eu; if ! command -v node >/dev/null || ! command -v npm >/dev/null || ! node -e 'process.exit(Number(process.versions.node.split(".")[0])>=20?0:1)' 2>/dev/null; then apt-get update && apt-get install -y ca-certificates curl && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt-get install -y nodejs; fi; mkdir -p /installed-agent/dsh-cli /installed-agent/dsh-home/profiles/headless; test -f /installed-agent/dsh-cli/node_modules/@deepseek-ai/dsh/lib/bin.js && test -f /installed-agent/dsh-cli/node_modules/@deepseek-ai/dsh-experimental-agent-team-profile/package.json || npm install --prefix /installed-agent/dsh-cli --omit=dev --no-audit --no-fund '@deepseek-ai/dsh@0.2.1-rc.2' '@deepseek-ai/dsh-experimental-agent-team-profile@0.2.1-rc.2'
+Command outputs captured
+Running command: set -eu; test -e /installed-agent/dsh-home/profiles/headless/node_modules || ln -s /installed-agent/dsh-cli/node_modules /installed-agent/dsh-home/profiles/headless/node_modules; if ! (test -x /installed-agent/dsh-python/bin/python && /installed-agent/dsh-python/bin/python -c 'import sys' 2>/dev/null); then apt-get update && apt-get install -y python3-venv ca-certificates && python3 -m venv --clear /installed-agent/dsh-python; fi; /installed-agent/dsh-python/bin/python -c 'import zstandard' 2>/dev/null || /installed-agent/dsh-python/bin/pip install --disable-pip-version-check zstandard || true
+Command outputs captured
+Running command: /installed-agent/dsh-python/bin/python /installed-agent/dsh_runner.py --instruction-file /installed-agent/instruction.txt --condition neutral 2>&1 | stdbuf -oL tee /logs/agent/dsh-runner.log
+Command outputs captured
+Collecting main service artifacts
+Skipping image OS validation for hb__e7d6dc67ef2d1fe50383f18ebfe45a1b: docker inspect returned 1
