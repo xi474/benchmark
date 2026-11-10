@@ -1,0 +1,25 @@
+{
+  "native": {
+    "dsh": "neutral task instruction; Agent Team loaded",
+    "codex": "ordinary/none native ExplicitRequestOnly policy"
+  },
+  "soft_reminder": {
+    "root_instruction": "Native multi-agent delegation is available for this task. Evaluate whether the work contains meaningful independent branches and whether delegation could improve quality or save time. Delegation is optional: choose the decomposition yourself, and use teammates only when you judge them useful. You may complete the task yourself when delegation would add unnecessary overhead. If you delegate, give each worker a concrete deliverable and a disjoint write scope, continue useful work yourself, receive and inspect required results, integrate the contributions, and run relevant validation before finishing. Do not create empty agents or create agents merely to demonstrate the feature.",
+    "codex_custom_permission": "Native multi-agent delegation is available. You may create sub-agents at your discretion when independent work would benefit from delegation. Evaluate the optional delegation guidance in the task. Creating sub-agents is not required, and there is no minimum number of workers.",
+    "minimum_workers": 0,
+    "mandatory": false,
+    "observed_cumulative_token_cap": 2000000,
+    "request_cap": 150
+  },
+  "explicit": {
+    "root_instruction": "This additional instruction applies to the root coordinator only. Use the harness's native multi-agent delegation capability. Delegate at least two meaningful pieces of actual work to distinct subordinate agents, receive and inspect their results, integrate the contributions and run relevant validation before finishing. Choose the decomposition yourself from the task and workspace. Use concurrent execution when the work is independent and the native harness supports it; dependent work can remain ordered. Give workers concrete deliverables and coordinate disjoint write scopes. A worker should execute its assigned task rather than repeat this delegation requirement recursively. Do not create empty agents or merely describe hypothetical delegation.",
+    "minimum_meaningful_workers": 2,
+    "mandatory": true,
+    "cumulative_token_cap": null
+  },
+  "instruction_sha256": {
+    "soft": "4fa0005c4ef3440e7da9f229b3cf1e3e06478c937ecf7abc2eae8ea0bea72279",
+    "explicit": "0804f43d599bbaa9f81498fd59486a61e3ee39a2e675df818c289212847c72d0",
+    "codex_optional_permission": "b50ac0f4637d042430b695444564169c2754d3ed78a6afd3c36b1a6cdffd394e"
+  }
+}
