@@ -1,0 +1,14 @@
+{
+  "name": "transaction_view",
+  "op": "transaction_routes",
+  "bindings": {
+    "album": "outputs/album_repository.json#",
+    "artist": "outputs/artist_repository.json#",
+    "initial": "inputs/request.json#/initial",
+    "events": "inputs/request.json#/events"
+  },
+  "spec": "在本地SQLite执行有限脚本。事件 begin/commit；put={kind:'put',repo:'album'|'artist',id,name}；get={kind:'get',repo,id}。事务中put/get均走事务连接，事务外get走read、put走write；get返回对应name或null。初始数据initial={albums:[{id,name}],artists:[...]}。返回 {reads:[get结果],routes:[每个put/get的'transaction'|'read'|'write'],final:{albums:按id排序行,artists:按id排序行}}。只测顺序事务，无锁竞争/重试。",
+  "output": "outputs/transaction_view.json",
+  "component": "transaction_view",
+  "task": "N19"
+}

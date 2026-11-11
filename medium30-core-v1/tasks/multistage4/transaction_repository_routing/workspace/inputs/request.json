@@ -1,0 +1,57 @@
+{
+  "repositories": {
+    "albums": {
+      "table": "albums",
+      "columns": [
+        "id",
+        "name"
+      ]
+    },
+    "artists": {
+      "table": "artists",
+      "columns": [
+        "id",
+        "name"
+      ]
+    }
+  },
+  "initial": {
+    "albums": [],
+    "artists": []
+  },
+  "events": [
+    {
+      "kind": "begin"
+    },
+    {
+      "kind": "put",
+      "repo": "album",
+      "id": 1,
+      "name": "A"
+    },
+    {
+      "kind": "get",
+      "repo": "album",
+      "id": 1
+    },
+    {
+      "kind": "put",
+      "repo": "artist",
+      "id": 2,
+      "name": "B"
+    },
+    {
+      "kind": "get",
+      "repo": "artist",
+      "id": 2
+    },
+    {
+      "kind": "commit"
+    },
+    {
+      "kind": "get",
+      "repo": "album",
+      "id": 1
+    }
+  ]
+}

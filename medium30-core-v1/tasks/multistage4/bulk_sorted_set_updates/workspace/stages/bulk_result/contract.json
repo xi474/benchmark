@@ -1,0 +1,13 @@
+{
+  "name": "bulk_result",
+  "op": "assemble_increments",
+  "bindings": {
+    "folds": "outputs/group_folds.json#",
+    "initial": "inputs/request.json#/initial",
+    "count": "inputs/request.json#/count"
+  },
+  "spec": "合并分组结果。返回 {scores:[按操作原位置的分数],sets:保留未操作成员的最终集合字典}。同一成员多次增分不可用最终值回填先前操作。count 等于操作数。",
+  "output": "outputs/bulk_result.json",
+  "component": "bulk_result",
+  "task": "N14"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "exempt_users",
+  "op": "exempt_users",
+  "bindings": {
+    "memberships": "inputs/request.json#/memberships",
+    "exempt_groups": "inputs/request.json#/exempt_groups"
+  },
+  "spec": "memberships={用户ID:[组名]}；返回属于任一豁免组的用户ID，按字典序。",
+  "output": "outputs/exempt_users.json",
+  "component": "exempt_users",
+  "task": "N13"
+}

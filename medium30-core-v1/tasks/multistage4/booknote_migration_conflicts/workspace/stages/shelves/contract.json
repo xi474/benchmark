@@ -1,0 +1,13 @@
+{
+  "name": "shelves",
+  "op": "migrate_shelves",
+  "bindings": {
+    "rows": "inputs/request.json#/shelves",
+    "old": "inputs/request.json#/old",
+    "new": "inputs/request.json#/new"
+  },
+  "spec": "与notes使用相同输入结构，但发生目标键冲突时保留目标、删除old，stats={rows_changed:0,rows_deleted:1,failed_deletes:0}。无冲突则迁移。",
+  "output": "outputs/shelves.json",
+  "component": "shelves",
+  "task": "N16"
+}

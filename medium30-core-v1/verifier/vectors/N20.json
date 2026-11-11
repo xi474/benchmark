@@ -1,0 +1,438 @@
+{
+  "components": {
+    "directory_resources": [
+      {
+        "payload": {
+          "files": {
+            "html/a.html": "A",
+            "html/unrelatedhtml": "NO",
+            "html/README": "NO",
+            "html/sub/b.html": "B",
+            "javascript/x.js": "X",
+            "javascript/quirks/q.js": "Q"
+          },
+          "patterns": [
+            {
+              "directory": "html",
+              "extension": ".html"
+            },
+            {
+              "directory": "javascript",
+              "extension": ".js"
+            },
+            {
+              "directory": "javascript/quirks",
+              "extension": ".js"
+            }
+          ]
+        },
+        "expected": [
+          "html/a.html",
+          "javascript/quirks/q.js",
+          "javascript/x.js"
+        ]
+      },
+      {
+        "payload": {
+          "files": {
+            "html/one.html": "one",
+            "javascript/two.js": "two",
+            "javascript/two.json": "skip"
+          },
+          "patterns": [
+            {
+              "directory": "html",
+              "extension": ".html"
+            },
+            {
+              "directory": "javascript",
+              "extension": ".js"
+            },
+            {
+              "directory": "javascript/quirks",
+              "extension": ".js"
+            }
+          ]
+        },
+        "expected": [
+          "html/one.html",
+          "javascript/two.js"
+        ]
+      },
+      {
+        "payload": {
+          "files": {
+            "html/sub/n.html": "nested",
+            "html/a.html": "top"
+          },
+          "patterns": [
+            {
+              "directory": "html/sub",
+              "extension": ".html"
+            }
+          ]
+        },
+        "expected": [
+          "html/sub/n.html"
+        ]
+      }
+    ],
+    "zip_resources": [
+      {
+        "payload": {
+          "files": {
+            "html/a.html": "A",
+            "html/unrelatedhtml": "NO",
+            "html/README": "NO",
+            "html/sub/b.html": "B",
+            "javascript/x.js": "X",
+            "javascript/quirks/q.js": "Q"
+          },
+          "patterns": [
+            {
+              "directory": "html",
+              "extension": ".html"
+            },
+            {
+              "directory": "javascript",
+              "extension": ".js"
+            },
+            {
+              "directory": "javascript/quirks",
+              "extension": ".js"
+            }
+          ]
+        },
+        "expected": [
+          "html/a.html",
+          "javascript/quirks/q.js",
+          "javascript/x.js"
+        ]
+      },
+      {
+        "payload": {
+          "files": {
+            "html/one.html": "one",
+            "javascript/two.js": "two",
+            "javascript/two.json": "skip"
+          },
+          "patterns": [
+            {
+              "directory": "html",
+              "extension": ".html"
+            },
+            {
+              "directory": "javascript",
+              "extension": ".js"
+            },
+            {
+              "directory": "javascript/quirks",
+              "extension": ".js"
+            }
+          ]
+        },
+        "expected": [
+          "html/one.html",
+          "javascript/two.js"
+        ]
+      },
+      {
+        "payload": {
+          "files": {
+            "html/sub/n.html": "nested",
+            "html/a.html": "top"
+          },
+          "patterns": [
+            {
+              "directory": "html/sub",
+              "extension": ".html"
+            }
+          ]
+        },
+        "expected": [
+          "html/sub/n.html"
+        ]
+      }
+    ],
+    "preloaded_cache": [
+      {
+        "payload": {
+          "directory": [
+            "html/a.html",
+            "javascript/quirks/q.js",
+            "javascript/x.js"
+          ],
+          "zip": [
+            "html/a.html",
+            "javascript/quirks/q.js",
+            "javascript/x.js"
+          ],
+          "files": {
+            "html/a.html": "A",
+            "html/unrelatedhtml": "NO",
+            "html/README": "NO",
+            "html/sub/b.html": "B",
+            "javascript/x.js": "X",
+            "javascript/quirks/q.js": "Q"
+          }
+        },
+        "expected": {
+          "html/a.html": "A",
+          "javascript/quirks/q.js": "Q",
+          "javascript/x.js": "X"
+        }
+      },
+      {
+        "payload": {
+          "directory": [
+            "html/one.html",
+            "javascript/two.js"
+          ],
+          "zip": [
+            "html/one.html",
+            "javascript/two.js"
+          ],
+          "files": {
+            "html/one.html": "one",
+            "javascript/two.js": "two",
+            "javascript/two.json": "skip"
+          }
+        },
+        "expected": {
+          "html/one.html": "one",
+          "javascript/two.js": "two"
+        }
+      },
+      {
+        "payload": {
+          "directory": [
+            "html/sub/n.html"
+          ],
+          "zip": [
+            "html/sub/n.html"
+          ],
+          "files": {
+            "html/sub/n.html": "nested",
+            "html/a.html": "top"
+          }
+        },
+        "expected": {
+          "html/sub/n.html": "nested"
+        }
+      }
+    ],
+    "offline_reads": [
+      {
+        "payload": {
+          "cache": {
+            "html/a.html": "A",
+            "javascript/quirks/q.js": "Q",
+            "javascript/x.js": "X"
+          },
+          "requests": [
+            "html/a.html",
+            "javascript/quirks/q.js"
+          ]
+        },
+        "expected": {
+          "paths": [
+            "html/a.html",
+            "javascript/quirks/q.js",
+            "javascript/x.js"
+          ],
+          "values": [
+            "A",
+            "Q"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "cache": {
+            "html/one.html": "one",
+            "javascript/two.js": "two"
+          },
+          "requests": [
+            "javascript/two.js",
+            "html/one.html"
+          ]
+        },
+        "expected": {
+          "paths": [
+            "html/one.html",
+            "javascript/two.js"
+          ],
+          "values": [
+            "two",
+            "one"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "cache": {
+            "html/sub/n.html": "nested"
+          },
+          "requests": [
+            "html/sub/n.html"
+          ]
+        },
+        "expected": {
+          "paths": [
+            "html/sub/n.html"
+          ],
+          "values": [
+            "nested"
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "files": {
+          "html/a.html": "A",
+          "html/unrelatedhtml": "NO",
+          "html/README": "NO",
+          "html/sub/b.html": "B",
+          "javascript/x.js": "X",
+          "javascript/quirks/q.js": "Q"
+        },
+        "patterns": [
+          {
+            "directory": "html",
+            "extension": ".html"
+          },
+          {
+            "directory": "javascript",
+            "extension": ".js"
+          },
+          {
+            "directory": "javascript/quirks",
+            "extension": ".js"
+          }
+        ],
+        "requests": [
+          "html/a.html",
+          "javascript/quirks/q.js"
+        ]
+      },
+      "results": {
+        "directory_resources": [
+          "html/a.html",
+          "javascript/quirks/q.js",
+          "javascript/x.js"
+        ],
+        "zip_resources": [
+          "html/a.html",
+          "javascript/quirks/q.js",
+          "javascript/x.js"
+        ],
+        "preloaded_cache": {
+          "html/a.html": "A",
+          "javascript/quirks/q.js": "Q",
+          "javascript/x.js": "X"
+        },
+        "offline_reads": {
+          "paths": [
+            "html/a.html",
+            "javascript/quirks/q.js",
+            "javascript/x.js"
+          ],
+          "values": [
+            "A",
+            "Q"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "files": {
+          "html/one.html": "one",
+          "javascript/two.js": "two",
+          "javascript/two.json": "skip"
+        },
+        "patterns": [
+          {
+            "directory": "html",
+            "extension": ".html"
+          },
+          {
+            "directory": "javascript",
+            "extension": ".js"
+          },
+          {
+            "directory": "javascript/quirks",
+            "extension": ".js"
+          }
+        ],
+        "requests": [
+          "javascript/two.js",
+          "html/one.html"
+        ]
+      },
+      "results": {
+        "directory_resources": [
+          "html/one.html",
+          "javascript/two.js"
+        ],
+        "zip_resources": [
+          "html/one.html",
+          "javascript/two.js"
+        ],
+        "preloaded_cache": {
+          "html/one.html": "one",
+          "javascript/two.js": "two"
+        },
+        "offline_reads": {
+          "paths": [
+            "html/one.html",
+            "javascript/two.js"
+          ],
+          "values": [
+            "two",
+            "one"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "files": {
+          "html/sub/n.html": "nested",
+          "html/a.html": "top"
+        },
+        "patterns": [
+          {
+            "directory": "html/sub",
+            "extension": ".html"
+          }
+        ],
+        "requests": [
+          "html/sub/n.html"
+        ]
+      },
+      "results": {
+        "directory_resources": [
+          "html/sub/n.html"
+        ],
+        "zip_resources": [
+          "html/sub/n.html"
+        ],
+        "preloaded_cache": {
+          "html/sub/n.html": "nested"
+        },
+        "offline_reads": {
+          "paths": [
+            "html/sub/n.html"
+          ],
+          "values": [
+            "nested"
+          ]
+        }
+      }
+    }
+  ]
+}

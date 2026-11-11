@@ -1,0 +1,15 @@
+{
+  "name": "initial_saves",
+  "op": "rental_initial",
+  "bindings": {
+    "properties": "inputs/request.json#/properties",
+    "saved": "inputs/request.json#/saved",
+    "city": "inputs/request.json#/city",
+    "low": "inputs/request.json#/low",
+    "high": "inputs/request.json#/high"
+  },
+  "spec": "对初始快照收藏做集合更新：删除指定city中不在闭区间[low,high]的已收藏房源，保存初始列表中同城合格房源，其他城市原收藏不变。返回排序最终ID列表。",
+  "output": "outputs/initial_saves.json",
+  "component": "initial_saves",
+  "task": "N27"
+}

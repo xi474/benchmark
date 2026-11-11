@@ -1,0 +1,13 @@
+{
+  "name": "moved_document",
+  "op": "move_document",
+  "bindings": {
+    "files": "inputs/request.json#/files",
+    "source": "inputs/request.json#/source",
+    "destination": "inputs/request.json#/destination"
+  },
+  "spec": "Files应用的虚拟快照files={相对路径:不透明文件字节的base64}，夹具为可打开的有效xlsx。移动source到destination，目标父目录可创建。返回 {files:移动后快照,attachment:{path:destination,content:原base64,sha256:解码后实际文件字节摘要}}。source存在、destination未占用。只保留字节，不解析xlsx内部。",
+  "output": "outputs/moved_document.json",
+  "component": "moved_document",
+  "task": "N30"
+}

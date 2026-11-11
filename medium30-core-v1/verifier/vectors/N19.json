@@ -1,0 +1,640 @@
+{
+  "components": {
+    "album_repository": [
+      {
+        "payload": {
+          "definition": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "expected": {
+          "table": "albums",
+          "columns": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "definition": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "expected": {
+          "table": "albums",
+          "columns": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "definition": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "expected": {
+          "table": "albums",
+          "columns": [
+            "id",
+            "name"
+          ]
+        }
+      }
+    ],
+    "artist_repository": [
+      {
+        "payload": {
+          "definition": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "expected": {
+          "table": "artists",
+          "columns": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "definition": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "expected": {
+          "table": "artists",
+          "columns": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "definition": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "expected": {
+          "table": "artists",
+          "columns": [
+            "id",
+            "name"
+          ]
+        }
+      }
+    ],
+    "transaction_view": [
+      {
+        "payload": {
+          "album": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "artist": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "initial": {
+            "albums": [],
+            "artists": []
+          },
+          "events": [
+            {
+              "kind": "begin"
+            },
+            {
+              "kind": "put",
+              "repo": "album",
+              "id": 1,
+              "name": "A"
+            },
+            {
+              "kind": "get",
+              "repo": "album",
+              "id": 1
+            },
+            {
+              "kind": "put",
+              "repo": "artist",
+              "id": 2,
+              "name": "B"
+            },
+            {
+              "kind": "get",
+              "repo": "artist",
+              "id": 2
+            },
+            {
+              "kind": "commit"
+            },
+            {
+              "kind": "get",
+              "repo": "album",
+              "id": 1
+            }
+          ]
+        },
+        "expected": {
+          "reads": [
+            "A",
+            "B",
+            "A"
+          ],
+          "routes": [
+            "transaction",
+            "transaction",
+            "transaction",
+            "transaction",
+            "read"
+          ],
+          "final": {
+            "albums": [
+              {
+                "id": 1,
+                "name": "A"
+              }
+            ],
+            "artists": [
+              {
+                "id": 2,
+                "name": "B"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "album": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "artist": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "initial": {
+            "albums": [
+              {
+                "id": 3,
+                "name": "old"
+              }
+            ],
+            "artists": []
+          },
+          "events": [
+            {
+              "kind": "get",
+              "repo": "album",
+              "id": 3
+            },
+            {
+              "kind": "begin"
+            },
+            {
+              "kind": "put",
+              "repo": "album",
+              "id": 3,
+              "name": "new"
+            },
+            {
+              "kind": "get",
+              "repo": "album",
+              "id": 3
+            },
+            {
+              "kind": "commit"
+            },
+            {
+              "kind": "get",
+              "repo": "album",
+              "id": 3
+            }
+          ]
+        },
+        "expected": {
+          "reads": [
+            "old",
+            "new",
+            "new"
+          ],
+          "routes": [
+            "read",
+            "transaction",
+            "transaction",
+            "read"
+          ],
+          "final": {
+            "albums": [
+              {
+                "id": 3,
+                "name": "new"
+              }
+            ],
+            "artists": []
+          }
+        }
+      },
+      {
+        "payload": {
+          "album": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "artist": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "initial": {
+            "albums": [],
+            "artists": [
+              {
+                "id": 5,
+                "name": "X"
+              }
+            ]
+          },
+          "events": [
+            {
+              "kind": "get",
+              "repo": "artist",
+              "id": 5
+            },
+            {
+              "kind": "put",
+              "repo": "album",
+              "id": 7,
+              "name": "Y"
+            },
+            {
+              "kind": "get",
+              "repo": "album",
+              "id": 7
+            }
+          ]
+        },
+        "expected": {
+          "reads": [
+            "X",
+            "Y"
+          ],
+          "routes": [
+            "read",
+            "write",
+            "read"
+          ],
+          "final": {
+            "albums": [
+              {
+                "id": 7,
+                "name": "Y"
+              }
+            ],
+            "artists": [
+              {
+                "id": 5,
+                "name": "X"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "repositories": {
+          "albums": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "artists": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "initial": {
+          "albums": [],
+          "artists": []
+        },
+        "events": [
+          {
+            "kind": "begin"
+          },
+          {
+            "kind": "put",
+            "repo": "album",
+            "id": 1,
+            "name": "A"
+          },
+          {
+            "kind": "get",
+            "repo": "album",
+            "id": 1
+          },
+          {
+            "kind": "put",
+            "repo": "artist",
+            "id": 2,
+            "name": "B"
+          },
+          {
+            "kind": "get",
+            "repo": "artist",
+            "id": 2
+          },
+          {
+            "kind": "commit"
+          },
+          {
+            "kind": "get",
+            "repo": "album",
+            "id": 1
+          }
+        ]
+      },
+      "results": {
+        "album_repository": {
+          "table": "albums",
+          "columns": [
+            "id",
+            "name"
+          ]
+        },
+        "artist_repository": {
+          "table": "artists",
+          "columns": [
+            "id",
+            "name"
+          ]
+        },
+        "transaction_view": {
+          "reads": [
+            "A",
+            "B",
+            "A"
+          ],
+          "routes": [
+            "transaction",
+            "transaction",
+            "transaction",
+            "transaction",
+            "read"
+          ],
+          "final": {
+            "albums": [
+              {
+                "id": 1,
+                "name": "A"
+              }
+            ],
+            "artists": [
+              {
+                "id": 2,
+                "name": "B"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "repositories": {
+          "albums": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "artists": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "initial": {
+          "albums": [
+            {
+              "id": 3,
+              "name": "old"
+            }
+          ],
+          "artists": []
+        },
+        "events": [
+          {
+            "kind": "get",
+            "repo": "album",
+            "id": 3
+          },
+          {
+            "kind": "begin"
+          },
+          {
+            "kind": "put",
+            "repo": "album",
+            "id": 3,
+            "name": "new"
+          },
+          {
+            "kind": "get",
+            "repo": "album",
+            "id": 3
+          },
+          {
+            "kind": "commit"
+          },
+          {
+            "kind": "get",
+            "repo": "album",
+            "id": 3
+          }
+        ]
+      },
+      "results": {
+        "album_repository": {
+          "table": "albums",
+          "columns": [
+            "id",
+            "name"
+          ]
+        },
+        "artist_repository": {
+          "table": "artists",
+          "columns": [
+            "id",
+            "name"
+          ]
+        },
+        "transaction_view": {
+          "reads": [
+            "old",
+            "new",
+            "new"
+          ],
+          "routes": [
+            "read",
+            "transaction",
+            "transaction",
+            "read"
+          ],
+          "final": {
+            "albums": [
+              {
+                "id": 3,
+                "name": "new"
+              }
+            ],
+            "artists": []
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "repositories": {
+          "albums": {
+            "table": "albums",
+            "columns": [
+              "id",
+              "name"
+            ]
+          },
+          "artists": {
+            "table": "artists",
+            "columns": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "initial": {
+          "albums": [],
+          "artists": [
+            {
+              "id": 5,
+              "name": "X"
+            }
+          ]
+        },
+        "events": [
+          {
+            "kind": "get",
+            "repo": "artist",
+            "id": 5
+          },
+          {
+            "kind": "put",
+            "repo": "album",
+            "id": 7,
+            "name": "Y"
+          },
+          {
+            "kind": "get",
+            "repo": "album",
+            "id": 7
+          }
+        ]
+      },
+      "results": {
+        "album_repository": {
+          "table": "albums",
+          "columns": [
+            "id",
+            "name"
+          ]
+        },
+        "artist_repository": {
+          "table": "artists",
+          "columns": [
+            "id",
+            "name"
+          ]
+        },
+        "transaction_view": {
+          "reads": [
+            "X",
+            "Y"
+          ],
+          "routes": [
+            "read",
+            "write",
+            "read"
+          ],
+          "final": {
+            "albums": [
+              {
+                "id": 7,
+                "name": "Y"
+              }
+            ],
+            "artists": [
+              {
+                "id": 5,
+                "name": "X"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

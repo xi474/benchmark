@@ -1,0 +1,18 @@
+{
+  "name": "cleaned_repo",
+  "op": "git_clean",
+  "bindings": {
+    "bundle": "inputs/request.json#/bundle",
+    "scan": "outputs/object_scan.json#"
+  },
+  "spec": "先确认已恢复标记，再删除仓库中的该标记，包括reflog和不可达对象；保留普通工作区内容与正常提交说明。返回 {bundle:清理后完整仓库tar.gz的base64,files:{普通相对路径:SHA256},messages:[git log --format=%s按新到旧]}。允许任意语义正确仓库重打包，不比tar字节。",
+  "emit": {
+    "outputs/cleaned-repo.tar.gz": {
+      "pointer": "/bundle",
+      "format": "base64"
+    }
+  },
+  "output": "outputs/cleaned_repo.json",
+  "component": "cleaned_repo",
+  "task": "N22"
+}

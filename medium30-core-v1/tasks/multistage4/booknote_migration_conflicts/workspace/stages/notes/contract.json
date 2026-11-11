@@ -1,0 +1,13 @@
+{
+  "name": "notes",
+  "op": "migrate_notes",
+  "bindings": {
+    "rows": "inputs/request.json#/notes",
+    "old": "inputs/request.json#/old",
+    "new": "inputs/request.json#/new"
+  },
+  "spec": "rows={work_id:笔记文本}。old存在；若new已存在且不同于old，保持所有笔记，统计 {rows_changed:0,rows_deleted:0,failed_deletes:1}。new不存在则迁移键，changed=1；old==new无操作。返回 {rows:更新字典,stats:上述三个计数}。",
+  "output": "outputs/notes.json",
+  "component": "notes",
+  "task": "N16"
+}

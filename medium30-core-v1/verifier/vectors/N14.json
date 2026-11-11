@@ -1,0 +1,903 @@
+{
+  "components": {
+    "operation_groups": [
+      {
+        "payload": {
+          "initial": {
+            "a": {
+              "x": 10,
+              "untouched": 7
+            }
+          },
+          "operations": [
+            {
+              "key": "a",
+              "member": "x",
+              "delta": 2
+            },
+            {
+              "key": "b",
+              "member": "y",
+              "delta": 4
+            },
+            {
+              "key": "a",
+              "member": "x",
+              "delta": 3
+            }
+          ]
+        },
+        "expected": [
+          {
+            "key": "a",
+            "member": "x",
+            "initial": 10,
+            "operations": [
+              {
+                "index": 0,
+                "delta": 2
+              },
+              {
+                "index": 2,
+                "delta": 3
+              }
+            ]
+          },
+          {
+            "key": "b",
+            "member": "y",
+            "initial": 0,
+            "operations": [
+              {
+                "index": 1,
+                "delta": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "payload": {
+          "initial": {
+            "s": {
+              "p": 1
+            }
+          },
+          "operations": [
+            {
+              "key": "s",
+              "member": "q",
+              "delta": 6
+            },
+            {
+              "key": "s",
+              "member": "p",
+              "delta": -1
+            },
+            {
+              "key": "s",
+              "member": "q",
+              "delta": -2
+            }
+          ]
+        },
+        "expected": [
+          {
+            "key": "s",
+            "member": "p",
+            "initial": 1,
+            "operations": [
+              {
+                "index": 1,
+                "delta": -1
+              }
+            ]
+          },
+          {
+            "key": "s",
+            "member": "q",
+            "initial": 0,
+            "operations": [
+              {
+                "index": 0,
+                "delta": 6
+              },
+              {
+                "index": 2,
+                "delta": -2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "payload": {
+          "initial": {
+            "u": {
+              "x": 4
+            },
+            "v": {
+              "x": 20
+            }
+          },
+          "operations": [
+            {
+              "key": "v",
+              "member": "x",
+              "delta": 5
+            },
+            {
+              "key": "u",
+              "member": "x",
+              "delta": 8
+            },
+            {
+              "key": "v",
+              "member": "x",
+              "delta": -3
+            },
+            {
+              "key": "u",
+              "member": "z",
+              "delta": 9
+            }
+          ]
+        },
+        "expected": [
+          {
+            "key": "u",
+            "member": "x",
+            "initial": 4,
+            "operations": [
+              {
+                "index": 1,
+                "delta": 8
+              }
+            ]
+          },
+          {
+            "key": "u",
+            "member": "z",
+            "initial": 0,
+            "operations": [
+              {
+                "index": 3,
+                "delta": 9
+              }
+            ]
+          },
+          {
+            "key": "v",
+            "member": "x",
+            "initial": 20,
+            "operations": [
+              {
+                "index": 0,
+                "delta": 5
+              },
+              {
+                "index": 2,
+                "delta": -3
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "group_folds": [
+      {
+        "payload": {
+          "groups": [
+            {
+              "key": "a",
+              "member": "x",
+              "initial": 10,
+              "operations": [
+                {
+                  "index": 0,
+                  "delta": 2
+                },
+                {
+                  "index": 2,
+                  "delta": 3
+                }
+              ]
+            },
+            {
+              "key": "b",
+              "member": "y",
+              "initial": 0,
+              "operations": [
+                {
+                  "index": 1,
+                  "delta": 4
+                }
+              ]
+            }
+          ]
+        },
+        "expected": [
+          {
+            "key": "a",
+            "member": "x",
+            "final": 15,
+            "results": [
+              {
+                "index": 0,
+                "score": 12
+              },
+              {
+                "index": 2,
+                "score": 15
+              }
+            ]
+          },
+          {
+            "key": "b",
+            "member": "y",
+            "final": 4,
+            "results": [
+              {
+                "index": 1,
+                "score": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "payload": {
+          "groups": [
+            {
+              "key": "s",
+              "member": "p",
+              "initial": 1,
+              "operations": [
+                {
+                  "index": 1,
+                  "delta": -1
+                }
+              ]
+            },
+            {
+              "key": "s",
+              "member": "q",
+              "initial": 0,
+              "operations": [
+                {
+                  "index": 0,
+                  "delta": 6
+                },
+                {
+                  "index": 2,
+                  "delta": -2
+                }
+              ]
+            }
+          ]
+        },
+        "expected": [
+          {
+            "key": "s",
+            "member": "p",
+            "final": 0,
+            "results": [
+              {
+                "index": 1,
+                "score": 0
+              }
+            ]
+          },
+          {
+            "key": "s",
+            "member": "q",
+            "final": 4,
+            "results": [
+              {
+                "index": 0,
+                "score": 6
+              },
+              {
+                "index": 2,
+                "score": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "payload": {
+          "groups": [
+            {
+              "key": "u",
+              "member": "x",
+              "initial": 4,
+              "operations": [
+                {
+                  "index": 1,
+                  "delta": 8
+                }
+              ]
+            },
+            {
+              "key": "u",
+              "member": "z",
+              "initial": 0,
+              "operations": [
+                {
+                  "index": 3,
+                  "delta": 9
+                }
+              ]
+            },
+            {
+              "key": "v",
+              "member": "x",
+              "initial": 20,
+              "operations": [
+                {
+                  "index": 0,
+                  "delta": 5
+                },
+                {
+                  "index": 2,
+                  "delta": -3
+                }
+              ]
+            }
+          ]
+        },
+        "expected": [
+          {
+            "key": "u",
+            "member": "x",
+            "final": 12,
+            "results": [
+              {
+                "index": 1,
+                "score": 12
+              }
+            ]
+          },
+          {
+            "key": "u",
+            "member": "z",
+            "final": 9,
+            "results": [
+              {
+                "index": 3,
+                "score": 9
+              }
+            ]
+          },
+          {
+            "key": "v",
+            "member": "x",
+            "final": 22,
+            "results": [
+              {
+                "index": 0,
+                "score": 25
+              },
+              {
+                "index": 2,
+                "score": 22
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "bulk_result": [
+      {
+        "payload": {
+          "folds": [
+            {
+              "key": "a",
+              "member": "x",
+              "final": 15,
+              "results": [
+                {
+                  "index": 0,
+                  "score": 12
+                },
+                {
+                  "index": 2,
+                  "score": 15
+                }
+              ]
+            },
+            {
+              "key": "b",
+              "member": "y",
+              "final": 4,
+              "results": [
+                {
+                  "index": 1,
+                  "score": 4
+                }
+              ]
+            }
+          ],
+          "initial": {
+            "a": {
+              "x": 10,
+              "untouched": 7
+            }
+          },
+          "count": 3
+        },
+        "expected": {
+          "scores": [
+            12,
+            4,
+            15
+          ],
+          "sets": {
+            "a": {
+              "x": 15,
+              "untouched": 7
+            },
+            "b": {
+              "y": 4
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "folds": [
+            {
+              "key": "s",
+              "member": "p",
+              "final": 0,
+              "results": [
+                {
+                  "index": 1,
+                  "score": 0
+                }
+              ]
+            },
+            {
+              "key": "s",
+              "member": "q",
+              "final": 4,
+              "results": [
+                {
+                  "index": 0,
+                  "score": 6
+                },
+                {
+                  "index": 2,
+                  "score": 4
+                }
+              ]
+            }
+          ],
+          "initial": {
+            "s": {
+              "p": 1
+            }
+          },
+          "count": 3
+        },
+        "expected": {
+          "scores": [
+            6,
+            0,
+            4
+          ],
+          "sets": {
+            "s": {
+              "p": 0,
+              "q": 4
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "folds": [
+            {
+              "key": "u",
+              "member": "x",
+              "final": 12,
+              "results": [
+                {
+                  "index": 1,
+                  "score": 12
+                }
+              ]
+            },
+            {
+              "key": "u",
+              "member": "z",
+              "final": 9,
+              "results": [
+                {
+                  "index": 3,
+                  "score": 9
+                }
+              ]
+            },
+            {
+              "key": "v",
+              "member": "x",
+              "final": 22,
+              "results": [
+                {
+                  "index": 0,
+                  "score": 25
+                },
+                {
+                  "index": 2,
+                  "score": 22
+                }
+              ]
+            }
+          ],
+          "initial": {
+            "u": {
+              "x": 4
+            },
+            "v": {
+              "x": 20
+            }
+          },
+          "count": 4
+        },
+        "expected": {
+          "scores": [
+            25,
+            12,
+            22,
+            9
+          ],
+          "sets": {
+            "u": {
+              "x": 12,
+              "z": 9
+            },
+            "v": {
+              "x": 22
+            }
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "initial": {
+          "a": {
+            "x": 10,
+            "untouched": 7
+          }
+        },
+        "operations": [
+          {
+            "key": "a",
+            "member": "x",
+            "delta": 2
+          },
+          {
+            "key": "b",
+            "member": "y",
+            "delta": 4
+          },
+          {
+            "key": "a",
+            "member": "x",
+            "delta": 3
+          }
+        ],
+        "count": 3
+      },
+      "results": {
+        "operation_groups": [
+          {
+            "key": "a",
+            "member": "x",
+            "initial": 10,
+            "operations": [
+              {
+                "index": 0,
+                "delta": 2
+              },
+              {
+                "index": 2,
+                "delta": 3
+              }
+            ]
+          },
+          {
+            "key": "b",
+            "member": "y",
+            "initial": 0,
+            "operations": [
+              {
+                "index": 1,
+                "delta": 4
+              }
+            ]
+          }
+        ],
+        "group_folds": [
+          {
+            "key": "a",
+            "member": "x",
+            "final": 15,
+            "results": [
+              {
+                "index": 0,
+                "score": 12
+              },
+              {
+                "index": 2,
+                "score": 15
+              }
+            ]
+          },
+          {
+            "key": "b",
+            "member": "y",
+            "final": 4,
+            "results": [
+              {
+                "index": 1,
+                "score": 4
+              }
+            ]
+          }
+        ],
+        "bulk_result": {
+          "scores": [
+            12,
+            4,
+            15
+          ],
+          "sets": {
+            "a": {
+              "x": 15,
+              "untouched": 7
+            },
+            "b": {
+              "y": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "initial": {
+          "s": {
+            "p": 1
+          }
+        },
+        "operations": [
+          {
+            "key": "s",
+            "member": "q",
+            "delta": 6
+          },
+          {
+            "key": "s",
+            "member": "p",
+            "delta": -1
+          },
+          {
+            "key": "s",
+            "member": "q",
+            "delta": -2
+          }
+        ],
+        "count": 3
+      },
+      "results": {
+        "operation_groups": [
+          {
+            "key": "s",
+            "member": "p",
+            "initial": 1,
+            "operations": [
+              {
+                "index": 1,
+                "delta": -1
+              }
+            ]
+          },
+          {
+            "key": "s",
+            "member": "q",
+            "initial": 0,
+            "operations": [
+              {
+                "index": 0,
+                "delta": 6
+              },
+              {
+                "index": 2,
+                "delta": -2
+              }
+            ]
+          }
+        ],
+        "group_folds": [
+          {
+            "key": "s",
+            "member": "p",
+            "final": 0,
+            "results": [
+              {
+                "index": 1,
+                "score": 0
+              }
+            ]
+          },
+          {
+            "key": "s",
+            "member": "q",
+            "final": 4,
+            "results": [
+              {
+                "index": 0,
+                "score": 6
+              },
+              {
+                "index": 2,
+                "score": 4
+              }
+            ]
+          }
+        ],
+        "bulk_result": {
+          "scores": [
+            6,
+            0,
+            4
+          ],
+          "sets": {
+            "s": {
+              "p": 0,
+              "q": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "initial": {
+          "u": {
+            "x": 4
+          },
+          "v": {
+            "x": 20
+          }
+        },
+        "operations": [
+          {
+            "key": "v",
+            "member": "x",
+            "delta": 5
+          },
+          {
+            "key": "u",
+            "member": "x",
+            "delta": 8
+          },
+          {
+            "key": "v",
+            "member": "x",
+            "delta": -3
+          },
+          {
+            "key": "u",
+            "member": "z",
+            "delta": 9
+          }
+        ],
+        "count": 4
+      },
+      "results": {
+        "operation_groups": [
+          {
+            "key": "u",
+            "member": "x",
+            "initial": 4,
+            "operations": [
+              {
+                "index": 1,
+                "delta": 8
+              }
+            ]
+          },
+          {
+            "key": "u",
+            "member": "z",
+            "initial": 0,
+            "operations": [
+              {
+                "index": 3,
+                "delta": 9
+              }
+            ]
+          },
+          {
+            "key": "v",
+            "member": "x",
+            "initial": 20,
+            "operations": [
+              {
+                "index": 0,
+                "delta": 5
+              },
+              {
+                "index": 2,
+                "delta": -3
+              }
+            ]
+          }
+        ],
+        "group_folds": [
+          {
+            "key": "u",
+            "member": "x",
+            "final": 12,
+            "results": [
+              {
+                "index": 1,
+                "score": 12
+              }
+            ]
+          },
+          {
+            "key": "u",
+            "member": "z",
+            "final": 9,
+            "results": [
+              {
+                "index": 3,
+                "score": 9
+              }
+            ]
+          },
+          {
+            "key": "v",
+            "member": "x",
+            "final": 22,
+            "results": [
+              {
+                "index": 0,
+                "score": 25
+              },
+              {
+                "index": 2,
+                "score": 22
+              }
+            ]
+          }
+        ],
+        "bulk_result": {
+          "scores": [
+            25,
+            12,
+            22,
+            9
+          ],
+          "sets": {
+            "u": {
+              "x": 12,
+              "z": 9
+            },
+            "v": {
+              "x": 22
+            }
+          }
+        }
+      }
+    }
+  ]
+}

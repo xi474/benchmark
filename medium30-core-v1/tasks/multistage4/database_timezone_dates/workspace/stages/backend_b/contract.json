@@ -1,0 +1,13 @@
+{
+  "name": "backend_b",
+  "op": "timezone_b",
+  "bindings": {
+    "rows": "inputs/request.json#/rows",
+    "source": "inputs/request.json#/source",
+    "target": "inputs/request.json#/target"
+  },
+  "spec": "同 backend_a 的日期语义，用独立后端路径处理；同区时不可重复偏移。",
+  "output": "outputs/backend_b.json",
+  "component": "backend_b",
+  "task": "N05"
+}

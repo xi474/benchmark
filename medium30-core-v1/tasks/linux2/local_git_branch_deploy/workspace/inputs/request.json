@@ -1,0 +1,31 @@
+{
+  "routes": {
+    "refs/heads/main": "site/main",
+    "refs/heads/dev": "site/dev"
+  },
+  "batches": [
+    [
+      {
+        "branch": "main",
+        "files": {
+          "index.html": "MAIN"
+        }
+      },
+      {
+        "branch": "dev",
+        "files": {
+          "index.html": "DEV",
+          "old.txt": "drop"
+        }
+      }
+    ],
+    [
+      {
+        "branch": "dev",
+        "files": {
+          "index.html": "DEV2"
+        }
+      }
+    ]
+  ]
+}

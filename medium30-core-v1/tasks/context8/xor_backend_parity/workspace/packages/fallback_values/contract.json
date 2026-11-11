@@ -1,0 +1,12 @@
+{
+  "name": "fallback_values",
+  "op": "fallback_bool",
+  "bindings": {
+    "ast": "inputs/request.json#/ast",
+    "rows": "inputs/request.json#/rows"
+  },
+  "spec": "为不支持原生 XOR 的 SQLite 编译参数表达式（字段写成 :字段），实际执行每行。返回 {sql:可用于 SELECT(expression) 的SQLite表达式,values:[bool,...]}。允许任何语义等价表达式，不要求固定SQL文本。xor 的 fallback 必须保持奇偶性。",
+  "output": "outputs/fallback_values.json",
+  "component": "fallback_values",
+  "task": "N04"
+}

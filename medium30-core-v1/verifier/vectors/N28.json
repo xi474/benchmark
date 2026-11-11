@@ -1,0 +1,586 @@
+{
+  "components": {
+    "reply_batch": [
+      {
+        "payload": {
+          "emails": [
+            {
+              "id": "a",
+              "from": "a@x",
+              "at": 20
+            },
+            {
+              "id": "b",
+              "from": "a@x",
+              "at": 50
+            },
+            {
+              "id": "c",
+              "from": "b@x",
+              "at": 200
+            },
+            {
+              "id": "d",
+              "from": "c@x",
+              "at": 241
+            }
+          ],
+          "window": 240
+        },
+        "expected": [
+          {
+            "email": "a",
+            "to": "a@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          },
+          {
+            "email": "b",
+            "to": "a@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          },
+          {
+            "email": "c",
+            "to": "b@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "emails": [
+            {
+              "id": "1",
+              "from": "z@x",
+              "at": 0
+            },
+            {
+              "id": "2",
+              "from": "z@x",
+              "at": 239
+            }
+          ],
+          "window": 240
+        },
+        "expected": [
+          {
+            "email": "1",
+            "to": "z@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          },
+          {
+            "email": "2",
+            "to": "z@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "emails": [
+            {
+              "id": "a",
+              "from": "u@x",
+              "at": 10
+            }
+          ],
+          "window": 240
+        },
+        "expected": [
+          {
+            "email": "a",
+            "to": "u@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          }
+        ]
+      }
+    ],
+    "gift_variant": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "id": "v1",
+              "brand": "Mattel",
+              "color": "blue",
+              "size": "mini",
+              "product": "Magic 8 Ball"
+            },
+            {
+              "id": "v2",
+              "brand": "Mattel",
+              "color": "red",
+              "size": "mini",
+              "product": "Magic 8 Ball"
+            }
+          ],
+          "selection": {
+            "brand": "Mattel",
+            "color": "blue",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          }
+        },
+        "expected": "v1"
+      },
+      {
+        "payload": {
+          "variants": [
+            {
+              "id": "v1",
+              "brand": "Mattel",
+              "color": "blue",
+              "size": "mini",
+              "product": "Magic 8 Ball"
+            },
+            {
+              "id": "v2",
+              "brand": "Mattel",
+              "color": "red",
+              "size": "mini",
+              "product": "Magic 8 Ball"
+            }
+          ],
+          "selection": {
+            "brand": "Mattel",
+            "color": "red",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          }
+        },
+        "expected": "v2"
+      },
+      {
+        "payload": {
+          "variants": [
+            {
+              "id": "v1",
+              "brand": "Mattel",
+              "color": "blue",
+              "size": "mini",
+              "product": "Magic 8 Ball"
+            },
+            {
+              "id": "v2",
+              "brand": "Mattel",
+              "color": "red",
+              "size": "mini",
+              "product": "Magic 8 Ball"
+            }
+          ],
+          "selection": {
+            "brand": "Mattel",
+            "color": "blue",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          }
+        },
+        "expected": "v1"
+      }
+    ],
+    "gift_checkout": [
+      {
+        "payload": {
+          "replies": [
+            {
+              "email": "a",
+              "to": "a@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "b",
+              "to": "a@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "c",
+              "to": "b@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "variant": "v1",
+          "window": 240,
+          "date": "2024-10-15"
+        },
+        "expected": {
+          "replies": [
+            {
+              "email": "a",
+              "to": "a@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "b",
+              "to": "a@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "c",
+              "to": "b@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "order": {
+            "at": 270,
+            "variant": "v1",
+            "quantity": 2
+          },
+          "reminder": {
+            "date": "2024-10-31",
+            "all_day": true,
+            "title": "Reminder: Hand Out Gifts"
+          }
+        }
+      },
+      {
+        "payload": {
+          "replies": [
+            {
+              "email": "1",
+              "to": "z@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "2",
+              "to": "z@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "variant": "v2",
+          "window": 240,
+          "date": "2024-02-20"
+        },
+        "expected": {
+          "replies": [
+            {
+              "email": "1",
+              "to": "z@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "2",
+              "to": "z@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "order": {
+            "at": 270,
+            "variant": "v2",
+            "quantity": 1
+          },
+          "reminder": {
+            "date": "2024-02-29",
+            "all_day": true,
+            "title": "Reminder: Hand Out Gifts"
+          }
+        }
+      },
+      {
+        "payload": {
+          "replies": [
+            {
+              "email": "a",
+              "to": "u@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "variant": "v1",
+          "window": 240,
+          "date": "2025-02-01"
+        },
+        "expected": {
+          "replies": [
+            {
+              "email": "a",
+              "to": "u@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "order": {
+            "at": 270,
+            "variant": "v1",
+            "quantity": 1
+          },
+          "reminder": {
+            "date": "2025-02-28",
+            "all_day": true,
+            "title": "Reminder: Hand Out Gifts"
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "emails": [
+          {
+            "id": "a",
+            "from": "a@x",
+            "at": 20
+          },
+          {
+            "id": "b",
+            "from": "a@x",
+            "at": 50
+          },
+          {
+            "id": "c",
+            "from": "b@x",
+            "at": 200
+          },
+          {
+            "id": "d",
+            "from": "c@x",
+            "at": 241
+          }
+        ],
+        "window": 240,
+        "variants": [
+          {
+            "id": "v1",
+            "brand": "Mattel",
+            "color": "blue",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          },
+          {
+            "id": "v2",
+            "brand": "Mattel",
+            "color": "red",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          }
+        ],
+        "selection": {
+          "brand": "Mattel",
+          "color": "blue",
+          "size": "mini",
+          "product": "Magic 8 Ball"
+        },
+        "date": "2024-10-15"
+      },
+      "results": {
+        "reply_batch": [
+          {
+            "email": "a",
+            "to": "a@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          },
+          {
+            "email": "b",
+            "to": "a@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          },
+          {
+            "email": "c",
+            "to": "b@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          }
+        ],
+        "gift_variant": "v1",
+        "gift_checkout": {
+          "replies": [
+            {
+              "email": "a",
+              "to": "a@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "b",
+              "to": "a@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "c",
+              "to": "b@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "order": {
+            "at": 270,
+            "variant": "v1",
+            "quantity": 2
+          },
+          "reminder": {
+            "date": "2024-10-31",
+            "all_day": true,
+            "title": "Reminder: Hand Out Gifts"
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "emails": [
+          {
+            "id": "1",
+            "from": "z@x",
+            "at": 0
+          },
+          {
+            "id": "2",
+            "from": "z@x",
+            "at": 239
+          }
+        ],
+        "window": 240,
+        "variants": [
+          {
+            "id": "v1",
+            "brand": "Mattel",
+            "color": "blue",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          },
+          {
+            "id": "v2",
+            "brand": "Mattel",
+            "color": "red",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          }
+        ],
+        "selection": {
+          "brand": "Mattel",
+          "color": "red",
+          "size": "mini",
+          "product": "Magic 8 Ball"
+        },
+        "date": "2024-02-20"
+      },
+      "results": {
+        "reply_batch": [
+          {
+            "email": "1",
+            "to": "z@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          },
+          {
+            "email": "2",
+            "to": "z@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          }
+        ],
+        "gift_variant": "v2",
+        "gift_checkout": {
+          "replies": [
+            {
+              "email": "1",
+              "to": "z@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            },
+            {
+              "email": "2",
+              "to": "z@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "order": {
+            "at": 270,
+            "variant": "v2",
+            "quantity": 1
+          },
+          "reminder": {
+            "date": "2024-02-29",
+            "all_day": true,
+            "title": "Reminder: Hand Out Gifts"
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "emails": [
+          {
+            "id": "a",
+            "from": "u@x",
+            "at": 10
+          }
+        ],
+        "window": 240,
+        "variants": [
+          {
+            "id": "v1",
+            "brand": "Mattel",
+            "color": "blue",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          },
+          {
+            "id": "v2",
+            "brand": "Mattel",
+            "color": "red",
+            "size": "mini",
+            "product": "Magic 8 Ball"
+          }
+        ],
+        "selection": {
+          "brand": "Mattel",
+          "color": "blue",
+          "size": "mini",
+          "product": "Magic 8 Ball"
+        },
+        "date": "2025-02-01"
+      },
+      "results": {
+        "reply_batch": [
+          {
+            "email": "a",
+            "to": "u@x",
+            "at": 240,
+            "purpose": "gift_reply"
+          }
+        ],
+        "gift_variant": "v1",
+        "gift_checkout": {
+          "replies": [
+            {
+              "email": "a",
+              "to": "u@x",
+              "at": 240,
+              "purpose": "gift_reply"
+            }
+          ],
+          "order": {
+            "at": 270,
+            "variant": "v1",
+            "quantity": 1
+          },
+          "reminder": {
+            "date": "2025-02-28",
+            "all_day": true,
+            "title": "Reminder: Hand Out Gifts"
+          }
+        }
+      }
+    }
+  ]
+}

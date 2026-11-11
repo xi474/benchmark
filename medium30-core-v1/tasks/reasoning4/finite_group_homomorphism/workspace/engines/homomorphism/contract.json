@@ -1,0 +1,14 @@
+{
+  "name": "homomorphism",
+  "op": "homomorphism",
+  "bindings": {
+    "source": "outputs/source_group.json#",
+    "target": "outputs/target_group.json#",
+    "generators": "inputs/request.json#/generators",
+    "images": "inputs/request.json#/images"
+  },
+  "spec": "检查 generators[i]→images[i] 是否定义同态。返回 {valid:false,mapping:[]} 或 {valid:true,mapping:[{source:源置换,target:目标置换},...]}，mapping按源置换字典序。不同生成词到同一源元素必须得到同一像，包含逆元形成的关系。不是单独检查每个像为合法置换。",
+  "output": "outputs/homomorphism.json",
+  "component": "homomorphism",
+  "task": "N10"
+}

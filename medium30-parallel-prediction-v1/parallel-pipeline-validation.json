@@ -1,0 +1,1468 @@
+{
+  "status": "passed",
+  "task_count": 30,
+  "workers": 2,
+  "scope": "author_reference_component_execution_not_agent_actions_or_speedup",
+  "graphs_sha256": "4bb39405f4239e7ffd025ecbe0c482df06b12bb0fbca6f0063b8cebd3c701ad3",
+  "ready_states_sha256": "5fad8522e5f03d3b341a8193aaf91874deece750a5b146aac2460e3675d9a091",
+  "results": [
+    {
+      "task_id": "N01",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N01::left_dependencies",
+            "N01::right_dependencies"
+          ],
+          "process_intervals": [
+            {
+              "node": "N01::left_dependencies",
+              "start_seconds": 4692.569960792,
+              "end_seconds": 4692.643243795
+            },
+            {
+              "node": "N01::right_dependencies",
+              "start_seconds": 4692.570255893,
+              "end_seconds": 4692.643189876
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N01::left_dependencies",
+            "N01::right_dependencies"
+          ],
+          "ready": [
+            "N01::dependency_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N01::dependency_report",
+              "start_seconds": 4692.643726021,
+              "end_seconds": 4692.711460073
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N02",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N02::coordinate_plan",
+            "N02::variable_plan"
+          ],
+          "process_intervals": [
+            {
+              "node": "N02::coordinate_plan",
+              "start_seconds": 4693.091294731,
+              "end_seconds": 4693.178450536
+            },
+            {
+              "node": "N02::variable_plan",
+              "start_seconds": 4693.091495264,
+              "end_seconds": 4693.178398018
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N02::coordinate_plan",
+            "N02::variable_plan"
+          ],
+          "ready": [
+            "N02::new_dataset"
+          ],
+          "process_intervals": [
+            {
+              "node": "N02::new_dataset",
+              "start_seconds": 4693.178772296,
+              "end_seconds": 4693.256957466
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N03",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N03::linearization",
+            "N03::local_marks"
+          ],
+          "process_intervals": [
+            {
+              "node": "N03::linearization",
+              "start_seconds": 4693.66883855,
+              "end_seconds": 4693.749472657
+            },
+            {
+              "node": "N03::local_marks",
+              "start_seconds": 4693.669006664,
+              "end_seconds": 4693.748176216
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N03::linearization",
+            "N03::local_marks"
+          ],
+          "ready": [
+            "N03::effective_marks"
+          ],
+          "process_intervals": [
+            {
+              "node": "N03::effective_marks",
+              "start_seconds": 4693.749834709,
+              "end_seconds": 4693.82577469
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N04",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N04::fallback_values",
+            "N04::native_values"
+          ],
+          "process_intervals": [
+            {
+              "node": "N04::fallback_values",
+              "start_seconds": 4694.212943386,
+              "end_seconds": 4694.292036986
+            },
+            {
+              "node": "N04::native_values",
+              "start_seconds": 4694.213162738,
+              "end_seconds": 4694.290714254
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N04::fallback_values",
+            "N04::native_values"
+          ],
+          "ready": [
+            "N04::query_result"
+          ],
+          "process_intervals": [
+            {
+              "node": "N04::query_result",
+              "start_seconds": 4694.292451669,
+              "end_seconds": 4694.371965848
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N05",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N05::backend_a",
+            "N05::backend_b"
+          ],
+          "process_intervals": [
+            {
+              "node": "N05::backend_a",
+              "start_seconds": 4694.817135262,
+              "end_seconds": 4694.902482724
+            },
+            {
+              "node": "N05::backend_b",
+              "start_seconds": 4694.817451702,
+              "end_seconds": 4694.90131716
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N05::backend_a",
+            "N05::backend_b"
+          ],
+          "ready": [
+            "N05::date_query"
+          ],
+          "process_intervals": [
+            {
+              "node": "N05::date_query",
+              "start_seconds": 4694.902920883,
+              "end_seconds": 4694.982336917
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N06",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N06::symbol_tables"
+          ],
+          "process_intervals": [
+            {
+              "node": "N06::symbol_tables",
+              "start_seconds": 4695.354643503,
+              "end_seconds": 4695.432365304
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N06::symbol_tables"
+          ],
+          "ready": [
+            "N06::rename_map"
+          ],
+          "process_intervals": [
+            {
+              "node": "N06::rename_map",
+              "start_seconds": 4695.43274247,
+              "end_seconds": 4695.512311745
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N06::rename_map",
+            "N06::symbol_tables"
+          ],
+          "ready": [
+            "N06::combined_query"
+          ],
+          "process_intervals": [
+            {
+              "node": "N06::combined_query",
+              "start_seconds": 4695.512749945,
+              "end_seconds": 4695.592504165
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N07",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N07::expression_ast"
+          ],
+          "process_intervals": [
+            {
+              "node": "N07::expression_ast",
+              "start_seconds": 4695.976180493,
+              "end_seconds": 4696.054430033
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N07::expression_ast"
+          ],
+          "ready": [
+            "N07::exact_value"
+          ],
+          "process_intervals": [
+            {
+              "node": "N07::exact_value",
+              "start_seconds": 4696.054857549,
+              "end_seconds": 4696.131542709
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N07::exact_value",
+            "N07::expression_ast"
+          ],
+          "ready": [
+            "N07::expression_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N07::expression_report",
+              "start_seconds": 4696.13185459,
+              "end_seconds": 4696.210873813
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N08",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N08::captured_records",
+            "N08::level_snapshot"
+          ],
+          "process_intervals": [
+            {
+              "node": "N08::captured_records",
+              "start_seconds": 4696.575103817,
+              "end_seconds": 4696.654355256
+            },
+            {
+              "node": "N08::level_snapshot",
+              "start_seconds": 4696.575411832,
+              "end_seconds": 4696.654450709
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N08::captured_records",
+            "N08::level_snapshot"
+          ],
+          "ready": [
+            "N08::restored_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N08::restored_report",
+              "start_seconds": 4696.654812891,
+              "end_seconds": 4696.731687494
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N09",
+      "status": "passed",
+      "components": 4,
+      "extra_artifacts": 1,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N09::alice_availability",
+            "N09::bob_availability",
+            "N09::carol_availability"
+          ],
+          "process_intervals": [
+            {
+              "node": "N09::alice_availability",
+              "start_seconds": 4697.177074221,
+              "end_seconds": 4697.26791412
+            },
+            {
+              "node": "N09::bob_availability",
+              "start_seconds": 4697.177213192,
+              "end_seconds": 4697.268080262
+            },
+            {
+              "node": "N09::carol_availability",
+              "start_seconds": 4697.267950285,
+              "end_seconds": 4697.355096211
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N09::alice_availability",
+            "N09::bob_availability",
+            "N09::carol_availability"
+          ],
+          "ready": [
+            "N09::meeting"
+          ],
+          "process_intervals": [
+            {
+              "node": "N09::meeting",
+              "start_seconds": 4697.355504054,
+              "end_seconds": 4697.442461206
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N10",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N10::source_group",
+            "N10::target_group"
+          ],
+          "process_intervals": [
+            {
+              "node": "N10::source_group",
+              "start_seconds": 4697.813647791,
+              "end_seconds": 4697.894586628
+            },
+            {
+              "node": "N10::target_group",
+              "start_seconds": 4697.813856015,
+              "end_seconds": 4697.894464751
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N10::source_group",
+            "N10::target_group"
+          ],
+          "ready": [
+            "N10::homomorphism"
+          ],
+          "process_intervals": [
+            {
+              "node": "N10::homomorphism",
+              "start_seconds": 4697.895102123,
+              "end_seconds": 4697.972192075
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N11",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N11::block_layout"
+          ],
+          "process_intervals": [
+            {
+              "node": "N11::block_layout",
+              "start_seconds": 4698.347423503,
+              "end_seconds": 4698.423375115
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N11::block_layout"
+          ],
+          "ready": [
+            "N11::squared"
+          ],
+          "process_intervals": [
+            {
+              "node": "N11::squared",
+              "start_seconds": 4698.423685674,
+              "end_seconds": 4698.498720419
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N11::block_layout",
+            "N11::squared"
+          ],
+          "ready": [
+            "N11::cubed"
+          ],
+          "process_intervals": [
+            {
+              "node": "N11::cubed",
+              "start_seconds": 4698.49902448,
+              "end_seconds": 4698.578387473
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N12",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N12::base_candidates",
+            "N12::related_matches"
+          ],
+          "process_intervals": [
+            {
+              "node": "N12::base_candidates",
+              "start_seconds": 4698.967287056,
+              "end_seconds": 4699.048624519
+            },
+            {
+              "node": "N12::related_matches",
+              "start_seconds": 4698.96762405,
+              "end_seconds": 4699.048351228
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N12::base_candidates",
+            "N12::related_matches"
+          ],
+          "ready": [
+            "N12::form_choices"
+          ],
+          "process_intervals": [
+            {
+              "node": "N12::form_choices",
+              "start_seconds": 4699.048930113,
+              "end_seconds": 4699.12495913
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N13",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N13::exempt_users",
+            "N13::initial_queue"
+          ],
+          "process_intervals": [
+            {
+              "node": "N13::exempt_users",
+              "start_seconds": 4699.510536277,
+              "end_seconds": 4699.591691334
+            },
+            {
+              "node": "N13::initial_queue",
+              "start_seconds": 4699.510701747,
+              "end_seconds": 4699.591606087
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N13::exempt_users",
+            "N13::initial_queue"
+          ],
+          "ready": [
+            "N13::moderation"
+          ],
+          "process_intervals": [
+            {
+              "node": "N13::moderation",
+              "start_seconds": 4699.592094185,
+              "end_seconds": 4699.672134918
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N14",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N14::operation_groups"
+          ],
+          "process_intervals": [
+            {
+              "node": "N14::operation_groups",
+              "start_seconds": 4700.050224023,
+              "end_seconds": 4700.119150747
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N14::operation_groups"
+          ],
+          "ready": [
+            "N14::group_folds"
+          ],
+          "process_intervals": [
+            {
+              "node": "N14::group_folds",
+              "start_seconds": 4700.119455623,
+              "end_seconds": 4700.186941434
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N14::group_folds",
+            "N14::operation_groups"
+          ],
+          "ready": [
+            "N14::bulk_result"
+          ],
+          "process_intervals": [
+            {
+              "node": "N14::bulk_result",
+              "start_seconds": 4700.187284813,
+              "end_seconds": 4700.255636993
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N15",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 1,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N15::member_plan"
+          ],
+          "process_intervals": [
+            {
+              "node": "N15::member_plan",
+              "start_seconds": 4700.640061177,
+              "end_seconds": 4700.800031394
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N15::member_plan"
+          ],
+          "ready": [
+            "N15::archive"
+          ],
+          "process_intervals": [
+            {
+              "node": "N15::archive",
+              "start_seconds": 4700.800359854,
+              "end_seconds": 4700.958386724
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N15::archive",
+            "N15::member_plan"
+          ],
+          "ready": [
+            "N15::archive_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N15::archive_report",
+              "start_seconds": 4700.959040534,
+              "end_seconds": 4701.127743846
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N16",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N16::notes",
+            "N16::shelves"
+          ],
+          "process_intervals": [
+            {
+              "node": "N16::notes",
+              "start_seconds": 4701.496083468,
+              "end_seconds": 4701.632849921
+            },
+            {
+              "node": "N16::shelves",
+              "start_seconds": 4701.496263558,
+              "end_seconds": 4701.632903245
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N16::notes",
+            "N16::shelves"
+          ],
+          "ready": [
+            "N16::migration_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N16::migration_report",
+              "start_seconds": 4701.633283359,
+              "end_seconds": 4701.765221908
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N17",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N17::template_dependencies"
+          ],
+          "process_intervals": [
+            {
+              "node": "N17::template_dependencies",
+              "start_seconds": 4702.131697182,
+              "end_seconds": 4702.265658471
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N17::template_dependencies"
+          ],
+          "ready": [
+            "N17::reverse_index"
+          ],
+          "process_intervals": [
+            {
+              "node": "N17::reverse_index",
+              "start_seconds": 4702.266002259,
+              "end_seconds": 4702.39547525
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N17::reverse_index",
+            "N17::template_dependencies"
+          ],
+          "ready": [
+            "N17::stylesheet_updates"
+          ],
+          "process_intervals": [
+            {
+              "node": "N17::stylesheet_updates",
+              "start_seconds": 4702.395848634,
+              "end_seconds": 4702.526755661
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N18",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N18::url_segments"
+          ],
+          "process_intervals": [
+            {
+              "node": "N18::url_segments",
+              "start_seconds": 4702.914855997,
+              "end_seconds": 4702.982089009
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N18::url_segments"
+          ],
+          "ready": [
+            "N18::numeric_target"
+          ],
+          "process_intervals": [
+            {
+              "node": "N18::numeric_target",
+              "start_seconds": 4702.982428966,
+              "end_seconds": 4703.050491835
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N18::numeric_target",
+            "N18::url_segments"
+          ],
+          "ready": [
+            "N18::modified_url"
+          ],
+          "process_intervals": [
+            {
+              "node": "N18::modified_url",
+              "start_seconds": 4703.051062324,
+              "end_seconds": 4703.119774214
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N19",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N19::album_repository",
+            "N19::artist_repository"
+          ],
+          "process_intervals": [
+            {
+              "node": "N19::album_repository",
+              "start_seconds": 4703.500603269,
+              "end_seconds": 4703.635870336
+            },
+            {
+              "node": "N19::artist_repository",
+              "start_seconds": 4703.500848052,
+              "end_seconds": 4703.636171558
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N19::album_repository",
+            "N19::artist_repository"
+          ],
+          "ready": [
+            "N19::transaction_view"
+          ],
+          "process_intervals": [
+            {
+              "node": "N19::transaction_view",
+              "start_seconds": 4703.636696809,
+              "end_seconds": 4703.794792457
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N20",
+      "status": "passed",
+      "components": 4,
+      "extra_artifacts": 0,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N20::directory_resources",
+            "N20::zip_resources"
+          ],
+          "process_intervals": [
+            {
+              "node": "N20::directory_resources",
+              "start_seconds": 4704.288370213,
+              "end_seconds": 4704.436191017
+            },
+            {
+              "node": "N20::zip_resources",
+              "start_seconds": 4704.288719773,
+              "end_seconds": 4704.436834083
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N20::directory_resources",
+            "N20::zip_resources"
+          ],
+          "ready": [
+            "N20::preloaded_cache"
+          ],
+          "process_intervals": [
+            {
+              "node": "N20::preloaded_cache",
+              "start_seconds": 4704.43723153,
+              "end_seconds": 4704.570038344
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N20::directory_resources",
+            "N20::preloaded_cache",
+            "N20::zip_resources"
+          ],
+          "ready": [
+            "N20::offline_reads"
+          ],
+          "process_intervals": [
+            {
+              "node": "N20::offline_reads",
+              "start_seconds": 4704.570383186,
+              "end_seconds": 4704.704267163
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N21",
+      "status": "passed",
+      "components": 4,
+      "extra_artifacts": 1,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N21::top_synsets",
+            "N21::word_statistics"
+          ],
+          "process_intervals": [
+            {
+              "node": "N21::top_synsets",
+              "start_seconds": 4705.174735884,
+              "end_seconds": 4705.335951872
+            },
+            {
+              "node": "N21::word_statistics",
+              "start_seconds": 4705.174955483,
+              "end_seconds": 4705.336153666
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N21::top_synsets",
+            "N21::word_statistics"
+          ],
+          "ready": [
+            "N21::optimized_query"
+          ],
+          "process_intervals": [
+            {
+              "node": "N21::optimized_query",
+              "start_seconds": 4705.336587449,
+              "end_seconds": 4705.493516338
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N21::optimized_query",
+            "N21::top_synsets",
+            "N21::word_statistics"
+          ],
+          "ready": [
+            "N21::query_result"
+          ],
+          "process_intervals": [
+            {
+              "node": "N21::query_result",
+              "start_seconds": 4705.493869035,
+              "end_seconds": 4705.648787067
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N22",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 2,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N22::object_scan"
+          ],
+          "process_intervals": [
+            {
+              "node": "N22::object_scan",
+              "start_seconds": 4706.077003502,
+              "end_seconds": 4706.273215517
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N22::object_scan"
+          ],
+          "ready": [
+            "N22::cleaned_repo"
+          ],
+          "process_intervals": [
+            {
+              "node": "N22::cleaned_repo",
+              "start_seconds": 4706.273523381,
+              "end_seconds": 4706.502165774
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N22::cleaned_repo",
+            "N22::object_scan"
+          ],
+          "ready": [
+            "N22::recovery_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N22::recovery_report",
+              "start_seconds": 4706.502493255,
+              "end_seconds": 4706.686399531
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N23",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 3,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N23::base_records",
+            "N23::decoded_wal"
+          ],
+          "process_intervals": [
+            {
+              "node": "N23::base_records",
+              "start_seconds": 4707.141532711,
+              "end_seconds": 4707.31236304
+            },
+            {
+              "node": "N23::decoded_wal",
+              "start_seconds": 4707.141768364,
+              "end_seconds": 4707.311857832
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N23::base_records",
+            "N23::decoded_wal"
+          ],
+          "ready": [
+            "N23::recovered"
+          ],
+          "process_intervals": [
+            {
+              "node": "N23::recovered",
+              "start_seconds": 4707.312744474,
+              "end_seconds": 4707.474128135
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N24",
+      "status": "passed",
+      "components": 4,
+      "extra_artifacts": 3,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N24::accounts",
+            "N24::books",
+            "N24::orders"
+          ],
+          "process_intervals": [
+            {
+              "node": "N24::accounts",
+              "start_seconds": 4707.921999399,
+              "end_seconds": 4707.99045586
+            },
+            {
+              "node": "N24::books",
+              "start_seconds": 4707.922179334,
+              "end_seconds": 4707.990761216
+            },
+            {
+              "node": "N24::orders",
+              "start_seconds": 4707.990488231,
+              "end_seconds": 4708.061459856
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N24::accounts",
+            "N24::books",
+            "N24::orders"
+          ],
+          "ready": [
+            "N24::settlement"
+          ],
+          "process_intervals": [
+            {
+              "node": "N24::settlement",
+              "start_seconds": 4708.061908796,
+              "end_seconds": 4708.13070906
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N25",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 1,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N25::branch_routes"
+          ],
+          "process_intervals": [
+            {
+              "node": "N25::branch_routes",
+              "start_seconds": 4708.52279956,
+              "end_seconds": 4708.678683516
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N25::branch_routes"
+          ],
+          "ready": [
+            "N25::deployment_hook"
+          ],
+          "process_intervals": [
+            {
+              "node": "N25::deployment_hook",
+              "start_seconds": 4708.679006474,
+              "end_seconds": 4708.829855878
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N25::branch_routes",
+            "N25::deployment_hook"
+          ],
+          "ready": [
+            "N25::deployment_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N25::deployment_report",
+              "start_seconds": 4708.830291919,
+              "end_seconds": 4709.306080031
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N26",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 1,
+      "ready_states_checked": 4,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N26::probability_model"
+          ],
+          "process_intervals": [
+            {
+              "node": "N26::probability_model",
+              "start_seconds": 4711.178350929,
+              "end_seconds": 4711.34115521
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N26::probability_model"
+          ],
+          "ready": [
+            "N26::distribution"
+          ],
+          "process_intervals": [
+            {
+              "node": "N26::distribution",
+              "start_seconds": 4711.341536699,
+              "end_seconds": 4712.402501116
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N26::distribution",
+            "N26::probability_model"
+          ],
+          "ready": [
+            "N26::distribution_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N26::distribution_report",
+              "start_seconds": 4712.40287254,
+              "end_seconds": 4712.694360574
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N27",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N27::initial_saves",
+            "N27::new_listings"
+          ],
+          "process_intervals": [
+            {
+              "node": "N27::initial_saves",
+              "start_seconds": 4713.285613848,
+              "end_seconds": 4713.418475704
+            },
+            {
+              "node": "N27::new_listings",
+              "start_seconds": 4713.285855186,
+              "end_seconds": 4713.41877357
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N27::initial_saves",
+            "N27::new_listings"
+          ],
+          "ready": [
+            "N27::rental_report"
+          ],
+          "process_intervals": [
+            {
+              "node": "N27::rental_report",
+              "start_seconds": 4713.419195246,
+              "end_seconds": 4713.550089597
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N28",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N28::gift_variant",
+            "N28::reply_batch"
+          ],
+          "process_intervals": [
+            {
+              "node": "N28::gift_variant",
+              "start_seconds": 4713.937233902,
+              "end_seconds": 4714.070936989
+            },
+            {
+              "node": "N28::reply_batch",
+              "start_seconds": 4713.937475581,
+              "end_seconds": 4714.07073443
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N28::gift_variant",
+            "N28::reply_batch"
+          ],
+          "ready": [
+            "N28::gift_checkout"
+          ],
+          "process_intervals": [
+            {
+              "node": "N28::gift_checkout",
+              "start_seconds": 4714.071362293,
+              "end_seconds": 4714.200358038
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N29",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 0,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N29::evening_events",
+            "N29::group"
+          ],
+          "process_intervals": [
+            {
+              "node": "N29::evening_events",
+              "start_seconds": 4714.584230549,
+              "end_seconds": 4714.72282911
+            },
+            {
+              "node": "N29::group",
+              "start_seconds": 4714.584411266,
+              "end_seconds": 4714.722119534
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N29::evening_events",
+            "N29::group"
+          ],
+          "ready": [
+            "N29::threshold_actions"
+          ],
+          "process_intervals": [
+            {
+              "node": "N29::threshold_actions",
+              "start_seconds": 4714.723222235,
+              "end_seconds": 4714.860661076
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "N30",
+      "status": "passed",
+      "components": 3,
+      "extra_artifacts": 1,
+      "ready_states_checked": 3,
+      "batches": [
+        {
+          "completed_before": [],
+          "ready": [
+            "N30::moved_document",
+            "N30::recipients"
+          ],
+          "process_intervals": [
+            {
+              "node": "N30::moved_document",
+              "start_seconds": 4715.252282571,
+              "end_seconds": 4715.388060234
+            },
+            {
+              "node": "N30::recipients",
+              "start_seconds": 4715.252506996,
+              "end_seconds": 4715.387901787
+            }
+          ]
+        },
+        {
+          "completed_before": [
+            "N30::moved_document",
+            "N30::recipients"
+          ],
+          "ready": [
+            "N30::delivery"
+          ],
+          "process_intervals": [
+            {
+              "node": "N30::delivery",
+              "start_seconds": 4715.38843803,
+              "end_seconds": 4715.524259359
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

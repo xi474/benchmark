@@ -1,0 +1,12 @@
+{
+  "name": "native_values",
+  "op": "native_bool",
+  "bindings": {
+    "ast": "inputs/request.json#/ast",
+    "rows": "inputs/request.json#/rows"
+  },
+  "spec": "ast 为字段名字符串，或 {op:'and'|'or'|'xor',args:[AST,...]}。args 非空，字段为非空布尔值。按布尔逻辑计算每行真假，xor 为真项数的奇偶性。返回 [bool,...]，按 rows 原顺序。",
+  "output": "outputs/native_values.json",
+  "component": "native_values",
+  "task": "N04"
+}

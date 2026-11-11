@@ -1,0 +1,496 @@
+{
+  "components": {
+    "level_snapshot": [
+      {
+        "payload": {
+          "initial": {
+            "handler": 20,
+            "loggers": {
+              "a": 20
+            }
+          }
+        },
+        "expected": {
+          "handler": 20,
+          "loggers": {
+            "a": 20
+          }
+        }
+      },
+      {
+        "payload": {
+          "initial": {
+            "handler": 10,
+            "loggers": {
+              "a": 20,
+              "b": 30
+            }
+          }
+        },
+        "expected": {
+          "handler": 10,
+          "loggers": {
+            "a": 20,
+            "b": 30
+          }
+        }
+      },
+      {
+        "payload": {
+          "initial": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          }
+        },
+        "expected": {
+          "handler": 0,
+          "loggers": {
+            "x": 0
+          }
+        }
+      }
+    ],
+    "captured_records": [
+      {
+        "payload": {
+          "initial": {
+            "handler": 20,
+            "loggers": {
+              "a": 20
+            }
+          },
+          "events": [
+            {
+              "kind": "set",
+              "logger": "a",
+              "level": 40
+            },
+            {
+              "kind": "set",
+              "logger": "a",
+              "level": 50
+            },
+            {
+              "kind": "emit",
+              "logger": "a",
+              "level": 45,
+              "text": "hidden"
+            }
+          ]
+        },
+        "expected": {
+          "state": {
+            "handler": 50,
+            "loggers": {
+              "a": 50
+            }
+          },
+          "captured": []
+        }
+      },
+      {
+        "payload": {
+          "initial": {
+            "handler": 10,
+            "loggers": {
+              "a": 20,
+              "b": 30
+            }
+          },
+          "events": [
+            {
+              "kind": "set",
+              "logger": "a",
+              "level": 40
+            },
+            {
+              "kind": "emit",
+              "logger": "b",
+              "level": 35,
+              "text": "blocked"
+            },
+            {
+              "kind": "emit",
+              "logger": "b",
+              "level": 50,
+              "text": "yes"
+            }
+          ]
+        },
+        "expected": {
+          "state": {
+            "handler": 40,
+            "loggers": {
+              "a": 40,
+              "b": 30
+            }
+          },
+          "captured": [
+            "yes"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "initial": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          },
+          "events": [
+            {
+              "kind": "emit",
+              "logger": "x",
+              "level": 10,
+              "text": "first"
+            }
+          ]
+        },
+        "expected": {
+          "state": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          },
+          "captured": [
+            "first"
+          ]
+        }
+      }
+    ],
+    "restored_report": [
+      {
+        "payload": {
+          "snapshot": {
+            "handler": 20,
+            "loggers": {
+              "a": 20
+            }
+          },
+          "capture": {
+            "state": {
+              "handler": 50,
+              "loggers": {
+                "a": 50
+              }
+            },
+            "captured": []
+          },
+          "next_events": [
+            {
+              "kind": "emit",
+              "logger": "a",
+              "level": 20,
+              "text": "restored"
+            }
+          ]
+        },
+        "expected": {
+          "restored": {
+            "handler": 20,
+            "loggers": {
+              "a": 20
+            }
+          },
+          "captured": [],
+          "next_captured": [
+            "restored"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "snapshot": {
+            "handler": 10,
+            "loggers": {
+              "a": 20,
+              "b": 30
+            }
+          },
+          "capture": {
+            "state": {
+              "handler": 40,
+              "loggers": {
+                "a": 40,
+                "b": 30
+              }
+            },
+            "captured": [
+              "yes"
+            ]
+          },
+          "next_events": [
+            {
+              "kind": "emit",
+              "logger": "b",
+              "level": 30,
+              "text": "next"
+            }
+          ]
+        },
+        "expected": {
+          "restored": {
+            "handler": 10,
+            "loggers": {
+              "a": 20,
+              "b": 30
+            }
+          },
+          "captured": [
+            "yes"
+          ],
+          "next_captured": [
+            "next"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "snapshot": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          },
+          "capture": {
+            "state": {
+              "handler": 0,
+              "loggers": {
+                "x": 0
+              }
+            },
+            "captured": [
+              "first"
+            ]
+          },
+          "next_events": [
+            {
+              "kind": "emit",
+              "logger": "x",
+              "level": 1,
+              "text": "second"
+            }
+          ]
+        },
+        "expected": {
+          "restored": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          },
+          "captured": [
+            "first"
+          ],
+          "next_captured": [
+            "second"
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "initial": {
+          "handler": 20,
+          "loggers": {
+            "a": 20
+          }
+        },
+        "events": [
+          {
+            "kind": "set",
+            "logger": "a",
+            "level": 40
+          },
+          {
+            "kind": "set",
+            "logger": "a",
+            "level": 50
+          },
+          {
+            "kind": "emit",
+            "logger": "a",
+            "level": 45,
+            "text": "hidden"
+          }
+        ],
+        "next_events": [
+          {
+            "kind": "emit",
+            "logger": "a",
+            "level": 20,
+            "text": "restored"
+          }
+        ]
+      },
+      "results": {
+        "level_snapshot": {
+          "handler": 20,
+          "loggers": {
+            "a": 20
+          }
+        },
+        "captured_records": {
+          "state": {
+            "handler": 50,
+            "loggers": {
+              "a": 50
+            }
+          },
+          "captured": []
+        },
+        "restored_report": {
+          "restored": {
+            "handler": 20,
+            "loggers": {
+              "a": 20
+            }
+          },
+          "captured": [],
+          "next_captured": [
+            "restored"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "initial": {
+          "handler": 10,
+          "loggers": {
+            "a": 20,
+            "b": 30
+          }
+        },
+        "events": [
+          {
+            "kind": "set",
+            "logger": "a",
+            "level": 40
+          },
+          {
+            "kind": "emit",
+            "logger": "b",
+            "level": 35,
+            "text": "blocked"
+          },
+          {
+            "kind": "emit",
+            "logger": "b",
+            "level": 50,
+            "text": "yes"
+          }
+        ],
+        "next_events": [
+          {
+            "kind": "emit",
+            "logger": "b",
+            "level": 30,
+            "text": "next"
+          }
+        ]
+      },
+      "results": {
+        "level_snapshot": {
+          "handler": 10,
+          "loggers": {
+            "a": 20,
+            "b": 30
+          }
+        },
+        "captured_records": {
+          "state": {
+            "handler": 40,
+            "loggers": {
+              "a": 40,
+              "b": 30
+            }
+          },
+          "captured": [
+            "yes"
+          ]
+        },
+        "restored_report": {
+          "restored": {
+            "handler": 10,
+            "loggers": {
+              "a": 20,
+              "b": 30
+            }
+          },
+          "captured": [
+            "yes"
+          ],
+          "next_captured": [
+            "next"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "initial": {
+          "handler": 0,
+          "loggers": {
+            "x": 0
+          }
+        },
+        "events": [
+          {
+            "kind": "emit",
+            "logger": "x",
+            "level": 10,
+            "text": "first"
+          }
+        ],
+        "next_events": [
+          {
+            "kind": "emit",
+            "logger": "x",
+            "level": 1,
+            "text": "second"
+          }
+        ]
+      },
+      "results": {
+        "level_snapshot": {
+          "handler": 0,
+          "loggers": {
+            "x": 0
+          }
+        },
+        "captured_records": {
+          "state": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          },
+          "captured": [
+            "first"
+          ]
+        },
+        "restored_report": {
+          "restored": {
+            "handler": 0,
+            "loggers": {
+              "x": 0
+            }
+          },
+          "captured": [
+            "first"
+          ],
+          "next_captured": [
+            "second"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "backend_a",
+  "op": "timezone_a",
+  "bindings": {
+    "rows": "inputs/request.json#/rows",
+    "source": "inputs/request.json#/source",
+    "target": "inputs/request.json#/target"
+  },
+  "spec": "rows=[{id,local:'YYYY-MM-DDTHH:MM:SS'}]，source/target 为相对 UTC 的整数分钟偏移（±720以内）。返回 [{id,date:'YYYY-MM-DD'}]，须先从数据库本地区时间换到业务时区再取日期。",
+  "output": "outputs/backend_a.json",
+  "component": "backend_a",
+  "task": "N05"
+}

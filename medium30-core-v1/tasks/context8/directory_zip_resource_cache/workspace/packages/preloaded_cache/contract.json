@@ -1,0 +1,13 @@
+{
+  "name": "preloaded_cache",
+  "op": "resource_cache",
+  "bindings": {
+    "directory": "outputs/directory_resources.json#",
+    "zip": "outputs/zip_resources.json#",
+    "files": "inputs/request.json#/files"
+  },
+  "spec": "两载体路径集合一致时，返回 {路径:内容} 的预加载缓存，不纳入不匹配文件。",
+  "output": "outputs/preloaded_cache.json",
+  "component": "preloaded_cache",
+  "task": "N20"
+}

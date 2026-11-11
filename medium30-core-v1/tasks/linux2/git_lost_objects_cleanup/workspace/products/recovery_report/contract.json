@@ -1,0 +1,18 @@
+{
+  "name": "recovery_report",
+  "op": "git_recovery_report",
+  "bindings": {
+    "scan": "outputs/object_scan.json#",
+    "cleaned": "outputs/cleaned_repo.json#"
+  },
+  "spec": "实际读取清理后的仓库，枚举全部对象验证无secret[...]；返回 {secret:恢复标记,files:普通文件SHA256映射,messages:正常提交说明列表,remaining_secret_objects:0}。",
+  "emit": {
+    "outputs/secret.txt": {
+      "pointer": "/secret",
+      "format": "text"
+    }
+  },
+  "output": "outputs/recovery_report.json",
+  "component": "recovery_report",
+  "task": "N22"
+}

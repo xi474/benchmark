@@ -1,0 +1,34 @@
+{
+  "initial": {
+    "handler": 20,
+    "loggers": {
+      "a": 20
+    }
+  },
+  "events": [
+    {
+      "kind": "set",
+      "logger": "a",
+      "level": 40
+    },
+    {
+      "kind": "set",
+      "logger": "a",
+      "level": 50
+    },
+    {
+      "kind": "emit",
+      "logger": "a",
+      "level": 45,
+      "text": "hidden"
+    }
+  ],
+  "next_events": [
+    {
+      "kind": "emit",
+      "logger": "a",
+      "level": 20,
+      "text": "restored"
+    }
+  ]
+}

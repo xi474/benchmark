@@ -1,0 +1,11 @@
+{
+  "name": "archive_report",
+  "op": "inspect_archive",
+  "bindings": {
+    "archive": "outputs/archive.json#"
+  },
+  "spec": "实际读取tar成员，不展开符号链接目录。返回 {members:与member_plan同格式且按name排序,rejected:输入rejected}。内部文件/目录链接均保留，不能把目录链接子项复制进去。",
+  "output": "outputs/archive_report.json",
+  "component": "archive_report",
+  "task": "N15"
+}

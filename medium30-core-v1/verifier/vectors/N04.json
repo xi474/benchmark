@@ -1,0 +1,1093 @@
+{
+  "components": {
+    "native_values": [
+      {
+        "payload": {
+          "ast": {
+            "op": "xor",
+            "args": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "payload": {
+          "ast": {
+            "op": "xor",
+            "args": [
+              "a",
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      {
+        "payload": {
+          "ast": {
+            "op": "and",
+            "args": [
+              {
+                "op": "xor",
+                "args": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              },
+              {
+                "op": "or",
+                "args": [
+                  "a",
+                  "c"
+                ]
+              }
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": [
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true
+        ]
+      }
+    ],
+    "fallback_values": [
+      {
+        "payload": {
+          "ast": {
+            "op": "xor",
+            "args": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": {
+          "sql": "((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :b THEN 1 ELSE 0 END+CASE WHEN :c THEN 1 ELSE 0 END) % 2 = 1)",
+          "values": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true
+          ]
+        }
+      },
+      {
+        "payload": {
+          "ast": {
+            "op": "xor",
+            "args": [
+              "a",
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": {
+          "sql": "((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END) % 2 = 1)",
+          "values": [
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true
+          ]
+        }
+      },
+      {
+        "payload": {
+          "ast": {
+            "op": "and",
+            "args": [
+              {
+                "op": "xor",
+                "args": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              },
+              {
+                "op": "or",
+                "args": [
+                  "a",
+                  "c"
+                ]
+              }
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": {
+          "sql": "(((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :b THEN 1 ELSE 0 END+CASE WHEN :c THEN 1 ELSE 0 END) % 2 = 1) AND (:a OR :c))",
+          "values": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true
+          ]
+        }
+      }
+    ],
+    "query_result": [
+      {
+        "payload": {
+          "native": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "fallback": {
+            "sql": "((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :b THEN 1 ELSE 0 END+CASE WHEN :c THEN 1 ELSE 0 END) % 2 = 1)",
+            "values": [
+              false,
+              true,
+              true,
+              false,
+              true,
+              false,
+              false,
+              true
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": {
+          "values": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "selected_ids": [
+            1,
+            2,
+            4,
+            7
+          ]
+        }
+      },
+      {
+        "payload": {
+          "native": [
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true
+          ],
+          "fallback": {
+            "sql": "((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END) % 2 = 1)",
+            "values": [
+              false,
+              true,
+              false,
+              true,
+              false,
+              true,
+              false,
+              true
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": {
+          "values": [
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true
+          ],
+          "selected_ids": [
+            1,
+            3,
+            5,
+            7
+          ]
+        }
+      },
+      {
+        "payload": {
+          "native": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "fallback": {
+            "sql": "(((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :b THEN 1 ELSE 0 END+CASE WHEN :c THEN 1 ELSE 0 END) % 2 = 1) AND (:a OR :c))",
+            "values": [
+              false,
+              true,
+              false,
+              false,
+              true,
+              false,
+              false,
+              true
+            ]
+          },
+          "rows": [
+            {
+              "id": 0,
+              "a": false,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 1,
+              "a": true,
+              "b": false,
+              "c": false
+            },
+            {
+              "id": 2,
+              "a": false,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 3,
+              "a": true,
+              "b": true,
+              "c": false
+            },
+            {
+              "id": 4,
+              "a": false,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 5,
+              "a": true,
+              "b": false,
+              "c": true
+            },
+            {
+              "id": 6,
+              "a": false,
+              "b": true,
+              "c": true
+            },
+            {
+              "id": 7,
+              "a": true,
+              "b": true,
+              "c": true
+            }
+          ]
+        },
+        "expected": {
+          "values": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "selected_ids": [
+            1,
+            4,
+            7
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "ast": {
+          "op": "xor",
+          "args": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "rows": [
+          {
+            "id": 0,
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          {
+            "id": 1,
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          {
+            "id": 2,
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          {
+            "id": 3,
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          {
+            "id": 4,
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          {
+            "id": 5,
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          {
+            "id": 6,
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          {
+            "id": 7,
+            "a": true,
+            "b": true,
+            "c": true
+          }
+        ]
+      },
+      "results": {
+        "native_values": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true
+        ],
+        "fallback_values": {
+          "sql": "((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :b THEN 1 ELSE 0 END+CASE WHEN :c THEN 1 ELSE 0 END) % 2 = 1)",
+          "values": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true
+          ]
+        },
+        "query_result": {
+          "values": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "selected_ids": [
+            1,
+            2,
+            4,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "ast": {
+          "op": "xor",
+          "args": [
+            "a",
+            "a",
+            "a",
+            "a",
+            "a"
+          ]
+        },
+        "rows": [
+          {
+            "id": 0,
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          {
+            "id": 1,
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          {
+            "id": 2,
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          {
+            "id": 3,
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          {
+            "id": 4,
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          {
+            "id": 5,
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          {
+            "id": 6,
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          {
+            "id": 7,
+            "a": true,
+            "b": true,
+            "c": true
+          }
+        ]
+      },
+      "results": {
+        "native_values": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ],
+        "fallback_values": {
+          "sql": "((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :a THEN 1 ELSE 0 END) % 2 = 1)",
+          "values": [
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true
+          ]
+        },
+        "query_result": {
+          "values": [
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true
+          ],
+          "selected_ids": [
+            1,
+            3,
+            5,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "ast": {
+          "op": "and",
+          "args": [
+            {
+              "op": "xor",
+              "args": [
+                "a",
+                "b",
+                "c"
+              ]
+            },
+            {
+              "op": "or",
+              "args": [
+                "a",
+                "c"
+              ]
+            }
+          ]
+        },
+        "rows": [
+          {
+            "id": 0,
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          {
+            "id": 1,
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          {
+            "id": 2,
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          {
+            "id": 3,
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          {
+            "id": 4,
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          {
+            "id": 5,
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          {
+            "id": 6,
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          {
+            "id": 7,
+            "a": true,
+            "b": true,
+            "c": true
+          }
+        ]
+      },
+      "results": {
+        "native_values": [
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true
+        ],
+        "fallback_values": {
+          "sql": "(((CASE WHEN :a THEN 1 ELSE 0 END+CASE WHEN :b THEN 1 ELSE 0 END+CASE WHEN :c THEN 1 ELSE 0 END) % 2 = 1) AND (:a OR :c))",
+          "values": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true
+          ]
+        },
+        "query_result": {
+          "values": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "selected_ids": [
+            1,
+            4,
+            7
+          ]
+        }
+      }
+    }
+  ]
+}

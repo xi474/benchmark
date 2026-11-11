@@ -1,0 +1,17 @@
+{
+  "name": "archive",
+  "op": "build_archive",
+  "bindings": {
+    "plan": "outputs/member_plan.json#"
+  },
+  "spec": "用tarfile生成真实tar，返回 {tar:base64字节,rejected:计划中的拒绝路径}。成员语义必须与plan一致；允许任何合法tar编码，不按压缩字节逐字匹配。",
+  "emit": {
+    "outputs/collection.tar": {
+      "pointer": "/tar",
+      "format": "base64"
+    }
+  },
+  "output": "outputs/archive.json",
+  "component": "archive",
+  "task": "N15"
+}

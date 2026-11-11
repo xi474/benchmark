@@ -1,0 +1,883 @@
+{
+  "components": {
+    "variable_plan": [
+      {
+        "payload": {
+          "dataset": {
+            "variables": {
+              "y": {
+                "dims": [
+                  "z"
+                ],
+                "data": [
+                  4,
+                  5
+                ],
+                "attrs": {
+                  "unit": "m"
+                }
+              },
+              "lev": {
+                "dims": [
+                  "z"
+                ],
+                "data": [
+                  0,
+                  10
+                ],
+                "attrs": {}
+              }
+            },
+            "coords": []
+          },
+          "swap": {
+            "z": "lev"
+          }
+        },
+        "expected": {
+          "y": {
+            "dims": [
+              "lev"
+            ],
+            "data": [
+              4,
+              5
+            ],
+            "attrs": {
+              "unit": "m"
+            }
+          },
+          "lev": {
+            "dims": [
+              "lev"
+            ],
+            "data": [
+              0,
+              10
+            ],
+            "attrs": {}
+          }
+        }
+      },
+      {
+        "payload": {
+          "dataset": {
+            "variables": {
+              "v": {
+                "dims": [
+                  "x"
+                ],
+                "data": [
+                  9,
+                  8,
+                  7
+                ],
+                "attrs": {
+                  "note": "v"
+                }
+              },
+              "time": {
+                "dims": [
+                  "x"
+                ],
+                "data": [
+                  1,
+                  2,
+                  3
+                ],
+                "attrs": {
+                  "kind": "clock"
+                }
+              }
+            },
+            "coords": [
+              "time"
+            ]
+          },
+          "swap": {
+            "x": "time"
+          }
+        },
+        "expected": {
+          "v": {
+            "dims": [
+              "time"
+            ],
+            "data": [
+              9,
+              8,
+              7
+            ],
+            "attrs": {
+              "note": "v"
+            }
+          },
+          "time": {
+            "dims": [
+              "time"
+            ],
+            "data": [
+              1,
+              2,
+              3
+            ],
+            "attrs": {
+              "kind": "clock"
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "dataset": {
+            "variables": {
+              "a": {
+                "dims": [
+                  "n"
+                ],
+                "data": [
+                  2
+                ],
+                "attrs": {}
+              },
+              "id": {
+                "dims": [
+                  "n"
+                ],
+                "data": [
+                  30
+                ],
+                "attrs": {
+                  "s": "id"
+                }
+              }
+            },
+            "coords": []
+          },
+          "swap": {
+            "n": "id"
+          }
+        },
+        "expected": {
+          "a": {
+            "dims": [
+              "id"
+            ],
+            "data": [
+              2
+            ],
+            "attrs": {}
+          },
+          "id": {
+            "dims": [
+              "id"
+            ],
+            "data": [
+              30
+            ],
+            "attrs": {
+              "s": "id"
+            }
+          }
+        }
+      }
+    ],
+    "coordinate_plan": [
+      {
+        "payload": {
+          "dataset": {
+            "variables": {
+              "y": {
+                "dims": [
+                  "z"
+                ],
+                "data": [
+                  4,
+                  5
+                ],
+                "attrs": {
+                  "unit": "m"
+                }
+              },
+              "lev": {
+                "dims": [
+                  "z"
+                ],
+                "data": [
+                  0,
+                  10
+                ],
+                "attrs": {}
+              }
+            },
+            "coords": []
+          },
+          "swap": {
+            "z": "lev"
+          }
+        },
+        "expected": {
+          "coords": [
+            "lev"
+          ],
+          "indexes": {
+            "lev": [
+              0,
+              10
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "dataset": {
+            "variables": {
+              "v": {
+                "dims": [
+                  "x"
+                ],
+                "data": [
+                  9,
+                  8,
+                  7
+                ],
+                "attrs": {
+                  "note": "v"
+                }
+              },
+              "time": {
+                "dims": [
+                  "x"
+                ],
+                "data": [
+                  1,
+                  2,
+                  3
+                ],
+                "attrs": {
+                  "kind": "clock"
+                }
+              }
+            },
+            "coords": [
+              "time"
+            ]
+          },
+          "swap": {
+            "x": "time"
+          }
+        },
+        "expected": {
+          "coords": [
+            "time"
+          ],
+          "indexes": {
+            "time": [
+              1,
+              2,
+              3
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "dataset": {
+            "variables": {
+              "a": {
+                "dims": [
+                  "n"
+                ],
+                "data": [
+                  2
+                ],
+                "attrs": {}
+              },
+              "id": {
+                "dims": [
+                  "n"
+                ],
+                "data": [
+                  30
+                ],
+                "attrs": {
+                  "s": "id"
+                }
+              }
+            },
+            "coords": []
+          },
+          "swap": {
+            "n": "id"
+          }
+        },
+        "expected": {
+          "coords": [
+            "id"
+          ],
+          "indexes": {
+            "id": [
+              30
+            ]
+          }
+        }
+      }
+    ],
+    "new_dataset": [
+      {
+        "payload": {
+          "variables": {
+            "y": {
+              "dims": [
+                "lev"
+              ],
+              "data": [
+                4,
+                5
+              ],
+              "attrs": {
+                "unit": "m"
+              }
+            },
+            "lev": {
+              "dims": [
+                "lev"
+              ],
+              "data": [
+                0,
+                10
+              ],
+              "attrs": {}
+            }
+          },
+          "coordinates": {
+            "coords": [
+              "lev"
+            ],
+            "indexes": {
+              "lev": [
+                0,
+                10
+              ]
+            }
+          }
+        },
+        "expected": {
+          "variables": {
+            "y": {
+              "dims": [
+                "lev"
+              ],
+              "data": [
+                4,
+                5
+              ],
+              "attrs": {
+                "unit": "m"
+              }
+            },
+            "lev": {
+              "dims": [
+                "lev"
+              ],
+              "data": [
+                0,
+                10
+              ],
+              "attrs": {}
+            }
+          },
+          "coords": [
+            "lev"
+          ],
+          "indexes": {
+            "lev": [
+              0,
+              10
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "variables": {
+            "v": {
+              "dims": [
+                "time"
+              ],
+              "data": [
+                9,
+                8,
+                7
+              ],
+              "attrs": {
+                "note": "v"
+              }
+            },
+            "time": {
+              "dims": [
+                "time"
+              ],
+              "data": [
+                1,
+                2,
+                3
+              ],
+              "attrs": {
+                "kind": "clock"
+              }
+            }
+          },
+          "coordinates": {
+            "coords": [
+              "time"
+            ],
+            "indexes": {
+              "time": [
+                1,
+                2,
+                3
+              ]
+            }
+          }
+        },
+        "expected": {
+          "variables": {
+            "v": {
+              "dims": [
+                "time"
+              ],
+              "data": [
+                9,
+                8,
+                7
+              ],
+              "attrs": {
+                "note": "v"
+              }
+            },
+            "time": {
+              "dims": [
+                "time"
+              ],
+              "data": [
+                1,
+                2,
+                3
+              ],
+              "attrs": {
+                "kind": "clock"
+              }
+            }
+          },
+          "coords": [
+            "time"
+          ],
+          "indexes": {
+            "time": [
+              1,
+              2,
+              3
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "variables": {
+            "a": {
+              "dims": [
+                "id"
+              ],
+              "data": [
+                2
+              ],
+              "attrs": {}
+            },
+            "id": {
+              "dims": [
+                "id"
+              ],
+              "data": [
+                30
+              ],
+              "attrs": {
+                "s": "id"
+              }
+            }
+          },
+          "coordinates": {
+            "coords": [
+              "id"
+            ],
+            "indexes": {
+              "id": [
+                30
+              ]
+            }
+          }
+        },
+        "expected": {
+          "variables": {
+            "a": {
+              "dims": [
+                "id"
+              ],
+              "data": [
+                2
+              ],
+              "attrs": {}
+            },
+            "id": {
+              "dims": [
+                "id"
+              ],
+              "data": [
+                30
+              ],
+              "attrs": {
+                "s": "id"
+              }
+            }
+          },
+          "coords": [
+            "id"
+          ],
+          "indexes": {
+            "id": [
+              30
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "dataset": {
+          "variables": {
+            "y": {
+              "dims": [
+                "z"
+              ],
+              "data": [
+                4,
+                5
+              ],
+              "attrs": {
+                "unit": "m"
+              }
+            },
+            "lev": {
+              "dims": [
+                "z"
+              ],
+              "data": [
+                0,
+                10
+              ],
+              "attrs": {}
+            }
+          },
+          "coords": []
+        },
+        "swap": {
+          "z": "lev"
+        }
+      },
+      "results": {
+        "variable_plan": {
+          "y": {
+            "dims": [
+              "lev"
+            ],
+            "data": [
+              4,
+              5
+            ],
+            "attrs": {
+              "unit": "m"
+            }
+          },
+          "lev": {
+            "dims": [
+              "lev"
+            ],
+            "data": [
+              0,
+              10
+            ],
+            "attrs": {}
+          }
+        },
+        "coordinate_plan": {
+          "coords": [
+            "lev"
+          ],
+          "indexes": {
+            "lev": [
+              0,
+              10
+            ]
+          }
+        },
+        "new_dataset": {
+          "variables": {
+            "y": {
+              "dims": [
+                "lev"
+              ],
+              "data": [
+                4,
+                5
+              ],
+              "attrs": {
+                "unit": "m"
+              }
+            },
+            "lev": {
+              "dims": [
+                "lev"
+              ],
+              "data": [
+                0,
+                10
+              ],
+              "attrs": {}
+            }
+          },
+          "coords": [
+            "lev"
+          ],
+          "indexes": {
+            "lev": [
+              0,
+              10
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "dataset": {
+          "variables": {
+            "v": {
+              "dims": [
+                "x"
+              ],
+              "data": [
+                9,
+                8,
+                7
+              ],
+              "attrs": {
+                "note": "v"
+              }
+            },
+            "time": {
+              "dims": [
+                "x"
+              ],
+              "data": [
+                1,
+                2,
+                3
+              ],
+              "attrs": {
+                "kind": "clock"
+              }
+            }
+          },
+          "coords": [
+            "time"
+          ]
+        },
+        "swap": {
+          "x": "time"
+        }
+      },
+      "results": {
+        "variable_plan": {
+          "v": {
+            "dims": [
+              "time"
+            ],
+            "data": [
+              9,
+              8,
+              7
+            ],
+            "attrs": {
+              "note": "v"
+            }
+          },
+          "time": {
+            "dims": [
+              "time"
+            ],
+            "data": [
+              1,
+              2,
+              3
+            ],
+            "attrs": {
+              "kind": "clock"
+            }
+          }
+        },
+        "coordinate_plan": {
+          "coords": [
+            "time"
+          ],
+          "indexes": {
+            "time": [
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        "new_dataset": {
+          "variables": {
+            "v": {
+              "dims": [
+                "time"
+              ],
+              "data": [
+                9,
+                8,
+                7
+              ],
+              "attrs": {
+                "note": "v"
+              }
+            },
+            "time": {
+              "dims": [
+                "time"
+              ],
+              "data": [
+                1,
+                2,
+                3
+              ],
+              "attrs": {
+                "kind": "clock"
+              }
+            }
+          },
+          "coords": [
+            "time"
+          ],
+          "indexes": {
+            "time": [
+              1,
+              2,
+              3
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "dataset": {
+          "variables": {
+            "a": {
+              "dims": [
+                "n"
+              ],
+              "data": [
+                2
+              ],
+              "attrs": {}
+            },
+            "id": {
+              "dims": [
+                "n"
+              ],
+              "data": [
+                30
+              ],
+              "attrs": {
+                "s": "id"
+              }
+            }
+          },
+          "coords": []
+        },
+        "swap": {
+          "n": "id"
+        }
+      },
+      "results": {
+        "variable_plan": {
+          "a": {
+            "dims": [
+              "id"
+            ],
+            "data": [
+              2
+            ],
+            "attrs": {}
+          },
+          "id": {
+            "dims": [
+              "id"
+            ],
+            "data": [
+              30
+            ],
+            "attrs": {
+              "s": "id"
+            }
+          }
+        },
+        "coordinate_plan": {
+          "coords": [
+            "id"
+          ],
+          "indexes": {
+            "id": [
+              30
+            ]
+          }
+        },
+        "new_dataset": {
+          "variables": {
+            "a": {
+              "dims": [
+                "id"
+              ],
+              "data": [
+                2
+              ],
+              "attrs": {}
+            },
+            "id": {
+              "dims": [
+                "id"
+              ],
+              "data": [
+                30
+              ],
+              "attrs": {
+                "s": "id"
+              }
+            }
+          },
+          "coords": [
+            "id"
+          ],
+          "indexes": {
+            "id": [
+              30
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

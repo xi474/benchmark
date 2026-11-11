@@ -1,0 +1,12 @@
+{
+  "name": "effective_marks",
+  "op": "merge_marks",
+  "bindings": {
+    "mro": "outputs/linearization.json#",
+    "local": "outputs/local_marks.json#"
+  },
+  "spec": "按 mro 顺序逐类连接本地标记列表，保留同名不同参数的标记和本地列表顺序。返回 {mro,marks}。",
+  "output": "outputs/effective_marks.json",
+  "component": "effective_marks",
+  "task": "N03"
+}

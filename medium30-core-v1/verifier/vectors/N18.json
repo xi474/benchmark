@@ -1,0 +1,346 @@
+{
+  "components": {
+    "url_segments": [
+      {
+        "payload": {
+          "url": "http://localhost/%3A005?v=9#hold7"
+        },
+        "expected": {
+          "scheme": "http",
+          "host": "localhost",
+          "port": null,
+          "path": "/%3A005",
+          "query": "v=9",
+          "anchor": "hold7"
+        }
+      },
+      {
+        "payload": {
+          "url": "https://h4:8080/a09?v=%3132"
+        },
+        "expected": {
+          "scheme": "https",
+          "host": "h4",
+          "port": "8080",
+          "path": "/a09",
+          "query": "v=%3132",
+          "anchor": null
+        }
+      },
+      {
+        "payload": {
+          "url": "http://node9:80/x?y=7#z010"
+        },
+        "expected": {
+          "scheme": "http",
+          "host": "node9",
+          "port": "80",
+          "path": "/x",
+          "query": "y=7",
+          "anchor": "z010"
+        }
+      },
+      {
+        "payload": {
+          "url": "https://h:89/%2F9?"
+        },
+        "expected": {
+          "scheme": "https",
+          "host": "h",
+          "port": "89",
+          "path": "/%2F9",
+          "query": "",
+          "anchor": null
+        }
+      }
+    ],
+    "numeric_target": [
+      {
+        "payload": {
+          "parts": {
+            "scheme": "http",
+            "host": "localhost",
+            "port": null,
+            "path": "/%3A005",
+            "query": "v=9",
+            "anchor": "hold7"
+          },
+          "segments": [
+            "path"
+          ]
+        },
+        "expected": {
+          "segment": "path",
+          "start": 4,
+          "end": 7,
+          "text": "005"
+        }
+      },
+      {
+        "payload": {
+          "parts": {
+            "scheme": "https",
+            "host": "h4",
+            "port": "8080",
+            "path": "/a09",
+            "query": "v=%3132",
+            "anchor": null
+          },
+          "segments": [
+            "path",
+            "query"
+          ]
+        },
+        "expected": {
+          "segment": "query",
+          "start": 5,
+          "end": 7,
+          "text": "32"
+        }
+      },
+      {
+        "payload": {
+          "parts": {
+            "scheme": "http",
+            "host": "node9",
+            "port": "80",
+            "path": "/x",
+            "query": "y=7",
+            "anchor": "z010"
+          },
+          "segments": [
+            "port",
+            "anchor"
+          ]
+        },
+        "expected": {
+          "segment": "anchor",
+          "start": 1,
+          "end": 4,
+          "text": "010"
+        }
+      },
+      {
+        "payload": {
+          "parts": {
+            "scheme": "https",
+            "host": "h",
+            "port": "89",
+            "path": "/%2F9",
+            "query": "",
+            "anchor": null
+          },
+          "segments": [
+            "path",
+            "port"
+          ]
+        },
+        "expected": {
+          "segment": "path",
+          "start": 4,
+          "end": 5,
+          "text": "9"
+        }
+      }
+    ],
+    "modified_url": [
+      {
+        "payload": {
+          "parts": {
+            "scheme": "http",
+            "host": "localhost",
+            "port": null,
+            "path": "/%3A005",
+            "query": "v=9",
+            "anchor": "hold7"
+          },
+          "target": {
+            "segment": "path",
+            "start": 4,
+            "end": 7,
+            "text": "005"
+          },
+          "operation": "increment",
+          "count": 1
+        },
+        "expected": "http://localhost/%3A006?v=9#hold7"
+      },
+      {
+        "payload": {
+          "parts": {
+            "scheme": "https",
+            "host": "h4",
+            "port": "8080",
+            "path": "/a09",
+            "query": "v=%3132",
+            "anchor": null
+          },
+          "target": {
+            "segment": "query",
+            "start": 5,
+            "end": 7,
+            "text": "32"
+          },
+          "operation": "decrement",
+          "count": 2
+        },
+        "expected": "https://h4:8080/a09?v=%3130"
+      },
+      {
+        "payload": {
+          "parts": {
+            "scheme": "http",
+            "host": "node9",
+            "port": "80",
+            "path": "/x",
+            "query": "y=7",
+            "anchor": "z010"
+          },
+          "target": {
+            "segment": "anchor",
+            "start": 1,
+            "end": 4,
+            "text": "010"
+          },
+          "operation": "decrement",
+          "count": 1
+        },
+        "expected": "http://node9:80/x?y=7#z009"
+      },
+      {
+        "payload": {
+          "parts": {
+            "scheme": "https",
+            "host": "h",
+            "port": "89",
+            "path": "/%2F9",
+            "query": "",
+            "anchor": null
+          },
+          "target": {
+            "segment": "path",
+            "start": 4,
+            "end": 5,
+            "text": "9"
+          },
+          "operation": "increment",
+          "count": 2
+        },
+        "expected": "https://h:89/%2F11?"
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "url": "http://localhost/%3A005?v=9#hold7",
+        "segments": [
+          "path"
+        ],
+        "operation": "increment",
+        "count": 1
+      },
+      "results": {
+        "url_segments": {
+          "scheme": "http",
+          "host": "localhost",
+          "port": null,
+          "path": "/%3A005",
+          "query": "v=9",
+          "anchor": "hold7"
+        },
+        "numeric_target": {
+          "segment": "path",
+          "start": 4,
+          "end": 7,
+          "text": "005"
+        },
+        "modified_url": "http://localhost/%3A006?v=9#hold7"
+      }
+    },
+    {
+      "input": {
+        "url": "https://h4:8080/a09?v=%3132",
+        "segments": [
+          "path",
+          "query"
+        ],
+        "operation": "decrement",
+        "count": 2
+      },
+      "results": {
+        "url_segments": {
+          "scheme": "https",
+          "host": "h4",
+          "port": "8080",
+          "path": "/a09",
+          "query": "v=%3132",
+          "anchor": null
+        },
+        "numeric_target": {
+          "segment": "query",
+          "start": 5,
+          "end": 7,
+          "text": "32"
+        },
+        "modified_url": "https://h4:8080/a09?v=%3130"
+      }
+    },
+    {
+      "input": {
+        "url": "http://node9:80/x?y=7#z010",
+        "segments": [
+          "port",
+          "anchor"
+        ],
+        "operation": "decrement",
+        "count": 1
+      },
+      "results": {
+        "url_segments": {
+          "scheme": "http",
+          "host": "node9",
+          "port": "80",
+          "path": "/x",
+          "query": "y=7",
+          "anchor": "z010"
+        },
+        "numeric_target": {
+          "segment": "anchor",
+          "start": 1,
+          "end": 4,
+          "text": "010"
+        },
+        "modified_url": "http://node9:80/x?y=7#z009"
+      }
+    },
+    {
+      "input": {
+        "url": "https://h:89/%2F9?",
+        "segments": [
+          "path",
+          "port"
+        ],
+        "operation": "increment",
+        "count": 2
+      },
+      "results": {
+        "url_segments": {
+          "scheme": "https",
+          "host": "h",
+          "port": "89",
+          "path": "/%2F9",
+          "query": "",
+          "anchor": null
+        },
+        "numeric_target": {
+          "segment": "path",
+          "start": 4,
+          "end": 5,
+          "text": "9"
+        },
+        "modified_url": "https://h:89/%2F11?"
+      }
+    }
+  ]
+}

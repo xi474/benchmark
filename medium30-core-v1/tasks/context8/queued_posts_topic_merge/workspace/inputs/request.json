@@ -1,0 +1,41 @@
+{
+  "topics": [
+    "a",
+    "b"
+  ],
+  "queue": [
+    {
+      "id": "p0",
+      "tid": "a",
+      "user": "u"
+    }
+  ],
+  "memberships": {
+    "u": [],
+    "admin": [
+      "staff"
+    ]
+  },
+  "exempt_groups": [
+    "staff"
+  ],
+  "events": [
+    {
+      "kind": "post",
+      "id": "p1",
+      "tid": "a",
+      "user": "admin"
+    },
+    {
+      "kind": "merge",
+      "sources": [
+        "a"
+      ],
+      "target": "b"
+    },
+    {
+      "kind": "approve",
+      "id": "p0"
+    }
+  ]
+}

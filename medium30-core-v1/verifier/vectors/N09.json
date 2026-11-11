@@ -1,0 +1,870 @@
+{
+  "components": {
+    "alice_availability": [
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T090000Z\nDTEND:20240115T103000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 540,
+            "end": 840,
+            "breaks": [],
+            "weekday_end": {},
+            "late_buffer": null
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T103000Z",
+            "20240115T140000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T140000Z"
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 540,
+            "end": 840,
+            "breaks": [],
+            "weekday_end": {},
+            "late_buffer": null
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T090000Z",
+            "20240115T140000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T140000Z"
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T090000Z\nDTEND:20240115T140000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 540,
+            "end": 840,
+            "breaks": [],
+            "weekday_end": {},
+            "late_buffer": null
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16",
+            "2024-01-17"
+          ]
+        },
+        "expected": [
+          [
+            "20240116T090000Z",
+            "20240116T140000Z"
+          ],
+          [
+            "20240117T090000Z",
+            "20240117T140000Z"
+          ]
+        ]
+      }
+    ],
+    "bob_availability": [
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T110000Z\nDTEND:20240115T120000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 600,
+            "end": 1020,
+            "breaks": [],
+            "weekday_end": {
+              "1": 990,
+              "3": 990
+            },
+            "late_buffer": null
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T100000Z",
+            "20240115T110000Z"
+          ],
+          [
+            "20240115T120000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T100000Z",
+            "20240116T163000Z"
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 600,
+            "end": 1020,
+            "breaks": [],
+            "weekday_end": {
+              "1": 990,
+              "3": 990
+            },
+            "late_buffer": null
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T100000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T100000Z",
+            "20240116T163000Z"
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T110000Z\nDTEND:20240115T120000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 600,
+            "end": 1020,
+            "breaks": [],
+            "weekday_end": {
+              "1": 990,
+              "3": 990
+            },
+            "late_buffer": null
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16",
+            "2024-01-17"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T100000Z",
+            "20240115T110000Z"
+          ],
+          [
+            "20240115T120000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T100000Z",
+            "20240116T163000Z"
+          ],
+          [
+            "20240117T100000Z",
+            "20240117T170000Z"
+          ]
+        ]
+      }
+    ],
+    "carol_availability": [
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T100000Z\nDTEND:20240115T110000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 540,
+            "end": 1020,
+            "breaks": [
+              [
+                720,
+                750
+              ]
+            ],
+            "weekday_end": {},
+            "late_buffer": {
+              "threshold": 1005,
+              "minutes": 15
+            }
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T090000Z",
+            "20240115T100000Z"
+          ],
+          [
+            "20240115T110000Z",
+            "20240115T120000Z"
+          ],
+          [
+            "20240115T123000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T120000Z"
+          ],
+          [
+            "20240116T123000Z",
+            "20240116T170000Z"
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 540,
+            "end": 1020,
+            "breaks": [
+              [
+                720,
+                750
+              ]
+            ],
+            "weekday_end": {},
+            "late_buffer": {
+              "threshold": 1005,
+              "minutes": 15
+            }
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T090000Z",
+            "20240115T120000Z"
+          ],
+          [
+            "20240115T123000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T120000Z"
+          ],
+          [
+            "20240116T123000Z",
+            "20240116T170000Z"
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "ics": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T100000Z\nDTEND:20240115T110000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "rule": {
+            "start": 540,
+            "end": 1020,
+            "breaks": [
+              [
+                720,
+                750
+              ]
+            ],
+            "weekday_end": {},
+            "late_buffer": {
+              "threshold": 1005,
+              "minutes": 15
+            }
+          },
+          "days": [
+            "2024-01-15",
+            "2024-01-16",
+            "2024-01-17"
+          ]
+        },
+        "expected": [
+          [
+            "20240115T090000Z",
+            "20240115T100000Z"
+          ],
+          [
+            "20240115T110000Z",
+            "20240115T120000Z"
+          ],
+          [
+            "20240115T123000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T120000Z"
+          ],
+          [
+            "20240116T123000Z",
+            "20240116T170000Z"
+          ],
+          [
+            "20240117T090000Z",
+            "20240117T120000Z"
+          ],
+          [
+            "20240117T123000Z",
+            "20240117T170000Z"
+          ]
+        ]
+      }
+    ],
+    "meeting": [
+      {
+        "payload": {
+          "alice": [
+            [
+              "20240115T103000Z",
+              "20240115T140000Z"
+            ],
+            [
+              "20240116T090000Z",
+              "20240116T140000Z"
+            ]
+          ],
+          "bob": [
+            [
+              "20240115T100000Z",
+              "20240115T110000Z"
+            ],
+            [
+              "20240115T120000Z",
+              "20240115T170000Z"
+            ],
+            [
+              "20240116T100000Z",
+              "20240116T163000Z"
+            ]
+          ],
+          "carol": [
+            [
+              "20240115T090000Z",
+              "20240115T100000Z"
+            ],
+            [
+              "20240115T110000Z",
+              "20240115T120000Z"
+            ],
+            [
+              "20240115T123000Z",
+              "20240115T170000Z"
+            ],
+            [
+              "20240116T090000Z",
+              "20240116T120000Z"
+            ],
+            [
+              "20240116T123000Z",
+              "20240116T170000Z"
+            ]
+          ],
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ]
+        },
+        "expected": {
+          "start": "20240115T123000Z",
+          "end": "20240115T133000Z",
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ],
+          "summary": "Team Planning Meeting"
+        }
+      },
+      {
+        "payload": {
+          "alice": [
+            [
+              "20240115T090000Z",
+              "20240115T140000Z"
+            ],
+            [
+              "20240116T090000Z",
+              "20240116T140000Z"
+            ]
+          ],
+          "bob": [
+            [
+              "20240115T100000Z",
+              "20240115T170000Z"
+            ],
+            [
+              "20240116T100000Z",
+              "20240116T163000Z"
+            ]
+          ],
+          "carol": [
+            [
+              "20240115T090000Z",
+              "20240115T120000Z"
+            ],
+            [
+              "20240115T123000Z",
+              "20240115T170000Z"
+            ],
+            [
+              "20240116T090000Z",
+              "20240116T120000Z"
+            ],
+            [
+              "20240116T123000Z",
+              "20240116T170000Z"
+            ]
+          ],
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ]
+        },
+        "expected": {
+          "start": "20240115T100000Z",
+          "end": "20240115T110000Z",
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ],
+          "summary": "Team Planning Meeting"
+        }
+      },
+      {
+        "payload": {
+          "alice": [
+            [
+              "20240116T090000Z",
+              "20240116T140000Z"
+            ],
+            [
+              "20240117T090000Z",
+              "20240117T140000Z"
+            ]
+          ],
+          "bob": [
+            [
+              "20240115T100000Z",
+              "20240115T110000Z"
+            ],
+            [
+              "20240115T120000Z",
+              "20240115T170000Z"
+            ],
+            [
+              "20240116T100000Z",
+              "20240116T163000Z"
+            ],
+            [
+              "20240117T100000Z",
+              "20240117T170000Z"
+            ]
+          ],
+          "carol": [
+            [
+              "20240115T090000Z",
+              "20240115T100000Z"
+            ],
+            [
+              "20240115T110000Z",
+              "20240115T120000Z"
+            ],
+            [
+              "20240115T123000Z",
+              "20240115T170000Z"
+            ],
+            [
+              "20240116T090000Z",
+              "20240116T120000Z"
+            ],
+            [
+              "20240116T123000Z",
+              "20240116T170000Z"
+            ],
+            [
+              "20240117T090000Z",
+              "20240117T120000Z"
+            ],
+            [
+              "20240117T123000Z",
+              "20240117T170000Z"
+            ]
+          ],
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ]
+        },
+        "expected": {
+          "start": "20240116T100000Z",
+          "end": "20240116T110000Z",
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ],
+          "summary": "Team Planning Meeting"
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "calendars": {
+          "alice": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T090000Z\nDTEND:20240115T103000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "bob": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T110000Z\nDTEND:20240115T120000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "carol": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T100000Z\nDTEND:20240115T110000Z\nEND:VEVENT\nEND:VCALENDAR\n"
+        },
+        "rules": {
+          "alice": {
+            "start": 540,
+            "end": 840,
+            "breaks": [],
+            "weekday_end": {},
+            "late_buffer": null
+          },
+          "bob": {
+            "start": 600,
+            "end": 1020,
+            "breaks": [],
+            "weekday_end": {
+              "1": 990,
+              "3": 990
+            },
+            "late_buffer": null
+          },
+          "carol": {
+            "start": 540,
+            "end": 1020,
+            "breaks": [
+              [
+                720,
+                750
+              ]
+            ],
+            "weekday_end": {},
+            "late_buffer": {
+              "threshold": 1005,
+              "minutes": 15
+            }
+          }
+        },
+        "days": [
+          "2024-01-15",
+          "2024-01-16"
+        ],
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com",
+          "carol@example.com"
+        ]
+      },
+      "results": {
+        "alice_availability": [
+          [
+            "20240115T103000Z",
+            "20240115T140000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T140000Z"
+          ]
+        ],
+        "bob_availability": [
+          [
+            "20240115T100000Z",
+            "20240115T110000Z"
+          ],
+          [
+            "20240115T120000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T100000Z",
+            "20240116T163000Z"
+          ]
+        ],
+        "carol_availability": [
+          [
+            "20240115T090000Z",
+            "20240115T100000Z"
+          ],
+          [
+            "20240115T110000Z",
+            "20240115T120000Z"
+          ],
+          [
+            "20240115T123000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T120000Z"
+          ],
+          [
+            "20240116T123000Z",
+            "20240116T170000Z"
+          ]
+        ],
+        "meeting": {
+          "start": "20240115T123000Z",
+          "end": "20240115T133000Z",
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ],
+          "summary": "Team Planning Meeting"
+        }
+      }
+    },
+    {
+      "input": {
+        "calendars": {
+          "alice": "BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR\n",
+          "bob": "BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR\n",
+          "carol": "BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR\n"
+        },
+        "rules": {
+          "alice": {
+            "start": 540,
+            "end": 840,
+            "breaks": [],
+            "weekday_end": {},
+            "late_buffer": null
+          },
+          "bob": {
+            "start": 600,
+            "end": 1020,
+            "breaks": [],
+            "weekday_end": {
+              "1": 990,
+              "3": 990
+            },
+            "late_buffer": null
+          },
+          "carol": {
+            "start": 540,
+            "end": 1020,
+            "breaks": [
+              [
+                720,
+                750
+              ]
+            ],
+            "weekday_end": {},
+            "late_buffer": {
+              "threshold": 1005,
+              "minutes": 15
+            }
+          }
+        },
+        "days": [
+          "2024-01-15",
+          "2024-01-16"
+        ],
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com",
+          "carol@example.com"
+        ]
+      },
+      "results": {
+        "alice_availability": [
+          [
+            "20240115T090000Z",
+            "20240115T140000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T140000Z"
+          ]
+        ],
+        "bob_availability": [
+          [
+            "20240115T100000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T100000Z",
+            "20240116T163000Z"
+          ]
+        ],
+        "carol_availability": [
+          [
+            "20240115T090000Z",
+            "20240115T120000Z"
+          ],
+          [
+            "20240115T123000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T120000Z"
+          ],
+          [
+            "20240116T123000Z",
+            "20240116T170000Z"
+          ]
+        ],
+        "meeting": {
+          "start": "20240115T100000Z",
+          "end": "20240115T110000Z",
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ],
+          "summary": "Team Planning Meeting"
+        }
+      }
+    },
+    {
+      "input": {
+        "calendars": {
+          "alice": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T090000Z\nDTEND:20240115T140000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "bob": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T110000Z\nDTEND:20240115T120000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+          "carol": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T100000Z\nDTEND:20240115T110000Z\nEND:VEVENT\nEND:VCALENDAR\n"
+        },
+        "rules": {
+          "alice": {
+            "start": 540,
+            "end": 840,
+            "breaks": [],
+            "weekday_end": {},
+            "late_buffer": null
+          },
+          "bob": {
+            "start": 600,
+            "end": 1020,
+            "breaks": [],
+            "weekday_end": {
+              "1": 990,
+              "3": 990
+            },
+            "late_buffer": null
+          },
+          "carol": {
+            "start": 540,
+            "end": 1020,
+            "breaks": [
+              [
+                720,
+                750
+              ]
+            ],
+            "weekday_end": {},
+            "late_buffer": {
+              "threshold": 1005,
+              "minutes": 15
+            }
+          }
+        },
+        "days": [
+          "2024-01-15",
+          "2024-01-16",
+          "2024-01-17"
+        ],
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com",
+          "carol@example.com"
+        ]
+      },
+      "results": {
+        "alice_availability": [
+          [
+            "20240116T090000Z",
+            "20240116T140000Z"
+          ],
+          [
+            "20240117T090000Z",
+            "20240117T140000Z"
+          ]
+        ],
+        "bob_availability": [
+          [
+            "20240115T100000Z",
+            "20240115T110000Z"
+          ],
+          [
+            "20240115T120000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T100000Z",
+            "20240116T163000Z"
+          ],
+          [
+            "20240117T100000Z",
+            "20240117T170000Z"
+          ]
+        ],
+        "carol_availability": [
+          [
+            "20240115T090000Z",
+            "20240115T100000Z"
+          ],
+          [
+            "20240115T110000Z",
+            "20240115T120000Z"
+          ],
+          [
+            "20240115T123000Z",
+            "20240115T170000Z"
+          ],
+          [
+            "20240116T090000Z",
+            "20240116T120000Z"
+          ],
+          [
+            "20240116T123000Z",
+            "20240116T170000Z"
+          ],
+          [
+            "20240117T090000Z",
+            "20240117T120000Z"
+          ],
+          [
+            "20240117T123000Z",
+            "20240117T170000Z"
+          ]
+        ],
+        "meeting": {
+          "start": "20240116T100000Z",
+          "end": "20240116T110000Z",
+          "attendees": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com"
+          ],
+          "summary": "Team Planning Meeting"
+        }
+      }
+    }
+  ]
+}

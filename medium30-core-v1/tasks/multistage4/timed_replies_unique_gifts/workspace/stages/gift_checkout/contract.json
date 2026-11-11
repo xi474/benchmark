@@ -1,0 +1,14 @@
+{
+  "name": "gift_checkout",
+  "op": "gift_checkout",
+  "bindings": {
+    "replies": "outputs/reply_batch.json#",
+    "variant": "outputs/gift_variant.json#",
+    "window": "inputs/request.json#/window",
+    "date": "inputs/request.json#/date"
+  },
+  "spec": "按实际回复的唯一邮箱数量采购，在window+30逻辑秒checkout。date为当前YYYY-MM-DD。返回 {replies,order:{at,variant,quantity},reminder:{date:当月最后一天,all_day:true,title:'Reminder: Hand Out Gifts'}}。同邮箱多邮件都回复但只算一件礼品。",
+  "output": "outputs/gift_checkout.json",
+  "component": "gift_checkout",
+  "task": "N28"
+}

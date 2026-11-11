@@ -1,0 +1,12 @@
+{
+  "name": "related_matches",
+  "op": "choice_matches",
+  "bindings": {
+    "relations": "inputs/request.json#/relations",
+    "minimum": "inputs/request.json#/minimum"
+  },
+  "spec": "relations=[{entity:ID,funny:bool,weight:整数}]。返回每条 funny=true且weight>=minimum的关联记录的entity ID，保留关系顺序及重复值。条件必须在同一关联行成立。",
+  "output": "outputs/related_matches.json",
+  "component": "related_matches",
+  "task": "N12"
+}

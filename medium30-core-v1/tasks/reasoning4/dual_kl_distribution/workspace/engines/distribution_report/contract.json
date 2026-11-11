@@ -1,0 +1,12 @@
+{
+  "name": "distribution_report",
+  "op": "distribution_report",
+  "bindings": {
+    "probabilities": "outputs/distribution.json#",
+    "model": "outputs/probability_model.json#"
+  },
+  "spec": "返回 {size,mass,forward_kl,backward_kl,meets_target:bool}，必须从同一个概率向量实际重算；数值按公开容差验收而非精确字符串。",
+  "output": "outputs/distribution_report.json",
+  "component": "distribution_report",
+  "task": "N26"
+}

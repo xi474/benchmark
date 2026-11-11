@@ -1,0 +1,323 @@
+{
+  "components": {
+    "branch_routes": [
+      {
+        "payload": {
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          }
+        },
+        "expected": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        }
+      },
+      {
+        "payload": {
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          }
+        },
+        "expected": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        }
+      },
+      {
+        "payload": {
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          }
+        },
+        "expected": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        }
+      }
+    ],
+    "deployment_hook": [
+      {
+        "payload": {
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          }
+        },
+        "expected": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n"
+      },
+      {
+        "payload": {
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          }
+        },
+        "expected": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n"
+      },
+      {
+        "payload": {
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          }
+        },
+        "expected": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n"
+      }
+    ],
+    "deployment_report": [
+      {
+        "payload": {
+          "hook": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n",
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          },
+          "batches": [
+            [
+              {
+                "branch": "main",
+                "files": {
+                  "index.html": "MAIN"
+                }
+              },
+              {
+                "branch": "dev",
+                "files": {
+                  "index.html": "DEV",
+                  "old.txt": "drop"
+                }
+              }
+            ],
+            [
+              {
+                "branch": "dev",
+                "files": {
+                  "index.html": "DEV2"
+                }
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "files": {
+            "site/dev/index.html": "DEV2",
+            "site/main/index.html": "MAIN"
+          }
+        }
+      },
+      {
+        "payload": {
+          "hook": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n",
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          },
+          "batches": [
+            [
+              {
+                "branch": "main",
+                "files": {
+                  "index.html": "one",
+                  "x.txt": "x"
+                }
+              }
+            ],
+            [
+              {
+                "branch": "main",
+                "files": {
+                  "index.html": "two"
+                }
+              }
+            ],
+            [
+              {
+                "branch": "dev",
+                "files": {
+                  "index.html": "dev"
+                }
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "files": {
+            "site/dev/index.html": "dev",
+            "site/main/index.html": "two"
+          }
+        }
+      },
+      {
+        "payload": {
+          "hook": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n",
+          "routes": {
+            "refs/heads/main": "site/main",
+            "refs/heads/dev": "site/dev"
+          },
+          "batches": [
+            [
+              {
+                "branch": "dev",
+                "files": {
+                  "index.html": "D"
+                }
+              }
+            ],
+            [
+              {
+                "branch": "main",
+                "files": {
+                  "index.html": "M"
+                }
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "files": {
+            "site/dev/index.html": "D",
+            "site/main/index.html": "M"
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "routes": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        },
+        "batches": [
+          [
+            {
+              "branch": "main",
+              "files": {
+                "index.html": "MAIN"
+              }
+            },
+            {
+              "branch": "dev",
+              "files": {
+                "index.html": "DEV",
+                "old.txt": "drop"
+              }
+            }
+          ],
+          [
+            {
+              "branch": "dev",
+              "files": {
+                "index.html": "DEV2"
+              }
+            }
+          ]
+        ]
+      },
+      "results": {
+        "branch_routes": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        },
+        "deployment_hook": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n",
+        "deployment_report": {
+          "files": {
+            "site/dev/index.html": "DEV2",
+            "site/main/index.html": "MAIN"
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "routes": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        },
+        "batches": [
+          [
+            {
+              "branch": "main",
+              "files": {
+                "index.html": "one",
+                "x.txt": "x"
+              }
+            }
+          ],
+          [
+            {
+              "branch": "main",
+              "files": {
+                "index.html": "two"
+              }
+            }
+          ],
+          [
+            {
+              "branch": "dev",
+              "files": {
+                "index.html": "dev"
+              }
+            }
+          ]
+        ]
+      },
+      "results": {
+        "branch_routes": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        },
+        "deployment_hook": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n",
+        "deployment_report": {
+          "files": {
+            "site/dev/index.html": "dev",
+            "site/main/index.html": "two"
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "routes": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        },
+        "batches": [
+          [
+            {
+              "branch": "dev",
+              "files": {
+                "index.html": "D"
+              }
+            }
+          ],
+          [
+            {
+              "branch": "main",
+              "files": {
+                "index.html": "M"
+              }
+            }
+          ]
+        ]
+      },
+      "results": {
+        "branch_routes": {
+          "refs/heads/main": "site/main",
+          "refs/heads/dev": "site/dev"
+        },
+        "deployment_hook": "import io,json,os,pathlib,shutil,subprocess,sys,tarfile,tempfile\nroutes=json.loads('{\"refs/heads/main\": \"site/main\", \"refs/heads/dev\": \"site/dev\"}')\nroot=pathlib.Path(os.environ['MEDIUM30_DEPLOY_ROOT']);repo=os.path.abspath(os.environ['GIT_DIR'])\nfor line in sys.stdin:\n old,new,ref=line.split()\n if ref not in routes or set(new)=={'0'}:continue\n target=root/routes[ref];target.parent.mkdir(parents=True,exist_ok=True)\n data=subprocess.check_output(['git','--git-dir',repo,'archive',new])\n stage=pathlib.Path(tempfile.mkdtemp(dir=target.parent))\n with tarfile.open(fileobj=io.BytesIO(data)) as tar:tar.extractall(stage,filter='data')\n if target.exists():shutil.rmtree(target)\n os.replace(stage,target)\n",
+        "deployment_report": {
+          "files": {
+            "site/dev/index.html": "D",
+            "site/main/index.html": "M"
+          }
+        }
+      }
+    }
+  ]
+}

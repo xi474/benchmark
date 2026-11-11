@@ -1,0 +1,12 @@
+{
+  "name": "member_plan",
+  "op": "archive_plan",
+  "bindings": {
+    "nodes": "inputs/request.json#/nodes",
+    "external_files": "inputs/request.json#/external_files"
+  },
+  "spec": "输入为受控虚拟 collection 根目录，nodes=[{path,kind:'file'|'dir'|'symlink',content或target}]，symlink相对所在目录解析。没有循环/悬空链接；外部文件内容由external_files以绝对虚拟路径给出，不读实际工作区外文件。规范化后落在/collection外的成员路径拒绝；内部链接保留为symlink，其相对linkname不展开；外部文件链接复制内容为普通file。返回 {members:按name排序[{name,type,content(仅file),linkname(仅symlink)}],rejected:排序拒绝path}。目录没有多余字段。",
+  "output": "outputs/member_plan.json",
+  "component": "member_plan",
+  "task": "N15"
+}

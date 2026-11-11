@@ -1,0 +1,14 @@
+{
+  "name": "modified_url",
+  "op": "rewrite_url",
+  "bindings": {
+    "parts": "outputs/url_segments.json#",
+    "target": "outputs/numeric_target.json#",
+    "operation": "inputs/request.json#/operation",
+    "count": "inputs/request.json#/count"
+  },
+  "spec": "operation=increment/decrement，count 是非负整数，输入保证结果非负。仅替换目标跨度；原字符串若有前导零，尽可能保持原宽度，超出时扩宽；原值无前导零则不补零。返回完整新 URL 字符串，其余部分逐字保持。",
+  "output": "outputs/modified_url.json",
+  "component": "modified_url",
+  "task": "N18"
+}

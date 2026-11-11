@@ -1,0 +1,555 @@
+{
+  "components": {
+    "symbol_tables": [
+      {
+        "payload": {
+          "left": {
+            "tables": {
+              "T0": "foo"
+            },
+            "clauses": [
+              {
+                "alias": "T0",
+                "field": "id",
+                "value": 3
+              }
+            ]
+          },
+          "right": {
+            "tables": {
+              "T1": "foo",
+              "T2": "bar"
+            },
+            "clauses": [
+              {
+                "alias": "T1",
+                "field": "name",
+                "value": "T1"
+              },
+              {
+                "alias": "T2",
+                "field": "id",
+                "value": 8
+              }
+            ]
+          }
+        },
+        "expected": {
+          "left": [
+            "T0"
+          ],
+          "right": [
+            "T1",
+            "T2"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "left": {
+            "tables": {
+              "T3": "a"
+            },
+            "clauses": []
+          },
+          "right": {
+            "tables": {
+              "T0": "b",
+              "T1": "a"
+            },
+            "clauses": [
+              {
+                "alias": "T0",
+                "field": "x",
+                "value": 4
+              },
+              {
+                "alias": "T1",
+                "field": "x",
+                "value": 5
+              }
+            ]
+          }
+        },
+        "expected": {
+          "left": [
+            "T3"
+          ],
+          "right": [
+            "T0",
+            "T1"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "left": {
+            "tables": {
+              "L": "a"
+            },
+            "clauses": [
+              {
+                "alias": "L",
+                "field": "k",
+                "value": 0
+              }
+            ]
+          },
+          "right": {
+            "tables": {
+              "R": "a"
+            },
+            "clauses": [
+              {
+                "alias": "R",
+                "field": "k",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "expected": {
+          "left": [
+            "L"
+          ],
+          "right": [
+            "R"
+          ]
+        }
+      }
+    ],
+    "rename_map": [
+      {
+        "payload": {
+          "symbols": {
+            "left": [
+              "T0"
+            ],
+            "right": [
+              "T1",
+              "T2"
+            ]
+          }
+        },
+        "expected": {
+          "T1": "T3",
+          "T2": "T4"
+        }
+      },
+      {
+        "payload": {
+          "symbols": {
+            "left": [
+              "T3"
+            ],
+            "right": [
+              "T0",
+              "T1"
+            ]
+          }
+        },
+        "expected": {
+          "T0": "T2",
+          "T1": "T4"
+        }
+      },
+      {
+        "payload": {
+          "symbols": {
+            "left": [
+              "L"
+            ],
+            "right": [
+              "R"
+            ]
+          }
+        },
+        "expected": {
+          "R": "T0"
+        }
+      }
+    ],
+    "combined_query": [
+      {
+        "payload": {
+          "left": {
+            "tables": {
+              "T0": "foo"
+            },
+            "clauses": [
+              {
+                "alias": "T0",
+                "field": "id",
+                "value": 3
+              }
+            ]
+          },
+          "right": {
+            "tables": {
+              "T1": "foo",
+              "T2": "bar"
+            },
+            "clauses": [
+              {
+                "alias": "T1",
+                "field": "name",
+                "value": "T1"
+              },
+              {
+                "alias": "T2",
+                "field": "id",
+                "value": 8
+              }
+            ]
+          },
+          "mapping": {
+            "T1": "T3",
+            "T2": "T4"
+          }
+        },
+        "expected": {
+          "tables": {
+            "T0": "foo",
+            "T3": "foo",
+            "T4": "bar"
+          },
+          "branches": [
+            [
+              {
+                "alias": "T0",
+                "field": "id",
+                "value": 3
+              }
+            ],
+            [
+              {
+                "alias": "T3",
+                "field": "name",
+                "value": "T1"
+              },
+              {
+                "alias": "T4",
+                "field": "id",
+                "value": 8
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "payload": {
+          "left": {
+            "tables": {
+              "T3": "a"
+            },
+            "clauses": []
+          },
+          "right": {
+            "tables": {
+              "T0": "b",
+              "T1": "a"
+            },
+            "clauses": [
+              {
+                "alias": "T0",
+                "field": "x",
+                "value": 4
+              },
+              {
+                "alias": "T1",
+                "field": "x",
+                "value": 5
+              }
+            ]
+          },
+          "mapping": {
+            "T0": "T2",
+            "T1": "T4"
+          }
+        },
+        "expected": {
+          "tables": {
+            "T3": "a",
+            "T2": "b",
+            "T4": "a"
+          },
+          "branches": [
+            [],
+            [
+              {
+                "alias": "T2",
+                "field": "x",
+                "value": 4
+              },
+              {
+                "alias": "T4",
+                "field": "x",
+                "value": 5
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "payload": {
+          "left": {
+            "tables": {
+              "L": "a"
+            },
+            "clauses": [
+              {
+                "alias": "L",
+                "field": "k",
+                "value": 0
+              }
+            ]
+          },
+          "right": {
+            "tables": {
+              "R": "a"
+            },
+            "clauses": [
+              {
+                "alias": "R",
+                "field": "k",
+                "value": 1
+              }
+            ]
+          },
+          "mapping": {
+            "R": "T0"
+          }
+        },
+        "expected": {
+          "tables": {
+            "L": "a",
+            "T0": "a"
+          },
+          "branches": [
+            [
+              {
+                "alias": "L",
+                "field": "k",
+                "value": 0
+              }
+            ],
+            [
+              {
+                "alias": "T0",
+                "field": "k",
+                "value": 1
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "left": {
+          "tables": {
+            "T0": "foo"
+          },
+          "clauses": [
+            {
+              "alias": "T0",
+              "field": "id",
+              "value": 3
+            }
+          ]
+        },
+        "right": {
+          "tables": {
+            "T1": "foo",
+            "T2": "bar"
+          },
+          "clauses": [
+            {
+              "alias": "T1",
+              "field": "name",
+              "value": "T1"
+            },
+            {
+              "alias": "T2",
+              "field": "id",
+              "value": 8
+            }
+          ]
+        }
+      },
+      "results": {
+        "symbol_tables": {
+          "left": [
+            "T0"
+          ],
+          "right": [
+            "T1",
+            "T2"
+          ]
+        },
+        "rename_map": {
+          "T1": "T3",
+          "T2": "T4"
+        },
+        "combined_query": {
+          "tables": {
+            "T0": "foo",
+            "T3": "foo",
+            "T4": "bar"
+          },
+          "branches": [
+            [
+              {
+                "alias": "T0",
+                "field": "id",
+                "value": 3
+              }
+            ],
+            [
+              {
+                "alias": "T3",
+                "field": "name",
+                "value": "T1"
+              },
+              {
+                "alias": "T4",
+                "field": "id",
+                "value": 8
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "left": {
+          "tables": {
+            "T3": "a"
+          },
+          "clauses": []
+        },
+        "right": {
+          "tables": {
+            "T0": "b",
+            "T1": "a"
+          },
+          "clauses": [
+            {
+              "alias": "T0",
+              "field": "x",
+              "value": 4
+            },
+            {
+              "alias": "T1",
+              "field": "x",
+              "value": 5
+            }
+          ]
+        }
+      },
+      "results": {
+        "symbol_tables": {
+          "left": [
+            "T3"
+          ],
+          "right": [
+            "T0",
+            "T1"
+          ]
+        },
+        "rename_map": {
+          "T0": "T2",
+          "T1": "T4"
+        },
+        "combined_query": {
+          "tables": {
+            "T3": "a",
+            "T2": "b",
+            "T4": "a"
+          },
+          "branches": [
+            [],
+            [
+              {
+                "alias": "T2",
+                "field": "x",
+                "value": 4
+              },
+              {
+                "alias": "T4",
+                "field": "x",
+                "value": 5
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "left": {
+          "tables": {
+            "L": "a"
+          },
+          "clauses": [
+            {
+              "alias": "L",
+              "field": "k",
+              "value": 0
+            }
+          ]
+        },
+        "right": {
+          "tables": {
+            "R": "a"
+          },
+          "clauses": [
+            {
+              "alias": "R",
+              "field": "k",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "results": {
+        "symbol_tables": {
+          "left": [
+            "L"
+          ],
+          "right": [
+            "R"
+          ]
+        },
+        "rename_map": {
+          "R": "T0"
+        },
+        "combined_query": {
+          "tables": {
+            "L": "a",
+            "T0": "a"
+          },
+          "branches": [
+            [
+              {
+                "alias": "L",
+                "field": "k",
+                "value": 0
+              }
+            ],
+            [
+              {
+                "alias": "T0",
+                "field": "k",
+                "value": 1
+              }
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

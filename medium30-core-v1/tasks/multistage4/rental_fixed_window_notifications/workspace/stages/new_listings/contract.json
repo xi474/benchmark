@@ -1,0 +1,15 @@
+{
+  "name": "new_listings",
+  "op": "rental_new",
+  "bindings": {
+    "events": "inputs/request.json#/events",
+    "window": "inputs/request.json#/window",
+    "city": "inputs/request.json#/city",
+    "low": "inputs/request.json#/low",
+    "high": "inputs/request.json#/high"
+  },
+  "spec": "events=[{at:逻辑秒,property:{id,city,price}}]，ID唯一。仅筛选0<=at<window内合格新房源，按(at,id)返回 [{at,id}]。本版新事件只通知，不额外修改初始收藏。",
+  "output": "outputs/new_listings.json",
+  "component": "new_listings",
+  "task": "N27"
+}

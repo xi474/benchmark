@@ -1,0 +1,572 @@
+{
+  "components": {
+    "linearization": [
+      {
+        "payload": {
+          "classes": {
+            "A": {
+              "bases": [],
+              "marks": [
+                "a"
+              ]
+            },
+            "B": {
+              "bases": [],
+              "marks": [
+                "b"
+              ]
+            },
+            "C": {
+              "bases": [
+                "A",
+                "B"
+              ],
+              "marks": [
+                "c"
+              ]
+            }
+          },
+          "target": "C"
+        },
+        "expected": [
+          "C",
+          "A",
+          "B"
+        ]
+      },
+      {
+        "payload": {
+          "classes": {
+            "O": {
+              "bases": [],
+              "marks": [
+                {
+                  "x": 0
+                }
+              ]
+            },
+            "A": {
+              "bases": [
+                "O"
+              ],
+              "marks": [
+                {
+                  "x": 1
+                }
+              ]
+            },
+            "B": {
+              "bases": [
+                "O"
+              ],
+              "marks": [
+                {
+                  "x": 2
+                }
+              ]
+            },
+            "D": {
+              "bases": [
+                "A",
+                "B"
+              ],
+              "marks": []
+            }
+          },
+          "target": "D"
+        },
+        "expected": [
+          "D",
+          "A",
+          "B",
+          "O"
+        ]
+      },
+      {
+        "payload": {
+          "classes": {
+            "R": {
+              "bases": [],
+              "marks": []
+            },
+            "L": {
+              "bases": [
+                "R"
+              ],
+              "marks": [
+                "l",
+                "l"
+              ]
+            },
+            "T": {
+              "bases": [
+                "L"
+              ],
+              "marks": [
+                "t"
+              ]
+            }
+          },
+          "target": "T"
+        },
+        "expected": [
+          "T",
+          "L",
+          "R"
+        ]
+      }
+    ],
+    "local_marks": [
+      {
+        "payload": {
+          "classes": {
+            "A": {
+              "bases": [],
+              "marks": [
+                "a"
+              ]
+            },
+            "B": {
+              "bases": [],
+              "marks": [
+                "b"
+              ]
+            },
+            "C": {
+              "bases": [
+                "A",
+                "B"
+              ],
+              "marks": [
+                "c"
+              ]
+            }
+          }
+        },
+        "expected": {
+          "A": [
+            "a"
+          ],
+          "B": [
+            "b"
+          ],
+          "C": [
+            "c"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "classes": {
+            "O": {
+              "bases": [],
+              "marks": [
+                {
+                  "x": 0
+                }
+              ]
+            },
+            "A": {
+              "bases": [
+                "O"
+              ],
+              "marks": [
+                {
+                  "x": 1
+                }
+              ]
+            },
+            "B": {
+              "bases": [
+                "O"
+              ],
+              "marks": [
+                {
+                  "x": 2
+                }
+              ]
+            },
+            "D": {
+              "bases": [
+                "A",
+                "B"
+              ],
+              "marks": []
+            }
+          }
+        },
+        "expected": {
+          "O": [
+            {
+              "x": 0
+            }
+          ],
+          "A": [
+            {
+              "x": 1
+            }
+          ],
+          "B": [
+            {
+              "x": 2
+            }
+          ],
+          "D": []
+        }
+      },
+      {
+        "payload": {
+          "classes": {
+            "R": {
+              "bases": [],
+              "marks": []
+            },
+            "L": {
+              "bases": [
+                "R"
+              ],
+              "marks": [
+                "l",
+                "l"
+              ]
+            },
+            "T": {
+              "bases": [
+                "L"
+              ],
+              "marks": [
+                "t"
+              ]
+            }
+          }
+        },
+        "expected": {
+          "R": [],
+          "L": [
+            "l",
+            "l"
+          ],
+          "T": [
+            "t"
+          ]
+        }
+      }
+    ],
+    "effective_marks": [
+      {
+        "payload": {
+          "mro": [
+            "C",
+            "A",
+            "B"
+          ],
+          "local": {
+            "A": [
+              "a"
+            ],
+            "B": [
+              "b"
+            ],
+            "C": [
+              "c"
+            ]
+          }
+        },
+        "expected": {
+          "mro": [
+            "C",
+            "A",
+            "B"
+          ],
+          "marks": [
+            "c",
+            "a",
+            "b"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "mro": [
+            "D",
+            "A",
+            "B",
+            "O"
+          ],
+          "local": {
+            "O": [
+              {
+                "x": 0
+              }
+            ],
+            "A": [
+              {
+                "x": 1
+              }
+            ],
+            "B": [
+              {
+                "x": 2
+              }
+            ],
+            "D": []
+          }
+        },
+        "expected": {
+          "mro": [
+            "D",
+            "A",
+            "B",
+            "O"
+          ],
+          "marks": [
+            {
+              "x": 1
+            },
+            {
+              "x": 2
+            },
+            {
+              "x": 0
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "mro": [
+            "T",
+            "L",
+            "R"
+          ],
+          "local": {
+            "R": [],
+            "L": [
+              "l",
+              "l"
+            ],
+            "T": [
+              "t"
+            ]
+          }
+        },
+        "expected": {
+          "mro": [
+            "T",
+            "L",
+            "R"
+          ],
+          "marks": [
+            "t",
+            "l",
+            "l"
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "classes": {
+          "A": {
+            "bases": [],
+            "marks": [
+              "a"
+            ]
+          },
+          "B": {
+            "bases": [],
+            "marks": [
+              "b"
+            ]
+          },
+          "C": {
+            "bases": [
+              "A",
+              "B"
+            ],
+            "marks": [
+              "c"
+            ]
+          }
+        },
+        "target": "C"
+      },
+      "results": {
+        "linearization": [
+          "C",
+          "A",
+          "B"
+        ],
+        "local_marks": {
+          "A": [
+            "a"
+          ],
+          "B": [
+            "b"
+          ],
+          "C": [
+            "c"
+          ]
+        },
+        "effective_marks": {
+          "mro": [
+            "C",
+            "A",
+            "B"
+          ],
+          "marks": [
+            "c",
+            "a",
+            "b"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "classes": {
+          "O": {
+            "bases": [],
+            "marks": [
+              {
+                "x": 0
+              }
+            ]
+          },
+          "A": {
+            "bases": [
+              "O"
+            ],
+            "marks": [
+              {
+                "x": 1
+              }
+            ]
+          },
+          "B": {
+            "bases": [
+              "O"
+            ],
+            "marks": [
+              {
+                "x": 2
+              }
+            ]
+          },
+          "D": {
+            "bases": [
+              "A",
+              "B"
+            ],
+            "marks": []
+          }
+        },
+        "target": "D"
+      },
+      "results": {
+        "linearization": [
+          "D",
+          "A",
+          "B",
+          "O"
+        ],
+        "local_marks": {
+          "O": [
+            {
+              "x": 0
+            }
+          ],
+          "A": [
+            {
+              "x": 1
+            }
+          ],
+          "B": [
+            {
+              "x": 2
+            }
+          ],
+          "D": []
+        },
+        "effective_marks": {
+          "mro": [
+            "D",
+            "A",
+            "B",
+            "O"
+          ],
+          "marks": [
+            {
+              "x": 1
+            },
+            {
+              "x": 2
+            },
+            {
+              "x": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "classes": {
+          "R": {
+            "bases": [],
+            "marks": []
+          },
+          "L": {
+            "bases": [
+              "R"
+            ],
+            "marks": [
+              "l",
+              "l"
+            ]
+          },
+          "T": {
+            "bases": [
+              "L"
+            ],
+            "marks": [
+              "t"
+            ]
+          }
+        },
+        "target": "T"
+      },
+      "results": {
+        "linearization": [
+          "T",
+          "L",
+          "R"
+        ],
+        "local_marks": {
+          "R": [],
+          "L": [
+            "l",
+            "l"
+          ],
+          "T": [
+            "t"
+          ]
+        },
+        "effective_marks": {
+          "mro": [
+            "T",
+            "L",
+            "R"
+          ],
+          "marks": [
+            "t",
+            "l",
+            "l"
+          ]
+        }
+      }
+    }
+  ]
+}

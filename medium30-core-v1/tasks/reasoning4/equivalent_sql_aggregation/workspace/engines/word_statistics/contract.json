@@ -1,0 +1,11 @@
+{
+  "name": "word_statistics",
+  "op": "word_statistics",
+  "bindings": {
+    "tables": "inputs/request.json#/tables"
+  },
+  "spec": "tables包含words(wordid,word)、senses(wordid,synsetid)、synsets(synsetid,domainid,posid)。按wordid返回统计列表 [{word_id,word,total_synsets,total_senses,distinct_domains,distinct_posids}]，词没有sense也列出0；所有引用合法。",
+  "output": "outputs/word_statistics.json",
+  "component": "word_statistics",
+  "task": "N21"
+}

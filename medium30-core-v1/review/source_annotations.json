@@ -1,0 +1,1121 @@
+[
+  {
+    "id": "N01",
+    "title": "嵌套模型的输入输出依赖矩阵",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "astropy__astropy-12907",
+        "source_row": 0,
+        "repo": "astropy/astropy",
+        "base_commit": "d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/astropy/astropy/pull/12907",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 2,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N01_SWE_1.json",
+        "evidence_sha256": "d5c8cbadfbbc2102200404c38a354653dd9fe73fa2b93e8e44390b76f188935a"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "axis_evidence": [
+      "A1：布尔矩阵乘法与块对角组合，均为标准算法。",
+      "S0：模型树是静态输入。",
+      "C1：子树矩阵按固定维度契约汇入父节点；不是资源可行域搜索。",
+      "I0：单一模型树接口。"
+    ],
+    "minimum_counterexample": "两条独立一维模型的依赖矩阵应为 diag(1,1)；将它们包成子树再并联，不能把右下 2×2 块改成全 1。",
+    "excluded_from_core": "不要求安装天文库、拟合数据、坐标投影或任意模型插件。",
+    "duplicate_distinction": "旧题是数据轴拼接或行键聚合；本题的核心是模型组合的依赖代数，不复用拼接求解器。"
+  },
+  {
+    "id": "N02",
+    "title": "维度替换后的元数据隔离",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "pydata__xarray-6938",
+        "source_row": 315,
+        "repo": "pydata/xarray",
+        "base_commit": "c4e40d991c28be51de9ac560ce895ac7f9b14924",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/pydata/xarray/pull/6938",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N02_SWE_1.json",
+        "evidence_sha256": "d9068178c81d2c80f78809a620a8f23b2060d1b711769d430ecbff4f3dcd4955"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：维护维度到变量的映射和替换计划。",
+      "S1：一次受控派生，必须隔离派生对象的可变元数据。",
+      "C1：变量与坐标分支按替换计划汇合。",
+      "I1：固定数据变量/索引变量表示之间转换。"
+    ],
+    "minimum_counterexample": "a.dims=('x',)，b=to_index(a)；令 b.dims=('y',) 后 a.dims 仍应为 ('x',)。",
+    "excluded_from_core": "不要求所有深层数据无限递归复制、分布式数组、Zarr 或任意历史 xarray API。",
+    "duplicate_distinction": "MP02 检查拼接轴和数据排列；本题检查对象所有权与派生后隔离。"
+  },
+  {
+    "id": "N03",
+    "title": "多继承测试标记的 MRO 汇合",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "pytest-dev__pytest-10356",
+        "source_row": 332,
+        "repo": "pytest-dev/pytest",
+        "base_commit": "3c1534944cbd34e8a41bc9e76818018fadefc9a1",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/pytest-dev/pytest/pull/10356",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "1-4 hours",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N03_SWE_1.json",
+        "evidence_sha256": "7d4af42e6c4b3199f06d67b6bc58abf6c8094bd8b21976b498150ff504f77215"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：C3 线性化及有序收集。",
+      "S0：类声明静态。",
+      "C1：类图顺序和各类本地标记按契约汇合。",
+      "I1：区分本地声明与继承属性。"
+    ],
+    "minimum_counterexample": "C(A,B)，三类分别声明 c、a、b：结果应依 MRO 收集 c,a,b；只用 getattr(C,'marks') 会漏掉 B。相同名称的不同标记不擅自去重。",
+    "excluded_from_core": "不测元类执行、自定义描述符、非法继承图的精确异常文案。",
+    "duplicate_distinction": "旧题聚合文档和已知继承信息；本题求解有效类线性化并收集测试标记，不生成 API 文档。"
+  },
+  {
+    "id": "N04",
+    "title": "跨 SQL 后端的 XOR 奇偶语义",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "django__django-16901",
+        "source_row": 245,
+        "repo": "django/django",
+        "base_commit": "ee36e101e8f8c0acde4bb148b738ab7034e902a0",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/django/django/pull/16901",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N04_SWE_1.json",
+        "evidence_sha256": "797c4548c7b9305bc62809caf0dac2c90005aff8196806a67021dfe34c31341f"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：AST 编译与奇偶计数。",
+      "S0：固定谓词与记录。",
+      "C1：两类代码生成消费同一个规范 AST。",
+      "I2：不同 SQL 能力下保持逻辑语义，而非只输出合法 SQL。"
+    ],
+    "minimum_counterexample": "a=b=c=True 时 a XOR b XOR c 为 True；sum==1 的回退结果却为 False。",
+    "excluded_from_core": "不引入 SQL NULL 三值逻辑、任意 SQL 注入输入或精确 SQL 文本匹配。",
+    "duplicate_distinction": "旧题涉及播放列表条件与导出；本题专门检验后端 XOR 语义等价，数据和算法内核均不同。"
+  },
+  {
+    "id": "N05",
+    "title": "数据库时区到业务日期的转换",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "django__django-11138",
+        "source_row": 34,
+        "repo": "django/django",
+        "base_commit": "c84b91b7603e488f7171fdff8f08368ef3d6b856",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/django/django/pull/11138",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "1-4 hours",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N05_SWE_1.json",
+        "evidence_sha256": "9bf59b04b76068655b67fa8725190bd4457a9371d038973f4138c2361e0c579b"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：标准时间偏移换算与日期投影。",
+      "S0：静态记录。",
+      "C1：后端计划与日期过滤汇合。",
+      "I2：各后端的存储时区语义必须一致。"
+    ],
+    "minimum_counterexample": "数据库 UTC+7 的 01-02 03:10，业务 UTC+3 应落在 01-01 23:10；按 UTC 原点转换会选错日期。",
+    "excluded_from_core": "不扩展 DST、历史时区表、真实 MySQL/Oracle、无效时间字符串。",
+    "duplicate_distinction": "旧题是循环日程和通知；本题是数据库时间解释与跨后端查询保真。"
+  },
+  {
+    "id": "N06",
+    "title": "查询组合中的无碰撞别名重写",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "django__django-15128",
+        "source_row": 180,
+        "repo": "django/django",
+        "base_commit": "cb383753c0e0eb52306e1024d32a782549c27e61",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/django/django/pull/15128",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "1-4 hours",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N06_SWE_1.json",
+        "evidence_sha256": "c542f5c5139051fe5228b7436336f83a11b41ab15d255ef470f36b6b913ed3ad"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：名称分配和同时重命名。",
+      "S0：两棵静态查询树。",
+      "C1：符号扫描、映射与引用重写的实质汇合。",
+      "I1：固定 AST 字段间保持引用一致。"
+    ],
+    "minimum_counterexample": "映射 T4→T5、T5→T6 时，原 T4 引用不能被连续替换成 T6；可先生成与原符号集合不交的新别名。",
+    "excluded_from_core": "不测任意 SQL 方言、数据库连接、格式化空格或别名名称的唯一指定。",
+    "duplicate_distinction": "旧题是架构演进分析；本题是编译器符号重命名和查询语义，不能用旧配置/迁移算法替代。"
+  },
+  {
+    "id": "N07",
+    "title": "嵌套分数表达式的解析与保真输出",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "sympy__sympy-21612",
+        "source_row": 482,
+        "repo": "sympy/sympy",
+        "base_commit": "b4777fdcef467b7132c055f8ac2c9a5059e6a145",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/sympy/sympy/pull/21612",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N07_SWE_1.json",
+        "evidence_sha256": "c3959302d2d8956dff4bdeaf945fc3f69c9101a7e8e7ec763eeefd3180aae02c"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：递归下降解析和带优先级打印。",
+      "S0：静态表达式。",
+      "C1：分子/分母子树汇入同一个除法节点，再供求值和输出。",
+      "I1：限定 LaTeX 与 AST/文本表示转换。"
+    ],
+    "minimum_counterexample": "(a/c)/(1/c²) 在 a=2,c=3 时为 6；错误写成 a/c/1/c² 时为 2/27。",
+    "excluded_from_core": "不测任意 LaTeX 宏、非法语法报错细节、符号证明或除零稳健性。",
+    "duplicate_distinction": "旧题分析 Python 导入；本题处理数学表达式结合性，不共享导入使用分析算法。"
+  },
+  {
+    "id": "N08",
+    "title": "测试日志等级的作用域恢复",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "pytest-dev__pytest-7571",
+        "source_row": 346,
+        "repo": "pytest-dev/pytest",
+        "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/pytest-dev/pytest/pull/7571",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N08_SWE_1.json",
+        "evidence_sha256": "09c2a3abf5f61ae76a5bea4e9657f8c79c69d55fbb63dee1761e025465b7fdde"
+      }
+    ],
+    "asci": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A0：按组件记录首次快照并恢复，没有复杂算法。",
+      "S1：单测试有限作用域。",
+      "C1：logger 与共享 handler 恢复必须汇合。",
+      "I1：固定日志对象接口。"
+    ],
+    "minimum_counterexample": "handler 原等级 20，在一次测试中先设 40 再设 50；结束后必须恢复 20，不能恢复成 40 或继续保持 50。",
+    "excluded_from_core": "不测多线程竞态、嵌套 fixture、任意 logging 插件或精确打印格式。",
+    "duplicate_distinction": "旧题序列化异常链；本题是日志组件作用域隔离，状态契约不同。"
+  },
+  {
+    "id": "N09",
+    "title": "多方日历可用区间的最早交集",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "constraints-scheduling",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/constraints-scheduling/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/constraints-scheduling/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/constraints-scheduling/task.toml",
+        "original_difficulty": "medium",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 15.0,
+        "junior_time_estimate_min": 30.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N09_TB_1.json",
+        "evidence_sha256": "0d293fb9d53d1b441e939881cfdb2b74a38ca2ac1e0befbc5d86a9e6c385f970"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：区间补集、相交与最早可行段搜索。",
+      "S0：三份静态日历。",
+      "C1：各人的可用区间必须按同一时基求交，而非独立挑各自最早时间。",
+      "I1：有限 ICS 与统一时间区间表示。"
+    ],
+    "minimum_counterexample": "A 空闲 09:00–11:00，B 空闲 10:00–12:00，C 空闲 10:30–11:30；各人都有一小时空闲，但公共交集只有 30 分钟，不能安排一小时会议。",
+    "excluded_from_core": "不加时区/DST、循环日历、任意 ICS 损坏输入、严格文本格式、资源预算或隐含软偏好排名。",
+    "duplicate_distinction": "旧题是指定日程的取消、采购或循环提醒；本题求多人可用区间的公共交集，不复用取消通知流程。"
+  },
+  {
+    "id": "N10",
+    "title": "有限置换群的同态验证",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "sympy__sympy-24443",
+        "source_row": 496,
+        "repo": "sympy/sympy",
+        "base_commit": "809c53c077485ca48a206cee78340389cb83b7f1",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/sympy/sympy/pull/24443",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N10_SWE_1.json",
+        "evidence_sha256": "c6e83a031cb537df841aca49862f8f92d88b68858300098d8e82b63fdf03d5d2"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：有限闭包遍历、置换复合和映射一致性检查。",
+      "S0：静态生成元。",
+      "C1：生成元与逆元操作表共同供闭包及像映射使用。",
+      "I1：置换数组与生成元词的有限转换。"
+    ],
+    "minimum_counterexample": "D3 的 r³=e、s²=e；r→r、s→s 应通过，r→r、s→r 则违反 s²=e。只逐个检查目标是否是合法置换不够。",
+    "excluded_from_core": "不要求大型群算法、任意符号关系或指定的生成元词输出。",
+    "duplicate_distinction": "旧题的人员指派/区间选择与本题的有限群关系检查无共用算法；名称中均有 reasoning 不构成重复。"
+  },
+  {
+    "id": "N11",
+    "title": "零块保形的分块矩阵连乘",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "sympy__sympy-17630",
+        "source_row": 461,
+        "repo": "sympy/sympy",
+        "base_commit": "58e78209c8577b9890e957b624466e5beed7eb08",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/sympy/sympy/pull/17630",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "1-4 hours",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 2,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N11_SWE_1.json",
+        "evidence_sha256": "fb1eaf2cee897ebd438f09d15a808b87ad8e8ee62879e910b5337b32717d43c6"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：标准分块矩阵乘法。",
+      "S0：矩阵链静态。",
+      "C1：块乘积需按共同形状契约求和，中间结果进入下一轮。",
+      "I1：保留有类型零块与数值块的表示区别。"
+    ],
+    "minimum_counterexample": "B=diag(A,Zero(2,2))；B² 的右下块仍须是 2×2 零块，才能继续算 B³，不能仅返回整数 0。",
+    "excluded_from_core": "不实现一般计算机代数、NaN 比较、非法维度异常体系。",
+    "duplicate_distinction": "旧拼接题不做块乘法；N01 的布尔依赖矩阵也不同于本题的有形状零元与整数矩阵连乘。"
+  },
+  {
+    "id": "N12",
+    "title": "关联条件下不重复的外键选项",
+    "sources": [
+      {
+        "group": "SWE",
+        "source_id": "django__django-13315",
+        "source_row": 106,
+        "repo": "django/django",
+        "base_commit": "36bc47069ce071e80c8129500de3b8664d2058a7",
+        "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_url": "https://github.com/django/django/pull/13315",
+        "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+        "original_difficulty": "15 min - 1 hour",
+        "difficulty_kind": "人工预计修复时间，不是模型通过率",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N12_SWE_1.json",
+        "evidence_sha256": "f26c47fa9beb7c38965cbad929eb6c3aaa590791b85497873a6925a85e2b1bad"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：关系半连接/存在性查询与身份去重。",
+      "S0：静态关系表。",
+      "C1：基础候选与关联条件汇合。",
+      "I2：关系行的多重性不能改变表单实体的身份语义。"
+    ],
+    "minimum_counterexample": "人物 p 有两条符合条件的 joke 记录，只应产生一个 p 选项；两个人同名则仍应产生两个不同 ID。",
+    "excluded_from_core": "不测试任意 ORM API、分页性能、国际化表单或非法谓词文本。",
+    "duplicate_distinction": "旧大学查询侧重统计与集合；本题修复关联多重性到 UI 选项的身份语义。N21 优化性能而保持既定查询结果，核心要求不同。"
+  },
+  {
+    "id": "N13",
+    "title": "主题合并后的待审帖子归属",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "source_row": 4,
+        "repo": "NodeBB/NodeBB",
+        "base_commit": "03a98f4de484f16d038892a0a9d2317a45e79df1",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N13_PRO_1.json",
+        "evidence_sha256": "b891d2565d6d4db00abbb72186129094b85c3e0e32668e9383ab252415a5255b"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "axis_evidence": [
+      "A1：按主题索引更新队列记录。",
+      "S1：有限合并和审批提交，不增加并发/撤销协议。",
+      "C2：合并结果改变后续审批可用目标。",
+      "I1：队列记录与主题记录的引用对齐。"
+    ],
+    "minimum_counterexample": "A 中已有待审 p；A 合并入 B 后审批 p 应进入 B。没有合并的合法历史中同一审批仍进入 A。",
+    "excluded_from_core": "不加并发仲裁、回滚、重复事件故障注入、未公开的精确错误字符串。",
+    "duplicate_distinction": "旧身份题有祖先撤销和会话联动；本题只有有限队列引用迁移，没有复杂会话历史。"
+  },
+  {
+    "id": "N14",
+    "title": "批量有序集合的累加与结果回填",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_NodeBB__NodeBB-6ea3b51f128dd270281db576a1b59270d5e45db0-vnan",
+        "source_row": 14,
+        "repo": "NodeBB/NodeBB",
+        "base_commit": "d9c42c000cd6c624794722fd55a741aff9d18823",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-6ea3b51f128dd270281db576a1b59270d5e45db0-vnan/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-6ea3b51f128dd270281db576a1b59270d5e45db0-vnan/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 2,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N14_PRO_1.json",
+        "evidence_sha256": "b4844e25a62238dd7a265da6ba47d3f8c9bd5e3e0ab4fe9a7c6e8db1699559bb"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：按 key/member 分组、有序前缀和与结果回填。",
+      "S1：有限批量更新。",
+      "C1：分组结果按原位置汇合。",
+      "I2：不同后端须保持逐次累加和返回顺序语义。"
+    ],
+    "minimum_counterexample": "初始 x=10，操作 x+=2、x+=3，应返回 [12,15]，不能返回 [15,15]。另一个成员可以独立更新。",
+    "excluded_from_core": "不加事务失败恢复、NaN/Infinity、未规定排序平局或性能倍数。",
+    "duplicate_distinction": "旧题求受限配额重分配；本题是确定性批处理前缀和，不做资源优化或共享预算求解。"
+  },
+  {
+    "id": "N15",
+    "title": "内部符号链接的保真构建与受限解包",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86",
+        "source_row": 85,
+        "repo": "ansible/ansible",
+        "base_commit": "8c044b846d1ea9e2a9c8870b1eaf6db3775e8e2c",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N15_PRO_1.json",
+        "evidence_sha256": "5e1e1de5f58a160c8320a8b75c094869c622fd35df8b6845f3f18b7b201480de"
+      },
+      {
+        "group": "PRO",
+        "source_id": "instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86",
+        "source_row": 99,
+        "repo": "ansible/ansible",
+        "base_commit": "a58fcde3a0d7a93c363ae7af4e6ee03001b96d82",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 3,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N15_PRO_2.json",
+        "evidence_sha256": "5a08f349e9daf3731c5a9b3e6b416877f3be9b693958bfee01c1cab8adcea8c1"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "axis_evidence": [
+      "A1：路径规范化、链接解析和归档清单遍历。",
+      "S1：一次构建与解包。",
+      "C2：链接分类改变清单遍历与可解包路径集合。",
+      "I2：文件系统链接语义需由 tar 成员类型保真承载。"
+    ],
+    "minimum_counterexample": "root/link→root/dir 应记录为一个链接，不复制 dir 子树；root2/a 不能因前缀 root 就被判断在 root 内。",
+    "excluded_from_core": "不引入 TOCTOU 竞态、任意损坏 tar、精确异常文案、访问真实工作区之外的文件。",
+    "duplicate_distinction": "与旧归档题同域；旧题核心为指令选择/支持模块依赖，本题核心为链接身份及 containment。禁止复用旧清单选项换皮作为新题。"
+  },
+  {
+    "id": "N16",
+    "title": "书目迁移中两种冲突策略",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866",
+        "source_row": 403,
+        "repo": "internetarchive/openlibrary",
+        "base_commit": "facafbe7339ca48a33e0d07e089e99b2cf6235df",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N16_PRO_1.json",
+        "evidence_sha256": "b867a261dbe9b6a7f2d83f2cd7407d4bd961eb45495365ac0dfd18c59c93fd5e"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "axis_evidence": [
+      "A1：按唯一键检测冲突并应用表特定策略。",
+      "S1：有限迁移。",
+      "C2：当前目标记录是否存在改变可提交操作。",
+      "I2：不同后端冲突异常映射到相同业务策略，且两种表不能混用策略。"
+    ],
+    "minimum_counterexample": "旧 ID=1 和目标 ID=2 都存在：Booknotes 两行都保留；Bookshelves 只保留目标行。统一使用 delete-on-conflict 会删掉笔记。",
+    "excluded_from_core": "不要求完整书目服务、所有数据库驱动、错误信息逐字匹配或并发迁移。",
+    "duplicate_distinction": "MP22 导入 MARC 书目字段；本题不解析 MARC，而是执行数据库身份迁移及冲突保护。"
+  },
+  {
+    "id": "N17",
+    "title": "模板配置依赖与最小更新集合",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "source_row": 580,
+        "repo": "qutebrowser/qutebrowser",
+        "base_commit": "04c65bb2b72542b239de2491c9242d8f641636db",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 7,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N17_PRO_1.json",
+        "evidence_sha256": "fc8a0f683588ce286c4c7f90a6ac12480d53d2c8cf9fabcdef7945e05cfef9c5"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：有限 AST 遍历和反向依赖索引。",
+      "S0：静态模板与变更集合。",
+      "C1：提取的依赖集供更新计划使用。",
+      "I1：模板语法到规范配置键转换。"
+    ],
+    "minimum_counterexample": "模板使用 conf.auto_save.interval 和 conf.hints.min_chars，但 notconf.hints.min_chars 不应产生依赖；仅前者变化才使相关模板失效。",
+    "excluded_from_core": "不实现完整 Jinja 执行器、动态任意下标、精确无效配置异常文案。",
+    "duplicate_distinction": "同属静态分析，但旧题分析 Python 导入与模块闭包；本题分析模板配置命名空间和重生成范围。"
+  },
+  {
+    "id": "N18",
+    "title": "保持编码的 URL 数字修改",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "source_row": 621,
+        "repo": "qutebrowser/qutebrowser",
+        "base_commit": "3ae5cc96aecb12008345f45bd7d06dbc52e48fa7",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/tests/test_patch.patch",
+        "original_difficulty": "HARD51 成员（hard=true）",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 30,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N18_PRO_1.json",
+        "evidence_sha256": "a1261930495096715db7f717262cbc3075bc17adcdf8c1e093542776f572d483"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：编码跨度扫描、目标选择和局部替换。",
+      "S0：单次纯转换。",
+      "C1：分段与编码屏蔽共同决定目标位置。",
+      "I2：URL 编码信息必须在读改写链中保真。"
+    ],
+    "minimum_counterexample": "http://h/%3A5 增加 1 应成为 http://h/%3A6；不能改 %3A 内数字，也不能把 %3A 变成冒号。",
+    "excluded_from_core": "不继承所有 QUrl 标准化细节、畸形 URL 修复、未知参数异常体系。",
+    "duplicate_distinction": "旧题组装 multipart 字节；本题定位编码字符串内的数字，不共享 MIME 组装算法。"
+  },
+  {
+    "id": "N19",
+    "title": "读写路由与事务内可见性",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_navidrome__navidrome-55bff343cdaad1f04496f724eda4b55d422d7f17",
+        "source_row": 477,
+        "repo": "navidrome/navidrome",
+        "base_commit": "68f03d01672a868f86e0fd73dde3957df8bf0dab",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_navidrome__navidrome-55bff343cdaad1f04496f724eda4b55d422d7f17/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_navidrome__navidrome-55bff343cdaad1f04496f724eda4b55d422d7f17/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 1,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N19_PRO_1.json",
+        "evidence_sha256": "37cb2b82d5c43e20cdb9fe7683931fce3cfc6bee7060adf6eff988561c8f99c7"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "axis_evidence": [
+      "A1：按作用域路由读写连接。",
+      "S1：有限事务 begin/commit，标准原子性。",
+      "C2：事务写入改变后续仓储读取的有效视图。",
+      "I2：事务内不能把读操作误路由到独立只读连接。"
+    ],
+    "minimum_counterexample": "事务中写入 album A，随后通过另一个仓储查询 A，必须立即可见；事务外旧连接的结果不能拿来代替事务内读。",
+    "excluded_from_core": "不加压力测试、锁争用竞态、分布式事务、重试/崩溃恢复协议。",
+    "duplicate_distinction": "旧支付题有结算联动与复杂约束；N16 是表特定冲突策略。本题只研究连接/事务身份传播和读己之写。"
+  },
+  {
+    "id": "N20",
+    "title": "目录与 ZIP 包的资源预加载",
+    "sources": [
+      {
+        "group": "PRO",
+        "source_id": "instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "source_row": 583,
+        "repo": "qutebrowser/qutebrowser",
+        "base_commit": "6d9c28ce10832aa727de1a326d9459a035ff3aba",
+        "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+        "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367/instruction.md",
+        "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367/tests/test_patch.patch",
+        "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+        "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+        "fail_to_pass_count": 12,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N20_PRO_1.json",
+        "evidence_sha256": "78486fb2320c7c32c1dcea7a1020fe74bc5a46b202e71b19d8eb3f8850fb4b8d"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：目录枚举、后缀选择和缓存索引。",
+      "S1：一次 preload 后的读取。",
+      "C1：各资源目录汇入缓存。",
+      "I2：目录和 ZIP 载体必须返回相同资源身份，缓存命中不能再依赖原载体。"
+    ],
+    "minimum_counterexample": "html/a.html 应纳入，html/unrelatedhtml 不应纳入；预加载完成后关闭原资源源，read_file(a) 仍应成功。",
+    "excluded_from_core": "不测试损坏 ZIP、任意包导入机制、LZMA 压缩支持或严格错误消息。",
+    "duplicate_distinction": "旧题发现模块后打包；N15 保留符号链接。本题读取既有包的静态资源并建立脱离载体的缓存。"
+  },
+  {
+    "id": "N21",
+    "title": "词义统计 SQL 的等价优化",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "query-optimize",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/query-optimize/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/query-optimize/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/query-optimize/task.toml",
+        "original_difficulty": "medium",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 60.0,
+        "junior_time_estimate_min": 480.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N21_TB_1.json",
+        "evidence_sha256": "3c501fc35bd72b8d977b5a94b487fdb11f8701b94efffcf93f36d4f28544160e"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：分组聚合、排名和平局规则；无额外组合优化。",
+      "S0：只读数据库。",
+      "C1：总量统计与 top-synset 统计按 word_id 汇合。",
+      "I2：SQL 改写须保持多重性、排序及空值语义。"
+    ],
+    "minimum_counterexample": "某词两个同义集各出现 2 次时应取较小 synset_id；直接 JOIN 聚合可能重复放大 sense_count。",
+    "excluded_from_core": "不加真实大数据库下载、墙钟 1.05 倍门槛、SQL 字符数限制或无关语法风格限制。",
+    "duplicate_distinction": "N12 修复选项身份；本题保持既定统计语义并减少重复计算。不能用只改表名的旧关系查询复用题面。"
+  },
+  {
+    "id": "N22",
+    "title": "Git 遗失对象恢复与彻底清理",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "git-leak-recovery",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-leak-recovery/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-leak-recovery/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-leak-recovery/task.toml",
+        "original_difficulty": "medium",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 30.0,
+        "junior_time_estimate_min": 60.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N22_TB_1.json",
+        "evidence_sha256": "ea260f29ecbd19e4a6a92912bd41fa243bc784030eee5df9e036814968c96bd3"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：Git 对象图遍历和可达性处理。",
+      "S1：先恢复、再有限清理。",
+      "C1：对象定位供恢复与清理使用。",
+      "I1：Git 对象和工作区文件接口。"
+    ],
+    "minimum_counterexample": "工作区和 git log 均无标记，但 dangling blob 仍含标记；只删当前文件或只看可达提交会失败。必须先保存恢复副本再回收对象。",
+    "excluded_from_core": "不加真实密钥、托管服务、复杂 signed commits 或所有 pack 损坏恢复。",
+    "duplicate_distinction": "旧题是权限/安全边界组件；本题操作 Git 对象可达性及垃圾回收，不是一般日志脱敏。"
+  },
+  {
+    "id": "N23",
+    "title": "损坏 WAL 的修复与数据合并",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "db-wal-recovery",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/db-wal-recovery/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/db-wal-recovery/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/db-wal-recovery/task.toml",
+        "original_difficulty": "medium",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 45.0,
+        "junior_time_estimate_min": 240.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N23_TB_1.json",
+        "evidence_sha256": "ec8f1f252dc33b22a9afff40bddab970928b3b55a98b6a5fd4bbd232b0a496f4"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "axis_evidence": [
+      "A1：有限编码识别、WAL 头/页格式检查与标准 SQLite 恢复。",
+      "S1：一次受控恢复与导出。",
+      "C1：基础库与修复 WAL 共同提供最终快照。",
+      "I2：格式有效的 WAL 必须真正可被 SQLite 读取，而非只伪造 JSON。"
+    ],
+    "minimum_counterexample": "基础库 id=1,value=100；WAL 改为 150 并插入 id=6。只读取基础库或把两份列表简单追加，都不等于恢复后的快照。",
+    "excluded_from_core": "不加入任意 torn-page、交易并发、未知加密破解、文件系统崩溃模拟。",
+    "duplicate_distinction": "旧题做流式检查点链或备份方案认证；本题做有限 WAL 编码修复和实际 SQLite 合并，没有恢复链/预算搜索。"
+  },
+  {
+    "id": "N24",
+    "title": "COBOL 定长交易文件的 Python 等价迁移",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "cobol-modernization",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/cobol-modernization/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/cobol-modernization/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/cobol-modernization/task.toml",
+        "original_difficulty": "easy",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 20.0,
+        "junior_time_estimate_min": 70.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N24_TB_1.json",
+        "evidence_sha256": "b5a9069dce436e764bf138ce776ba13b42c64f527a03809056c70f21792ab19e"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "axis_evidence": [
+      "A1：定长记录解析、查找和标准账务更新。",
+      "S1：顺序有限交易提交。",
+      "C2：前一交易的所有权决定下一交易可否执行。",
+      "I2：跨语言迁移必须保留字段宽度、所有权和记账语义。"
+    ],
+    "minimum_counterexample": "A 将书卖给 B 后，下一条仍以 A 为卖方的请求应失败；余额、书籍 owner 和交易日志不能只更新其中两项。",
+    "excluded_from_core": "不加信用额度、反洗钱、溢出/负余额极端值、任意损坏 DAT 或崩溃原子性。",
+    "duplicate_distinction": "旧支付题是复杂结算核对；旧票据题是文本提取归档。本题是有明确参考程序的跨语言定长交易迁移。"
+  },
+  {
+    "id": "N25",
+    "title": "本地 Git 双分支自动部署",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "git-multibranch",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-multibranch/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-multibranch/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-multibranch/task.toml",
+        "original_difficulty": "medium",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 180.0,
+        "junior_time_estimate_min": 360.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N25_TB_1.json",
+        "evidence_sha256": "c420de7066d01313c6b4e69d7af978724ea73b2fbcc3b8d72f213601b36aa87c"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：解析 hook 的 ref 更新与标准 Git checkout/archive。",
+      "S1：push 后有限部署提交。",
+      "C1：各 ref 事件消费对应 commit，合并部署结果。",
+      "I1：Git refs 到文件系统目录的固定契约。"
+    ],
+    "minimum_counterexample": "一次 push 更新 main 和 dev，两个目录内容必须不同；之后只推 dev，main 部署内容应保持原样。",
+    "excluded_from_core": "不要求真实 SSH 账户、证书、网络端口、墙钟 3 秒门槛或失败自动回滚。",
+    "duplicate_distinction": "旧题分析发布依赖/来源；本题执行 Git 接收 hook。N22 操作历史对象恢复，本题处理 ref 驱动的部署，互不复用核心算法。"
+  },
+  {
+    "id": "N26",
+    "title": "双 KL 约束的概率分布构造",
+    "sources": [
+      {
+        "group": "TB",
+        "source_id": "distribution-search",
+        "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+        "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/distribution-search/instruction.md",
+        "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/distribution-search/tests/test_outputs.py",
+        "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/distribution-search/task.toml",
+        "original_difficulty": "medium",
+        "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+        "expert_time_estimate_min": 120.0,
+        "junior_time_estimate_min": 240.0,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N26_TB_1.json",
+        "evidence_sha256": "f1af2cbaaf73d8f5d2154c0e4cf748f42117ee05d5015c38f42d9e5b3be1f297"
+      }
+    ],
+    "asci": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A1：标准数值求根/优化与稳定求和；目标并不要求非标准组合搜索。",
+      "S0：一次分布构造。",
+      "C1：两个 KL 指标约束同一组参数并在求解器中汇合。",
+      "I1：NumPy 向量文件与计算接口。"
+    ],
+    "minimum_counterexample": "均匀分布虽合法，但两种 KL 都为 0；只把一个 KL 调到 10，不能推出另一个也为 10。必须用同一个 P 同时满足。",
+    "excluded_from_core": "不加精确向量值、特定算法/随机种子、额外精度或性能门槛。正概率和有限 KL 是数学核心，不是通用 NaN 防御用例。",
+    "duplicate_distinction": "已有任务没有双 KL 概率构造内核；属于数值计算内容，不是对旧调度题换名字。"
+  },
+  {
+    "id": "N27",
+    "title": "租房收藏整理与固定窗口新房源通知",
+    "sources": [
+      {
+        "group": "GAIA",
+        "source_id": "scenario_universe_21_xvc7uo",
+        "row_id": "0741_0uetwq6bp7jrofwsyy9uel4puv0c3kb2",
+        "source_row": 0,
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "category": "time",
+        "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=0",
+        "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+        "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+        "difficulty_kind": "场景 category 不是难度",
+        "oracle_event_count": 7,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N27_GAIA_1.json",
+        "evidence_sha256": "1298ba47c1acb9f3864f106d23cec78361db75d8611cf35d05e11a7da259d12b"
+      }
+    ],
+    "asci": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "axis_evidence": [
+      "A0：集合差/并与直接时间窗口筛选。",
+      "S1：固定窗口内有限收藏和发送提交。",
+      "C1：初始列表和事件筛选汇入动作计划。",
+      "I1：有限 RentAFlat/Messages 适配。"
+    ],
+    "minimum_counterexample": "已有合格收藏 A 不应被当成新上架反复通知；窗口内出现的合格 B 应通知，窗口后的 C 不应通知。",
+    "excluded_from_core": "不加重复投递恢复、网络延迟、精确秒级响应、任意预算变化或自然语言消息逐字匹配。",
+    "duplicate_distinction": "旧题为联系人排名/循环日程；本题的集合对象是房源，核心为初始集合与新增事件的分离，不是静态联系人排名。"
+  },
+  {
+    "id": "N28",
+    "title": "定时回复与按唯一收件人采购",
+    "sources": [
+      {
+        "group": "GAIA",
+        "source_id": "scenario_universe_27_fcbx0i",
+        "row_id": "0740_miogpm9n3im97oxbplhp0flsdf2wpzvm",
+        "source_row": 1,
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "category": "time",
+        "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=1",
+        "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+        "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+        "difficulty_kind": "场景 category 不是难度",
+        "oracle_event_count": 6,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N28_GAIA_1.json",
+        "evidence_sha256": "d95126ad3a40b27c02ba1b0332d3efc223ad80021d48b54cb779e58ee0ea090f"
+      }
+    ],
+    "asci": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "axis_evidence": [
+      "A0：时间筛选、邮箱去重及直接计数。",
+      "S1：固定两阶段提交，不加入取消反馈或优惠码重试。",
+      "C2：实际回复对象集合决定采购数量。",
+      "I1：邮件/购物/日历有限接口。"
+    ],
+    "minimum_counterexample": "窗口内 A 发两封、B 发一封：回复三封，但采购两件；不能按三封邮件买三件。四分钟之后的新邮件不属于这批。",
+    "excluded_from_core": "不加库存竞争、付款失败、收件邮箱畸形输入、真实 wall-clock 误差或完整礼品文案逐字检查。",
+    "duplicate_distinction": "旧采购题根据静态名单/需求选购；本题由固定窗口内实际回复的唯一发件人集合驱动数量，没有难题中的反馈重试。"
+  },
+  {
+    "id": "N29",
+    "title": "群成员响应阈值触发的出行安排",
+    "sources": [
+      {
+        "group": "GAIA",
+        "source_id": "scenario_universe_21_ycoch2",
+        "row_id": "0800_mtpdtggicbmuvw8b8hueo01a08w7blrn",
+        "source_row": 12,
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "category": "time",
+        "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=12",
+        "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+        "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+        "difficulty_kind": "场景 category 不是难度",
+        "oracle_event_count": 5,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N29_GAIA_1.json",
+        "evidence_sha256": "0025911df3c5e24f4a45f72912ddd5a62045ca09d73077f520932b86c6e5fbf2"
+      }
+    ],
+    "asci": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "axis_evidence": [
+      "A0：去重计数和固定窗口筛选。",
+      "S1：单个单调阈值的一次性有限提交；普通幂等不升为 S2。",
+      "C2：是否达到阈值决定订车和清理分支是否可执行。",
+      "I1：群聊/车辆/日历有限字段契约。"
+    ],
+    "minimum_counterexample": "A,A,B 共三条消息仍只有两个人，不可订车；第三名 C 在窗口内出现才触发一次，后续消息不能追加同一车单。",
+    "excluded_from_core": "不加成员退群、撤回投票、迟到补偿、支付失败、其他群聊干扰攻击。",
+    "duplicate_distinction": "旧题按静态参会者规划；本题的核心是事件响应阈值决定动作可行性。只有单调一次性门控，未保留困难候选中的多轮补偿历史。"
+  },
+  {
+    "id": "N30",
+    "title": "移动后附件的跨渠道收件人分流",
+    "sources": [
+      {
+        "group": "GAIA",
+        "source_id": "scenario_universe_27_sqvrhj",
+        "row_id": "0334_w4362b7r0l35e4yc9is7qyhn96g471yb",
+        "source_row": 80,
+        "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+        "category": "execution",
+        "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=80",
+        "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+        "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+        "difficulty_kind": "场景 category 不是难度",
+        "oracle_event_count": 6,
+        "original_single_task_pass_rate": null,
+        "evidence_file": "evidence/N30_GAIA_1.json",
+        "evidence_sha256": "49123387991a54c2d3db2d745fab34fd0126e4c772a50cbda444414538eae0f6"
+      }
+    ],
+    "asci": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "axis_evidence": [
+      "A1：联系人条件连接、集合分区和去重。",
+      "S1：有限文件移动与发送。",
+      "C2：移动结果决定有效附件，渠道可达性决定可用发送分支。",
+      "I2：同一文件身份和接收者集合跨文件/群聊/邮件保真。"
+    ],
+    "minimum_counterexample": "教师 A 在 Messages、B 不在；A 进入群聊，B 进入单独合并邮件；两者附件都必须指向移动后的文件，不能继续引用旧路径或把 B 丢掉。",
+    "excluded_from_core": "不检查 xlsx 内部结构、邮件自然语言风格、网络服务、地址损坏或重复发送恢复协议。",
+    "duplicate_distinction": "同文件操作题族，重复风险中：旧题核心是发送后归档/缺失照片报告/目录邮件整理；本题必须保留双目标定位与按渠道分区。若实施后只剩搬文件发邮件，应替换而非计为新题。"
+  }
+]

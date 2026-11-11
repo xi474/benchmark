@@ -1,0 +1,13 @@
+{
+  "name": "date_query",
+  "op": "date_report",
+  "bindings": {
+    "a": "outputs/backend_a.json#",
+    "b": "outputs/backend_b.json#",
+    "date": "inputs/request.json#/date"
+  },
+  "spec": "两后端一致时返回 {dates:a,selected_ids:日期等于 date 的行ID}。",
+  "output": "outputs/date_query.json",
+  "component": "date_query",
+  "task": "N05"
+}

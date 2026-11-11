@@ -1,0 +1,13 @@
+{
+  "name": "combined_query",
+  "op": "rewrite_aliases",
+  "bindings": {
+    "left": "inputs/request.json#/left",
+    "right": "inputs/request.json#/right",
+    "mapping": "outputs/rename_map.json#"
+  },
+  "spec": "返回 {tables:左表映射与重命名后右表映射,branches:[左clauses,按原映射同时改名的右clauses]}。保留每个 clause 的 field/value 与原顺序，两分支表示 OR，不把字符串 value 内的别名文本当引用改写。",
+  "output": "outputs/combined_query.json",
+  "component": "combined_query",
+  "task": "N06"
+}

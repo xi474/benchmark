@@ -1,0 +1,14 @@
+{
+  "templates": {
+    "a": "{{ conf.auto_save.interval + conf.hints.min_chars }}",
+    "b": "{{ conf.aliases['a'].propname }} {{ notconf.hints.min_chars }}"
+  },
+  "options": [
+    "auto_save.interval",
+    "hints.min_chars",
+    "aliases"
+  ],
+  "changed": [
+    "hints.min_chars"
+  ]
+}

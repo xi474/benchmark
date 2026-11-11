@@ -1,0 +1,448 @@
+{
+  "components": {
+    "notes": [
+      {
+        "payload": {
+          "rows": {
+            "1": "first",
+            "2": "second"
+          },
+          "old": "1",
+          "new": "2"
+        },
+        "expected": {
+          "rows": {
+            "1": "first",
+            "2": "second"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 0,
+            "failed_deletes": 1
+          }
+        }
+      },
+      {
+        "payload": {
+          "rows": {
+            "a": "A",
+            "b": "B"
+          },
+          "old": "a",
+          "new": "c"
+        },
+        "expected": {
+          "rows": {
+            "b": "B",
+            "c": "A"
+          },
+          "stats": {
+            "rows_changed": 1,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        }
+      },
+      {
+        "payload": {
+          "rows": {
+            "k": "N"
+          },
+          "old": "k",
+          "new": "k"
+        },
+        "expected": {
+          "rows": {
+            "k": "N"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        }
+      }
+    ],
+    "shelves": [
+      {
+        "payload": {
+          "rows": {
+            "1": "s1",
+            "2": "s2"
+          },
+          "old": "1",
+          "new": "2"
+        },
+        "expected": {
+          "rows": {
+            "2": "s2"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 1,
+            "failed_deletes": 0
+          }
+        }
+      },
+      {
+        "payload": {
+          "rows": {
+            "a": "S"
+          },
+          "old": "a",
+          "new": "c"
+        },
+        "expected": {
+          "rows": {
+            "c": "S"
+          },
+          "stats": {
+            "rows_changed": 1,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        }
+      },
+      {
+        "payload": {
+          "rows": {
+            "k": "S"
+          },
+          "old": "k",
+          "new": "k"
+        },
+        "expected": {
+          "rows": {
+            "k": "S"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        }
+      }
+    ],
+    "migration_report": [
+      {
+        "payload": {
+          "notes": {
+            "rows": {
+              "1": "first",
+              "2": "second"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 1
+            }
+          },
+          "shelves": {
+            "rows": {
+              "2": "s2"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 1,
+              "failed_deletes": 0
+            }
+          }
+        },
+        "expected": {
+          "notes": {
+            "rows": {
+              "1": "first",
+              "2": "second"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 1
+            }
+          },
+          "shelves": {
+            "rows": {
+              "2": "s2"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 1,
+              "failed_deletes": 0
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "notes": {
+            "rows": {
+              "b": "B",
+              "c": "A"
+            },
+            "stats": {
+              "rows_changed": 1,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          },
+          "shelves": {
+            "rows": {
+              "c": "S"
+            },
+            "stats": {
+              "rows_changed": 1,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          }
+        },
+        "expected": {
+          "notes": {
+            "rows": {
+              "b": "B",
+              "c": "A"
+            },
+            "stats": {
+              "rows_changed": 1,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          },
+          "shelves": {
+            "rows": {
+              "c": "S"
+            },
+            "stats": {
+              "rows_changed": 1,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "notes": {
+            "rows": {
+              "k": "N"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          },
+          "shelves": {
+            "rows": {
+              "k": "S"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          }
+        },
+        "expected": {
+          "notes": {
+            "rows": {
+              "k": "N"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          },
+          "shelves": {
+            "rows": {
+              "k": "S"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "notes": {
+          "1": "first",
+          "2": "second"
+        },
+        "shelves": {
+          "1": "s1",
+          "2": "s2"
+        },
+        "old": "1",
+        "new": "2"
+      },
+      "results": {
+        "notes": {
+          "rows": {
+            "1": "first",
+            "2": "second"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 0,
+            "failed_deletes": 1
+          }
+        },
+        "shelves": {
+          "rows": {
+            "2": "s2"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 1,
+            "failed_deletes": 0
+          }
+        },
+        "migration_report": {
+          "notes": {
+            "rows": {
+              "1": "first",
+              "2": "second"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 1
+            }
+          },
+          "shelves": {
+            "rows": {
+              "2": "s2"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 1,
+              "failed_deletes": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "notes": {
+          "a": "A",
+          "b": "B"
+        },
+        "shelves": {
+          "a": "S"
+        },
+        "old": "a",
+        "new": "c"
+      },
+      "results": {
+        "notes": {
+          "rows": {
+            "b": "B",
+            "c": "A"
+          },
+          "stats": {
+            "rows_changed": 1,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        },
+        "shelves": {
+          "rows": {
+            "c": "S"
+          },
+          "stats": {
+            "rows_changed": 1,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        },
+        "migration_report": {
+          "notes": {
+            "rows": {
+              "b": "B",
+              "c": "A"
+            },
+            "stats": {
+              "rows_changed": 1,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          },
+          "shelves": {
+            "rows": {
+              "c": "S"
+            },
+            "stats": {
+              "rows_changed": 1,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "notes": {
+          "k": "N"
+        },
+        "shelves": {
+          "k": "S"
+        },
+        "old": "k",
+        "new": "k"
+      },
+      "results": {
+        "notes": {
+          "rows": {
+            "k": "N"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        },
+        "shelves": {
+          "rows": {
+            "k": "S"
+          },
+          "stats": {
+            "rows_changed": 0,
+            "rows_deleted": 0,
+            "failed_deletes": 0
+          }
+        },
+        "migration_report": {
+          "notes": {
+            "rows": {
+              "k": "N"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          },
+          "shelves": {
+            "rows": {
+              "k": "S"
+            },
+            "stats": {
+              "rows_changed": 0,
+              "rows_deleted": 0,
+              "failed_deletes": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

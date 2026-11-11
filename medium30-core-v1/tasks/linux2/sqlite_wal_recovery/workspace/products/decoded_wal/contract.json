@@ -1,0 +1,12 @@
+{
+  "name": "decoded_wal",
+  "op": "decode_wal",
+  "bindings": {
+    "encoded_wal_b64": "inputs/request.json#/encoded_wal_b64",
+    "codec": "inputs/request.json#/codec"
+  },
+  "spec": "公开有限破坏模型：codec.scheme='xor-byte'，每个WAL字节与codec.key(0..255)异或。还原真实WAL，返回base64字节串。不要求猜未知密码或修复任意损坏页。",
+  "output": "outputs/decoded_wal.json",
+  "component": "decoded_wal",
+  "task": "N23"
+}

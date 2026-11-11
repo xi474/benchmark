@@ -1,0 +1,381 @@
+{
+  "components": {
+    "base_candidates": [
+      {
+        "payload": {
+          "entities": [
+            {
+              "id": 1,
+              "name": "Same",
+              "active": true
+            },
+            {
+              "id": 2,
+              "name": "Same",
+              "active": true
+            },
+            {
+              "id": 3,
+              "name": "No",
+              "active": false
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": 1,
+            "name": "Same",
+            "active": true
+          },
+          {
+            "id": 2,
+            "name": "Same",
+            "active": true
+          }
+        ]
+      },
+      {
+        "payload": {
+          "entities": [
+            {
+              "id": 4,
+              "name": "Four",
+              "active": true
+            },
+            {
+              "id": 5,
+              "name": "Five",
+              "active": true
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": 4,
+            "name": "Four",
+            "active": true
+          },
+          {
+            "id": 5,
+            "name": "Five",
+            "active": true
+          }
+        ]
+      },
+      {
+        "payload": {
+          "entities": [
+            {
+              "id": 7,
+              "name": "Seven",
+              "active": true
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": 7,
+            "name": "Seven",
+            "active": true
+          }
+        ]
+      }
+    ],
+    "related_matches": [
+      {
+        "payload": {
+          "relations": [
+            {
+              "entity": 1,
+              "funny": true,
+              "weight": 5
+            },
+            {
+              "entity": 1,
+              "funny": true,
+              "weight": 8
+            },
+            {
+              "entity": 2,
+              "funny": true,
+              "weight": 4
+            },
+            {
+              "entity": 3,
+              "funny": true,
+              "weight": 9
+            }
+          ],
+          "minimum": 4
+        },
+        "expected": [
+          1,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "payload": {
+          "relations": [
+            {
+              "entity": 4,
+              "funny": true,
+              "weight": 1
+            },
+            {
+              "entity": 4,
+              "funny": false,
+              "weight": 9
+            },
+            {
+              "entity": 5,
+              "funny": true,
+              "weight": 9
+            }
+          ],
+          "minimum": 7
+        },
+        "expected": [
+          5
+        ]
+      },
+      {
+        "payload": {
+          "relations": [],
+          "minimum": 0
+        },
+        "expected": []
+      }
+    ],
+    "form_choices": [
+      {
+        "payload": {
+          "candidates": [
+            {
+              "id": 1,
+              "name": "Same",
+              "active": true
+            },
+            {
+              "id": 2,
+              "name": "Same",
+              "active": true
+            }
+          ],
+          "matches": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "expected": [
+          {
+            "id": 1,
+            "label": "Same"
+          },
+          {
+            "id": 2,
+            "label": "Same"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "candidates": [
+            {
+              "id": 4,
+              "name": "Four",
+              "active": true
+            },
+            {
+              "id": 5,
+              "name": "Five",
+              "active": true
+            }
+          ],
+          "matches": [
+            5
+          ]
+        },
+        "expected": [
+          {
+            "id": 5,
+            "label": "Five"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "candidates": [
+            {
+              "id": 7,
+              "name": "Seven",
+              "active": true
+            }
+          ],
+          "matches": []
+        },
+        "expected": []
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "entities": [
+          {
+            "id": 1,
+            "name": "Same",
+            "active": true
+          },
+          {
+            "id": 2,
+            "name": "Same",
+            "active": true
+          },
+          {
+            "id": 3,
+            "name": "No",
+            "active": false
+          }
+        ],
+        "relations": [
+          {
+            "entity": 1,
+            "funny": true,
+            "weight": 5
+          },
+          {
+            "entity": 1,
+            "funny": true,
+            "weight": 8
+          },
+          {
+            "entity": 2,
+            "funny": true,
+            "weight": 4
+          },
+          {
+            "entity": 3,
+            "funny": true,
+            "weight": 9
+          }
+        ],
+        "minimum": 4
+      },
+      "results": {
+        "base_candidates": [
+          {
+            "id": 1,
+            "name": "Same",
+            "active": true
+          },
+          {
+            "id": 2,
+            "name": "Same",
+            "active": true
+          }
+        ],
+        "related_matches": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "form_choices": [
+          {
+            "id": 1,
+            "label": "Same"
+          },
+          {
+            "id": 2,
+            "label": "Same"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "entities": [
+          {
+            "id": 4,
+            "name": "Four",
+            "active": true
+          },
+          {
+            "id": 5,
+            "name": "Five",
+            "active": true
+          }
+        ],
+        "relations": [
+          {
+            "entity": 4,
+            "funny": true,
+            "weight": 1
+          },
+          {
+            "entity": 4,
+            "funny": false,
+            "weight": 9
+          },
+          {
+            "entity": 5,
+            "funny": true,
+            "weight": 9
+          }
+        ],
+        "minimum": 7
+      },
+      "results": {
+        "base_candidates": [
+          {
+            "id": 4,
+            "name": "Four",
+            "active": true
+          },
+          {
+            "id": 5,
+            "name": "Five",
+            "active": true
+          }
+        ],
+        "related_matches": [
+          5
+        ],
+        "form_choices": [
+          {
+            "id": 5,
+            "label": "Five"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "entities": [
+          {
+            "id": 7,
+            "name": "Seven",
+            "active": true
+          }
+        ],
+        "relations": [],
+        "minimum": 0
+      },
+      "results": {
+        "base_candidates": [
+          {
+            "id": 7,
+            "name": "Seven",
+            "active": true
+          }
+        ],
+        "related_matches": [],
+        "form_choices": []
+      }
+    }
+  ]
+}

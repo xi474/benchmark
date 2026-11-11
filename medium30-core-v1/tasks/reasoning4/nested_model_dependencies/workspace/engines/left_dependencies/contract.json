@@ -1,0 +1,11 @@
+{
+  "name": "left_dependencies",
+  "op": "model_matrix",
+  "bindings": {
+    "model": "inputs/request.json#/left"
+  },
+  "spec": "输入 model 是叶子 {kind:'leaf',matrix:[[0或1,...],...]}，或 {kind:'parallel'|'serial',left:模型,right:模型}。矩阵行对应输出，列对应输入。parallel 使用块对角；serial 表示先 left 后 right，结果是 right×left 的布尔乘积。返回依赖矩阵（0/1 的二维列表）。所有维度合法、矩阵非空；树深≤6，输入输出维度≤12。",
+  "output": "outputs/left_dependencies.json",
+  "component": "left_dependencies",
+  "task": "N01"
+}

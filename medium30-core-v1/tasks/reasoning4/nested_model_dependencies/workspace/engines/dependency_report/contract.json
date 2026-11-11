@@ -1,0 +1,13 @@
+{
+  "name": "dependency_report",
+  "op": "join_models",
+  "bindings": {
+    "left": "outputs/left_dependencies.json#",
+    "right": "outputs/right_dependencies.json#",
+    "kind": "inputs/request.json#/kind"
+  },
+  "spec": "按 kind=parallel/serial 组合两个矩阵。返回 {matrix:依赖矩阵,input_count:列数,output_count:行数,separable:[bool,...]}。某输出恰好依赖一个输入，且没有其他输出依赖同一输入时才 separable=true。",
+  "output": "outputs/dependency_report.json",
+  "component": "dependency_report",
+  "task": "N01"
+}

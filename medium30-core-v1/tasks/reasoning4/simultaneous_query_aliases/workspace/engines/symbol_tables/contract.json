@@ -1,0 +1,12 @@
+{
+  "name": "symbol_tables",
+  "op": "query_symbols",
+  "bindings": {
+    "left": "inputs/request.json#/left",
+    "right": "inputs/request.json#/right"
+  },
+  "spec": "left/right 是 {tables:{alias:表名},clauses:[{alias,field,value}]}；每个 clause.alias 都在对应 tables 内。返回 {left:排序别名列表,right:排序别名列表}。",
+  "output": "outputs/symbol_tables.json",
+  "component": "symbol_tables",
+  "task": "N06"
+}

@@ -1,0 +1,392 @@
+{
+  "components": {
+    "exempt_users": [
+      {
+        "payload": {
+          "memberships": {
+            "u": [],
+            "admin": [
+              "staff"
+            ]
+          },
+          "exempt_groups": [
+            "staff"
+          ]
+        },
+        "expected": [
+          "admin"
+        ]
+      },
+      {
+        "payload": {
+          "memberships": {
+            "u": []
+          },
+          "exempt_groups": []
+        },
+        "expected": []
+      },
+      {
+        "payload": {
+          "memberships": {
+            "u": [
+              "ok"
+            ]
+          },
+          "exempt_groups": [
+            "ok"
+          ]
+        },
+        "expected": [
+          "u"
+        ]
+      }
+    ],
+    "initial_queue": [
+      {
+        "payload": {
+          "posts": [
+            {
+              "id": "p0",
+              "tid": "a",
+              "user": "u"
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": "p0",
+            "tid": "a",
+            "user": "u"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "posts": []
+        },
+        "expected": []
+      },
+      {
+        "payload": {
+          "posts": []
+        },
+        "expected": []
+      }
+    ],
+    "moderation": [
+      {
+        "payload": {
+          "topics": [
+            "a",
+            "b"
+          ],
+          "queue": [
+            {
+              "id": "p0",
+              "tid": "a",
+              "user": "u"
+            }
+          ],
+          "exempt": [
+            "admin"
+          ],
+          "events": [
+            {
+              "kind": "post",
+              "id": "p1",
+              "tid": "a",
+              "user": "admin"
+            },
+            {
+              "kind": "merge",
+              "sources": [
+                "a"
+              ],
+              "target": "b"
+            },
+            {
+              "kind": "approve",
+              "id": "p0"
+            }
+          ]
+        },
+        "expected": {
+          "topics": [
+            "b"
+          ],
+          "queue": [],
+          "published": [
+            {
+              "id": "p0",
+              "tid": "b",
+              "user": "u"
+            },
+            {
+              "id": "p1",
+              "tid": "b",
+              "user": "admin"
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "topics": [
+            "a",
+            "b",
+            "c"
+          ],
+          "queue": [],
+          "exempt": [],
+          "events": [
+            {
+              "kind": "post",
+              "id": "x",
+              "tid": "a",
+              "user": "u"
+            },
+            {
+              "kind": "merge",
+              "sources": [
+                "a"
+              ],
+              "target": "b"
+            },
+            {
+              "kind": "merge",
+              "sources": [
+                "b"
+              ],
+              "target": "c"
+            },
+            {
+              "kind": "approve",
+              "id": "x"
+            }
+          ]
+        },
+        "expected": {
+          "topics": [
+            "c"
+          ],
+          "queue": [],
+          "published": [
+            {
+              "id": "x",
+              "tid": "c",
+              "user": "u"
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "topics": [
+            "k"
+          ],
+          "queue": [],
+          "exempt": [
+            "u"
+          ],
+          "events": [
+            {
+              "kind": "post",
+              "id": "z",
+              "tid": "k",
+              "user": "u"
+            }
+          ]
+        },
+        "expected": {
+          "topics": [
+            "k"
+          ],
+          "queue": [],
+          "published": [
+            {
+              "id": "z",
+              "tid": "k",
+              "user": "u"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "topics": [
+          "a",
+          "b"
+        ],
+        "queue": [
+          {
+            "id": "p0",
+            "tid": "a",
+            "user": "u"
+          }
+        ],
+        "memberships": {
+          "u": [],
+          "admin": [
+            "staff"
+          ]
+        },
+        "exempt_groups": [
+          "staff"
+        ],
+        "events": [
+          {
+            "kind": "post",
+            "id": "p1",
+            "tid": "a",
+            "user": "admin"
+          },
+          {
+            "kind": "merge",
+            "sources": [
+              "a"
+            ],
+            "target": "b"
+          },
+          {
+            "kind": "approve",
+            "id": "p0"
+          }
+        ]
+      },
+      "results": {
+        "exempt_users": [
+          "admin"
+        ],
+        "initial_queue": [
+          {
+            "id": "p0",
+            "tid": "a",
+            "user": "u"
+          }
+        ],
+        "moderation": {
+          "topics": [
+            "b"
+          ],
+          "queue": [],
+          "published": [
+            {
+              "id": "p0",
+              "tid": "b",
+              "user": "u"
+            },
+            {
+              "id": "p1",
+              "tid": "b",
+              "user": "admin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "topics": [
+          "a",
+          "b",
+          "c"
+        ],
+        "queue": [],
+        "memberships": {
+          "u": []
+        },
+        "exempt_groups": [],
+        "events": [
+          {
+            "kind": "post",
+            "id": "x",
+            "tid": "a",
+            "user": "u"
+          },
+          {
+            "kind": "merge",
+            "sources": [
+              "a"
+            ],
+            "target": "b"
+          },
+          {
+            "kind": "merge",
+            "sources": [
+              "b"
+            ],
+            "target": "c"
+          },
+          {
+            "kind": "approve",
+            "id": "x"
+          }
+        ]
+      },
+      "results": {
+        "exempt_users": [],
+        "initial_queue": [],
+        "moderation": {
+          "topics": [
+            "c"
+          ],
+          "queue": [],
+          "published": [
+            {
+              "id": "x",
+              "tid": "c",
+              "user": "u"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "topics": [
+          "k"
+        ],
+        "queue": [],
+        "memberships": {
+          "u": [
+            "ok"
+          ]
+        },
+        "exempt_groups": [
+          "ok"
+        ],
+        "events": [
+          {
+            "kind": "post",
+            "id": "z",
+            "tid": "k",
+            "user": "u"
+          }
+        ]
+      },
+      "results": {
+        "exempt_users": [
+          "u"
+        ],
+        "initial_queue": [],
+        "moderation": {
+          "topics": [
+            "k"
+          ],
+          "queue": [],
+          "published": [
+            {
+              "id": "z",
+              "tid": "k",
+              "user": "u"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

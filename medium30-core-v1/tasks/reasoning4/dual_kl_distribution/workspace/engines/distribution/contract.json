@@ -1,0 +1,17 @@
+{
+  "name": "distribution",
+  "op": "solve_distribution",
+  "bindings": {
+    "model": "outputs/probability_model.json#"
+  },
+  "spec": "构造长度model.n的正概率向量列表，和误差<=1e-5；KL(P||U)及KL(U||P)分别与targets误差<=0.001，使用自然对数。返回概率列表，允许任意合法解。可用预装NumPy/SciPy标准求根；无需GPU或训练。",
+  "emit": {
+    "outputs/dist.npy": {
+      "pointer": "",
+      "format": "npy"
+    }
+  },
+  "output": "outputs/distribution.json",
+  "component": "distribution",
+  "task": "N26"
+}

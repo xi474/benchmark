@@ -1,0 +1,11 @@
+{
+  "name": "evening_events",
+  "op": "evening_events",
+  "bindings": {
+    "events": "inputs/request.json#/calendar"
+  },
+  "spec": "calendar=[{id,start_minute:当晚午夜后分钟}]；返回开始时间>=1200的事件ID，按ID排序。",
+  "output": "outputs/evening_events.json",
+  "component": "evening_events",
+  "task": "N29"
+}

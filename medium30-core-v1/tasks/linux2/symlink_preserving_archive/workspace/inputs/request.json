@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {
+      "path": "data",
+      "kind": "dir"
+    },
+    {
+      "path": "data/a.txt",
+      "kind": "file",
+      "content": "A"
+    },
+    {
+      "path": "inside.txt",
+      "kind": "symlink",
+      "target": "data/a.txt"
+    },
+    {
+      "path": "shortcut",
+      "kind": "symlink",
+      "target": "data"
+    },
+    {
+      "path": "external.txt",
+      "kind": "symlink",
+      "target": "../outside.txt"
+    }
+  ],
+  "external_files": {
+    "/outside.txt": "EXT"
+  }
+}

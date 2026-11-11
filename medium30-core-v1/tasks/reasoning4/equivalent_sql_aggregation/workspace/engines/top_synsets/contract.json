@@ -1,0 +1,11 @@
+{
+  "name": "top_synsets",
+  "op": "top_synsets",
+  "bindings": {
+    "tables": "inputs/request.json#/tables"
+  },
+  "spec": "每词按sense行数最多选synset，平局取较小synsetid。返回 [{word_id,top_synsetid,top_synset_sense_count}]，按word_id，只包含至少一个sense的词。",
+  "output": "outputs/top_synsets.json",
+  "component": "top_synsets",
+  "task": "N21"
+}

@@ -1,0 +1,472 @@
+{
+  "components": {
+    "initial_saves": [
+      {
+        "payload": {
+          "properties": [
+            {
+              "id": "a",
+              "city": "Stockholm",
+              "price": 1100
+            },
+            {
+              "id": "b",
+              "city": "Stockholm",
+              "price": 2200
+            },
+            {
+              "id": "c",
+              "city": "Oslo",
+              "price": 1400
+            },
+            {
+              "id": "d",
+              "city": "Stockholm",
+              "price": 1600
+            }
+          ],
+          "saved": [
+            "b",
+            "c"
+          ],
+          "city": "Stockholm",
+          "low": 1000,
+          "high": 1800
+        },
+        "expected": [
+          "a",
+          "c",
+          "d"
+        ]
+      },
+      {
+        "payload": {
+          "properties": [
+            {
+              "id": "a",
+              "city": "Stockholm",
+              "price": 1100
+            },
+            {
+              "id": "b",
+              "city": "Stockholm",
+              "price": 2200
+            },
+            {
+              "id": "c",
+              "city": "Oslo",
+              "price": 1400
+            },
+            {
+              "id": "d",
+              "city": "Stockholm",
+              "price": 1600
+            }
+          ],
+          "saved": [
+            "a"
+          ],
+          "city": "Stockholm",
+          "low": 1000,
+          "high": 1800
+        },
+        "expected": [
+          "a",
+          "d"
+        ]
+      },
+      {
+        "payload": {
+          "properties": [
+            {
+              "id": "a",
+              "city": "Stockholm",
+              "price": 1100
+            },
+            {
+              "id": "b",
+              "city": "Stockholm",
+              "price": 2200
+            },
+            {
+              "id": "c",
+              "city": "Oslo",
+              "price": 1400
+            },
+            {
+              "id": "d",
+              "city": "Stockholm",
+              "price": 1600
+            }
+          ],
+          "saved": [
+            "c"
+          ],
+          "city": "Oslo",
+          "low": 1300,
+          "high": 1600
+        },
+        "expected": [
+          "c"
+        ]
+      }
+    ],
+    "new_listings": [
+      {
+        "payload": {
+          "events": [
+            {
+              "at": 30,
+              "property": {
+                "id": "n",
+                "city": "Stockholm",
+                "price": 1300
+              }
+            },
+            {
+              "at": 240,
+              "property": {
+                "id": "late",
+                "city": "Stockholm",
+                "price": 1500
+              }
+            }
+          ],
+          "window": 240,
+          "city": "Stockholm",
+          "low": 1000,
+          "high": 1800
+        },
+        "expected": [
+          {
+            "at": 30,
+            "id": "n"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "events": [
+            {
+              "at": 2,
+              "property": {
+                "id": "x",
+                "city": "Oslo",
+                "price": 1200
+              }
+            },
+            {
+              "at": 239,
+              "property": {
+                "id": "y",
+                "city": "Stockholm",
+                "price": 1800
+              }
+            }
+          ],
+          "window": 240,
+          "city": "Stockholm",
+          "low": 1000,
+          "high": 1800
+        },
+        "expected": [
+          {
+            "at": 239,
+            "id": "y"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "events": [],
+          "window": 60,
+          "city": "Oslo",
+          "low": 1300,
+          "high": 1600
+        },
+        "expected": []
+      }
+    ],
+    "rental_report": [
+      {
+        "payload": {
+          "saved": [
+            "a",
+            "c",
+            "d"
+          ],
+          "new": [
+            {
+              "at": 30,
+              "id": "n"
+            }
+          ],
+          "friend": "Linnea"
+        },
+        "expected": {
+          "saved": [
+            "a",
+            "c",
+            "d"
+          ],
+          "notifications": [
+            {
+              "to": "Linnea",
+              "property": "n",
+              "at": 30
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "saved": [
+            "a",
+            "d"
+          ],
+          "new": [
+            {
+              "at": 239,
+              "id": "y"
+            }
+          ],
+          "friend": "Linnea"
+        },
+        "expected": {
+          "saved": [
+            "a",
+            "d"
+          ],
+          "notifications": [
+            {
+              "to": "Linnea",
+              "property": "y",
+              "at": 239
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "saved": [
+            "c"
+          ],
+          "new": [],
+          "friend": "K"
+        },
+        "expected": {
+          "saved": [
+            "c"
+          ],
+          "notifications": []
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "properties": [
+          {
+            "id": "a",
+            "city": "Stockholm",
+            "price": 1100
+          },
+          {
+            "id": "b",
+            "city": "Stockholm",
+            "price": 2200
+          },
+          {
+            "id": "c",
+            "city": "Oslo",
+            "price": 1400
+          },
+          {
+            "id": "d",
+            "city": "Stockholm",
+            "price": 1600
+          }
+        ],
+        "saved": [
+          "b",
+          "c"
+        ],
+        "city": "Stockholm",
+        "low": 1000,
+        "high": 1800,
+        "window": 240,
+        "friend": "Linnea",
+        "events": [
+          {
+            "at": 30,
+            "property": {
+              "id": "n",
+              "city": "Stockholm",
+              "price": 1300
+            }
+          },
+          {
+            "at": 240,
+            "property": {
+              "id": "late",
+              "city": "Stockholm",
+              "price": 1500
+            }
+          }
+        ]
+      },
+      "results": {
+        "initial_saves": [
+          "a",
+          "c",
+          "d"
+        ],
+        "new_listings": [
+          {
+            "at": 30,
+            "id": "n"
+          }
+        ],
+        "rental_report": {
+          "saved": [
+            "a",
+            "c",
+            "d"
+          ],
+          "notifications": [
+            {
+              "to": "Linnea",
+              "property": "n",
+              "at": 30
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "properties": [
+          {
+            "id": "a",
+            "city": "Stockholm",
+            "price": 1100
+          },
+          {
+            "id": "b",
+            "city": "Stockholm",
+            "price": 2200
+          },
+          {
+            "id": "c",
+            "city": "Oslo",
+            "price": 1400
+          },
+          {
+            "id": "d",
+            "city": "Stockholm",
+            "price": 1600
+          }
+        ],
+        "saved": [
+          "a"
+        ],
+        "city": "Stockholm",
+        "low": 1000,
+        "high": 1800,
+        "window": 240,
+        "friend": "Linnea",
+        "events": [
+          {
+            "at": 2,
+            "property": {
+              "id": "x",
+              "city": "Oslo",
+              "price": 1200
+            }
+          },
+          {
+            "at": 239,
+            "property": {
+              "id": "y",
+              "city": "Stockholm",
+              "price": 1800
+            }
+          }
+        ]
+      },
+      "results": {
+        "initial_saves": [
+          "a",
+          "d"
+        ],
+        "new_listings": [
+          {
+            "at": 239,
+            "id": "y"
+          }
+        ],
+        "rental_report": {
+          "saved": [
+            "a",
+            "d"
+          ],
+          "notifications": [
+            {
+              "to": "Linnea",
+              "property": "y",
+              "at": 239
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "properties": [
+          {
+            "id": "a",
+            "city": "Stockholm",
+            "price": 1100
+          },
+          {
+            "id": "b",
+            "city": "Stockholm",
+            "price": 2200
+          },
+          {
+            "id": "c",
+            "city": "Oslo",
+            "price": 1400
+          },
+          {
+            "id": "d",
+            "city": "Stockholm",
+            "price": 1600
+          }
+        ],
+        "saved": [
+          "c"
+        ],
+        "city": "Oslo",
+        "low": 1300,
+        "high": 1600,
+        "window": 60,
+        "friend": "K",
+        "events": []
+      },
+      "results": {
+        "initial_saves": [
+          "c"
+        ],
+        "new_listings": [],
+        "rental_report": {
+          "saved": [
+            "c"
+          ],
+          "notifications": []
+        }
+      }
+    }
+  ]
+}

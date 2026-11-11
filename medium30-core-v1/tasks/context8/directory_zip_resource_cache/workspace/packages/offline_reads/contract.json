@@ -1,0 +1,12 @@
+{
+  "name": "offline_reads",
+  "op": "resource_reads",
+  "bindings": {
+    "cache": "outputs/preloaded_cache.json#",
+    "requests": "inputs/request.json#/requests"
+  },
+  "spec": "仅根据缓存按requests顺序返回 {paths:排序缓存键,values:请求内容列表}。原载体不作为本接口输入；在无源文件新目录也能构建。",
+  "output": "outputs/offline_reads.json",
+  "component": "offline_reads",
+  "task": "N20"
+}

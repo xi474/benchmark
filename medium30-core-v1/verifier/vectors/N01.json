@@ -1,0 +1,576 @@
+{
+  "components": {
+    "left_dependencies": [
+      {
+        "payload": {
+          "model": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1
+              ]
+            ]
+          }
+        },
+        "expected": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "model": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "expected": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "model": {
+            "kind": "parallel",
+            "left": {
+              "kind": "leaf",
+              "matrix": [
+                [
+                  1
+                ]
+              ]
+            },
+            "right": {
+              "kind": "leaf",
+              "matrix": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        "expected": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "right_dependencies": [
+      {
+        "payload": {
+          "model": {
+            "kind": "parallel",
+            "left": {
+              "kind": "leaf",
+              "matrix": [
+                [
+                  1
+                ]
+              ]
+            },
+            "right": {
+              "kind": "leaf",
+              "matrix": [
+                [
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        "expected": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "model": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        },
+        "expected": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "model": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "expected": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ]
+      }
+    ],
+    "dependency_report": [
+      {
+        "payload": {
+          "left": [
+            [
+              1
+            ]
+          ],
+          "right": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "kind": "parallel"
+        },
+        "expected": {
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "input_count": 3,
+          "output_count": 3,
+          "separable": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      {
+        "payload": {
+          "left": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "right": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "kind": "serial"
+        },
+        "expected": {
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "input_count": 2,
+          "output_count": 2,
+          "separable": [
+            false,
+            false
+          ]
+        }
+      },
+      {
+        "payload": {
+          "left": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "right": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "kind": "serial"
+        },
+        "expected": {
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "input_count": 3,
+          "output_count": 2,
+          "separable": [
+            true,
+            false
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "left": {
+          "kind": "leaf",
+          "matrix": [
+            [
+              1
+            ]
+          ]
+        },
+        "right": {
+          "kind": "parallel",
+          "left": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1
+              ]
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1
+              ]
+            ]
+          }
+        },
+        "kind": "parallel"
+      },
+      "results": {
+        "left_dependencies": [
+          [
+            1
+          ]
+        ],
+        "right_dependencies": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "dependency_report": {
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "input_count": 3,
+          "output_count": 3,
+          "separable": [
+            true,
+            true,
+            true
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "left": {
+          "kind": "leaf",
+          "matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        "kind": "serial"
+      },
+      "results": {
+        "left_dependencies": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "right_dependencies": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "dependency_report": {
+          "matrix": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "input_count": 2,
+          "output_count": 2,
+          "separable": [
+            false,
+            false
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "left": {
+          "kind": "parallel",
+          "left": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1
+              ]
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        },
+        "right": {
+          "kind": "leaf",
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        "kind": "serial"
+      },
+      "results": {
+        "left_dependencies": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "right_dependencies": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ],
+        "dependency_report": {
+          "matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "input_count": 3,
+          "output_count": 2,
+          "separable": [
+            true,
+            false
+          ]
+        }
+      }
+    }
+  ]
+}

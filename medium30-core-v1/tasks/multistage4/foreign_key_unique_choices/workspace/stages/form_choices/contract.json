@@ -1,0 +1,12 @@
+{
+  "name": "form_choices",
+  "op": "choice_join",
+  "bindings": {
+    "candidates": "outputs/base_candidates.json#",
+    "matches": "outputs/related_matches.json#"
+  },
+  "spec": "按实体身份做半连接，返回 [{id,label:name}]。每个候选最多一次，保持候选原顺序；同名不同ID仍为不同选项。",
+  "output": "outputs/form_choices.json",
+  "component": "form_choices",
+  "task": "N12"
+}

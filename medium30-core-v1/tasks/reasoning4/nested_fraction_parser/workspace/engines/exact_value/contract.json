@@ -1,0 +1,12 @@
+{
+  "name": "exact_value",
+  "op": "eval_fraction",
+  "bindings": {
+    "ast": "outputs/expression_ast.json#",
+    "values": "inputs/request.json#/values"
+  },
+  "spec": "使用有理数解释AST，values给每个变量整数值且所有分母非零。返回 {numerator:最简有符号整数,denominator:正整数}。",
+  "output": "outputs/exact_value.json",
+  "component": "exact_value",
+  "task": "N07"
+}

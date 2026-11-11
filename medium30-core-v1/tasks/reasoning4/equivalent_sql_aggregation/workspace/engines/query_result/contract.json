@@ -1,0 +1,12 @@
+{
+  "name": "query_result",
+  "op": "execute_query",
+  "bindings": {
+    "sql": "outputs/optimized_query.json#",
+    "tables": "inputs/request.json#/tables"
+  },
+  "spec": "实际在只读SQLite表执行sql，返回 {columns:上述8列名,rows:查询结果二维列表}；不输出或比较SQLite特定格式的执行计划。",
+  "output": "outputs/query_result.json",
+  "component": "query_result",
+  "task": "N21"
+}

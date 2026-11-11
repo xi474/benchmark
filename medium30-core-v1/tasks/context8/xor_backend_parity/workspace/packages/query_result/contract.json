@@ -1,0 +1,13 @@
+{
+  "name": "query_result",
+  "op": "xor_report",
+  "bindings": {
+    "native": "outputs/native_values.json#",
+    "fallback": "outputs/fallback_values.json#",
+    "rows": "inputs/request.json#/rows"
+  },
+  "spec": "若两后端 values 一致，返回 {values:真假列表,selected_ids:按输入顺序选中行ID}。消费实际后端结果，不使用固定答案。",
+  "output": "outputs/query_result.json",
+  "component": "query_result",
+  "task": "N04"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "numeric_target",
+  "op": "url_target",
+  "bindings": {
+    "parts": "outputs/url_segments.json#",
+    "segments": "inputs/request.json#/segments"
+  },
+  "spec": "依 host,port,path,query,anchor 的 URL 顺序，在给定 segments 中找到最后一个可修改连续 ASCII 数字串。合法 %XX 三字符内的数字必须屏蔽；其后的普通数字可修改。返回 {segment,start,end,text}，start/end 是对应原始段的0基半开跨度。输入保证存在可选数字。",
+  "output": "outputs/numeric_target.json",
+  "component": "numeric_target",
+  "task": "N18"
+}

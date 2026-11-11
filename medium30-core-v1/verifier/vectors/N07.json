@@ -1,0 +1,700 @@
+{
+  "components": {
+    "expression_ast": [
+      {
+        "payload": {
+          "latex": "\\frac{\\frac{a}{c}}{\\frac{1}{c^2}}"
+        },
+        "expected": [
+          "div",
+          [
+            "div",
+            [
+              "var",
+              "a"
+            ],
+            [
+              "var",
+              "c"
+            ]
+          ],
+          [
+            "div",
+            [
+              "int",
+              1
+            ],
+            [
+              "pow",
+              [
+                "var",
+                "c"
+              ],
+              [
+                "int",
+                2
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "latex": "\\frac{1+2}{\\frac{3}{4}}"
+        },
+        "expected": [
+          "div",
+          [
+            "add",
+            [
+              "int",
+              1
+            ],
+            [
+              "int",
+              2
+            ]
+          ],
+          [
+            "div",
+            [
+              "int",
+              3
+            ],
+            [
+              "int",
+              4
+            ]
+          ]
+        ]
+      },
+      {
+        "payload": {
+          "latex": "\\frac{x^2+1}{2}*3"
+        },
+        "expected": [
+          "mul",
+          [
+            "div",
+            [
+              "add",
+              [
+                "pow",
+                [
+                  "var",
+                  "x"
+                ],
+                [
+                  "int",
+                  2
+                ]
+              ],
+              [
+                "int",
+                1
+              ]
+            ],
+            [
+              "int",
+              2
+            ]
+          ],
+          [
+            "int",
+            3
+          ]
+        ]
+      }
+    ],
+    "exact_value": [
+      {
+        "payload": {
+          "ast": [
+            "div",
+            [
+              "div",
+              [
+                "var",
+                "a"
+              ],
+              [
+                "var",
+                "c"
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                1
+              ],
+              [
+                "pow",
+                [
+                  "var",
+                  "c"
+                ],
+                [
+                  "int",
+                  2
+                ]
+              ]
+            ]
+          ],
+          "values": {
+            "a": 2,
+            "c": 3
+          }
+        },
+        "expected": {
+          "numerator": 6,
+          "denominator": 1
+        }
+      },
+      {
+        "payload": {
+          "ast": [
+            "div",
+            [
+              "add",
+              [
+                "int",
+                1
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                3
+              ],
+              [
+                "int",
+                4
+              ]
+            ]
+          ],
+          "values": {}
+        },
+        "expected": {
+          "numerator": 4,
+          "denominator": 1
+        }
+      },
+      {
+        "payload": {
+          "ast": [
+            "mul",
+            [
+              "div",
+              [
+                "add",
+                [
+                  "pow",
+                  [
+                    "var",
+                    "x"
+                  ],
+                  [
+                    "int",
+                    2
+                  ]
+                ],
+                [
+                  "int",
+                  1
+                ]
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "int",
+              3
+            ]
+          ],
+          "values": {
+            "x": 4
+          }
+        },
+        "expected": {
+          "numerator": 51,
+          "denominator": 2
+        }
+      }
+    ],
+    "expression_report": [
+      {
+        "payload": {
+          "ast": [
+            "div",
+            [
+              "div",
+              [
+                "var",
+                "a"
+              ],
+              [
+                "var",
+                "c"
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                1
+              ],
+              [
+                "pow",
+                [
+                  "var",
+                  "c"
+                ],
+                [
+                  "int",
+                  2
+                ]
+              ]
+            ]
+          ],
+          "value": {
+            "numerator": 6,
+            "denominator": 1
+          }
+        },
+        "expected": {
+          "ast": [
+            "div",
+            [
+              "div",
+              [
+                "var",
+                "a"
+              ],
+              [
+                "var",
+                "c"
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                1
+              ],
+              [
+                "pow",
+                [
+                  "var",
+                  "c"
+                ],
+                [
+                  "int",
+                  2
+                ]
+              ]
+            ]
+          ],
+          "value": {
+            "numerator": 6,
+            "denominator": 1
+          },
+          "text": "((a/c)/(1/(c^2)))"
+        }
+      },
+      {
+        "payload": {
+          "ast": [
+            "div",
+            [
+              "add",
+              [
+                "int",
+                1
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                3
+              ],
+              [
+                "int",
+                4
+              ]
+            ]
+          ],
+          "value": {
+            "numerator": 4,
+            "denominator": 1
+          }
+        },
+        "expected": {
+          "ast": [
+            "div",
+            [
+              "add",
+              [
+                "int",
+                1
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                3
+              ],
+              [
+                "int",
+                4
+              ]
+            ]
+          ],
+          "value": {
+            "numerator": 4,
+            "denominator": 1
+          },
+          "text": "((1+2)/(3/4))"
+        }
+      },
+      {
+        "payload": {
+          "ast": [
+            "mul",
+            [
+              "div",
+              [
+                "add",
+                [
+                  "pow",
+                  [
+                    "var",
+                    "x"
+                  ],
+                  [
+                    "int",
+                    2
+                  ]
+                ],
+                [
+                  "int",
+                  1
+                ]
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "int",
+              3
+            ]
+          ],
+          "value": {
+            "numerator": 51,
+            "denominator": 2
+          }
+        },
+        "expected": {
+          "ast": [
+            "mul",
+            [
+              "div",
+              [
+                "add",
+                [
+                  "pow",
+                  [
+                    "var",
+                    "x"
+                  ],
+                  [
+                    "int",
+                    2
+                  ]
+                ],
+                [
+                  "int",
+                  1
+                ]
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "int",
+              3
+            ]
+          ],
+          "value": {
+            "numerator": 51,
+            "denominator": 2
+          },
+          "text": "((((x^2)+1)/2)*3)"
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "latex": "\\frac{\\frac{a}{c}}{\\frac{1}{c^2}}",
+        "values": {
+          "a": 2,
+          "c": 3
+        }
+      },
+      "results": {
+        "expression_ast": [
+          "div",
+          [
+            "div",
+            [
+              "var",
+              "a"
+            ],
+            [
+              "var",
+              "c"
+            ]
+          ],
+          [
+            "div",
+            [
+              "int",
+              1
+            ],
+            [
+              "pow",
+              [
+                "var",
+                "c"
+              ],
+              [
+                "int",
+                2
+              ]
+            ]
+          ]
+        ],
+        "exact_value": {
+          "numerator": 6,
+          "denominator": 1
+        },
+        "expression_report": {
+          "ast": [
+            "div",
+            [
+              "div",
+              [
+                "var",
+                "a"
+              ],
+              [
+                "var",
+                "c"
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                1
+              ],
+              [
+                "pow",
+                [
+                  "var",
+                  "c"
+                ],
+                [
+                  "int",
+                  2
+                ]
+              ]
+            ]
+          ],
+          "value": {
+            "numerator": 6,
+            "denominator": 1
+          },
+          "text": "((a/c)/(1/(c^2)))"
+        }
+      }
+    },
+    {
+      "input": {
+        "latex": "\\frac{1+2}{\\frac{3}{4}}",
+        "values": {}
+      },
+      "results": {
+        "expression_ast": [
+          "div",
+          [
+            "add",
+            [
+              "int",
+              1
+            ],
+            [
+              "int",
+              2
+            ]
+          ],
+          [
+            "div",
+            [
+              "int",
+              3
+            ],
+            [
+              "int",
+              4
+            ]
+          ]
+        ],
+        "exact_value": {
+          "numerator": 4,
+          "denominator": 1
+        },
+        "expression_report": {
+          "ast": [
+            "div",
+            [
+              "add",
+              [
+                "int",
+                1
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "div",
+              [
+                "int",
+                3
+              ],
+              [
+                "int",
+                4
+              ]
+            ]
+          ],
+          "value": {
+            "numerator": 4,
+            "denominator": 1
+          },
+          "text": "((1+2)/(3/4))"
+        }
+      }
+    },
+    {
+      "input": {
+        "latex": "\\frac{x^2+1}{2}*3",
+        "values": {
+          "x": 4
+        }
+      },
+      "results": {
+        "expression_ast": [
+          "mul",
+          [
+            "div",
+            [
+              "add",
+              [
+                "pow",
+                [
+                  "var",
+                  "x"
+                ],
+                [
+                  "int",
+                  2
+                ]
+              ],
+              [
+                "int",
+                1
+              ]
+            ],
+            [
+              "int",
+              2
+            ]
+          ],
+          [
+            "int",
+            3
+          ]
+        ],
+        "exact_value": {
+          "numerator": 51,
+          "denominator": 2
+        },
+        "expression_report": {
+          "ast": [
+            "mul",
+            [
+              "div",
+              [
+                "add",
+                [
+                  "pow",
+                  [
+                    "var",
+                    "x"
+                  ],
+                  [
+                    "int",
+                    2
+                  ]
+                ],
+                [
+                  "int",
+                  1
+                ]
+              ],
+              [
+                "int",
+                2
+              ]
+            ],
+            [
+              "int",
+              3
+            ]
+          ],
+          "value": {
+            "numerator": 51,
+            "denominator": 2
+          },
+          "text": "((((x^2)+1)/2)*3)"
+        }
+      }
+    }
+  ]
+}

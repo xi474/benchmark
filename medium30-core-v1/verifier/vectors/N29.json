@@ -1,0 +1,602 @@
+{
+  "components": {
+    "group": [
+      {
+        "payload": {
+          "contacts": [
+            {
+              "id": "a",
+              "name": "A"
+            },
+            {
+              "id": "b",
+              "name": "B"
+            },
+            {
+              "id": "c",
+              "name": "C"
+            }
+          ],
+          "names": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "expected": {
+          "id": "group:new",
+          "title": "Happy Astrid Day!",
+          "members": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "contacts": [
+            {
+              "id": "a",
+              "name": "A"
+            },
+            {
+              "id": "b",
+              "name": "B"
+            },
+            {
+              "id": "c",
+              "name": "C"
+            }
+          ],
+          "names": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "expected": {
+          "id": "group:new",
+          "title": "Happy Astrid Day!",
+          "members": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "contacts": [
+            {
+              "id": "a",
+              "name": "A"
+            },
+            {
+              "id": "b",
+              "name": "B"
+            },
+            {
+              "id": "c",
+              "name": "C"
+            }
+          ],
+          "names": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "expected": {
+          "id": "group:new",
+          "title": "Happy Astrid Day!",
+          "members": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      }
+    ],
+    "evening_events": [
+      {
+        "payload": {
+          "events": [
+            {
+              "id": "early",
+              "start_minute": 1199
+            },
+            {
+              "id": "late",
+              "start_minute": 1200
+            }
+          ]
+        },
+        "expected": [
+          "late"
+        ]
+      },
+      {
+        "payload": {
+          "events": [
+            {
+              "id": "late",
+              "start_minute": 1250
+            }
+          ]
+        },
+        "expected": [
+          "late"
+        ]
+      },
+      {
+        "payload": {
+          "events": []
+        },
+        "expected": []
+      }
+    ],
+    "threshold_actions": [
+      {
+        "payload": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "evening": [
+            "late"
+          ],
+          "messages": [
+            {
+              "id": "1",
+              "group": "group:new",
+              "sender": "a",
+              "at": 10
+            },
+            {
+              "id": "2",
+              "group": "group:new",
+              "sender": "a",
+              "at": 11
+            },
+            {
+              "id": "3",
+              "group": "group:new",
+              "sender": "b",
+              "at": 12
+            },
+            {
+              "id": "4",
+              "group": "group:new",
+              "sender": "c",
+              "at": 20
+            },
+            {
+              "id": "5",
+              "group": "group:new",
+              "sender": "b",
+              "at": 21
+            }
+          ],
+          "window": 300,
+          "threshold": 3
+        },
+        "expected": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "trigger_at": 20,
+          "ride": {
+            "at": 20,
+            "pickup": "21:30",
+            "vehicle": "van",
+            "from": "home",
+            "to": "Tegnergatan 8"
+          },
+          "notice": {
+            "at": 20,
+            "meet": "20:00"
+          },
+          "deleted": [
+            "late"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "evening": [
+            "late"
+          ],
+          "messages": [
+            {
+              "id": "1",
+              "group": "group:new",
+              "sender": "a",
+              "at": 2
+            },
+            {
+              "id": "2",
+              "group": "group:new",
+              "sender": "b",
+              "at": 3
+            },
+            {
+              "id": "3",
+              "group": "group:new",
+              "sender": "c",
+              "at": 300
+            }
+          ],
+          "window": 300,
+          "threshold": 3
+        },
+        "expected": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "trigger_at": null,
+          "ride": null,
+          "notice": null,
+          "deleted": []
+        }
+      },
+      {
+        "payload": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "evening": [],
+          "messages": [
+            {
+              "id": "0",
+              "group": "group:new",
+              "sender": "a",
+              "at": 4
+            },
+            {
+              "id": "1",
+              "group": "group:new",
+              "sender": "b",
+              "at": 5
+            },
+            {
+              "id": "2",
+              "group": "group:new",
+              "sender": "c",
+              "at": 6
+            }
+          ],
+          "window": 300,
+          "threshold": 3
+        },
+        "expected": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "trigger_at": 6,
+          "ride": {
+            "at": 6,
+            "pickup": "21:30",
+            "vehicle": "van",
+            "from": "home",
+            "to": "Tegnergatan 8"
+          },
+          "notice": {
+            "at": 6,
+            "meet": "20:00"
+          },
+          "deleted": []
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "contacts": [
+          {
+            "id": "a",
+            "name": "A"
+          },
+          {
+            "id": "b",
+            "name": "B"
+          },
+          {
+            "id": "c",
+            "name": "C"
+          }
+        ],
+        "names": [
+          "A",
+          "B",
+          "C"
+        ],
+        "calendar": [
+          {
+            "id": "early",
+            "start_minute": 1199
+          },
+          {
+            "id": "late",
+            "start_minute": 1200
+          }
+        ],
+        "messages": [
+          {
+            "id": "1",
+            "group": "group:new",
+            "sender": "a",
+            "at": 10
+          },
+          {
+            "id": "2",
+            "group": "group:new",
+            "sender": "a",
+            "at": 11
+          },
+          {
+            "id": "3",
+            "group": "group:new",
+            "sender": "b",
+            "at": 12
+          },
+          {
+            "id": "4",
+            "group": "group:new",
+            "sender": "c",
+            "at": 20
+          },
+          {
+            "id": "5",
+            "group": "group:new",
+            "sender": "b",
+            "at": 21
+          }
+        ],
+        "window": 300,
+        "threshold": 3
+      },
+      "results": {
+        "group": {
+          "id": "group:new",
+          "title": "Happy Astrid Day!",
+          "members": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "evening_events": [
+          "late"
+        ],
+        "threshold_actions": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "trigger_at": 20,
+          "ride": {
+            "at": 20,
+            "pickup": "21:30",
+            "vehicle": "van",
+            "from": "home",
+            "to": "Tegnergatan 8"
+          },
+          "notice": {
+            "at": 20,
+            "meet": "20:00"
+          },
+          "deleted": [
+            "late"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "contacts": [
+          {
+            "id": "a",
+            "name": "A"
+          },
+          {
+            "id": "b",
+            "name": "B"
+          },
+          {
+            "id": "c",
+            "name": "C"
+          }
+        ],
+        "names": [
+          "A",
+          "B",
+          "C"
+        ],
+        "calendar": [
+          {
+            "id": "late",
+            "start_minute": 1250
+          }
+        ],
+        "messages": [
+          {
+            "id": "1",
+            "group": "group:new",
+            "sender": "a",
+            "at": 2
+          },
+          {
+            "id": "2",
+            "group": "group:new",
+            "sender": "b",
+            "at": 3
+          },
+          {
+            "id": "3",
+            "group": "group:new",
+            "sender": "c",
+            "at": 300
+          }
+        ],
+        "window": 300,
+        "threshold": 3
+      },
+      "results": {
+        "group": {
+          "id": "group:new",
+          "title": "Happy Astrid Day!",
+          "members": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "evening_events": [
+          "late"
+        ],
+        "threshold_actions": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "trigger_at": null,
+          "ride": null,
+          "notice": null,
+          "deleted": []
+        }
+      }
+    },
+    {
+      "input": {
+        "contacts": [
+          {
+            "id": "a",
+            "name": "A"
+          },
+          {
+            "id": "b",
+            "name": "B"
+          },
+          {
+            "id": "c",
+            "name": "C"
+          }
+        ],
+        "names": [
+          "A",
+          "B",
+          "C"
+        ],
+        "calendar": [],
+        "messages": [
+          {
+            "id": "0",
+            "group": "group:new",
+            "sender": "a",
+            "at": 4
+          },
+          {
+            "id": "1",
+            "group": "group:new",
+            "sender": "b",
+            "at": 5
+          },
+          {
+            "id": "2",
+            "group": "group:new",
+            "sender": "c",
+            "at": 6
+          }
+        ],
+        "window": 300,
+        "threshold": 3
+      },
+      "results": {
+        "group": {
+          "id": "group:new",
+          "title": "Happy Astrid Day!",
+          "members": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "evening_events": [],
+        "threshold_actions": {
+          "group": {
+            "id": "group:new",
+            "title": "Happy Astrid Day!",
+            "members": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "trigger_at": 6,
+          "ride": {
+            "at": 6,
+            "pickup": "21:30",
+            "vehicle": "van",
+            "from": "home",
+            "to": "Tegnergatan 8"
+          },
+          "notice": {
+            "at": 6,
+            "meet": "20:00"
+          },
+          "deleted": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "recovered",
+  "op": "recover_sqlite",
+  "bindings": {
+    "base_b64": "inputs/request.json#/base_b64",
+    "wal_b64": "outputs/decoded_wal.json#",
+    "base": "outputs/base_records.json#"
+  },
+  "spec": "把真实基础库及还原WAL按同名.db/-wal放到临时目录，让SQLite恢复并查询。返回 {records:按id排序的全部记录,base_count:基础记录数,database:原base64库,wal:还原WAL的base64}。不能仅追加两个记录列表，WAL含旧行更新。组件封装写 outputs/recovery_snapshot.json，业务列表单独写 outputs/recovered.json，不得互相覆盖。",
+  "emit": {
+    "outputs/recovered.json": {
+      "pointer": "/records",
+      "format": "json"
+    },
+    "outputs/repaired/main.db": {
+      "pointer": "/database",
+      "format": "base64"
+    },
+    "outputs/repaired/main.db-wal": {
+      "pointer": "/wal",
+      "format": "base64"
+    }
+  },
+  "output": "outputs/recovery_snapshot.json",
+  "component": "recovered",
+  "task": "N23"
+}

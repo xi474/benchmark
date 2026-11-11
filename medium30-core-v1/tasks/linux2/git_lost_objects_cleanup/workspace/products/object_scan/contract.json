@@ -1,0 +1,11 @@
+{
+  "name": "object_scan",
+  "op": "git_object_scan",
+  "bindings": {
+    "bundle": "inputs/request.json#/bundle"
+  },
+  "spec": "bundle是gzip-tar的base64，解包后为本地合成Git仓库，含一个历史重写后不可达对象中的secret[...]标记。通过Git对象枚举恢复，返回 {secret:完整标记}。普通文件及正常提交说明必须保持。没有真实密钥/远程服务。",
+  "output": "outputs/object_scan.json",
+  "component": "object_scan",
+  "task": "N22"
+}

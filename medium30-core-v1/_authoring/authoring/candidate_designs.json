@@ -1,0 +1,2961 @@
+{
+  "schema": "benchmark.candidate-review.v1",
+  "as_of": "2026-11-09",
+  "status": "candidate_only_not_implemented",
+  "user_target": "all_medium_core_constraints_only",
+  "rubric": "project-ASCI-v1.3",
+  "tasks": [
+    {
+      "id": "N01",
+      "title": "嵌套模型的输入输出依赖矩阵",
+      "style": "reasoning4",
+      "goal": "根据小型模型表达式树，计算每个输出依赖哪些输入，保持并联嵌套前后的依赖一致。",
+      "source_core": "嵌套 CompoundModel 的并联组合错误地把独立输入连成全依赖。",
+      "adaptation": "用声明式模型树替代 Astropy 对象；支持叶子依赖、并联与串联，以布尔矩阵完成组合，并输出可分离性报告。树和矩阵均为小规模。",
+      "asci": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "axis_evidence": [
+        "A1：布尔矩阵乘法与块对角组合，均为标准算法。",
+        "S0：模型树是静态输入。",
+        "C1：子树矩阵按固定维度契约汇入父节点；不是资源可行域搜索。",
+        "I0：单一模型树接口。"
+      ],
+      "minimum_counterexample": "两条独立一维模型的依赖矩阵应为 diag(1,1)；将它们包成子树再并联，不能把右下 2×2 块改成全 1。",
+      "nodes": {
+        "a": "读取模型树",
+        "b": "左子树依赖",
+        "c": "右子树依赖",
+        "d": "父节点矩阵组合",
+        "e": "分离性报告"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "同层子树可独立求解；父节点必须等待子矩阵。",
+      "serial": "串联组合和最终矩阵必须按树结构汇合。",
+      "core_verifier": "验证嵌套不变性、并联块位置、串联布尔乘积和报告与矩阵一致。",
+      "independent_oracle": "逐个输入传播依赖集合，再与矩阵结果比较。",
+      "negative_implementation": "把嵌套子树当全连接黑盒。",
+      "nearest_existing": [
+        "medium/MP02",
+        "medium/MP13"
+      ],
+      "duplicate_distinction": "旧题是数据轴拼接或行键聚合；本题的核心是模型组合的依赖代数，不复用拼接求解器。",
+      "excluded_from_core": "不要求安装天文库、拟合数据、坐标投影或任意模型插件。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "astropy__astropy-12907",
+          "source_row": 0,
+          "repo": "astropy/astropy",
+          "base_commit": "d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/astropy/astropy/pull/12907",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 2,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N01_SWE_1.json",
+          "evidence_sha256": "d5c8cbadfbbc2102200404c38a354653dd9fe73fa2b93e8e44390b76f188935a"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N02",
+      "title": "维度替换后的元数据隔离",
+      "style": "context8",
+      "goal": "实现轻量数据集的维度替换，生成正确的新坐标和变量描述，同时保持原数据集不变。",
+      "source_core": "swap_dims 的对象别名导致新索引变量修改原变量的 dims。",
+      "adaptation": "保留变量→索引变量转换与复制隔离；以小型 Python 对象代替完整 xarray，只覆盖公开的替换操作和必要元数据。",
+      "asci": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：维护维度到变量的映射和替换计划。",
+        "S1：一次受控派生，必须隔离派生对象的可变元数据。",
+        "C1：变量与坐标分支按替换计划汇合。",
+        "I1：固定数据变量/索引变量表示之间转换。"
+      ],
+      "minimum_counterexample": "a.dims=('x',)，b=to_index(a)；令 b.dims=('y',) 后 a.dims 仍应为 ('x',)。",
+      "nodes": {
+        "a": "读取数据集",
+        "b": "变量替换计划",
+        "c": "坐标与索引计划",
+        "d": "构造隔离的新对象",
+        "e": "汇总新旧快照"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "变量计划、坐标计划可并行分析；不同变量可独立构造。",
+      "serial": "同一变量的维度和索引身份需统一提交，不能并发改原对象。",
+      "core_verifier": "比较新维度、坐标关系及原输入元数据；在 API 中直接修改派生对象检查必要隔离。",
+      "independent_oracle": "用不可变元组快照和显式复制的简洁模型对照。",
+      "negative_implementation": "返回原 IndexVariable 或浅复制其 dims 容器。",
+      "nearest_existing": [
+        "medium/MP02"
+      ],
+      "duplicate_distinction": "MP02 检查拼接轴和数据排列；本题检查对象所有权与派生后隔离。",
+      "excluded_from_core": "不要求所有深层数据无限递归复制、分布式数组、Zarr 或任意历史 xarray API。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "pydata__xarray-6938",
+          "source_row": 315,
+          "repo": "pydata/xarray",
+          "base_commit": "c4e40d991c28be51de9ac560ce895ac7f9b14924",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/pydata/xarray/pull/6938",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N02_SWE_1.json",
+          "evidence_sha256": "d9068178c81d2c80f78809a620a8f23b2060d1b711769d430ecbff4f3dcd4955"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N03",
+      "title": "多继承测试标记的 MRO 汇合",
+      "style": "reasoning4",
+      "goal": "从有效多继承图计算类的 C3 顺序，并按顺序收集本类及祖先各自声明的测试标记。",
+      "source_core": "pytest 从多个基类获取标记时丢掉部分祖先标记；上游回归要求本类和各基类标记均保留。",
+      "adaptation": "用类声明表代替 pytest 项目；新增明确的 C3 计算子模块，这是本项目的结构扩展，不称为原修复必需工作量。仅接收合法、可线性化的类图。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：C3 线性化及有序收集。",
+        "S0：类声明静态。",
+        "C1：类图顺序和各类本地标记按契约汇合。",
+        "I1：区分本地声明与继承属性。"
+      ],
+      "minimum_counterexample": "C(A,B)，三类分别声明 c、a、b：结果应依 MRO 收集 c,a,b；只用 getattr(C,'marks') 会漏掉 B。相同名称的不同标记不擅自去重。",
+      "nodes": {
+        "a": "读取类声明",
+        "b": "计算 C3 顺序",
+        "c": "提取本地标记",
+        "d": "按 MRO 汇合",
+        "e": "输出有效标记"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "C3 分析和本地标记提取可并行；不同目标类可并行。",
+      "serial": "最终标记必须使用对应目标类的顺序。",
+      "core_verifier": "菱形继承、多个基类、同名不同参数标记、本类优先顺序。",
+      "independent_oracle": "在受控 Python 类上读取 __mro__ 与各类 __dict__，作为独立小规模对照。",
+      "negative_implementation": "只读取首个基类，或把相同名称的标记全局去重。",
+      "nearest_existing": [
+        "medium/MP16"
+      ],
+      "duplicate_distinction": "旧题聚合文档和已知继承信息；本题求解有效类线性化并收集测试标记，不生成 API 文档。",
+      "excluded_from_core": "不测元类执行、自定义描述符、非法继承图的精确异常文案。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "pytest-dev__pytest-10356",
+          "source_row": 332,
+          "repo": "pytest-dev/pytest",
+          "base_commit": "3c1534944cbd34e8a41bc9e76818018fadefc9a1",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/pytest-dev/pytest/pull/10356",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "1-4 hours",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N03_SWE_1.json",
+          "evidence_sha256": "7d4af42e6c4b3199f06d67b6bc58abf6c8094bd8b21976b498150ff504f77215"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N04",
+      "title": "跨 SQL 后端的 XOR 奇偶语义",
+      "style": "context8",
+      "goal": "把同一布尔谓词树分别编译为原生 XOR 和无 XOR 后端可执行的表达式，使查询选择一致。",
+      "source_core": "Django 的 XOR 回退把多项异或解释为恰好一项为真，而非奇数项为真。",
+      "adaptation": "保留原生/回退两种后端语义，限定小型布尔 AST 与非空布尔字段；使用 SQLite 执行回退表达式，不需要真实数据库服务器。",
+      "asci": [
+        1,
+        0,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：AST 编译与奇偶计数。",
+        "S0：固定谓词与记录。",
+        "C1：两类代码生成消费同一个规范 AST。",
+        "I2：不同 SQL 能力下保持逻辑语义，而非只输出合法 SQL。"
+      ],
+      "minimum_counterexample": "a=b=c=True 时 a XOR b XOR c 为 True；sum==1 的回退结果却为 False。",
+      "nodes": {
+        "a": "规范布尔 AST",
+        "b": "原生 XOR 表达式",
+        "c": "回退 SQL 表达式",
+        "d": "执行两种语义",
+        "e": "统一查询结果"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "两个后端编译器可并行实现、运行。",
+      "serial": "各后端都需消费相同 AST，最终按记录身份比较。",
+      "core_verifier": "小规模完整真值表、嵌套 AND/OR/XOR、三个及五个真项；验证真实执行结果。",
+      "independent_oracle": "对 AST 直接递归求值，独立于 SQL 生成器。",
+      "negative_implementation": "用 exactly-one 代替 parity。",
+      "nearest_existing": [
+        "medium/MP21"
+      ],
+      "duplicate_distinction": "旧题涉及播放列表条件与导出；本题专门检验后端 XOR 语义等价，数据和算法内核均不同。",
+      "excluded_from_core": "不引入 SQL NULL 三值逻辑、任意 SQL 注入输入或精确 SQL 文本匹配。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "django__django-16901",
+          "source_row": 245,
+          "repo": "django/django",
+          "base_commit": "ee36e101e8f8c0acde4bb148b738ab7034e902a0",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/django/django/pull/16901",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N04_SWE_1.json",
+          "evidence_sha256": "797c4548c7b9305bc62809caf0dac2c90005aff8196806a67021dfe34c31341f"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N05",
+      "title": "数据库时区到业务日期的转换",
+      "style": "multistage4",
+      "goal": "从各数据库的本地时间表示得到业务时区的正确日期，生成等价的后端查询计划和筛选结果。",
+      "source_core": "日期查询把数据库时区误当成 UTC，忽略 DATABASES.TIME_ZONE，临近午夜时选错日期。",
+      "adaptation": "保留数据库时区→业务时区方向和同区免转换；首版只用固定 UTC 偏移及可见适配器，降低时区数据库和服务安装负担。",
+      "asci": [
+        1,
+        0,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：标准时间偏移换算与日期投影。",
+        "S0：静态记录。",
+        "C1：后端计划与日期过滤汇合。",
+        "I2：各后端的存储时区语义必须一致。"
+      ],
+      "minimum_counterexample": "数据库 UTC+7 的 01-02 03:10，业务 UTC+3 应落在 01-01 23:10；按 UTC 原点转换会选错日期。",
+      "nodes": {
+        "a": "读取时区与记录",
+        "b": "后端 A 转换计划",
+        "c": "后端 B 转换计划",
+        "d": "执行日期过滤",
+        "e": "合并后端一致性结果"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "后端适配和记录批次可并行。",
+      "serial": "必须先转换时间，再取业务日期。",
+      "core_verifier": "跨日与同区两类核心用例；执行计划和筛选结果一致。",
+      "independent_oracle": "用 aware datetime 的固定偏移转换独立计算日期。",
+      "negative_implementation": "所有数据库记录一律当 UTC，或先取日期后换时区。",
+      "nearest_existing": [
+        "medium/MP26"
+      ],
+      "duplicate_distinction": "旧题是循环日程和通知；本题是数据库时间解释与跨后端查询保真。",
+      "excluded_from_core": "不扩展 DST、历史时区表、真实 MySQL/Oracle、无效时间字符串。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "django__django-11138",
+          "source_row": 34,
+          "repo": "django/django",
+          "base_commit": "c84b91b7603e488f7171fdff8f08368ef3d6b856",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/django/django/pull/11138",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "1-4 hours",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N05_SWE_1.json",
+          "evidence_sha256": "9bf59b04b76068655b67fa8725190bd4457a9371d038973f4138c2361e0c579b"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N06",
+      "title": "查询组合中的无碰撞别名重写",
+      "style": "reasoning4",
+      "goal": "组合两棵简化查询树，分配无碰撞表别名，并同步重写 JOIN 和谓词引用。",
+      "source_core": "Query.combine 生成键和值重叠的别名映射，change_aliases 可能断言失败或发生二次替换。",
+      "adaptation": "保留查询组合、别名身份和引用一致性；用限定查询 AST 与小型关系表替代完整 ORM。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：名称分配和同时重命名。",
+        "S0：两棵静态查询树。",
+        "C1：符号扫描、映射与引用重写的实质汇合。",
+        "I1：固定 AST 字段间保持引用一致。"
+      ],
+      "minimum_counterexample": "映射 T4→T5、T5→T6 时，原 T4 引用不能被连续替换成 T6；可先生成与原符号集合不交的新别名。",
+      "nodes": {
+        "a": "读取左右查询",
+        "b": "左侧符号扫描",
+        "c": "右侧符号扫描",
+        "d": "分配无碰撞映射",
+        "e": "同步重写所有引用",
+        "f": "执行组合查询"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "左右查询分析可并行；映射冻结后可并行重写不同子树。",
+      "serial": "统一分配映射后才能重写引用。",
+      "core_verifier": "交叠别名链、共享表名、嵌套谓词，验证组合前后的行集合语义。",
+      "independent_oracle": "在小关系表上直接解释原查询并计算并集，与组合查询解释结果比较。",
+      "negative_implementation": "按字典顺序逐次 str.replace。",
+      "nearest_existing": [
+        "original/schema_evolution_reasoner"
+      ],
+      "duplicate_distinction": "旧题是架构演进分析；本题是编译器符号重命名和查询语义，不能用旧配置/迁移算法替代。",
+      "excluded_from_core": "不测任意 SQL 方言、数据库连接、格式化空格或别名名称的唯一指定。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "django__django-15128",
+          "source_row": 180,
+          "repo": "django/django",
+          "base_commit": "cb383753c0e0eb52306e1024d32a782549c27e61",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/django/django/pull/15128",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "1-4 hours",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N06_SWE_1.json",
+          "evidence_sha256": "c542f5c5139051fe5228b7436336f83a11b41ab15d255ef470f36b6b913ed3ad"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N07",
+      "title": "嵌套分数表达式的解析与保真输出",
+      "style": "reasoning4",
+      "goal": "解析有限 LaTeX 分数语法，构造正确表达式树，并输出保持除法结合关系的表示与数值结果。",
+      "source_core": "嵌套分母缺括号，使除以分数变成连续除法。",
+      "adaptation": "只保留变量、有理数、加乘幂和 frac 的公开子集；用 Fraction 与小型 AST 代替完整 SymPy/ANTLR。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：递归下降解析和带优先级打印。",
+        "S0：静态表达式。",
+        "C1：分子/分母子树汇入同一个除法节点，再供求值和输出。",
+        "I1：限定 LaTeX 与 AST/文本表示转换。"
+      ],
+      "minimum_counterexample": "(a/c)/(1/c²) 在 a=2,c=3 时为 6；错误写成 a/c/1/c² 时为 2/27。",
+      "nodes": {
+        "a": "词法与括号分组",
+        "b": "分子子树",
+        "c": "分母子树",
+        "d": "构造除法 AST",
+        "e": "求值结果",
+        "f": "保真文本",
+        "g": "汇总"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "d",
+          "f"
+        ],
+        [
+          "e",
+          "g"
+        ],
+        [
+          "f",
+          "g"
+        ]
+      ],
+      "parallel": "确定分组后可独立处理分子分母；输出和求值可并行。",
+      "serial": "先识别完整分母，再构造除法节点。",
+      "core_verifier": "嵌套分数 AST、正常非零赋值的有理数结果、输出再解析后的语义一致。",
+      "independent_oracle": "手工构造表达式树，使用 Fraction 直接解释；不用候选打印器作答案。",
+      "negative_implementation": "去掉分母括号或把除法展平成左结合列表。",
+      "nearest_existing": [
+        "medium/MP15"
+      ],
+      "duplicate_distinction": "旧题分析 Python 导入；本题处理数学表达式结合性，不共享导入使用分析算法。",
+      "excluded_from_core": "不测任意 LaTeX 宏、非法语法报错细节、符号证明或除零稳健性。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "sympy__sympy-21612",
+          "source_row": 482,
+          "repo": "sympy/sympy",
+          "base_commit": "b4777fdcef467b7132c055f8ac2c9a5059e6a145",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/sympy/sympy/pull/21612",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N07_SWE_1.json",
+          "evidence_sha256": "c3959302d2d8956dff4bdeaf945fc3f69c9101a7e8e7ec763eeefd3180aae02c"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 7,
+        "edges": 8,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N08",
+      "title": "测试日志等级的作用域恢复",
+      "style": "context8",
+      "goal": "为简化日志捕获组件实现等级设置和测试结束恢复，保证后续测试不继承前一个测试的 logger/handler 修改。",
+      "source_core": "caplog 调整等级后未恢复 handler，导致下一测试泄漏前一测试状态。",
+      "adaptation": "保留首次设置前的 logger 和 handler 等级；提供明确 begin/set/end 生命周期，不扩展嵌套并发测试或复杂上下文传播。",
+      "asci": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A0：按组件记录首次快照并恢复，没有复杂算法。",
+        "S1：单测试有限作用域。",
+        "C1：logger 与共享 handler 恢复必须汇合。",
+        "I1：固定日志对象接口。"
+      ],
+      "minimum_counterexample": "handler 原等级 20，在一次测试中先设 40 再设 50；结束后必须恢复 20，不能恢复成 40 或继续保持 50。",
+      "nodes": {
+        "a": "开始测试作用域",
+        "b": "logger 首次快照",
+        "c": "handler 首次快照",
+        "d": "顺序应用等级修改",
+        "e": "恢复两个分支",
+        "f": "下一测试观测"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "两个快照/恢复模块可独立开发与检查；不同无共享 handler 的测试批可并行。",
+      "serial": "同一作用域内修改须按操作序列执行；实际运行并行空间较低。",
+      "core_verifier": "多次 set_level、logger 和 handler 同时变化、下一测试的实际过滤行为。",
+      "independent_oracle": "独立状态表保存 begin 时等级，直接计算各日志是否可见。",
+      "negative_implementation": "每次覆盖原始快照，或只恢复 logger。",
+      "nearest_existing": [
+        "medium/MP14"
+      ],
+      "duplicate_distinction": "旧题序列化异常链；本题是日志组件作用域隔离，状态契约不同。",
+      "excluded_from_core": "不测多线程竞态、嵌套 fixture、任意 logging 插件或精确打印格式。",
+      "review_risk": "中等下沿、并行机会较低：保留作为状态恢复对照题；不是高并行优先样本。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "pytest-dev__pytest-7571",
+          "source_row": 346,
+          "repo": "pytest-dev/pytest",
+          "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/pytest-dev/pytest/pull/7571",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N08_SWE_1.json",
+          "evidence_sha256": "09c2a3abf5f61ae76a5bea4e9657f8c79c69d55fbb63dee1761e025465b7fdde"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N09",
+      "title": "多方日历可用区间的最早交集",
+      "style": "multistage4",
+      "goal": "读取三份小型 ICS 日历，综合每个人的硬可用时间和已有忙碌事件，找到最早可行的一小时会议并输出 ICS。",
+      "source_core": "上游要求综合 Alice/Bob/Carol 的日历、工作时间、午休及特定缓冲限制，生成不冲突的 Team Planning Meeting。",
+      "adaptation": "保留硬约束与分钟粒度最早可行解；只支持显式 UTC 的有限 VEVENT 子集。上游 earliest 与软偏好优先关系不完全清晰，本改编明确以最早硬可行为唯一正式目标，软偏好只作解释，不计核心分。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：区间补集、相交与最早可行段搜索。",
+        "S0：三份静态日历。",
+        "C1：各人的可用区间必须按同一时基求交，而非独立挑各自最早时间。",
+        "I1：有限 ICS 与统一时间区间表示。"
+      ],
+      "minimum_counterexample": "A 空闲 09:00–11:00，B 空闲 10:00–12:00，C 空闲 10:30–11:30；各人都有一小时空闲，但公共交集只有 30 分钟，不能安排一小时会议。",
+      "nodes": {
+        "a": "读取日历与硬约束",
+        "b": "Alice 可用区间",
+        "c": "Bob 可用区间",
+        "d": "Carol 可用区间",
+        "e": "求共同连续一小时区间",
+        "f": "选择最早起点并输出 ICS"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "每个人的忙碌区间合并、硬可用时间推导可并行。",
+      "serial": "共同可行区间必须在各分支完成后求交，再选择最早起点。",
+      "core_verifier": "公开硬约束、忙碌冲突、会议持续时间和分钟级最早性；输出 ICS 可重新读取。",
+      "independent_oracle": "独立枚举有限日期窗口的每个分钟起点，对三人逐项验证。",
+      "negative_implementation": "只选组织者的最早时间，或以三个人分别有空代替共同有空。",
+      "nearest_existing": [
+        "medium/MP11",
+        "medium/MP26"
+      ],
+      "duplicate_distinction": "旧题是指定日程的取消、采购或循环提醒；本题求多人可用区间的公共交集，不复用取消通知流程。",
+      "excluded_from_core": "不加时区/DST、循环日历、任意 ICS 损坏输入、严格文本格式、资源预算或隐含软偏好排名。",
+      "review_risk": "须在题面显式声明对软偏好的处理。若恢复软偏好优化，应先给公开总排序，不能由 verifier 自行决定。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "constraints-scheduling",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/constraints-scheduling/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/constraints-scheduling/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/constraints-scheduling/task.toml",
+          "original_difficulty": "medium",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 15.0,
+          "junior_time_estimate_min": 30.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N09_TB_1.json",
+          "evidence_sha256": "0d293fb9d53d1b441e939881cfdb2b74a38ca2ac1e0befbc5d86a9e6c385f970"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 7,
+        "representative_dag_width": 3,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N10",
+      "title": "有限置换群的同态验证",
+      "style": "reasoning4",
+      "goal": "根据有限群的生成元及其目标像，检验它们是否定义一致的同态，并给出所有群元素的映射。",
+      "source_core": "PermutationGroup 的同态检查处理逆生成元错误，连 D3 的恒等映射也拒绝。",
+      "adaptation": "限置换作用于至多 5 个元素、群阶至多 120；使用闭包遍历和置换数组，不安装 SymPy，也不扩展一般无限群。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：有限闭包遍历、置换复合和映射一致性检查。",
+        "S0：静态生成元。",
+        "C1：生成元与逆元操作表共同供闭包及像映射使用。",
+        "I1：置换数组与生成元词的有限转换。"
+      ],
+      "minimum_counterexample": "D3 的 r³=e、s²=e；r→r、s→s 应通过，r→r、s→r 则违反 s²=e。只逐个检查目标是否是合法置换不够。",
+      "nodes": {
+        "a": "读取生成元及像",
+        "b": "源群与逆元表",
+        "c": "目标像与逆元表",
+        "d": "联合遍历映射",
+        "e": "同态判定与映射表"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "源群和目标操作表可并行构建，不同目标映射可并行验证。",
+      "serial": "同一个源元素经不同词得到的像必须在联合遍历中一致。",
+      "core_verifier": "恒等同态、逆元、同一元素多种表示、不满足群关系的赋像。",
+      "independent_oracle": "枚举小群乘法表，直接检验 f(xy)=f(x)f(y)。",
+      "negative_implementation": "忽略逆生成元，或只检查生成元各自的格式。",
+      "nearest_existing": [
+        "original/adaptive_access_review"
+      ],
+      "duplicate_distinction": "旧题的人员指派/区间选择与本题的有限群关系检查无共用算法；名称中均有 reasoning 不构成重复。",
+      "excluded_from_core": "不要求大型群算法、任意符号关系或指定的生成元词输出。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "sympy__sympy-24443",
+          "source_row": 496,
+          "repo": "sympy/sympy",
+          "base_commit": "809c53c077485ca48a206cee78340389cb83b7f1",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/sympy/sympy/pull/24443",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N10_SWE_1.json",
+          "evidence_sha256": "c6e83a031cb537df841aca49862f8f92d88b68858300098d8e82b63fdf03d5d2"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N11",
+      "title": "零块保形的分块矩阵连乘",
+      "style": "reasoning4",
+      "goal": "对小型分块矩阵完成多次乘法，保留零块的行列形状，保证中间结果还能继续参与运算。",
+      "source_core": "BlockMatrix 连乘把 ZeroMatrix 变成无 shape 的标量零，下一次乘法失败。",
+      "adaptation": "用有形状的零块和小整数稠密块代替完整符号系统；至少覆盖连续三次乘法。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：标准分块矩阵乘法。",
+        "S0：矩阵链静态。",
+        "C1：块乘积需按共同形状契约求和，中间结果进入下一轮。",
+        "I1：保留有类型零块与数值块的表示区别。"
+      ],
+      "minimum_counterexample": "B=diag(A,Zero(2,2))；B² 的右下块仍须是 2×2 零块，才能继续算 B³，不能仅返回整数 0。",
+      "nodes": {
+        "a": "读取块矩阵链",
+        "b": "块行列形状分析",
+        "c": "独立块乘积",
+        "d": "按块求和并保形",
+        "e": "后续矩阵乘法",
+        "f": "最终矩阵"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "每轮不同输出块及块乘积可并行；图中 c 代表这一组独立工作项。",
+      "serial": "后续乘法必须消费已完成且保形的中间矩阵。",
+      "core_verifier": "三次连乘、全零块行、不同合法块形状；比较实际稠密结果和结构形状。",
+      "independent_oracle": "把块展开为普通整数矩阵后做独立乘法。",
+      "negative_implementation": "遇零直接折叠为无维度标量。",
+      "nearest_existing": [
+        "medium/MP02",
+        "N01"
+      ],
+      "duplicate_distinction": "旧拼接题不做块乘法；N01 的布尔依赖矩阵也不同于本题的有形状零元与整数矩阵连乘。",
+      "excluded_from_core": "不实现一般计算机代数、NaN 比较、非法维度异常体系。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "sympy__sympy-17630",
+          "source_row": 461,
+          "repo": "sympy/sympy",
+          "base_commit": "58e78209c8577b9890e957b624466e5beed7eb08",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/sympy/sympy/pull/17630",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "1-4 hours",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 2,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N11_SWE_1.json",
+          "evidence_sha256": "fb1eaf2cee897ebd438f09d15a808b87ad8e8ee62879e910b5337b32717d43c6"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 5,
+        "representative_dag_width": 1,
+        "longest_path_edges": 5,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N12",
+      "title": "关联条件下不重复的外键选项",
+      "style": "multistage4",
+      "goal": "按关联记录筛选外键候选，产生一份身份唯一、条件正确的表单选项。",
+      "source_core": "limit_choices_to 经 JOIN 匹配多条关联行时，为同一目标生成重复选项。",
+      "adaptation": "用小型人物/关联表和有限谓词 DSL 替代 ORM；保留存在性语义与目标身份，输出选项和匹配解释。",
+      "asci": [
+        1,
+        0,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：关系半连接/存在性查询与身份去重。",
+        "S0：静态关系表。",
+        "C1：基础候选与关联条件汇合。",
+        "I2：关系行的多重性不能改变表单实体的身份语义。"
+      ],
+      "minimum_counterexample": "人物 p 有两条符合条件的 joke 记录，只应产生一个 p 选项；两个人同名则仍应产生两个不同 ID。",
+      "nodes": {
+        "a": "读取实体与关联表",
+        "b": "基础候选筛选",
+        "c": "关联条件匹配",
+        "d": "按身份半连接",
+        "e": "选项与解释"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "基础条件和关联关系匹配可并行；不同条件分支可并行。",
+      "serial": "必须在完整条件成立后按实体身份装配选项。",
+      "core_verifier": "一对多匹配、多个关系条件、同名不同 ID、匹配/不匹配候选。",
+      "independent_oracle": "对每个目标直接枚举关联行并检查是否存在满足完整条件的绑定。",
+      "negative_implementation": "直接输出 JOIN 行，或按显示名称去重。",
+      "nearest_existing": [
+        "medium/MP24",
+        "N21"
+      ],
+      "duplicate_distinction": "旧大学查询侧重统计与集合；本题修复关联多重性到 UI 选项的身份语义。N21 优化性能而保持既定查询结果，核心要求不同。",
+      "excluded_from_core": "不测试任意 ORM API、分页性能、国际化表单或非法谓词文本。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "SWE",
+          "source_id": "django__django-13315",
+          "source_row": 106,
+          "repo": "django/django",
+          "base_commit": "36bc47069ce071e80c8129500de3b8664d2058a7",
+          "data_revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_url": "https://github.com/django/django/pull/13315",
+          "tests_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+          "original_difficulty": "15 min - 1 hour",
+          "difficulty_kind": "人工预计修复时间，不是模型通过率",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N12_SWE_1.json",
+          "evidence_sha256": "f26c47fa9beb7c38965cbad929eb6c3aaa590791b85497873a6925a85e2b1bad"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N13",
+      "title": "主题合并后的待审帖子归属",
+      "style": "context8",
+      "goal": "执行有限的发帖、主题合并与审批序列，使待审帖子始终归属有效主题，豁免组仍可直接发帖。",
+      "source_core": "NodeBB 合并主题后待审帖子仍引用旧 TID，审批出现 topic-deleted。",
+      "adaptation": "保留主题重定向、队列归属更新和组豁免；用离线状态表与顺序事件替代论坛、数据库和 Web UI。",
+      "asci": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "axis_evidence": [
+        "A1：按主题索引更新队列记录。",
+        "S1：有限合并和审批提交，不增加并发/撤销协议。",
+        "C2：合并结果改变后续审批可用目标。",
+        "I1：队列记录与主题记录的引用对齐。"
+      ],
+      "minimum_counterexample": "A 中已有待审 p；A 合并入 B 后审批 p 应进入 B。没有合并的合法历史中同一审批仍进入 A。",
+      "nodes": {
+        "a": "读取主题与权限",
+        "b": "发帖豁免分析",
+        "c": "待审引用索引",
+        "d": "应用主题合并",
+        "e": "更新队列归属",
+        "f": "执行审批与汇总"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "豁免分析与队列索引可并行；无共享主题的记录批次可并行。",
+      "serial": "合并→队列重定向→审批按事件顺序进行。",
+      "core_verifier": "待审/直接发帖分支、单次或有限连续合并、审批结果的主题身份。",
+      "independent_oracle": "独立小型状态机逐事件执行并核对全部引用。",
+      "negative_implementation": "只迁移已发布帖子，遗漏队列 data.tid。",
+      "nearest_existing": [
+        "hard/identity_federation_transition_spec_v4"
+      ],
+      "duplicate_distinction": "旧身份题有祖先撤销和会话联动；本题只有有限队列引用迁移，没有复杂会话历史。",
+      "excluded_from_core": "不加并发仲裁、回滚、重复事件故障注入、未公开的精确错误字符串。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+          "source_row": 4,
+          "repo": "NodeBB/NodeBB",
+          "base_commit": "03a98f4de484f16d038892a0a9d2317a45e79df1",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N13_PRO_1.json",
+          "evidence_sha256": "b891d2565d6d4db00abbb72186129094b85c3e0e32668e9383ab252415a5255b"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N14",
+      "title": "批量有序集合的累加与结果回填",
+      "style": "multistage4",
+      "goal": "批量更新多个集合成员的分数，同时按原操作顺序返回每次更新后的分数。",
+      "source_core": "NodeBB 缺少统一批量增分接口，要求不存在成员初始化、重复成员累加和结果顺序一致。",
+      "adaptation": "采用内存后端与 SQLite 后端的可见适配器；标准输入合法增量，不要求真实 Redis/MongoDB 或并发写入。",
+      "asci": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：按 key/member 分组、有序前缀和与结果回填。",
+        "S1：有限批量更新。",
+        "C1：分组结果按原位置汇合。",
+        "I2：不同后端须保持逐次累加和返回顺序语义。"
+      ],
+      "minimum_counterexample": "初始 x=10，操作 x+=2、x+=3，应返回 [12,15]，不能返回 [15,15]。另一个成员可以独立更新。",
+      "nodes": {
+        "a": "读取批量操作",
+        "b": "按成员分组",
+        "c": "分组有序累加",
+        "d": "按原位置回填",
+        "e": "提交状态与结果"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "不同 key/member 分组可并行，c 表示多个独立分组。",
+      "serial": "同一成员的增量顺序和逐操作返回值必须保留。",
+      "core_verifier": "重复成员、跨集合、已有/新建成员，以及两个后端结果一致。",
+      "independent_oracle": "独立逐操作字典解释器。",
+      "negative_implementation": "并行覆盖同一成员，或用最终分数填充所有位置。",
+      "nearest_existing": [
+        "hard/tenant_quota_rebalance_spec_v4"
+      ],
+      "duplicate_distinction": "旧题求受限配额重分配；本题是确定性批处理前缀和，不做资源优化或共享预算求解。",
+      "excluded_from_core": "不加事务失败恢复、NaN/Infinity、未规定排序平局或性能倍数。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_NodeBB__NodeBB-6ea3b51f128dd270281db576a1b59270d5e45db0-vnan",
+          "source_row": 14,
+          "repo": "NodeBB/NodeBB",
+          "base_commit": "d9c42c000cd6c624794722fd55a741aff9d18823",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-6ea3b51f128dd270281db576a1b59270d5e45db0-vnan/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_NodeBB__NodeBB-6ea3b51f128dd270281db576a1b59270d5e45db0-vnan/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 2,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N14_PRO_1.json",
+          "evidence_sha256": "b4844e25a62238dd7a265da6ba47d3f8c9bd5e3e0ab4fe9a7c6e8db1699559bb"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 4,
+        "representative_dag_width": 1,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N15",
+      "title": "内部符号链接的保真构建与受限解包",
+      "style": "linux2",
+      "goal": "构建保留内部符号链接的归档，并在声明的目标目录内安全解包，核对清单和实际成员。",
+      "source_core": "Ansible 两个源题分别处理 tar 路径越界和内部符号链接被错误展开。",
+      "adaptation": "明确为双源组合改编；测试素材均在受控目录或虚拟文件表内。保留内部文件/目录链接、相对 linkname 和目标目录包含关系。",
+      "asci": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "axis_evidence": [
+        "A1：路径规范化、链接解析和归档清单遍历。",
+        "S1：一次构建与解包。",
+        "C2：链接分类改变清单遍历与可解包路径集合。",
+        "I2：文件系统链接语义需由 tar 成员类型保真承载。"
+      ],
+      "minimum_counterexample": "root/link→root/dir 应记录为一个链接，不复制 dir 子树；root2/a 不能因前缀 root 就被判断在 root 内。",
+      "nodes": {
+        "a": "读取受控目录树",
+        "b": "成员清单",
+        "c": "链接归属解析",
+        "d": "冻结归档计划",
+        "e": "tar 与清单生成",
+        "f": "受限解包与核对"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "成员枚举和链接分析可并行，归档内容与清单可独立物化。",
+      "serial": "先完成链接分类与包含检查，再写入和解包。",
+      "core_verifier": "内部文件/目录链接类型、相对目标、目录边界；清单与解包成员一致。",
+      "independent_oracle": "独立遍历受控虚拟树，并用 tarfile 检查成员类型与最终路径。",
+      "negative_implementation": "把目录链接展开、把路径前缀当包含关系。",
+      "nearest_existing": [
+        "medium/MP18",
+        "medium/MP19"
+      ],
+      "duplicate_distinction": "与旧归档题同域；旧题核心为指令选择/支持模块依赖，本题核心为链接身份及 containment。禁止复用旧清单选项换皮作为新题。",
+      "excluded_from_core": "不引入 TOCTOU 竞态、任意损坏 tar、精确异常文案、访问真实工作区之外的文件。",
+      "review_risk": "需冻结双源组合的可支持链接子集，避免把全套安全归档工具实现当成中等任务。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86",
+          "source_row": 85,
+          "repo": "ansible/ansible",
+          "base_commit": "8c044b846d1ea9e2a9c8870b1eaf6db3775e8e2c",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N15_PRO_1.json",
+          "evidence_sha256": "5e1e1de5f58a160c8320a8b75c094869c622fd35df8b6845f3f18b7b201480de"
+        },
+        {
+          "group": "PRO",
+          "source_id": "instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86",
+          "source_row": 99,
+          "repo": "ansible/ansible",
+          "base_commit": "a58fcde3a0d7a93c363ae7af4e6ee03001b96d82",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 3,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N15_PRO_2.json",
+          "evidence_sha256": "5a08f349e9daf3731c5a9b3e6b416877f3be9b693958bfee01c1cab8adcea8c1"
+        }
+      ],
+      "source_relation": "双源组合改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N16",
+      "title": "书目迁移中两种冲突策略",
+      "style": "multistage4",
+      "goal": "迁移 work_id 时，让书评保留所有冲突记录，而书架沿用删除旧项策略，返回准确的操作统计。",
+      "source_core": "OpenLibrary 的 Booknotes 冲突更新会误删笔记；Booknotes 与 Bookshelves 必须采用不同冲突行为。",
+      "adaptation": "用两个小表和 SQLite 实现，保留每种表的冲突契约与固定三项统计；兼容异常类型由可见适配层提供，不安装 PostgreSQL。",
+      "asci": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "axis_evidence": [
+        "A1：按唯一键检测冲突并应用表特定策略。",
+        "S1：有限迁移。",
+        "C2：当前目标记录是否存在改变可提交操作。",
+        "I2：不同后端冲突异常映射到相同业务策略，且两种表不能混用策略。"
+      ],
+      "minimum_counterexample": "旧 ID=1 和目标 ID=2 都存在：Booknotes 两行都保留；Bookshelves 只保留目标行。统一使用 delete-on-conflict 会删掉笔记。",
+      "nodes": {
+        "a": "读取迁移请求",
+        "b": "书评冲突计划",
+        "c": "书架冲突计划",
+        "d": "分别提交",
+        "e": "汇总三项统计与状态"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "两个表的冲突计划和独立表写入可并行。",
+      "serial": "各表必须依检测结果选择策略再提交。",
+      "core_verifier": "有/无冲突的两类表、完整记录保留情况和语义统计。",
+      "independent_oracle": "内存集合模型实现两种不同迁移策略。",
+      "negative_implementation": "把所有唯一键冲突都当成删除旧行。",
+      "nearest_existing": [
+        "medium/MP22"
+      ],
+      "duplicate_distinction": "MP22 导入 MARC 书目字段；本题不解析 MARC，而是执行数据库身份迁移及冲突保护。",
+      "excluded_from_core": "不要求完整书目服务、所有数据库驱动、错误信息逐字匹配或并发迁移。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866",
+          "source_row": 403,
+          "repo": "internetarchive/openlibrary",
+          "base_commit": "facafbe7339ca48a33e0d07e089e99b2cf6235df",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N16_PRO_1.json",
+          "evidence_sha256": "b867a261dbe9b6a7f2d83f2cd7407d4bd961eb45495365ac0dfd18c59c93fd5e"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N17",
+      "title": "模板配置依赖与最小更新集合",
+      "style": "reasoning4",
+      "goal": "识别模板中真正使用的 conf 配置项，并根据配置变更找到应重新生成的样式模板。",
+      "source_core": "qutebrowser 无法静态提取 Jinja2 模板对 conf 命名空间的依赖。",
+      "adaptation": "保留属性、字典下标和表达式中的 conf 引用；公开一个有限模板表达式语法及合法配置表。最小更新集合是本项目追加的直接消费者。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：有限 AST 遍历和反向依赖索引。",
+        "S0：静态模板与变更集合。",
+        "C1：提取的依赖集供更新计划使用。",
+        "I1：模板语法到规范配置键转换。"
+      ],
+      "minimum_counterexample": "模板使用 conf.auto_save.interval 和 conf.hints.min_chars，但 notconf.hints.min_chars 不应产生依赖；仅前者变化才使相关模板失效。",
+      "nodes": {
+        "a": "读取模板与配置表",
+        "b": "模板 A 依赖",
+        "c": "模板 B 依赖",
+        "d": "建立反向索引",
+        "e": "计算更新模板集合"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "模板之间、各表达式子树之间可并行分析。",
+      "serial": "更新计划必须使用完整依赖并集。",
+      "core_verifier": "conf 与相似命名空间、点/下标混用、多引用去重和变更影响集合。",
+      "independent_oracle": "对人工构造表达式树逐节点提取规范键，再做集合交集。",
+      "negative_implementation": "用字符串包含匹配，把 notconf 或普通文本也计为依赖。",
+      "nearest_existing": [
+        "medium/MP15",
+        "medium/MP19"
+      ],
+      "duplicate_distinction": "同属静态分析，但旧题分析 Python 导入与模块闭包；本题分析模板配置命名空间和重生成范围。",
+      "excluded_from_core": "不实现完整 Jinja 执行器、动态任意下标、精确无效配置异常文案。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+          "source_row": 580,
+          "repo": "qutebrowser/qutebrowser",
+          "base_commit": "04c65bb2b72542b239de2491c9242d8f641636db",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 7,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N17_PRO_1.json",
+          "evidence_sha256": "fc8a0f683588ce286c4c7f90a6ac12480d53d2c8cf9fabcdef7945e05cfef9c5"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N18",
+      "title": "保持编码的 URL 数字修改",
+      "style": "context8",
+      "goal": "在指定 URL 段中修改最后一个可操作数字，同时保持其他段与百分号编码原样。",
+      "source_core": "qutebrowser 修改了 %XX 内的数字，或解码重编码后丢失原始编码。",
+      "adaptation": "移除 Qt，以原始字符串跨度和有限 URL 分段表示实现；保留作用域、默认 path/query、零填充及非负减法这些源题核心语义。",
+      "asci": [
+        1,
+        0,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：编码跨度扫描、目标选择和局部替换。",
+        "S0：单次纯转换。",
+        "C1：分段与编码屏蔽共同决定目标位置。",
+        "I2：URL 编码信息必须在读改写链中保真。"
+      ],
+      "minimum_counterexample": "http://h/%3A5 增加 1 应成为 http://h/%3A6；不能改 %3A 内数字，也不能把 %3A 变成冒号。",
+      "nodes": {
+        "a": "保留原文分段",
+        "b": "百分号跨度识别",
+        "c": "允许作用域筛选",
+        "d": "选择最后数字",
+        "e": "局部替换并重建"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "编码屏蔽和作用域筛选可并行；不同 URL 可并行。",
+      "serial": "定位后只替换目标原文跨度。",
+      "core_verifier": "编码三元组、多个段和数字、零填充、正常减法；检查未修改字节。",
+      "independent_oracle": "独立逐字符扫描并标记 %XX 三字符跨度。",
+      "negative_implementation": "先 unquote 再重编码，或用普通数字正则匹配编码内部。",
+      "nearest_existing": [
+        "medium/MP17"
+      ],
+      "duplicate_distinction": "旧题组装 multipart 字节；本题定位编码字符串内的数字，不共享 MIME 组装算法。",
+      "excluded_from_core": "不继承所有 QUrl 标准化细节、畸形 URL 修复、未知参数异常体系。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+          "source_row": 621,
+          "repo": "qutebrowser/qutebrowser",
+          "base_commit": "3ae5cc96aecb12008345f45bd7d06dbc52e48fa7",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d/tests/test_patch.patch",
+          "original_difficulty": "HARD51 成员（hard=true）",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 30,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N18_PRO_1.json",
+          "evidence_sha256": "a1261930495096715db7f717262cbc3075bc17adcdf8c1e093542776f572d483"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N19",
+      "title": "读写路由与事务内可见性",
+      "style": "multistage4",
+      "goal": "让多个简化仓储通过统一数据库抽象读写；事务内读取必须看到本事务之前的写入，提交后能正常读取。",
+      "source_core": "Navidrome 直接传原始 sql.DB，读写/事务路径混杂，造成并发访问停滞或操作偏离事务。",
+      "adaptation": "保留 ReadDB/WriteDB 抽象与事务 builder 的传播，缩为两个仓储和本地 SQLite；首版只验有限顺序事务。",
+      "asci": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "axis_evidence": [
+        "A1：按作用域路由读写连接。",
+        "S1：有限事务 begin/commit，标准原子性。",
+        "C2：事务写入改变后续仓储读取的有效视图。",
+        "I2：事务内不能把读操作误路由到独立只读连接。"
+      ],
+      "minimum_counterexample": "事务中写入 album A，随后通过另一个仓储查询 A，必须立即可见；事务外旧连接的结果不能拿来代替事务内读。",
+      "nodes": {
+        "a": "数据库抽象与契约",
+        "b": "仓储 A 适配",
+        "c": "仓储 B 适配",
+        "d": "统一事务 builder",
+        "e": "事务内写后读",
+        "f": "提交后读取"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "两个仓储的接口适配可并行；事务内相关读写必须串行。",
+      "serial": "写入→同事务查询→提交→外部查询。",
+      "core_verifier": "两个仓储共享事务视图、普通读写路由和提交后持久化。",
+      "independent_oracle": "独立 SQLite 事务脚本与连接调用记录对照。",
+      "negative_implementation": "所有 SELECT 无条件走 ReadDB，丢失当前事务。",
+      "nearest_existing": [
+        "hard/payment_settlement_reconciliation_spec_v4",
+        "N16"
+      ],
+      "duplicate_distinction": "旧支付题有结算联动与复杂约束；N16 是表特定冲突策略。本题只研究连接/事务身份传播和读己之写。",
+      "excluded_from_core": "不加压力测试、锁争用竞态、分布式事务、重试/崩溃恢复协议。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_navidrome__navidrome-55bff343cdaad1f04496f724eda4b55d422d7f17",
+          "source_row": 477,
+          "repo": "navidrome/navidrome",
+          "base_commit": "68f03d01672a868f86e0fd73dde3957df8bf0dab",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_navidrome__navidrome-55bff343cdaad1f04496f724eda4b55d422d7f17/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_navidrome__navidrome-55bff343cdaad1f04496f724eda4b55d422d7f17/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 1,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N19_PRO_1.json",
+          "evidence_sha256": "37cb2b82d5c43e20cdb9fe7683931fce3cfc6bee7060adf6eff988561c8f99c7"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N20",
+      "title": "目录与 ZIP 包的资源预加载",
+      "style": "context8",
+      "goal": "从普通目录或 ZIP 包中发现指定 HTML/JS 资源，构建同一缓存，并在预加载后通过缓存返回内容。",
+      "source_core": "qutebrowser 的资源 glob 与预加载在 Path、zipfile.Path 和冻结模式下不一致。",
+      "adaptation": "仅保留源题列明的目录和扩展名、POSIX 相对路径、两种载体及缓存命中语义；不运行浏览器。",
+      "asci": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：目录枚举、后缀选择和缓存索引。",
+        "S1：一次 preload 后的读取。",
+        "C1：各资源目录汇入缓存。",
+        "I2：目录和 ZIP 载体必须返回相同资源身份，缓存命中不能再依赖原载体。"
+      ],
+      "minimum_counterexample": "html/a.html 应纳入，html/unrelatedhtml 不应纳入；预加载完成后关闭原资源源，read_file(a) 仍应成功。",
+      "nodes": {
+        "a": "资源根与目录清单",
+        "b": "目录适配器",
+        "c": "ZIP 适配器",
+        "d": "多目录资源索引",
+        "e": "构建内容缓存",
+        "f": "独立缓存读取"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "两个载体适配器与 html/javascript 资源分支可并行。",
+      "serial": "完成预加载后，正式读取只消费缓存。",
+      "core_verifier": "目录/ZIP 等价、直接子目录匹配、路径身份和关闭 loader 后的读取。",
+      "independent_oracle": "使用预先列出的资源真值表与字节内容，独立检查 ZIP/目录。",
+      "negative_implementation": "依赖 Path.glob 的专有行为，或缓存命中时仍读文件。",
+      "nearest_existing": [
+        "medium/MP19",
+        "N15"
+      ],
+      "duplicate_distinction": "旧题发现模块后打包；N15 保留符号链接。本题读取既有包的静态资源并建立脱离载体的缓存。",
+      "excluded_from_core": "不测试损坏 ZIP、任意包导入机制、LZMA 压缩支持或严格错误消息。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "PRO",
+          "source_id": "instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367",
+          "source_row": 583,
+          "repo": "qutebrowser/qutebrowser",
+          "base_commit": "6d9c28ce10832aa727de1a326d9459a035ff3aba",
+          "data_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+          "original_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367/instruction.md",
+          "tests_url": "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367/tests/test_patch.patch",
+          "original_difficulty": "非 HARD51（hard=false）；不能据此称为 easy/medium",
+          "difficulty_kind": "HARD51 子集成员标志；无可直接继承的中等标签",
+          "fail_to_pass_count": 12,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N20_PRO_1.json",
+          "evidence_sha256": "78486fb2320c7c32c1dcea7a1020fe74bc5a46b202e71b19d8eb3f8850fb4b8d"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N21",
+      "title": "词义统计 SQL 的等价优化",
+      "style": "reasoning4",
+      "goal": "把含重复相关子查询的词义统计 SQL 改写为更少重复工作的查询，保持列名、结果和顺序一致。",
+      "source_core": "Terminal-Bench 要优化 OEWN SQLite 查询，统计词义/同义集/领域，并选择出现次数最多的同义集。",
+      "adaptation": "提供小型但含重复关系与平局的生成数据库；以固定 SQLite 版本的 VM 工作量或查询结构证据取代不稳定秒数比值。阈值需参考解验证后冻结。",
+      "asci": [
+        1,
+        0,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：分组聚合、排名和平局规则；无额外组合优化。",
+        "S0：只读数据库。",
+        "C1：总量统计与 top-synset 统计按 word_id 汇合。",
+        "I2：SQL 改写须保持多重性、排序及空值语义。"
+      ],
+      "minimum_counterexample": "某词两个同义集各出现 2 次时应取较小 synset_id；直接 JOIN 聚合可能重复放大 sense_count。",
+      "nodes": {
+        "a": "读取表与原查询",
+        "b": "总量统计设计",
+        "c": "最高频同义集设计",
+        "d": "合并等价 SQL",
+        "e": "执行与工作量报告"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "两个聚合子问题可并行分析；不同数据规模的验证可并行。",
+      "serial": "最终 SQL 必须统一 word_id 与排序，再测工作量。",
+      "core_verifier": "在多个生成关系库上逐行比较结果；只读保证；参考解证明可满足的工作量上限。",
+      "independent_oracle": "直接 Python 枚举关系表计算结果，另用 SQLite progress handler 记录工作量。",
+      "negative_implementation": "删除 DISTINCT、漏平局、靠修改数据库或硬编码答案加速。",
+      "nearest_existing": [
+        "medium/MP24",
+        "N12"
+      ],
+      "duplicate_distinction": "N12 修复选项身份；本题保持既定统计语义并减少重复计算。不能用只改表名的旧关系查询复用题面。",
+      "excluded_from_core": "不加真实大数据库下载、墙钟 1.05 倍门槛、SQL 字符数限制或无关语法风格限制。",
+      "review_risk": "条件候选：改编时须先冻结 VM 工作量计数版本和可满足阈值；未通过参考解验证前不发布。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "query-optimize",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/query-optimize/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/query-optimize/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/query-optimize/task.toml",
+          "original_difficulty": "medium",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 60.0,
+          "junior_time_estimate_min": 480.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N21_TB_1.json",
+          "evidence_sha256": "3c501fc35bd72b8d977b5a94b487fdb11f8701b94efffcf93f36d4f28544160e"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N22",
+      "title": "Git 遗失对象恢复与彻底清理",
+      "style": "linux2",
+      "goal": "从本地测试仓库中恢复被重写历史遗失的合成标记，再清理仓库内相关对象，保留无关文件和提交说明。",
+      "source_core": "Terminal-Bench 要从不可达 Git 对象找回误提交的 secret[...]，并确保仓库中不再可找到它。",
+      "adaptation": "标记由 fixture 随机生成且为合成数据；保留对象枚举、恢复副本、引用/不可达对象清理与无关内容保护，不要求网络服务。",
+      "asci": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：Git 对象图遍历和可达性处理。",
+        "S1：先恢复、再有限清理。",
+        "C1：对象定位供恢复与清理使用。",
+        "I1：Git 对象和工作区文件接口。"
+      ],
+      "minimum_counterexample": "工作区和 git log 均无标记，但 dangling blob 仍含标记；只删当前文件或只看可达提交会失败。必须先保存恢复副本再回收对象。",
+      "nodes": {
+        "a": "读取本地仓库",
+        "b": "引用与历史扫描",
+        "c": "不可达对象扫描",
+        "d": "保存恢复标记",
+        "e": "清理引用与对象",
+        "f": "保留性与全对象核对"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "只读的可达/不可达扫描可并行。",
+      "serial": "恢复产物保存成功后才能执行清理；Git 写操作串行。",
+      "core_verifier": "验证恢复值、全部对象是否含标记、无关文件字节和必要提交说明。",
+      "independent_oracle": "评分器枚举全部对象而非只看 dangling 根，并对正常树内容做快照比较。",
+      "negative_implementation": "只清理分支历史，遗漏 reflog/不可达 blob；或删除整个仓库。",
+      "nearest_existing": [
+        "original/security_boundary_hardening"
+      ],
+      "duplicate_distinction": "旧题是权限/安全边界组件；本题操作 Git 对象可达性及垃圾回收，不是一般日志脱敏。",
+      "excluded_from_core": "不加真实密钥、托管服务、复杂 signed commits 或所有 pack 损坏恢复。",
+      "review_risk": "本地 Git 即可；生成式 verifier 与原固定标记检查不同，须注明为改编新增验收。",
+      "environment": "Python 3.11 + Git",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "git-leak-recovery",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-leak-recovery/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-leak-recovery/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-leak-recovery/task.toml",
+          "original_difficulty": "medium",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 30.0,
+          "junior_time_estimate_min": 60.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N22_TB_1.json",
+          "evidence_sha256": "ea260f29ecbd19e4a6a92912bd41fa243bc784030eee5df9e036814968c96bd3"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N23",
+      "title": "损坏 WAL 的修复与数据合并",
+      "style": "linux2",
+      "goal": "修复受控变换过的 SQLite WAL，使数据库可读取，并导出包含更新与新增记录的完整 JSON。",
+      "source_core": "源题的基础库只有 5 条，必须修复 WAL 才能恢复完整 11 条及旧行更新。",
+      "adaptation": "保留实际 SQLite base+WAL 载体；使用本地可生成 fixture。只支持题面公开的有限破坏模型，不做任意数据库取证；破坏模型冻结属于本项目补充规格。",
+      "asci": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "axis_evidence": [
+        "A1：有限编码识别、WAL 头/页格式检查与标准 SQLite 恢复。",
+        "S1：一次受控恢复与导出。",
+        "C1：基础库与修复 WAL 共同提供最终快照。",
+        "I2：格式有效的 WAL 必须真正可被 SQLite 读取，而非只伪造 JSON。"
+      ],
+      "minimum_counterexample": "基础库 id=1,value=100；WAL 改为 150 并插入 id=6。只读取基础库或把两份列表简单追加，都不等于恢复后的快照。",
+      "nodes": {
+        "a": "读取恢复材料",
+        "b": "基础库结构与记录",
+        "c": "WAL 有限破坏识别",
+        "d": "修复并交给 SQLite",
+        "e": "导出完整快照"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "parallel": "基础库分析与 WAL 分析可并行。",
+      "serial": "先修复可读性，再由 SQLite 确定最终记录，最后导出。",
+      "core_verifier": "完整记录及覆盖更新、修复后的实际数据库查询、导出排序与值一致。",
+      "independent_oracle": "fixture 生成时保存正常数据库的逻辑快照作为独立答案。",
+      "negative_implementation": "硬编码源题 11 行，或仅从文件中抓取可见字符串。",
+      "nearest_existing": [
+        "hard/streaming_checkpoint_recovery_spec_v4",
+        "hard/backup_restore_certification_spec_v4"
+      ],
+      "duplicate_distinction": "旧题做流式检查点链或备份方案认证；本题做有限 WAL 编码修复和实际 SQLite 合并，没有恢复链/预算搜索。",
+      "excluded_from_core": "不加入任意 torn-page、交易并发、未知加密破解、文件系统崩溃模拟。",
+      "review_risk": "条件候选：上游题面未明确破坏模型。本项目必须显式限定并用正常 WAL round-trip 验证后才能实现发布。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "db-wal-recovery",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/db-wal-recovery/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/db-wal-recovery/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/db-wal-recovery/task.toml",
+          "original_difficulty": "medium",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 45.0,
+          "junior_time_estimate_min": 240.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N23_TB_1.json",
+          "evidence_sha256": "ec8f1f252dc33b22a9afff40bddab970928b3b55a98b6a5fd4bbd232b0a496f4"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 5,
+        "edges": 5,
+        "representative_dag_width": 2,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N24",
+      "title": "COBOL 定长交易文件的 Python 等价迁移",
+      "style": "linux2",
+      "goal": "读取定长账户、图书所有权和交易输入，执行书籍转让，产生与给定 COBOL 程序一致的三个数据文件。",
+      "source_core": "源程序校验买卖双方及图书所有权，再更新余额、所有者并追加交易记录。",
+      "adaptation": "保留真实字段宽度及连续有效交易语义；提供源程序与已冻结黄金轨迹，agent 环境只需 Python。GnuCOBOL 仅用于出题方离线生成参考。",
+      "asci": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "axis_evidence": [
+        "A1：定长记录解析、查找和标准账务更新。",
+        "S1：顺序有限交易提交。",
+        "C2：前一交易的所有权决定下一交易可否执行。",
+        "I2：跨语言迁移必须保留字段宽度、所有权和记账语义。"
+      ],
+      "minimum_counterexample": "A 将书卖给 B 后，下一条仍以 A 为卖方的请求应失败；余额、书籍 owner 和交易日志不能只更新其中两项。",
+      "nodes": {
+        "a": "读取定长材料",
+        "b": "账户解析器",
+        "c": "图书解析器",
+        "d": "交易记录解析器",
+        "e": "顺序执行业务",
+        "f": "物化三个 DAT 文件"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "三个解析器和最终独立文件序列化可并行开发；单笔验证读取可并行。",
+      "serial": "共享账户/图书的连续交易按输入顺序执行。",
+      "core_verifier": "合法交易、所有权不符不更新、连续转售，以及三个文件的内容一致。",
+      "independent_oracle": "离线 GnuCOBOL 轨迹与独立字段级状态解释器交叉核对。",
+      "negative_implementation": "按输入指定卖方无条件转账，或改变定长字段布局。",
+      "nearest_existing": [
+        "hard/payment_settlement_reconciliation_spec_v4",
+        "medium/MP25"
+      ],
+      "duplicate_distinction": "旧支付题是复杂结算核对；旧票据题是文本提取归档。本题是有明确参考程序的跨语言定长交易迁移。",
+      "excluded_from_core": "不加信用额度、反洗钱、溢出/负余额极端值、任意损坏 DAT 或崩溃原子性。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "cobol-modernization",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/cobol-modernization/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/cobol-modernization/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/cobol-modernization/task.toml",
+          "original_difficulty": "easy",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 20.0,
+          "junior_time_estimate_min": 70.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N24_TB_1.json",
+          "evidence_sha256": "b5a9069dce436e764bf138ce776ba13b42c64f527a03809056c70f21792ab19e"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 7,
+        "representative_dag_width": 3,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N25",
+      "title": "本地 Git 双分支自动部署",
+      "style": "linux2",
+      "goal": "搭建本地 bare 仓库和 post-receive hook，将 main/dev 的内容各自部署到对应目录。",
+      "source_core": "上游要求 SSH Git 服务、Nginx HTTPS、双分支部署和 push 后自动更新。",
+      "adaptation": "明确移除 SSH/Nginx/TLS 与 3 秒门槛，改用本地 git push 触发真实 hook；保留 ref→部署目录映射与两个分支互不覆盖。属于环境简化改编。",
+      "asci": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：解析 hook 的 ref 更新与标准 Git checkout/archive。",
+        "S1：push 后有限部署提交。",
+        "C1：各 ref 事件消费对应 commit，合并部署结果。",
+        "I1：Git refs 到文件系统目录的固定契约。"
+      ],
+      "minimum_counterexample": "一次 push 更新 main 和 dev，两个目录内容必须不同；之后只推 dev，main 部署内容应保持原样。",
+      "nodes": {
+        "a": "本地 bare 仓库契约",
+        "b": "main 部署模块",
+        "c": "dev 部署模块",
+        "d": "post-receive 分派",
+        "e": "真实 push",
+        "f": "核对两个部署目录"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "两个分支部署模块可并行开发，收到独立 ref 更新后可各自部署。",
+      "serial": "先安装 hook 再 push；同一分支的后续更新按 push 顺序提交。",
+      "core_verifier": "真实 git push 触发、两个分支分离、只更新单分支时另一目录保持不变。",
+      "independent_oracle": "直接读取各目标 commit 的 Git tree，与部署目录内容比较。",
+      "negative_implementation": "所有 ref 都 checkout 到同一目录，或仅生成静态初始页面。",
+      "nearest_existing": [
+        "original/dependency_release_reasoner",
+        "hard/artifact_provenance_release_spec_v4",
+        "N22"
+      ],
+      "duplicate_distinction": "旧题分析发布依赖/来源；本题执行 Git 接收 hook。N22 操作历史对象恢复，本题处理 ref 驱动的部署，互不复用核心算法。",
+      "excluded_from_core": "不要求真实 SSH 账户、证书、网络端口、墙钟 3 秒门槛或失败自动回滚。",
+      "review_risk": "低：运行环境预装 Git，所有路径位于临时沙箱。",
+      "environment": "Python 3.11 + Git",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "git-multibranch",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-multibranch/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-multibranch/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/git-multibranch/task.toml",
+          "original_difficulty": "medium",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 180.0,
+          "junior_time_estimate_min": 360.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N25_TB_1.json",
+          "evidence_sha256": "c420de7066d01313c6b4e69d7af978724ea73b2fbcc3b8d72f213601b36aa87c"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N26",
+      "title": "双 KL 约束的概率分布构造",
+      "style": "reasoning4",
+      "goal": "构造长度 150000 的正概率向量，使正向与反向 KL 到均匀分布都接近 10，并保存可独立读取的 dist.npy。",
+      "source_core": "上游同时要求 KL(P||U)=10 与 KL(U||P)=10，两个误差均不超过 0.001。",
+      "adaptation": "保留两个耦合数值目标与概率归一化；允许标准低维参数化加求根，不要求全向量训练或 GPU。NumPy/SciPy 提前装入环境。",
+      "asci": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A1：标准数值求根/优化与稳定求和；目标并不要求非标准组合搜索。",
+        "S0：一次分布构造。",
+        "C1：两个 KL 指标约束同一组参数并在求解器中汇合。",
+        "I1：NumPy 向量文件与计算接口。"
+      ],
+      "minimum_counterexample": "均匀分布虽合法，但两种 KL 都为 0；只把一个 KL 调到 10，不能推出另一个也为 10。必须用同一个 P 同时满足。",
+      "nodes": {
+        "a": "参数化正概率分布",
+        "b": "正向 KL 指标",
+        "c": "反向 KL 指标",
+        "d": "联合数值求解",
+        "e": "展开并保存向量",
+        "f": "从磁盘重算指标"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "两种指标及不同初值探索可并行；一组参数的更新需汇合两种残差。",
+      "serial": "求解器迭代内部仍有反馈；图展示模块依赖，不把迭代循环伪称业务 DAG。",
+      "core_verifier": "独立加载向量，检查正概率及总和，重算两个 KL 与公开容差。",
+      "independent_oracle": "使用独立公式和稳定求和复算，接受任意满足条件的向量而非唯一黄金向量。",
+      "negative_implementation": "只满足一个 KL、指标用不同向量或只在内存中归一化后却保存错误向量。",
+      "nearest_existing": [
+        "original/schema_evolution_reasoner"
+      ],
+      "duplicate_distinction": "已有任务没有双 KL 概率构造内核；属于数值计算内容，不是对旧调度题换名字。",
+      "excluded_from_core": "不加精确向量值、特定算法/随机种子、额外精度或性能门槛。正概率和有限 KL 是数学核心，不是通用 NaN 防御用例。",
+      "review_risk": "需在改编参考解中记录收敛成功的固定例子与正常数值容差，不把优化器收敛偶然性当作隐性难度。",
+      "environment": "Python 3.11 + 预装 NumPy/SciPy",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "TB",
+          "source_id": "distribution-search",
+          "data_revision": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "original_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/distribution-search/instruction.md",
+          "tests_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/distribution-search/tests/test_outputs.py",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/distribution-search/task.toml",
+          "original_difficulty": "medium",
+          "difficulty_kind": "task.toml 作者设计标签；未核验逐题实测分档",
+          "expert_time_estimate_min": 120.0,
+          "junior_time_estimate_min": 240.0,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N26_TB_1.json",
+          "evidence_sha256": "f1af2cbaaf73d8f5d2154c0e4cf748f42117ee05d5015c38f42d9e5b3be1f297"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 6,
+        "representative_dag_width": 2,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N27",
+      "title": "租房收藏整理与固定窗口新房源通知",
+      "style": "multistage4",
+      "goal": "整理符合城市与预算的收藏，并在固定四分钟逻辑窗口内将新出现的合格房源通知指定朋友。",
+      "source_core": "GAIA2 要删除 Stockholm 非预算收藏、保存已有合格房源，并通知窗口内新上架的合格房源。",
+      "adaptation": "保留初始收藏、新事件及固定窗口；用注入式逻辑时钟和静态事件清单代替真实等待。城市和价格来自结构化字段，不做开放文本理解。",
+      "asci": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "axis_evidence": [
+        "A0：集合差/并与直接时间窗口筛选。",
+        "S1：固定窗口内有限收藏和发送提交。",
+        "C1：初始列表和事件筛选汇入动作计划。",
+        "I1：有限 RentAFlat/Messages 适配。"
+      ],
+      "minimum_counterexample": "已有合格收藏 A 不应被当成新上架反复通知；窗口内出现的合格 B 应通知，窗口后的 C 不应通知。",
+      "nodes": {
+        "a": "初始快照与逻辑事件",
+        "b": "旧收藏清理计划",
+        "c": "现有合格房源保存计划",
+        "d": "窗口内新房源筛选",
+        "e": "提交收藏与通知",
+        "f": "最终状态与动作账本"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ]
+      ],
+      "parallel": "三类计划可以并行；不同新房源互不依赖。",
+      "serial": "消息记录必须对应窗口内的新房源，提交后生成最终账本。",
+      "core_verifier": "保留/删除/新增收藏及对应通知；固定时钟起点与窗口端点公开。",
+      "independent_oracle": "独立集合运算与逐事件解释器，核对实体 ID 和语义字段。",
+      "negative_implementation": "把全部合格旧房源都通知，或丢掉时间窗口。",
+      "nearest_existing": [
+        "medium/MP05",
+        "medium/MP26"
+      ],
+      "duplicate_distinction": "旧题为联系人排名/循环日程；本题的集合对象是房源，核心为初始集合与新增事件的分离，不是静态联系人排名。",
+      "excluded_from_core": "不加重复投递恢复、网络延迟、精确秒级响应、任意预算变化或自然语言消息逐字匹配。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "GAIA",
+          "source_id": "scenario_universe_21_xvc7uo",
+          "row_id": "0741_0uetwq6bp7jrofwsyy9uel4puv0c3kb2",
+          "source_row": 0,
+          "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "category": "time",
+          "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=0",
+          "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+          "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+          "difficulty_kind": "场景 category 不是难度",
+          "oracle_event_count": 7,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N27_GAIA_1.json",
+          "evidence_sha256": "1298ba47c1acb9f3864f106d23cec78361db75d8611cf35d05e11a7da259d12b"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 6,
+        "edges": 7,
+        "representative_dag_width": 3,
+        "longest_path_edges": 3,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N28",
+      "title": "定时回复与按唯一收件人采购",
+      "style": "multistage4",
+      "goal": "收集固定四分钟内的新邮件，到点统一回复，再在三十秒逻辑延迟后按不同发件人数采购并创建提醒。",
+      "source_core": "GAIA2 要在固定时点回复窗口内邮件，为每个唯一邮箱购买一件指定商品，然后创建月底全天提醒。",
+      "adaptation": "保留邮件数与唯一发件人数的区别、两阶段逻辑时间和公开指定商品；移除实际等待和真实购买，使用有限模拟动作账本。",
+      "asci": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "axis_evidence": [
+        "A0：时间筛选、邮箱去重及直接计数。",
+        "S1：固定两阶段提交，不加入取消反馈或优惠码重试。",
+        "C2：实际回复对象集合决定采购数量。",
+        "I1：邮件/购物/日历有限接口。"
+      ],
+      "minimum_counterexample": "窗口内 A 发两封、B 发一封：回复三封，但采购两件；不能按三封邮件买三件。四分钟之后的新邮件不属于这批。",
+      "nodes": {
+        "a": "固定时钟与邮件事件",
+        "b": "窗口邮件收集",
+        "c": "指定商品定位",
+        "d": "到点逐封回复",
+        "e": "按实际回复地址去重",
+        "f": "逻辑延迟后采购",
+        "g": "创建提醒与账本"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "c",
+          "f"
+        ],
+        [
+          "e",
+          "f"
+        ],
+        [
+          "f",
+          "g"
+        ]
+      ],
+      "parallel": "商品定位与邮件收集可并行；到点各封回复可独立生成。",
+      "serial": "回复→确定唯一地址数→延迟采购→提醒，顺序保留。",
+      "core_verifier": "逐邮件回复、按地址采购数量、两个逻辑时间节点和提醒日期；核对语义而非消息风格。",
+      "independent_oracle": "独立集合/计数模型与逻辑时间状态机。",
+      "negative_implementation": "按邮件总数采购，或在窗口结束前把未完成的集合提前结算。",
+      "nearest_existing": [
+        "medium/MP09",
+        "medium/MP10"
+      ],
+      "duplicate_distinction": "旧采购题根据静态名单/需求选购；本题由固定窗口内实际回复的唯一发件人集合驱动数量，没有难题中的反馈重试。",
+      "excluded_from_core": "不加库存竞争、付款失败、收件邮箱畸形输入、真实 wall-clock 误差或完整礼品文案逐字检查。",
+      "review_risk": "低：进入改编前冻结输入域、参考解和验收映射。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "GAIA",
+          "source_id": "scenario_universe_27_fcbx0i",
+          "row_id": "0740_miogpm9n3im97oxbplhp0flsdf2wpzvm",
+          "source_row": 1,
+          "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "category": "time",
+          "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=1",
+          "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+          "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+          "difficulty_kind": "场景 category 不是难度",
+          "oracle_event_count": 6,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N28_GAIA_1.json",
+          "evidence_sha256": "d95126ad3a40b27c02ba1b0332d3efc223ad80021d48b54cb779e58ee0ea090f"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 7,
+        "edges": 7,
+        "representative_dag_width": 2,
+        "longest_path_edges": 5,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N29",
+      "title": "群成员响应阈值触发的出行安排",
+      "style": "multistage4",
+      "goal": "创建群聊，在固定窗口内有三名不同参与者发言时，安排一次车辆、发送群通知并删除晚间冲突日程。",
+      "source_core": "GAIA2 的 Happy Astrid Day 场景，以不同群成员人数而非消息条数触发出行及后续动作。",
+      "adaptation": "保留三人阈值与五分钟逻辑窗口；结构化联系人和消息事件，单次阈值触发，不加入预约取消、成员撤销或多轮重试。",
+      "asci": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "axis_evidence": [
+        "A0：去重计数和固定窗口筛选。",
+        "S1：单个单调阈值的一次性有限提交；普通幂等不升为 S2。",
+        "C2：是否达到阈值决定订车和清理分支是否可执行。",
+        "I1：群聊/车辆/日历有限字段契约。"
+      ],
+      "minimum_counterexample": "A,A,B 共三条消息仍只有两个人，不可订车；第三名 C 在窗口内出现才触发一次，后续消息不能追加同一车单。",
+      "nodes": {
+        "a": "联系人与初始日程",
+        "b": "创建群聊",
+        "c": "晚间日程候选",
+        "d": "窗口内成员去重计数",
+        "e": "阈值门控",
+        "f": "订车",
+        "g": "群通知与日程清理",
+        "h": "最终账本"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "e",
+          "f"
+        ],
+        [
+          "e",
+          "g"
+        ],
+        [
+          "c",
+          "g"
+        ],
+        [
+          "f",
+          "h"
+        ],
+        [
+          "g",
+          "h"
+        ]
+      ],
+      "parallel": "初始日程分析与群聊建立可并行；门控后订车与通知/清理有独立分支。",
+      "serial": "群创建后接收消息，满足阈值后才能执行出行分支。",
+      "core_verifier": "不同参与者计数、触发/不触发两条正常业务路径、一次订车和正确晚间清理集合。",
+      "independent_oracle": "用成员集合与布尔触发位的简洁状态机对照。",
+      "negative_implementation": "按消息数量计数，或每到一条阈值后消息都订车。",
+      "nearest_existing": [
+        "medium/MP09",
+        "medium/MP11"
+      ],
+      "duplicate_distinction": "旧题按静态参会者规划；本题的核心是事件响应阈值决定动作可行性。只有单调一次性门控，未保留困难候选中的多轮补偿历史。",
+      "excluded_from_core": "不加成员退群、撤回投票、迟到补偿、支付失败、其他群聊干扰攻击。",
+      "review_risk": "中等上沿：审计时须坚持单调一次性门控。若扩成取消/重开等交互状态，必须重新分档。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "GAIA",
+          "source_id": "scenario_universe_21_ycoch2",
+          "row_id": "0800_mtpdtggicbmuvw8b8hueo01a08w7blrn",
+          "source_row": 12,
+          "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "category": "time",
+          "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=12",
+          "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+          "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+          "difficulty_kind": "场景 category 不是难度",
+          "oracle_event_count": 5,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N29_GAIA_1.json",
+          "evidence_sha256": "0025911df3c5e24f4a45f72912ddd5a62045ca09d73077f520932b86c6e5fbf2"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 8,
+        "edges": 9,
+        "representative_dag_width": 2,
+        "longest_path_edges": 5,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    },
+    {
+      "id": "N30",
+      "title": "移动后附件的跨渠道收件人分流",
+      "style": "linux2",
+      "goal": "移动指定文件后，把同一新路径附件发给按条件定位的联系人，并把可用消息渠道不同的历史教师分成群聊和邮件两组。",
+      "source_core": "GAIA2 要创建 Cold War 文件夹、移动文档、定位邮件作者和联系人，再按 Messages 可达性分流分享。",
+      "adaptation": "保留文件移动后路径、多个独立联系人条件、渠道分区及群发；内容仅为不透明小文件，不读取或编辑 xlsx。",
+      "asci": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "axis_evidence": [
+        "A1：联系人条件连接、集合分区和去重。",
+        "S1：有限文件移动与发送。",
+        "C2：移动结果决定有效附件，渠道可达性决定可用发送分支。",
+        "I2：同一文件身份和接收者集合跨文件/群聊/邮件保真。"
+      ],
+      "minimum_counterexample": "教师 A 在 Messages、B 不在；A 进入群聊，B 进入单独合并邮件；两者附件都必须指向移动后的文件，不能继续引用旧路径或把 B 丢掉。",
+      "nodes": {
+        "a": "快照与文件",
+        "b": "创建目录并移动",
+        "c": "定位邮件作者与飞行员",
+        "d": "教师与渠道分区",
+        "e": "按新路径建立附件",
+        "f": "目标邮件",
+        "g": "群聊与兜底邮件",
+        "h": "最终交付账本"
+      },
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "f"
+        ],
+        [
+          "e",
+          "f"
+        ],
+        [
+          "d",
+          "g"
+        ],
+        [
+          "e",
+          "g"
+        ],
+        [
+          "f",
+          "h"
+        ],
+        [
+          "g",
+          "h"
+        ]
+      ],
+      "parallel": "文件移动、目标定位、渠道分区可并行；新路径就绪后两类发送可并行。",
+      "serial": "附件路径消费必须在移动完成后；联系人分区冻结后再发送。",
+      "core_verifier": "实际文件字节身份、移动后路径、目标集合及群聊/邮件完整分区。",
+      "independent_oracle": "独立联系人关系查询与文件内容哈希，按语义动作集合验收。",
+      "negative_implementation": "发送旧路径，或假定所有联系人都能在 Messages 收到。",
+      "nearest_existing": [
+        "medium/MP07",
+        "medium/MP08",
+        "medium/MP12"
+      ],
+      "duplicate_distinction": "同文件操作题族，重复风险中：旧题核心是发送后归档/缺失照片报告/目录邮件整理；本题必须保留双目标定位与按渠道分区。若实施后只剩搬文件发邮件，应替换而非计为新题。",
+      "excluded_from_core": "不检查 xlsx 内部结构、邮件自然语言风格、网络服务、地址损坏或重复发送恢复协议。",
+      "review_risk": "同域条件候选：实施评审须确认收件人关系与渠道分区构成独立核心，不允许换目录名复用旧题。",
+      "environment": "Python 3.11 标准库",
+      "design_target": "M",
+      "proposed_structural_grade": "M",
+      "empirical_grade": null,
+      "task_implemented": false,
+      "verifier_implemented": false,
+      "sources": [
+        {
+          "group": "GAIA",
+          "source_id": "scenario_universe_27_sqvrhj",
+          "row_id": "0334_w4362b7r0l35e4yc9is7qyhn96g471yb",
+          "source_row": 80,
+          "data_revision": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "category": "execution",
+          "original_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=80",
+          "tests_url": "https://github.com/facebookresearch/meta-agents-research-environments/tree/a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+          "original_difficulty": "未提供所选场景逐题难度；不等同 GAIA 1 的 Level 1/2/3",
+          "difficulty_kind": "场景 category 不是难度",
+          "oracle_event_count": 6,
+          "original_single_task_pass_rate": null,
+          "evidence_file": "evidence/N30_GAIA_1.json",
+          "evidence_sha256": "49123387991a54c2d3db2d745fab34fd0126e4c772a50cbda444414538eae0f6"
+        }
+      ],
+      "source_relation": "单源抽取改编",
+      "dag_metrics": {
+        "nodes": 8,
+        "edges": 10,
+        "representative_dag_width": 3,
+        "longest_path_edges": 4,
+        "metric_scope": "候选模块 DAG；不含折叠的数组块/分组工作项，不表示实际 harness 加速比"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "group",
+  "op": "group_members",
+  "bindings": {
+    "contacts": "inputs/request.json#/contacts",
+    "names": "inputs/request.json#/names"
+  },
+  "spec": "contacts=[{id,name}]，names列出唯一姓名。返回 {id:'group:new',title:'Happy Astrid Day!',members:按ID排序目标联系人ID}。",
+  "output": "outputs/group.json",
+  "component": "group",
+  "task": "N29"
+}

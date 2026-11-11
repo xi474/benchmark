@@ -1,0 +1,13 @@
+{
+  "name": "rental_report",
+  "op": "rental_report",
+  "bindings": {
+    "saved": "outputs/initial_saves.json#",
+    "new": "outputs/new_listings.json#",
+    "friend": "inputs/request.json#/friend"
+  },
+  "spec": "返回 {saved:初始收藏整理结果,notifications:[{to:friend,property:ID,at:上架逻辑秒}]}。不得把旧合格房源当新事件通知。",
+  "output": "outputs/rental_report.json",
+  "component": "rental_report",
+  "task": "N27"
+}

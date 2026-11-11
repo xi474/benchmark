@@ -1,0 +1,13 @@
+{
+  "name": "probability_model",
+  "op": "probability_model",
+  "bindings": {
+    "n": "inputs/request.json#/n",
+    "groups": "inputs/request.json#/groups",
+    "targets": "inputs/request.json#/targets"
+  },
+  "spec": "返回 {n,groups,targets}。groups为三个正整数且和为n，第1组1个元素；构造分组常数概率可作为标准数值求根的低维参数化。targets={forward,backward}，本版均为10；n=150000。不要求指定算法或特定解。",
+  "output": "outputs/probability_model.json",
+  "component": "probability_model",
+  "task": "N26"
+}

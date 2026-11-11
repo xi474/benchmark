@@ -1,0 +1,11 @@
+{
+  "name": "orders",
+  "op": "parse_orders",
+  "bindings": {
+    "orders": "inputs/request.json#/orders"
+  },
+  "spec": "逐个解析22字符交易请求：buyer4/seller4/book4/amount10。返回 [{buyer,seller,book,amount:整数}]，保持请求顺序。",
+  "output": "outputs/orders.json",
+  "component": "orders",
+  "task": "N24"
+}

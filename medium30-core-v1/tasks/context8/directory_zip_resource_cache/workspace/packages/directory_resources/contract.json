@@ -1,0 +1,12 @@
+{
+  "name": "directory_resources",
+  "op": "directory_resources",
+  "bindings": {
+    "files": "inputs/request.json#/files",
+    "patterns": "inputs/request.json#/patterns"
+  },
+  "spec": "files={POSIX相对路径:UTF8内容}，patterns=[{directory,extension}]。在目录载体中发现每个目录直接子文件，后缀匹配，返回排序唯一路径；不递归其他目录。只用受控临时目录，输入路径合法。",
+  "output": "outputs/directory_resources.json",
+  "component": "directory_resources",
+  "task": "N20"
+}

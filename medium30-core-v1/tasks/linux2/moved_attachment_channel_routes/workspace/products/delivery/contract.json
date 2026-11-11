@@ -1,0 +1,18 @@
+{
+  "name": "delivery",
+  "op": "document_delivery",
+  "bindings": {
+    "moved": "outputs/moved_document.json#",
+    "recipients": "outputs/recipients.json#"
+  },
+  "spec": "返回 {files:移动后快照,target_email:{to:目标ID,path,sha256},messages:null或{members:教师ID,path,sha256},fallback_email:null或{to:不可达教师ID,path,sha256},attachment_content:原base64内容}。空分区不创建空群/邮件，所有发送引用移动后文件。",
+  "emit": {
+    "outputs/moved-attachment.xlsx": {
+      "pointer": "/attachment_content",
+      "format": "base64"
+    }
+  },
+  "output": "outputs/delivery.json",
+  "component": "delivery",
+  "task": "N30"
+}

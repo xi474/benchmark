@@ -1,0 +1,14 @@
+{
+  "name": "moderation",
+  "op": "replay_moderation",
+  "bindings": {
+    "topics": "inputs/request.json#/topics",
+    "queue": "outputs/initial_queue.json#",
+    "exempt": "outputs/exempt_users.json#",
+    "events": "inputs/request.json#/events"
+  },
+  "spec": "顺序执行有限事件。post={kind:'post',id,tid,user}：豁免者直接published，否则入queue。merge={kind:'merge',sources:[活跃主题],target:另一活跃主题}：删除source主题并把所有待审/已发布帖子tid迁到target。approve={kind:'approve',id:待审post}：移到published。返回 {topics:排序活跃ID,queue:按id排序帖子,published:按id排序帖子}。不加入并发、撤销或失败重试。",
+  "output": "outputs/moderation.json",
+  "component": "moderation",
+  "task": "N13"
+}

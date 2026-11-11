@@ -1,0 +1,12 @@
+{
+  "name": "reply_batch",
+  "op": "reply_batch",
+  "bindings": {
+    "emails": "inputs/request.json#/emails",
+    "window": "inputs/request.json#/window"
+  },
+  "spec": "emails=[{id,from,at:逻辑秒}]。筛选0<=at<window，按(at,id)排序，统一在window时回复。返回 [{email:ID,to:邮箱,at:window,purpose:'gift_reply'}]。不对自然语言措辞评分。",
+  "output": "outputs/reply_batch.json",
+  "component": "reply_batch",
+  "task": "N28"
+}

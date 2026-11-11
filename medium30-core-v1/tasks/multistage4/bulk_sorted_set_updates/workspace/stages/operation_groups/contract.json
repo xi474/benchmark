@@ -1,0 +1,12 @@
+{
+  "name": "operation_groups",
+  "op": "group_increments",
+  "bindings": {
+    "initial": "inputs/request.json#/initial",
+    "operations": "inputs/request.json#/operations"
+  },
+  "spec": "initial 是 {set_key:{member:整数分数}}；operations 是 [{key,member,delta:整数}]。按 (key,member) 分组并按键/成员字典序返回列表，每组为 {key,member,initial:原分数或0,operations:[{index:原始0基位置,delta}]}，保留组内原顺序。",
+  "output": "outputs/operation_groups.json",
+  "component": "operation_groups",
+  "task": "N14"
+}

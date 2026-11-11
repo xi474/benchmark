@@ -1,0 +1,50 @@
+{
+  "calendars": {
+    "alice": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T090000Z\nDTEND:20240115T103000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+    "bob": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T110000Z\nDTEND:20240115T120000Z\nEND:VEVENT\nEND:VCALENDAR\n",
+    "carol": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20240115T100000Z\nDTEND:20240115T110000Z\nEND:VEVENT\nEND:VCALENDAR\n"
+  },
+  "rules": {
+    "alice": {
+      "start": 540,
+      "end": 840,
+      "breaks": [],
+      "weekday_end": {},
+      "late_buffer": null
+    },
+    "bob": {
+      "start": 600,
+      "end": 1020,
+      "breaks": [],
+      "weekday_end": {
+        "1": 990,
+        "3": 990
+      },
+      "late_buffer": null
+    },
+    "carol": {
+      "start": 540,
+      "end": 1020,
+      "breaks": [
+        [
+          720,
+          750
+        ]
+      ],
+      "weekday_end": {},
+      "late_buffer": {
+        "threshold": 1005,
+        "minutes": 15
+      }
+    }
+  },
+  "days": [
+    "2024-01-15",
+    "2024-01-16"
+  ],
+  "attendees": [
+    "alice@example.com",
+    "bob@example.com",
+    "carol@example.com"
+  ]
+}

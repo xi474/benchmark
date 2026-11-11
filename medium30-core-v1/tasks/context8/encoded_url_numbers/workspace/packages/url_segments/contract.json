@@ -1,0 +1,11 @@
+{
+  "name": "url_segments",
+  "op": "split_url",
+  "bindings": {
+    "url": "inputs/request.json#/url"
+  },
+  "spec": "解析合法的 scheme://host[:port]/path[?query][#anchor]。本题限定 ASCII host，无 userinfo/IPv6。返回 {scheme,host,port,path,query,anchor}；缺失 port/query/anchor 用 null，保留原始字节和空 query/anchor。path 可为空；不得 unquote。",
+  "output": "outputs/url_segments.json",
+  "component": "url_segments",
+  "task": "N18"
+}

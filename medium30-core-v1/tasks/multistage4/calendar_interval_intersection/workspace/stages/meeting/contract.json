@@ -1,0 +1,20 @@
+{
+  "name": "meeting",
+  "op": "meeting_intersection",
+  "bindings": {
+    "alice": "outputs/alice_availability.json#",
+    "bob": "outputs/bob_availability.json#",
+    "carol": "outputs/carol_availability.json#",
+    "attendees": "inputs/request.json#/attendees"
+  },
+  "spec": "求三个人可用时间的共同交集，选择最早能容纳连续60分钟的分钟起点。返回 {start:UTC字符串,end:UTC字符串,attendees:输入列表,summary:'Team Planning Meeting'}。只以硬可行且最早为目标，软偏好不参与正式评分。",
+  "emit": {
+    "outputs/meeting_scheduled.ics": {
+      "pointer": "",
+      "format": "ics"
+    }
+  },
+  "output": "outputs/meeting.json",
+  "component": "meeting",
+  "task": "N09"
+}

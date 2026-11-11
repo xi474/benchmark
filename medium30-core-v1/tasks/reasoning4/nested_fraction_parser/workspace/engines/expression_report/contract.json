@@ -1,0 +1,12 @@
+{
+  "name": "expression_report",
+  "op": "fraction_report",
+  "bindings": {
+    "ast": "outputs/expression_ast.json#",
+    "value": "outputs/exact_value.json#"
+  },
+  "spec": "返回 {ast:输入AST,value:输入有理数值,text:全括号中缀表示}。int/var直接打印，add/mul/div/pow分别打印 (left+right)/(left*right)/(left/right)/(left^right)，此处斜线表示规则分隔而非输出串；每个二元节点恰有一对外括号。",
+  "output": "outputs/expression_report.json",
+  "component": "expression_report",
+  "task": "N07"
+}

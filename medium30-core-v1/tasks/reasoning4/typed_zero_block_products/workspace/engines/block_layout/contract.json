@@ -1,0 +1,11 @@
+{
+  "name": "block_layout",
+  "op": "block_layout",
+  "bindings": {
+    "matrix": "inputs/request.json#/matrix"
+  },
+  "spec": "matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}，null表示有形状的零矩阵。相同块行的rows一致，相同块列的cols一致；总体为方阵且块行列分割相同。返回 {row_sizes,col_sizes}。",
+  "output": "outputs/block_layout.json",
+  "component": "block_layout",
+  "task": "N11"
+}

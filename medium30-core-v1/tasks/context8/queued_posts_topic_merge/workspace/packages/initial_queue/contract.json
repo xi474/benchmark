@@ -1,0 +1,11 @@
+{
+  "name": "initial_queue",
+  "op": "initial_queue",
+  "bindings": {
+    "posts": "inputs/request.json#/queue"
+  },
+  "spec": "将初始待审 posts=[{id,tid,user}] 独立拷贝，按post ID排序返回。所有引用为已知主题。",
+  "output": "outputs/initial_queue.json",
+  "component": "initial_queue",
+  "task": "N13"
+}

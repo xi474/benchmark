@@ -1,0 +1,13 @@
+{
+  "name": "deployment_report",
+  "op": "deployment_report",
+  "bindings": {
+    "hook": "outputs/deployment_hook.json#",
+    "routes": "outputs/branch_routes.json#",
+    "batches": "inputs/request.json#/batches"
+  },
+  "spec": "调用公开runtime.run_deploy(hook,routes,batches)或等价本地Git流程。batches每批包含待提交branch和完整files快照，需真实git push触发hook。返回 {files:{部署根下相对文件路径:UTF8内容}}。只测试有效提交和本地正常push，不测失败回滚/网络。",
+  "output": "outputs/deployment_report.json",
+  "component": "deployment_report",
+  "task": "N25"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "bob_availability",
+  "op": "calendar_availability",
+  "bindings": {
+    "ics": "inputs/request.json#/calendars/bob",
+    "rule": "inputs/request.json#/rules/bob",
+    "days": "inputs/request.json#/days"
+  },
+  "spec": "读取有效UTC日历子集 BEGIN:VEVENT/DTSTART/DTEND。无循环/全天事件。对 days 各日从 rule.start/end（午夜后分钟）可用时段扣除既有事件和 breaks；weekday_end 可按星期0=周一缩短结束。若 late_buffer 非null且某事件结束分钟>=threshold，将该事件忙碌结束再延长指定分钟。所有区间半开；返回按开始排序的 [startUTC,endUTC]，格式 YYYYMMDDTHHMMSSZ。事件可覆盖一天，窗口保证最终有解。",
+  "output": "outputs/bob_availability.json",
+  "component": "bob_availability",
+  "task": "N09"
+}

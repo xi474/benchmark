@@ -1,0 +1,28 @@
+{
+  "name": "settlement",
+  "op": "settle_books",
+  "bindings": {
+    "accounts": "outputs/accounts.json#",
+    "books": "outputs/books.json#",
+    "orders": "outputs/orders.json#",
+    "journal": "inputs/request.json#/journal"
+  },
+  "spec": "顺序执行交易。请求中的买卖账户和书均存在，买卖方不同、正常金额且余额足够；当前 owner==seller 才成功。成功时买方余额减金额、卖方增加、owner改买方，向 journal 追加 book4+amount10+seller4+buyer4；不符所有权时三类文件不变。返回 {accounts:重编码定长串,books:重编码定长串,journal:累计交易串,statuses:['accepted'|'rejected',...]}。保持原记录顺序，姓名/书名填充20位，数值填充10位。",
+  "emit": {
+    "outputs/ACCOUNTS.DAT": {
+      "pointer": "/accounts",
+      "format": "text"
+    },
+    "outputs/BOOKS.DAT": {
+      "pointer": "/books",
+      "format": "text"
+    },
+    "outputs/TRANSACTIONS.DAT": {
+      "pointer": "/journal",
+      "format": "text"
+    }
+  },
+  "output": "outputs/settlement.json",
+  "component": "settlement",
+  "task": "N24"
+}

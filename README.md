@@ -1,5 +1,16 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+## 新增30题核心版与并行预测器完整信息（2026-11-11）
+
+**[30题完整数据集](medium30-core-v1/README.md)** · **[30题中文目录及实际DAG](medium30-core-v1/docs/30题目录与实际DAG.md)** · **[并行预测器JSONL数据](medium30-parallel-prediction-v1/README.md)** · [发布与数据通路核验](medium30-parallel-prediction-v1/发布与通路核验.md)
+
+新增30道不同题目、94个组件；SWE-bench Verified 11题、SWE-bench Pro 8题、Terminal-Bench 7题、GAIA2 4题。全部以中等为结构设计目标，实测档位待校准。包含题面、输入、SPEC、contract、workflow、来源及原始难度、参考解、外部verifier、作者QA及冻结哈希。
+
+- [下载完整30题包](medium30-core-v1-full.zip)、[Agent初始包](medium30-core-v1-agent.zip)、[Harbor执行包](medium30-core-v1-harbor.zip)、[预测器补充包](medium30-parallel-prediction-v1.zip)。
+- 预测器数据：30任务、94组件、71条直接依赖、102组件对及150静态就绪状态；附完整信息索引、文本特征视图和独立标签。30/30参考解按导出DAG执行检查通过。
+- 补充标签描述组件执行的数据依赖，不是Agent编码顺序或实测加速比。训练时按题目/来源分组，避免把依赖真值直接作为输入。盲测只给单题TASK和初始workspace，参考解/verifier/DAG在Agent工作区外。
+
+
 ## 统一评分标准：50%完整交付奖励
 
 采用 **50%核心验收完成分＋50%整题严格通过奖励**，单题上限按发布前冻结的E/M/H权重1/2/3确定。公开通过、**核心转换用例通过率**（原API acc）与严格通过分别报告。

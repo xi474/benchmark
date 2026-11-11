@@ -1,0 +1,11 @@
+{
+  "name": "rename_map",
+  "op": "alias_map",
+  "bindings": {
+    "symbols": "outputs/symbol_tables.json#"
+  },
+  "spec": "为右查询的每个原别名按字典序分配新别名 T0,T1,...，跳过左右原别名及已分配名称。返回 {原右别名:新别名}。此公开命名规则用于稳定输出；替换必须同时进行，不能串行替换导致二次改名。",
+  "output": "outputs/rename_map.json",
+  "component": "rename_map",
+  "task": "N06"
+}

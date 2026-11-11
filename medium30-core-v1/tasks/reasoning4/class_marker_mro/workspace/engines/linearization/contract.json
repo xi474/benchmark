@@ -1,0 +1,12 @@
+{
+  "name": "linearization",
+  "op": "c3",
+  "bindings": {
+    "classes": "inputs/request.json#/classes",
+    "target": "inputs/request.json#/target"
+  },
+  "spec": "classes 是 {类名:{bases:有序直接基类列表,marks:本地标记JSON值列表}}。输入是无环且可 C3 线性化的有效类图，根类 bases=[]。返回 target 的 C3 类名列表，首项是自己。不执行用户类代码。",
+  "output": "outputs/linearization.json",
+  "component": "linearization",
+  "task": "N03"
+}

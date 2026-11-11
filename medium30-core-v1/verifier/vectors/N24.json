@@ -1,0 +1,562 @@
+{
+  "components": {
+    "accounts": [
+      {
+        "payload": {
+          "text": "U001John Doe            0000001000U002Jane Smith          0000002000U003Bob Wilson          0000001500"
+        },
+        "expected": [
+          {
+            "id": "U001",
+            "name": "John Doe",
+            "balance": 1000
+          },
+          {
+            "id": "U002",
+            "name": "Jane Smith",
+            "balance": 2000
+          },
+          {
+            "id": "U003",
+            "name": "Bob Wilson",
+            "balance": 1500
+          }
+        ]
+      },
+      {
+        "payload": {
+          "text": "U001A                   0000000900U002B                   0000000800"
+        },
+        "expected": [
+          {
+            "id": "U001",
+            "name": "A",
+            "balance": 900
+          },
+          {
+            "id": "U002",
+            "name": "B",
+            "balance": 800
+          }
+        ]
+      },
+      {
+        "payload": {
+          "text": "U001C                   0000000300U002D                   0000000400"
+        },
+        "expected": [
+          {
+            "id": "U001",
+            "name": "C",
+            "balance": 300
+          },
+          {
+            "id": "U002",
+            "name": "D",
+            "balance": 400
+          }
+        ]
+      }
+    ],
+    "books": [
+      {
+        "payload": {
+          "text": "B001Python Basics       U001B003Java Tutorial       U003"
+        },
+        "expected": [
+          {
+            "id": "B001",
+            "title": "Python Basics",
+            "owner": "U001"
+          },
+          {
+            "id": "B003",
+            "title": "Java Tutorial",
+            "owner": "U003"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "text": "B001Book                U001"
+        },
+        "expected": [
+          {
+            "id": "B001",
+            "title": "Book",
+            "owner": "U001"
+          }
+        ]
+      },
+      {
+        "payload": {
+          "text": "B001One                 U002B002Two                 U001"
+        },
+        "expected": [
+          {
+            "id": "B001",
+            "title": "One",
+            "owner": "U002"
+          },
+          {
+            "id": "B002",
+            "title": "Two",
+            "owner": "U001"
+          }
+        ]
+      }
+    ],
+    "orders": [
+      {
+        "payload": {
+          "orders": [
+            "U001U003B0030000000020",
+            "U002U001B0030000000050",
+            "U002U001B0010000000150"
+          ]
+        },
+        "expected": [
+          {
+            "buyer": "U001",
+            "seller": "U003",
+            "book": "B003",
+            "amount": 20
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B003",
+            "amount": 50
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 150
+          }
+        ]
+      },
+      {
+        "payload": {
+          "orders": [
+            "U002U001B0010000000010",
+            "U002U001B0010000000010"
+          ]
+        },
+        "expected": [
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 10
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 10
+          }
+        ]
+      },
+      {
+        "payload": {
+          "orders": [
+            "U001U002B0010000000040",
+            "U002U001B0020000000030",
+            "U002U001B0010000000020"
+          ]
+        },
+        "expected": [
+          {
+            "buyer": "U001",
+            "seller": "U002",
+            "book": "B001",
+            "amount": 40
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B002",
+            "amount": 30
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 20
+          }
+        ]
+      }
+    ],
+    "settlement": [
+      {
+        "payload": {
+          "accounts": [
+            {
+              "id": "U001",
+              "name": "John Doe",
+              "balance": 1000
+            },
+            {
+              "id": "U002",
+              "name": "Jane Smith",
+              "balance": 2000
+            },
+            {
+              "id": "U003",
+              "name": "Bob Wilson",
+              "balance": 1500
+            }
+          ],
+          "books": [
+            {
+              "id": "B001",
+              "title": "Python Basics",
+              "owner": "U001"
+            },
+            {
+              "id": "B003",
+              "title": "Java Tutorial",
+              "owner": "U003"
+            }
+          ],
+          "orders": [
+            {
+              "buyer": "U001",
+              "seller": "U003",
+              "book": "B003",
+              "amount": 20
+            },
+            {
+              "buyer": "U002",
+              "seller": "U001",
+              "book": "B003",
+              "amount": 50
+            },
+            {
+              "buyer": "U002",
+              "seller": "U001",
+              "book": "B001",
+              "amount": 150
+            }
+          ],
+          "journal": ""
+        },
+        "expected": {
+          "accounts": "U001John Doe            0000001180U002Jane Smith          0000001800U003Bob Wilson          0000001520",
+          "books": "B001Python Basics       U002B003Java Tutorial       U002",
+          "journal": "B0030000000020U003U001B0030000000050U001U002B0010000000150U001U002",
+          "statuses": [
+            "accepted",
+            "accepted",
+            "accepted"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "accounts": [
+            {
+              "id": "U001",
+              "name": "A",
+              "balance": 900
+            },
+            {
+              "id": "U002",
+              "name": "B",
+              "balance": 800
+            }
+          ],
+          "books": [
+            {
+              "id": "B001",
+              "title": "Book",
+              "owner": "U001"
+            }
+          ],
+          "orders": [
+            {
+              "buyer": "U002",
+              "seller": "U001",
+              "book": "B001",
+              "amount": 10
+            },
+            {
+              "buyer": "U002",
+              "seller": "U001",
+              "book": "B001",
+              "amount": 10
+            }
+          ],
+          "journal": ""
+        },
+        "expected": {
+          "accounts": "U001A                   0000000910U002B                   0000000790",
+          "books": "B001Book                U002",
+          "journal": "B0010000000010U001U002",
+          "statuses": [
+            "accepted",
+            "rejected"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "accounts": [
+            {
+              "id": "U001",
+              "name": "C",
+              "balance": 300
+            },
+            {
+              "id": "U002",
+              "name": "D",
+              "balance": 400
+            }
+          ],
+          "books": [
+            {
+              "id": "B001",
+              "title": "One",
+              "owner": "U002"
+            },
+            {
+              "id": "B002",
+              "title": "Two",
+              "owner": "U001"
+            }
+          ],
+          "orders": [
+            {
+              "buyer": "U001",
+              "seller": "U002",
+              "book": "B001",
+              "amount": 40
+            },
+            {
+              "buyer": "U002",
+              "seller": "U001",
+              "book": "B002",
+              "amount": 30
+            },
+            {
+              "buyer": "U002",
+              "seller": "U001",
+              "book": "B001",
+              "amount": 20
+            }
+          ],
+          "journal": "B0020000000001U002U001"
+        },
+        "expected": {
+          "accounts": "U001C                   0000000310U002D                   0000000390",
+          "books": "B001One                 U002B002Two                 U002",
+          "journal": "B0020000000001U002U001B0010000000040U002U001B0020000000030U001U002B0010000000020U001U002",
+          "statuses": [
+            "accepted",
+            "accepted",
+            "accepted"
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "accounts": "U001John Doe            0000001000U002Jane Smith          0000002000U003Bob Wilson          0000001500",
+        "books": "B001Python Basics       U001B003Java Tutorial       U003",
+        "orders": [
+          "U001U003B0030000000020",
+          "U002U001B0030000000050",
+          "U002U001B0010000000150"
+        ],
+        "journal": ""
+      },
+      "results": {
+        "accounts": [
+          {
+            "id": "U001",
+            "name": "John Doe",
+            "balance": 1000
+          },
+          {
+            "id": "U002",
+            "name": "Jane Smith",
+            "balance": 2000
+          },
+          {
+            "id": "U003",
+            "name": "Bob Wilson",
+            "balance": 1500
+          }
+        ],
+        "books": [
+          {
+            "id": "B001",
+            "title": "Python Basics",
+            "owner": "U001"
+          },
+          {
+            "id": "B003",
+            "title": "Java Tutorial",
+            "owner": "U003"
+          }
+        ],
+        "orders": [
+          {
+            "buyer": "U001",
+            "seller": "U003",
+            "book": "B003",
+            "amount": 20
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B003",
+            "amount": 50
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 150
+          }
+        ],
+        "settlement": {
+          "accounts": "U001John Doe            0000001180U002Jane Smith          0000001800U003Bob Wilson          0000001520",
+          "books": "B001Python Basics       U002B003Java Tutorial       U002",
+          "journal": "B0030000000020U003U001B0030000000050U001U002B0010000000150U001U002",
+          "statuses": [
+            "accepted",
+            "accepted",
+            "accepted"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "accounts": "U001A                   0000000900U002B                   0000000800",
+        "books": "B001Book                U001",
+        "orders": [
+          "U002U001B0010000000010",
+          "U002U001B0010000000010"
+        ],
+        "journal": ""
+      },
+      "results": {
+        "accounts": [
+          {
+            "id": "U001",
+            "name": "A",
+            "balance": 900
+          },
+          {
+            "id": "U002",
+            "name": "B",
+            "balance": 800
+          }
+        ],
+        "books": [
+          {
+            "id": "B001",
+            "title": "Book",
+            "owner": "U001"
+          }
+        ],
+        "orders": [
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 10
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 10
+          }
+        ],
+        "settlement": {
+          "accounts": "U001A                   0000000910U002B                   0000000790",
+          "books": "B001Book                U002",
+          "journal": "B0010000000010U001U002",
+          "statuses": [
+            "accepted",
+            "rejected"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "accounts": "U001C                   0000000300U002D                   0000000400",
+        "books": "B001One                 U002B002Two                 U001",
+        "orders": [
+          "U001U002B0010000000040",
+          "U002U001B0020000000030",
+          "U002U001B0010000000020"
+        ],
+        "journal": "B0020000000001U002U001"
+      },
+      "results": {
+        "accounts": [
+          {
+            "id": "U001",
+            "name": "C",
+            "balance": 300
+          },
+          {
+            "id": "U002",
+            "name": "D",
+            "balance": 400
+          }
+        ],
+        "books": [
+          {
+            "id": "B001",
+            "title": "One",
+            "owner": "U002"
+          },
+          {
+            "id": "B002",
+            "title": "Two",
+            "owner": "U001"
+          }
+        ],
+        "orders": [
+          {
+            "buyer": "U001",
+            "seller": "U002",
+            "book": "B001",
+            "amount": 40
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B002",
+            "amount": 30
+          },
+          {
+            "buyer": "U002",
+            "seller": "U001",
+            "book": "B001",
+            "amount": 20
+          }
+        ],
+        "settlement": {
+          "accounts": "U001C                   0000000310U002D                   0000000390",
+          "books": "B001One                 U002B002Two                 U002",
+          "journal": "B0020000000001U002U001B0010000000040U002U001B0020000000030U001U002B0010000000020U001U002",
+          "statuses": [
+            "accepted",
+            "accepted",
+            "accepted"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "books",
+  "op": "parse_books",
+  "bindings": {
+    "text": "inputs/request.json#/books"
+  },
+  "spec": "按28字符定长记录解析图书，字段 ID4/书名20/owner4。返回 [{id,title:去掉末尾空格,owner}]，保持文件顺序。",
+  "output": "outputs/books.json",
+  "component": "books",
+  "task": "N24"
+}

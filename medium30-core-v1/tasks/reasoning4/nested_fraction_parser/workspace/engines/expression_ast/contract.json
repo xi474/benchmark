@@ -1,0 +1,11 @@
+{
+  "name": "expression_ast",
+  "op": "parse_fraction",
+  "bindings": {
+    "latex": "inputs/request.json#/latex"
+  },
+  "spec": "解析公开语法：整数、单字母变量、花括号/圆括号分组、+、*、^和\\frac{expr}{expr}。+/*左结合，^只跟非负整数字面量；\\frac保留完整分子分母。返回AST：['int',n]、['var',name]、['add'|'mul'|'div'|'pow',left,right]。无隐式乘法、所有输入合法，深度≤8。",
+  "output": "outputs/expression_ast.json",
+  "component": "expression_ast",
+  "task": "N07"
+}

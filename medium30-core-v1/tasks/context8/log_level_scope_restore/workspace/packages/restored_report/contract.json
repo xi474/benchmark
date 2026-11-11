@@ -1,0 +1,13 @@
+{
+  "name": "restored_report",
+  "op": "log_restore",
+  "bindings": {
+    "snapshot": "outputs/level_snapshot.json#",
+    "capture": "outputs/captured_records.json#",
+    "next_events": "inputs/request.json#/next_events"
+  },
+  "spec": "结束时从首次快照恢复全部等级，再处理下一测试的 emit 事件。返回 {restored:快照,captured:上个测试捕获文本,next_captured:下一测试可见文本}。",
+  "output": "outputs/restored_report.json",
+  "component": "restored_report",
+  "task": "N08"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "variable_plan",
+  "op": "variable_plan",
+  "bindings": {
+    "dataset": "inputs/request.json#/dataset",
+    "swap": "inputs/request.json#/swap"
+  },
+  "spec": "dataset.variables 是 {name:{dims:[维度名],data:[整数],attrs:字段字典}}；swap 是单个 {旧维度:新坐标变量名}。生成变量计划 {name:{dims:替换后的维度列表,data:原数据,attrs:原attrs}}，所有结果可变元数据必须与输入隔离。输入是一维同长变量，目标坐标变量存在。",
+  "output": "outputs/variable_plan.json",
+  "component": "variable_plan",
+  "task": "N02"
+}
