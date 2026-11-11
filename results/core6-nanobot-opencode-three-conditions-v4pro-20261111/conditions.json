@@ -1,0 +1,39 @@
+{
+  "model": "deepseek-v4-pro",
+  "mode": "normal",
+  "thinking": {
+    "type": "disabled"
+  },
+  "dataset": "adapted6-core-v3",
+  "task_ids": [
+    "MP04",
+    "MP08",
+    "MP09",
+    "MP10",
+    "MP11",
+    "MP24"
+  ],
+  "versions": {
+    "nanobot-ai": "0.3.5",
+    "opencode": "1.19.4"
+  },
+  "image_id": "sha256:e6969639f0a587b1df40dd5417e8c4ad048dfef50271f098ab52c61ae3d92c5c",
+  "new_trial_max_concurrency": 5,
+  "all_parent_child_http_concurrency": 4,
+  "max_output_tokens_per_response": 8192,
+  "uniform_cumulative_observed_token_guard": 2000000,
+  "agent_timeout_sec": 3600,
+  "verifier_timeout_sec": 1800,
+  "automatic_paid_retries": 0,
+  "native": "Original root task with no added delegation reminder; 12 identical historical controls admitted and reused.",
+  "prompts": {
+    "soft-reminder": "Native multi-agent delegation is available for this task. Evaluate whether the work contains meaningful independent branches and whether delegation could improve quality or save time. Delegation is optional: choose the decomposition yourself, and use teammates only when you judge them useful. You may complete the task yourself when delegation would add unnecessary overhead. If you delegate, give each worker a concrete deliverable and a disjoint write scope, continue useful work yourself, receive and inspect required results, integrate the contributions, and run relevant validation before finishing. Do not create empty agents or create agents merely to demonstrate the feature.\n",
+    "explicit": "This additional instruction applies to the root coordinator only. Use the harness's native multi-agent delegation capability. Delegate at least two meaningful pieces of actual work to distinct subordinate agents, receive and inspect their results, integrate the contributions and run relevant validation before finishing. Choose the decomposition yourself from the task and workspace. Use concurrent execution when the work is independent and the native harness supports it; dependent work can remain ordered. Give workers concrete deliverables and coordinate disjoint write scopes. A worker should execute its assigned task rather than repeat this delegation requirement recursively. Do not create empty agents or merely describe hypothetical delegation.\n"
+  },
+  "prompt_sha256": {
+    "soft-reminder": "22a3d6a1d0cba022ea6857e52dba60820680642968dee508d5f7ba51fe69cc5b",
+    "explicit": "dfc6333dd30ebad0603c416ab6c24092083195f3c8f65c3d7a711f63bcd8e5f8"
+  },
+  "intervention": "Root user-instruction prefix only for soft/explicit. Frozen adapters and native delegation tools/permissions/background defaults retained across conditions.",
+  "score_policy": "original-core-v3; not regraded using later 50% delivery bonus policy"
+}

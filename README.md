@@ -19,6 +19,10 @@
 
 规范已采纳；已有数据包的旧评分器尚未自动迁移。实施须独立冻结评分版本及检查清单；任务内容与历史成绩保留。仅对旧记录重算50%权重，不等同于通过新增严格验收。
 
+## Nanobot/OpenCode三档提示实验（2026-11-11）
+
+[修订六题36格完整报告](results/core6-nanobot-opencode-three-conditions-v4pro-20261111/README.md)：V4 Pro普通模式，复用12原生格、新增24；36有分、22正常／14异常。显式委派下Nanobot6/6题共14子，OpenCode5/6题共11子；原生／软提醒与预算截断分别报告。含逐任务API核心转换用例通过率、统一Harbor E2E、tokens、输入缓存和估算费用，保留original-core-v3评分。
+
 ## DSH/Codex运行时子Agent检测（2026-11-11）
 
 [修订六题三条件36格结果](results/core6-dsh-codex-three-conditions-v4pro-20261111/README.md)：V4 Pro普通模式，复用25格、补缺11格；35有分、1无分。显式委派两套Harness各6/6触发，原生/软提醒与预算截断分列，附API准确率、E2E、tokens、缓存与估算费用。保留original-core-v3评分，未按50%交付奖励重评。
