@@ -29,6 +29,15 @@
 
 规范已采纳；已有数据包的旧评分器尚未自动迁移。实施须独立冻结评分版本及检查清单；任务内容与历史成绩保留。仅对旧记录重算50%权重，不等同于通过新增严格验收。
 
+<!-- EXPLICIT-MATRIX-20261113 -->
+## 四Harness显式委派与原生对照（2026-11-13已完成结果审计）
+
+[Medium20原保留集＋修订六题：结果、API、E2E、tokens/cache、资源与覆盖率](results/explicit-medium20-core6-four-harness-v4pro-20261112/README.md)：101个显式有分＋104个历史原生有分，另3个Codex题位待补且未纳入补跑指标。核心指标205/205可核对；工具时间156/205，真实进程并行/自检增量不可统一观测，缺失单列。Codex49个有分结果的实际普通模式未证实，不作严格普通模式排名。保留原score政策，未按50%交付政策重评；这里的Medium20不是新`parallel20-calibrated-medium-v1`。
+
+**对下方旧DSH/Codex报告的模式勘误：** Codex原生/显式请求none但原生轨迹出现reasoning；旧“实际non-thinking”表述不再视为已验证结论，原分数及子创建原件保留，soft条件未在本次52格范围核验。
+
+<!-- /EXPLICIT-MATRIX-20261113 -->
+
 ## Nanobot/OpenCode三档提示实验（2026-11-11）
 
 [修订六题36格完整报告](results/core6-nanobot-opencode-three-conditions-v4pro-20261111/README.md)：V4 Pro普通模式，复用12原生格、新增24；36有分、22正常／14异常。显式委派下Nanobot6/6题共14子，OpenCode5/6题共11子；原生／软提醒与预算截断分别报告。含逐任务API核心转换用例通过率、统一Harbor E2E、tokens、输入缓存和估算费用，保留original-core-v3评分。
