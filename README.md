@@ -29,6 +29,13 @@
 
 规范已采纳；已有数据包的旧评分器尚未自动迁移。实施须独立冻结评分版本及检查清单；任务内容与历史成绩保留。仅对旧记录重算50%权重，不等同于通过新增严格验收。
 
+<!-- EXPLICIT-ACCURACY-TRACE-20261113 -->
+## 显式委派与原生执行的 API 准确率变化：trace 归因
+
+[104 对结果、逐 API 检查与退化机制分析](results/explicit-vs-native-accuracy-trace-analysis-20261113/README.md)：Medium20 的下降并非普遍；Codex 净少通过的 58 个检查由 MP20／MP22 输出上限异常完整核算，正常任务主要见公共契约和验收遗漏。保留正式预算异常成绩、旧 Codex 实际模式疑点／R7 适配分层及 MP03／MP22 规格歧义，不作 multiagent 天然降低能力的因果结论。附 2,592 个检查位、来源 SHA、trace 事件索引及离线校验器；不改原始分数。
+
+<!-- /EXPLICIT-ACCURACY-TRACE-20261113 -->
+
 <!-- CODEX-R7-COMPLETED-20261113 -->
 ## Codex三个缺分题位补齐（R7独立修复版）
 
