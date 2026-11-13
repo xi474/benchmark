@@ -29,6 +29,13 @@
 
 规范已采纳；已有数据包的旧评分器尚未自动迁移。实施须独立冻结评分版本及检查清单；任务内容与历史成绩保留。仅对旧记录重算50%权重，不等同于通过新增严格验收。
 
+<!-- CODEX-R7-COMPLETED-20261113 -->
+## Codex三个缺分题位补齐（R7独立修复版）
+
+[MP19/MP15/MP17完整补跑与监控报告](results/explicit-medium20-codex3-chat-normal-r7-20261113/README.md)：3/3有效有分，API58/70（82.86%），先MP19 pilot后自动并行其余两题。新适配层1.0.4实际Chat thinking.disabled；权限、提示、题/verifier不变。旧205行快照、失败attempt和13条历史未知保留；旧Codex模式疑点不被新3题覆盖，不作跨适配层严格同配置排名。
+
+<!-- /CODEX-R7-COMPLETED-20261113 -->
+
 <!-- EXPLICIT-MATRIX-20261113 -->
 ## 四Harness显式委派与原生对照（2026-11-13已完成结果审计）
 
