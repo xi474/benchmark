@@ -124,3 +124,7 @@ Do not mount the whole repository as an agent workspace.
 Each task includes SVG/PNG diagrams, editable Mermaid source, and validated
 dependency data. Diagrams are author-only metadata; keep them outside agent
 mounts along with the rest of `_authoring/`.
+
+## 原30题来源与改编追溯（2026-11-13）
+
+[逐题中文来源说明](medium30-core-v1/docs/原题来源与改编说明.md)：N01–N30对应31个源实例，保留SWE-bench Verified、SWE-bench Pro、Terminal-Bench和GAIA2各自的原始标签、固定revision、修复前基线与改编范围。另有[JSON/CSV可联结索引](medium30-core-v1/review/source_provenance_v1.json)。本次仅补来源文档，不改题目、verifier或既有成绩。

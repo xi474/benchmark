@@ -30,3 +30,7 @@ graphs、components中的dependencies、workflow、contract.bindings直接含有
 ready_states由同一DAG推导，并非新的独立实测样本或Agent动作轨迹。训练/验证/测试至少按task_id分组，建议进一步按来源/算法家族分组，避免同题组件对随机拆分造成泄漏。30题、102个组件对适合先验证数据管道；不能据此声称大规模泛化能力。
 
 所有路径相对medium30-core-v1数据集根；读取JSONL请使用UTF-8。标签版本为parallel-contract-export-v1。任务和评分规则未因导出而改变。
+
+## 上游来源对照
+
+[30题原题来源、原始标签与改编范围](../medium30-core-v1/docs/原题来源与改编说明.md)；[source_provenance_v1.json](../medium30-core-v1/review/source_provenance_v1.json)按task_id连接本目录tasks.jsonl。N15含两个source_id，来源关系与原source_ids保持一致；这次没有改变预测器特征、标签或任务内容。

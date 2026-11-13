@@ -11,6 +11,8 @@
 
 ## 阅读入口
 
+- [逐题来源、原始标签与改编范围](docs/原题来源与改编说明.md)
+
 - [30题目录与实际DAG](docs/30题目录与实际DAG.md)
 - [核心验收与改编修订原因](docs/质量验收与改编修订.md)
 - [四题Terminus 2试跑结果](docs/Terminus2四题试跑报告.md)
@@ -45,3 +47,7 @@ Harbor包复用本机已安装的pilot10-common:20261031、capstone-terminus-dep
 ## 再构建
 
 将_authoring复制到独立工作目录，先执行build.py，再执行qa.py。它包含作者实现和私有金标，不能放入Agent工作区。验收环境为Python3.12，与固定镜像一致；作者生成图还需Pillow，N26作者求解另需NumPy/SciPy。源题材料与原始难度保留在review/source_annotations.json；不存在统一继承的上游中等标签。
+
+## 来源文档补充（2026-11-13）
+
+现有30题的[完整中文来源说明](docs/原题来源与改编说明.md)与[可联结JSON/CSV索引](review/source_provenance_v1.json)已补齐。源题共31个，N15为双源组合。此次只补在线文档和元数据，任务、评分、原始source_annotations及历史ZIP保持原字节；历史完整ZIP仍是原发布快照，最新说明以本在线目录为准。
