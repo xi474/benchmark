@@ -1,0 +1,5 @@
+# Ancestral changes across a lineage
+
+root and children describe a finite rooted tree. The matrix cost[a][b] is the cost of a directed transition from state a at a parent to state b at its child. It is integral, zero for staying and positive otherwise; the two directions may have different costs. observed maps named nodes to their nonempty set of possible states. Any unlisted node can take any matrix state. Multiple allowed states represent one ambiguous observation.
+
+A history assigns exactly one state to each named node. Its loss is the sum of the costs on all parent-child edges. Distinct assignments to the named nodes are distinct histories. Return loss (minimum loss), histories (number of globally minimum-loss assignments), and change_count, keyed by the child of every edge. For each edge give the number of those same minimum-loss histories in which the parent and child states differ. This is the joint support for a change on that branch. Leaves and internal nodes may both carry observations.

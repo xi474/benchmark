@@ -1,0 +1,93 @@
+{
+  "status": "ALLOCATED",
+  "reason": null,
+  "live_in": {
+    "E": [
+      "a",
+      "b"
+    ],
+    "P": [
+      "a",
+      "b"
+    ],
+    "Q": [
+      "a",
+      "b"
+    ],
+    "M": []
+  },
+  "live_out": {
+    "E": [
+      "a",
+      "b"
+    ],
+    "P": [
+      "a",
+      "b"
+    ],
+    "Q": [
+      "a",
+      "b"
+    ],
+    "M": []
+  },
+  "interference": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "x",
+      "y"
+    ]
+  ],
+  "call_forbidden": {},
+  "min_spill": 0,
+  "copy_cost": 2,
+  "locations": {
+    "a": "reg:R0",
+    "b": "reg:R1",
+    "x": "reg:R1",
+    "y": "reg:R0"
+  },
+  "spills": [],
+  "edge_moves": [
+    {
+      "pred": "E",
+      "succ": "P",
+      "moves": [],
+      "cycle": false
+    },
+    {
+      "pred": "E",
+      "succ": "Q",
+      "moves": [],
+      "cycle": false
+    },
+    {
+      "pred": "P",
+      "succ": "M",
+      "moves": [
+        {
+          "definition": "x",
+          "source": "a",
+          "from_location": "reg:R0",
+          "to_location": "reg:R1"
+        },
+        {
+          "definition": "y",
+          "source": "b",
+          "from_location": "reg:R1",
+          "to_location": "reg:R0"
+        }
+      ],
+      "cycle": true
+    },
+    {
+      "pred": "Q",
+      "succ": "M",
+      "moves": [],
+      "cycle": false
+    }
+  ]
+}

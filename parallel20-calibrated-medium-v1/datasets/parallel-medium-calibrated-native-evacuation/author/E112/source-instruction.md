@@ -1,0 +1,1 @@
+Repair `/app/workspace/project` so `python -m project.cli INPUT OUTPUT` follows `/app/workspace/README.md`. Public synthetic input is under `/app/workspace/data/public`; hidden tests include coupled hazards, closures and finite shelter capacity. Choose your own workflow.

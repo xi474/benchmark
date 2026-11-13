@@ -1,0 +1,45 @@
+{
+  "dataset": "medium-native-unit-commitment-v1",
+  "agent": "terminus-2",
+  "model": "deepseek-v4-pro",
+  "thinking": "disabled",
+  "tasks": 1,
+  "repeats": 5,
+  "workers": 2,
+  "agent_timeout_seconds": 3600,
+  "observed_token_stop": 2000000,
+  "retries": 0,
+  "scoring_revision": "delivery-bonus-50-v1",
+  "max_reward": 2,
+  "difficulty_thresholds": {
+    "E": [
+      4,
+      5
+    ],
+    "M": [
+      2,
+      3
+    ],
+    "H": [
+      0,
+      1
+    ]
+  },
+  "old_attempts_reused": false,
+  "order_seed": 20261229,
+  "agent_network_mode": "no-network",
+  "dag_available_to_agent": false,
+  "preset_execution_order": false,
+  "classification_metric": "strict_pass_count_of_five_valid_attempts",
+  "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+  "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+  "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+  "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+  "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+  "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+  "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+  "agent_memory_mb": 3072,
+  "agent_cpus": 2,
+  "admission": "Five valid trials, 2 or 3 strict successes and core-business evidence review; structural and empirical labels retained separately.",
+  "verifier_revision": "package-import-compatible-v1.1"
+}

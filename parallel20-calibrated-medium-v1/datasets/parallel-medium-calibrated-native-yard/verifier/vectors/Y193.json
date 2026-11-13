@@ -1,0 +1,5553 @@
+{
+  "task": "Y193",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "A",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "B",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "C",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "D",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "left",
+                "containers": [
+                  "A",
+                  "B"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "a",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "z",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "right",
+                "containers": [
+                  "C",
+                  "D"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "left",
+                "to": "a"
+              },
+              {
+                "from": "left",
+                "to": "z"
+              },
+              {
+                "from": "right",
+                "to": "a"
+              },
+              {
+                "from": "a",
+                "to": "z"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "A"
+              ],
+              [
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 2,
+          "finish_time": 4,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "B",
+                  "from": "left",
+                  "to": "z"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "left",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "D",
+                  "from": "right",
+                  "to": "a"
+                }
+              ]
+            },
+            {
+              "start": 2,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "C",
+                  "from": "right",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 3,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "D",
+                  "from": "a",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "z",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 2
+            },
+            {
+              "container": "C",
+              "tick": 3
+            },
+            {
+              "container": "D",
+              "tick": 4
+            },
+            {
+              "container": "B",
+              "tick": 4
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": []
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "A",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "B",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "C",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "D",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "left",
+                "containers": [
+                  "A",
+                  "B"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "a",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "z",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "right",
+                "containers": [
+                  "C",
+                  "D"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "left",
+                "to": "a"
+              },
+              {
+                "from": "left",
+                "to": "z"
+              },
+              {
+                "from": "right",
+                "to": "a"
+              },
+              {
+                "from": "a",
+                "to": "z"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "A"
+              ],
+              [
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 2,
+          "finish_time": 6,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "B",
+                  "from": "left",
+                  "to": "z"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "left",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 2,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "D",
+                  "from": "right",
+                  "to": "a"
+                }
+              ]
+            },
+            {
+              "start": 3,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "C",
+                  "from": "right",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "D",
+                  "from": "a",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "z",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 2
+            },
+            {
+              "container": "C",
+              "tick": 4
+            },
+            {
+              "container": "D",
+              "tick": 5
+            },
+            {
+              "container": "B",
+              "tick": 6
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": []
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "A",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "B",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 4,
+                "handling_ticks": 1
+              },
+              {
+                "id": "C",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "D",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 3
+              }
+            ],
+            "stacks": [
+              {
+                "id": "left",
+                "containers": [
+                  "A",
+                  "B"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "a",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "z",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "right",
+                "containers": [
+                  "C",
+                  "D"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "left",
+                "to": "a"
+              },
+              {
+                "from": "left",
+                "to": "z"
+              },
+              {
+                "from": "right",
+                "to": "a"
+              },
+              {
+                "from": "a",
+                "to": "z"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "A"
+              ],
+              [
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 5,
+          "finish_time": 8,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "B",
+                  "from": "left",
+                  "to": "z"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "left",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "D",
+                  "from": "right",
+                  "to": "a"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "C",
+                  "from": "right",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "D",
+                  "from": "a",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "z",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 2
+            },
+            {
+              "container": "C",
+              "tick": 5
+            },
+            {
+              "container": "D",
+              "tick": 8
+            },
+            {
+              "container": "B",
+              "tick": 6
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": []
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "A",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 2
+              },
+              {
+                "id": "B",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 1,
+                "handling_ticks": 3
+              }
+            ],
+            "stacks": [
+              {
+                "id": "a",
+                "containers": [
+                  "A"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "b",
+                "containers": [
+                  "B"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "c",
+                "containers": [],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "A",
+                "B"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 0,
+          "finish_time": 7,
+          "batches": [
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "a",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "b",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 6
+            },
+            {
+              "container": "B",
+              "tick": 7
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "b",
+              "containers": []
+            },
+            {
+              "stack": "c",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "A",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "B",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "C",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "D",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "left",
+                "containers": [
+                  "A",
+                  "B"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "a",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "cold"
+                ]
+              },
+              {
+                "id": "z",
+                "containers": [],
+                "capacity": 1,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "right",
+                "containers": [
+                  "C",
+                  "D"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "left",
+                "to": "a"
+              },
+              {
+                "from": "left",
+                "to": "z"
+              },
+              {
+                "from": "right",
+                "to": "a"
+              },
+              {
+                "from": "a",
+                "to": "z"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "left",
+                  "a",
+                  "z",
+                  "right"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "A"
+              ],
+              [
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "infeasible",
+          "rehandle_cost": null,
+          "finish_time": null,
+          "batches": [],
+          "delivered": [],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": [
+                "C",
+                "D"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "A",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "B",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "a",
+                "containers": [
+                  "A",
+                  "B"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "b",
+                "containers": [],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "c",
+                "containers": [],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "A"
+              ],
+              [
+                "B"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "infeasible",
+          "rehandle_cost": null,
+          "finish_time": null,
+          "batches": [],
+          "delivered": [],
+          "stacks": [
+            {
+              "stack": "a",
+              "containers": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "stack": "b",
+              "containers": []
+            },
+            {
+              "stack": "c",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "k0",
+                "hazard": "normal",
+                "appointment_tick": 3,
+                "rehandle_cost": 1,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k1",
+                "hazard": "cold",
+                "appointment_tick": 4,
+                "rehandle_cost": 4,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k2",
+                "hazard": "cold",
+                "appointment_tick": 1,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "s0",
+                "containers": [
+                  "k2"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s1",
+                "containers": [
+                  "k0"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s2",
+                "containers": [
+                  "k1"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "s0",
+                "to": "s1"
+              },
+              {
+                "from": "s0",
+                "to": "s2"
+              },
+              {
+                "from": "s1",
+                "to": "s2"
+              },
+              {
+                "from": "s2",
+                "to": "s0"
+              },
+              {
+                "from": "s2",
+                "to": "s1"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "k1",
+                "k2"
+              ],
+              [
+                "k0"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 0,
+          "finish_time": 9,
+          "batches": [
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s1",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k2",
+              "tick": 5
+            },
+            {
+              "container": "k1",
+              "tick": 7
+            },
+            {
+              "container": "k0",
+              "tick": 9
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "k0",
+                "hazard": "normal",
+                "appointment_tick": 1,
+                "rehandle_cost": 2,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k1",
+                "hazard": "normal",
+                "appointment_tick": 3,
+                "rehandle_cost": 4,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k2",
+                "hazard": "cold",
+                "appointment_tick": 0,
+                "rehandle_cost": 3,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k3",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 3,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "s0",
+                "containers": [
+                  "k2"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s1",
+                "containers": [
+                  "k3",
+                  "k1"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s2",
+                "containers": [
+                  "k0"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "s0",
+                "to": "s2"
+              },
+              {
+                "from": "s1",
+                "to": "s0"
+              },
+              {
+                "from": "s1",
+                "to": "s2"
+              },
+              {
+                "from": "s2",
+                "to": "s0"
+              },
+              {
+                "from": "s2",
+                "to": "s1"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "k3",
+                "k2"
+              ],
+              [
+                "k0",
+                "k1"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 4,
+          "finish_time": 9,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k1",
+                  "from": "s1",
+                  "to": "s2"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s1",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 8,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k2",
+              "tick": 3
+            },
+            {
+              "container": "k3",
+              "tick": 5
+            },
+            {
+              "container": "k1",
+              "tick": 8
+            },
+            {
+              "container": "k0",
+              "tick": 9
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "k0",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 3,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k1",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 4,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k2",
+                "hazard": "normal",
+                "appointment_tick": 2,
+                "rehandle_cost": 1,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k3",
+                "hazard": "cold",
+                "appointment_tick": 3,
+                "rehandle_cost": 2,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k4",
+                "hazard": "normal",
+                "appointment_tick": 2,
+                "rehandle_cost": 1,
+                "handling_ticks": 3
+              }
+            ],
+            "stacks": [
+              {
+                "id": "s0",
+                "containers": [],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s1",
+                "containers": [
+                  "k3",
+                  "k1"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s2",
+                "containers": [
+                  "k0",
+                  "k2"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s3",
+                "containers": [
+                  "k4"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "s0",
+                "to": "s1"
+              },
+              {
+                "from": "s0",
+                "to": "s2"
+              },
+              {
+                "from": "s0",
+                "to": "s3"
+              },
+              {
+                "from": "s1",
+                "to": "s0"
+              },
+              {
+                "from": "s1",
+                "to": "s2"
+              },
+              {
+                "from": "s1",
+                "to": "s3"
+              },
+              {
+                "from": "s2",
+                "to": "s3"
+              },
+              {
+                "from": "s3",
+                "to": "s0"
+              },
+              {
+                "from": "s3",
+                "to": "s2"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "k0",
+                "k3"
+              ],
+              [
+                "k1",
+                "k2"
+              ],
+              [
+                "k4"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 5,
+          "finish_time": 12,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "k1",
+                  "from": "s1",
+                  "to": "s0"
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k2",
+                  "from": "s2",
+                  "to": "s3"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s1",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 9,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k3",
+              "tick": 7
+            },
+            {
+              "container": "k0",
+              "tick": 6
+            },
+            {
+              "container": "k1",
+              "tick": 9
+            },
+            {
+              "container": "k2",
+              "tick": 9
+            },
+            {
+              "container": "k4",
+              "tick": 12
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "k0",
+                "hazard": "normal",
+                "appointment_tick": 1,
+                "rehandle_cost": 3,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k1",
+                "hazard": "cold",
+                "appointment_tick": 1,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k2",
+                "hazard": "cold",
+                "appointment_tick": 3,
+                "rehandle_cost": 2,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k3",
+                "hazard": "cold",
+                "appointment_tick": 1,
+                "rehandle_cost": 3,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k4",
+                "hazard": "cold",
+                "appointment_tick": 1,
+                "rehandle_cost": 3,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k5",
+                "hazard": "cold",
+                "appointment_tick": 4,
+                "rehandle_cost": 2,
+                "handling_ticks": 1
+              }
+            ],
+            "stacks": [
+              {
+                "id": "s0",
+                "containers": [
+                  "k5"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s1",
+                "containers": [
+                  "k2",
+                  "k1"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s2",
+                "containers": [
+                  "k4"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s3",
+                "containers": [
+                  "k0",
+                  "k3"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "s0",
+                "to": "s1"
+              },
+              {
+                "from": "s0",
+                "to": "s3"
+              },
+              {
+                "from": "s1",
+                "to": "s0"
+              },
+              {
+                "from": "s1",
+                "to": "s2"
+              },
+              {
+                "from": "s1",
+                "to": "s3"
+              },
+              {
+                "from": "s2",
+                "to": "s0"
+              },
+              {
+                "from": "s2",
+                "to": "s1"
+              },
+              {
+                "from": "s3",
+                "to": "s0"
+              },
+              {
+                "from": "s3",
+                "to": "s1"
+              },
+              {
+                "from": "s3",
+                "to": "s2"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "k2",
+                "k0"
+              ],
+              [
+                "k3",
+                "k1"
+              ],
+              [
+                "k4",
+                "k5"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 4,
+          "finish_time": 10,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "k1",
+                  "from": "s1",
+                  "to": "s0"
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k3",
+                  "from": "s3",
+                  "to": "s2"
+                }
+              ]
+            },
+            {
+              "start": 3,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s1",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 6,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 9,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k5",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k2",
+              "tick": 5
+            },
+            {
+              "container": "k0",
+              "tick": 6
+            },
+            {
+              "container": "k1",
+              "tick": 7
+            },
+            {
+              "container": "k3",
+              "tick": 9
+            },
+            {
+              "container": "k5",
+              "tick": 10
+            },
+            {
+              "container": "k4",
+              "tick": 10
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "k0",
+                "hazard": "normal",
+                "appointment_tick": 0,
+                "rehandle_cost": 4,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k1",
+                "hazard": "normal",
+                "appointment_tick": 2,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k2",
+                "hazard": "normal",
+                "appointment_tick": 2,
+                "rehandle_cost": 2,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k3",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 4,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k4",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 4,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k5",
+                "hazard": "cold",
+                "appointment_tick": 3,
+                "rehandle_cost": 1,
+                "handling_ticks": 2
+              }
+            ],
+            "stacks": [
+              {
+                "id": "s0",
+                "containers": [],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s1",
+                "containers": [
+                  "k5"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s2",
+                "containers": [
+                  "k0",
+                  "k3"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s3",
+                "containers": [
+                  "k4",
+                  "k2"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s4",
+                "containers": [
+                  "k1"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "s0",
+                "to": "s1"
+              },
+              {
+                "from": "s0",
+                "to": "s3"
+              },
+              {
+                "from": "s0",
+                "to": "s4"
+              },
+              {
+                "from": "s1",
+                "to": "s2"
+              },
+              {
+                "from": "s1",
+                "to": "s3"
+              },
+              {
+                "from": "s1",
+                "to": "s4"
+              },
+              {
+                "from": "s2",
+                "to": "s0"
+              },
+              {
+                "from": "s2",
+                "to": "s1"
+              },
+              {
+                "from": "s2",
+                "to": "s3"
+              },
+              {
+                "from": "s2",
+                "to": "s4"
+              },
+              {
+                "from": "s3",
+                "to": "s0"
+              },
+              {
+                "from": "s3",
+                "to": "s1"
+              },
+              {
+                "from": "s3",
+                "to": "s2"
+              },
+              {
+                "from": "s3",
+                "to": "s4"
+              },
+              {
+                "from": "s4",
+                "to": "s1"
+              },
+              {
+                "from": "s4",
+                "to": "s2"
+              },
+              {
+                "from": "s4",
+                "to": "s3"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4"
+                ]
+              },
+              {
+                "id": "c2",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "k4",
+                "k0"
+              ],
+              [
+                "k3",
+                "k5"
+              ],
+              [
+                "k1",
+                "k2"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 6,
+          "finish_time": 9,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c2",
+                  "kind": "rehandle",
+                  "container": "k3",
+                  "from": "s2",
+                  "to": "s4"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s2",
+                  "to": null
+                },
+                {
+                  "crane": "c2",
+                  "kind": "rehandle",
+                  "container": "k2",
+                  "from": "s3",
+                  "to": "s0"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c2",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k5",
+                  "from": "s1",
+                  "to": null
+                },
+                {
+                  "crane": "c2",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c2",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k0",
+              "tick": 3
+            },
+            {
+              "container": "k4",
+              "tick": 5
+            },
+            {
+              "container": "k5",
+              "tick": 7
+            },
+            {
+              "container": "k3",
+              "tick": 6
+            },
+            {
+              "container": "k2",
+              "tick": 9
+            },
+            {
+              "container": "k1",
+              "tick": 8
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            },
+            {
+              "stack": "s4",
+              "containers": []
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "containers": [
+              {
+                "id": "k0",
+                "hazard": "cold",
+                "appointment_tick": 2,
+                "rehandle_cost": 2,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k1",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k2",
+                "hazard": "cold",
+                "appointment_tick": 4,
+                "rehandle_cost": 1,
+                "handling_ticks": 1
+              },
+              {
+                "id": "k3",
+                "hazard": "cold",
+                "appointment_tick": 2,
+                "rehandle_cost": 3,
+                "handling_ticks": 3
+              },
+              {
+                "id": "k4",
+                "hazard": "cold",
+                "appointment_tick": 3,
+                "rehandle_cost": 3,
+                "handling_ticks": 2
+              },
+              {
+                "id": "k5",
+                "hazard": "normal",
+                "appointment_tick": 4,
+                "rehandle_cost": 1,
+                "handling_ticks": 3
+              }
+            ],
+            "stacks": [
+              {
+                "id": "s0",
+                "containers": [
+                  "k1"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s1",
+                "containers": [
+                  "k5",
+                  "k4"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s2",
+                "containers": [],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s3",
+                "containers": [
+                  "k0"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              },
+              {
+                "id": "s4",
+                "containers": [
+                  "k3",
+                  "k2"
+                ],
+                "capacity": 2,
+                "allowed_hazards": [
+                  "normal",
+                  "cold"
+                ]
+              }
+            ],
+            "links": [
+              {
+                "from": "s0",
+                "to": "s1"
+              },
+              {
+                "from": "s0",
+                "to": "s2"
+              },
+              {
+                "from": "s0",
+                "to": "s3"
+              },
+              {
+                "from": "s0",
+                "to": "s4"
+              },
+              {
+                "from": "s1",
+                "to": "s3"
+              },
+              {
+                "from": "s1",
+                "to": "s4"
+              },
+              {
+                "from": "s2",
+                "to": "s0"
+              },
+              {
+                "from": "s2",
+                "to": "s3"
+              },
+              {
+                "from": "s2",
+                "to": "s4"
+              },
+              {
+                "from": "s3",
+                "to": "s0"
+              },
+              {
+                "from": "s4",
+                "to": "s0"
+              },
+              {
+                "from": "s4",
+                "to": "s1"
+              },
+              {
+                "from": "s4",
+                "to": "s2"
+              },
+              {
+                "from": "s4",
+                "to": "s3"
+              }
+            ],
+            "cranes": [
+              {
+                "id": "c0",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4"
+                ]
+              },
+              {
+                "id": "c1",
+                "reaches": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4"
+                ]
+              }
+            ],
+            "retrieval_groups": [
+              [
+                "k3",
+                "k5"
+              ],
+              [
+                "k2",
+                "k0"
+              ],
+              [
+                "k1",
+                "k4"
+              ]
+            ]
+          }
+        },
+        "expected": {
+          "status": "ready",
+          "rehandle_cost": 4,
+          "finish_time": 14,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k2",
+                  "from": "s4",
+                  "to": "s0"
+                }
+              ]
+            },
+            {
+              "start": 2,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k4",
+                  "from": "s1",
+                  "to": "s4"
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k5",
+                  "from": "s1",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 10,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 12,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k3",
+              "tick": 5
+            },
+            {
+              "container": "k5",
+              "tick": 10
+            },
+            {
+              "container": "k2",
+              "tick": 11
+            },
+            {
+              "container": "k0",
+              "tick": 12
+            },
+            {
+              "container": "k1",
+              "tick": 13
+            },
+            {
+              "container": "k4",
+              "tick": 14
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            },
+            {
+              "stack": "s4",
+              "containers": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "A",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "B",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "C",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "D",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "left",
+            "containers": [
+              "A",
+              "B"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "a",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "z",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "right",
+            "containers": [
+              "C",
+              "D"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "left",
+            "to": "a"
+          },
+          {
+            "from": "left",
+            "to": "z"
+          },
+          {
+            "from": "right",
+            "to": "a"
+          },
+          {
+            "from": "a",
+            "to": "z"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "A"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 2,
+          "finish_time": 4,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "B",
+                  "from": "left",
+                  "to": "z"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "left",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "D",
+                  "from": "right",
+                  "to": "a"
+                }
+              ]
+            },
+            {
+              "start": 2,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "C",
+                  "from": "right",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 3,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "D",
+                  "from": "a",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "z",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 2
+            },
+            {
+              "container": "C",
+              "tick": 3
+            },
+            {
+              "container": "D",
+              "tick": 4
+            },
+            {
+              "container": "B",
+              "tick": 4
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": []
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "A",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "B",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "C",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "D",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "left",
+            "containers": [
+              "A",
+              "B"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "a",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "z",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "right",
+            "containers": [
+              "C",
+              "D"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "left",
+            "to": "a"
+          },
+          {
+            "from": "left",
+            "to": "z"
+          },
+          {
+            "from": "right",
+            "to": "a"
+          },
+          {
+            "from": "a",
+            "to": "z"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "A"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 2,
+          "finish_time": 6,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "B",
+                  "from": "left",
+                  "to": "z"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "left",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 2,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "D",
+                  "from": "right",
+                  "to": "a"
+                }
+              ]
+            },
+            {
+              "start": 3,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "C",
+                  "from": "right",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "D",
+                  "from": "a",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "z",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 2
+            },
+            {
+              "container": "C",
+              "tick": 4
+            },
+            {
+              "container": "D",
+              "tick": 5
+            },
+            {
+              "container": "B",
+              "tick": 6
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": []
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "A",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "B",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 4,
+            "handling_ticks": 1
+          },
+          {
+            "id": "C",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "D",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 3
+          }
+        ],
+        "stacks": [
+          {
+            "id": "left",
+            "containers": [
+              "A",
+              "B"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "a",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "z",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "right",
+            "containers": [
+              "C",
+              "D"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "left",
+            "to": "a"
+          },
+          {
+            "from": "left",
+            "to": "z"
+          },
+          {
+            "from": "right",
+            "to": "a"
+          },
+          {
+            "from": "a",
+            "to": "z"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "A"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 5,
+          "finish_time": 8,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "B",
+                  "from": "left",
+                  "to": "z"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "left",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "D",
+                  "from": "right",
+                  "to": "a"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "C",
+                  "from": "right",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "D",
+                  "from": "a",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "z",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 2
+            },
+            {
+              "container": "C",
+              "tick": 5
+            },
+            {
+              "container": "D",
+              "tick": 8
+            },
+            {
+              "container": "B",
+              "tick": 6
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": []
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "A",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 2
+          },
+          {
+            "id": "B",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 1,
+            "handling_ticks": 3
+          }
+        ],
+        "stacks": [
+          {
+            "id": "a",
+            "containers": [
+              "A"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "b",
+            "containers": [
+              "B"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "c",
+            "containers": [],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "a",
+              "b",
+              "c"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "A",
+            "B"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 0,
+          "finish_time": 7,
+          "batches": [
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "A",
+                  "from": "a",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "B",
+                  "from": "b",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "A",
+              "tick": 6
+            },
+            {
+              "container": "B",
+              "tick": 7
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "b",
+              "containers": []
+            },
+            {
+              "stack": "c",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "A",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "B",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "C",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "D",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "left",
+            "containers": [
+              "A",
+              "B"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "a",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "cold"
+            ]
+          },
+          {
+            "id": "z",
+            "containers": [],
+            "capacity": 1,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "right",
+            "containers": [
+              "C",
+              "D"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "left",
+            "to": "a"
+          },
+          {
+            "from": "left",
+            "to": "z"
+          },
+          {
+            "from": "right",
+            "to": "a"
+          },
+          {
+            "from": "a",
+            "to": "z"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "left",
+              "a",
+              "z",
+              "right"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "A"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "infeasible",
+          "rehandle_cost": null,
+          "finish_time": null,
+          "batches": [],
+          "delivered": [],
+          "stacks": [
+            {
+              "stack": "left",
+              "containers": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "stack": "a",
+              "containers": []
+            },
+            {
+              "stack": "z",
+              "containers": []
+            },
+            {
+              "stack": "right",
+              "containers": [
+                "C",
+                "D"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "A",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "B",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "a",
+            "containers": [
+              "A",
+              "B"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "b",
+            "containers": [],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "c",
+            "containers": [],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "a",
+              "b",
+              "c"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "A"
+          ],
+          [
+            "B"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "infeasible",
+          "rehandle_cost": null,
+          "finish_time": null,
+          "batches": [],
+          "delivered": [],
+          "stacks": [
+            {
+              "stack": "a",
+              "containers": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "stack": "b",
+              "containers": []
+            },
+            {
+              "stack": "c",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "k0",
+            "hazard": "normal",
+            "appointment_tick": 3,
+            "rehandle_cost": 1,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k1",
+            "hazard": "cold",
+            "appointment_tick": 4,
+            "rehandle_cost": 4,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k2",
+            "hazard": "cold",
+            "appointment_tick": 1,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "s0",
+            "containers": [
+              "k2"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s1",
+            "containers": [
+              "k0"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s2",
+            "containers": [
+              "k1"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "s0",
+            "to": "s1"
+          },
+          {
+            "from": "s0",
+            "to": "s2"
+          },
+          {
+            "from": "s1",
+            "to": "s2"
+          },
+          {
+            "from": "s2",
+            "to": "s0"
+          },
+          {
+            "from": "s2",
+            "to": "s1"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "k1",
+            "k2"
+          ],
+          [
+            "k0"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 0,
+          "finish_time": 9,
+          "batches": [
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s1",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k2",
+              "tick": 5
+            },
+            {
+              "container": "k1",
+              "tick": 7
+            },
+            {
+              "container": "k0",
+              "tick": 9
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "k0",
+            "hazard": "normal",
+            "appointment_tick": 1,
+            "rehandle_cost": 2,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k1",
+            "hazard": "normal",
+            "appointment_tick": 3,
+            "rehandle_cost": 4,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k2",
+            "hazard": "cold",
+            "appointment_tick": 0,
+            "rehandle_cost": 3,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k3",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 3,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "s0",
+            "containers": [
+              "k2"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s1",
+            "containers": [
+              "k3",
+              "k1"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s2",
+            "containers": [
+              "k0"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "s0",
+            "to": "s2"
+          },
+          {
+            "from": "s1",
+            "to": "s0"
+          },
+          {
+            "from": "s1",
+            "to": "s2"
+          },
+          {
+            "from": "s2",
+            "to": "s0"
+          },
+          {
+            "from": "s2",
+            "to": "s1"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "k3",
+            "k2"
+          ],
+          [
+            "k0",
+            "k1"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 4,
+          "finish_time": 9,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k1",
+                  "from": "s1",
+                  "to": "s2"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s1",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 8,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k2",
+              "tick": 3
+            },
+            {
+              "container": "k3",
+              "tick": 5
+            },
+            {
+              "container": "k1",
+              "tick": 8
+            },
+            {
+              "container": "k0",
+              "tick": 9
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "k0",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 3,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k1",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 4,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k2",
+            "hazard": "normal",
+            "appointment_tick": 2,
+            "rehandle_cost": 1,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k3",
+            "hazard": "cold",
+            "appointment_tick": 3,
+            "rehandle_cost": 2,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k4",
+            "hazard": "normal",
+            "appointment_tick": 2,
+            "rehandle_cost": 1,
+            "handling_ticks": 3
+          }
+        ],
+        "stacks": [
+          {
+            "id": "s0",
+            "containers": [],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s1",
+            "containers": [
+              "k3",
+              "k1"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s2",
+            "containers": [
+              "k0",
+              "k2"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s3",
+            "containers": [
+              "k4"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "s0",
+            "to": "s1"
+          },
+          {
+            "from": "s0",
+            "to": "s2"
+          },
+          {
+            "from": "s0",
+            "to": "s3"
+          },
+          {
+            "from": "s1",
+            "to": "s0"
+          },
+          {
+            "from": "s1",
+            "to": "s2"
+          },
+          {
+            "from": "s1",
+            "to": "s3"
+          },
+          {
+            "from": "s2",
+            "to": "s3"
+          },
+          {
+            "from": "s3",
+            "to": "s0"
+          },
+          {
+            "from": "s3",
+            "to": "s2"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "k0",
+            "k3"
+          ],
+          [
+            "k1",
+            "k2"
+          ],
+          [
+            "k4"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 5,
+          "finish_time": 12,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "k1",
+                  "from": "s1",
+                  "to": "s0"
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k2",
+                  "from": "s2",
+                  "to": "s3"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s1",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 9,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k3",
+              "tick": 7
+            },
+            {
+              "container": "k0",
+              "tick": 6
+            },
+            {
+              "container": "k1",
+              "tick": 9
+            },
+            {
+              "container": "k2",
+              "tick": 9
+            },
+            {
+              "container": "k4",
+              "tick": 12
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "k0",
+            "hazard": "normal",
+            "appointment_tick": 1,
+            "rehandle_cost": 3,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k1",
+            "hazard": "cold",
+            "appointment_tick": 1,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k2",
+            "hazard": "cold",
+            "appointment_tick": 3,
+            "rehandle_cost": 2,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k3",
+            "hazard": "cold",
+            "appointment_tick": 1,
+            "rehandle_cost": 3,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k4",
+            "hazard": "cold",
+            "appointment_tick": 1,
+            "rehandle_cost": 3,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k5",
+            "hazard": "cold",
+            "appointment_tick": 4,
+            "rehandle_cost": 2,
+            "handling_ticks": 1
+          }
+        ],
+        "stacks": [
+          {
+            "id": "s0",
+            "containers": [
+              "k5"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s1",
+            "containers": [
+              "k2",
+              "k1"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s2",
+            "containers": [
+              "k4"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s3",
+            "containers": [
+              "k0",
+              "k3"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "s0",
+            "to": "s1"
+          },
+          {
+            "from": "s0",
+            "to": "s3"
+          },
+          {
+            "from": "s1",
+            "to": "s0"
+          },
+          {
+            "from": "s1",
+            "to": "s2"
+          },
+          {
+            "from": "s1",
+            "to": "s3"
+          },
+          {
+            "from": "s2",
+            "to": "s0"
+          },
+          {
+            "from": "s2",
+            "to": "s1"
+          },
+          {
+            "from": "s3",
+            "to": "s0"
+          },
+          {
+            "from": "s3",
+            "to": "s1"
+          },
+          {
+            "from": "s3",
+            "to": "s2"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "k2",
+            "k0"
+          ],
+          [
+            "k3",
+            "k1"
+          ],
+          [
+            "k4",
+            "k5"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 4,
+          "finish_time": 10,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "rehandle",
+                  "container": "k1",
+                  "from": "s1",
+                  "to": "s0"
+                },
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k3",
+                  "from": "s3",
+                  "to": "s2"
+                }
+              ]
+            },
+            {
+              "start": 3,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s1",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 6,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 9,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k5",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s2",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k2",
+              "tick": 5
+            },
+            {
+              "container": "k0",
+              "tick": 6
+            },
+            {
+              "container": "k1",
+              "tick": 7
+            },
+            {
+              "container": "k3",
+              "tick": 9
+            },
+            {
+              "container": "k5",
+              "tick": 10
+            },
+            {
+              "container": "k4",
+              "tick": 10
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "k0",
+            "hazard": "normal",
+            "appointment_tick": 0,
+            "rehandle_cost": 4,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k1",
+            "hazard": "normal",
+            "appointment_tick": 2,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k2",
+            "hazard": "normal",
+            "appointment_tick": 2,
+            "rehandle_cost": 2,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k3",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 4,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k4",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 4,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k5",
+            "hazard": "cold",
+            "appointment_tick": 3,
+            "rehandle_cost": 1,
+            "handling_ticks": 2
+          }
+        ],
+        "stacks": [
+          {
+            "id": "s0",
+            "containers": [],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s1",
+            "containers": [
+              "k5"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s2",
+            "containers": [
+              "k0",
+              "k3"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s3",
+            "containers": [
+              "k4",
+              "k2"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s4",
+            "containers": [
+              "k1"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "s0",
+            "to": "s1"
+          },
+          {
+            "from": "s0",
+            "to": "s3"
+          },
+          {
+            "from": "s0",
+            "to": "s4"
+          },
+          {
+            "from": "s1",
+            "to": "s2"
+          },
+          {
+            "from": "s1",
+            "to": "s3"
+          },
+          {
+            "from": "s1",
+            "to": "s4"
+          },
+          {
+            "from": "s2",
+            "to": "s0"
+          },
+          {
+            "from": "s2",
+            "to": "s1"
+          },
+          {
+            "from": "s2",
+            "to": "s3"
+          },
+          {
+            "from": "s2",
+            "to": "s4"
+          },
+          {
+            "from": "s3",
+            "to": "s0"
+          },
+          {
+            "from": "s3",
+            "to": "s1"
+          },
+          {
+            "from": "s3",
+            "to": "s2"
+          },
+          {
+            "from": "s3",
+            "to": "s4"
+          },
+          {
+            "from": "s4",
+            "to": "s1"
+          },
+          {
+            "from": "s4",
+            "to": "s2"
+          },
+          {
+            "from": "s4",
+            "to": "s3"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3",
+              "s4"
+            ]
+          },
+          {
+            "id": "c2",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3",
+              "s4"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "k4",
+            "k0"
+          ],
+          [
+            "k3",
+            "k5"
+          ],
+          [
+            "k1",
+            "k2"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 6,
+          "finish_time": 9,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c2",
+                  "kind": "rehandle",
+                  "container": "k3",
+                  "from": "s2",
+                  "to": "s4"
+                }
+              ]
+            },
+            {
+              "start": 1,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s2",
+                  "to": null
+                },
+                {
+                  "crane": "c2",
+                  "kind": "rehandle",
+                  "container": "k2",
+                  "from": "s3",
+                  "to": "s0"
+                }
+              ]
+            },
+            {
+              "start": 4,
+              "operations": [
+                {
+                  "crane": "c2",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k5",
+                  "from": "s1",
+                  "to": null
+                },
+                {
+                  "crane": "c2",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c2",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k0",
+              "tick": 3
+            },
+            {
+              "container": "k4",
+              "tick": 5
+            },
+            {
+              "container": "k5",
+              "tick": 7
+            },
+            {
+              "container": "k3",
+              "tick": 6
+            },
+            {
+              "container": "k2",
+              "tick": 9
+            },
+            {
+              "container": "k1",
+              "tick": 8
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            },
+            {
+              "stack": "s4",
+              "containers": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "containers": [
+          {
+            "id": "k0",
+            "hazard": "cold",
+            "appointment_tick": 2,
+            "rehandle_cost": 2,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k1",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k2",
+            "hazard": "cold",
+            "appointment_tick": 4,
+            "rehandle_cost": 1,
+            "handling_ticks": 1
+          },
+          {
+            "id": "k3",
+            "hazard": "cold",
+            "appointment_tick": 2,
+            "rehandle_cost": 3,
+            "handling_ticks": 3
+          },
+          {
+            "id": "k4",
+            "hazard": "cold",
+            "appointment_tick": 3,
+            "rehandle_cost": 3,
+            "handling_ticks": 2
+          },
+          {
+            "id": "k5",
+            "hazard": "normal",
+            "appointment_tick": 4,
+            "rehandle_cost": 1,
+            "handling_ticks": 3
+          }
+        ],
+        "stacks": [
+          {
+            "id": "s0",
+            "containers": [
+              "k1"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s1",
+            "containers": [
+              "k5",
+              "k4"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s2",
+            "containers": [],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s3",
+            "containers": [
+              "k0"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          },
+          {
+            "id": "s4",
+            "containers": [
+              "k3",
+              "k2"
+            ],
+            "capacity": 2,
+            "allowed_hazards": [
+              "normal",
+              "cold"
+            ]
+          }
+        ],
+        "links": [
+          {
+            "from": "s0",
+            "to": "s1"
+          },
+          {
+            "from": "s0",
+            "to": "s2"
+          },
+          {
+            "from": "s0",
+            "to": "s3"
+          },
+          {
+            "from": "s0",
+            "to": "s4"
+          },
+          {
+            "from": "s1",
+            "to": "s3"
+          },
+          {
+            "from": "s1",
+            "to": "s4"
+          },
+          {
+            "from": "s2",
+            "to": "s0"
+          },
+          {
+            "from": "s2",
+            "to": "s3"
+          },
+          {
+            "from": "s2",
+            "to": "s4"
+          },
+          {
+            "from": "s3",
+            "to": "s0"
+          },
+          {
+            "from": "s4",
+            "to": "s0"
+          },
+          {
+            "from": "s4",
+            "to": "s1"
+          },
+          {
+            "from": "s4",
+            "to": "s2"
+          },
+          {
+            "from": "s4",
+            "to": "s3"
+          }
+        ],
+        "cranes": [
+          {
+            "id": "c0",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3",
+              "s4"
+            ]
+          },
+          {
+            "id": "c1",
+            "reaches": [
+              "s0",
+              "s1",
+              "s2",
+              "s3",
+              "s4"
+            ]
+          }
+        ],
+        "retrieval_groups": [
+          [
+            "k3",
+            "k5"
+          ],
+          [
+            "k2",
+            "k0"
+          ],
+          [
+            "k1",
+            "k4"
+          ]
+        ]
+      },
+      "results": {
+        "analysis": {
+          "status": "ready",
+          "rehandle_cost": 4,
+          "finish_time": 14,
+          "batches": [
+            {
+              "start": 0,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k2",
+                  "from": "s4",
+                  "to": "s0"
+                }
+              ]
+            },
+            {
+              "start": 2,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k3",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 5,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "rehandle",
+                  "container": "k4",
+                  "from": "s1",
+                  "to": "s4"
+                }
+              ]
+            },
+            {
+              "start": 7,
+              "operations": [
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k5",
+                  "from": "s1",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 10,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k2",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k0",
+                  "from": "s3",
+                  "to": null
+                }
+              ]
+            },
+            {
+              "start": 12,
+              "operations": [
+                {
+                  "crane": "c0",
+                  "kind": "retrieve",
+                  "container": "k1",
+                  "from": "s0",
+                  "to": null
+                },
+                {
+                  "crane": "c1",
+                  "kind": "retrieve",
+                  "container": "k4",
+                  "from": "s4",
+                  "to": null
+                }
+              ]
+            }
+          ],
+          "delivered": [
+            {
+              "container": "k3",
+              "tick": 5
+            },
+            {
+              "container": "k5",
+              "tick": 10
+            },
+            {
+              "container": "k2",
+              "tick": 11
+            },
+            {
+              "container": "k0",
+              "tick": 12
+            },
+            {
+              "container": "k1",
+              "tick": 13
+            },
+            {
+              "container": "k4",
+              "tick": 14
+            }
+          ],
+          "stacks": [
+            {
+              "stack": "s0",
+              "containers": []
+            },
+            {
+              "stack": "s1",
+              "containers": []
+            },
+            {
+              "stack": "s2",
+              "containers": []
+            },
+            {
+              "stack": "s3",
+              "containers": []
+            },
+            {
+              "stack": "s4",
+              "containers": []
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

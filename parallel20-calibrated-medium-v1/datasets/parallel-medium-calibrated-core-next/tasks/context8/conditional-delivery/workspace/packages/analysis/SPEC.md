@@ -1,0 +1,5 @@
+# Time to delivery conditional on success
+
+stations lists all routing states, delivered lists successful terminal stations, and routes contains directed rows {from,to,weight,time}. All weights and travel times are positive integers. Each departure independently chooses an outgoing route with probability proportional to its weight at that station. Multiple routes between the same stations are independent choices. Delivered stations have no outgoing routes. Other stations without outgoing routes terminate unsuccessfully. A shipment may instead run forever in a closed part of the route network. There is no time horizon cutoff.
+
+For every starting station return its probability of eventual successful delivery and its expected total transit time conditional on eventual success. The starting state is before any moves. A delivered station has probability one and zero remaining time. Use null for conditional time when the success probability is zero. Return {stations:{station_id:{success:[numerator,denominator],mean_if_success:[numerator,denominator] or null}}}. Equivalent exact integer fractions with positive denominators are accepted.

@@ -1,0 +1,36 @@
+{
+  "topology": "irregular",
+  "agent_visible": false,
+  "semantic_work_products": 6,
+  "nodes": [
+    "windows_t",
+    "eligibility_t",
+    "conflicts_t",
+    "transfer_t",
+    "eligibility_next_t",
+    "audit"
+  ],
+  "edges": [
+    [
+      "windows_t",
+      "conflicts_t"
+    ],
+    [
+      "eligibility_t",
+      "windows_t"
+    ],
+    [
+      "conflicts_t",
+      "transfer_t"
+    ],
+    [
+      "transfer_t",
+      "eligibility_next_t"
+    ],
+    [
+      "transfer_t",
+      "audit"
+    ]
+  ],
+  "note": "Time-indexed DAG sketch; next-tick eligibility depends on prior transfer. Design opportunity only; Agent runtime and parallelism unmeasured."
+}

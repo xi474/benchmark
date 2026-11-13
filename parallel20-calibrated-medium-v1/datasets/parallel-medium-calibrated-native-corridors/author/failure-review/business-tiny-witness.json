@@ -1,0 +1,66 @@
+{
+  "task": "V163",
+  "attempt": "corridor1-V163-r04",
+  "request": {
+    "habitats": [
+      {
+        "id": "S",
+        "quality": 1
+      },
+      {
+        "id": "T",
+        "quality": 1
+      }
+    ],
+    "corridors": [
+      {
+        "id": "e",
+        "a": "T",
+        "b": "S",
+        "cost": 1,
+        "capacity": 1,
+        "open": [
+          "summer"
+        ]
+      }
+    ],
+    "seasons": [
+      {
+        "id": "summer",
+        "source": "S",
+        "sink": "T",
+        "demand": 1
+      }
+    ],
+    "budget": 1
+  },
+  "expected": {
+    "status": "feasible",
+    "selected": [
+      "e"
+    ],
+    "total_cost": 1,
+    "coverage": 2,
+    "season_flows": [
+      {
+        "season": "summer",
+        "max_flow": 1
+      }
+    ]
+  },
+  "reason": "Source and adapted contracts both define an undirected corridor. Reversing its endpoint notation does not forbid S-to-T flow; the submission inserts only one directed arc.",
+  "actual_probe": {
+    "ok": true,
+    "value": {
+      "status": "infeasible",
+      "selected": [],
+      "total_cost": null,
+      "coverage": null,
+      "season_flows": []
+    },
+    "input_unchanged": true
+  },
+  "formal_scores_changed": false,
+  "new_diagnostic_case_only": true,
+  "candidate_edited": false
+}

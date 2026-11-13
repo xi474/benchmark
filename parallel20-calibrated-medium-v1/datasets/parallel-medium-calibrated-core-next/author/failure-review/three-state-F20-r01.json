@@ -1,0 +1,65 @@
+{
+  "input": {
+    "stations": [
+      "A",
+      "B",
+      "C"
+    ],
+    "transitions": [
+      {
+        "from": "A",
+        "to": "C",
+        "gain": -1
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "gain": 1
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "gain": 1
+      },
+      {
+        "from": "C",
+        "to": "C",
+        "gain": 0
+      }
+    ]
+  },
+  "expected": {
+    "sustainable": {
+      "A": [
+        0,
+        1
+      ],
+      "B": [
+        0,
+        1
+      ],
+      "C": [
+        0,
+        1
+      ]
+    }
+  },
+  "actual": {
+    "sustainable": {
+      "A": [
+        3,
+        2
+      ],
+      "B": [
+        0,
+        1
+      ],
+      "C": [
+        0,
+        1
+      ]
+    }
+  },
+  "formal_score_changed": false,
+  "reason": "Every infinite walk eventually stays on C, whose only cycle gains zero. The archived program maximizes over prior path lengths instead of taking the required lower bound, so two different finite approaches produce a fictitious sustained yield of 3/2."
+}

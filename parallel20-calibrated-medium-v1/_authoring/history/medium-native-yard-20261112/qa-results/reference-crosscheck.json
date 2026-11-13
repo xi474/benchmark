@@ -1,0 +1,1189 @@
+{
+  "status": "passed",
+  "registered": [
+    {
+      "case": 1,
+      "reference_seconds": 0.000337799996486865,
+      "oracle_seconds": 0.0004091000009793788,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 2,
+        "finish_time": 4,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "B",
+                "from": "left",
+                "to": "z"
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "A",
+                "from": "left",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "D",
+                "from": "right",
+                "to": "a"
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "C",
+                "from": "right",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "D",
+                "from": "a",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "B",
+                "from": "z",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "A",
+            "tick": 2
+          },
+          {
+            "container": "C",
+            "tick": 3
+          },
+          {
+            "container": "D",
+            "tick": 4
+          },
+          {
+            "container": "B",
+            "tick": 4
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "left",
+            "containers": []
+          },
+          {
+            "stack": "a",
+            "containers": []
+          },
+          {
+            "stack": "z",
+            "containers": []
+          },
+          {
+            "stack": "right",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 2,
+      "reference_seconds": 0.00021920000290265307,
+      "oracle_seconds": 0.0002609000002848916,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 2,
+        "finish_time": 6,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "B",
+                "from": "left",
+                "to": "z"
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "A",
+                "from": "left",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "D",
+                "from": "right",
+                "to": "a"
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "C",
+                "from": "right",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "D",
+                "from": "a",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "B",
+                "from": "z",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "A",
+            "tick": 2
+          },
+          {
+            "container": "C",
+            "tick": 4
+          },
+          {
+            "container": "D",
+            "tick": 5
+          },
+          {
+            "container": "B",
+            "tick": 6
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "left",
+            "containers": []
+          },
+          {
+            "stack": "a",
+            "containers": []
+          },
+          {
+            "stack": "z",
+            "containers": []
+          },
+          {
+            "stack": "right",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 3,
+      "reference_seconds": 0.00025779999850783497,
+      "oracle_seconds": 0.00035000000207219273,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 5,
+        "finish_time": 8,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "B",
+                "from": "left",
+                "to": "z"
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "A",
+                "from": "left",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "D",
+                "from": "right",
+                "to": "a"
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "C",
+                "from": "right",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "D",
+                "from": "a",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "B",
+                "from": "z",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "A",
+            "tick": 2
+          },
+          {
+            "container": "C",
+            "tick": 5
+          },
+          {
+            "container": "D",
+            "tick": 8
+          },
+          {
+            "container": "B",
+            "tick": 6
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "left",
+            "containers": []
+          },
+          {
+            "stack": "a",
+            "containers": []
+          },
+          {
+            "stack": "z",
+            "containers": []
+          },
+          {
+            "stack": "right",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 4,
+      "reference_seconds": 5.029999738326296e-05,
+      "oracle_seconds": 6.779999966965988e-05,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 0,
+        "finish_time": 7,
+        "batches": [
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "A",
+                "from": "a",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "B",
+                "from": "b",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "A",
+            "tick": 6
+          },
+          {
+            "container": "B",
+            "tick": 7
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "a",
+            "containers": []
+          },
+          {
+            "stack": "b",
+            "containers": []
+          },
+          {
+            "stack": "c",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 5,
+      "reference_seconds": 3.0199997127056122e-05,
+      "oracle_seconds": 2.6900001103058457e-05,
+      "expected": {
+        "status": "infeasible",
+        "rehandle_cost": null,
+        "finish_time": null,
+        "batches": [],
+        "delivered": [],
+        "stacks": [
+          {
+            "stack": "left",
+            "containers": [
+              "A",
+              "B"
+            ]
+          },
+          {
+            "stack": "a",
+            "containers": []
+          },
+          {
+            "stack": "z",
+            "containers": []
+          },
+          {
+            "stack": "right",
+            "containers": [
+              "C",
+              "D"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": 6,
+      "reference_seconds": 5.800000508315861e-06,
+      "oracle_seconds": 6.099995516706258e-06,
+      "expected": {
+        "status": "infeasible",
+        "rehandle_cost": null,
+        "finish_time": null,
+        "batches": [],
+        "delivered": [],
+        "stacks": [
+          {
+            "stack": "a",
+            "containers": [
+              "A",
+              "B"
+            ]
+          },
+          {
+            "stack": "b",
+            "containers": []
+          },
+          {
+            "stack": "c",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 7,
+      "reference_seconds": 0.00019299999985378236,
+      "oracle_seconds": 0.0012566000004881062,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 0,
+        "finish_time": 9,
+        "batches": [
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k2",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k1",
+                "from": "s2",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 7,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k0",
+                "from": "s1",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "k2",
+            "tick": 5
+          },
+          {
+            "container": "k1",
+            "tick": 7
+          },
+          {
+            "container": "k0",
+            "tick": 9
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "s0",
+            "containers": []
+          },
+          {
+            "stack": "s1",
+            "containers": []
+          },
+          {
+            "stack": "s2",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 8,
+      "reference_seconds": 0.0005362000010791235,
+      "oracle_seconds": 0.003355200002260972,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 4,
+        "finish_time": 9,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k2",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "k1",
+                "from": "s1",
+                "to": "s2"
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k3",
+                "from": "s1",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "operations": [
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k1",
+                "from": "s2",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 8,
+            "operations": [
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k0",
+                "from": "s2",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "k2",
+            "tick": 3
+          },
+          {
+            "container": "k3",
+            "tick": 5
+          },
+          {
+            "container": "k1",
+            "tick": 8
+          },
+          {
+            "container": "k0",
+            "tick": 9
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "s0",
+            "containers": []
+          },
+          {
+            "stack": "s1",
+            "containers": []
+          },
+          {
+            "stack": "s2",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 9,
+      "reference_seconds": 0.0027495999966049567,
+      "oracle_seconds": 0.0722814999971888,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 5,
+        "finish_time": 12,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "k1",
+                "from": "s1",
+                "to": "s0"
+              },
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "k2",
+                "from": "s2",
+                "to": "s3"
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k3",
+                "from": "s1",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k0",
+                "from": "s2",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 7,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k1",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k2",
+                "from": "s3",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 9,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k4",
+                "from": "s3",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "k3",
+            "tick": 7
+          },
+          {
+            "container": "k0",
+            "tick": 6
+          },
+          {
+            "container": "k1",
+            "tick": 9
+          },
+          {
+            "container": "k2",
+            "tick": 9
+          },
+          {
+            "container": "k4",
+            "tick": 12
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "s0",
+            "containers": []
+          },
+          {
+            "stack": "s1",
+            "containers": []
+          },
+          {
+            "stack": "s2",
+            "containers": []
+          },
+          {
+            "stack": "s3",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 10,
+      "reference_seconds": 0.0036408999949344434,
+      "oracle_seconds": 0.28976710000279127,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 4,
+        "finish_time": 10,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "k1",
+                "from": "s1",
+                "to": "s0"
+              },
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "k3",
+                "from": "s3",
+                "to": "s2"
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k2",
+                "from": "s1",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k0",
+                "from": "s3",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 6,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k1",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k3",
+                "from": "s2",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 9,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k5",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k4",
+                "from": "s2",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "k2",
+            "tick": 5
+          },
+          {
+            "container": "k0",
+            "tick": 6
+          },
+          {
+            "container": "k1",
+            "tick": 7
+          },
+          {
+            "container": "k3",
+            "tick": 9
+          },
+          {
+            "container": "k5",
+            "tick": 10
+          },
+          {
+            "container": "k4",
+            "tick": 10
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "s0",
+            "containers": []
+          },
+          {
+            "stack": "s1",
+            "containers": []
+          },
+          {
+            "stack": "s2",
+            "containers": []
+          },
+          {
+            "stack": "s3",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 11,
+      "reference_seconds": 0.07157599999482045,
+      "oracle_seconds": 2.398265600000741,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 6,
+        "finish_time": 9,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "k3",
+                "from": "s2",
+                "to": "s4"
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k0",
+                "from": "s2",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "rehandle",
+                "container": "k2",
+                "from": "s3",
+                "to": "s0"
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k4",
+                "from": "s3",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k5",
+                "from": "s1",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k3",
+                "from": "s4",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 7,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k2",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k1",
+                "from": "s4",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "k0",
+            "tick": 3
+          },
+          {
+            "container": "k4",
+            "tick": 5
+          },
+          {
+            "container": "k5",
+            "tick": 7
+          },
+          {
+            "container": "k3",
+            "tick": 6
+          },
+          {
+            "container": "k2",
+            "tick": 9
+          },
+          {
+            "container": "k1",
+            "tick": 8
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "s0",
+            "containers": []
+          },
+          {
+            "stack": "s1",
+            "containers": []
+          },
+          {
+            "stack": "s2",
+            "containers": []
+          },
+          {
+            "stack": "s3",
+            "containers": []
+          },
+          {
+            "stack": "s4",
+            "containers": []
+          }
+        ]
+      }
+    },
+    {
+      "case": 12,
+      "reference_seconds": 0.015249299998686183,
+      "oracle_seconds": 1.8022119999950519,
+      "expected": {
+        "status": "ready",
+        "rehandle_cost": 4,
+        "finish_time": 14,
+        "batches": [
+          {
+            "start": 0,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "k2",
+                "from": "s4",
+                "to": "s0"
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k3",
+                "from": "s4",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "rehandle",
+                "container": "k4",
+                "from": "s1",
+                "to": "s4"
+              }
+            ]
+          },
+          {
+            "start": 7,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k5",
+                "from": "s1",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 10,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k2",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k0",
+                "from": "s3",
+                "to": null
+              }
+            ]
+          },
+          {
+            "start": 12,
+            "operations": [
+              {
+                "crane": "c0",
+                "kind": "retrieve",
+                "container": "k1",
+                "from": "s0",
+                "to": null
+              },
+              {
+                "crane": "c1",
+                "kind": "retrieve",
+                "container": "k4",
+                "from": "s4",
+                "to": null
+              }
+            ]
+          }
+        ],
+        "delivered": [
+          {
+            "container": "k3",
+            "tick": 5
+          },
+          {
+            "container": "k5",
+            "tick": 10
+          },
+          {
+            "container": "k2",
+            "tick": 11
+          },
+          {
+            "container": "k0",
+            "tick": 12
+          },
+          {
+            "container": "k1",
+            "tick": 13
+          },
+          {
+            "container": "k4",
+            "tick": 14
+          }
+        ],
+        "stacks": [
+          {
+            "stack": "s0",
+            "containers": []
+          },
+          {
+            "stack": "s1",
+            "containers": []
+          },
+          {
+            "stack": "s2",
+            "containers": []
+          },
+          {
+            "stack": "s3",
+            "containers": []
+          },
+          {
+            "stack": "s4",
+            "containers": []
+          }
+        ]
+      }
+    }
+  ],
+  "extra_complete_tiny_graphs": 128,
+  "tiny_states_with_independent_wave_validation": 4331,
+  "hand_checks": [
+    "reserve future staging: optimum2 versus greedy3",
+    "two cranes finish4 versus one crane6",
+    "nonunit handling/cost",
+    "appointment waiting",
+    "directed/hazard infeasibility"
+  ],
+  "methods": [
+    "forward layout lexicographic cost/FIFO-time Dijkstra",
+    "independent per-crane action products, reverse serial-state minimum costs then earliest optimal-cost parallel plan",
+    "all128 tiny reachable graphs: independent action-set equality and separate wave replay"
+  ]
+}

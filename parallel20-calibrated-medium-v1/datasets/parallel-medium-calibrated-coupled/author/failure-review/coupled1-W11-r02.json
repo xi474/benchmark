@@ -1,0 +1,47 @@
+{
+  "task": "W11",
+  "repeat": 2,
+  "stop_reason": null,
+  "failed_checks": [
+    "A/analysis/7",
+    "A/analysis/11",
+    "D/analysis",
+    "D/final_report"
+  ],
+  "api": [
+    {
+      "case": "A/analysis/7",
+      "invoked": true,
+      "business_value_matches": false,
+      "input_unchanged": true,
+      "error": null,
+      "differences": [
+        {
+          "field": "/slack/z/hold",
+          "actual": -2,
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "case": "A/analysis/11",
+      "invoked": true,
+      "business_value_matches": false,
+      "input_unchanged": true,
+      "error": null,
+      "differences": [
+        {
+          "field": "/slack/z/hold",
+          "actual": -5,
+          "expected": -1
+        },
+        {
+          "field": "/slack/z/setup",
+          "actual": -15,
+          "expected": -12
+        }
+      ]
+    }
+  ],
+  "source": "frozen candidate replay; no change to formal scores"
+}

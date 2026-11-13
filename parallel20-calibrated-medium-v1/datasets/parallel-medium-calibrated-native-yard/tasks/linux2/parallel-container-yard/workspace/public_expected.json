@@ -1,0 +1,105 @@
+{
+  "status": "ready",
+  "rehandle_cost": 2,
+  "finish_time": 4,
+  "batches": [
+    {
+      "start": 0,
+      "operations": [
+        {
+          "crane": "c1",
+          "kind": "rehandle",
+          "container": "B",
+          "from": "left",
+          "to": "z"
+        }
+      ]
+    },
+    {
+      "start": 1,
+      "operations": [
+        {
+          "crane": "c0",
+          "kind": "retrieve",
+          "container": "A",
+          "from": "left",
+          "to": null
+        },
+        {
+          "crane": "c1",
+          "kind": "rehandle",
+          "container": "D",
+          "from": "right",
+          "to": "a"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "operations": [
+        {
+          "crane": "c1",
+          "kind": "retrieve",
+          "container": "C",
+          "from": "right",
+          "to": null
+        }
+      ]
+    },
+    {
+      "start": 3,
+      "operations": [
+        {
+          "crane": "c0",
+          "kind": "retrieve",
+          "container": "D",
+          "from": "a",
+          "to": null
+        },
+        {
+          "crane": "c1",
+          "kind": "retrieve",
+          "container": "B",
+          "from": "z",
+          "to": null
+        }
+      ]
+    }
+  ],
+  "delivered": [
+    {
+      "container": "A",
+      "tick": 2
+    },
+    {
+      "container": "C",
+      "tick": 3
+    },
+    {
+      "container": "D",
+      "tick": 4
+    },
+    {
+      "container": "B",
+      "tick": 4
+    }
+  ],
+  "stacks": [
+    {
+      "stack": "left",
+      "containers": []
+    },
+    {
+      "stack": "a",
+      "containers": []
+    },
+    {
+      "stack": "z",
+      "containers": []
+    },
+    {
+      "stack": "right",
+      "containers": []
+    }
+  ]
+}

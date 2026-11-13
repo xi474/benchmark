@@ -1,0 +1,769 @@
+{
+  "status": "passed",
+  "registered": [
+    {
+      "case": 1,
+      "reference_seconds": 8.749999688006938e-05,
+      "expected": {
+        "status": "ready",
+        "selected": [
+          {
+            "package": "A",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "B",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "C",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "active_dependencies": [
+          {
+            "source": "A",
+            "target": "C",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "B",
+            "target": "C",
+            "kind": "required",
+            "feature": null
+          }
+        ],
+        "prior_deltas": [
+          {
+            "package": "A",
+            "prior": [
+              2,
+              0,
+              0
+            ],
+            "selected": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "score": {
+          "changes": 1,
+          "freshness": 300
+        },
+        "feasible_count": 1,
+        "minimal_root_conflict": []
+      }
+    },
+    {
+      "case": 2,
+      "reference_seconds": 0.00015929999790387228,
+      "expected": {
+        "status": "ready",
+        "selected": [
+          {
+            "package": "A",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "B",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "C",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "active_dependencies": [
+          {
+            "source": "A",
+            "target": "C",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "B",
+            "target": "C",
+            "kind": "required",
+            "feature": null
+          }
+        ],
+        "prior_deltas": [
+          {
+            "package": "A",
+            "prior": [
+              2,
+              0,
+              0
+            ],
+            "selected": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "score": {
+          "changes": 1,
+          "freshness": 300
+        },
+        "feasible_count": 2,
+        "minimal_root_conflict": []
+      }
+    },
+    {
+      "case": 3,
+      "reference_seconds": 6.399999983841553e-05,
+      "expected": {
+        "status": "blocked",
+        "selected": [],
+        "active_dependencies": [],
+        "prior_deltas": [],
+        "score": null,
+        "feasible_count": 0,
+        "minimal_root_conflict": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "case": 4,
+      "reference_seconds": 5.579999560723081e-05,
+      "expected": {
+        "status": "ready",
+        "selected": [
+          {
+            "package": "A",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "B",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "C",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "D",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "active_dependencies": [
+          {
+            "source": "A",
+            "target": "C",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "B",
+            "target": "C",
+            "kind": "required",
+            "feature": null
+          }
+        ],
+        "prior_deltas": [
+          {
+            "package": "A",
+            "prior": [
+              2,
+              0,
+              0
+            ],
+            "selected": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "D",
+            "prior": null,
+            "selected": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "score": {
+          "changes": 2,
+          "freshness": 400
+        },
+        "feasible_count": 2,
+        "minimal_root_conflict": []
+      }
+    },
+    {
+      "case": 5,
+      "reference_seconds": 3.480000304989517e-05,
+      "expected": {
+        "status": "ready",
+        "selected": [
+          {
+            "package": "A",
+            "version": [
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "B",
+            "version": [
+              2,
+              0,
+              0
+            ]
+          }
+        ],
+        "active_dependencies": [
+          {
+            "source": "A",
+            "target": "B",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "B",
+            "target": "A",
+            "kind": "required",
+            "feature": null
+          }
+        ],
+        "prior_deltas": [
+          {
+            "package": "A",
+            "prior": null,
+            "selected": [
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "B",
+            "prior": null,
+            "selected": [
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "Z",
+            "prior": [
+              1,
+              0,
+              0
+            ],
+            "selected": null
+          }
+        ],
+        "score": {
+          "changes": 3,
+          "freshness": 400
+        },
+        "feasible_count": 2,
+        "minimal_root_conflict": []
+      }
+    },
+    {
+      "case": 6,
+      "reference_seconds": 1.3199998647905886e-05,
+      "expected": {
+        "status": "ready",
+        "selected": [],
+        "active_dependencies": [],
+        "prior_deltas": [
+          {
+            "package": "A",
+            "prior": [
+              2,
+              0,
+              0
+            ],
+            "selected": null
+          },
+          {
+            "package": "B",
+            "prior": [
+              1,
+              0,
+              0
+            ],
+            "selected": null
+          },
+          {
+            "package": "C",
+            "prior": [
+              1,
+              0,
+              0
+            ],
+            "selected": null
+          }
+        ],
+        "score": {
+          "changes": 3,
+          "freshness": 0
+        },
+        "feasible_count": 1,
+        "minimal_root_conflict": []
+      }
+    },
+    {
+      "case": 7,
+      "reference_seconds": 0.00013010000111535192,
+      "expected": {
+        "status": "blocked",
+        "selected": [],
+        "active_dependencies": [],
+        "prior_deltas": [],
+        "score": null,
+        "feasible_count": 0,
+        "minimal_root_conflict": [
+          "p0"
+        ]
+      }
+    },
+    {
+      "case": 8,
+      "reference_seconds": 9.639999916544184e-05,
+      "expected": {
+        "status": "ready",
+        "selected": [
+          {
+            "package": "p0",
+            "version": [
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "p1",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "p3",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "p4",
+            "version": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "active_dependencies": [
+          {
+            "source": "p0",
+            "target": "p3",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "p1",
+            "target": "p4",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "p4",
+            "target": "p1",
+            "kind": "required",
+            "feature": null
+          }
+        ],
+        "prior_deltas": [
+          {
+            "package": "p3",
+            "prior": [
+              2,
+              0,
+              0
+            ],
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          }
+        ],
+        "score": {
+          "changes": 1,
+          "freshness": 700
+        },
+        "feasible_count": 1,
+        "minimal_root_conflict": []
+      }
+    },
+    {
+      "case": 9,
+      "reference_seconds": 0.00019579999934649095,
+      "expected": {
+        "status": "blocked",
+        "selected": [],
+        "active_dependencies": [],
+        "prior_deltas": [],
+        "score": null,
+        "feasible_count": 0,
+        "minimal_root_conflict": [
+          "p0"
+        ]
+      }
+    },
+    {
+      "case": 10,
+      "reference_seconds": 0.00013269999908516183,
+      "expected": {
+        "status": "blocked",
+        "selected": [],
+        "active_dependencies": [],
+        "prior_deltas": [],
+        "score": null,
+        "feasible_count": 0,
+        "minimal_root_conflict": [
+          "p1"
+        ]
+      }
+    },
+    {
+      "case": 11,
+      "reference_seconds": 0.00011610000365180895,
+      "expected": {
+        "status": "blocked",
+        "selected": [],
+        "active_dependencies": [],
+        "prior_deltas": [],
+        "score": null,
+        "feasible_count": 0,
+        "minimal_root_conflict": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "case": 12,
+      "reference_seconds": 0.00022619999799644575,
+      "expected": {
+        "status": "ready",
+        "selected": [
+          {
+            "package": "a0",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a1",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a2",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a3",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a4",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a5",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b0",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b1",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b2",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b3",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b4",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b5",
+            "version": [
+              3,
+              0,
+              0
+            ]
+          }
+        ],
+        "active_dependencies": [
+          {
+            "source": "a0",
+            "target": "b0",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "a1",
+            "target": "b1",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "a2",
+            "target": "b2",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "a3",
+            "target": "b3",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "a4",
+            "target": "b4",
+            "kind": "required",
+            "feature": null
+          },
+          {
+            "source": "a5",
+            "target": "b5",
+            "kind": "required",
+            "feature": null
+          }
+        ],
+        "prior_deltas": [
+          {
+            "package": "a0",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a1",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a2",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a3",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a4",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "a5",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b0",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b1",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b2",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b3",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b4",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "package": "b5",
+            "prior": null,
+            "selected": [
+              3,
+              0,
+              0
+            ]
+          }
+        ],
+        "score": {
+          "changes": 12,
+          "freshness": 3600
+        },
+        "feasible_count": 46656,
+        "minimal_root_conflict": []
+      }
+    }
+  ],
+  "extra_manual_assignment_checks": 128,
+  "closed_form": "6^6 independent paired-version configurations",
+  "methods": [
+    "required-frontier constraint propagation and component factorization",
+    "independent full version-or-none product per component",
+    "manual tiny closure/peer checks and minimum root subset enumeration"
+  ]
+}

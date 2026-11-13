@@ -1,0 +1,299 @@
+{
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "reason": "Both submissions compensate parent a before successful child b has finished its two failed compensation attempts. Equal minimum scalar11 does not make an illegal trace valid.",
+  "witnesses": [
+    {
+      "repeat": 1,
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 1
+          },
+          {
+            "id": "b",
+            "resource": "Y",
+            "deps": [
+              "a"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              false
+            ],
+            "forward_time": 1,
+            "compensation_time": 3
+          },
+          {
+            "id": "f",
+            "resource": "Z",
+            "deps": [
+              "b"
+            ],
+            "forward": [
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "expected": {
+        "minimum_time": 11,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "b"
+          ],
+          [
+            "b"
+          ],
+          [
+            "a"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": [
+          "b"
+        ]
+      },
+      "actual": {
+        "minimum_time": 11,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": [
+          "b"
+        ]
+      },
+      "first_illegal_batch": {
+        "phase": "rollback",
+        "batch": 1,
+        "ids": [
+          "a"
+        ],
+        "reason": "compensation ready",
+        "state": [
+          "rollback",
+          [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              1
+            ],
+            [
+              "f",
+              1
+            ]
+          ],
+          [
+            "a",
+            "b"
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "repeat": 3,
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 1
+          },
+          {
+            "id": "b",
+            "resource": "Y",
+            "deps": [
+              "a"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              false
+            ],
+            "forward_time": 1,
+            "compensation_time": 3
+          },
+          {
+            "id": "f",
+            "resource": "Z",
+            "deps": [
+              "b"
+            ],
+            "forward": [
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "expected": {
+        "minimum_time": 11,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "b"
+          ],
+          [
+            "b"
+          ],
+          [
+            "a"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": [
+          "b"
+        ]
+      },
+      "actual": {
+        "minimum_time": 11,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": [
+          "b"
+        ]
+      },
+      "first_illegal_batch": {
+        "phase": "rollback",
+        "batch": 1,
+        "ids": [
+          "a"
+        ],
+        "reason": "compensation ready",
+        "state": [
+          "rollback",
+          [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              1
+            ],
+            [
+              "f",
+              1
+            ]
+          ],
+          [
+            "a",
+            "b"
+          ],
+          []
+        ]
+      }
+    }
+  ]
+}

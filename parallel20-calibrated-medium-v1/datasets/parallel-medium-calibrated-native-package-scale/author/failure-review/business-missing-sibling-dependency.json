@@ -1,0 +1,215 @@
+{
+  "repeat": 1,
+  "input": {
+    "config": {
+      "roots": [
+        {
+          "package": "A",
+          "min": null,
+          "max": null
+        }
+      ],
+      "features": [],
+      "prior": {}
+    },
+    "catalog": [
+      {
+        "package": "A",
+        "versions": [
+          {
+            "version": [
+              1,
+              0,
+              0
+            ],
+            "deps": [
+              {
+                "package": "B",
+                "min": null,
+                "max": null,
+                "kind": "required",
+                "feature": null
+              },
+              {
+                "package": "C",
+                "min": null,
+                "max": null,
+                "kind": "required",
+                "feature": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "package": "B",
+        "versions": [
+          {
+            "version": [
+              1,
+              0,
+              0
+            ],
+            "deps": []
+          }
+        ]
+      },
+      {
+        "package": "C",
+        "versions": [
+          {
+            "version": [
+              1,
+              0,
+              0
+            ],
+            "deps": []
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "status": "ready",
+    "selected": [
+      {
+        "package": "A",
+        "version": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "package": "B",
+        "version": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "package": "C",
+        "version": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "active_dependencies": [
+      {
+        "source": "A",
+        "target": "B",
+        "kind": "required",
+        "feature": null
+      },
+      {
+        "source": "A",
+        "target": "C",
+        "kind": "required",
+        "feature": null
+      }
+    ],
+    "prior_deltas": [
+      {
+        "package": "A",
+        "prior": null,
+        "selected": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "package": "B",
+        "prior": null,
+        "selected": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "package": "C",
+        "prior": null,
+        "selected": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "score": {
+      "changes": 3,
+      "freshness": 300
+    },
+    "feasible_count": 1,
+    "minimal_root_conflict": []
+  },
+  "actual": {
+    "status": "ready",
+    "selected": [
+      {
+        "package": "A",
+        "version": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "package": "B",
+        "version": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "active_dependencies": [
+      {
+        "source": "A",
+        "target": "B",
+        "kind": "required",
+        "feature": null
+      },
+      {
+        "source": "A",
+        "target": "C",
+        "kind": "required",
+        "feature": null
+      }
+    ],
+    "prior_deltas": [
+      {
+        "package": "A",
+        "prior": null,
+        "selected": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "package": "B",
+        "prior": null,
+        "selected": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "score": {
+      "changes": 2,
+      "freshness": 200
+    },
+    "feasible_count": 1,
+    "minimal_root_conflict": []
+  },
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "new_diagnostic_case_only": true,
+  "reason": "After recursively selecting first required target B, traversal resumes at the next queued package and skips the remaining dependency C of A. The reported lock omits a required package."
+}

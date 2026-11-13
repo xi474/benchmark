@@ -1,0 +1,458 @@
+{
+  "task": "S02",
+  "repeat": 4,
+  "stop_reason": null,
+  "failed_checks": [
+    "A/analysis/3",
+    "A/analysis/5",
+    "A/analysis/11",
+    "D/analysis",
+    "D/final_report"
+  ],
+  "api": [
+    {
+      "case": "A/analysis/3",
+      "invoked": true,
+      "business_value_matches": false,
+      "input_unchanged": true,
+      "error": null,
+      "business_input": {
+        "root": "r",
+        "children": {
+          "r": [
+            "b",
+            "c"
+          ],
+          "b": [
+            "p",
+            "q"
+          ],
+          "c": [
+            "s",
+            "t"
+          ]
+        },
+        "observed": {
+          "p": [
+            0,
+            2
+          ],
+          "q": [
+            0,
+            1
+          ],
+          "s": [
+            0
+          ],
+          "t": [
+            0,
+            2
+          ],
+          "b": [
+            2
+          ]
+        },
+        "cost": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            3,
+            0,
+            1
+          ],
+          [
+            2,
+            2,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "loss": 3,
+        "histories": 2,
+        "change_count": {
+          "b": 2,
+          "p": 0,
+          "q": 2,
+          "c": 0,
+          "s": 0,
+          "t": 0
+        }
+      },
+      "differences": [
+        {
+          "field": "/change_count/q",
+          "actual": 4,
+          "expected": 2
+        }
+      ],
+      "actual": {
+        "loss": 3,
+        "histories": 2,
+        "change_count": {
+          "b": 2,
+          "p": 0,
+          "q": 4,
+          "c": 0,
+          "s": 0,
+          "t": 0
+        }
+      }
+    },
+    {
+      "case": "A/analysis/5",
+      "invoked": true,
+      "business_value_matches": false,
+      "input_unchanged": true,
+      "error": null,
+      "business_input": {
+        "root": "r",
+        "children": {
+          "r": [
+            "b",
+            "c"
+          ],
+          "b": [
+            "p",
+            "q"
+          ],
+          "c": [
+            "s",
+            "t",
+            "v"
+          ]
+        },
+        "observed": {
+          "p": [
+            0,
+            2
+          ],
+          "q": [
+            0,
+            1
+          ],
+          "s": [
+            0
+          ],
+          "t": [
+            2
+          ],
+          "v": [
+            2
+          ]
+        },
+        "cost": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            0,
+            3
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "loss": 2,
+        "histories": 4,
+        "change_count": {
+          "b": 1,
+          "p": 0,
+          "q": 1,
+          "c": 1,
+          "s": 3,
+          "t": 1,
+          "v": 1
+        }
+      },
+      "differences": [
+        {
+          "field": "/change_count/s",
+          "actual": 2,
+          "expected": 3
+        }
+      ],
+      "actual": {
+        "loss": 2,
+        "histories": 4,
+        "change_count": {
+          "b": 1,
+          "p": 0,
+          "q": 1,
+          "c": 1,
+          "s": 2,
+          "t": 1,
+          "v": 1
+        }
+      }
+    },
+    {
+      "case": "A/analysis/11",
+      "invoked": true,
+      "business_value_matches": false,
+      "input_unchanged": true,
+      "error": null,
+      "business_input": {
+        "root": "r",
+        "children": {
+          "r": [
+            "b",
+            "c"
+          ],
+          "b": [
+            "p",
+            "q"
+          ],
+          "c": [
+            "s",
+            "t",
+            "v"
+          ],
+          "p": [
+            "pL",
+            "pR"
+          ],
+          "pL": [
+            "pL1",
+            "pL2"
+          ],
+          "pR": [
+            "pR1",
+            "pR2"
+          ],
+          "q": [
+            "qL",
+            "qR"
+          ],
+          "qL": [
+            "qL1",
+            "qL2"
+          ],
+          "qR": [
+            "qR1",
+            "qR2"
+          ],
+          "s": [
+            "sL",
+            "sR"
+          ],
+          "sL": [
+            "sL1",
+            "sL2"
+          ],
+          "sR": [
+            "sR1",
+            "sR2"
+          ],
+          "t": [
+            "tL",
+            "tR"
+          ],
+          "tL": [
+            "tL1",
+            "tL2"
+          ],
+          "tR": [
+            "tR1",
+            "tR2"
+          ]
+        },
+        "observed": {
+          "p": [
+            0,
+            2
+          ],
+          "q": [
+            0,
+            2
+          ],
+          "s": [
+            0,
+            2
+          ],
+          "t": [
+            1
+          ],
+          "v": [
+            2
+          ],
+          "b": [
+            1
+          ],
+          "pL1": [
+            0
+          ],
+          "pL2": [
+            0
+          ],
+          "pR1": [
+            0
+          ],
+          "pR2": [
+            1
+          ],
+          "qL1": [
+            2
+          ],
+          "qL2": [
+            0
+          ],
+          "qR1": [
+            1
+          ],
+          "qR2": [
+            1
+          ],
+          "sL1": [
+            1
+          ],
+          "sL2": [
+            2
+          ],
+          "sR1": [
+            1
+          ],
+          "sR2": [
+            2
+          ],
+          "tL1": [
+            1
+          ],
+          "tL2": [
+            0
+          ],
+          "tR1": [
+            2
+          ],
+          "tR2": [
+            1
+          ]
+        },
+        "cost": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            2,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "loss": 17,
+        "histories": 2,
+        "change_count": {
+          "b": 0,
+          "p": 2,
+          "pL": 0,
+          "pL1": 0,
+          "pL2": 0,
+          "pR": 0,
+          "pR1": 0,
+          "pR2": 2,
+          "q": 2,
+          "qL": 0,
+          "qL1": 1,
+          "qL2": 1,
+          "qR": 2,
+          "qR1": 0,
+          "qR2": 0,
+          "c": 0,
+          "s": 2,
+          "sL": 0,
+          "sL1": 2,
+          "sL2": 0,
+          "sR": 0,
+          "sR1": 2,
+          "sR2": 0,
+          "t": 0,
+          "tL": 0,
+          "tL1": 0,
+          "tL2": 2,
+          "tR": 0,
+          "tR1": 2,
+          "tR2": 0,
+          "v": 2
+        }
+      },
+      "differences": [
+        {
+          "field": "/change_count/q",
+          "actual": 4,
+          "expected": 2
+        },
+        {
+          "field": "/change_count/qL1",
+          "actual": 2,
+          "expected": 1
+        },
+        {
+          "field": "/change_count/qL2",
+          "actual": 2,
+          "expected": 1
+        },
+        {
+          "field": "/change_count/qR",
+          "actual": 4,
+          "expected": 2
+        }
+      ],
+      "actual": {
+        "loss": 17,
+        "histories": 2,
+        "change_count": {
+          "b": 0,
+          "p": 2,
+          "pL": 0,
+          "pL1": 0,
+          "pL2": 0,
+          "pR": 0,
+          "pR1": 0,
+          "pR2": 2,
+          "q": 4,
+          "qL": 0,
+          "qL1": 2,
+          "qL2": 2,
+          "qR": 4,
+          "qR1": 0,
+          "qR2": 0,
+          "c": 0,
+          "s": 1,
+          "sL": 0,
+          "sL1": 1,
+          "sL2": 0,
+          "sR": 0,
+          "sR1": 1,
+          "sR2": 0,
+          "t": 0,
+          "tL": 0,
+          "tL1": 0,
+          "tL2": 1,
+          "tR": 0,
+          "tR1": 1,
+          "tR2": 0,
+          "v": 1
+        }
+      }
+    }
+  ],
+  "source": "frozen candidate replay; no change to formal scores"
+}

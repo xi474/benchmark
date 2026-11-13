@@ -1,0 +1,1 @@
+Repair /app/workspace/project so python -m project.cli INPUT OUTPUT follows /app/workspace/README.md. Public synthetic fixtures are under /app/workspace/data/public; hidden cases probe integrated semantics. Choose your own workflow.

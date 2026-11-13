@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "case": 9,
+      "transactions": 41,
+      "scan_records": 0,
+      "pool_cost": 7,
+      "combined_east_west_cost": 7,
+      "answer_for_all": {
+        "impact": 7,
+        "required": []
+      },
+      "two_reference_results_match": true,
+      "observed_reference_seconds": 0.012
+    },
+    {
+      "case": 10,
+      "transactions": 43,
+      "scan_records": 0,
+      "pool_cost": 6,
+      "combined_east_west_cost": 7,
+      "answer_for_all": {
+        "impact": 6,
+        "required": [
+          "pool"
+        ]
+      },
+      "two_reference_results_match": true,
+      "observed_reference_seconds": 0.015
+    }
+  ],
+  "formal_case_failures": {
+    "3": {
+      "A/analysis/9": "timeout",
+      "A/analysis/10": "timeout"
+    },
+    "4": {
+      "A/analysis/9": "result_mismatch"
+    }
+  },
+  "interpretation": "Trial 3 exhaustively enumerated subsets and hit the unchanged 90-second case timeout. Trial 4 stopped at the first feasible subset cardinality and reported one transaction as mandatory despite equally cheap singleton and two-node cuts. Neither failing input has any scan records."
+}

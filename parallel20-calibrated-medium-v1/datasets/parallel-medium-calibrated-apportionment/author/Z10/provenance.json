@@ -1,0 +1,10 @@
+{
+  "source": "dag300-verified200-candidate-suite/tasks/dag300-new85-survey-raking",
+  "original_notice": "# Inclusion and provenance\n\n- 加入理由：在有限人造单元上同时考验严格输入契约、精确分数迭代、确定性整数分配和跨维审计，适合自然分工与汇合。\n- 来源：项目原创合成任务；固定版本 2026-10-26-v0.1.1；无外部样本、个人数据或现成 benchmark 题面复制。v0.1.1 补中途结构零及已有输出保护测试，并依据用户明确授权启用容器网络。\n- 许可证：项目发布许可证待定；外部输入与依赖为 Python 标准库及固定 Python 基础镜像，镜像许可证随上游。\n- 改编方式：无公开 benchmark 题目改编；思想为通用比例调整及最大余数分配，但合同、夹具、判分为原创。\n- 能力：schema、分数运算、迭代状态、确定性 tie、边际守恒、CLI 工程。\n- 复杂度：2–3 维、最多 10 单元、最多 3 轮；难度来自跨阶段规则和边界，5–20 分钟为设计假说，尚未实测。\n- 预计可并行机会：输入审计、分数更新、整数分配、边际/摘要核验可分模块推进，在端到端集成时汇合。未强制 Agent DAG。\n- 网络与资源：业务完全离线，1 CPU/少量内存即可；用户已明确授权 new66–100 正式任务及免费 oracle 副本的容器网络，任务 `allow_internet=true`。业务测试不得下载数据。\n- 污染：全新合成数据、动态隐藏改变维度/类别/单元结构；固定公开值硬编码应失败。通用算法知识可用，不把训练集包含情况当作已知。\n- Verifier：独立参考按不同循环路径用 Fraction 计算；公开+动态+定向有效与非法；no-op、定向错解、组合错解；输入不可变与字节稳定。\n- 节点规模：数据单元不是 Agent 语义工作包，不声称千 Agent 节点。\n",
+  "source_rules_sha256": "687e00cf5f136892b7a5e875eefa1d1ed25e5b8684d63ce34e0bd0fbfd75457e",
+  "source_family": "dag300-new85-survey-raking",
+  "adaptation": "All contracts, examples, and solvers for this revision are project-authored.",
+  "registered_cases": 12,
+  "reference_module": "frequencies.py",
+  "reference_entry": "solve(request, independent=False/True)"
+}

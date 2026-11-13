@@ -1,0 +1,29 @@
+{
+  "task": "Q08",
+  "repeat": 4,
+  "stop_reason": "observed cumulative token cap reached",
+  "failed_checks": [
+    "A/analysis/1",
+    "B/analysis",
+    "D/analysis",
+    "D/final_report",
+    "P/public_check"
+  ],
+  "api": [
+    {
+      "case": "A/analysis/1",
+      "invoked": true,
+      "business_value_matches": false,
+      "input_unchanged": true,
+      "error": null,
+      "differences": [
+        {
+          "field": "/winners/0/score/1",
+          "actual": 5,
+          "expected": 7
+        }
+      ]
+    }
+  ],
+  "source": "frozen candidate replay; no change to formal scores"
+}

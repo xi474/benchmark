@@ -1,0 +1,38 @@
+{
+  "input": {
+    "size": [
+      2,
+      1
+    ],
+    "entry": [
+      0,
+      0
+    ],
+    "blocked": [],
+    "walls": [
+      {
+        "segment": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "fee": 0
+      }
+    ]
+  },
+  "expected": {
+    "area_by_fee": {
+      "0": 2
+    },
+    "unreachable": 0
+  },
+  "actual": {
+    "area_by_fee": {
+      "0": 1
+    },
+    "unreachable": 1
+  },
+  "formal_score_changed": false,
+  "reason": "Zero is an ordinary free crossing fee. The archived code interprets zero as an impassable wall, disconnecting a legally reachable cell."
+}

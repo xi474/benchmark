@@ -1,0 +1,5395 @@
+{
+  "task": "V163",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "S",
+                "quality": 1
+              },
+              {
+                "id": "X",
+                "quality": 4
+              },
+              {
+                "id": "T",
+                "quality": 2
+              },
+              {
+                "id": "U",
+                "quality": 0
+              },
+              {
+                "id": "V",
+                "quality": 0
+              }
+            ],
+            "corridors": [
+              {
+                "id": "summer",
+                "a": "S",
+                "b": "U",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "summer"
+                ]
+              },
+              {
+                "id": "winter",
+                "a": "S",
+                "b": "V",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "winter"
+                ]
+              },
+              {
+                "id": "SX",
+                "a": "S",
+                "b": "X",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer",
+                  "winter"
+                ]
+              },
+              {
+                "id": "XT",
+                "a": "X",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer",
+                  "winter"
+                ]
+              },
+              {
+                "id": "UT",
+                "a": "U",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer"
+                ]
+              },
+              {
+                "id": "VT",
+                "a": "V",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "winter"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "summer",
+                "source": "S",
+                "sink": "T",
+                "demand": 2
+              },
+              {
+                "id": "winter",
+                "source": "S",
+                "sink": "T",
+                "demand": 2
+              }
+            ],
+            "budget": 8
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "SX",
+            "XT"
+          ],
+          "total_cost": 4,
+          "coverage": 14,
+          "season_flows": [
+            {
+              "season": "summer",
+              "max_flow": 2
+            },
+            {
+              "season": "winter",
+              "max_flow": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "S",
+                "quality": 1
+              },
+              {
+                "id": "X",
+                "quality": 4
+              },
+              {
+                "id": "T",
+                "quality": 2
+              },
+              {
+                "id": "U",
+                "quality": 0
+              },
+              {
+                "id": "V",
+                "quality": 0
+              }
+            ],
+            "corridors": [
+              {
+                "id": "summer",
+                "a": "S",
+                "b": "U",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "summer"
+                ]
+              },
+              {
+                "id": "winter",
+                "a": "S",
+                "b": "V",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "winter"
+                ]
+              },
+              {
+                "id": "SX",
+                "a": "S",
+                "b": "X",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer",
+                  "winter"
+                ]
+              },
+              {
+                "id": "XT",
+                "a": "X",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer",
+                  "winter"
+                ]
+              },
+              {
+                "id": "UT",
+                "a": "U",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer"
+                ]
+              },
+              {
+                "id": "VT",
+                "a": "V",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "winter"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "summer",
+                "source": "S",
+                "sink": "T",
+                "demand": 2
+              },
+              {
+                "id": "winter",
+                "source": "S",
+                "sink": "T",
+                "demand": 2
+              }
+            ],
+            "budget": 3
+          }
+        },
+        "expected": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "S",
+                "quality": 1
+              },
+              {
+                "id": "X",
+                "quality": 4
+              },
+              {
+                "id": "T",
+                "quality": 2
+              },
+              {
+                "id": "U",
+                "quality": 0
+              },
+              {
+                "id": "V",
+                "quality": 0
+              }
+            ],
+            "corridors": [
+              {
+                "id": "summer",
+                "a": "S",
+                "b": "U",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "summer"
+                ]
+              },
+              {
+                "id": "winter",
+                "a": "S",
+                "b": "V",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "winter"
+                ]
+              },
+              {
+                "id": "SX",
+                "a": "S",
+                "b": "X",
+                "cost": 2,
+                "capacity": 1,
+                "open": [
+                  "summer",
+                  "winter"
+                ]
+              },
+              {
+                "id": "XT",
+                "a": "X",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer",
+                  "winter"
+                ]
+              },
+              {
+                "id": "UT",
+                "a": "U",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "summer"
+                ]
+              },
+              {
+                "id": "VT",
+                "a": "V",
+                "b": "T",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "winter"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "summer",
+                "source": "S",
+                "sink": "T",
+                "demand": 2
+              },
+              {
+                "id": "winter",
+                "source": "S",
+                "sink": "T",
+                "demand": 2
+              }
+            ],
+            "budget": 8
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "summer",
+            "winter",
+            "UT",
+            "VT"
+          ],
+          "total_cost": 6,
+          "coverage": 6,
+          "season_flows": [
+            {
+              "season": "summer",
+              "max_flow": 2
+            },
+            {
+              "season": "winter",
+              "max_flow": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "S",
+                "quality": 1
+              },
+              {
+                "id": "A",
+                "quality": 7
+              },
+              {
+                "id": "B",
+                "quality": 2
+              },
+              {
+                "id": "T",
+                "quality": 1
+              }
+            ],
+            "corridors": [
+              {
+                "id": "SA",
+                "a": "S",
+                "b": "A",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s"
+                ]
+              },
+              {
+                "id": "AT",
+                "a": "A",
+                "b": "T",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s"
+                ]
+              },
+              {
+                "id": "SB",
+                "a": "S",
+                "b": "B",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s"
+                ]
+              },
+              {
+                "id": "BT",
+                "a": "B",
+                "b": "T",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s",
+                "source": "S",
+                "sink": "T",
+                "demand": 1
+              }
+            ],
+            "budget": 4
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "SA",
+            "AT"
+          ],
+          "total_cost": 2,
+          "coverage": 9,
+          "season_flows": [
+            {
+              "season": "s",
+              "max_flow": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 5
+              },
+              {
+                "id": "h1",
+                "quality": 6
+              },
+              {
+                "id": "h2",
+                "quality": 8
+              },
+              {
+                "id": "h3",
+                "quality": 7
+              },
+              {
+                "id": "h4",
+                "quality": 3
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h2",
+                "b": "h4",
+                "cost": 2,
+                "capacity": 5,
+                "open": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h0",
+                "b": "h3",
+                "cost": 2,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h3",
+                "b": "h4",
+                "cost": 4,
+                "capacity": 1,
+                "open": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h1",
+                "b": "h4",
+                "cost": 6,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h1",
+                "b": "h2",
+                "cost": 5,
+                "capacity": 2,
+                "open": [
+                  "s1"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h0",
+                "b": "h2",
+                "cost": 4,
+                "capacity": 6,
+                "open": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h2",
+                "b": "h3",
+                "cost": 2,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h4",
+                "demand": 4
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h3",
+                "demand": 4
+              }
+            ],
+            "budget": 25
+          }
+        },
+        "expected": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 7
+              },
+              {
+                "id": "h1",
+                "quality": 0
+              },
+              {
+                "id": "h2",
+                "quality": 8
+              },
+              {
+                "id": "h3",
+                "quality": 1
+              },
+              {
+                "id": "h4",
+                "quality": 1
+              },
+              {
+                "id": "h5",
+                "quality": 7
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h2",
+                "b": "h5",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h0",
+                "b": "h3",
+                "cost": 4,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h1",
+                "b": "h5",
+                "cost": 3,
+                "capacity": 6,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h3",
+                "b": "h4",
+                "cost": 3,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h0",
+                "b": "h4",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h1",
+                "b": "h3",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h0",
+                "b": "h1",
+                "cost": 5,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h2",
+                "b": "h4",
+                "cost": 8,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h1",
+                "b": "h2",
+                "cost": 7,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h3",
+                "b": "h5",
+                "cost": 4,
+                "capacity": 4,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h5",
+                "demand": 1
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h4",
+                "demand": 4
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h3",
+                "demand": 2
+              }
+            ],
+            "budget": 40
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "e0",
+            "e2",
+            "e3",
+            "e4",
+            "e5",
+            "e7"
+          ],
+          "total_cost": 20,
+          "coverage": 72,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 1
+            },
+            {
+              "season": "s1",
+              "max_flow": 4
+            },
+            {
+              "season": "s2",
+              "max_flow": 6
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 1
+              },
+              {
+                "id": "h1",
+                "quality": 1
+              },
+              {
+                "id": "h2",
+                "quality": 7
+              },
+              {
+                "id": "h3",
+                "quality": 7
+              },
+              {
+                "id": "h4",
+                "quality": 4
+              },
+              {
+                "id": "h5",
+                "quality": 3
+              },
+              {
+                "id": "h6",
+                "quality": 8
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h1",
+                "b": "h4",
+                "cost": 2,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h1",
+                "b": "h6",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h3",
+                "b": "h4",
+                "cost": 6,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h1",
+                "b": "h2",
+                "cost": 7,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h0",
+                "b": "h1",
+                "cost": 8,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h0",
+                "b": "h4",
+                "cost": 2,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h2",
+                "b": "h3",
+                "cost": 1,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h2",
+                "b": "h4",
+                "cost": 5,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h5",
+                "b": "h6",
+                "cost": 6,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h0",
+                "b": "h6",
+                "cost": 1,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e10",
+                "a": "h0",
+                "b": "h2",
+                "cost": 8,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e11",
+                "a": "h4",
+                "b": "h5",
+                "cost": 2,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e12",
+                "a": "h4",
+                "b": "h6",
+                "cost": 7,
+                "capacity": 2,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h6",
+                "demand": 3
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h5",
+                "demand": 2
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h4",
+                "demand": 4
+              }
+            ],
+            "budget": 59
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "e0",
+            "e1",
+            "e2",
+            "e5",
+            "e6",
+            "e9",
+            "e11"
+          ],
+          "total_cost": 18,
+          "coverage": 93,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 3
+            },
+            {
+              "season": "s1",
+              "max_flow": 2
+            },
+            {
+              "season": "s2",
+              "max_flow": 4
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 7
+              },
+              {
+                "id": "h1",
+                "quality": 4
+              },
+              {
+                "id": "h2",
+                "quality": 5
+              },
+              {
+                "id": "h3",
+                "quality": 7
+              },
+              {
+                "id": "h4",
+                "quality": 2
+              },
+              {
+                "id": "h5",
+                "quality": 4
+              },
+              {
+                "id": "h6",
+                "quality": 5
+              },
+              {
+                "id": "h7",
+                "quality": 5
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h1",
+                "b": "h4",
+                "cost": 1,
+                "capacity": 5,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h2",
+                "b": "h5",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h2",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 5,
+                "open": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h0",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h3",
+                "b": "h5",
+                "cost": 8,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h0",
+                "b": "h2",
+                "cost": 2,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h1",
+                "b": "h3",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h6",
+                "b": "h7",
+                "cost": 8,
+                "capacity": 5,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h4",
+                "b": "h6",
+                "cost": 8,
+                "capacity": 5,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h2",
+                "b": "h4",
+                "cost": 4,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e10",
+                "a": "h5",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e11",
+                "a": "h1",
+                "b": "h2",
+                "cost": 5,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e12",
+                "a": "h3",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e13",
+                "a": "h2",
+                "b": "h6",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e14",
+                "a": "h3",
+                "b": "h6",
+                "cost": 2,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e15",
+                "a": "h1",
+                "b": "h5",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h7",
+                "demand": 1
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h6",
+                "demand": 3
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h5",
+                "demand": 4
+              }
+            ],
+            "budget": 77
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "e0",
+            "e3",
+            "e4",
+            "e5",
+            "e9",
+            "e10",
+            "e13",
+            "e14"
+          ],
+          "total_cost": 35,
+          "coverage": 113,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 3
+            },
+            {
+              "season": "s1",
+              "max_flow": 3
+            },
+            {
+              "season": "s2",
+              "max_flow": 4
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 1
+              },
+              {
+                "id": "h1",
+                "quality": 2
+              },
+              {
+                "id": "h2",
+                "quality": 8
+              },
+              {
+                "id": "h3",
+                "quality": 8
+              },
+              {
+                "id": "h4",
+                "quality": 7
+              },
+              {
+                "id": "h5",
+                "quality": 1
+              },
+              {
+                "id": "h6",
+                "quality": 6
+              },
+              {
+                "id": "h7",
+                "quality": 7
+              },
+              {
+                "id": "h8",
+                "quality": 8
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h6",
+                "b": "h8",
+                "cost": 4,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h1",
+                "b": "h3",
+                "cost": 5,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h1",
+                "b": "h4",
+                "cost": 2,
+                "capacity": 2,
+                "open": [
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h4",
+                "b": "h8",
+                "cost": 5,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h3",
+                "b": "h4",
+                "cost": 4,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h5",
+                "b": "h7",
+                "cost": 8,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h5",
+                "b": "h8",
+                "cost": 3,
+                "capacity": 6,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h3",
+                "b": "h8",
+                "cost": 4,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h2",
+                "b": "h4",
+                "cost": 6,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h3",
+                "b": "h6",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e10",
+                "a": "h6",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e11",
+                "a": "h3",
+                "b": "h5",
+                "cost": 5,
+                "capacity": 2,
+                "open": [
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e12",
+                "a": "h0",
+                "b": "h5",
+                "cost": 5,
+                "capacity": 1,
+                "open": [
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e13",
+                "a": "h2",
+                "b": "h3",
+                "cost": 3,
+                "capacity": 3,
+                "open": [
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e14",
+                "a": "h0",
+                "b": "h2",
+                "cost": 6,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e15",
+                "a": "h0",
+                "b": "h8",
+                "cost": 2,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e16",
+                "a": "h2",
+                "b": "h6",
+                "cost": 5,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e17",
+                "a": "h1",
+                "b": "h7",
+                "cost": 6,
+                "capacity": 2,
+                "open": [
+                  "s3"
+                ]
+              },
+              {
+                "id": "e18",
+                "a": "h2",
+                "b": "h8",
+                "cost": 8,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h8",
+                "demand": 2
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h7",
+                "demand": 3
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h6",
+                "demand": 4
+              },
+              {
+                "id": "s3",
+                "source": "h3",
+                "sink": "h5",
+                "demand": 1
+              }
+            ],
+            "budget": 92
+          }
+        },
+        "expected": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 5
+              },
+              {
+                "id": "h1",
+                "quality": 0
+              },
+              {
+                "id": "h2",
+                "quality": 5
+              },
+              {
+                "id": "h3",
+                "quality": 1
+              },
+              {
+                "id": "h4",
+                "quality": 8
+              },
+              {
+                "id": "h5",
+                "quality": 4
+              },
+              {
+                "id": "h6",
+                "quality": 7
+              },
+              {
+                "id": "h7",
+                "quality": 2
+              },
+              {
+                "id": "h8",
+                "quality": 0
+              },
+              {
+                "id": "h9",
+                "quality": 8
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h3",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 1,
+                "open": [
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h3",
+                "b": "h9",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h4",
+                "b": "h8",
+                "cost": 5,
+                "capacity": 2,
+                "open": [
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h0",
+                "b": "h6",
+                "cost": 3,
+                "capacity": 1,
+                "open": [
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h2",
+                "b": "h8",
+                "cost": 2,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h7",
+                "b": "h9",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h8",
+                "b": "h9",
+                "cost": 3,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h1",
+                "b": "h5",
+                "cost": 1,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h1",
+                "b": "h7",
+                "cost": 5,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h5",
+                "b": "h6",
+                "cost": 3,
+                "capacity": 2,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e10",
+                "a": "h0",
+                "b": "h3",
+                "cost": 7,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e11",
+                "a": "h2",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e12",
+                "a": "h2",
+                "b": "h5",
+                "cost": 3,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e13",
+                "a": "h4",
+                "b": "h5",
+                "cost": 8,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e14",
+                "a": "h2",
+                "b": "h4",
+                "cost": 1,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e15",
+                "a": "h7",
+                "b": "h8",
+                "cost": 4,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e16",
+                "a": "h6",
+                "b": "h7",
+                "cost": 4,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e17",
+                "a": "h4",
+                "b": "h6",
+                "cost": 8,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e18",
+                "a": "h1",
+                "b": "h8",
+                "cost": 3,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e19",
+                "a": "h0",
+                "b": "h7",
+                "cost": 8,
+                "capacity": 1,
+                "open": [
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e20",
+                "a": "h6",
+                "b": "h8",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e21",
+                "a": "h2",
+                "b": "h3",
+                "cost": 3,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h9",
+                "demand": 3
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h8",
+                "demand": 1
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h7",
+                "demand": 3
+              },
+              {
+                "id": "s3",
+                "source": "h3",
+                "sink": "h6",
+                "demand": 3
+              }
+            ],
+            "budget": 94
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "e1",
+            "e4",
+            "e5",
+            "e6",
+            "e7",
+            "e10",
+            "e12",
+            "e15",
+            "e16",
+            "e20"
+          ],
+          "total_cost": 33,
+          "coverage": 128,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 3
+            },
+            {
+              "season": "s1",
+              "max_flow": 1
+            },
+            {
+              "season": "s2",
+              "max_flow": 4
+            },
+            {
+              "season": "s3",
+              "max_flow": 3
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 1
+              },
+              {
+                "id": "h1",
+                "quality": 0
+              },
+              {
+                "id": "h2",
+                "quality": 4
+              },
+              {
+                "id": "h3",
+                "quality": 4
+              },
+              {
+                "id": "h4",
+                "quality": 2
+              },
+              {
+                "id": "h5",
+                "quality": 7
+              },
+              {
+                "id": "h6",
+                "quality": 1
+              },
+              {
+                "id": "h7",
+                "quality": 5
+              },
+              {
+                "id": "h8",
+                "quality": 1
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h0",
+                "b": "h3",
+                "cost": 6,
+                "capacity": 6,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h0",
+                "b": "h7",
+                "cost": 8,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h2",
+                "b": "h7",
+                "cost": 4,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h4",
+                "b": "h5",
+                "cost": 2,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h5",
+                "b": "h8",
+                "cost": 7,
+                "capacity": 2,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h2",
+                "b": "h4",
+                "cost": 1,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h6",
+                "b": "h7",
+                "cost": 6,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h1",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 4,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h4",
+                "b": "h6",
+                "cost": 5,
+                "capacity": 5,
+                "open": [
+                  "s1"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h3",
+                "b": "h6",
+                "cost": 5,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e10",
+                "a": "h5",
+                "b": "h6",
+                "cost": 3,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e11",
+                "a": "h0",
+                "b": "h2",
+                "cost": 4,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e12",
+                "a": "h0",
+                "b": "h1",
+                "cost": 1,
+                "capacity": 6,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e13",
+                "a": "h1",
+                "b": "h4",
+                "cost": 6,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e14",
+                "a": "h1",
+                "b": "h2",
+                "cost": 4,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e15",
+                "a": "h3",
+                "b": "h5",
+                "cost": 8,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e16",
+                "a": "h6",
+                "b": "h8",
+                "cost": 2,
+                "capacity": 3,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e17",
+                "a": "h1",
+                "b": "h6",
+                "cost": 2,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e18",
+                "a": "h2",
+                "b": "h5",
+                "cost": 7,
+                "capacity": 6,
+                "open": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "e19",
+                "a": "h3",
+                "b": "h7",
+                "cost": 3,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h8",
+                "demand": 3
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h7",
+                "demand": 3
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h6",
+                "demand": 1
+              }
+            ],
+            "budget": 7
+          }
+        },
+        "expected": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "habitats": [
+              {
+                "id": "h0",
+                "quality": 5
+              },
+              {
+                "id": "h1",
+                "quality": 6
+              },
+              {
+                "id": "h2",
+                "quality": 6
+              },
+              {
+                "id": "h3",
+                "quality": 6
+              },
+              {
+                "id": "h4",
+                "quality": 8
+              },
+              {
+                "id": "h5",
+                "quality": 3
+              },
+              {
+                "id": "h6",
+                "quality": 0
+              },
+              {
+                "id": "h7",
+                "quality": 3
+              },
+              {
+                "id": "h8",
+                "quality": 6
+              },
+              {
+                "id": "h9",
+                "quality": 6
+              },
+              {
+                "id": "h10",
+                "quality": 0
+              },
+              {
+                "id": "h11",
+                "quality": 8
+              }
+            ],
+            "corridors": [
+              {
+                "id": "e0",
+                "a": "h1",
+                "b": "h10",
+                "cost": 1,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e1",
+                "a": "h2",
+                "b": "h8",
+                "cost": 5,
+                "capacity": 4,
+                "open": [
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e2",
+                "a": "h6",
+                "b": "h8",
+                "cost": 4,
+                "capacity": 4,
+                "open": [
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e3",
+                "a": "h6",
+                "b": "h9",
+                "cost": 3,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e4",
+                "a": "h0",
+                "b": "h8",
+                "cost": 4,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e5",
+                "a": "h3",
+                "b": "h9",
+                "cost": 6,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e6",
+                "a": "h4",
+                "b": "h6",
+                "cost": 4,
+                "capacity": 4,
+                "open": [
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e7",
+                "a": "h1",
+                "b": "h3",
+                "cost": 5,
+                "capacity": 1,
+                "open": [
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e8",
+                "a": "h3",
+                "b": "h4",
+                "cost": 6,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "e9",
+                "a": "h2",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e10",
+                "a": "h1",
+                "b": "h11",
+                "cost": 8,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e11",
+                "a": "h2",
+                "b": "h11",
+                "cost": 6,
+                "capacity": 6,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e12",
+                "a": "h1",
+                "b": "h5",
+                "cost": 1,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e13",
+                "a": "h2",
+                "b": "h6",
+                "cost": 7,
+                "capacity": 1,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e14",
+                "a": "h5",
+                "b": "h9",
+                "cost": 5,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e15",
+                "a": "h9",
+                "b": "h11",
+                "cost": 8,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e16",
+                "a": "h4",
+                "b": "h9",
+                "cost": 8,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e17",
+                "a": "h2",
+                "b": "h3",
+                "cost": 4,
+                "capacity": 2,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e18",
+                "a": "h0",
+                "b": "h1",
+                "cost": 3,
+                "capacity": 3,
+                "open": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e19",
+                "a": "h1",
+                "b": "h7",
+                "cost": 7,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e20",
+                "a": "h5",
+                "b": "h10",
+                "cost": 5,
+                "capacity": 4,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "e21",
+                "a": "h0",
+                "b": "h5",
+                "cost": 3,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e22",
+                "a": "h4",
+                "b": "h8",
+                "cost": 5,
+                "capacity": 5,
+                "open": [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3"
+                ]
+              },
+              {
+                "id": "e23",
+                "a": "h9",
+                "b": "h10",
+                "cost": 5,
+                "capacity": 3,
+                "open": [
+                  "s0",
+                  "s3"
+                ]
+              }
+            ],
+            "seasons": [
+              {
+                "id": "s0",
+                "source": "h0",
+                "sink": "h11",
+                "demand": 1
+              },
+              {
+                "id": "s1",
+                "source": "h1",
+                "sink": "h10",
+                "demand": 1
+              },
+              {
+                "id": "s2",
+                "source": "h2",
+                "sink": "h9",
+                "demand": 2
+              },
+              {
+                "id": "s3",
+                "source": "h3",
+                "sink": "h8",
+                "demand": 3
+              }
+            ],
+            "budget": 120
+          }
+        },
+        "expected": {
+          "status": "feasible",
+          "selected": [
+            "e4",
+            "e5",
+            "e11",
+            "e12",
+            "e14",
+            "e17",
+            "e20",
+            "e21"
+          ],
+          "total_cost": 34,
+          "coverage": 116,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 2
+            },
+            {
+              "season": "s1",
+              "max_flow": 3
+            },
+            {
+              "season": "s2",
+              "max_flow": 2
+            },
+            {
+              "season": "s3",
+              "max_flow": 3
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "S",
+            "quality": 1
+          },
+          {
+            "id": "X",
+            "quality": 4
+          },
+          {
+            "id": "T",
+            "quality": 2
+          },
+          {
+            "id": "U",
+            "quality": 0
+          },
+          {
+            "id": "V",
+            "quality": 0
+          }
+        ],
+        "corridors": [
+          {
+            "id": "summer",
+            "a": "S",
+            "b": "U",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "summer"
+            ]
+          },
+          {
+            "id": "winter",
+            "a": "S",
+            "b": "V",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "winter"
+            ]
+          },
+          {
+            "id": "SX",
+            "a": "S",
+            "b": "X",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer",
+              "winter"
+            ]
+          },
+          {
+            "id": "XT",
+            "a": "X",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer",
+              "winter"
+            ]
+          },
+          {
+            "id": "UT",
+            "a": "U",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer"
+            ]
+          },
+          {
+            "id": "VT",
+            "a": "V",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "winter"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "summer",
+            "source": "S",
+            "sink": "T",
+            "demand": 2
+          },
+          {
+            "id": "winter",
+            "source": "S",
+            "sink": "T",
+            "demand": 2
+          }
+        ],
+        "budget": 8
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "SX",
+            "XT"
+          ],
+          "total_cost": 4,
+          "coverage": 14,
+          "season_flows": [
+            {
+              "season": "summer",
+              "max_flow": 2
+            },
+            {
+              "season": "winter",
+              "max_flow": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "S",
+            "quality": 1
+          },
+          {
+            "id": "X",
+            "quality": 4
+          },
+          {
+            "id": "T",
+            "quality": 2
+          },
+          {
+            "id": "U",
+            "quality": 0
+          },
+          {
+            "id": "V",
+            "quality": 0
+          }
+        ],
+        "corridors": [
+          {
+            "id": "summer",
+            "a": "S",
+            "b": "U",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "summer"
+            ]
+          },
+          {
+            "id": "winter",
+            "a": "S",
+            "b": "V",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "winter"
+            ]
+          },
+          {
+            "id": "SX",
+            "a": "S",
+            "b": "X",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer",
+              "winter"
+            ]
+          },
+          {
+            "id": "XT",
+            "a": "X",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer",
+              "winter"
+            ]
+          },
+          {
+            "id": "UT",
+            "a": "U",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer"
+            ]
+          },
+          {
+            "id": "VT",
+            "a": "V",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "winter"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "summer",
+            "source": "S",
+            "sink": "T",
+            "demand": 2
+          },
+          {
+            "id": "winter",
+            "source": "S",
+            "sink": "T",
+            "demand": 2
+          }
+        ],
+        "budget": 3
+      },
+      "results": {
+        "analysis": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "S",
+            "quality": 1
+          },
+          {
+            "id": "X",
+            "quality": 4
+          },
+          {
+            "id": "T",
+            "quality": 2
+          },
+          {
+            "id": "U",
+            "quality": 0
+          },
+          {
+            "id": "V",
+            "quality": 0
+          }
+        ],
+        "corridors": [
+          {
+            "id": "summer",
+            "a": "S",
+            "b": "U",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "summer"
+            ]
+          },
+          {
+            "id": "winter",
+            "a": "S",
+            "b": "V",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "winter"
+            ]
+          },
+          {
+            "id": "SX",
+            "a": "S",
+            "b": "X",
+            "cost": 2,
+            "capacity": 1,
+            "open": [
+              "summer",
+              "winter"
+            ]
+          },
+          {
+            "id": "XT",
+            "a": "X",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer",
+              "winter"
+            ]
+          },
+          {
+            "id": "UT",
+            "a": "U",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "summer"
+            ]
+          },
+          {
+            "id": "VT",
+            "a": "V",
+            "b": "T",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "winter"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "summer",
+            "source": "S",
+            "sink": "T",
+            "demand": 2
+          },
+          {
+            "id": "winter",
+            "source": "S",
+            "sink": "T",
+            "demand": 2
+          }
+        ],
+        "budget": 8
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "summer",
+            "winter",
+            "UT",
+            "VT"
+          ],
+          "total_cost": 6,
+          "coverage": 6,
+          "season_flows": [
+            {
+              "season": "summer",
+              "max_flow": 2
+            },
+            {
+              "season": "winter",
+              "max_flow": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "S",
+            "quality": 1
+          },
+          {
+            "id": "A",
+            "quality": 7
+          },
+          {
+            "id": "B",
+            "quality": 2
+          },
+          {
+            "id": "T",
+            "quality": 1
+          }
+        ],
+        "corridors": [
+          {
+            "id": "SA",
+            "a": "S",
+            "b": "A",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s"
+            ]
+          },
+          {
+            "id": "AT",
+            "a": "A",
+            "b": "T",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s"
+            ]
+          },
+          {
+            "id": "SB",
+            "a": "S",
+            "b": "B",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s"
+            ]
+          },
+          {
+            "id": "BT",
+            "a": "B",
+            "b": "T",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s",
+            "source": "S",
+            "sink": "T",
+            "demand": 1
+          }
+        ],
+        "budget": 4
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "SA",
+            "AT"
+          ],
+          "total_cost": 2,
+          "coverage": 9,
+          "season_flows": [
+            {
+              "season": "s",
+              "max_flow": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 5
+          },
+          {
+            "id": "h1",
+            "quality": 6
+          },
+          {
+            "id": "h2",
+            "quality": 8
+          },
+          {
+            "id": "h3",
+            "quality": 7
+          },
+          {
+            "id": "h4",
+            "quality": 3
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h2",
+            "b": "h4",
+            "cost": 2,
+            "capacity": 5,
+            "open": [
+              "s0"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h0",
+            "b": "h3",
+            "cost": 2,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h3",
+            "b": "h4",
+            "cost": 4,
+            "capacity": 1,
+            "open": [
+              "s0"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h1",
+            "b": "h4",
+            "cost": 6,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h1",
+            "b": "h2",
+            "cost": 5,
+            "capacity": 2,
+            "open": [
+              "s1"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h0",
+            "b": "h2",
+            "cost": 4,
+            "capacity": 6,
+            "open": [
+              "s0"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h2",
+            "b": "h3",
+            "cost": 2,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h4",
+            "demand": 4
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h3",
+            "demand": 4
+          }
+        ],
+        "budget": 25
+      },
+      "results": {
+        "analysis": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 7
+          },
+          {
+            "id": "h1",
+            "quality": 0
+          },
+          {
+            "id": "h2",
+            "quality": 8
+          },
+          {
+            "id": "h3",
+            "quality": 1
+          },
+          {
+            "id": "h4",
+            "quality": 1
+          },
+          {
+            "id": "h5",
+            "quality": 7
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h2",
+            "b": "h5",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h0",
+            "b": "h3",
+            "cost": 4,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h1",
+            "b": "h5",
+            "cost": 3,
+            "capacity": 6,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h3",
+            "b": "h4",
+            "cost": 3,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h0",
+            "b": "h4",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h1",
+            "b": "h3",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h0",
+            "b": "h1",
+            "cost": 5,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h2",
+            "b": "h4",
+            "cost": 8,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h1",
+            "b": "h2",
+            "cost": 7,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h3",
+            "b": "h5",
+            "cost": 4,
+            "capacity": 4,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h5",
+            "demand": 1
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h4",
+            "demand": 4
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h3",
+            "demand": 2
+          }
+        ],
+        "budget": 40
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "e0",
+            "e2",
+            "e3",
+            "e4",
+            "e5",
+            "e7"
+          ],
+          "total_cost": 20,
+          "coverage": 72,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 1
+            },
+            {
+              "season": "s1",
+              "max_flow": 4
+            },
+            {
+              "season": "s2",
+              "max_flow": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 1
+          },
+          {
+            "id": "h1",
+            "quality": 1
+          },
+          {
+            "id": "h2",
+            "quality": 7
+          },
+          {
+            "id": "h3",
+            "quality": 7
+          },
+          {
+            "id": "h4",
+            "quality": 4
+          },
+          {
+            "id": "h5",
+            "quality": 3
+          },
+          {
+            "id": "h6",
+            "quality": 8
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h1",
+            "b": "h4",
+            "cost": 2,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h1",
+            "b": "h6",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h3",
+            "b": "h4",
+            "cost": 6,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h1",
+            "b": "h2",
+            "cost": 7,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h0",
+            "b": "h1",
+            "cost": 8,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h0",
+            "b": "h4",
+            "cost": 2,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h2",
+            "b": "h3",
+            "cost": 1,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h2",
+            "b": "h4",
+            "cost": 5,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h5",
+            "b": "h6",
+            "cost": 6,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h0",
+            "b": "h6",
+            "cost": 1,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e10",
+            "a": "h0",
+            "b": "h2",
+            "cost": 8,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e11",
+            "a": "h4",
+            "b": "h5",
+            "cost": 2,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e12",
+            "a": "h4",
+            "b": "h6",
+            "cost": 7,
+            "capacity": 2,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h6",
+            "demand": 3
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h5",
+            "demand": 2
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h4",
+            "demand": 4
+          }
+        ],
+        "budget": 59
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "e0",
+            "e1",
+            "e2",
+            "e5",
+            "e6",
+            "e9",
+            "e11"
+          ],
+          "total_cost": 18,
+          "coverage": 93,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 3
+            },
+            {
+              "season": "s1",
+              "max_flow": 2
+            },
+            {
+              "season": "s2",
+              "max_flow": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 7
+          },
+          {
+            "id": "h1",
+            "quality": 4
+          },
+          {
+            "id": "h2",
+            "quality": 5
+          },
+          {
+            "id": "h3",
+            "quality": 7
+          },
+          {
+            "id": "h4",
+            "quality": 2
+          },
+          {
+            "id": "h5",
+            "quality": 4
+          },
+          {
+            "id": "h6",
+            "quality": 5
+          },
+          {
+            "id": "h7",
+            "quality": 5
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h1",
+            "b": "h4",
+            "cost": 1,
+            "capacity": 5,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h2",
+            "b": "h5",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h2",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 5,
+            "open": [
+              "s0"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h0",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h3",
+            "b": "h5",
+            "cost": 8,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h0",
+            "b": "h2",
+            "cost": 2,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h1",
+            "b": "h3",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h6",
+            "b": "h7",
+            "cost": 8,
+            "capacity": 5,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h4",
+            "b": "h6",
+            "cost": 8,
+            "capacity": 5,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h2",
+            "b": "h4",
+            "cost": 4,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e10",
+            "a": "h5",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e11",
+            "a": "h1",
+            "b": "h2",
+            "cost": 5,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e12",
+            "a": "h3",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e13",
+            "a": "h2",
+            "b": "h6",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e14",
+            "a": "h3",
+            "b": "h6",
+            "cost": 2,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e15",
+            "a": "h1",
+            "b": "h5",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h7",
+            "demand": 1
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h6",
+            "demand": 3
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h5",
+            "demand": 4
+          }
+        ],
+        "budget": 77
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "e0",
+            "e3",
+            "e4",
+            "e5",
+            "e9",
+            "e10",
+            "e13",
+            "e14"
+          ],
+          "total_cost": 35,
+          "coverage": 113,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 3
+            },
+            {
+              "season": "s1",
+              "max_flow": 3
+            },
+            {
+              "season": "s2",
+              "max_flow": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 1
+          },
+          {
+            "id": "h1",
+            "quality": 2
+          },
+          {
+            "id": "h2",
+            "quality": 8
+          },
+          {
+            "id": "h3",
+            "quality": 8
+          },
+          {
+            "id": "h4",
+            "quality": 7
+          },
+          {
+            "id": "h5",
+            "quality": 1
+          },
+          {
+            "id": "h6",
+            "quality": 6
+          },
+          {
+            "id": "h7",
+            "quality": 7
+          },
+          {
+            "id": "h8",
+            "quality": 8
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h6",
+            "b": "h8",
+            "cost": 4,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h1",
+            "b": "h3",
+            "cost": 5,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h1",
+            "b": "h4",
+            "cost": 2,
+            "capacity": 2,
+            "open": [
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h4",
+            "b": "h8",
+            "cost": 5,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h3",
+            "b": "h4",
+            "cost": 4,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h5",
+            "b": "h7",
+            "cost": 8,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h5",
+            "b": "h8",
+            "cost": 3,
+            "capacity": 6,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h3",
+            "b": "h8",
+            "cost": 4,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h2",
+            "b": "h4",
+            "cost": 6,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h3",
+            "b": "h6",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e10",
+            "a": "h6",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e11",
+            "a": "h3",
+            "b": "h5",
+            "cost": 5,
+            "capacity": 2,
+            "open": [
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e12",
+            "a": "h0",
+            "b": "h5",
+            "cost": 5,
+            "capacity": 1,
+            "open": [
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e13",
+            "a": "h2",
+            "b": "h3",
+            "cost": 3,
+            "capacity": 3,
+            "open": [
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e14",
+            "a": "h0",
+            "b": "h2",
+            "cost": 6,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e15",
+            "a": "h0",
+            "b": "h8",
+            "cost": 2,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e16",
+            "a": "h2",
+            "b": "h6",
+            "cost": 5,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e17",
+            "a": "h1",
+            "b": "h7",
+            "cost": 6,
+            "capacity": 2,
+            "open": [
+              "s3"
+            ]
+          },
+          {
+            "id": "e18",
+            "a": "h2",
+            "b": "h8",
+            "cost": 8,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h8",
+            "demand": 2
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h7",
+            "demand": 3
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h6",
+            "demand": 4
+          },
+          {
+            "id": "s3",
+            "source": "h3",
+            "sink": "h5",
+            "demand": 1
+          }
+        ],
+        "budget": 92
+      },
+      "results": {
+        "analysis": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 5
+          },
+          {
+            "id": "h1",
+            "quality": 0
+          },
+          {
+            "id": "h2",
+            "quality": 5
+          },
+          {
+            "id": "h3",
+            "quality": 1
+          },
+          {
+            "id": "h4",
+            "quality": 8
+          },
+          {
+            "id": "h5",
+            "quality": 4
+          },
+          {
+            "id": "h6",
+            "quality": 7
+          },
+          {
+            "id": "h7",
+            "quality": 2
+          },
+          {
+            "id": "h8",
+            "quality": 0
+          },
+          {
+            "id": "h9",
+            "quality": 8
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h3",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 1,
+            "open": [
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h3",
+            "b": "h9",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h4",
+            "b": "h8",
+            "cost": 5,
+            "capacity": 2,
+            "open": [
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h0",
+            "b": "h6",
+            "cost": 3,
+            "capacity": 1,
+            "open": [
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h2",
+            "b": "h8",
+            "cost": 2,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h7",
+            "b": "h9",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h8",
+            "b": "h9",
+            "cost": 3,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h1",
+            "b": "h5",
+            "cost": 1,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h1",
+            "b": "h7",
+            "cost": 5,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h5",
+            "b": "h6",
+            "cost": 3,
+            "capacity": 2,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e10",
+            "a": "h0",
+            "b": "h3",
+            "cost": 7,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e11",
+            "a": "h2",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e12",
+            "a": "h2",
+            "b": "h5",
+            "cost": 3,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e13",
+            "a": "h4",
+            "b": "h5",
+            "cost": 8,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e14",
+            "a": "h2",
+            "b": "h4",
+            "cost": 1,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e15",
+            "a": "h7",
+            "b": "h8",
+            "cost": 4,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e16",
+            "a": "h6",
+            "b": "h7",
+            "cost": 4,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e17",
+            "a": "h4",
+            "b": "h6",
+            "cost": 8,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e18",
+            "a": "h1",
+            "b": "h8",
+            "cost": 3,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e19",
+            "a": "h0",
+            "b": "h7",
+            "cost": 8,
+            "capacity": 1,
+            "open": [
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e20",
+            "a": "h6",
+            "b": "h8",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e21",
+            "a": "h2",
+            "b": "h3",
+            "cost": 3,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h9",
+            "demand": 3
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h8",
+            "demand": 1
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h7",
+            "demand": 3
+          },
+          {
+            "id": "s3",
+            "source": "h3",
+            "sink": "h6",
+            "demand": 3
+          }
+        ],
+        "budget": 94
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "e1",
+            "e4",
+            "e5",
+            "e6",
+            "e7",
+            "e10",
+            "e12",
+            "e15",
+            "e16",
+            "e20"
+          ],
+          "total_cost": 33,
+          "coverage": 128,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 3
+            },
+            {
+              "season": "s1",
+              "max_flow": 1
+            },
+            {
+              "season": "s2",
+              "max_flow": 4
+            },
+            {
+              "season": "s3",
+              "max_flow": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 1
+          },
+          {
+            "id": "h1",
+            "quality": 0
+          },
+          {
+            "id": "h2",
+            "quality": 4
+          },
+          {
+            "id": "h3",
+            "quality": 4
+          },
+          {
+            "id": "h4",
+            "quality": 2
+          },
+          {
+            "id": "h5",
+            "quality": 7
+          },
+          {
+            "id": "h6",
+            "quality": 1
+          },
+          {
+            "id": "h7",
+            "quality": 5
+          },
+          {
+            "id": "h8",
+            "quality": 1
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h0",
+            "b": "h3",
+            "cost": 6,
+            "capacity": 6,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h0",
+            "b": "h7",
+            "cost": 8,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h2",
+            "b": "h7",
+            "cost": 4,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h4",
+            "b": "h5",
+            "cost": 2,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h5",
+            "b": "h8",
+            "cost": 7,
+            "capacity": 2,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h2",
+            "b": "h4",
+            "cost": 1,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h6",
+            "b": "h7",
+            "cost": 6,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h1",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 4,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h4",
+            "b": "h6",
+            "cost": 5,
+            "capacity": 5,
+            "open": [
+              "s1"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h3",
+            "b": "h6",
+            "cost": 5,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e10",
+            "a": "h5",
+            "b": "h6",
+            "cost": 3,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e11",
+            "a": "h0",
+            "b": "h2",
+            "cost": 4,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e12",
+            "a": "h0",
+            "b": "h1",
+            "cost": 1,
+            "capacity": 6,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e13",
+            "a": "h1",
+            "b": "h4",
+            "cost": 6,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e14",
+            "a": "h1",
+            "b": "h2",
+            "cost": 4,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e15",
+            "a": "h3",
+            "b": "h5",
+            "cost": 8,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e16",
+            "a": "h6",
+            "b": "h8",
+            "cost": 2,
+            "capacity": 3,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e17",
+            "a": "h1",
+            "b": "h6",
+            "cost": 2,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e18",
+            "a": "h2",
+            "b": "h5",
+            "cost": 7,
+            "capacity": 6,
+            "open": [
+              "s0"
+            ]
+          },
+          {
+            "id": "e19",
+            "a": "h3",
+            "b": "h7",
+            "cost": 3,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h8",
+            "demand": 3
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h7",
+            "demand": 3
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h6",
+            "demand": 1
+          }
+        ],
+        "budget": 7
+      },
+      "results": {
+        "analysis": {
+          "status": "infeasible",
+          "selected": [],
+          "total_cost": null,
+          "coverage": null,
+          "season_flows": []
+        }
+      }
+    },
+    {
+      "input": {
+        "habitats": [
+          {
+            "id": "h0",
+            "quality": 5
+          },
+          {
+            "id": "h1",
+            "quality": 6
+          },
+          {
+            "id": "h2",
+            "quality": 6
+          },
+          {
+            "id": "h3",
+            "quality": 6
+          },
+          {
+            "id": "h4",
+            "quality": 8
+          },
+          {
+            "id": "h5",
+            "quality": 3
+          },
+          {
+            "id": "h6",
+            "quality": 0
+          },
+          {
+            "id": "h7",
+            "quality": 3
+          },
+          {
+            "id": "h8",
+            "quality": 6
+          },
+          {
+            "id": "h9",
+            "quality": 6
+          },
+          {
+            "id": "h10",
+            "quality": 0
+          },
+          {
+            "id": "h11",
+            "quality": 8
+          }
+        ],
+        "corridors": [
+          {
+            "id": "e0",
+            "a": "h1",
+            "b": "h10",
+            "cost": 1,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e1",
+            "a": "h2",
+            "b": "h8",
+            "cost": 5,
+            "capacity": 4,
+            "open": [
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e2",
+            "a": "h6",
+            "b": "h8",
+            "cost": 4,
+            "capacity": 4,
+            "open": [
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e3",
+            "a": "h6",
+            "b": "h9",
+            "cost": 3,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e4",
+            "a": "h0",
+            "b": "h8",
+            "cost": 4,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e5",
+            "a": "h3",
+            "b": "h9",
+            "cost": 6,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e6",
+            "a": "h4",
+            "b": "h6",
+            "cost": 4,
+            "capacity": 4,
+            "open": [
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e7",
+            "a": "h1",
+            "b": "h3",
+            "cost": 5,
+            "capacity": 1,
+            "open": [
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e8",
+            "a": "h3",
+            "b": "h4",
+            "cost": 6,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "e9",
+            "a": "h2",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e10",
+            "a": "h1",
+            "b": "h11",
+            "cost": 8,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e11",
+            "a": "h2",
+            "b": "h11",
+            "cost": 6,
+            "capacity": 6,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e12",
+            "a": "h1",
+            "b": "h5",
+            "cost": 1,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s1",
+              "s3"
+            ]
+          },
+          {
+            "id": "e13",
+            "a": "h2",
+            "b": "h6",
+            "cost": 7,
+            "capacity": 1,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e14",
+            "a": "h5",
+            "b": "h9",
+            "cost": 5,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e15",
+            "a": "h9",
+            "b": "h11",
+            "cost": 8,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e16",
+            "a": "h4",
+            "b": "h9",
+            "cost": 8,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e17",
+            "a": "h2",
+            "b": "h3",
+            "cost": 4,
+            "capacity": 2,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e18",
+            "a": "h0",
+            "b": "h1",
+            "cost": 3,
+            "capacity": 3,
+            "open": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e19",
+            "a": "h1",
+            "b": "h7",
+            "cost": 7,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "e20",
+            "a": "h5",
+            "b": "h10",
+            "cost": 5,
+            "capacity": 4,
+            "open": [
+              "s0",
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "e21",
+            "a": "h0",
+            "b": "h5",
+            "cost": 3,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s3"
+            ]
+          },
+          {
+            "id": "e22",
+            "a": "h4",
+            "b": "h8",
+            "cost": 5,
+            "capacity": 5,
+            "open": [
+              "s0",
+              "s1",
+              "s2",
+              "s3"
+            ]
+          },
+          {
+            "id": "e23",
+            "a": "h9",
+            "b": "h10",
+            "cost": 5,
+            "capacity": 3,
+            "open": [
+              "s0",
+              "s3"
+            ]
+          }
+        ],
+        "seasons": [
+          {
+            "id": "s0",
+            "source": "h0",
+            "sink": "h11",
+            "demand": 1
+          },
+          {
+            "id": "s1",
+            "source": "h1",
+            "sink": "h10",
+            "demand": 1
+          },
+          {
+            "id": "s2",
+            "source": "h2",
+            "sink": "h9",
+            "demand": 2
+          },
+          {
+            "id": "s3",
+            "source": "h3",
+            "sink": "h8",
+            "demand": 3
+          }
+        ],
+        "budget": 120
+      },
+      "results": {
+        "analysis": {
+          "status": "feasible",
+          "selected": [
+            "e4",
+            "e5",
+            "e11",
+            "e12",
+            "e14",
+            "e17",
+            "e20",
+            "e21"
+          ],
+          "total_cost": 34,
+          "coverage": 116,
+          "season_flows": [
+            {
+              "season": "s0",
+              "max_flow": 2
+            },
+            {
+              "season": "s1",
+              "max_flow": 3
+            },
+            {
+              "season": "s2",
+              "max_flow": 2
+            },
+            {
+              "season": "s3",
+              "max_flow": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

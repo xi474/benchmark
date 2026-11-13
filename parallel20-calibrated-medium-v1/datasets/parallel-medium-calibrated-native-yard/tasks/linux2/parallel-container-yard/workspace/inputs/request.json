@@ -1,0 +1,126 @@
+{
+  "containers": [
+    {
+      "id": "A",
+      "hazard": "normal",
+      "appointment_tick": 0,
+      "rehandle_cost": 1,
+      "handling_ticks": 1
+    },
+    {
+      "id": "B",
+      "hazard": "normal",
+      "appointment_tick": 0,
+      "rehandle_cost": 1,
+      "handling_ticks": 1
+    },
+    {
+      "id": "C",
+      "hazard": "normal",
+      "appointment_tick": 0,
+      "rehandle_cost": 1,
+      "handling_ticks": 1
+    },
+    {
+      "id": "D",
+      "hazard": "normal",
+      "appointment_tick": 0,
+      "rehandle_cost": 1,
+      "handling_ticks": 1
+    }
+  ],
+  "stacks": [
+    {
+      "id": "left",
+      "containers": [
+        "A",
+        "B"
+      ],
+      "capacity": 2,
+      "allowed_hazards": [
+        "normal",
+        "cold"
+      ]
+    },
+    {
+      "id": "a",
+      "containers": [],
+      "capacity": 1,
+      "allowed_hazards": [
+        "normal",
+        "cold"
+      ]
+    },
+    {
+      "id": "z",
+      "containers": [],
+      "capacity": 1,
+      "allowed_hazards": [
+        "normal",
+        "cold"
+      ]
+    },
+    {
+      "id": "right",
+      "containers": [
+        "C",
+        "D"
+      ],
+      "capacity": 2,
+      "allowed_hazards": [
+        "normal",
+        "cold"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "left",
+      "to": "a"
+    },
+    {
+      "from": "left",
+      "to": "z"
+    },
+    {
+      "from": "right",
+      "to": "a"
+    },
+    {
+      "from": "a",
+      "to": "z"
+    }
+  ],
+  "cranes": [
+    {
+      "id": "c0",
+      "reaches": [
+        "left",
+        "a",
+        "z",
+        "right"
+      ]
+    },
+    {
+      "id": "c1",
+      "reaches": [
+        "left",
+        "a",
+        "z",
+        "right"
+      ]
+    }
+  ],
+  "retrieval_groups": [
+    [
+      "A"
+    ],
+    [
+      "C"
+    ],
+    [
+      "B",
+      "D"
+    ]
+  ]
+}

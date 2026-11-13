@@ -1,0 +1,72 @@
+{
+  "protocol": {
+    "dataset": "medium-scale-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 1,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261120,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Structure M, five valid trials, 2 or 3 strict successes; inspect failed trials for core-business evidence before admission."
+  },
+  "freeze_sha256": "8c131ccf6f78299f298c979fa6e3cda2cea82d7d68eb68567b024c9ffc7ced60",
+  "admissions": {
+    "X13": {
+      "admit": true,
+      "reason": "五次严格通过2/5，公开检查5/5，核心55/60。r2在第11、12例进程失败，r4第11例超时，r5第11、12例超时；三次均正常结束模型阶段，未触发token或总时限截止。两种精确参考方法在实际Linux环境解出同一12例，失败涉及正常48–84事件、3–4场次的核心可扩展性。r2的进程退出不能单独确认为OOM，按原始process类别记录；不重试这些已评分大用例。任意合法同优排程均可通过。旧W13五次全过，新版仅替换四个更大业务输入，是公开登记的规模对照，结构仍A1/S0/C2/I1、实测中档。",
+      "evidence": [
+        "failure-review/business-scale-performance.json",
+        "failure-review/scale1-X13-r02.json",
+        "failure-review/scale1-X13-r04.json",
+        "failure-review/scale1-X13-r05.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "X13",
+      "title": "跨链审查场次的最优排程",
+      "family": "dag300new62-crdt-reconciliation",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    }
+  ]
+}

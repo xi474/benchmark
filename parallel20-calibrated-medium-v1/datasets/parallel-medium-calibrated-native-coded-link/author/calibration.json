@@ -1,0 +1,77 @@
+{
+  "protocol": {
+    "dataset": "medium-native-coded-link-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 1,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261227,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Five valid trials, 2 or 3 strict successes and core-business evidence review; structural and empirical labels retained separately.",
+    "verifier_revision": "package-import-compatible-v1.1"
+  },
+  "freeze_sha256": "a43e74f9a1b88c64562408372772373105929dcc779fc6f9634527e807d4cc44",
+  "admissions": {
+    "L114": {
+      "admit": true,
+      "reason": "五次严格2/5，另有两次完整16/16交付。已在干净只读提交副本的新最小合法例复现rate2核心状态转移构造错误；第2次四个正式API超时有完整历史枚举代码证据，可信状态DP在相同预算下均小于0.65秒。属于核心业务实现及预算相对算法效率失败，非格式/鲁棒性/导入兼容性问题。原易档L113保留，来源113只计一次；结构H与实测M分别标注。",
+      "evidence": [
+        "failure-review/business-rate-two-batch.json",
+        "failure-review/business-search-growth.json"
+      ],
+      "tags": [
+        "core_state_transition_construction",
+        "budget_relative_algorithm_choice",
+        "same_source_revision_grouped",
+        "development_calibration"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "L114",
+      "title": "编码子空间与前置交付的全局地面链路",
+      "family": "dag300new113-spacecraft-groundlink-budget",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    }
+  ]
+}

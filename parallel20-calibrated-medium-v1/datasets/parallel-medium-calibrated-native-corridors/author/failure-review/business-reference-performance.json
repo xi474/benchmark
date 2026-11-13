@@ -1,0 +1,99 @@
+{
+  "formal_scores_changed": false,
+  "candidate_timeouts_retried": false,
+  "reference_only": true,
+  "cpu_limit": 2,
+  "memory_mb": 3072,
+  "reference": "standard-library investment branch-and-bound with seasonal flow/cut bounds",
+  "times": [
+    {
+      "case": 9,
+      "seconds": 8.53669989737682e-05,
+      "expected": {
+        "status": "infeasible",
+        "selected": [],
+        "total_cost": null,
+        "coverage": null,
+        "season_flows": []
+      }
+    },
+    {
+      "case": 10,
+      "seconds": 0.05794180499651702,
+      "expected": {
+        "status": "feasible",
+        "selected": [
+          "e1",
+          "e10",
+          "e12",
+          "e15",
+          "e16",
+          "e20",
+          "e4",
+          "e5",
+          "e6",
+          "e7"
+        ],
+        "total_cost": 33,
+        "coverage": 128,
+        "season_flows": [
+          {
+            "season": "s0",
+            "max_flow": 3
+          },
+          {
+            "season": "s1",
+            "max_flow": 1
+          },
+          {
+            "season": "s2",
+            "max_flow": 4
+          },
+          {
+            "season": "s3",
+            "max_flow": 3
+          }
+        ]
+      }
+    },
+    {
+      "case": 12,
+      "seconds": 0.08453350700438023,
+      "expected": {
+        "status": "feasible",
+        "selected": [
+          "e11",
+          "e12",
+          "e14",
+          "e17",
+          "e20",
+          "e21",
+          "e4",
+          "e5"
+        ],
+        "total_cost": 34,
+        "coverage": 116,
+        "season_flows": [
+          {
+            "season": "s0",
+            "max_flow": 2
+          },
+          {
+            "season": "s1",
+            "max_flow": 3
+          },
+          {
+            "season": "s2",
+            "max_flow": 2
+          },
+          {
+            "season": "s3",
+            "max_flow": 3
+          }
+        ]
+      }
+    }
+  ],
+  "independent_oracle": "All registered objectives crosschecked before runs with a joint investment/flow MILP and fixed-cost coverage MILP; 128 tiny investment/cut enumerations also passed.",
+  "interpretation": "r3 enumerates investment subsets and source-sink cuts for each season. Formal cases9/10/12 time out; the feasible-domain and cost bounds avoid that product search. No formal candidate timeout was rerun."
+}

@@ -1,0 +1,79 @@
+{
+  "protocol": {
+    "dataset": "medium-native-unit-commitment-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 1,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261229,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Five valid trials, 2 or 3 strict successes and core-business evidence review; structural and empirical labels retained separately.",
+    "verifier_revision": "package-import-compatible-v1.1"
+  },
+  "freeze_sha256": "3045f94bb657d6f4c1fe2b9078ba220a226861fb2a0b9ab48ef1430d9223f92b",
+  "admissions": {
+    "M103": {
+      "admit": true,
+      "reason": "五次严格2/5，两次完整16/16交付，公开5/5、核心43/60。三份干净只读原提交的新合法小例分别复现：漏掉部分供电、反向优化启动费用、未舍弃最短开启时间与未来正端口容量冲突产生的不可行分支。后两者涉及新增持续端口业务目标/状态依赖，前者为保留的供电规则；没有将全部失败或档位变化归因于新增机制。非NaN/类型/格式/导入兼容问题，评分和正式试次不变。原M102易档保留，来源102只接纳一次，结构H和基线实测M分别报告。",
+      "evidence": [
+        "failure-review/business-partial-grid.json",
+        "failure-review/business-startup-sign.json",
+        "failure-review/business-residency-dead-branch.json"
+      ],
+      "tags": [
+        "core_partial_service",
+        "persistent_port_startup_objective",
+        "future_capacity_residency_coupling",
+        "same_source_revision_grouped",
+        "development_calibration"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "M103",
+      "title": "端口驻留与储能的全时域恢复",
+      "family": "dag300new102-microgrid-restoration",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    }
+  ]
+}

@@ -1,0 +1,3997 @@
+{
+  "task": "E112",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "...."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "fire_seeds": [],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "A",
+                "r": 0,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "near",
+                  "far"
+                ]
+              },
+              {
+                "id": "B",
+                "r": 0,
+                "c": 0,
+                "release": 1,
+                "eligible_shelters": [
+                  "near"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "near",
+                "r": 0,
+                "c": 0,
+                "opens": 0,
+                "closes": 4,
+                "capacity": 1
+              },
+              {
+                "id": "far",
+                "r": 0,
+                "c": 3,
+                "opens": 0,
+                "closes": 4,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 3
+          }
+        },
+        "expected": {
+          "max_saved": 2,
+          "total_arrival": 3,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "far",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "assigned",
+              "shelter": "near",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "near",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "far",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "..."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "fire_seeds": [],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "A",
+                "r": 0,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "right"
+                ]
+              },
+              {
+                "id": "B",
+                "r": 0,
+                "c": 2,
+                "release": 0,
+                "eligible_shelters": [
+                  "left"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "left",
+                "r": 0,
+                "c": 0,
+                "opens": 0,
+                "closes": 5,
+                "capacity": 1
+              },
+              {
+                "id": "right",
+                "r": 0,
+                "c": 2,
+                "opens": 0,
+                "closes": 5,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 4
+          }
+        },
+        "expected": {
+          "max_saved": 1,
+          "total_arrival": 2,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "right",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            }
+          ],
+          "shelters": [
+            {
+              "id": "left",
+              "used": 0,
+              "capacity": 1
+            },
+            {
+              "id": "right",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "...",
+              "..."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "fire_seeds": [],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "A",
+                "r": 0,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "right"
+                ]
+              },
+              {
+                "id": "B",
+                "r": 0,
+                "c": 2,
+                "release": 0,
+                "eligible_shelters": [
+                  "left"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "left",
+                "r": 0,
+                "c": 0,
+                "opens": 0,
+                "closes": 5,
+                "capacity": 1
+              },
+              {
+                "id": "right",
+                "r": 0,
+                "c": 2,
+                "opens": 0,
+                "closes": 5,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 4
+          }
+        },
+        "expected": {
+          "max_saved": 2,
+          "total_arrival": 6,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "right",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "assigned",
+              "shelter": "left",
+              "arrival": 4,
+              "path": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "left",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "right",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "..",
+              ".."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "fire_seeds": [],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "p0",
+                "r": 0,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "p1",
+                "r": 0,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "s1"
+                ]
+              },
+              {
+                "id": "p2",
+                "r": 1,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "s2"
+                ]
+              },
+              {
+                "id": "p3",
+                "r": 1,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "s3"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s0",
+                "r": 0,
+                "c": 1,
+                "opens": 0,
+                "closes": 2,
+                "capacity": 1
+              },
+              {
+                "id": "s1",
+                "r": 1,
+                "c": 1,
+                "opens": 0,
+                "closes": 2,
+                "capacity": 1
+              },
+              {
+                "id": "s2",
+                "r": 1,
+                "c": 0,
+                "opens": 0,
+                "closes": 2,
+                "capacity": 1
+              },
+              {
+                "id": "s3",
+                "r": 0,
+                "c": 0,
+                "opens": 0,
+                "closes": 2,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 1
+          }
+        },
+        "expected": {
+          "max_saved": 4,
+          "total_arrival": 4,
+          "fire_arrival": [
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "assigned",
+              "shelter": "s3",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s3",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "..."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "fire_seeds": [],
+            "closures": [
+              {
+                "r": 0,
+                "c": 1,
+                "start": 1,
+                "end": 1
+              }
+            ],
+            "evacuees": [
+              {
+                "id": "a",
+                "r": 0,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "s"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s",
+                "r": 0,
+                "c": 2,
+                "opens": 0,
+                "closes": 5,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 4
+          }
+        },
+        "expected": {
+          "max_saved": 1,
+          "total_arrival": 3,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "a",
+              "status": "assigned",
+              "shelter": "s",
+              "arrival": 3,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "...",
+              "..."
+            ],
+            "spread_cost": [
+              [
+                1,
+                3,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            "fire_seeds": [
+              {
+                "r": 0,
+                "c": 0,
+                "time": 0
+              }
+            ],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "a",
+                "r": 0,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "s"
+                ]
+              },
+              {
+                "id": "b",
+                "r": 1,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "s"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s",
+                "r": 1,
+                "c": 2,
+                "opens": 0,
+                "closes": 5,
+                "capacity": 2
+              }
+            ],
+            "max_ticks": 4
+          }
+        },
+        "expected": {
+          "max_saved": 2,
+          "total_arrival": 5,
+          "fire_arrival": [
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              2,
+              3,
+              5
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "a",
+              "status": "assigned",
+              "shelter": "s",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "b",
+              "status": "assigned",
+              "shelter": "s",
+              "arrival": 3,
+              "path": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s",
+              "used": 2,
+              "capacity": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "...."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "fire_seeds": [],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "A",
+                "r": 0,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "near",
+                  "far"
+                ]
+              },
+              {
+                "id": "B",
+                "r": 0,
+                "c": 0,
+                "release": 1,
+                "eligible_shelters": [
+                  "near",
+                  "far"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "near",
+                "r": 0,
+                "c": 0,
+                "opens": 2,
+                "closes": 4,
+                "capacity": 1
+              },
+              {
+                "id": "far",
+                "r": 0,
+                "c": 3,
+                "opens": 0,
+                "closes": 4,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 3
+          }
+        },
+        "expected": {
+          "max_saved": 2,
+          "total_arrival": 4,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "far",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "assigned",
+              "shelter": "near",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "near",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "far",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "....",
+              ".#..",
+              "...."
+            ],
+            "spread_cost": [
+              [
+                2,
+                2,
+                1,
+                3
+              ],
+              [
+                1,
+                1,
+                3,
+                1
+              ],
+              [
+                3,
+                2,
+                3,
+                2
+              ]
+            ],
+            "fire_seeds": [
+              {
+                "r": 2,
+                "c": 3,
+                "time": 4
+              }
+            ],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "p0",
+                "r": 2,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "s2"
+                ]
+              },
+              {
+                "id": "p1",
+                "r": 1,
+                "c": 2,
+                "release": 1,
+                "eligible_shelters": [
+                  "s1",
+                  "s0"
+                ]
+              },
+              {
+                "id": "p2",
+                "r": 0,
+                "c": 3,
+                "release": 0,
+                "eligible_shelters": [
+                  "s2",
+                  "s0",
+                  "s1"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s0",
+                "r": 1,
+                "c": 0,
+                "opens": 0,
+                "closes": 6,
+                "capacity": 1
+              },
+              {
+                "id": "s1",
+                "r": 2,
+                "c": 3,
+                "opens": 0,
+                "closes": 6,
+                "capacity": 1
+              },
+              {
+                "id": "s2",
+                "r": 1,
+                "c": 2,
+                "opens": 0,
+                "closes": 6,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 5
+          }
+        },
+        "expected": {
+          "max_saved": 3,
+          "total_arrival": 9,
+          "fire_arrival": [
+            [
+              13,
+              11,
+              9,
+              8
+            ],
+            [
+              13,
+              null,
+              8,
+              5
+            ],
+            [
+              12,
+              9,
+              7,
+              4
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 2,
+              "path": [
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 5,
+              "path": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "....",
+              "..#.",
+              "....",
+              ".#.."
+            ],
+            "spread_cost": [
+              [
+                1,
+                1,
+                3,
+                3
+              ],
+              [
+                2,
+                3,
+                2,
+                2
+              ],
+              [
+                2,
+                1,
+                2,
+                3
+              ],
+              [
+                3,
+                2,
+                2,
+                1
+              ]
+            ],
+            "fire_seeds": [
+              {
+                "r": 3,
+                "c": 3,
+                "time": 5
+              }
+            ],
+            "closures": [
+              {
+                "r": 2,
+                "c": 0,
+                "start": 2,
+                "end": 3
+              }
+            ],
+            "evacuees": [
+              {
+                "id": "p0",
+                "r": 0,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "s0"
+                ]
+              },
+              {
+                "id": "p1",
+                "r": 1,
+                "c": 0,
+                "release": 1,
+                "eligible_shelters": [
+                  "s0",
+                  "s1"
+                ]
+              },
+              {
+                "id": "p2",
+                "r": 2,
+                "c": 3,
+                "release": 0,
+                "eligible_shelters": [
+                  "s1",
+                  "s2",
+                  "s0"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s0",
+                "r": 3,
+                "c": 3,
+                "opens": 0,
+                "closes": 7,
+                "capacity": 1
+              },
+              {
+                "id": "s1",
+                "r": 2,
+                "c": 0,
+                "opens": 0,
+                "closes": 7,
+                "capacity": 1
+              },
+              {
+                "id": "s2",
+                "r": 2,
+                "c": 2,
+                "opens": 1,
+                "closes": 7,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 6
+          }
+        },
+        "expected": {
+          "max_saved": 2,
+          "total_arrival": 5,
+          "fire_arrival": [
+            [
+              15,
+              14,
+              16,
+              13
+            ],
+            [
+              14,
+              13,
+              null,
+              10
+            ],
+            [
+              12,
+              10,
+              9,
+              8
+            ],
+            [
+              15,
+              null,
+              7,
+              5
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 4,
+              "path": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  2
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 0,
+              "capacity": 1
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "...",
+              "...",
+              "..."
+            ],
+            "spread_cost": [
+              [
+                3,
+                2,
+                3
+              ],
+              [
+                2,
+                2,
+                3
+              ],
+              [
+                1,
+                2,
+                3
+              ]
+            ],
+            "fire_seeds": [
+              {
+                "r": 2,
+                "c": 2,
+                "time": 4
+              }
+            ],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "p0",
+                "r": 1,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "s2"
+                ]
+              },
+              {
+                "id": "p1",
+                "r": 2,
+                "c": 2,
+                "release": 1,
+                "eligible_shelters": [
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "p2",
+                "r": 0,
+                "c": 2,
+                "release": 0,
+                "eligible_shelters": [
+                  "s2",
+                  "s1",
+                  "s0"
+                ]
+              },
+              {
+                "id": "p3",
+                "r": 0,
+                "c": 0,
+                "release": 1,
+                "eligible_shelters": [
+                  "s2"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s0",
+                "r": 2,
+                "c": 0,
+                "opens": 1,
+                "closes": 6,
+                "capacity": 2
+              },
+              {
+                "id": "s1",
+                "r": 1,
+                "c": 2,
+                "opens": 0,
+                "closes": 6,
+                "capacity": 1
+              },
+              {
+                "id": "s2",
+                "r": 1,
+                "c": 0,
+                "opens": 1,
+                "closes": 6,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 5
+          }
+        },
+        "expected": {
+          "max_saved": 3,
+          "total_arrival": 5,
+          "fire_arrival": [
+            [
+              12,
+              10,
+              10
+            ],
+            [
+              9,
+              8,
+              7
+            ],
+            [
+              7,
+              6,
+              4
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 3,
+              "path": [
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 2
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "....",
+              ".#..",
+              "...."
+            ],
+            "spread_cost": [
+              [
+                1,
+                3,
+                3,
+                3
+              ],
+              [
+                1,
+                2,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                3,
+                2
+              ]
+            ],
+            "fire_seeds": [
+              {
+                "r": 2,
+                "c": 3,
+                "time": 5
+              }
+            ],
+            "closures": [
+              {
+                "r": 1,
+                "c": 2,
+                "start": 2,
+                "end": 3
+              }
+            ],
+            "evacuees": [
+              {
+                "id": "p0",
+                "r": 0,
+                "c": 1,
+                "release": 0,
+                "eligible_shelters": [
+                  "s1"
+                ]
+              },
+              {
+                "id": "p1",
+                "r": 1,
+                "c": 0,
+                "release": 1,
+                "eligible_shelters": [
+                  "s1",
+                  "s0"
+                ]
+              },
+              {
+                "id": "p2",
+                "r": 1,
+                "c": 3,
+                "release": 0,
+                "eligible_shelters": [
+                  "s1",
+                  "s2",
+                  "s0"
+                ]
+              },
+              {
+                "id": "p3",
+                "r": 2,
+                "c": 2,
+                "release": 1,
+                "eligible_shelters": [
+                  "s0"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s0",
+                "r": 1,
+                "c": 0,
+                "opens": 0,
+                "closes": 7,
+                "capacity": 2
+              },
+              {
+                "id": "s1",
+                "r": 2,
+                "c": 0,
+                "opens": 1,
+                "closes": 7,
+                "capacity": 1
+              },
+              {
+                "id": "s2",
+                "r": 1,
+                "c": 2,
+                "opens": 1,
+                "closes": 7,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 6
+          }
+        },
+        "expected": {
+          "max_saved": 4,
+          "total_arrival": 10,
+          "fire_arrival": [
+            [
+              13,
+              14,
+              11,
+              10
+            ],
+            [
+              12,
+              null,
+              8,
+              7
+            ],
+            [
+              11,
+              10,
+              8,
+              5
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 3,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 5,
+              "path": [
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 2,
+              "capacity": 2
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "grid": [
+              "....",
+              ".#..",
+              "..#.",
+              "...."
+            ],
+            "spread_cost": [
+              [
+                1,
+                3,
+                1,
+                3
+              ],
+              [
+                1,
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                2,
+                2,
+                2
+              ],
+              [
+                2,
+                3,
+                3,
+                2
+              ]
+            ],
+            "fire_seeds": [
+              {
+                "r": 3,
+                "c": 3,
+                "time": 6
+              }
+            ],
+            "closures": [],
+            "evacuees": [
+              {
+                "id": "p0",
+                "r": 3,
+                "c": 0,
+                "release": 0,
+                "eligible_shelters": [
+                  "s1"
+                ]
+              },
+              {
+                "id": "p1",
+                "r": 0,
+                "c": 0,
+                "release": 1,
+                "eligible_shelters": [
+                  "s1",
+                  "s2"
+                ]
+              },
+              {
+                "id": "p2",
+                "r": 0,
+                "c": 2,
+                "release": 0,
+                "eligible_shelters": [
+                  "s1",
+                  "s0",
+                  "s2"
+                ]
+              },
+              {
+                "id": "p3",
+                "r": 3,
+                "c": 3,
+                "release": 1,
+                "eligible_shelters": [
+                  "s0"
+                ]
+              }
+            ],
+            "shelters": [
+              {
+                "id": "s0",
+                "r": 3,
+                "c": 1,
+                "opens": 1,
+                "closes": 8,
+                "capacity": 2
+              },
+              {
+                "id": "s1",
+                "r": 3,
+                "c": 0,
+                "opens": 0,
+                "closes": 8,
+                "capacity": 1
+              },
+              {
+                "id": "s2",
+                "r": 3,
+                "c": 3,
+                "opens": 1,
+                "closes": 8,
+                "capacity": 1
+              }
+            ],
+            "max_ticks": 7
+          }
+        },
+        "expected": {
+          "max_saved": 3,
+          "total_arrival": 7,
+          "fire_arrival": [
+            [
+              17,
+              16,
+              13,
+              12
+            ],
+            [
+              16,
+              null,
+              12,
+              9
+            ],
+            [
+              15,
+              14,
+              null,
+              8
+            ],
+            [
+              14,
+              12,
+              9,
+              6
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 0,
+              "path": [
+                [
+                  3,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 4,
+              "path": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 3,
+              "path": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 2
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "grid": [
+          "...."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "fire_seeds": [],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "A",
+            "r": 0,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "near",
+              "far"
+            ]
+          },
+          {
+            "id": "B",
+            "r": 0,
+            "c": 0,
+            "release": 1,
+            "eligible_shelters": [
+              "near"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "near",
+            "r": 0,
+            "c": 0,
+            "opens": 0,
+            "closes": 4,
+            "capacity": 1
+          },
+          {
+            "id": "far",
+            "r": 0,
+            "c": 3,
+            "opens": 0,
+            "closes": 4,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 3
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 2,
+          "total_arrival": 3,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "far",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "assigned",
+              "shelter": "near",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "near",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "far",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "..."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "fire_seeds": [],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "A",
+            "r": 0,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "right"
+            ]
+          },
+          {
+            "id": "B",
+            "r": 0,
+            "c": 2,
+            "release": 0,
+            "eligible_shelters": [
+              "left"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "left",
+            "r": 0,
+            "c": 0,
+            "opens": 0,
+            "closes": 5,
+            "capacity": 1
+          },
+          {
+            "id": "right",
+            "r": 0,
+            "c": 2,
+            "opens": 0,
+            "closes": 5,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 4
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 1,
+          "total_arrival": 2,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "right",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            }
+          ],
+          "shelters": [
+            {
+              "id": "left",
+              "used": 0,
+              "capacity": 1
+            },
+            {
+              "id": "right",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "...",
+          "..."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "fire_seeds": [],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "A",
+            "r": 0,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "right"
+            ]
+          },
+          {
+            "id": "B",
+            "r": 0,
+            "c": 2,
+            "release": 0,
+            "eligible_shelters": [
+              "left"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "left",
+            "r": 0,
+            "c": 0,
+            "opens": 0,
+            "closes": 5,
+            "capacity": 1
+          },
+          {
+            "id": "right",
+            "r": 0,
+            "c": 2,
+            "opens": 0,
+            "closes": 5,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 4
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 2,
+          "total_arrival": 6,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "right",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "assigned",
+              "shelter": "left",
+              "arrival": 4,
+              "path": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "left",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "right",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "..",
+          ".."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fire_seeds": [],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "p0",
+            "r": 0,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "s0"
+            ]
+          },
+          {
+            "id": "p1",
+            "r": 0,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "s1"
+            ]
+          },
+          {
+            "id": "p2",
+            "r": 1,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "s2"
+            ]
+          },
+          {
+            "id": "p3",
+            "r": 1,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "s3"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s0",
+            "r": 0,
+            "c": 1,
+            "opens": 0,
+            "closes": 2,
+            "capacity": 1
+          },
+          {
+            "id": "s1",
+            "r": 1,
+            "c": 1,
+            "opens": 0,
+            "closes": 2,
+            "capacity": 1
+          },
+          {
+            "id": "s2",
+            "r": 1,
+            "c": 0,
+            "opens": 0,
+            "closes": 2,
+            "capacity": 1
+          },
+          {
+            "id": "s3",
+            "r": 0,
+            "c": 0,
+            "opens": 0,
+            "closes": 2,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 1
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 4,
+          "total_arrival": 4,
+          "fire_arrival": [
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "assigned",
+              "shelter": "s3",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s3",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "..."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "fire_seeds": [],
+        "closures": [
+          {
+            "r": 0,
+            "c": 1,
+            "start": 1,
+            "end": 1
+          }
+        ],
+        "evacuees": [
+          {
+            "id": "a",
+            "r": 0,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "s"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s",
+            "r": 0,
+            "c": 2,
+            "opens": 0,
+            "closes": 5,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 4
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 1,
+          "total_arrival": 3,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "a",
+              "status": "assigned",
+              "shelter": "s",
+              "arrival": 3,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "...",
+          "..."
+        ],
+        "spread_cost": [
+          [
+            1,
+            3,
+            1
+          ],
+          [
+            2,
+            1,
+            2
+          ]
+        ],
+        "fire_seeds": [
+          {
+            "r": 0,
+            "c": 0,
+            "time": 0
+          }
+        ],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "a",
+            "r": 0,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "s"
+            ]
+          },
+          {
+            "id": "b",
+            "r": 1,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "s"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s",
+            "r": 1,
+            "c": 2,
+            "opens": 0,
+            "closes": 5,
+            "capacity": 2
+          }
+        ],
+        "max_ticks": 4
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 2,
+          "total_arrival": 5,
+          "fire_arrival": [
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              2,
+              3,
+              5
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "a",
+              "status": "assigned",
+              "shelter": "s",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "b",
+              "status": "assigned",
+              "shelter": "s",
+              "arrival": 3,
+              "path": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s",
+              "used": 2,
+              "capacity": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "...."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "fire_seeds": [],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "A",
+            "r": 0,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "near",
+              "far"
+            ]
+          },
+          {
+            "id": "B",
+            "r": 0,
+            "c": 0,
+            "release": 1,
+            "eligible_shelters": [
+              "near",
+              "far"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "near",
+            "r": 0,
+            "c": 0,
+            "opens": 2,
+            "closes": 4,
+            "capacity": 1
+          },
+          {
+            "id": "far",
+            "r": 0,
+            "c": 3,
+            "opens": 0,
+            "closes": 4,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 3
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 2,
+          "total_arrival": 4,
+          "fire_arrival": [
+            [
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "A",
+              "status": "assigned",
+              "shelter": "far",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ]
+              ]
+            },
+            {
+              "id": "B",
+              "status": "assigned",
+              "shelter": "near",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "near",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "far",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "....",
+          ".#..",
+          "...."
+        ],
+        "spread_cost": [
+          [
+            2,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            1,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            3,
+            2
+          ]
+        ],
+        "fire_seeds": [
+          {
+            "r": 2,
+            "c": 3,
+            "time": 4
+          }
+        ],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "p0",
+            "r": 2,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "s2"
+            ]
+          },
+          {
+            "id": "p1",
+            "r": 1,
+            "c": 2,
+            "release": 1,
+            "eligible_shelters": [
+              "s1",
+              "s0"
+            ]
+          },
+          {
+            "id": "p2",
+            "r": 0,
+            "c": 3,
+            "release": 0,
+            "eligible_shelters": [
+              "s2",
+              "s0",
+              "s1"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s0",
+            "r": 1,
+            "c": 0,
+            "opens": 0,
+            "closes": 6,
+            "capacity": 1
+          },
+          {
+            "id": "s1",
+            "r": 2,
+            "c": 3,
+            "opens": 0,
+            "closes": 6,
+            "capacity": 1
+          },
+          {
+            "id": "s2",
+            "r": 1,
+            "c": 2,
+            "opens": 0,
+            "closes": 6,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 5
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 3,
+          "total_arrival": 9,
+          "fire_arrival": [
+            [
+              13,
+              11,
+              9,
+              8
+            ],
+            [
+              13,
+              null,
+              8,
+              5
+            ],
+            [
+              12,
+              9,
+              7,
+              4
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 2,
+              "path": [
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 5,
+              "path": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 2,
+              "path": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "....",
+          "..#.",
+          "....",
+          ".#.."
+        ],
+        "spread_cost": [
+          [
+            1,
+            1,
+            3,
+            3
+          ],
+          [
+            2,
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            1,
+            2,
+            3
+          ],
+          [
+            3,
+            2,
+            2,
+            1
+          ]
+        ],
+        "fire_seeds": [
+          {
+            "r": 3,
+            "c": 3,
+            "time": 5
+          }
+        ],
+        "closures": [
+          {
+            "r": 2,
+            "c": 0,
+            "start": 2,
+            "end": 3
+          }
+        ],
+        "evacuees": [
+          {
+            "id": "p0",
+            "r": 0,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "s0"
+            ]
+          },
+          {
+            "id": "p1",
+            "r": 1,
+            "c": 0,
+            "release": 1,
+            "eligible_shelters": [
+              "s0",
+              "s1"
+            ]
+          },
+          {
+            "id": "p2",
+            "r": 2,
+            "c": 3,
+            "release": 0,
+            "eligible_shelters": [
+              "s1",
+              "s2",
+              "s0"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s0",
+            "r": 3,
+            "c": 3,
+            "opens": 0,
+            "closes": 7,
+            "capacity": 1
+          },
+          {
+            "id": "s1",
+            "r": 2,
+            "c": 0,
+            "opens": 0,
+            "closes": 7,
+            "capacity": 1
+          },
+          {
+            "id": "s2",
+            "r": 2,
+            "c": 2,
+            "opens": 1,
+            "closes": 7,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 6
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 2,
+          "total_arrival": 5,
+          "fire_arrival": [
+            [
+              15,
+              14,
+              16,
+              13
+            ],
+            [
+              14,
+              13,
+              null,
+              10
+            ],
+            [
+              12,
+              10,
+              9,
+              8
+            ],
+            [
+              15,
+              null,
+              7,
+              5
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 4,
+              "path": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  2
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 0,
+              "capacity": 1
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "...",
+          "...",
+          "..."
+        ],
+        "spread_cost": [
+          [
+            3,
+            2,
+            3
+          ],
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "fire_seeds": [
+          {
+            "r": 2,
+            "c": 2,
+            "time": 4
+          }
+        ],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "p0",
+            "r": 1,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "s2"
+            ]
+          },
+          {
+            "id": "p1",
+            "r": 2,
+            "c": 2,
+            "release": 1,
+            "eligible_shelters": [
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "p2",
+            "r": 0,
+            "c": 2,
+            "release": 0,
+            "eligible_shelters": [
+              "s2",
+              "s1",
+              "s0"
+            ]
+          },
+          {
+            "id": "p3",
+            "r": 0,
+            "c": 0,
+            "release": 1,
+            "eligible_shelters": [
+              "s2"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s0",
+            "r": 2,
+            "c": 0,
+            "opens": 1,
+            "closes": 6,
+            "capacity": 2
+          },
+          {
+            "id": "s1",
+            "r": 1,
+            "c": 2,
+            "opens": 0,
+            "closes": 6,
+            "capacity": 1
+          },
+          {
+            "id": "s2",
+            "r": 1,
+            "c": 0,
+            "opens": 1,
+            "closes": 6,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 5
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 3,
+          "total_arrival": 5,
+          "fire_arrival": [
+            [
+              12,
+              10,
+              10
+            ],
+            [
+              9,
+              8,
+              7
+            ],
+            [
+              7,
+              6,
+              4
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 3,
+              "path": [
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 1,
+              "path": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 2
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "....",
+          ".#..",
+          "...."
+        ],
+        "spread_cost": [
+          [
+            1,
+            3,
+            3,
+            3
+          ],
+          [
+            1,
+            2,
+            1,
+            2
+          ],
+          [
+            1,
+            2,
+            3,
+            2
+          ]
+        ],
+        "fire_seeds": [
+          {
+            "r": 2,
+            "c": 3,
+            "time": 5
+          }
+        ],
+        "closures": [
+          {
+            "r": 1,
+            "c": 2,
+            "start": 2,
+            "end": 3
+          }
+        ],
+        "evacuees": [
+          {
+            "id": "p0",
+            "r": 0,
+            "c": 1,
+            "release": 0,
+            "eligible_shelters": [
+              "s1"
+            ]
+          },
+          {
+            "id": "p1",
+            "r": 1,
+            "c": 0,
+            "release": 1,
+            "eligible_shelters": [
+              "s1",
+              "s0"
+            ]
+          },
+          {
+            "id": "p2",
+            "r": 1,
+            "c": 3,
+            "release": 0,
+            "eligible_shelters": [
+              "s1",
+              "s2",
+              "s0"
+            ]
+          },
+          {
+            "id": "p3",
+            "r": 2,
+            "c": 2,
+            "release": 1,
+            "eligible_shelters": [
+              "s0"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s0",
+            "r": 1,
+            "c": 0,
+            "opens": 0,
+            "closes": 7,
+            "capacity": 2
+          },
+          {
+            "id": "s1",
+            "r": 2,
+            "c": 0,
+            "opens": 1,
+            "closes": 7,
+            "capacity": 1
+          },
+          {
+            "id": "s2",
+            "r": 1,
+            "c": 2,
+            "opens": 1,
+            "closes": 7,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 6
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 4,
+          "total_arrival": 10,
+          "fire_arrival": [
+            [
+              13,
+              14,
+              11,
+              10
+            ],
+            [
+              12,
+              null,
+              8,
+              7
+            ],
+            [
+              11,
+              10,
+              8,
+              5
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 3,
+              "path": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 1,
+              "path": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 5,
+              "path": [
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 2,
+              "capacity": 2
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "grid": [
+          "....",
+          ".#..",
+          "..#.",
+          "...."
+        ],
+        "spread_cost": [
+          [
+            1,
+            3,
+            1,
+            3
+          ],
+          [
+            1,
+            1,
+            3,
+            1
+          ],
+          [
+            1,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            3,
+            3,
+            2
+          ]
+        ],
+        "fire_seeds": [
+          {
+            "r": 3,
+            "c": 3,
+            "time": 6
+          }
+        ],
+        "closures": [],
+        "evacuees": [
+          {
+            "id": "p0",
+            "r": 3,
+            "c": 0,
+            "release": 0,
+            "eligible_shelters": [
+              "s1"
+            ]
+          },
+          {
+            "id": "p1",
+            "r": 0,
+            "c": 0,
+            "release": 1,
+            "eligible_shelters": [
+              "s1",
+              "s2"
+            ]
+          },
+          {
+            "id": "p2",
+            "r": 0,
+            "c": 2,
+            "release": 0,
+            "eligible_shelters": [
+              "s1",
+              "s0",
+              "s2"
+            ]
+          },
+          {
+            "id": "p3",
+            "r": 3,
+            "c": 3,
+            "release": 1,
+            "eligible_shelters": [
+              "s0"
+            ]
+          }
+        ],
+        "shelters": [
+          {
+            "id": "s0",
+            "r": 3,
+            "c": 1,
+            "opens": 1,
+            "closes": 8,
+            "capacity": 2
+          },
+          {
+            "id": "s1",
+            "r": 3,
+            "c": 0,
+            "opens": 0,
+            "closes": 8,
+            "capacity": 1
+          },
+          {
+            "id": "s2",
+            "r": 3,
+            "c": 3,
+            "opens": 1,
+            "closes": 8,
+            "capacity": 1
+          }
+        ],
+        "max_ticks": 7
+      },
+      "results": {
+        "analysis": {
+          "max_saved": 3,
+          "total_arrival": 7,
+          "fire_arrival": [
+            [
+              17,
+              16,
+              13,
+              12
+            ],
+            [
+              16,
+              null,
+              12,
+              9
+            ],
+            [
+              15,
+              14,
+              null,
+              8
+            ],
+            [
+              14,
+              12,
+              9,
+              6
+            ]
+          ],
+          "evacuees": [
+            {
+              "id": "p0",
+              "status": "assigned",
+              "shelter": "s1",
+              "arrival": 0,
+              "path": [
+                [
+                  3,
+                  0
+                ]
+              ]
+            },
+            {
+              "id": "p1",
+              "status": "unassigned",
+              "shelter": null,
+              "arrival": null,
+              "path": []
+            },
+            {
+              "id": "p2",
+              "status": "assigned",
+              "shelter": "s2",
+              "arrival": 4,
+              "path": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ]
+              ]
+            },
+            {
+              "id": "p3",
+              "status": "assigned",
+              "shelter": "s0",
+              "arrival": 3,
+              "path": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            }
+          ],
+          "shelters": [
+            {
+              "id": "s0",
+              "used": 1,
+              "capacity": 2
+            },
+            {
+              "id": "s1",
+              "used": 1,
+              "capacity": 1
+            },
+            {
+              "id": "s2",
+              "used": 1,
+              "capacity": 1
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "protocol": {
+    "dataset": "medium-native-coalescing-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 1,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261214,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Five valid trials, 2 or 3 strict successes and core-business evidence review; structural and empirical labels retained separately.",
+    "verifier_revision": "package-import-compatible-v1.1"
+  },
+  "freeze_sha256": "ced3826ef7dc5eed5da73947180988c335063f9af40037afda7cede74cc85dae",
+  "admissions": {
+    "K54": {
+      "admit": true,
+      "reason": "Five fresh trials yield3/5 strict with5/5 public checks. r3 makes genuine weighted phi-copy errors: all spilled values collapse to one internal -1, although logical spill slots differ. A new two-value ordinary call-live example reproduces expected copy3 versus actual0. r1 exceeds the unchanged90-second API budget on the normal22-value CFG, using late repeated legality checks and spill-first enumeration; trusted reference solves that same instance in2.323 seconds at2CPU/3072MiB. No candidate timeout was retried. All acceptance remains semantic, allowing arbitrary equal-optimal allocations; no noncore robustness checks were added. Original K53 remains E4/5 separately and source family53 is admitted once.",
+      "evidence": [
+        "failure-review/business-distinct-spill-slots.json",
+        "failure-review/business-reference-performance.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "K54",
+      "title": "完整CFG的最优溢出与加权phi合并",
+      "family": "dag300-new53-register-allocation",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    }
+  ]
+}

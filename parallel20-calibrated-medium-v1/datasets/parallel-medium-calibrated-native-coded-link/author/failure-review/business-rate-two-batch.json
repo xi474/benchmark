@@ -1,0 +1,93 @@
+{
+  "input": {
+    "switch_cooldown": 0,
+    "packets": [
+      {
+        "id": "Q",
+        "dimension": 2,
+        "priority": 1,
+        "craft": "A",
+        "band": "x",
+        "release": 0,
+        "deadline": 1,
+        "requires": []
+      }
+    ],
+    "contacts": [
+      {
+        "id": "short",
+        "station": "s",
+        "craft": "A",
+        "band": "x",
+        "group": "g",
+        "start": 0,
+        "end": 1,
+        "rate": 2,
+        "symbols": [
+          {
+            "packet": "Q",
+            "vector": 1
+          },
+          {
+            "packet": "Q",
+            "vector": 2
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "score": {
+      "priority": 1,
+      "count": 1,
+      "rank": 2
+    },
+    "packets": [
+      {
+        "id": "Q",
+        "rank": 2,
+        "completion": 1
+      }
+    ],
+    "contacts": [
+      {
+        "tick": 0,
+        "contact": "short"
+      }
+    ],
+    "transmissions": [
+      {
+        "tick": 0,
+        "contact": "short",
+        "packet": "Q",
+        "vector": 1
+      },
+      {
+        "tick": 0,
+        "contact": "short",
+        "packet": "Q",
+        "vector": 2
+      }
+    ]
+  },
+  "actual": {
+    "ok": false,
+    "error": "TypeError",
+    "detail": "unhashable type: 'list'"
+  },
+  "repeat": 3,
+  "new_diagnostic_case_only": true,
+  "candidate_edited": false,
+  "formal_scores_changed": false,
+  "pycache_excluded": true,
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/app/engines/analysis/engine.py\", line 7, in transform\n    return solve(payload['request'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/engines/analysis/solver.py\", line 249, in solve\n    return Solver(request).solve()\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/engines/analysis/solver.py\", line 216, in solve\n    for new_state, used_contact_ids, tx_rows in self._generate_tick_transitions(t, state):\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/engines/analysis/solver.py\", line 205, in _generate_tick_transitions\n    rec(0, False, state[0], used_stations, used_crafts, used_groups, used_contacts, [])\n  File \"/app/engines/analysis/solver.py\", line 194, in rec\n    rec(\n  File \"/app/engines/analysis/solver.py\", line 177, in rec\n    if new_state not in seen:\n       ^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'list'\n",
+  "source_sha256": {
+    "check.py": "c68864febcdf0b0e1b2486b8bab7e303e670a840b50192ac5cfd30ea4de0d852",
+    "comparison.py": "7521048a085cf9e96b3108adb0d603a53749cadc6b03b5f99b680e0b7c24d995",
+    "runtime.py": "20a745a5f772133f72796373ac173979dc09803755b27d180bd893a559e6136c",
+    "run_all.py": "c37fd7ffd9c0a6eadd7bb950617ec83738a12ff3bcf8d42f1dcaa02f7a60bb3a",
+    "engines/analysis/engine.py": "e164ab8823d83642ebcdc24791398662eb905bbed23a281604ab9d9be0b0c182",
+    "engines/analysis/solver.py": "15fc71112c1788b24f211eb3f6cc41a5522182299d8e5a879d68e79463046e63"
+  },
+  "source_cause": "The rate-two branch iterates second.items() as rows2,nntemp instead of second.values(); nntemp becomes (list_of_rows,bases), corrupting the joint state hash and packet indices. One ordinary rate-two slot with two independent vectors reproduces it."
+}

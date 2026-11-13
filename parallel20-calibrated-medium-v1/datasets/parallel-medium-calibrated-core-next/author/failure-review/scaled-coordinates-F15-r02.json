@@ -1,0 +1,41 @@
+{
+  "formal_failures": "process",
+  "larger_inputs": [
+    {
+      "case": 4,
+      "size": [
+        90000,
+        50000
+      ],
+      "physical_unit_cells": 4500000000,
+      "coordinate_scale": 10000,
+      "scaled_area_matches": true,
+      "author_reference_seconds": 0.0001
+    },
+    {
+      "case": 8,
+      "size": [
+        80000,
+        60000
+      ],
+      "physical_unit_cells": 4800000000,
+      "coordinate_scale": 10000,
+      "scaled_area_matches": true,
+      "author_reference_seconds": 0.0
+    },
+    {
+      "case": 12,
+      "size": [
+        70000,
+        70000
+      ],
+      "physical_unit_cells": 4900000000,
+      "coordinate_scale": 10000,
+      "scaled_area_matches": true,
+      "author_reference_seconds": 0.0
+    }
+  ],
+  "small_coordinate_cases_passed": 9,
+  "reason": "The saved implementation correctly handles small maps but explicitly enumerates unit cells for both blocked area and distance labels. The three uniform coordinate scalings preserve the business topology and fee classes, while physical unit-cell count grows by 100 million. The formal process failure alone does not identify a specific OS exit cause.",
+  "formal_scores_changed": false
+}

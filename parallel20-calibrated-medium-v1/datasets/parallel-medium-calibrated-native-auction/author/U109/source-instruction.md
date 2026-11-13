@@ -1,0 +1,11 @@
+# Synthetic combinatorial auction clearing
+
+Implement `/app/workspace/project` so `python -m project.cli input.json output.json` works. This is a toy combinatorial auction, not a real market or financial system.
+
+Input has `items` (`id`, nonnegative integer `reserve`), `bidders` (`id`, nonnegative integer `budget`), and `bids` (`id`, `bidder`, `items` distinct nonempty item IDs, nonnegative integer `value`). All IDs are unique within their type; every reference exists. Arrays are in arbitrary order. There are at most 12 bids. A bid is eligible iff `value <= bidder.budget` and `value >= sum(reserve of each item in its bundle)`. Report ineligible bid IDs sorted.
+
+Choose a subset of eligible bids such that no item is in two winning bundles and each bidder wins at most one bid. Optimize lexicographically: (1) maximize sum of winning bid values (`welfare`); (2) maximize number of distinct allocated items; (3) minimize number of winning bids; (4) choose lexicographically smallest sorted tuple of winning bid IDs. Empty subset is allowed. Values equal to zero are allowed. `welfare_without_bidder` means the maximum welfare obtainable under the same eligibility and feasibility constraints after **all** bids by that bidder are removed; tie breaks do not change its numeric value.
+
+For each winning bidder, compute toy counterfactual `payment = welfare_without_bidder - (welfare - value_of_that_bidder's_winning_bid)`. This is an integer; the task guarantees the formula's result is nonnegative. A bidder who wins nothing has no payment row. Payment calculations are independent across winners and must rerun the optimization after excluding that bidder.
+
+Output JSON has exactly `winning_bids` (bid IDs sorted), `ineligible_bids` (IDs sorted), `unsold_items` (item IDs sorted), `welfare` (integer), and `payments` (rows `{ "bidder": id, "payment": int, "welfare_without_bidder": int }` sorted by bidder). Serialize with sorted object keys, compact separators and final newline; do not modify input. Standard library only. Public example in `/app/workspace/fixtures/public/input`. Hidden cases vary item overlap, alternative bundles per bidder, reserve/budget filters, zero values, objective ties and counterfactual externalities. No particular Agent workflow is required.

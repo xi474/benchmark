@@ -1,0 +1,89 @@
+{
+  "task": "U109",
+  "attempt": "auction1-U109-r01",
+  "request": {
+    "items": [
+      {
+        "id": "A",
+        "reserve": 1
+      },
+      {
+        "id": "B",
+        "reserve": 1
+      }
+    ],
+    "bidders": [
+      {
+        "id": "P",
+        "budget": 3
+      }
+    ],
+    "bids": [
+      {
+        "id": "PAB",
+        "bidder": "P",
+        "items": [
+          "A",
+          "B"
+        ],
+        "value": 3
+      }
+    ]
+  },
+  "expected": {
+    "score": {
+      "welfare": 3,
+      "allocated_items": 2,
+      "winning_bids": 1
+    },
+    "optimal_allocations": 1,
+    "selected_in": {
+      "PAB": 1
+    },
+    "ineligible_bids": [],
+    "counterfactual_welfare": {
+      "P": 0
+    },
+    "bidders": {
+      "P": {
+        "winning_in": 1,
+        "payment_range": [
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "reason": "只有一条合格报价且只有一份最优报价集合；提交先跳过A再从B选择AB，又从A选择AB，重复统计同一集合。",
+  "actual_probe": {
+    "ok": true,
+    "value": {
+      "score": {
+        "welfare": 3,
+        "allocated_items": 2,
+        "winning_bids": 1
+      },
+      "optimal_allocations": 2,
+      "selected_in": {
+        "PAB": 2
+      },
+      "ineligible_bids": [],
+      "counterfactual_welfare": {
+        "P": 0
+      },
+      "bidders": {
+        "P": {
+          "winning_in": 2,
+          "payment_range": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "input_unchanged": true
+  },
+  "formal_scores_changed": false,
+  "new_diagnostic_case_only": true,
+  "candidate_edited": false
+}

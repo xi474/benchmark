@@ -1,0 +1,35 @@
+{
+  "input": {
+    "size": [
+      3,
+      2
+    ],
+    "entry": [
+      0,
+      0
+    ],
+    "blocked": [
+      [
+        1,
+        0,
+        2,
+        1
+      ]
+    ],
+    "walls": []
+  },
+  "expected": {
+    "area_by_fee": {
+      "0": 5
+    },
+    "unreachable": 0
+  },
+  "actual": {
+    "area_by_fee": {
+      "0": 6
+    },
+    "unreachable": 0
+  },
+  "formal_score_changed": false,
+  "reason": "A single unit cell is inside the explicitly defined half-open blocked rectangle. The archived solver stores each four-coordinate rectangle as if it were a two-coordinate blocked cell, so every grid cell remains free. Its larger formal inputs also exceed the unchanged per-case limit because the solver enumerates physical unit cells instead of compressed regions."
+}

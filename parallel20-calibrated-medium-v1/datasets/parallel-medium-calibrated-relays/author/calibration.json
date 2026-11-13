@@ -1,0 +1,79 @@
+{
+  "protocol": {
+    "dataset": "medium-relays-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 2,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261121,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Structure M, five valid trials, 2 or 3 strict successes; inspect failed trials for core-business evidence before admission."
+  },
+  "freeze_sha256": "d9574b0cb31ab407ec693800ae1da6175f8fc49a4656b0d17bbe2d90a5331c14",
+  "admissions": {
+    "W07": {
+      "admit": true,
+      "reason": "五次严格通过 3/5，公开检查全部通过。第三次在 41、43 个事务的正常传播图中逐组枚举候选回滚子集，两个核心用例均触及原有 90 秒限时。两种作者解独立核对同一结果。第四次虽及时返回，但在一份 41 事务的输入上漏掉两事务的同价方案：隔离 pool 花 7，隔离 east 和 west 合计也花 7，因此没有任何单个事务必回滚。提交却把一项报成必回滚。上述失败的输入完全没有扫描记录。旧 F07 的严格比例同为 3/5，但其一次失败只是不同的合法拓扑顺序；新版两次失败都直接影响业务。",
+      "evidence": [
+        "failure-review/business-cuts-W07.json",
+        "failure-review/relay1-W07-r04.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1,
+    "H": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "W07",
+      "title": "多版本事务的传播隔离",
+      "family": "dag300new43-mvcc-serializability",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    },
+    {
+      "task": "W08",
+      "title": "热路径寄存器驻留与保存策略",
+      "family": "dag300-new53-register-allocation",
+      "valid": 5,
+      "strict": 0,
+      "empirical": "H"
+    }
+  ]
+}

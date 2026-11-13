@@ -1,0 +1,234 @@
+{
+  "protocol": {
+    "dataset": "parallel20-blind-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 20,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261112,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Structure M, five valid trials, 2 or 3 strict successes; inspect failed trials for core-business evidence before admission."
+  },
+  "freeze_sha256": "85804872018235e75f9fdb146da557d9253c7664f70904deb644b770b78812a7",
+  "admissions": {
+    "Q08": {
+      "admit": true,
+      "reason": "严格通过 3/5。第 2 次把质量误差再次取反，实际导致两个谱的置信排名倒置；第 4 次达到预算时的存档在公开的正常峰匹配中取到了强度 5，最优强度为 7。保留预算标记与补充反例，补充反例不进入正式评分。",
+      "evidence": [
+        "failure-review/screen20-Q08-r02.json",
+        "failure-review/screen20-Q08-r04.json",
+        "failure-review/supplement-Q08-ranking.json"
+      ]
+    },
+    "Q20": {
+      "admit": true,
+      "reason": "严格通过 2/5。三个失败存档在可并列的海流场上把第二个不同候选向量误作第二种不同误差，造成置信余量应为 0 却报正数；这是拟合不确定性的核心定义。",
+      "evidence": [
+        "failure-review/screen20-Q20-r01.json",
+        "failure-review/screen20-Q20-r02.json",
+        "failure-review/screen20-Q20-r03.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "E": 16,
+    "M": 3,
+    "H": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "Q01",
+      "title": "声阵列事件定位",
+      "family": "dag300new119-acoustic-array-time-delay-localization",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q02",
+      "title": "多版本调试地址还原",
+      "family": "dag300new121-debug-symbol-source-remap",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q03",
+      "title": "视频剪接与音画时钟对齐",
+      "family": "dag300new138-video-timebase-conform",
+      "valid": 5,
+      "strict": 4,
+      "empirical": "E"
+    },
+    {
+      "task": "Q04",
+      "title": "可变字体的字形与字偶排版",
+      "family": "dag300new139-variable-font-axis-interpolation",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q05",
+      "title": "共用尺寸的装配公差",
+      "family": "dag300new140-cad-tolerance-stackup",
+      "valid": 5,
+      "strict": 4,
+      "empirical": "E"
+    },
+    {
+      "task": "Q06",
+      "title": "地形等高线的鞍点与拼接",
+      "family": "dag300new141-terrain-contour-topology",
+      "valid": 5,
+      "strict": 4,
+      "empirical": "E"
+    },
+    {
+      "task": "Q07",
+      "title": "跨电价时段的充电结算",
+      "family": "dag300new150-ev-charging-session-settlement",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q08",
+      "title": "碎片质谱的一对一峰匹配",
+      "family": "dag300new161-peptide-mass-matching",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    },
+    {
+      "task": "Q09",
+      "title": "档案复合作品的授权日期",
+      "family": "dag300new167-archival-rights-clearance",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    },
+    {
+      "task": "Q10",
+      "title": "票据流转和临时票核账",
+      "family": "dag300new170-precinct-ballot-reconciliation",
+      "valid": 5,
+      "strict": 0,
+      "empirical": "H"
+    },
+    {
+      "task": "Q11",
+      "title": "分标采购的资格与履约容量",
+      "family": "dag300new171-procurement-bid-compliance",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q12",
+      "title": "研究主张的版本与撤稿暴露",
+      "family": "dag300new177-research-citation-dependencies",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q13",
+      "title": "产品召回后的发货与回执",
+      "family": "dag300new179-product-recall-graph",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q14",
+      "title": "等待环与优先级继承",
+      "family": "dag300new186-workflow-deadlock-detector",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q15",
+      "title": "跨机时钟误差与因果可行性",
+      "family": "dag300new187-clock-sync-error-budget",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q16",
+      "title": "空域时隙整航路仲裁",
+      "family": "dag300new192-airspace-slot-deconfliction",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q17",
+      "title": "结构载荷的分摊与守恒",
+      "family": "dag300new195-structural-load-path",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q18",
+      "title": "跨图块的林冠区域识别",
+      "family": "dag300new196-forest-canopy-segmentation",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q19",
+      "title": "多夜测光的零点与光变",
+      "family": "dag300new198-astronomical-photometry-detrend",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "Q20",
+      "title": "海流场反演与漂流轨迹",
+      "family": "dag300new199-ocean-current-drifter-inversion",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "reference_only": true,
+  "candidate_retried": false,
+  "formal_scores_changed": false,
+  "resource": {
+    "cpus": 2,
+    "memory_mb": 3072,
+    "api_limit_seconds": 90
+  },
+  "official_repeat": 2,
+  "official_timeouts": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "references": [
+    {
+      "case": 9,
+      "reference_seconds": 0.06501391900383169,
+      "score": {
+        "priority": 32,
+        "count": 4,
+        "rank": 9
+      }
+    },
+    {
+      "case": 10,
+      "reference_seconds": 0.6460927430016454,
+      "score": {
+        "priority": 25,
+        "count": 4,
+        "rank": 9
+      }
+    },
+    {
+      "case": 11,
+      "reference_seconds": 0.3940949419993558,
+      "score": {
+        "priority": 14,
+        "count": 4,
+        "rank": 11
+      }
+    },
+    {
+      "case": 12,
+      "reference_seconds": 0.06321541000215802,
+      "score": {
+        "priority": 23,
+        "count": 3,
+        "rank": 9
+      }
+    }
+  ],
+  "frozen_vectors_sha256": "d2fce0abbcdccd8b42cfd4a675da489d20df633a34c2feb290e5a31adc9d3f8a",
+  "source_cause": "Repeat2 enumerates complete per-contact symbol sequences at every tick and recursively visits every complete history without memoizing equivalent subspace/cooldown states. Canonical-state DP finishes the identical registered inputs within budget. This supports an algorithm-choice throughput diagnosis, not a claim that the candidate produced mathematically wrong answers on the timed-out cases."
+}

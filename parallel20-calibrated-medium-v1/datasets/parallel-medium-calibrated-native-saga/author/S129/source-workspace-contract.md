@@ -1,0 +1,1 @@
+Implement the synthetic saga scheduler and compensation planner in project/. Run python -m project.cli input.json output.json. Standard library only. See /app/task/instruction.md for the complete contract.

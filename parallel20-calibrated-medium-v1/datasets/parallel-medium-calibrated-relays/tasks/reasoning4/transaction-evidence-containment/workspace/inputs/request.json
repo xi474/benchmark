@@ -1,0 +1,136 @@
+{
+  "initial": [
+    "persistent"
+  ],
+  "transactions": [
+    {
+      "id": "repair",
+      "start": 13,
+      "commit": 15,
+      "writes": [
+        "k/repair"
+      ],
+      "reads": [
+        {
+          "key": "k/east",
+          "writer": "east"
+        },
+        {
+          "key": "k/west",
+          "writer": "west"
+        }
+      ],
+      "scans": [],
+      "impact": 3
+    },
+    {
+      "id": "consumer",
+      "start": 17,
+      "commit": 19,
+      "writes": [
+        "k/consumer"
+      ],
+      "reads": [
+        {
+          "key": "k/repair",
+          "writer": "repair"
+        }
+      ],
+      "scans": [],
+      "impact": 9
+    },
+    {
+      "id": "east",
+      "start": 5,
+      "commit": 7,
+      "writes": [
+        "k/east"
+      ],
+      "reads": [
+        {
+          "key": "k/producer",
+          "writer": "producer"
+        }
+      ],
+      "scans": [],
+      "impact": 2
+    },
+    {
+      "id": "west",
+      "start": 9,
+      "commit": 11,
+      "writes": [
+        "k/west"
+      ],
+      "reads": [
+        {
+          "key": "k/producer",
+          "writer": "producer"
+        }
+      ],
+      "scans": [],
+      "impact": 2
+    },
+    {
+      "id": "producer",
+      "start": 1,
+      "commit": 3,
+      "writes": [
+        "k/producer"
+      ],
+      "reads": [],
+      "scans": [],
+      "impact": 9
+    }
+  ],
+  "queries": [
+    {
+      "id": "all",
+      "from": "producer",
+      "to": "consumer",
+      "protected": [],
+      "kinds": [
+        "WR",
+        "WW",
+        "RW",
+        "PHANTOM"
+      ]
+    },
+    {
+      "id": "evidence",
+      "from": "producer",
+      "to": "consumer",
+      "protected": [],
+      "kinds": [
+        "WR",
+        "WW"
+      ]
+    },
+    {
+      "id": "lock",
+      "from": "producer",
+      "to": "consumer",
+      "protected": [
+        "repair"
+      ],
+      "kinds": [
+        "WR",
+        "WW",
+        "RW",
+        "PHANTOM"
+      ]
+    },
+    {
+      "id": "reverse",
+      "from": "consumer",
+      "to": "producer",
+      "protected": [],
+      "kinds": [
+        "WR",
+        "WW",
+        "RW",
+        "PHANTOM"
+      ]
+    }
+  ]
+}

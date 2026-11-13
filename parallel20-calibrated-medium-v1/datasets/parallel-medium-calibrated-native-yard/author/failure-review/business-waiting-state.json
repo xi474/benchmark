@@ -1,0 +1,192 @@
+{
+  "input": {
+    "containers": [
+      {
+        "id": "A",
+        "hazard": "normal",
+        "appointment_tick": 3,
+        "rehandle_cost": 1,
+        "handling_ticks": 1
+      },
+      {
+        "id": "B",
+        "hazard": "normal",
+        "appointment_tick": 3,
+        "rehandle_cost": 1,
+        "handling_ticks": 2
+      }
+    ],
+    "stacks": [
+      {
+        "id": "a",
+        "containers": [
+          "A"
+        ],
+        "capacity": 1,
+        "allowed_hazards": [
+          "normal",
+          "cold"
+        ]
+      },
+      {
+        "id": "b",
+        "containers": [
+          "B"
+        ],
+        "capacity": 1,
+        "allowed_hazards": [
+          "normal",
+          "cold"
+        ]
+      },
+      {
+        "id": "c",
+        "containers": [],
+        "capacity": 1,
+        "allowed_hazards": [
+          "normal",
+          "cold"
+        ]
+      }
+    ],
+    "links": [],
+    "cranes": [
+      {
+        "id": "c0",
+        "reaches": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      {
+        "id": "c1",
+        "reaches": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    ],
+    "retrieval_groups": [
+      [
+        "A",
+        "B"
+      ]
+    ]
+  },
+  "expected": {
+    "status": "ready",
+    "rehandle_cost": 0,
+    "finish_time": 5,
+    "batches": [
+      {
+        "start": 3,
+        "operations": [
+          {
+            "crane": "c0",
+            "kind": "retrieve",
+            "container": "A",
+            "from": "a",
+            "to": null
+          },
+          {
+            "crane": "c1",
+            "kind": "retrieve",
+            "container": "B",
+            "from": "b",
+            "to": null
+          }
+        ]
+      }
+    ],
+    "delivered": [
+      {
+        "container": "A",
+        "tick": 4
+      },
+      {
+        "container": "B",
+        "tick": 5
+      }
+    ],
+    "stacks": [
+      {
+        "stack": "a",
+        "containers": []
+      },
+      {
+        "stack": "b",
+        "containers": []
+      },
+      {
+        "stack": "c",
+        "containers": []
+      }
+    ]
+  },
+  "witnesses": [
+    {
+      "repeat": 1,
+      "actual": {
+        "status": "infeasible",
+        "rehandle_cost": null,
+        "finish_time": null,
+        "batches": [],
+        "delivered": [],
+        "stacks": [
+          {
+            "stack": "a",
+            "containers": [
+              "A"
+            ]
+          },
+          {
+            "stack": "b",
+            "containers": [
+              "B"
+            ]
+          },
+          {
+            "stack": "c",
+            "containers": []
+          }
+        ]
+      },
+      "source_cause": "Waiting is queued with unchanged layout, but layout-only best-time pruning rejects that later state"
+    },
+    {
+      "repeat": 5,
+      "actual": {
+        "status": "infeasible",
+        "rehandle_cost": null,
+        "finish_time": null,
+        "batches": [],
+        "delivered": [],
+        "stacks": [
+          {
+            "stack": "a",
+            "containers": [
+              "A"
+            ]
+          },
+          {
+            "stack": "b",
+            "containers": [
+              "B"
+            ]
+          },
+          {
+            "stack": "c",
+            "containers": []
+          }
+        ]
+      },
+      "source_cause": "Generate only currently appointment-eligible operations, with no idle transition to future appointment"
+    }
+  ],
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "new_diagnostic_case_only": true,
+  "interpretation": "Both are core temporal state-model omissions on ordinary future appointments, not output ordering, malformed inputs, numerical robustness, or evidence that both solvers choose a wrong global relocation optimum. Any optimal legal schedule remains accepted."
+}

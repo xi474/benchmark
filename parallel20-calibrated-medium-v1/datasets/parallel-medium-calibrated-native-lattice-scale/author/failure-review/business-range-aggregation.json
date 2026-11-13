@@ -1,0 +1,111 @@
+{
+  "repeat": 3,
+  "input": {
+    "bounds": {
+      "x": [
+        0,
+        1
+      ],
+      "y": [
+        0,
+        1
+      ]
+    },
+    "physical_constraints": [],
+    "boards": [
+      {
+        "id": "A",
+        "settings": [
+          {
+            "id": "m",
+            "penalty": 0,
+            "channels": {
+              "c": {
+                "coefficients": {
+                  "x": 1
+                },
+                "offset": 0
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "calibrations": [
+      {
+        "board": "A",
+        "channel": "c",
+        "displacements": {
+          "x": 0,
+          "y": 0
+        },
+        "raw": [
+          0,
+          0
+        ]
+      }
+    ],
+    "setups": [
+      {
+        "id": "s",
+        "constraints": [],
+        "readings": [
+          {
+            "board": "A",
+            "channel": "c",
+            "raw": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    ],
+    "gauges": [
+      {
+        "id": "g",
+        "base": 0,
+        "coefficients": {
+          "x": 1,
+          "y": 1
+        }
+      }
+    ]
+  },
+  "expected": {
+    "minimum_cost": 0,
+    "setting_options": {
+      "A": [
+        "m"
+      ]
+    },
+    "ranges": {
+      "s": {
+        "g": [
+          0,
+          2
+        ]
+      }
+    }
+  },
+  "actual": {
+    "minimum_cost": 0,
+    "setting_options": {
+      "A": [
+        "m"
+      ]
+    },
+    "ranges": {
+      "s": {
+        "g": [
+          2,
+          2
+        ]
+      }
+    }
+  },
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "new_diagnostic_case_only": true,
+  "reason": "The local current variable is captured as None before iterating feasible points, then the report list is initialized without updating that local variable. The first optimum point-set repeatedly overwrites its range with the last value instead of aggregating every attainable extremum."
+}

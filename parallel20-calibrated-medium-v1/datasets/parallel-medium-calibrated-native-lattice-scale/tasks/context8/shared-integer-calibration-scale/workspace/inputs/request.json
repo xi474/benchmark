@@ -1,0 +1,184 @@
+{
+  "bounds": {
+    "x": [
+      0,
+      4
+    ],
+    "y": [
+      0,
+      4
+    ]
+  },
+  "physical_constraints": [
+    {
+      "coefficients": {
+        "x": 2,
+        "y": 3
+      },
+      "min": 0,
+      "max": 7
+    }
+  ],
+  "boards": [
+    {
+      "id": "A",
+      "settings": [
+        {
+          "id": "a0",
+          "penalty": 0,
+          "channels": {
+            "signal": {
+              "coefficients": {
+                "x": 2
+              },
+              "offset": 0
+            }
+          }
+        },
+        {
+          "id": "a1",
+          "penalty": 1,
+          "channels": {
+            "signal": {
+              "coefficients": {
+                "x": 1
+              },
+              "offset": 0
+            }
+          }
+        },
+        {
+          "id": "a2",
+          "penalty": 1,
+          "channels": {
+            "signal": {
+              "coefficients": {
+                "x": 1
+              },
+              "offset": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "settings": [
+        {
+          "id": "b0",
+          "penalty": 0,
+          "channels": {
+            "signal": {
+              "coefficients": {
+                "y": 2
+              },
+              "offset": 0
+            }
+          }
+        },
+        {
+          "id": "b1",
+          "penalty": 1,
+          "channels": {
+            "signal": {
+              "coefficients": {
+                "y": 1
+              },
+              "offset": 0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "calibrations": [
+    {
+      "board": "A",
+      "channel": "signal",
+      "displacements": {
+        "x": 0,
+        "y": 0
+      },
+      "raw": [
+        0,
+        1
+      ]
+    },
+    {
+      "board": "B",
+      "channel": "signal",
+      "displacements": {
+        "x": 0,
+        "y": 0
+      },
+      "raw": [
+        0,
+        0
+      ]
+    }
+  ],
+  "setups": [
+    {
+      "id": "s1",
+      "constraints": [],
+      "readings": [
+        {
+          "board": "A",
+          "channel": "signal",
+          "raw": [
+            2,
+            2
+          ]
+        },
+        {
+          "board": "B",
+          "channel": "signal",
+          "raw": [
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "constraints": [],
+      "readings": [
+        {
+          "board": "A",
+          "channel": "signal",
+          "raw": [
+            1,
+            1
+          ]
+        },
+        {
+          "board": "B",
+          "channel": "signal",
+          "raw": [
+            2,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "gauges": [
+    {
+      "id": "sum",
+      "base": 0,
+      "coefficients": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "id": "difference",
+      "base": 0,
+      "coefficients": {
+        "x": 1,
+        "y": -1
+      }
+    }
+  ]
+}

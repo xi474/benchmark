@@ -1,0 +1,72 @@
+{
+  "protocol": {
+    "dataset": "medium-apportionment-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 1,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261122,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Structure M, five valid trials, 2 or 3 strict successes; inspect failed trials for core-business evidence before admission."
+  },
+  "freeze_sha256": "984889cf4cd7fb8d8c143044a80bc8aea5becb96e65b5d7c1fc15af68336f35d",
+  "admissions": {
+    "Z10": {
+      "admit": true,
+      "reason": "五次严格通过2/5、公开检查5/5、核心54/60。r1第12例超时，r4第11、12例超时，r5第10至12例超时，三次模型阶段均正常结束且未触发token或总时限截止。两个独立动态规划在实际Linux环境解出同一12例；最后一例全体回避申诉的最优表总数由12阶错排递推独立确认为176214841，非对角格的支持数16019531。任务需要统计全部同优表与逐格频率，不能仅求一份最小费用流或逐表列举。失败来自核心计数的可扩展性，未增加异常输入、隐藏条件或非核心边界。结构M、实测M，同一85号题族只接纳一次。",
+      "evidence": [
+        "failure-review/business-frequency-performance.json",
+        "failure-review/apportion1-Z10-r01.json",
+        "failure-review/apportion1-Z10-r04.json",
+        "failure-review/apportion1-Z10-r05.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "Z10",
+      "title": "配额申诉后各项分配的变动频率",
+      "family": "dag300-new85-survey-raking",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    }
+  ]
+}

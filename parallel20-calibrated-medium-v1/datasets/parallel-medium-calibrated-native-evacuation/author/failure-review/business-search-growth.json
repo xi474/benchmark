@@ -1,0 +1,112 @@
+{
+  "formal_scores_changed": false,
+  "candidate_replayed": false,
+  "candidate_edited": false,
+  "failure_class": "core planning algorithm efficiency, not malformed-input or delivery-contract rejection",
+  "trusted_reference_only": true,
+  "normal_profile": {
+    "max_people": 4,
+    "max_grid": [
+      5,
+      6
+    ],
+    "max_ticks": 10
+  },
+  "observed": [
+    {
+      "repeat": 1,
+      "formal_timeout_cases": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "artifact_py_sha256": {
+        "check.py": "c68864febcdf0b0e1b2486b8bab7e303e670a840b50192ac5cfd30ea4de0d852",
+        "comparison.py": "e868e7a6b1c04fcd8e884af6523e9f79a141d8b1c59234583a3f699c5ebac716",
+        "runtime.py": "20a745a5f772133f72796373ac173979dc09803755b27d180bd893a559e6136c",
+        "run_all.py": "c777852a55dd0d459a9e7572012a382d6afe4b20c1f9daa069eb424d2f4dad0f",
+        "packages/analysis/engine.py": "6e5086bb24ea688993f3e864e81d9fff4e00609b32785b8d141e0ecc1d3ef24a"
+      },
+      "algorithm": "Recursive joint full-path histories without merged equivalent configurations"
+    },
+    {
+      "repeat": 3,
+      "formal_timeout_cases": [
+        11,
+        12
+      ],
+      "artifact_py_sha256": {
+        "check.py": "c68864febcdf0b0e1b2486b8bab7e303e670a840b50192ac5cfd30ea4de0d852",
+        "comparison.py": "e868e7a6b1c04fcd8e884af6523e9f79a141d8b1c59234583a3f699c5ebac716",
+        "runtime.py": "20a745a5f772133f72796373ac173979dc09803755b27d180bd893a559e6136c",
+        "run_all.py": "c777852a55dd0d459a9e7572012a382d6afe4b20c1f9daa069eb424d2f4dad0f",
+        "packages/analysis/engine.py": "c34e2d007c38d79b572872d7aef64483554fab3c83c9f47588fcc8a29d57aaee",
+        "packages/analysis/solver.py": "93cc0fbaad78145be5fdd1adb6d89f61cef08770efb69edb2d9636744a8522da"
+      },
+      "algorithm": "Enumerate all independent complete paths and take their Cartesian products"
+    }
+  ],
+  "reference_and_route_multiplicity": [
+    {
+      "case": 9,
+      "cpus": 2,
+      "memory_mb": 3072,
+      "reference_seconds": 0.00022677300148643553,
+      "optimal_saved": 2,
+      "optimal_arrival_sum": 5,
+      "individual_complete_route_counts": {
+        "p0": 0,
+        "p1": 78,
+        "p2": 596
+      },
+      "unpruned_full_subset_route_products": 0
+    },
+    {
+      "case": 10,
+      "cpus": 2,
+      "memory_mb": 3072,
+      "reference_seconds": 0.00017672600370133296,
+      "optimal_saved": 3,
+      "optimal_arrival_sum": 5,
+      "individual_complete_route_counts": {
+        "p0": 199,
+        "p1": 33,
+        "p2": 221,
+        "p3": 35
+      },
+      "unpruned_full_subset_route_products": 50795745
+    },
+    {
+      "case": 11,
+      "cpus": 2,
+      "memory_mb": 3072,
+      "reference_seconds": 0.0002684579958440736,
+      "optimal_saved": 4,
+      "optimal_arrival_sum": 10,
+      "individual_complete_route_counts": {
+        "p0": 70,
+        "p1": 152,
+        "p2": 413,
+        "p3": 20
+      },
+      "unpruned_full_subset_route_products": 87886400
+    },
+    {
+      "case": 12,
+      "cpus": 2,
+      "memory_mb": 3072,
+      "reference_seconds": 0.0002956079988507554,
+      "optimal_saved": 3,
+      "optimal_arrival_sum": 7,
+      "individual_complete_route_counts": {
+        "p0": 1096,
+        "p1": 84,
+        "p2": 84,
+        "p3": 165
+      },
+      "unpruned_full_subset_route_products": 1276007040
+    }
+  ],
+  "qualification": "No incorrect objective was observed on small cases. Raw medium under the fixed budget is supported by two independently implemented exhaustive-search bottlenecks, not by claiming every failed trial has a mathematical bug."
+}

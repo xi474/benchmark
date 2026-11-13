@@ -1,0 +1,170 @@
+{
+  "formal_score_changed": false,
+  "valid_transition_costs": "diagonal zero, every off-diagonal strictly positive",
+  "witnesses": [
+    {
+      "repeat": 1,
+      "input": {
+        "root": "r",
+        "children": {
+          "r": [
+            "a",
+            "b"
+          ]
+        },
+        "observed": {
+          "b": [
+            0
+          ]
+        },
+        "cost": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "loss": 0,
+        "histories": 1,
+        "change_count": {
+          "a": 0,
+          "b": 0
+        }
+      },
+      "actual": {
+        "loss": 0,
+        "histories": 1,
+        "change_count": {
+          "a": -1,
+          "b": 0
+        }
+      },
+      "reason": "A parent state with conditional loss 1 is counted as if globally optimal, producing negative change support."
+    },
+    {
+      "repeat": 3,
+      "input": {
+        "root": "r",
+        "children": {
+          "r": [
+            "v"
+          ],
+          "v": [
+            "leaf"
+          ]
+        },
+        "observed": {
+          "r": [
+            0
+          ],
+          "v": [
+            1
+          ],
+          "leaf": [
+            0,
+            2
+          ]
+        },
+        "cost": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "loss": 2,
+        "histories": 2,
+        "change_count": {
+          "v": 2,
+          "leaf": 2
+        }
+      },
+      "actual": {
+        "loss": 2,
+        "histories": 2,
+        "change_count": {
+          "v": 2,
+          "leaf": 4
+        }
+      },
+      "reason": "Subtree multiplicity is included in the outside weight and then multiplied again at the descendant, reporting four changes across only two histories."
+    },
+    {
+      "repeat": 4,
+      "input": {
+        "root": "r",
+        "children": {
+          "r": [
+            "v"
+          ],
+          "v": [
+            "leaf"
+          ]
+        },
+        "observed": {
+          "r": [
+            0
+          ],
+          "v": [
+            1
+          ],
+          "leaf": [
+            0,
+            2
+          ]
+        },
+        "cost": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "loss": 2,
+        "histories": 2,
+        "change_count": {
+          "v": 2,
+          "leaf": 2
+        }
+      },
+      "actual": {
+        "loss": 2,
+        "histories": 2,
+        "change_count": {
+          "v": 2,
+          "leaf": 4
+        }
+      },
+      "reason": "Subtree multiplicity is included in the outside weight and then multiplied again at the descendant, reporting four changes across only two histories."
+    }
+  ]
+}

@@ -1,0 +1,996 @@
+{
+  "status": "passed",
+  "registered": [
+    {
+      "case": 1,
+      "reference_seconds": 0.00011299998732283711,
+      "oracle_seconds": 7.740000728517771e-05,
+      "expected": {
+        "score": {
+          "priority": 1,
+          "count": 1,
+          "rank": 2
+        },
+        "packets": [
+          {
+            "id": "P",
+            "rank": 2,
+            "completion": 2
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "choose"
+          },
+          {
+            "tick": 1,
+            "contact": "later"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "choose",
+            "packet": "P",
+            "vector": 2
+          },
+          {
+            "tick": 1,
+            "contact": "later",
+            "packet": "P",
+            "vector": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": 2,
+      "reference_seconds": 0.00019949999114032835,
+      "oracle_seconds": 0.00013679999392479658,
+      "expected": {
+        "score": {
+          "priority": 1,
+          "count": 1,
+          "rank": 3
+        },
+        "packets": [
+          {
+            "id": "P",
+            "rank": 3,
+            "completion": 2
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "first"
+          },
+          {
+            "tick": 1,
+            "contact": "last"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "first",
+            "packet": "P",
+            "vector": 1
+          },
+          {
+            "tick": 0,
+            "contact": "first",
+            "packet": "P",
+            "vector": 4
+          },
+          {
+            "tick": 1,
+            "contact": "last",
+            "packet": "P",
+            "vector": 3
+          }
+        ]
+      }
+    },
+    {
+      "case": 3,
+      "reference_seconds": 0.0004292000085115433,
+      "oracle_seconds": 0.00021499999274965376,
+      "expected": {
+        "score": {
+          "priority": 10,
+          "count": 2,
+          "rank": 4
+        },
+        "packets": [
+          {
+            "id": "P",
+            "rank": 2,
+            "completion": 1
+          },
+          {
+            "id": "C",
+            "rank": 2,
+            "completion": 2
+          },
+          {
+            "id": "F",
+            "rank": 0,
+            "completion": null
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "all"
+          },
+          {
+            "tick": 1,
+            "contact": "all"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "all",
+            "packet": "P",
+            "vector": 1
+          },
+          {
+            "tick": 0,
+            "contact": "all",
+            "packet": "P",
+            "vector": 2
+          },
+          {
+            "tick": 1,
+            "contact": "all",
+            "packet": "C",
+            "vector": 1
+          },
+          {
+            "tick": 1,
+            "contact": "all",
+            "packet": "C",
+            "vector": 2
+          }
+        ]
+      }
+    },
+    {
+      "case": 4,
+      "reference_seconds": 7.320000440813601e-05,
+      "oracle_seconds": 5.699999746866524e-05,
+      "expected": {
+        "score": {
+          "priority": 6,
+          "count": 1,
+          "rank": 2
+        },
+        "packets": [
+          {
+            "id": "P",
+            "rank": 0,
+            "completion": null
+          },
+          {
+            "id": "C",
+            "rank": 0,
+            "completion": null
+          },
+          {
+            "id": "F",
+            "rank": 2,
+            "completion": 1
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "all"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "all",
+            "packet": "F",
+            "vector": 1
+          },
+          {
+            "tick": 0,
+            "contact": "all",
+            "packet": "F",
+            "vector": 2
+          }
+        ]
+      }
+    },
+    {
+      "case": 5,
+      "reference_seconds": 0.0002832000027410686,
+      "oracle_seconds": 0.00028580000798683614,
+      "expected": {
+        "score": {
+          "priority": 13,
+          "count": 2,
+          "rank": 4
+        },
+        "packets": [
+          {
+            "id": "X",
+            "rank": 2,
+            "completion": 3
+          },
+          {
+            "id": "Y",
+            "rank": 2,
+            "completion": 1
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "y"
+          },
+          {
+            "tick": 2,
+            "contact": "x"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "y",
+            "packet": "Y",
+            "vector": 1
+          },
+          {
+            "tick": 0,
+            "contact": "y",
+            "packet": "Y",
+            "vector": 2
+          },
+          {
+            "tick": 2,
+            "contact": "x",
+            "packet": "X",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "x",
+            "packet": "X",
+            "vector": 2
+          }
+        ]
+      }
+    },
+    {
+      "case": 6,
+      "reference_seconds": 0.00042749999556690454,
+      "oracle_seconds": 0.00031689999741502106,
+      "expected": {
+        "score": {
+          "priority": 12,
+          "count": 2,
+          "rank": 4
+        },
+        "packets": [
+          {
+            "id": "A",
+            "rank": 2,
+            "completion": 3
+          },
+          {
+            "id": "B",
+            "rank": 2,
+            "completion": 3
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 1,
+            "contact": "b"
+          },
+          {
+            "tick": 1,
+            "contact": "a"
+          },
+          {
+            "tick": 2,
+            "contact": "b"
+          },
+          {
+            "tick": 2,
+            "contact": "a"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 1,
+            "contact": "a",
+            "packet": "A",
+            "vector": 1
+          },
+          {
+            "tick": 1,
+            "contact": "b",
+            "packet": "B",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "a",
+            "packet": "A",
+            "vector": 2
+          },
+          {
+            "tick": 2,
+            "contact": "b",
+            "packet": "B",
+            "vector": 2
+          }
+        ]
+      }
+    },
+    {
+      "case": 7,
+      "reference_seconds": 0.000643599996692501,
+      "oracle_seconds": 0.001110299999709241,
+      "expected": {
+        "score": {
+          "priority": 1,
+          "count": 1,
+          "rank": 4
+        },
+        "packets": [
+          {
+            "id": "P",
+            "rank": 4,
+            "completion": 3
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 1,
+            "contact": "early"
+          },
+          {
+            "tick": 2,
+            "contact": "later"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 1,
+            "contact": "early",
+            "packet": "P",
+            "vector": 1
+          },
+          {
+            "tick": 1,
+            "contact": "early",
+            "packet": "P",
+            "vector": 2
+          },
+          {
+            "tick": 2,
+            "contact": "later",
+            "packet": "P",
+            "vector": 6
+          },
+          {
+            "tick": 2,
+            "contact": "later",
+            "packet": "P",
+            "vector": 12
+          }
+        ]
+      }
+    },
+    {
+      "case": 8,
+      "reference_seconds": 0.07702650000283029,
+      "oracle_seconds": 0.1321404999907827,
+      "expected": {
+        "score": {
+          "priority": 9,
+          "count": 2,
+          "rank": 6
+        },
+        "packets": [
+          {
+            "id": "p0",
+            "rank": 2,
+            "completion": 4
+          },
+          {
+            "id": "p1",
+            "rank": 2,
+            "completion": null
+          },
+          {
+            "id": "p2",
+            "rank": 2,
+            "completion": 3
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "Bx"
+          },
+          {
+            "tick": 1,
+            "contact": "Ax"
+          },
+          {
+            "tick": 2,
+            "contact": "Bx"
+          },
+          {
+            "tick": 2,
+            "contact": "brief"
+          },
+          {
+            "tick": 3,
+            "contact": "Ax"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 4
+          },
+          {
+            "tick": 1,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 6
+          },
+          {
+            "tick": 2,
+            "contact": "brief",
+            "packet": "p2",
+            "vector": 2
+          },
+          {
+            "tick": 2,
+            "contact": "brief",
+            "packet": "p2",
+            "vector": 3
+          },
+          {
+            "tick": 3,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 2
+          }
+        ]
+      }
+    },
+    {
+      "case": 9,
+      "reference_seconds": 0.07519160000083502,
+      "oracle_seconds": 0.5905885999964084,
+      "expected": {
+        "score": {
+          "priority": 32,
+          "count": 4,
+          "rank": 9
+        },
+        "packets": [
+          {
+            "id": "p0",
+            "rank": 2,
+            "completion": 3
+          },
+          {
+            "id": "p1",
+            "rank": 3,
+            "completion": 4
+          },
+          {
+            "id": "p2",
+            "rank": 2,
+            "completion": 4
+          },
+          {
+            "id": "p3",
+            "rank": 2,
+            "completion": 2
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 1,
+            "contact": "By"
+          },
+          {
+            "tick": 2,
+            "contact": "Ax"
+          },
+          {
+            "tick": 2,
+            "contact": "brief"
+          },
+          {
+            "tick": 3,
+            "contact": "Ay"
+          },
+          {
+            "tick": 3,
+            "contact": "Bx"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 1,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 1
+          },
+          {
+            "tick": 1,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 3
+          },
+          {
+            "tick": 2,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 2
+          },
+          {
+            "tick": 2,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "brief",
+            "packet": "p1",
+            "vector": 7
+          },
+          {
+            "tick": 3,
+            "contact": "Ay",
+            "packet": "p2",
+            "vector": 3
+          },
+          {
+            "tick": 3,
+            "contact": "Ay",
+            "packet": "p2",
+            "vector": 2
+          },
+          {
+            "tick": 3,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 1
+          },
+          {
+            "tick": 3,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 4
+          }
+        ]
+      }
+    },
+    {
+      "case": 10,
+      "reference_seconds": 0.7043350000021746,
+      "oracle_seconds": 2.2066154000058305,
+      "expected": {
+        "score": {
+          "priority": 25,
+          "count": 4,
+          "rank": 9
+        },
+        "packets": [
+          {
+            "id": "p0",
+            "rank": 2,
+            "completion": 5
+          },
+          {
+            "id": "p1",
+            "rank": 3,
+            "completion": 4
+          },
+          {
+            "id": "p2",
+            "rank": 2,
+            "completion": 4
+          },
+          {
+            "id": "p3",
+            "rank": 2,
+            "completion": 5
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "Bx"
+          },
+          {
+            "tick": 1,
+            "contact": "Bx"
+          },
+          {
+            "tick": 2,
+            "contact": "By"
+          },
+          {
+            "tick": 2,
+            "contact": "Ax"
+          },
+          {
+            "tick": 3,
+            "contact": "Bx"
+          },
+          {
+            "tick": 3,
+            "contact": "brief"
+          },
+          {
+            "tick": 4,
+            "contact": "By"
+          },
+          {
+            "tick": 4,
+            "contact": "Ax"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 2
+          },
+          {
+            "tick": 1,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 2
+          },
+          {
+            "tick": 2,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 2
+          },
+          {
+            "tick": 3,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 6
+          },
+          {
+            "tick": 3,
+            "contact": "brief",
+            "packet": "p2",
+            "vector": 2
+          },
+          {
+            "tick": 3,
+            "contact": "brief",
+            "packet": "p2",
+            "vector": 1
+          },
+          {
+            "tick": 4,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 1
+          },
+          {
+            "tick": 4,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": 11,
+      "reference_seconds": 0.4036871999996947,
+      "oracle_seconds": 1.711511600005906,
+      "expected": {
+        "score": {
+          "priority": 14,
+          "count": 4,
+          "rank": 11
+        },
+        "packets": [
+          {
+            "id": "p0",
+            "rank": 2,
+            "completion": 4
+          },
+          {
+            "id": "p1",
+            "rank": 3,
+            "completion": 2
+          },
+          {
+            "id": "p2",
+            "rank": 2,
+            "completion": 3
+          },
+          {
+            "id": "p3",
+            "rank": 2,
+            "completion": 5
+          },
+          {
+            "id": "p4",
+            "rank": 2,
+            "completion": null
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "Bx"
+          },
+          {
+            "tick": 1,
+            "contact": "Bx"
+          },
+          {
+            "tick": 2,
+            "contact": "Ay"
+          },
+          {
+            "tick": 3,
+            "contact": "Ax"
+          },
+          {
+            "tick": 4,
+            "contact": "By"
+          },
+          {
+            "tick": 4,
+            "contact": "Ax"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 7
+          },
+          {
+            "tick": 1,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 4
+          },
+          {
+            "tick": 1,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 5
+          },
+          {
+            "tick": 2,
+            "contact": "Ay",
+            "packet": "p2",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "Ay",
+            "packet": "p2",
+            "vector": 3
+          },
+          {
+            "tick": 3,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 2
+          },
+          {
+            "tick": 3,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 1
+          },
+          {
+            "tick": 4,
+            "contact": "Ax",
+            "packet": "p4",
+            "vector": 5
+          },
+          {
+            "tick": 4,
+            "contact": "Ax",
+            "packet": "p4",
+            "vector": 1
+          },
+          {
+            "tick": 4,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 1
+          },
+          {
+            "tick": 4,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 2
+          }
+        ]
+      }
+    },
+    {
+      "case": 12,
+      "reference_seconds": 0.057614199991803616,
+      "oracle_seconds": 0.18053540000983048,
+      "expected": {
+        "score": {
+          "priority": 23,
+          "count": 3,
+          "rank": 9
+        },
+        "packets": [
+          {
+            "id": "p0",
+            "rank": 2,
+            "completion": 4
+          },
+          {
+            "id": "p1",
+            "rank": 3,
+            "completion": 5
+          },
+          {
+            "id": "p2",
+            "rank": 2,
+            "completion": 5
+          },
+          {
+            "id": "p3",
+            "rank": 1,
+            "completion": null
+          },
+          {
+            "id": "p4",
+            "rank": 1,
+            "completion": null
+          }
+        ],
+        "contacts": [
+          {
+            "tick": 0,
+            "contact": "Bx"
+          },
+          {
+            "tick": 1,
+            "contact": "Bx"
+          },
+          {
+            "tick": 2,
+            "contact": "Ax"
+          },
+          {
+            "tick": 3,
+            "contact": "Ax"
+          },
+          {
+            "tick": 4,
+            "contact": "Bx"
+          },
+          {
+            "tick": 4,
+            "contact": "brief"
+          },
+          {
+            "tick": 5,
+            "contact": "By"
+          },
+          {
+            "tick": 5,
+            "contact": "Ax"
+          }
+        ],
+        "transmissions": [
+          {
+            "tick": 0,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 3
+          },
+          {
+            "tick": 1,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 1
+          },
+          {
+            "tick": 2,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 1
+          },
+          {
+            "tick": 3,
+            "contact": "Ax",
+            "packet": "p0",
+            "vector": 2
+          },
+          {
+            "tick": 4,
+            "contact": "Bx",
+            "packet": "p1",
+            "vector": 5
+          },
+          {
+            "tick": 4,
+            "contact": "brief",
+            "packet": "p2",
+            "vector": 1
+          },
+          {
+            "tick": 4,
+            "contact": "brief",
+            "packet": "p2",
+            "vector": 2
+          },
+          {
+            "tick": 5,
+            "contact": "Ax",
+            "packet": "p4",
+            "vector": 1
+          },
+          {
+            "tick": 5,
+            "contact": "By",
+            "packet": "p3",
+            "vector": 1
+          }
+        ]
+      }
+    }
+  ],
+  "extra_full_symbol_trace_checks": 128,
+  "gf2_subset_checks": 714,
+  "hand_checks": [
+    "same rank different future subspaces",
+    "dependent third vector",
+    "prerequisite next tick",
+    "shared radio and productive cooldown",
+    "independent simultaneous contacts",
+    "repeated symbols legal but noninnovative"
+  ],
+  "methods": [
+    "canonical GF2 basis/cooldown memoized dynamic programming",
+    "independent received-vector masks and orthogonal-null-space rank layered DP",
+    "complete tiny physical traces including redundant transmissions"
+  ]
+}

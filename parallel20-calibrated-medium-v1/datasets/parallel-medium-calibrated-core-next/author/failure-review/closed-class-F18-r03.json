@@ -1,0 +1,43 @@
+{
+  "input": {
+    "stations": [
+      "Trap",
+      "OK"
+    ],
+    "delivered": [
+      "OK"
+    ],
+    "routes": [
+      {
+        "from": "Trap",
+        "to": "Trap",
+        "weight": 1,
+        "time": 1
+      }
+    ]
+  },
+  "expected": {
+    "stations": {
+      "Trap": {
+        "success": [
+          0,
+          1
+        ],
+        "mean_if_success": null
+      },
+      "OK": {
+        "success": [
+          1,
+          1
+        ],
+        "mean_if_success": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  "error": "ValueError",
+  "formal_score_changed": false,
+  "reason": "The saved solver includes a closed routing class in I-P and tries to invert the zero equation p=p. Graph reachability fixes that class at success probability zero first. This input is explicitly covered by the task's permanently circulating shipments and uses only positive ordinary route weights and times."
+}

@@ -1,5 +1,15 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+## 新增：实测中档20题（2026-11-13）
+
+[20题独立发布包](parallel20-calibrated-medium-v1/README.md)：20个不同题族，每题经Terminus 2＋DeepSeek V4 Pro普通模式五次有效运行、严格通过2–3/5及核心失败复核后接纳。
+
+- [中文目录与逐题说明](parallel20-calibrated-medium-v1/docs/20题目录.md) · [来源说明](parallel20-calibrated-medium-v1/docs/来源说明.md) · [ASCI评审](parallel20-calibrated-medium-v1/docs/ASCI评审.md)
+- [20张DAG及Mermaid](parallel20-calibrated-medium-v1/docs/DAG.md) · [100次五测结果](parallel20-calibrated-medium-v1/docs/五次实测结果.md) · [Agent-only下载](parallel20-calibrated-medium-v1/downloads/agent-only.zip)
+
+原题、初始工作区、评分器及原始成绩按冻结版本保留；结构档与实测档分列。只向Agent提供单题TASK.md与workspace；作者材料在外部。此新增包独立于下方历史集合统计，同来源族的不同版本不重复计题。
+
+
 ## 新增30题核心版与并行预测器完整信息（2026-11-11）
 
 **[30题完整数据集](medium30-core-v1/README.md)** · **[30题中文目录及实际DAG](medium30-core-v1/docs/30题目录与实际DAG.md)** · **[并行预测器JSONL数据](medium30-parallel-prediction-v1/README.md)** · [发布与数据通路核验](medium30-parallel-prediction-v1/发布与通路核验.md)

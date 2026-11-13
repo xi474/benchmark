@@ -1,0 +1,94 @@
+{
+  "task": "Q08",
+  "repeat": 2,
+  "formal_score_changed": false,
+  "request": {
+    "proteins": [
+      {
+        "id": "P",
+        "sequence": "AA"
+      }
+    ],
+    "modifications": [],
+    "tolerance": 1,
+    "spectra": [
+      {
+        "id": "Z_exact",
+        "peaks": [
+          {
+            "mass": 71,
+            "intensity": 5
+          }
+        ]
+      },
+      {
+        "id": "A_offset",
+        "peaks": [
+          {
+            "mass": 72,
+            "intensity": 5
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "candidate_count": 2,
+    "winners": [
+      {
+        "spectrum": "Z_exact",
+        "candidate": "P/target:1-2:none",
+        "kind": "target",
+        "score": [
+          1,
+          5,
+          0
+        ],
+        "fdr_numerator": 0,
+        "fdr_denominator": 1
+      },
+      {
+        "spectrum": "A_offset",
+        "candidate": "P/target:1-2:none",
+        "kind": "target",
+        "score": [
+          1,
+          5,
+          -1
+        ],
+        "fdr_numerator": 0,
+        "fdr_denominator": 2
+      }
+    ]
+  },
+  "actual": {
+    "candidate_count": 2,
+    "winners": [
+      {
+        "spectrum": "A_offset",
+        "candidate": "P/target:1-2:none",
+        "kind": "target",
+        "score": [
+          1,
+          5,
+          1
+        ],
+        "fdr_numerator": 0,
+        "fdr_denominator": 1
+      },
+      {
+        "spectrum": "Z_exact",
+        "candidate": "P/target:1-2:none",
+        "kind": "target",
+        "score": [
+          1,
+          5,
+          0
+        ],
+        "fdr_numerator": 0,
+        "fdr_denominator": 2
+      }
+    ]
+  },
+  "interpretation": "Equal-count, equal-intensity spectra exchange rank when the sign of the residual error is reversed."
+}

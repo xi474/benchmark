@@ -1,0 +1,106 @@
+{
+  "config": {
+    "registers": [
+      "R0",
+      "R1"
+    ],
+    "call_clobbered": [],
+    "precolors": {
+      "a": "R0",
+      "b": "R1"
+    }
+  },
+  "cfg": {
+    "entry": "E",
+    "parameters": [
+      "a",
+      "b"
+    ],
+    "blocks": [
+      {
+        "id": "E",
+        "successors": [
+          "P",
+          "Q"
+        ],
+        "phis": [],
+        "instructions": []
+      },
+      {
+        "id": "P",
+        "successors": [
+          "M"
+        ],
+        "phis": [],
+        "instructions": []
+      },
+      {
+        "id": "Q",
+        "successors": [
+          "M"
+        ],
+        "phis": [],
+        "instructions": []
+      },
+      {
+        "id": "M",
+        "successors": [],
+        "phis": [
+          {
+            "def": "x",
+            "inputs": {
+              "P": "a",
+              "Q": "b"
+            }
+          },
+          {
+            "def": "y",
+            "inputs": {
+              "P": "b",
+              "Q": "a"
+            }
+          }
+        ],
+        "instructions": [
+          {
+            "id": "use",
+            "uses": [
+              "x",
+              "y"
+            ],
+            "def": null,
+            "call": false
+          }
+        ]
+      }
+    ]
+  },
+  "spill_cost": {
+    "a": 1,
+    "b": 1,
+    "x": 1,
+    "y": 1
+  },
+  "edge_frequency": [
+    {
+      "pred": "E",
+      "succ": "P",
+      "frequency": 1
+    },
+    {
+      "pred": "E",
+      "succ": "Q",
+      "frequency": 1
+    },
+    {
+      "pred": "P",
+      "succ": "M",
+      "frequency": 1
+    },
+    {
+      "pred": "Q",
+      "succ": "M",
+      "frequency": 3
+    }
+  ]
+}

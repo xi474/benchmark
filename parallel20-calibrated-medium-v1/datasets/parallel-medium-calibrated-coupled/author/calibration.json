@@ -1,0 +1,95 @@
+{
+  "protocol": {
+    "dataset": "medium-coupled-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 4,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261119,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Structure M, five valid trials, 2 or 3 strict successes; inspect failed trials for core-business evidence before admission."
+  },
+  "freeze_sha256": "9888f6b57f7d0bc915a7d4c055411ce18bd9f24048e10ae911fd51646f59652c",
+  "admissions": {
+    "W11": {
+      "admit": true,
+      "reason": "严格通过 3/5，旧版 F11 为 4/5。第二次把端点 z 的保持余量从应有的 +2 算成 −2，误报违例。第五次公开检查通过，但 11 个正式业务输入未通过；例如端点 q 的建立余量应为 −21，却报告 +12，漏报违例。两次存档均能直接调用转换，正常预算结束，错误改变了时序结论。该中档涵盖当前测试规模下的业务正确性；其中一次成功可通过枚举全部路径实现。",
+      "evidence": [
+        "failure-review/coupled1-W11-r02.json",
+        "failure-review/coupled1-W11-r05.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "E": 3,
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "W10",
+      "title": "配额申诉与必改格子",
+      "family": "dag300-new85-survey-raking",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "W11",
+      "title": "共享时钟下的真实时序余量",
+      "family": "dag300new68-static-timing",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    },
+    {
+      "task": "W13",
+      "title": "分场因果审查的最优排程",
+      "family": "dag300new62-crdt-reconciliation",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "W14",
+      "title": "跨图块故障定位与部分恢复",
+      "family": "dag300-new38-shard-reconstruction",
+      "valid": 5,
+      "strict": 4,
+      "empirical": "E"
+    }
+  ]
+}

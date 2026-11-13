@@ -1,0 +1,2551 @@
+{
+  "task": "F20",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "X"
+            ],
+            "transitions": [
+              {
+                "from": "A",
+                "to": "B",
+                "gain": 100
+              },
+              {
+                "from": "B",
+                "to": "C",
+                "gain": 0
+              },
+              {
+                "from": "C",
+                "to": "B",
+                "gain": 10
+              },
+              {
+                "from": "A",
+                "to": "D",
+                "gain": 0
+              },
+              {
+                "from": "D",
+                "to": "E",
+                "gain": 0
+              },
+              {
+                "from": "E",
+                "to": "X",
+                "gain": 0
+              },
+              {
+                "from": "X",
+                "to": "D",
+                "gain": 12
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "A": [
+              5,
+              1
+            ],
+            "B": [
+              5,
+              1
+            ],
+            "C": [
+              5,
+              1
+            ],
+            "D": [
+              4,
+              1
+            ],
+            "E": [
+              4,
+              1
+            ],
+            "X": [
+              4,
+              1
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": 2
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": 4
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 2
+              },
+              {
+                "from": "S3",
+                "to": "S0",
+                "gain": -3
+              },
+              {
+                "from": "S0",
+                "to": "S3",
+                "gain": 11
+              },
+              {
+                "from": "S3",
+                "to": "S3",
+                "gain": 4
+              },
+              {
+                "from": "S3",
+                "to": "S2",
+                "gain": -4
+              },
+              {
+                "from": "S2",
+                "to": "S2",
+                "gain": -1
+              },
+              {
+                "from": "S3",
+                "to": "S1",
+                "gain": 1
+              },
+              {
+                "from": "S4",
+                "to": "S0",
+                "gain": 50
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              4,
+              1
+            ],
+            "S1": [
+              4,
+              1
+            ],
+            "S2": [
+              4,
+              1
+            ],
+            "S3": [
+              4,
+              1
+            ],
+            "S4": [
+              4,
+              1
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": 2
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": -5
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 7
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": 4
+              },
+              {
+                "from": "S4",
+                "to": "S0",
+                "gain": 4
+              },
+              {
+                "from": "S1",
+                "to": "S1",
+                "gain": 11
+              },
+              {
+                "from": "S1",
+                "to": "S3",
+                "gain": 9
+              },
+              {
+                "from": "S2",
+                "to": "S1",
+                "gain": 6
+              },
+              {
+                "from": "S4",
+                "to": "S4",
+                "gain": 1
+              },
+              {
+                "from": "S2",
+                "to": "S0",
+                "gain": 7
+              },
+              {
+                "from": "S2",
+                "to": "S2",
+                "gain": -6
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              11,
+              1
+            ],
+            "S1": [
+              11,
+              1
+            ],
+            "S2": [
+              11,
+              1
+            ],
+            "S3": [
+              11,
+              1
+            ],
+            "S4": [
+              11,
+              1
+            ],
+            "S5": null
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": 3
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": 6
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 5
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": -5
+              },
+              {
+                "from": "S4",
+                "to": "S5",
+                "gain": -3
+              },
+              {
+                "from": "S5",
+                "to": "S0",
+                "gain": -7
+              },
+              {
+                "from": "S5",
+                "to": "S1",
+                "gain": 5
+              },
+              {
+                "from": "S1",
+                "to": "S0",
+                "gain": 12
+              },
+              {
+                "from": "S0",
+                "to": "S5",
+                "gain": 3
+              },
+              {
+                "from": "S2",
+                "to": "S2",
+                "gain": -4
+              },
+              {
+                "from": "S5",
+                "to": "S5",
+                "gain": 0
+              },
+              {
+                "from": "S3",
+                "to": "S1",
+                "gain": 10
+              },
+              {
+                "from": "S6",
+                "to": "S0",
+                "gain": 50
+              },
+              {
+                "from": "S6",
+                "to": "S6",
+                "gain": -4
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              15,
+              2
+            ],
+            "S1": [
+              15,
+              2
+            ],
+            "S2": [
+              15,
+              2
+            ],
+            "S3": [
+              15,
+              2
+            ],
+            "S4": [
+              15,
+              2
+            ],
+            "S5": [
+              15,
+              2
+            ],
+            "S6": [
+              15,
+              2
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": -1
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": 0
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 1
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": -6
+              },
+              {
+                "from": "S4",
+                "to": "S5",
+                "gain": -1
+              },
+              {
+                "from": "S5",
+                "to": "S6",
+                "gain": 1
+              },
+              {
+                "from": "S6",
+                "to": "S0",
+                "gain": -7
+              },
+              {
+                "from": "S4",
+                "to": "S0",
+                "gain": 10
+              },
+              {
+                "from": "S2",
+                "to": "S5",
+                "gain": -2
+              },
+              {
+                "from": "S6",
+                "to": "S2",
+                "gain": -8
+              },
+              {
+                "from": "S3",
+                "to": "S2",
+                "gain": 2
+              },
+              {
+                "from": "S4",
+                "to": "S4",
+                "gain": 1
+              },
+              {
+                "from": "S1",
+                "to": "S6",
+                "gain": -5
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              3,
+              2
+            ],
+            "S1": [
+              3,
+              2
+            ],
+            "S2": [
+              3,
+              2
+            ],
+            "S3": [
+              3,
+              2
+            ],
+            "S4": [
+              3,
+              2
+            ],
+            "S5": [
+              3,
+              2
+            ],
+            "S6": [
+              3,
+              2
+            ],
+            "S7": null
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7",
+              "S8"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": -9
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": -7
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": -1
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": 7
+              },
+              {
+                "from": "S4",
+                "to": "S5",
+                "gain": -6
+              },
+              {
+                "from": "S5",
+                "to": "S6",
+                "gain": -9
+              },
+              {
+                "from": "S6",
+                "to": "S7",
+                "gain": -5
+              },
+              {
+                "from": "S7",
+                "to": "S0",
+                "gain": -2
+              },
+              {
+                "from": "S6",
+                "to": "S0",
+                "gain": 4
+              },
+              {
+                "from": "S6",
+                "to": "S1",
+                "gain": -3
+              },
+              {
+                "from": "S4",
+                "to": "S4",
+                "gain": -4
+              },
+              {
+                "from": "S3",
+                "to": "S3",
+                "gain": -6
+              },
+              {
+                "from": "S5",
+                "to": "S7",
+                "gain": 1
+              },
+              {
+                "from": "S3",
+                "to": "S7",
+                "gain": -8
+              },
+              {
+                "from": "S8",
+                "to": "S0",
+                "gain": 50
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              -17,
+              7
+            ],
+            "S1": [
+              -17,
+              7
+            ],
+            "S2": [
+              -17,
+              7
+            ],
+            "S3": [
+              -17,
+              7
+            ],
+            "S4": [
+              -17,
+              7
+            ],
+            "S5": [
+              -17,
+              7
+            ],
+            "S6": [
+              -17,
+              7
+            ],
+            "S7": [
+              -17,
+              7
+            ],
+            "S8": [
+              -17,
+              7
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7",
+              "S8",
+              "S9"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": 5
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": 4
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 1
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": -8
+              },
+              {
+                "from": "S4",
+                "to": "S5",
+                "gain": 6
+              },
+              {
+                "from": "S5",
+                "to": "S6",
+                "gain": -3
+              },
+              {
+                "from": "S6",
+                "to": "S7",
+                "gain": -9
+              },
+              {
+                "from": "S7",
+                "to": "S8",
+                "gain": -3
+              },
+              {
+                "from": "S8",
+                "to": "S0",
+                "gain": -6
+              },
+              {
+                "from": "S1",
+                "to": "S4",
+                "gain": 9
+              },
+              {
+                "from": "S2",
+                "to": "S4",
+                "gain": 5
+              },
+              {
+                "from": "S4",
+                "to": "S6",
+                "gain": 7
+              },
+              {
+                "from": "S0",
+                "to": "S3",
+                "gain": 8
+              },
+              {
+                "from": "S1",
+                "to": "S7",
+                "gain": 4
+              },
+              {
+                "from": "S3",
+                "to": "S8",
+                "gain": -8
+              },
+              {
+                "from": "S9",
+                "to": "S9",
+                "gain": -4
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              1,
+              2
+            ],
+            "S1": [
+              1,
+              2
+            ],
+            "S2": [
+              1,
+              2
+            ],
+            "S3": [
+              1,
+              2
+            ],
+            "S4": [
+              1,
+              2
+            ],
+            "S5": [
+              1,
+              2
+            ],
+            "S6": [
+              1,
+              2
+            ],
+            "S7": [
+              1,
+              2
+            ],
+            "S8": [
+              1,
+              2
+            ],
+            "S9": [
+              -4,
+              1
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": -5
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": 4
+              },
+              {
+                "from": "S2",
+                "to": "S0",
+                "gain": 1
+              },
+              {
+                "from": "S2",
+                "to": "S2",
+                "gain": -6
+              },
+              {
+                "from": "S2",
+                "to": "S1",
+                "gain": -8
+              },
+              {
+                "from": "S0",
+                "to": "S2",
+                "gain": 3
+              },
+              {
+                "from": "S1",
+                "to": "S1",
+                "gain": 0
+              },
+              {
+                "from": "S3",
+                "to": "S0",
+                "gain": 50
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              2,
+              1
+            ],
+            "S1": [
+              2,
+              1
+            ],
+            "S2": [
+              2,
+              1
+            ],
+            "S3": [
+              2,
+              1
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": -2
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": 8
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 0
+              },
+              {
+                "from": "S3",
+                "to": "S0",
+                "gain": 5
+              },
+              {
+                "from": "S3",
+                "to": "S3",
+                "gain": 1
+              },
+              {
+                "from": "S3",
+                "to": "S1",
+                "gain": 10
+              },
+              {
+                "from": "S0",
+                "to": "S3",
+                "gain": 11
+              },
+              {
+                "from": "S1",
+                "to": "S3",
+                "gain": -4
+              },
+              {
+                "from": "S0",
+                "to": "S2",
+                "gain": -5
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              8,
+              1
+            ],
+            "S1": [
+              8,
+              1
+            ],
+            "S2": [
+              8,
+              1
+            ],
+            "S3": [
+              8,
+              1
+            ],
+            "S4": null
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": 3
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": -7
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 6
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": -7
+              },
+              {
+                "from": "S4",
+                "to": "S0",
+                "gain": 8
+              },
+              {
+                "from": "S0",
+                "to": "S0",
+                "gain": -2
+              },
+              {
+                "from": "S4",
+                "to": "S3",
+                "gain": -6
+              },
+              {
+                "from": "S0",
+                "to": "S3",
+                "gain": -7
+              },
+              {
+                "from": "S1",
+                "to": "S3",
+                "gain": 5
+              },
+              {
+                "from": "S2",
+                "to": "S4",
+                "gain": 6
+              },
+              {
+                "from": "S3",
+                "to": "S1",
+                "gain": -2
+              },
+              {
+                "from": "S5",
+                "to": "S0",
+                "gain": 50
+              },
+              {
+                "from": "S5",
+                "to": "S5",
+                "gain": -4
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              5,
+              2
+            ],
+            "S1": [
+              5,
+              2
+            ],
+            "S2": [
+              5,
+              2
+            ],
+            "S3": [
+              5,
+              2
+            ],
+            "S4": [
+              5,
+              2
+            ],
+            "S5": [
+              5,
+              2
+            ]
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": 6
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": -3
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": -7
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": -9
+              },
+              {
+                "from": "S4",
+                "to": "S5",
+                "gain": 3
+              },
+              {
+                "from": "S5",
+                "to": "S0",
+                "gain": 0
+              },
+              {
+                "from": "S5",
+                "to": "S1",
+                "gain": 0
+              },
+              {
+                "from": "S3",
+                "to": "S5",
+                "gain": 5
+              },
+              {
+                "from": "S2",
+                "to": "S4",
+                "gain": 11
+              },
+              {
+                "from": "S0",
+                "to": "S3",
+                "gain": 6
+              },
+              {
+                "from": "S3",
+                "to": "S2",
+                "gain": -5
+              },
+              {
+                "from": "S2",
+                "to": "S5",
+                "gain": 11
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              11,
+              3
+            ],
+            "S1": [
+              11,
+              3
+            ],
+            "S2": [
+              11,
+              3
+            ],
+            "S3": [
+              11,
+              3
+            ],
+            "S4": [
+              11,
+              3
+            ],
+            "S5": [
+              11,
+              3
+            ],
+            "S6": null
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7"
+            ],
+            "transitions": [
+              {
+                "from": "S0",
+                "to": "S1",
+                "gain": -3
+              },
+              {
+                "from": "S1",
+                "to": "S2",
+                "gain": -3
+              },
+              {
+                "from": "S2",
+                "to": "S3",
+                "gain": 2
+              },
+              {
+                "from": "S3",
+                "to": "S4",
+                "gain": -5
+              },
+              {
+                "from": "S4",
+                "to": "S5",
+                "gain": 2
+              },
+              {
+                "from": "S5",
+                "to": "S6",
+                "gain": 5
+              },
+              {
+                "from": "S6",
+                "to": "S0",
+                "gain": -7
+              },
+              {
+                "from": "S5",
+                "to": "S2",
+                "gain": 6
+              },
+              {
+                "from": "S1",
+                "to": "S6",
+                "gain": -4
+              },
+              {
+                "from": "S0",
+                "to": "S6",
+                "gain": 12
+              },
+              {
+                "from": "S6",
+                "to": "S3",
+                "gain": 10
+              },
+              {
+                "from": "S3",
+                "to": "S3",
+                "gain": -3
+              },
+              {
+                "from": "S1",
+                "to": "S0",
+                "gain": 0
+              },
+              {
+                "from": "S7",
+                "to": "S0",
+                "gain": 50
+              }
+            ]
+          }
+        },
+        "expected": {
+          "sustainable": {
+            "S0": [
+              3,
+              1
+            ],
+            "S1": [
+              3,
+              1
+            ],
+            "S2": [
+              3,
+              1
+            ],
+            "S3": [
+              3,
+              1
+            ],
+            "S4": [
+              3,
+              1
+            ],
+            "S5": [
+              3,
+              1
+            ],
+            "S6": [
+              3,
+              1
+            ],
+            "S7": [
+              3,
+              1
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "stations": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "X"
+        ],
+        "transitions": [
+          {
+            "from": "A",
+            "to": "B",
+            "gain": 100
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "gain": 0
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "gain": 10
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "gain": 0
+          },
+          {
+            "from": "D",
+            "to": "E",
+            "gain": 0
+          },
+          {
+            "from": "E",
+            "to": "X",
+            "gain": 0
+          },
+          {
+            "from": "X",
+            "to": "D",
+            "gain": 12
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "A": [
+              5,
+              1
+            ],
+            "B": [
+              5,
+              1
+            ],
+            "C": [
+              5,
+              1
+            ],
+            "D": [
+              4,
+              1
+            ],
+            "E": [
+              4,
+              1
+            ],
+            "X": [
+              4,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": 2
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": 4
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 2
+          },
+          {
+            "from": "S3",
+            "to": "S0",
+            "gain": -3
+          },
+          {
+            "from": "S0",
+            "to": "S3",
+            "gain": 11
+          },
+          {
+            "from": "S3",
+            "to": "S3",
+            "gain": 4
+          },
+          {
+            "from": "S3",
+            "to": "S2",
+            "gain": -4
+          },
+          {
+            "from": "S2",
+            "to": "S2",
+            "gain": -1
+          },
+          {
+            "from": "S3",
+            "to": "S1",
+            "gain": 1
+          },
+          {
+            "from": "S4",
+            "to": "S0",
+            "gain": 50
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              4,
+              1
+            ],
+            "S1": [
+              4,
+              1
+            ],
+            "S2": [
+              4,
+              1
+            ],
+            "S3": [
+              4,
+              1
+            ],
+            "S4": [
+              4,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": 2
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": -5
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 7
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": 4
+          },
+          {
+            "from": "S4",
+            "to": "S0",
+            "gain": 4
+          },
+          {
+            "from": "S1",
+            "to": "S1",
+            "gain": 11
+          },
+          {
+            "from": "S1",
+            "to": "S3",
+            "gain": 9
+          },
+          {
+            "from": "S2",
+            "to": "S1",
+            "gain": 6
+          },
+          {
+            "from": "S4",
+            "to": "S4",
+            "gain": 1
+          },
+          {
+            "from": "S2",
+            "to": "S0",
+            "gain": 7
+          },
+          {
+            "from": "S2",
+            "to": "S2",
+            "gain": -6
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              11,
+              1
+            ],
+            "S1": [
+              11,
+              1
+            ],
+            "S2": [
+              11,
+              1
+            ],
+            "S3": [
+              11,
+              1
+            ],
+            "S4": [
+              11,
+              1
+            ],
+            "S5": null
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": 3
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": 6
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 5
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": -5
+          },
+          {
+            "from": "S4",
+            "to": "S5",
+            "gain": -3
+          },
+          {
+            "from": "S5",
+            "to": "S0",
+            "gain": -7
+          },
+          {
+            "from": "S5",
+            "to": "S1",
+            "gain": 5
+          },
+          {
+            "from": "S1",
+            "to": "S0",
+            "gain": 12
+          },
+          {
+            "from": "S0",
+            "to": "S5",
+            "gain": 3
+          },
+          {
+            "from": "S2",
+            "to": "S2",
+            "gain": -4
+          },
+          {
+            "from": "S5",
+            "to": "S5",
+            "gain": 0
+          },
+          {
+            "from": "S3",
+            "to": "S1",
+            "gain": 10
+          },
+          {
+            "from": "S6",
+            "to": "S0",
+            "gain": 50
+          },
+          {
+            "from": "S6",
+            "to": "S6",
+            "gain": -4
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              15,
+              2
+            ],
+            "S1": [
+              15,
+              2
+            ],
+            "S2": [
+              15,
+              2
+            ],
+            "S3": [
+              15,
+              2
+            ],
+            "S4": [
+              15,
+              2
+            ],
+            "S5": [
+              15,
+              2
+            ],
+            "S6": [
+              15,
+              2
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": -1
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": 0
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 1
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": -6
+          },
+          {
+            "from": "S4",
+            "to": "S5",
+            "gain": -1
+          },
+          {
+            "from": "S5",
+            "to": "S6",
+            "gain": 1
+          },
+          {
+            "from": "S6",
+            "to": "S0",
+            "gain": -7
+          },
+          {
+            "from": "S4",
+            "to": "S0",
+            "gain": 10
+          },
+          {
+            "from": "S2",
+            "to": "S5",
+            "gain": -2
+          },
+          {
+            "from": "S6",
+            "to": "S2",
+            "gain": -8
+          },
+          {
+            "from": "S3",
+            "to": "S2",
+            "gain": 2
+          },
+          {
+            "from": "S4",
+            "to": "S4",
+            "gain": 1
+          },
+          {
+            "from": "S1",
+            "to": "S6",
+            "gain": -5
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              3,
+              2
+            ],
+            "S1": [
+              3,
+              2
+            ],
+            "S2": [
+              3,
+              2
+            ],
+            "S3": [
+              3,
+              2
+            ],
+            "S4": [
+              3,
+              2
+            ],
+            "S5": [
+              3,
+              2
+            ],
+            "S6": [
+              3,
+              2
+            ],
+            "S7": null
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": -9
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": -7
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": -1
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": 7
+          },
+          {
+            "from": "S4",
+            "to": "S5",
+            "gain": -6
+          },
+          {
+            "from": "S5",
+            "to": "S6",
+            "gain": -9
+          },
+          {
+            "from": "S6",
+            "to": "S7",
+            "gain": -5
+          },
+          {
+            "from": "S7",
+            "to": "S0",
+            "gain": -2
+          },
+          {
+            "from": "S6",
+            "to": "S0",
+            "gain": 4
+          },
+          {
+            "from": "S6",
+            "to": "S1",
+            "gain": -3
+          },
+          {
+            "from": "S4",
+            "to": "S4",
+            "gain": -4
+          },
+          {
+            "from": "S3",
+            "to": "S3",
+            "gain": -6
+          },
+          {
+            "from": "S5",
+            "to": "S7",
+            "gain": 1
+          },
+          {
+            "from": "S3",
+            "to": "S7",
+            "gain": -8
+          },
+          {
+            "from": "S8",
+            "to": "S0",
+            "gain": 50
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              -17,
+              7
+            ],
+            "S1": [
+              -17,
+              7
+            ],
+            "S2": [
+              -17,
+              7
+            ],
+            "S3": [
+              -17,
+              7
+            ],
+            "S4": [
+              -17,
+              7
+            ],
+            "S5": [
+              -17,
+              7
+            ],
+            "S6": [
+              -17,
+              7
+            ],
+            "S7": [
+              -17,
+              7
+            ],
+            "S8": [
+              -17,
+              7
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": 5
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": 4
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 1
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": -8
+          },
+          {
+            "from": "S4",
+            "to": "S5",
+            "gain": 6
+          },
+          {
+            "from": "S5",
+            "to": "S6",
+            "gain": -3
+          },
+          {
+            "from": "S6",
+            "to": "S7",
+            "gain": -9
+          },
+          {
+            "from": "S7",
+            "to": "S8",
+            "gain": -3
+          },
+          {
+            "from": "S8",
+            "to": "S0",
+            "gain": -6
+          },
+          {
+            "from": "S1",
+            "to": "S4",
+            "gain": 9
+          },
+          {
+            "from": "S2",
+            "to": "S4",
+            "gain": 5
+          },
+          {
+            "from": "S4",
+            "to": "S6",
+            "gain": 7
+          },
+          {
+            "from": "S0",
+            "to": "S3",
+            "gain": 8
+          },
+          {
+            "from": "S1",
+            "to": "S7",
+            "gain": 4
+          },
+          {
+            "from": "S3",
+            "to": "S8",
+            "gain": -8
+          },
+          {
+            "from": "S9",
+            "to": "S9",
+            "gain": -4
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              1,
+              2
+            ],
+            "S1": [
+              1,
+              2
+            ],
+            "S2": [
+              1,
+              2
+            ],
+            "S3": [
+              1,
+              2
+            ],
+            "S4": [
+              1,
+              2
+            ],
+            "S5": [
+              1,
+              2
+            ],
+            "S6": [
+              1,
+              2
+            ],
+            "S7": [
+              1,
+              2
+            ],
+            "S8": [
+              1,
+              2
+            ],
+            "S9": [
+              -4,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": -5
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": 4
+          },
+          {
+            "from": "S2",
+            "to": "S0",
+            "gain": 1
+          },
+          {
+            "from": "S2",
+            "to": "S2",
+            "gain": -6
+          },
+          {
+            "from": "S2",
+            "to": "S1",
+            "gain": -8
+          },
+          {
+            "from": "S0",
+            "to": "S2",
+            "gain": 3
+          },
+          {
+            "from": "S1",
+            "to": "S1",
+            "gain": 0
+          },
+          {
+            "from": "S3",
+            "to": "S0",
+            "gain": 50
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              2,
+              1
+            ],
+            "S1": [
+              2,
+              1
+            ],
+            "S2": [
+              2,
+              1
+            ],
+            "S3": [
+              2,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": -2
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": 8
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 0
+          },
+          {
+            "from": "S3",
+            "to": "S0",
+            "gain": 5
+          },
+          {
+            "from": "S3",
+            "to": "S3",
+            "gain": 1
+          },
+          {
+            "from": "S3",
+            "to": "S1",
+            "gain": 10
+          },
+          {
+            "from": "S0",
+            "to": "S3",
+            "gain": 11
+          },
+          {
+            "from": "S1",
+            "to": "S3",
+            "gain": -4
+          },
+          {
+            "from": "S0",
+            "to": "S2",
+            "gain": -5
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              8,
+              1
+            ],
+            "S1": [
+              8,
+              1
+            ],
+            "S2": [
+              8,
+              1
+            ],
+            "S3": [
+              8,
+              1
+            ],
+            "S4": null
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": 3
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": -7
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 6
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": -7
+          },
+          {
+            "from": "S4",
+            "to": "S0",
+            "gain": 8
+          },
+          {
+            "from": "S0",
+            "to": "S0",
+            "gain": -2
+          },
+          {
+            "from": "S4",
+            "to": "S3",
+            "gain": -6
+          },
+          {
+            "from": "S0",
+            "to": "S3",
+            "gain": -7
+          },
+          {
+            "from": "S1",
+            "to": "S3",
+            "gain": 5
+          },
+          {
+            "from": "S2",
+            "to": "S4",
+            "gain": 6
+          },
+          {
+            "from": "S3",
+            "to": "S1",
+            "gain": -2
+          },
+          {
+            "from": "S5",
+            "to": "S0",
+            "gain": 50
+          },
+          {
+            "from": "S5",
+            "to": "S5",
+            "gain": -4
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              5,
+              2
+            ],
+            "S1": [
+              5,
+              2
+            ],
+            "S2": [
+              5,
+              2
+            ],
+            "S3": [
+              5,
+              2
+            ],
+            "S4": [
+              5,
+              2
+            ],
+            "S5": [
+              5,
+              2
+            ]
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": 6
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": -3
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": -7
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": -9
+          },
+          {
+            "from": "S4",
+            "to": "S5",
+            "gain": 3
+          },
+          {
+            "from": "S5",
+            "to": "S0",
+            "gain": 0
+          },
+          {
+            "from": "S5",
+            "to": "S1",
+            "gain": 0
+          },
+          {
+            "from": "S3",
+            "to": "S5",
+            "gain": 5
+          },
+          {
+            "from": "S2",
+            "to": "S4",
+            "gain": 11
+          },
+          {
+            "from": "S0",
+            "to": "S3",
+            "gain": 6
+          },
+          {
+            "from": "S3",
+            "to": "S2",
+            "gain": -5
+          },
+          {
+            "from": "S2",
+            "to": "S5",
+            "gain": 11
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              11,
+              3
+            ],
+            "S1": [
+              11,
+              3
+            ],
+            "S2": [
+              11,
+              3
+            ],
+            "S3": [
+              11,
+              3
+            ],
+            "S4": [
+              11,
+              3
+            ],
+            "S5": [
+              11,
+              3
+            ],
+            "S6": null
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7"
+        ],
+        "transitions": [
+          {
+            "from": "S0",
+            "to": "S1",
+            "gain": -3
+          },
+          {
+            "from": "S1",
+            "to": "S2",
+            "gain": -3
+          },
+          {
+            "from": "S2",
+            "to": "S3",
+            "gain": 2
+          },
+          {
+            "from": "S3",
+            "to": "S4",
+            "gain": -5
+          },
+          {
+            "from": "S4",
+            "to": "S5",
+            "gain": 2
+          },
+          {
+            "from": "S5",
+            "to": "S6",
+            "gain": 5
+          },
+          {
+            "from": "S6",
+            "to": "S0",
+            "gain": -7
+          },
+          {
+            "from": "S5",
+            "to": "S2",
+            "gain": 6
+          },
+          {
+            "from": "S1",
+            "to": "S6",
+            "gain": -4
+          },
+          {
+            "from": "S0",
+            "to": "S6",
+            "gain": 12
+          },
+          {
+            "from": "S6",
+            "to": "S3",
+            "gain": 10
+          },
+          {
+            "from": "S3",
+            "to": "S3",
+            "gain": -3
+          },
+          {
+            "from": "S1",
+            "to": "S0",
+            "gain": 0
+          },
+          {
+            "from": "S7",
+            "to": "S0",
+            "gain": 50
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "sustainable": {
+            "S0": [
+              3,
+              1
+            ],
+            "S1": [
+              3,
+              1
+            ],
+            "S2": [
+              3,
+              1
+            ],
+            "S3": [
+              3,
+              1
+            ],
+            "S4": [
+              3,
+              1
+            ],
+            "S5": [
+              3,
+              1
+            ],
+            "S6": [
+              3,
+              1
+            ],
+            "S7": [
+              3,
+              1
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

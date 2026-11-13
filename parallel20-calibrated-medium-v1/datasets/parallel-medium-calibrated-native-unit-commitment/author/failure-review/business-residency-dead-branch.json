@@ -1,0 +1,172 @@
+{
+  "input": {
+    "periods": 2,
+    "assets": [
+      {
+        "id": "A",
+        "parent": null,
+        "repair_at": 0,
+        "priority": 3,
+        "battery_initial": 0,
+        "battery_capacity": 0,
+        "battery_discharge_limit": 0,
+        "demand": [
+          1,
+          1
+        ],
+        "solar": [
+          0,
+          0
+        ],
+        "startup_cost": 1,
+        "min_up": 2,
+        "min_down": 1
+      },
+      {
+        "id": "B",
+        "parent": null,
+        "repair_at": 0,
+        "priority": 2,
+        "battery_initial": 0,
+        "battery_capacity": 0,
+        "battery_discharge_limit": 0,
+        "demand": [
+          1,
+          1
+        ],
+        "solar": [
+          0,
+          0
+        ],
+        "startup_cost": 1,
+        "min_up": 2,
+        "min_down": 1
+      }
+    ],
+    "grid_capacity": [
+      2,
+      1
+    ],
+    "grid_ports": [
+      2,
+      1
+    ]
+  },
+  "expected": {
+    "score": {
+      "weighted_served": 6,
+      "total_served": 2,
+      "startup_cost": 1
+    },
+    "periods": [
+      {
+        "t": 0,
+        "assets": [
+          {
+            "id": "A",
+            "connected": true,
+            "port_on": true,
+            "started": true,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 0
+          },
+          {
+            "id": "B",
+            "connected": true,
+            "port_on": false,
+            "started": false,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 0,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 0,
+            "unserved": 1
+          }
+        ],
+        "grid_unused": 1,
+        "grid_active": 1
+      },
+      {
+        "t": 1,
+        "assets": [
+          {
+            "id": "A",
+            "connected": true,
+            "port_on": true,
+            "started": false,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 0
+          },
+          {
+            "id": "B",
+            "connected": true,
+            "port_on": false,
+            "started": false,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 0,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 0,
+            "unserved": 1
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      }
+    ],
+    "summary": {
+      "demand": 4,
+      "served": 2,
+      "unserved": 2,
+      "solar_used": 0,
+      "solar_curtailed": 0,
+      "grid_used": 2,
+      "weighted_served": 6,
+      "battery_initial": 0,
+      "battery_final": 0,
+      "startup_cost": 1
+    }
+  },
+  "repeat": 4,
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/app/packages/analysis/engine.py\", line 164, in transform\n    dp(0, init_bat, init_cnt)\n  File \"/app/packages/analysis/engine.py\", line 154, in dp\n    cand = (p_obj[0] + sub[0], p_obj[1] + sub[1], p_obj[2] + sub[2])\n                       ~~~^^^\nTypeError: 'NoneType' object is not subscriptable\n",
+  "source_cause": "The currently legal both-ON branch locks2 ports for the next period, whose port capacity is1. dp returns None for that dead branch, but its parent unconditionally indexes sub[0] instead of discarding it. Starting only A is a valid optimal policy. This is an interaction of minimum ON residency and future shared-port capacity; all capacities and demands are positive.",
+  "source_sha256": {
+    "check.py": "c68864febcdf0b0e1b2486b8bab7e303e670a840b50192ac5cfd30ea4de0d852",
+    "comparison.py": "9091627bacd993e7b2ac729b8eb71ab7fd6c07ea41bfb2d6f9f200953134bfcd",
+    "runtime.py": "20a745a5f772133f72796373ac173979dc09803755b27d180bd893a559e6136c",
+    "run_all.py": "3f27996f74ed1593688eb17fe04564b1ac31e347d311d507b4901a5e867ecc8d",
+    "packages/analysis/engine.py": "e7230087ced33c8b4c11886d19dca3e8fd024be9a2b48b38288c7b59fc18118a"
+  },
+  "candidate_edited": false,
+  "pycache_excluded": true,
+  "formal_scores_changed": false,
+  "new_diagnostic_case_only": true
+}

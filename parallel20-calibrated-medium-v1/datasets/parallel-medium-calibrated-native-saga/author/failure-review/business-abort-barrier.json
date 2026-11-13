@@ -1,0 +1,91 @@
+{
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "repeat": 5,
+  "input": {
+    "actions": [
+      {
+        "id": "f",
+        "resource": "X",
+        "deps": [],
+        "forward": [
+          false
+        ],
+        "compensate": [
+          true
+        ],
+        "forward_time": 1,
+        "compensation_time": 1
+      },
+      {
+        "id": "g",
+        "resource": "Y",
+        "deps": [],
+        "forward": [
+          true
+        ],
+        "compensate": [
+          true
+        ],
+        "forward_time": 2,
+        "compensation_time": 5
+      }
+    ],
+    "initial_attempts": {}
+  },
+  "expected": {
+    "minimum_time": 1,
+    "forward_batches": [
+      [
+        "f"
+      ]
+    ],
+    "compensation_batches": [],
+    "status": "rolled_back",
+    "failed_actions": [
+      "f"
+    ],
+    "unresolved": []
+  },
+  "actual": {
+    "minimum_time": 3,
+    "forward_batches": [
+      [
+        "f"
+      ],
+      [
+        "g"
+      ]
+    ],
+    "compensation_batches": [
+      [
+        "g"
+      ]
+    ],
+    "status": "rolled_back",
+    "failed_actions": [
+      "f"
+    ],
+    "unresolved": []
+  },
+  "first_illegal_batch": {
+    "phase": "forward",
+    "batch": 2,
+    "ids": [
+      "g"
+    ],
+    "reason": "Batch occurs after phase termination",
+    "state": [
+      "rollback",
+      [
+        [
+          "f",
+          1
+        ]
+      ],
+      [],
+      []
+    ]
+  },
+  "reason": "Once f exhausts failure, a later forward batch g is forbidden. Optimal plan executes f alone in time1 and needs no compensation."
+}

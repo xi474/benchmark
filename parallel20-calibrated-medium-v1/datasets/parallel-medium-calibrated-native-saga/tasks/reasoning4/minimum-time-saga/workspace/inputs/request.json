@@ -1,0 +1,46 @@
+{
+  "actions": [
+    {
+      "id": "a",
+      "resource": "X",
+      "deps": [],
+      "forward": [
+        true
+      ],
+      "compensate": [
+        true
+      ],
+      "forward_time": 3,
+      "compensation_time": 1
+    },
+    {
+      "id": "b",
+      "resource": "X",
+      "deps": [],
+      "forward": [
+        true
+      ],
+      "compensate": [
+        true
+      ],
+      "forward_time": 1,
+      "compensation_time": 1
+    },
+    {
+      "id": "c",
+      "resource": "Y",
+      "deps": [
+        "b"
+      ],
+      "forward": [
+        true
+      ],
+      "compensate": [
+        true
+      ],
+      "forward_time": 3,
+      "compensation_time": 1
+    }
+  ],
+  "initial_attempts": {}
+}

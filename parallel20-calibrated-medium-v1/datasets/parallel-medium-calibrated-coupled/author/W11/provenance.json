@@ -1,0 +1,10 @@
+{
+  "source": "dag300-verified200-candidate-suite/tasks/dag300new68-static-timing",
+  "original_notice": "# Provenance\n\n- Source: project-original integer-delay circuit timing model, fixed `2026-10-26-static-timing-v0.1.2`.\n- License: project public release license pending owner decision; all graphs synthetic.\n- Adaptation: none from external benchmarks. Harbor layout follows the existing local project convention.\n- Distinct mechanism: unlike the prior logic simulation family, this task never propagates Boolean values; it analyzes min/max path arrival, reconvergence and setup/hold clock-pair constraints.\n- Capabilities: deterministic graph order, domain-indexed path extrema, tie-breaking, missing-constraint status and slack audit.\n- Natural parallelism: graph rules, path propagation, constraint formulas and audit can be developed as separate interfaces, then integrated; node count is data volume, not Agent work nodes. No forced DAG.\n- Network/resources: offline logic, Python standard library, 2 CPU, 2 GiB, no GPU; `allow_internet=true` by explicit user authorization for new66–100 formal tasks and free oracle copies; business logic remains offline.\n- Contamination: timing terminology is generic; hidden synthetic fan-in graphs, delays, domains and IDs vary. No external or private evaluation data copied.\n- Verifier: independent path-enumerating reference, varied DAGs and missing constraints, no-op and targeted mutants, input immutability/byte stability.\n",
+  "source_rules_sha256": "6625bb19826db1745fcc3c1da8c7fb4a6a3db0a56422dda9d7bb8bfb83a2c8ab",
+  "source_family": "dag300new68-static-timing",
+  "adaptation": "All contracts, examples, and solvers for this revision are project-authored.",
+  "registered_cases": 12,
+  "reference_module": "clockpaths.py",
+  "reference_entry": "solve(request, independent=False/True)"
+}

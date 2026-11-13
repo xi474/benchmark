@@ -1,0 +1,33 @@
+{
+  "input": {
+    "size": [
+      2,
+      1
+    ],
+    "entry": [
+      0,
+      0
+    ],
+    "blocked": [],
+    "walls": [
+      {
+        "segment": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "fee": null
+      }
+    ]
+  },
+  "expected": {
+    "area_by_fee": {
+      "0": 1
+    },
+    "unreachable": 1
+  },
+  "error": "TypeError",
+  "formal_score_changed": false,
+  "reason": "The explicitly documented null fee represents a closed wall. The saved code tries to add it to an integer cost instead of removing that route."
+}

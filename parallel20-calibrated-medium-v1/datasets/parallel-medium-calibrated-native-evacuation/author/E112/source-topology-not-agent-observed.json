@@ -1,0 +1,31 @@
+{
+  "topology": "layered-pipeline",
+  "agent_visible": false,
+  "semantic_work_products": 5,
+  "nodes": [
+    "fire",
+    "closures",
+    "routes",
+    "assignment",
+    "audit"
+  ],
+  "edges": [
+    [
+      "fire",
+      "routes"
+    ],
+    [
+      "closures",
+      "routes"
+    ],
+    [
+      "routes",
+      "assignment"
+    ],
+    [
+      "assignment",
+      "audit"
+    ]
+  ],
+  "note": "Design opportunity only; runtime and Agent parallelism unmeasured."
+}

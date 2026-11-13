@@ -1,0 +1,508 @@
+{
+  "status": "passed",
+  "registered": [
+    {
+      "case": 1,
+      "reference_seconds": 6.299999949987978e-05,
+      "expected": {
+        "minimum_time": 4,
+        "forward_batches": [
+          [
+            "b"
+          ],
+          [
+            "a",
+            "c"
+          ]
+        ],
+        "compensation_batches": [],
+        "status": "committed",
+        "failed_actions": [],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 2,
+      "reference_seconds": 3.560000186553225e-05,
+      "expected": {
+        "minimum_time": 1,
+        "forward_batches": [
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [],
+        "status": "rolled_back",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 3,
+      "reference_seconds": 2.8800001018680632e-05,
+      "expected": {
+        "minimum_time": 12,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ],
+        "status": "rolled_back",
+        "failed_actions": [
+          "b"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 4,
+      "reference_seconds": 2.849999873433262e-05,
+      "expected": {
+        "minimum_time": 8,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "b"
+          ],
+          [
+            "b"
+          ],
+          [
+            "a"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": [
+          "b"
+        ]
+      }
+    },
+    {
+      "case": 5,
+      "reference_seconds": 5.77000027988106e-05,
+      "expected": {
+        "minimum_time": 4,
+        "forward_batches": [
+          [
+            "f"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a",
+            "b"
+          ]
+        ],
+        "status": "rolled_back",
+        "failed_actions": [
+          "f"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 6,
+      "reference_seconds": 2.7000001864507794e-05,
+      "expected": {
+        "minimum_time": 10,
+        "forward_batches": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ],
+        "status": "rolled_back",
+        "failed_actions": [
+          "b"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 7,
+      "reference_seconds": 9.129999671131372e-05,
+      "expected": {
+        "minimum_time": 28,
+        "forward_batches": [
+          [
+            "a1"
+          ],
+          [
+            "a0",
+            "a2"
+          ],
+          [
+            "a0",
+            "a2"
+          ],
+          [
+            "a3"
+          ],
+          [
+            "a4"
+          ],
+          [
+            "a4"
+          ]
+        ],
+        "compensation_batches": [],
+        "status": "committed",
+        "failed_actions": [],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 8,
+      "reference_seconds": 0.00021800000104121864,
+      "expected": {
+        "minimum_time": 55,
+        "forward_batches": [
+          [
+            "a1"
+          ],
+          [
+            "a0",
+            "a2"
+          ],
+          [
+            "a0",
+            "a3"
+          ],
+          [
+            "a4"
+          ],
+          [
+            "a3",
+            "a4"
+          ],
+          [
+            "a5"
+          ],
+          [
+            "a5"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a3"
+          ],
+          [
+            "a3",
+            "a4"
+          ],
+          [
+            "a2",
+            "a4"
+          ],
+          [
+            "a0",
+            "a2"
+          ],
+          [
+            "a1"
+          ],
+          [
+            "a1"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "a5"
+        ],
+        "unresolved": [
+          "a3"
+        ]
+      }
+    },
+    {
+      "case": 9,
+      "reference_seconds": 0.0002131000001099892,
+      "expected": {
+        "minimum_time": 24,
+        "forward_batches": [
+          [
+            "a0"
+          ],
+          [
+            "a0"
+          ],
+          [
+            "a1",
+            "a4"
+          ],
+          [
+            "a2",
+            "a4"
+          ],
+          [
+            "a2",
+            "a6"
+          ],
+          [
+            "a3"
+          ],
+          [
+            "a5"
+          ]
+        ],
+        "compensation_batches": [],
+        "status": "committed",
+        "failed_actions": [],
+        "unresolved": []
+      }
+    },
+    {
+      "case": 10,
+      "reference_seconds": 0.0005100999987917021,
+      "expected": {
+        "minimum_time": 70,
+        "forward_batches": [
+          [
+            "a0",
+            "a1"
+          ],
+          [
+            "a0",
+            "a1"
+          ],
+          [
+            "a2"
+          ],
+          [
+            "a2",
+            "a4"
+          ],
+          [
+            "a3"
+          ],
+          [
+            "a5",
+            "a6"
+          ],
+          [
+            "a5",
+            "a6"
+          ],
+          [
+            "a7"
+          ],
+          [
+            "a7"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a5",
+            "a6"
+          ],
+          [
+            "a5",
+            "a6"
+          ],
+          [
+            "a3"
+          ],
+          [
+            "a3",
+            "a4"
+          ],
+          [
+            "a2"
+          ],
+          [
+            "a2"
+          ],
+          [
+            "a0",
+            "a4"
+          ],
+          [
+            "a0",
+            "a1"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "a7"
+        ],
+        "unresolved": [
+          "a4"
+        ]
+      }
+    },
+    {
+      "case": 11,
+      "reference_seconds": 0.0004728999992948957,
+      "expected": {
+        "minimum_time": 56,
+        "forward_batches": [
+          [
+            "a2"
+          ],
+          [
+            "a1",
+            "a2"
+          ],
+          [
+            "a0",
+            "a6"
+          ],
+          [
+            "a3",
+            "a6"
+          ],
+          [
+            "a3",
+            "a7"
+          ],
+          [
+            "a4",
+            "a7"
+          ],
+          [
+            "a5"
+          ],
+          [
+            "a8"
+          ],
+          [
+            "a8"
+          ]
+        ],
+        "compensation_batches": [
+          [
+            "a5"
+          ],
+          [
+            "a4",
+            "a7"
+          ],
+          [
+            "a4",
+            "a6"
+          ],
+          [
+            "a3",
+            "a6"
+          ],
+          [
+            "a0",
+            "a1"
+          ],
+          [
+            "a0",
+            "a1",
+            "a2"
+          ]
+        ],
+        "status": "rollback_incomplete",
+        "failed_actions": [
+          "a8"
+        ],
+        "unresolved": [
+          "a4"
+        ]
+      }
+    },
+    {
+      "case": 12,
+      "reference_seconds": 0.001426399998308625,
+      "expected": {
+        "minimum_time": 28,
+        "forward_batches": [
+          [
+            "a0",
+            "a1"
+          ],
+          [
+            "a0",
+            "a1",
+            "a2"
+          ],
+          [
+            "a4"
+          ],
+          [
+            "a3",
+            "a4"
+          ],
+          [
+            "a6"
+          ],
+          [
+            "a3",
+            "a5",
+            "a7"
+          ],
+          [
+            "a6",
+            "a7",
+            "a8"
+          ]
+        ],
+        "compensation_batches": [],
+        "status": "committed",
+        "failed_actions": [],
+        "unresolved": []
+      }
+    }
+  ],
+  "extra_full_trace_enumeration": 128,
+  "hand_checked": [
+    "7-versus4 scheduling",
+    "whole-wave abort retains simultaneous success",
+    "retry12 / checkpoint10",
+    "exhausted child still releases parent",
+    "alternative optimal cleanup trace accepted"
+  ],
+  "methods": [
+    "monotone retry-state recursion with conditional optimal rollback",
+    "independent explicit-state Dijkstra through replay transitions",
+    "tiny exhaustive legal traces and hand-checked lifecycle witnesses"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "task": "S129",
+  "kind": "pretest evidence supplement; labels unchanged",
+  "corrected_axes": [
+    2,
+    2,
+    2,
+    0
+  ],
+  "corrected_structural_difficulty": "H",
+  "original_review_metadata_sha256": "91a54a63076a4fc0f2d8d31df54695bffc368bec75b86a26c8100c68c438b280",
+  "created_local": "2026-11-13T02:18:04.355972+08:00",
+  "model_task_calls_before_addendum": 0,
+  "same_request_history_witnesses": [
+    {
+      "history_attempts": {},
+      "same_current_request": [
+        "b"
+      ],
+      "after": [
+        "forward",
+        [
+          [
+            "b",
+            1
+          ]
+        ],
+        [],
+        []
+      ],
+      "failed_actions": [],
+      "immediately_terminal": null,
+      "minimum_remaining_time": 2
+    },
+    {
+      "history_attempts": {
+        "b": 1
+      },
+      "same_current_request": [
+        "b"
+      ],
+      "after": [
+        "rollback",
+        [
+          [
+            "b",
+            2
+          ]
+        ],
+        [],
+        []
+      ],
+      "failed_actions": [
+        "b"
+      ],
+      "immediately_terminal": [
+        "rolled_back",
+        []
+      ],
+      "minimum_remaining_time": 1
+    },
+    {
+      "history_attempts": {
+        "a": 1,
+        "b": 1
+      },
+      "same_current_request": [
+        "b"
+      ],
+      "after": [
+        "rollback",
+        [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        [
+          "a"
+        ],
+        []
+      ],
+      "failed_actions": [
+        "b"
+      ],
+      "immediately_terminal": null,
+      "minimum_remaining_time": 4
+    }
+  ],
+  "interpretation": "Same requested attempt b: prior failed attempt decides retry versus abort; prior success of a decides whether abort must retain and compensate a. Both rules interact on legal histories. Contract, examples, verifier and forecast unchanged."
+}

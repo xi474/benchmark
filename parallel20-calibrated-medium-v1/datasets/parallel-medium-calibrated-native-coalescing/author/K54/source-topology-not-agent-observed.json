@@ -1,0 +1,7 @@
+{
+  "task_id": "dag300-new53-register-allocation",
+  "topology": "irregular CFG fixed point and heterogeneous compiler stages",
+  "semantic_nodes": ["schema", "predecessor_phi_map", "block_use_def", "liveness_fixed_point", "interference_graph", "call_forbidden", "precolor_feasibility", "greedy_registers", "stack_slot_reuse", "phi_edge_moves", "parallel_cycle", "certificate"],
+  "semantic_edges": [["schema","predecessor_phi_map"],["schema","block_use_def"],["predecessor_phi_map","liveness_fixed_point"],["block_use_def","liveness_fixed_point"],["liveness_fixed_point","interference_graph"],["liveness_fixed_point","call_forbidden"],["interference_graph","precolor_feasibility"],["call_forbidden","precolor_feasibility"],["precolor_feasibility","greedy_registers"],["interference_graph","greedy_registers"],["greedy_registers","stack_slot_reuse"],["stack_slot_reuse","phi_edge_moves"],["predecessor_phi_map","phi_edge_moves"],["phi_edge_moves","parallel_cycle"],["parallel_cycle","certificate"],["call_forbidden","certificate"]],
+  "note": "Block edges and backedges are task data and change in hidden cases; this graph is not a required Agent plan."
+}

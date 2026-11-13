@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="1715" viewBox="0 0 880 1715">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="24" y="30" font-size="18" font-family="sans-serif" fill="#0f172a">S129 重试与逆依赖回滚的最短补偿事务</text>
+<path d="M146.66666666666666 150 C146.66666666666666 188.0 220.0 188.0 220.0 222" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M733.3333333333334 150 C733.3333333333334 188.0 220.0 188.0 220.0 222" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M146.66666666666666 150 C146.66666666666666 188.0 660.0 188.0 660.0 222" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 150 C440.0 270.0 440.0 270.0 440.0 386" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M220.0 314 C220.0 352.0 440.0 352.0 440.0 386" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M733.3333333333334 150 C733.3333333333334 352.0 440.0 352.0 440.0 550" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 478 C440.0 516.0 440.0 516.0 440.0 550" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M660.0 314 C660.0 516.0 440.0 516.0 440.0 714" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 642 C440.0 680.0 440.0 680.0 440.0 714" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 150 C440.0 516.0 440.0 516.0 440.0 878" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M733.3333333333334 150 C733.3333333333334 516.0 440.0 516.0 440.0 878" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 806 C440.0 844.0 440.0 844.0 440.0 878" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 806 C440.0 926.0 440.0 926.0 440.0 1042" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 970 C440.0 1008.0 440.0 1008.0 440.0 1042" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 478 C440.0 844.0 440.0 844.0 440.0 1206" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 642 C440.0 926.0 440.0 926.0 440.0 1206" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 1134 C440.0 1172.0 440.0 1172.0 440.0 1206" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M146.66666666666666 150 C146.66666666666666 762.0 440.0 762.0 440.0 1370" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 150 C440.0 762.0 440.0 762.0 440.0 1370" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M733.3333333333334 150 C733.3333333333334 762.0 440.0 762.0 440.0 1370" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 1298 C440.0 1336.0 440.0 1336.0 440.0 1370" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M440.0 1462 C440.0 1500.0 440.0 1500.0 440.0 1534" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="37.66666666666666" y="62" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="146.66666666666666" y="84" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">a</text>
+<text x="146.66666666666666" y="103" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">依赖图与前向约束</text>
+<rect x="331.0" y="62" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="84" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">b</text>
+<text x="440.0" y="103" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">资源互斥与批次时间</text>
+<rect x="624.3333333333334" y="62" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="733.3333333333334" y="84" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">c</text>
+<text x="733.3333333333334" y="103" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">重试结果表与已有检查点</text>
+<rect x="111.0" y="226" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="220.0" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">d</text>
+<text x="220.0" y="267" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">前向就绪及成功历史状态</text>
+<rect x="551.0" y="226" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="660.0" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">e</text>
+<text x="660.0" y="267" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">逆向补偿依赖模型</text>
+<rect x="331.0" y="390" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="412" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">f</text>
+<text x="440.0" y="431" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">合法前向候选批次</text>
+<rect x="331.0" y="554" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="576" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">g</text>
+<text x="440.0" y="595" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">中止点实际成功集合与剩余</text>
+<text x="440.0" y="614" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">状态</text>
+<rect x="331.0" y="718" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="740" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">h</text>
+<text x="440.0" y="759" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">给定成功集合的补偿就绪</text>
+<rect x="331.0" y="882" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="904" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">i</text>
+<text x="440.0" y="923" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">合法补偿批次与耗尽结束</text>
+<rect x="331.0" y="1046" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="1068" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">j</text>
+<text x="440.0" y="1087" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">各成功集合的最优补偿价值</text>
+<rect x="331.0" y="1210" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="1232" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">k</text>
+<text x="440.0" y="1251" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">前向与清理衔接的全局最优</text>
+<text x="440.0" y="1270" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">轨迹</text>
+<rect x="331.0" y="1374" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="1396" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">l</text>
+<text x="440.0" y="1415" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">独立重放资源时间和终态</text>
+<rect x="331.0" y="1538" width="218" height="88" rx="9" fill="white" stroke="#93c5fd"/>
+<text x="440.0" y="1560" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">m</text>
+<text x="440.0" y="1579" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1e293b">最短轨迹证书</text>
+</svg>

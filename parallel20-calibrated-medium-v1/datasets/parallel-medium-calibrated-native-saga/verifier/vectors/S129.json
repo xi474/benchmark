@@ -1,0 +1,2967 @@
+{
+  "task": "S129",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 3,
+                "compensation_time": 1
+              },
+              {
+                "id": "b",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              },
+              {
+                "id": "c",
+                "resource": "Y",
+                "deps": [
+                  "b"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 3,
+                "compensation_time": 1
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 4,
+          "forward_batches": [
+            [
+              "b"
+            ],
+            [
+              "a",
+              "c"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "f",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              },
+              {
+                "id": "g",
+                "resource": "Y",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 9
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 1,
+          "forward_batches": [
+            [
+              "f"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "rolled_back",
+          "failed_actions": [
+            "f"
+          ],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 2,
+                "compensation_time": 3
+              },
+              {
+                "id": "b",
+                "resource": "Y",
+                "deps": [
+                  "a"
+                ],
+                "forward": [
+                  false,
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 12,
+          "forward_batches": [
+            [
+              "a"
+            ],
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a"
+            ],
+            [
+              "a"
+            ]
+          ],
+          "status": "rolled_back",
+          "failed_actions": [
+            "b"
+          ],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              },
+              {
+                "id": "b",
+                "resource": "Y",
+                "deps": [
+                  "a"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  false
+                ],
+                "forward_time": 1,
+                "compensation_time": 2
+              },
+              {
+                "id": "f",
+                "resource": "Z",
+                "deps": [
+                  "b"
+                ],
+                "forward": [
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 8,
+          "forward_batches": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "f"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "b"
+            ],
+            [
+              "b"
+            ],
+            [
+              "a"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "f"
+          ],
+          "unresolved": [
+            "b"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 3
+              },
+              {
+                "id": "b",
+                "resource": "Y",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 2
+              },
+              {
+                "id": "f",
+                "resource": "Z",
+                "deps": [],
+                "forward": [
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              },
+              {
+                "id": "g",
+                "resource": "W",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              }
+            ],
+            "initial_attempts": {
+              "a": 1,
+              "b": 1
+            }
+          }
+        },
+        "expected": {
+          "minimum_time": 4,
+          "forward_batches": [
+            [
+              "f"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a",
+              "b"
+            ]
+          ],
+          "status": "rolled_back",
+          "failed_actions": [
+            "f"
+          ],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a",
+                "resource": "X",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 2,
+                "compensation_time": 3
+              },
+              {
+                "id": "b",
+                "resource": "Y",
+                "deps": [
+                  "a"
+                ],
+                "forward": [
+                  false,
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 1
+              }
+            ],
+            "initial_attempts": {
+              "a": 1
+            }
+          }
+        },
+        "expected": {
+          "minimum_time": 10,
+          "forward_batches": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a"
+            ],
+            [
+              "a"
+            ]
+          ],
+          "status": "rolled_back",
+          "failed_actions": [
+            "b"
+          ],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a0",
+                "resource": "R0",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 4
+              },
+              {
+                "id": "a1",
+                "resource": "R1",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 5,
+                "compensation_time": 3
+              },
+              {
+                "id": "a2",
+                "resource": "R1",
+                "deps": [
+                  "a1"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 7,
+                "compensation_time": 2
+              },
+              {
+                "id": "a3",
+                "resource": "R2",
+                "deps": [
+                  "a2",
+                  "a1"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 5,
+                "compensation_time": 2
+              },
+              {
+                "id": "a4",
+                "resource": "R3",
+                "deps": [
+                  "a3"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 2,
+                "compensation_time": 2
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 28,
+          "forward_batches": [
+            [
+              "a1"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a4"
+            ],
+            [
+              "a4"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a0",
+                "resource": "R0",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 7,
+                "compensation_time": 4
+              },
+              {
+                "id": "a1",
+                "resource": "R1",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 2,
+                "compensation_time": 1
+              },
+              {
+                "id": "a2",
+                "resource": "R2",
+                "deps": [
+                  "a1"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 4
+              },
+              {
+                "id": "a3",
+                "resource": "R3",
+                "deps": [
+                  "a1",
+                  "a2"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  false
+                ],
+                "forward_time": 7,
+                "compensation_time": 5
+              },
+              {
+                "id": "a4",
+                "resource": "R1",
+                "deps": [
+                  "a0"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 4
+              },
+              {
+                "id": "a5",
+                "resource": "R3",
+                "deps": [
+                  "a2",
+                  "a3",
+                  "a4"
+                ],
+                "forward": [
+                  false,
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 2
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 55,
+          "forward_batches": [
+            [
+              "a1"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a0",
+              "a3"
+            ],
+            [
+              "a4"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a5"
+            ],
+            [
+              "a5"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a3"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a1"
+            ],
+            [
+              "a1"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "a5"
+          ],
+          "unresolved": [
+            "a3"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a0",
+                "resource": "R0",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 5
+              },
+              {
+                "id": "a1",
+                "resource": "R1",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 5
+              },
+              {
+                "id": "a2",
+                "resource": "R1",
+                "deps": [
+                  "a0"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 2
+              },
+              {
+                "id": "a3",
+                "resource": "R0",
+                "deps": [
+                  "a2",
+                  "a0"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 3
+              },
+              {
+                "id": "a4",
+                "resource": "R0",
+                "deps": [
+                  "a0"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 4
+              },
+              {
+                "id": "a5",
+                "resource": "R0",
+                "deps": [
+                  "a3"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 2
+              },
+              {
+                "id": "a6",
+                "resource": "R0",
+                "deps": [
+                  "a4",
+                  "a1"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 5,
+                "compensation_time": 4
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 24,
+          "forward_batches": [
+            [
+              "a0"
+            ],
+            [
+              "a0"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a1",
+              "a5"
+            ],
+            [
+              "a6"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a0",
+                "resource": "R0",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 4
+              },
+              {
+                "id": "a1",
+                "resource": "R1",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 1
+              },
+              {
+                "id": "a2",
+                "resource": "R0",
+                "deps": [
+                  "a1"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 1
+              },
+              {
+                "id": "a3",
+                "resource": "R3",
+                "deps": [
+                  "a2",
+                  "a0"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 4
+              },
+              {
+                "id": "a4",
+                "resource": "R2",
+                "deps": [
+                  "a1"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  false
+                ],
+                "forward_time": 7,
+                "compensation_time": 4
+              },
+              {
+                "id": "a5",
+                "resource": "R0",
+                "deps": [
+                  "a3"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 2
+              },
+              {
+                "id": "a6",
+                "resource": "R1",
+                "deps": [
+                  "a1",
+                  "a3"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 3,
+                "compensation_time": 3
+              },
+              {
+                "id": "a7",
+                "resource": "R1",
+                "deps": [
+                  "a4",
+                  "a5",
+                  "a6"
+                ],
+                "forward": [
+                  false,
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 7,
+                "compensation_time": 3
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 70,
+          "forward_batches": [
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a2"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a7"
+            ],
+            [
+              "a7"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a2"
+            ],
+            [
+              "a2"
+            ],
+            [
+              "a0",
+              "a4"
+            ],
+            [
+              "a0",
+              "a1"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "a7"
+          ],
+          "unresolved": [
+            "a4"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a0",
+                "resource": "R0",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 7,
+                "compensation_time": 1
+              },
+              {
+                "id": "a1",
+                "resource": "R1",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 3
+              },
+              {
+                "id": "a2",
+                "resource": "R2",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 3,
+                "compensation_time": 3
+              },
+              {
+                "id": "a3",
+                "resource": "R3",
+                "deps": [
+                  "a0",
+                  "a2"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 2
+              },
+              {
+                "id": "a4",
+                "resource": "R1",
+                "deps": [
+                  "a3"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  false,
+                  false
+                ],
+                "forward_time": 3,
+                "compensation_time": 1
+              },
+              {
+                "id": "a5",
+                "resource": "R2",
+                "deps": [
+                  "a4"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 2,
+                "compensation_time": 2
+              },
+              {
+                "id": "a6",
+                "resource": "R2",
+                "deps": [
+                  "a2",
+                  "a1"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 7,
+                "compensation_time": 5
+              },
+              {
+                "id": "a7",
+                "resource": "R2",
+                "deps": [
+                  "a6"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 3
+              },
+              {
+                "id": "a8",
+                "resource": "R0",
+                "deps": [
+                  "a5",
+                  "a6",
+                  "a7"
+                ],
+                "forward": [
+                  false,
+                  false
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 4
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 56,
+          "forward_batches": [
+            [
+              "a2"
+            ],
+            [
+              "a1",
+              "a2"
+            ],
+            [
+              "a0",
+              "a6"
+            ],
+            [
+              "a3",
+              "a6"
+            ],
+            [
+              "a3",
+              "a7"
+            ],
+            [
+              "a4",
+              "a7"
+            ],
+            [
+              "a5"
+            ],
+            [
+              "a8"
+            ],
+            [
+              "a8"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a5"
+            ],
+            [
+              "a4",
+              "a7"
+            ],
+            [
+              "a4",
+              "a6"
+            ],
+            [
+              "a3",
+              "a6"
+            ],
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a0",
+              "a1",
+              "a2"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "a8"
+          ],
+          "unresolved": [
+            "a4"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "actions": [
+              {
+                "id": "a0",
+                "resource": "R0",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 2
+              },
+              {
+                "id": "a1",
+                "resource": "R1",
+                "deps": [],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 6,
+                "compensation_time": 1
+              },
+              {
+                "id": "a2",
+                "resource": "R2",
+                "deps": [],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 3
+              },
+              {
+                "id": "a3",
+                "resource": "R0",
+                "deps": [
+                  "a0",
+                  "a2"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 5,
+                "compensation_time": 4
+              },
+              {
+                "id": "a4",
+                "resource": "R2",
+                "deps": [
+                  "a1"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 4
+              },
+              {
+                "id": "a5",
+                "resource": "R1",
+                "deps": [
+                  "a4"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 5,
+                "compensation_time": 2
+              },
+              {
+                "id": "a6",
+                "resource": "R0",
+                "deps": [
+                  "a0",
+                  "a4"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  false,
+                  true
+                ],
+                "forward_time": 1,
+                "compensation_time": 2
+              },
+              {
+                "id": "a7",
+                "resource": "R2",
+                "deps": [
+                  "a2"
+                ],
+                "forward": [
+                  false,
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 1
+              },
+              {
+                "id": "a8",
+                "resource": "R3",
+                "deps": [
+                  "a3"
+                ],
+                "forward": [
+                  true
+                ],
+                "compensate": [
+                  true
+                ],
+                "forward_time": 4,
+                "compensation_time": 1
+              }
+            ],
+            "initial_attempts": {}
+          }
+        },
+        "expected": {
+          "minimum_time": 28,
+          "forward_batches": [
+            [
+              "a0",
+              "a1",
+              "a2"
+            ],
+            [
+              "a0",
+              "a1",
+              "a7"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a6"
+            ],
+            [
+              "a5",
+              "a6",
+              "a7",
+              "a8"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 3,
+            "compensation_time": 1
+          },
+          {
+            "id": "b",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          },
+          {
+            "id": "c",
+            "resource": "Y",
+            "deps": [
+              "b"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 3,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 4,
+          "forward_batches": [
+            [
+              "b"
+            ],
+            [
+              "a",
+              "c"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "f",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          },
+          {
+            "id": "g",
+            "resource": "Y",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 9
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 1,
+          "forward_batches": [
+            [
+              "f"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "rolled_back",
+          "failed_actions": [
+            "f"
+          ],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 3
+          },
+          {
+            "id": "b",
+            "resource": "Y",
+            "deps": [
+              "a"
+            ],
+            "forward": [
+              false,
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 12,
+          "forward_batches": [
+            [
+              "a"
+            ],
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a"
+            ],
+            [
+              "a"
+            ]
+          ],
+          "status": "rolled_back",
+          "failed_actions": [
+            "b"
+          ],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          },
+          {
+            "id": "b",
+            "resource": "Y",
+            "deps": [
+              "a"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              false
+            ],
+            "forward_time": 1,
+            "compensation_time": 2
+          },
+          {
+            "id": "f",
+            "resource": "Z",
+            "deps": [
+              "b"
+            ],
+            "forward": [
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 8,
+          "forward_batches": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "f"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "b"
+            ],
+            [
+              "b"
+            ],
+            [
+              "a"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "f"
+          ],
+          "unresolved": [
+            "b"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 3
+          },
+          {
+            "id": "b",
+            "resource": "Y",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 2
+          },
+          {
+            "id": "f",
+            "resource": "Z",
+            "deps": [],
+            "forward": [
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          },
+          {
+            "id": "g",
+            "resource": "W",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {
+          "a": 1,
+          "b": 1
+        }
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 4,
+          "forward_batches": [
+            [
+              "f"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a",
+              "b"
+            ]
+          ],
+          "status": "rolled_back",
+          "failed_actions": [
+            "f"
+          ],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a",
+            "resource": "X",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 3
+          },
+          {
+            "id": "b",
+            "resource": "Y",
+            "deps": [
+              "a"
+            ],
+            "forward": [
+              false,
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {
+          "a": 1
+        }
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 10,
+          "forward_batches": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a"
+            ],
+            [
+              "a"
+            ]
+          ],
+          "status": "rolled_back",
+          "failed_actions": [
+            "b"
+          ],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a0",
+            "resource": "R0",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 4
+          },
+          {
+            "id": "a1",
+            "resource": "R1",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 5,
+            "compensation_time": 3
+          },
+          {
+            "id": "a2",
+            "resource": "R1",
+            "deps": [
+              "a1"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 7,
+            "compensation_time": 2
+          },
+          {
+            "id": "a3",
+            "resource": "R2",
+            "deps": [
+              "a2",
+              "a1"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 5,
+            "compensation_time": 2
+          },
+          {
+            "id": "a4",
+            "resource": "R3",
+            "deps": [
+              "a3"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 2
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 28,
+          "forward_batches": [
+            [
+              "a1"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a4"
+            ],
+            [
+              "a4"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a0",
+            "resource": "R0",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 7,
+            "compensation_time": 4
+          },
+          {
+            "id": "a1",
+            "resource": "R1",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 1
+          },
+          {
+            "id": "a2",
+            "resource": "R2",
+            "deps": [
+              "a1"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 4
+          },
+          {
+            "id": "a3",
+            "resource": "R3",
+            "deps": [
+              "a1",
+              "a2"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              false
+            ],
+            "forward_time": 7,
+            "compensation_time": 5
+          },
+          {
+            "id": "a4",
+            "resource": "R1",
+            "deps": [
+              "a0"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 4
+          },
+          {
+            "id": "a5",
+            "resource": "R3",
+            "deps": [
+              "a2",
+              "a3",
+              "a4"
+            ],
+            "forward": [
+              false,
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 2
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 55,
+          "forward_batches": [
+            [
+              "a1"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a0",
+              "a3"
+            ],
+            [
+              "a4"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a5"
+            ],
+            [
+              "a5"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a3"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a0",
+              "a2"
+            ],
+            [
+              "a1"
+            ],
+            [
+              "a1"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "a5"
+          ],
+          "unresolved": [
+            "a3"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a0",
+            "resource": "R0",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 5
+          },
+          {
+            "id": "a1",
+            "resource": "R1",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 5
+          },
+          {
+            "id": "a2",
+            "resource": "R1",
+            "deps": [
+              "a0"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 2
+          },
+          {
+            "id": "a3",
+            "resource": "R0",
+            "deps": [
+              "a2",
+              "a0"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 3
+          },
+          {
+            "id": "a4",
+            "resource": "R0",
+            "deps": [
+              "a0"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 4
+          },
+          {
+            "id": "a5",
+            "resource": "R0",
+            "deps": [
+              "a3"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 2
+          },
+          {
+            "id": "a6",
+            "resource": "R0",
+            "deps": [
+              "a4",
+              "a1"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 5,
+            "compensation_time": 4
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 24,
+          "forward_batches": [
+            [
+              "a0"
+            ],
+            [
+              "a0"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a1",
+              "a5"
+            ],
+            [
+              "a6"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a0",
+            "resource": "R0",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 4
+          },
+          {
+            "id": "a1",
+            "resource": "R1",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 1
+          },
+          {
+            "id": "a2",
+            "resource": "R0",
+            "deps": [
+              "a1"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 1
+          },
+          {
+            "id": "a3",
+            "resource": "R3",
+            "deps": [
+              "a2",
+              "a0"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 4
+          },
+          {
+            "id": "a4",
+            "resource": "R2",
+            "deps": [
+              "a1"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              false
+            ],
+            "forward_time": 7,
+            "compensation_time": 4
+          },
+          {
+            "id": "a5",
+            "resource": "R0",
+            "deps": [
+              "a3"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 2
+          },
+          {
+            "id": "a6",
+            "resource": "R1",
+            "deps": [
+              "a1",
+              "a3"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 3,
+            "compensation_time": 3
+          },
+          {
+            "id": "a7",
+            "resource": "R1",
+            "deps": [
+              "a4",
+              "a5",
+              "a6"
+            ],
+            "forward": [
+              false,
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 7,
+            "compensation_time": 3
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 70,
+          "forward_batches": [
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a2"
+            ],
+            [
+              "a2",
+              "a4"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a7"
+            ],
+            [
+              "a7"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a5",
+              "a6"
+            ],
+            [
+              "a3"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a2"
+            ],
+            [
+              "a2"
+            ],
+            [
+              "a0",
+              "a4"
+            ],
+            [
+              "a0",
+              "a1"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "a7"
+          ],
+          "unresolved": [
+            "a4"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a0",
+            "resource": "R0",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 7,
+            "compensation_time": 1
+          },
+          {
+            "id": "a1",
+            "resource": "R1",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 3
+          },
+          {
+            "id": "a2",
+            "resource": "R2",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 3,
+            "compensation_time": 3
+          },
+          {
+            "id": "a3",
+            "resource": "R3",
+            "deps": [
+              "a0",
+              "a2"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 2
+          },
+          {
+            "id": "a4",
+            "resource": "R1",
+            "deps": [
+              "a3"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              false,
+              false
+            ],
+            "forward_time": 3,
+            "compensation_time": 1
+          },
+          {
+            "id": "a5",
+            "resource": "R2",
+            "deps": [
+              "a4"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 2,
+            "compensation_time": 2
+          },
+          {
+            "id": "a6",
+            "resource": "R2",
+            "deps": [
+              "a2",
+              "a1"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 7,
+            "compensation_time": 5
+          },
+          {
+            "id": "a7",
+            "resource": "R2",
+            "deps": [
+              "a6"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 3
+          },
+          {
+            "id": "a8",
+            "resource": "R0",
+            "deps": [
+              "a5",
+              "a6",
+              "a7"
+            ],
+            "forward": [
+              false,
+              false
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 4
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 56,
+          "forward_batches": [
+            [
+              "a2"
+            ],
+            [
+              "a1",
+              "a2"
+            ],
+            [
+              "a0",
+              "a6"
+            ],
+            [
+              "a3",
+              "a6"
+            ],
+            [
+              "a3",
+              "a7"
+            ],
+            [
+              "a4",
+              "a7"
+            ],
+            [
+              "a5"
+            ],
+            [
+              "a8"
+            ],
+            [
+              "a8"
+            ]
+          ],
+          "compensation_batches": [
+            [
+              "a5"
+            ],
+            [
+              "a4",
+              "a7"
+            ],
+            [
+              "a4",
+              "a6"
+            ],
+            [
+              "a3",
+              "a6"
+            ],
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a0",
+              "a1",
+              "a2"
+            ]
+          ],
+          "status": "rollback_incomplete",
+          "failed_actions": [
+            "a8"
+          ],
+          "unresolved": [
+            "a4"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "actions": [
+          {
+            "id": "a0",
+            "resource": "R0",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 2
+          },
+          {
+            "id": "a1",
+            "resource": "R1",
+            "deps": [],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 6,
+            "compensation_time": 1
+          },
+          {
+            "id": "a2",
+            "resource": "R2",
+            "deps": [],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 3
+          },
+          {
+            "id": "a3",
+            "resource": "R0",
+            "deps": [
+              "a0",
+              "a2"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 5,
+            "compensation_time": 4
+          },
+          {
+            "id": "a4",
+            "resource": "R2",
+            "deps": [
+              "a1"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 4
+          },
+          {
+            "id": "a5",
+            "resource": "R1",
+            "deps": [
+              "a4"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 5,
+            "compensation_time": 2
+          },
+          {
+            "id": "a6",
+            "resource": "R0",
+            "deps": [
+              "a0",
+              "a4"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              false,
+              true
+            ],
+            "forward_time": 1,
+            "compensation_time": 2
+          },
+          {
+            "id": "a7",
+            "resource": "R2",
+            "deps": [
+              "a2"
+            ],
+            "forward": [
+              false,
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 1
+          },
+          {
+            "id": "a8",
+            "resource": "R3",
+            "deps": [
+              "a3"
+            ],
+            "forward": [
+              true
+            ],
+            "compensate": [
+              true
+            ],
+            "forward_time": 4,
+            "compensation_time": 1
+          }
+        ],
+        "initial_attempts": {}
+      },
+      "results": {
+        "analysis": {
+          "minimum_time": 28,
+          "forward_batches": [
+            [
+              "a0",
+              "a1",
+              "a2"
+            ],
+            [
+              "a0",
+              "a1",
+              "a7"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a3",
+              "a4"
+            ],
+            [
+              "a6"
+            ],
+            [
+              "a5",
+              "a6",
+              "a7",
+              "a8"
+            ]
+          ],
+          "compensation_batches": [],
+          "status": "committed",
+          "failed_actions": [],
+          "unresolved": []
+        }
+      }
+    }
+  ]
+}

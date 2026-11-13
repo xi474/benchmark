@@ -1,0 +1,130 @@
+{
+  "protocol": {
+    "dataset": "medium-core-next-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 6,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261116,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Structure M, five valid trials, 2 or 3 strict successes; inspect failed trials for core-business evidence before admission."
+  },
+  "freeze_sha256": "fd8d7e8e86e45cbacf45274fb3027f12b8eaed147148b44e58ddc3b284dded7b",
+  "admissions": {
+    "F15": {
+      "admit": true,
+      "reason": "五次严格通过 2/5，后两次在相同预算下完整通过。第一份错解把四坐标障碍矩形当成单个点，3×2 普通地面本应计 5 格，却计成 6 格。第二次小坐标九例全部正确，但对实际单位格建立集合和距离表，三个等比例大坐标输入均以 process 失败；缩小坐标后的费用分区完全相同，面积按比例平方恢复，与冻结答案一致。第三次还把免费门当成关闭门，并在关闭门的 null 费用上报类型错误。这些都是正常通行、面积或求解规模的业务问题，未增加非核心边界检查。",
+      "evidence": [
+        "failure-review/three-by-two-F15-r01.json",
+        "failure-review/scaled-coordinates-F15-r02.json",
+        "failure-review/free-gate-F15-r03.json",
+        "failure-review/closed-gate-F15-r03.json"
+      ]
+    },
+    "F18": {
+      "admit": true,
+      "reason": "五次严格通过 3/5，公开检查 5/5。第三、第五次在正常的闭环物流网络上均报奇异线性方程错误。只需两个站点，其中一个自循环且到不了成功收件点，即可复现两份提交的 ValueError；正确结果为该站成功概率零、成功条件下时长为空。任务明确包含永久回流分支。11 个正式输入的同类错误共享这一根因，未当作 11 种独立难点。两次均直接影响核心转换，未触发资源预算或基础设施排除。",
+      "evidence": [
+        "failure-review/closed-class-F18-r03.json",
+        "failure-review/closed-class-F18-r05.json"
+      ]
+    },
+    "F20": {
+      "admit": true,
+      "reason": "五次严格通过 2/5。第一份失败把不同有限进路的收益混入循环平均值，在三状态例子中将真实零收益报成 3/2。第二份虽正确拆分强连通分量，仍把 Karp 公式中的内层下界算成最大值；只有两个状态、循环均值分别为 0、4、5 的普通图便会被报成 6 或 10。另一次触及原 200 万累计观测 token 预算，作为预算失败单列，保留零分。两份正常结束的业务错解足以说明核心问题，预算截止既未排除也未重试。",
+      "evidence": [
+        "failure-review/three-state-F20-r01.json",
+        "failure-review/two-state-F20-r02.json",
+        "failure-review/budget-F20-r03.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 3,
+    "E": 3
+  },
+  "counts_by_task": [
+    {
+      "task": "F15",
+      "title": "分隔平面的最低通行费面积",
+      "family": "dag300new66-polygon-overlay",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    },
+    {
+      "task": "F16",
+      "title": "逐关节全程路线",
+      "family": "dag300new75-grid-arm-ik",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "F17",
+      "title": "带读取头位置的最小代价补丁",
+      "family": "dag300new77-binary-delta",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "F18",
+      "title": "带回流与停滞分支的交付时间",
+      "family": "capstone-original-conditional-delivery",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    },
+    {
+      "task": "F19",
+      "title": "歧义指令的最优解析数",
+      "family": "capstone-original-ambiguous-command",
+      "valid": 5,
+      "strict": 5,
+      "empirical": "E"
+    },
+    {
+      "task": "F20",
+      "title": "生产循环的可持续单位产出",
+      "family": "capstone-original-sustainable-yield",
+      "valid": 5,
+      "strict": 2,
+      "empirical": "M"
+    }
+  ]
+}

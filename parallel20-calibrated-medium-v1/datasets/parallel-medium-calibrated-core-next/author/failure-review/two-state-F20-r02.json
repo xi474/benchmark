@@ -1,0 +1,56 @@
+{
+  "input": {
+    "stations": [
+      "A",
+      "B"
+    ],
+    "transitions": [
+      {
+        "from": "A",
+        "to": "A",
+        "gain": 0
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "gain": 10
+      },
+      {
+        "from": "B",
+        "to": "A",
+        "gain": 0
+      },
+      {
+        "from": "B",
+        "to": "B",
+        "gain": 4
+      }
+    ]
+  },
+  "expected": {
+    "sustainable": {
+      "A": [
+        5,
+        1
+      ],
+      "B": [
+        5,
+        1
+      ]
+    }
+  },
+  "actual": {
+    "sustainable": {
+      "A": [
+        6,
+        1
+      ],
+      "B": [
+        10,
+        1
+      ]
+    }
+  },
+  "formal_score_changed": false,
+  "reason": "The only simple cycle means are 0, 4 and (10+0)/2=5. Even inside one SCC, maximizing over the shorter path lengths gives an unattainable value. The archived code uses the same incorrect aggregation after its correct SCC decomposition."
+}

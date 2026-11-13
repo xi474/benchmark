@@ -1,0 +1,71 @@
+{
+  "protocol": {
+    "dataset": "medium-native-corridors-v1",
+    "agent": "terminus-2",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "tasks": 1,
+    "repeats": 5,
+    "workers": 2,
+    "agent_timeout_seconds": 3600,
+    "observed_token_stop": 2000000,
+    "retries": 0,
+    "scoring_revision": "delivery-bonus-50-v1",
+    "max_reward": 2,
+    "difficulty_thresholds": {
+      "E": [
+        4,
+        5
+      ],
+      "M": [
+        2,
+        3
+      ],
+      "H": [
+        0,
+        1
+      ]
+    },
+    "old_attempts_reused": false,
+    "order_seed": 20261208,
+    "agent_network_mode": "no-network",
+    "dag_available_to_agent": false,
+    "preset_execution_order": false,
+    "classification_metric": "strict_pass_count_of_five_valid_attempts",
+    "infrastructure_policy": "retain_and_review; never retry a scored algorithm or budget failure",
+    "scope": "conditional_empirical_difficulty_with_structure_audit_separate",
+    "cutoff_policy": "terminal cutoff; grade preserved artifacts once with frozen verifier; do not continue solving",
+    "valid_success": "integrity and all frozen A/B/D/P checks; no extra parallelism criterion",
+    "train_test_grouping": "All views with the same project-original DAG300 source family must share a split.",
+    "network_enforcement": "Docker Compose network_mode:none on agent and verifier",
+    "harbor_dispatcher_network_policy": "default public; overridden by task-authored Docker network namespace none",
+    "agent_memory_mb": 3072,
+    "agent_cpus": 2,
+    "admission": "Five valid trials, 2 or 3 strict successes, and core-business failure review; retain A/S/C/I structural and empirical labels separately.",
+    "verifier_revision": "package-import-compatible-v1.1"
+  },
+  "freeze_sha256": "bee0f300c2b779a34da1b3ace29f25a9b0a3724165949ca6dbcdd9304ff86d32",
+  "admissions": {
+    "V163": {
+      "admit": true,
+      "reason": "五次有效普通模式试次严格3/5、公开5/5、核心52/60。r4把原生和改编合同均明确的无向廊道建成单向弧，两节点单边正值反例已在只读提交中复现；r3对子集与每季所有割做乘积枚举，正式第9/10/12例超时。未重跑模型超时，相同2CPU/3072MiB下的可信标准库分支定界参考分别约0.0001/0.058/0.085秒完成，测前联合MILP和128小图穷举已独立核验目标。两次失败均有核心业务或算法性能依据，不是导入、任意平局或异常边界。按163号唯一题族接纳，结构H与实测M并列。",
+      "evidence": [
+        "failure-review/business-tiny-witness.json",
+        "failure-review/business-reference-performance.json"
+      ]
+    }
+  },
+  "all_candidate_counts": {
+    "M": 1
+  },
+  "counts_by_task": [
+    {
+      "task": "V163",
+      "title": "共享建设的跨季节生态廊道",
+      "family": "dag300new163-ecological-corridor-planning",
+      "valid": 5,
+      "strict": 3,
+      "empirical": "M"
+    }
+  ]
+}

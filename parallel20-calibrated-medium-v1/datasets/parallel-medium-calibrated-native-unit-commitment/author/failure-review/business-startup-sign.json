@@ -1,0 +1,238 @@
+{
+  "input": {
+    "periods": 3,
+    "assets": [
+      {
+        "id": "Q",
+        "parent": null,
+        "repair_at": 0,
+        "priority": 3,
+        "battery_initial": 0,
+        "battery_capacity": 0,
+        "battery_discharge_limit": 0,
+        "demand": [
+          1,
+          0,
+          1
+        ],
+        "solar": [
+          0,
+          0,
+          0
+        ],
+        "startup_cost": 2,
+        "min_up": 1,
+        "min_down": 1
+      }
+    ],
+    "grid_capacity": [
+      1,
+      0,
+      1
+    ],
+    "grid_ports": [
+      1,
+      1,
+      1
+    ]
+  },
+  "expected": {
+    "score": {
+      "weighted_served": 6,
+      "total_served": 2,
+      "startup_cost": 2
+    },
+    "periods": [
+      {
+        "t": 0,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": true,
+            "started": true,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 0
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      },
+      {
+        "t": 1,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": true,
+            "started": false,
+            "demand": 0,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 0,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 0,
+            "unserved": 0
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      },
+      {
+        "t": 2,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": true,
+            "started": false,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 0
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      }
+    ],
+    "summary": {
+      "demand": 2,
+      "served": 2,
+      "unserved": 0,
+      "solar_used": 0,
+      "solar_curtailed": 0,
+      "grid_used": 2,
+      "weighted_served": 6,
+      "battery_initial": 0,
+      "battery_final": 0,
+      "startup_cost": 2
+    }
+  },
+  "actual": {
+    "score": {
+      "weighted_served": 6,
+      "total_served": 2,
+      "startup_cost": 4
+    },
+    "periods": [
+      {
+        "t": 0,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": true,
+            "started": true,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 0
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      },
+      {
+        "t": 1,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": false,
+            "started": false,
+            "demand": 0,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 0,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 0,
+            "unserved": 0
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 0
+      },
+      {
+        "t": 2,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": true,
+            "started": true,
+            "demand": 1,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 0
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      }
+    ],
+    "summary": {
+      "demand": 2,
+      "served": 2,
+      "unserved": 0,
+      "solar_used": 0,
+      "solar_curtailed": 0,
+      "grid_used": 2,
+      "weighted_served": 6,
+      "battery_initial": 0,
+      "battery_final": 0,
+      "startup_cost": 4
+    }
+  },
+  "repeat": 3,
+  "source_cause": "Adds positive startup_delta to score[2] then maximizes the whole tuple. It therefore maximizes startup cost after service ties, choosing ON/OFF/ON cost4 rather than keeping ON over the idle period cost2. This is the new persistent-port/startup objective, not formatting or summary-only mismatch.",
+  "source_sha256": {
+    "check.py": "c68864febcdf0b0e1b2486b8bab7e303e670a840b50192ac5cfd30ea4de0d852",
+    "comparison.py": "9091627bacd993e7b2ac729b8eb71ab7fd6c07ea41bfb2d6f9f200953134bfcd",
+    "runtime.py": "20a745a5f772133f72796373ac173979dc09803755b27d180bd893a559e6136c",
+    "run_all.py": "3f27996f74ed1593688eb17fe04564b1ac31e347d311d507b4901a5e867ecc8d",
+    "packages/analysis/engine.py": "91ff7dcb14fbb2eacc9b253d7c4fc359466dd994401c1e2c92428907e6d736d9"
+  },
+  "candidate_edited": false,
+  "pycache_excluded": true,
+  "formal_scores_changed": false,
+  "new_diagnostic_case_only": true
+}

@@ -1,0 +1,39 @@
+{
+  "formal_scores_changed": false,
+  "candidate_timeouts_retried": false,
+  "reference_only": true,
+  "cpu_limit": 2,
+  "memory_mb": 3072,
+  "timed_references": [
+    {
+      "case": 11,
+      "independent": false,
+      "seconds": 0.027284347997920122,
+      "optimal_allocations": 3628800
+    },
+    {
+      "case": 11,
+      "independent": true,
+      "seconds": 0.16292943299777107,
+      "optimal_allocations": 3628800
+    },
+    {
+      "case": 12,
+      "independent": false,
+      "seconds": 0.1832678520004265,
+      "optimal_allocations": 479001600
+    },
+    {
+      "case": 12,
+      "independent": true,
+      "seconds": 1.3483872099968721,
+      "optimal_allocations": 479001600
+    }
+  ],
+  "closed_form": {
+    "case11": "10! = 3628800",
+    "case12": "12! = 479001600",
+    "case12_per_bid": "11! = 39916800"
+  },
+  "interpretation": "r3 stores all feasible bid subsets before selecting optima; r1 explicitly enumerates optimal paths. Formal r3 cases11/12 and r1 case12 timed out. Exact state aggregation avoids enumerating millions of allocations."
+}

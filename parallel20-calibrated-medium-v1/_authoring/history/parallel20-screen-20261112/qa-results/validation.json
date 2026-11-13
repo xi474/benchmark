@@ -1,0 +1,277 @@
+{
+  "status": "passed",
+  "task_count": 20,
+  "review_sha256": "4ff7bb053f373d5d7c9b5135fc3f290227a529b1cee939a0128e8545c2fb3b90",
+  "results": [
+    {
+      "task": "Q01",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for event in data['events']: event['epoch'] = 0",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/3",
+        "A/analysis/6"
+      ],
+      "negative_reward": 0.416667,
+      "registry_sha256": "ad4f4de1ae13f88f2188c81dd09c23787108ecc771300f169db30ccf01e9021d",
+      "clean_build_rejected": true,
+      "tampering_reward": 0
+    },
+    {
+      "task": "Q02",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['relocations'] = []",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/3",
+        "A/analysis/4",
+        "A/analysis/6",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.166667,
+      "registry_sha256": "406f42ba83bd7b70f1d222ecaa88ee0da28be3992de84e280eecafc30ea9fbf3"
+    },
+    {
+      "task": "Q03",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for clip in data['clips']: clip['audio_start'] = 0",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/4",
+        "A/analysis/6",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.25,
+      "registry_sha256": "d1fb141ed066c8ce6d9a0d8b8c571c7854bff3a3deb3d793bf5930c7ad8694fd"
+    },
+    {
+      "task": "Q04",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['kerning'] = []",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/3",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.333333,
+      "registry_sha256": "284dfa7c0dba0bffc3c4609c583a3245fd86a30924268fa7c5c50bd69b53d88c"
+    },
+    {
+      "task": "Q05",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for variable in data['variables']: variable['plus'] = 0",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/4",
+        "A/analysis/5",
+        "A/analysis/6",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.166667,
+      "registry_sha256": "3958b629b77fabd6f5efe9117ba70fbedeaf4bf2e8000c7054d7e1671914784d"
+    },
+    {
+      "task": "Q06",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['grid'] = [list(reversed(row)) for row in data['grid']]",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/3",
+        "A/analysis/4",
+        "A/analysis/5",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.25,
+      "registry_sha256": "a858f4d4521675c212b601121e0ce735825effabe34d69ce8ec00901d67d4905"
+    },
+    {
+      "task": "Q07",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['accounts'] = {account: 0 for account in data['accounts']}",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/2",
+        "A/analysis/3",
+        "A/analysis/4",
+        "A/analysis/6",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.083333,
+      "registry_sha256": "8d00aec79df875ee05e7cdb5e1d87c66d5d57e8d7a0753e924f3402dbd46f0b6"
+    },
+    {
+      "task": "Q08",
+      "positive": 13,
+      "total": 13,
+      "core_negative": "for spectrum in data['spectra']: spectrum['peaks'] = list({p['mass']:p for p in spectrum['peaks']}.values())",
+      "missed_core_cases": [
+        "A/analysis/9"
+      ],
+      "negative_reward": 0.769231,
+      "registry_sha256": "ee3dd47661793b5ded3dab8d484bb52f4a2252e4f48826385a32c8d5796eb2b2"
+    },
+    {
+      "task": "Q09",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['embargoes'] = []",
+      "missed_core_cases": [
+        "A/analysis/4",
+        "A/analysis/7"
+      ],
+      "negative_reward": 0.666667,
+      "registry_sha256": "f37b5d859a2f9c912ed70fb6d9421b8546ded72507905613eed2136f1af56b12"
+    },
+    {
+      "task": "Q10",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['events'] = [e for e in data['events'] if e['type'] != 'transfer']",
+      "missed_core_cases": [
+        "A/analysis/5"
+      ],
+      "negative_reward": 0.75,
+      "registry_sha256": "cd9ce90083dd89796392d1ee8b097e92d4224b80ac00348a74655db67797a0f4"
+    },
+    {
+      "task": "Q11",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for vendor in data['vendors']: vendor['capacity'] = 1000000",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/4",
+        "A/analysis/7"
+      ],
+      "negative_reward": 0.416667,
+      "registry_sha256": "7b03e57467d2181f75b6f664bb3943e4b80555c1106a2ba9f804fa47bb25f761"
+    },
+    {
+      "task": "Q12",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['retractions'] = []",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/5",
+        "A/analysis/7"
+      ],
+      "negative_reward": 0.416667,
+      "registry_sha256": "d4e05aeec88edabcd1c958593f2f915270cfa2718d3a2dfb94d2c449c55f060d"
+    },
+    {
+      "task": "Q13",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['acknowledgements'] = []",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/3"
+      ],
+      "negative_reward": 0.5,
+      "registry_sha256": "3f656a602d14bdc6d5e527c01627692145fd5104b957e824385d71e93ebf7d7c"
+    },
+    {
+      "task": "Q14",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for job in data['jobs']: job['waits_for'] = [r for r in job['waits_for'] if r not in job['holds']]",
+      "missed_core_cases": [
+        "A/analysis/2",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.5,
+      "registry_sha256": "d3717e72894e6ebcfbf7fb31e5f31d9f1d8e09efdcf5c498db016df9d4f6a068"
+    },
+    {
+      "task": "Q15",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['causal'] = []",
+      "missed_core_cases": [
+        "A/analysis/2",
+        "A/analysis/3",
+        "A/analysis/6"
+      ],
+      "negative_reward": 0.5,
+      "registry_sha256": "e392f6b9fb1580030059be80f21ee27dad22c66326a71d206969b27736eea7fa"
+    },
+    {
+      "task": "Q16",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for sector in data['sectors']: sector['closures'] = []",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/5"
+      ],
+      "negative_reward": 0.5,
+      "registry_sha256": "6cf46ab824821daf60c7fdaa28a01da7d8611fa46bbdcb99e7165b603d4e4526"
+    },
+    {
+      "task": "Q17",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['damage'] = []",
+      "missed_core_cases": [
+        "A/analysis/5",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.666667,
+      "registry_sha256": "bd727578eed15c357eb3fb877b538a486a1a127565e365ed4405cb754ef84a8b"
+    },
+    {
+      "task": "Q18",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['min_area'] = 1",
+      "missed_core_cases": [
+        "A/analysis/6",
+        "A/analysis/7",
+        "A/analysis/8"
+      ],
+      "negative_reward": 0.583333,
+      "registry_sha256": "0e753626bb13184dfb663f34ceb5488828b8874e43737d2bd24e860be7588f40"
+    },
+    {
+      "task": "Q19",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "data['outlier_threshold'] = 1000000",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/2"
+      ],
+      "negative_reward": 0.5,
+      "registry_sha256": "e682bd6219b6f5694f09a6a191103fb81a992fbb843d6df46ab1cabcba9a86f3"
+    },
+    {
+      "task": "Q20",
+      "positive": 12,
+      "total": 12,
+      "core_negative": "for observation in data['samples']: observation['weight'] = 1",
+      "missed_core_cases": [
+        "A/analysis/1",
+        "A/analysis/3",
+        "A/analysis/5",
+        "A/analysis/6",
+        "A/analysis/7"
+      ],
+      "negative_reward": 0.25,
+      "registry_sha256": "b21d6953f6dcb6fd23d6243aaddc90f4b23af0a280e219a761dfdb32730e38f2"
+    }
+  ]
+}

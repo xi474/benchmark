@@ -1,0 +1,90 @@
+{
+  "input": {
+    "periods": 1,
+    "assets": [
+      {
+        "id": "Q",
+        "parent": null,
+        "repair_at": 0,
+        "priority": 3,
+        "battery_initial": 0,
+        "battery_capacity": 0,
+        "battery_discharge_limit": 0,
+        "demand": [
+          2
+        ],
+        "solar": [
+          0
+        ],
+        "startup_cost": 1,
+        "min_up": 1,
+        "min_down": 1
+      }
+    ],
+    "grid_capacity": [
+      1
+    ],
+    "grid_ports": [
+      1
+    ]
+  },
+  "expected": {
+    "score": {
+      "weighted_served": 3,
+      "total_served": 1,
+      "startup_cost": 1
+    },
+    "periods": [
+      {
+        "t": 0,
+        "assets": [
+          {
+            "id": "Q",
+            "connected": true,
+            "port_on": true,
+            "started": true,
+            "demand": 2,
+            "solar": 0,
+            "battery_before": 0,
+            "solar_used": 0,
+            "solar_charge": 0,
+            "solar_curtailed": 0,
+            "grid_used": 1,
+            "battery_discharge": 0,
+            "battery_final": 0,
+            "served": 1,
+            "unserved": 1
+          }
+        ],
+        "grid_unused": 0,
+        "grid_active": 1
+      }
+    ],
+    "summary": {
+      "demand": 2,
+      "served": 1,
+      "unserved": 1,
+      "solar_used": 0,
+      "solar_curtailed": 0,
+      "grid_used": 1,
+      "weighted_served": 3,
+      "battery_initial": 0,
+      "battery_final": 0,
+      "startup_cost": 1
+    }
+  },
+  "repeat": 2,
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/app/packages/analysis/engine.py\", line 280, in transform\n    weighted_served, total_served, startup, unused_grid, _, _ = simulate(combo, True)\n                                                                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/packages/analysis/engine.py\", line 160, in simulate\n    period_weighted = best_val[0]\n                      ~~~~~~~~^^^\nTypeError: 'NoneType' object is not subscriptable\n",
+  "source_cause": "The per-period energy DP chooses grid_use=min(residual-after-battery,full_residual) instead of enumerating partial grid delivery0..available. For the valid ON schedule with demand2/grid1/no battery it creates no DP path, then indexes best_val=None. A legal partial-service plan exists and is globally optimal.",
+  "source_sha256": {
+    "check.py": "c68864febcdf0b0e1b2486b8bab7e303e670a840b50192ac5cfd30ea4de0d852",
+    "comparison.py": "9091627bacd993e7b2ac729b8eb71ab7fd6c07ea41bfb2d6f9f200953134bfcd",
+    "runtime.py": "20a745a5f772133f72796373ac173979dc09803755b27d180bd893a559e6136c",
+    "run_all.py": "3f27996f74ed1593688eb17fe04564b1ac31e347d311d507b4901a5e867ecc8d",
+    "packages/analysis/engine.py": "5e1958f097da570bf477b0fb90a957c31802a25b766fa51cc61151d0b88afca0"
+  },
+  "candidate_edited": false,
+  "pycache_excluded": true,
+  "formal_scores_changed": false,
+  "new_diagnostic_case_only": true
+}

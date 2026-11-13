@@ -1,0 +1,106 @@
+{
+  "repeat": 2,
+  "input": {
+    "config": {
+      "roots": [
+        {
+          "package": "A",
+          "min": null,
+          "max": null
+        }
+      ],
+      "features": [],
+      "prior": {}
+    },
+    "catalog": [
+      {
+        "package": "A",
+        "versions": [
+          {
+            "version": [
+              1,
+              0,
+              0
+            ],
+            "deps": [
+              {
+                "package": "B",
+                "min": null,
+                "max": null,
+                "kind": "peer",
+                "feature": null
+              }
+            ]
+          },
+          {
+            "version": [
+              2,
+              0,
+              0
+            ],
+            "deps": []
+          }
+        ]
+      },
+      {
+        "package": "B",
+        "versions": [
+          {
+            "version": [
+              1,
+              0,
+              0
+            ],
+            "deps": []
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "status": "ready",
+    "selected": [
+      {
+        "package": "A",
+        "version": [
+          2,
+          0,
+          0
+        ]
+      }
+    ],
+    "active_dependencies": [],
+    "prior_deltas": [
+      {
+        "package": "A",
+        "prior": null,
+        "selected": [
+          2,
+          0,
+          0
+        ]
+      }
+    ],
+    "score": {
+      "changes": 1,
+      "freshness": 200
+    },
+    "feasible_count": 1,
+    "minimal_root_conflict": []
+  },
+  "actual": {
+    "status": "blocked",
+    "selected": [],
+    "active_dependencies": [],
+    "prior_deltas": [],
+    "score": null,
+    "feasible_count": 0,
+    "minimal_root_conflict": [
+      "A"
+    ]
+  },
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "new_diagnostic_case_only": true,
+  "reason": "Backtracking pops the previous version peer interval but retains its empty target key; later A2 with no peer is incorrectly required to include B and is rejected. This is a genuine constraint-rollback error."
+}

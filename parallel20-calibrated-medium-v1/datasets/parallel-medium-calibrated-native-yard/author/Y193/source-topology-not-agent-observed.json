@@ -1,0 +1,37 @@
+{
+  "topology": "layered-pipeline",
+  "agent_visible": false,
+  "semantic_work_products": 5,
+  "nodes": [
+    "target-location",
+    "crane-reach",
+    "capacity-hazard",
+    "rehandle-plan",
+    "appointment-budget",
+    "replay-audit"
+  ],
+  "edges": [
+    [
+      "target-location",
+      "rehandle-plan"
+    ],
+    [
+      "crane-reach",
+      "rehandle-plan"
+    ],
+    [
+      "capacity-hazard",
+      "rehandle-plan"
+    ],
+    [
+      "rehandle-plan",
+      "appointment-budget"
+    ],
+    [
+      "appointment-budget",
+      "replay-audit"
+    ]
+  ],
+  "cross_branch_dependency": "Blocker destinations change following legal choices, and request plans compete for a shared per-tick move budget.",
+  "note": "Natural decomposition only; Agent runtime and parallelism unmeasured."
+}

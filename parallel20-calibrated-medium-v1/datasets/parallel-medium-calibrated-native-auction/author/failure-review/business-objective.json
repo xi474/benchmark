@@ -1,0 +1,149 @@
+{
+  "task": "U109",
+  "attempt": "auction1-U109-r01",
+  "request": {
+    "items": [
+      {
+        "id": "A",
+        "reserve": 1
+      },
+      {
+        "id": "B",
+        "reserve": 1
+      }
+    ],
+    "bidders": [
+      {
+        "id": "P",
+        "budget": 3
+      },
+      {
+        "id": "Q",
+        "budget": 3
+      },
+      {
+        "id": "R",
+        "budget": 3
+      }
+    ],
+    "bids": [
+      {
+        "id": "PAB",
+        "bidder": "P",
+        "items": [
+          "A",
+          "B"
+        ],
+        "value": 2
+      },
+      {
+        "id": "QA",
+        "bidder": "Q",
+        "items": [
+          "A"
+        ],
+        "value": 1
+      },
+      {
+        "id": "RB",
+        "bidder": "R",
+        "items": [
+          "B"
+        ],
+        "value": 1
+      }
+    ]
+  },
+  "expected": {
+    "score": {
+      "welfare": 2,
+      "allocated_items": 2,
+      "winning_bids": 1
+    },
+    "optimal_allocations": 1,
+    "selected_in": {
+      "PAB": 1,
+      "QA": 0,
+      "RB": 0
+    },
+    "ineligible_bids": [],
+    "counterfactual_welfare": {
+      "P": 2,
+      "Q": 2,
+      "R": 2
+    },
+    "bidders": {
+      "P": {
+        "winning_in": 1,
+        "payment_range": [
+          2,
+          2
+        ]
+      },
+      "Q": {
+        "winning_in": 0,
+        "payment_range": [
+          0,
+          0
+        ]
+      },
+      "R": {
+        "winning_in": 0,
+        "payment_range": [
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "reason": "同福利同覆盖应最少中标报价；提交把第三目标写成最大化，因此将一份物品包替换为两名买家的两条报价。",
+  "actual_probe": {
+    "ok": true,
+    "value": {
+      "score": {
+        "welfare": 2,
+        "allocated_items": 2,
+        "winning_bids": 2
+      },
+      "optimal_allocations": 1,
+      "selected_in": {
+        "PAB": 0,
+        "QA": 1,
+        "RB": 1
+      },
+      "ineligible_bids": [],
+      "counterfactual_welfare": {
+        "P": 2,
+        "Q": 2,
+        "R": 2
+      },
+      "bidders": {
+        "P": {
+          "winning_in": 0,
+          "payment_range": [
+            0,
+            0
+          ]
+        },
+        "Q": {
+          "winning_in": 1,
+          "payment_range": [
+            1,
+            1
+          ]
+        },
+        "R": {
+          "winning_in": 1,
+          "payment_range": [
+            1,
+            1
+          ]
+        }
+      }
+    },
+    "input_unchanged": true
+  },
+  "formal_scores_changed": false,
+  "new_diagnostic_case_only": true,
+  "candidate_edited": false
+}

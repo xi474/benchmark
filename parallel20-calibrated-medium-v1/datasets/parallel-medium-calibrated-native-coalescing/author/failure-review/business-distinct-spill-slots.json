@@ -1,0 +1,180 @@
+{
+  "repeat": 3,
+  "input": {
+    "config": {
+      "registers": [
+        "R0"
+      ],
+      "call_clobbered": [
+        "R0"
+      ],
+      "precolors": {}
+    },
+    "cfg": {
+      "entry": "P",
+      "parameters": [
+        "a"
+      ],
+      "blocks": [
+        {
+          "id": "P",
+          "successors": [
+            "S"
+          ],
+          "phis": [],
+          "instructions": [
+            {
+              "id": "cp",
+              "uses": [],
+              "def": null,
+              "call": true
+            }
+          ]
+        },
+        {
+          "id": "S",
+          "successors": [],
+          "phis": [
+            {
+              "def": "x",
+              "inputs": {
+                "P": "a"
+              }
+            }
+          ],
+          "instructions": [
+            {
+              "id": "cs",
+              "uses": [],
+              "def": null,
+              "call": true
+            },
+            {
+              "id": "use",
+              "uses": [
+                "x"
+              ],
+              "def": null,
+              "call": false
+            }
+          ]
+        }
+      ]
+    },
+    "spill_cost": {
+      "a": 1,
+      "x": 1
+    },
+    "edge_frequency": [
+      {
+        "pred": "P",
+        "succ": "S",
+        "frequency": 3
+      }
+    ]
+  },
+  "expected": {
+    "status": "ALLOCATED",
+    "reason": null,
+    "live_in": {
+      "P": [
+        "a"
+      ],
+      "S": []
+    },
+    "live_out": {
+      "P": [
+        "a"
+      ],
+      "S": []
+    },
+    "interference": [],
+    "call_forbidden": {
+      "a": [
+        "R0"
+      ],
+      "x": [
+        "R0"
+      ]
+    },
+    "min_spill": 2,
+    "copy_cost": 3,
+    "locations": {
+      "a": "spill:a",
+      "x": "spill:x"
+    },
+    "spills": [
+      "a",
+      "x"
+    ],
+    "edge_moves": [
+      {
+        "pred": "P",
+        "succ": "S",
+        "moves": [
+          {
+            "definition": "x",
+            "source": "a",
+            "from_location": "spill:a",
+            "to_location": "spill:x"
+          }
+        ],
+        "cycle": false
+      }
+    ]
+  },
+  "actual": {
+    "status": "ALLOCATED",
+    "reason": null,
+    "live_in": {
+      "P": [
+        "a"
+      ],
+      "S": []
+    },
+    "live_out": {
+      "P": [
+        "a"
+      ],
+      "S": []
+    },
+    "interference": [],
+    "call_forbidden": {
+      "a": [
+        "R0"
+      ],
+      "x": [
+        "R0"
+      ]
+    },
+    "min_spill": 2,
+    "copy_cost": 0,
+    "locations": {
+      "a": "spill:a",
+      "x": "spill:x"
+    },
+    "spills": [
+      "a",
+      "x"
+    ],
+    "edge_moves": [
+      {
+        "pred": "P",
+        "succ": "S",
+        "moves": [
+          {
+            "definition": "x",
+            "source": "a",
+            "from_location": "spill:a",
+            "to_location": "spill:x"
+          }
+        ],
+        "cycle": false
+      }
+    ]
+  },
+  "formal_scores_changed": false,
+  "candidate_edited": false,
+  "new_diagnostic_case_only": true,
+  "reason": "Two values live across calls must both spill, but spill:a and spill:x are different logical locations. The submission collapses all spills to internal -1 when optimizing and reports copy0 instead of weighted move3, even though its own move certificate includes that copy."
+}

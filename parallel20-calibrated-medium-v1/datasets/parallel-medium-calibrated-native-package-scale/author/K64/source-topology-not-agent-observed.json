@@ -1,0 +1,17 @@
+{
+  "task_id":"dag300-new63-package-constraint-solver",
+  "version":"0.1.1",
+  "classification":"irregular_constraint_search",
+  "agent_visible":false,
+  "semantic_nodes":[
+    {"id":"S","artifact":"strict catalog and request schema","module":"schema.py"},
+    {"id":"R","artifact":"half-open version interval semantics","module":"constraints.py"},
+    {"id":"F","artifact":"feature-gated required closure and peer consistency","module":"constraints.py"},
+    {"id":"O","artifact":"complete assignment count and optimal lockfile","module":"search.py"},
+    {"id":"U","artifact":"minimal root conflict for blocked requests","module":"conflict.py"},
+    {"id":"A","artifact":"canonical dependency and prior-delta audit","module":"engine.py"}
+  ],
+  "edges":[["S","R"],["S","F"],["R","F"],["F","O"],["F","U"],["O","A"],["U","A"],["R","A"]],
+  "natural_parallelism":"Schema, interval/feature semantics, global optimization, conflict explanation and lockfile audit are different implementation/review packages sharing a public contract. Feasibility checks for candidate assignments may be batched, but package/version counts are data instances, not claimed Agent work packages. The prompt does not force an Agent DAG.",
+  "caveat":"This is an internal semantic dependency sketch, not observed autonomous multi-Agent parallel work."
+}
