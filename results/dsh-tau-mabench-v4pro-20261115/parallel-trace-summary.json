@@ -1,0 +1,516 @@
+{
+  "cells": [
+    {
+      "trial_id": "tau3-R002-single-r3",
+      "condition": "single",
+      "task_index": 2,
+      "tool_counts": {
+        "parent:retail__get_product_details": 2,
+        "parent:retail__list_all_product_types": 1,
+        "parent:retail__find_user_id_by_name_zip": 1,
+        "parent:retail__get_user_details": 1,
+        "parent:retail__get_order_details": 5,
+        "parent:retail__return_delivered_order_items": 1
+      },
+      "native_tools": [
+        {
+          "role": "parent",
+          "tool": "retail__get_product_details",
+          "start_sec": 12.751713991165161,
+          "end_sec": 13.008713960647583,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__list_all_product_types",
+          "start_sec": 15.277714014053345,
+          "end_sec": 15.441713809967041,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_product_details",
+          "start_sec": 17.885713815689087,
+          "end_sec": 18.079713821411133,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__find_user_id_by_name_zip",
+          "start_sec": 36.58971381187439,
+          "end_sec": 36.789713859558105,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_user_details",
+          "start_sec": 42.19071388244629,
+          "end_sec": 42.414713859558105,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 48.63871383666992,
+          "end_sec": 48.81471395492554,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 48.81471395492554,
+          "end_sec": 49.07671403884888,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 49.07771396636963,
+          "end_sec": 49.24471402168274,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 49.24471402168274,
+          "end_sec": 49.41171383857727,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 49.4127140045166,
+          "end_sec": 49.57771396636963,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__return_delivered_order_items",
+          "start_sec": 66.872713804245,
+          "end_sec": 67.09171390533447,
+          "native_error": false
+        }
+      ],
+      "actual_http_role_overlaps": [],
+      "parent_receipts": 0,
+      "parent_tail_after_last_child_message_sec": null,
+      "exact_cross_role_lookup_groups": [],
+      "cross_role_repeat_calls": 0,
+      "actual_http_note": "Dispatch-to-settlement wall overlap includes provider/network; not pure model compute. Tool call span overlap is separate."
+    },
+    {
+      "trial_id": "tau3-R000-single-r3",
+      "condition": "single",
+      "task_index": 0,
+      "tool_counts": {
+        "parent:retail__find_user_id_by_name_zip": 1,
+        "parent:retail__get_user_details": 1,
+        "parent:retail__get_order_details": 1,
+        "parent:retail__get_product_details": 2,
+        "parent:retail__exchange_delivered_order_items": 1
+      },
+      "native_tools": [
+        {
+          "role": "parent",
+          "tool": "retail__find_user_id_by_name_zip",
+          "start_sec": 16.84223198890686,
+          "end_sec": 17.147232055664062,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_user_details",
+          "start_sec": 20.64623212814331,
+          "end_sec": 20.808232069015503,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 30.88423204421997,
+          "end_sec": 31.05023193359375,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_product_details",
+          "start_sec": 42.01923203468323,
+          "end_sec": 42.232232093811035,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_product_details",
+          "start_sec": 42.232232093811035,
+          "end_sec": 42.4572319984436,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__exchange_delivered_order_items",
+          "start_sec": 68.6962320804596,
+          "end_sec": 68.88223195075989,
+          "native_error": false
+        }
+      ],
+      "actual_http_role_overlaps": [],
+      "parent_receipts": 0,
+      "parent_tail_after_last_child_message_sec": null,
+      "exact_cross_role_lookup_groups": [],
+      "cross_role_repeat_calls": 0,
+      "actual_http_note": "Dispatch-to-settlement wall overlap includes provider/network; not pure model compute. Tool call span overlap is separate."
+    },
+    {
+      "trial_id": "tau3-R002-multi-r3",
+      "condition": "multi",
+      "task_index": 2,
+      "tool_counts": {
+        "parent:respond": 1,
+        "parent:retail__find_user_id_by_name_zip": 1,
+        "parent:retail__get_user_details": 1,
+        "parent:spawn_teammate": 2,
+        "parent:wait_agent": 2,
+        "parent:retail__get_order_details": 5,
+        "parent:retail__return_delivered_order_items": 1,
+        "child1:retail__list_all_product_types": 1,
+        "child1:retail__get_product_details": 1,
+        "child1:retail__think": 1,
+        "child1:send_message": 1,
+        "child2:retail__list_all_product_types": 1,
+        "child2:retail__get_product_details": 1,
+        "child2:send_message": 1
+      },
+      "native_tools": [
+        {
+          "role": "parent",
+          "tool": "respond",
+          "start_sec": 12.019178867340088,
+          "end_sec": 13.714179039001465,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__find_user_id_by_name_zip",
+          "start_sec": 16.87817883491516,
+          "end_sec": 17.150178909301758,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_user_details",
+          "start_sec": 20.486178874969482,
+          "end_sec": 20.65117883682251,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "spawn_teammate",
+          "start_sec": 29.803179025650024,
+          "end_sec": 29.856178998947144,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "spawn_teammate",
+          "start_sec": 29.856178998947144,
+          "end_sec": 29.903178930282593,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "wait_agent",
+          "start_sec": 35.18117904663086,
+          "end_sec": 43.600178956985474,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "wait_agent",
+          "start_sec": 52.154178857803345,
+          "end_sec": 57.5151789188385,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 70.76717901229858,
+          "end_sec": 70.93417882919312,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 70.93517899513245,
+          "end_sec": 71.09917902946472,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 71.09917902946472,
+          "end_sec": 71.2651789188385,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 71.26617884635925,
+          "end_sec": 71.46817898750305,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 71.4691789150238,
+          "end_sec": 71.67617893218994,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__return_delivered_order_items",
+          "start_sec": 83.3571789264679,
+          "end_sec": 83.53517889976501,
+          "native_error": false
+        },
+        {
+          "role": "child1",
+          "tool": "retail__list_all_product_types",
+          "start_sec": 34.27017903327942,
+          "end_sec": 34.43317890167236,
+          "native_error": false
+        },
+        {
+          "role": "child1",
+          "tool": "retail__get_product_details",
+          "start_sec": 38.59317898750305,
+          "end_sec": 38.74717903137207,
+          "native_error": false
+        },
+        {
+          "role": "child1",
+          "tool": "retail__think",
+          "start_sec": 44.03217887878418,
+          "end_sec": 44.191179037094116,
+          "native_error": false
+        },
+        {
+          "role": "child1",
+          "tool": "send_message",
+          "start_sec": 57.50917887687683,
+          "end_sec": 57.5151789188385,
+          "native_error": false
+        },
+        {
+          "role": "child2",
+          "tool": "retail__list_all_product_types",
+          "start_sec": 31.823179006576538,
+          "end_sec": 32.04217886924744,
+          "native_error": false
+        },
+        {
+          "role": "child2",
+          "tool": "retail__get_product_details",
+          "start_sec": 37.20017886161804,
+          "end_sec": 37.40317893028259,
+          "native_error": false
+        },
+        {
+          "role": "child2",
+          "tool": "send_message",
+          "start_sec": 43.594178915023804,
+          "end_sec": 43.59917902946472,
+          "native_error": false
+        }
+      ],
+      "actual_http_role_overlaps": [
+        {
+          "roles": [
+            "parent",
+            "child1"
+          ],
+          "actual_http_overlap_sec": 7.038052490234375
+        },
+        {
+          "roles": [
+            "parent",
+            "child2"
+          ],
+          "actual_http_overlap_sec": 3.777060546875
+        },
+        {
+          "roles": [
+            "child1",
+            "child2"
+          ],
+          "actual_http_overlap_sec": 5.918324462890625
+        }
+      ],
+      "parent_receipts": 4,
+      "parent_tail_after_last_child_message_sec": 26.581583976745605,
+      "exact_cross_role_lookup_groups": [
+        [
+          {
+            "role": "child2",
+            "name": "retail__list_all_product_types"
+          },
+          {
+            "role": "child1",
+            "name": "retail__list_all_product_types"
+          }
+        ],
+        [
+          {
+            "role": "child2",
+            "name": "retail__get_product_details"
+          },
+          {
+            "role": "child1",
+            "name": "retail__get_product_details"
+          }
+        ]
+      ],
+      "cross_role_repeat_calls": 2,
+      "actual_http_note": "Dispatch-to-settlement wall overlap includes provider/network; not pure model compute. Tool call span overlap is separate."
+    },
+    {
+      "trial_id": "tau3-R000-multi-r3",
+      "condition": "multi",
+      "task_index": 0,
+      "tool_counts": {
+        "parent:retail__find_user_id_by_name_zip": 1,
+        "parent:retail__get_user_details": 1,
+        "parent:retail__get_order_details": 1,
+        "parent:spawn_teammate": 2,
+        "parent:wait_agent": 2,
+        "parent:list_agents": 1,
+        "parent:retail__exchange_delivered_order_items": 1,
+        "child1:retail__get_product_details": 1,
+        "child1:send_message": 1,
+        "child2:retail__get_product_details": 1,
+        "child2:send_message": 1
+      },
+      "native_tools": [
+        {
+          "role": "parent",
+          "tool": "retail__find_user_id_by_name_zip",
+          "start_sec": 16.662590980529785,
+          "end_sec": 16.96359086036682,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_user_details",
+          "start_sec": 20.043591022491455,
+          "end_sec": 20.2065908908844,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__get_order_details",
+          "start_sec": 30.77859091758728,
+          "end_sec": 30.95059084892273,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "spawn_teammate",
+          "start_sec": 41.17059087753296,
+          "end_sec": 41.23159098625183,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "spawn_teammate",
+          "start_sec": 41.23159098625183,
+          "end_sec": 41.2855908870697,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "wait_agent",
+          "start_sec": 47.70859098434448,
+          "end_sec": 51.132591009140015,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "wait_agent",
+          "start_sec": 60.61959099769592,
+          "end_sec": 68.614590883255,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "list_agents",
+          "start_sec": 73.04059100151062,
+          "end_sec": 73.04559087753296,
+          "native_error": false
+        },
+        {
+          "role": "parent",
+          "tool": "retail__exchange_delivered_order_items",
+          "start_sec": 96.25559091567993,
+          "end_sec": 96.46759104728699,
+          "native_error": false
+        },
+        {
+          "role": "child1",
+          "tool": "retail__get_product_details",
+          "start_sec": 43.72059106826782,
+          "end_sec": 43.88459086418152,
+          "native_error": false
+        },
+        {
+          "role": "child1",
+          "tool": "send_message",
+          "start_sec": 51.126590967178345,
+          "end_sec": 51.132591009140015,
+          "native_error": false
+        },
+        {
+          "role": "child2",
+          "tool": "retail__get_product_details",
+          "start_sec": 44.186590909957886,
+          "end_sec": 44.352591037750244,
+          "native_error": false
+        },
+        {
+          "role": "child2",
+          "tool": "send_message",
+          "start_sec": 59.674591064453125,
+          "end_sec": 59.6825909614563,
+          "native_error": false
+        }
+      ],
+      "actual_http_role_overlaps": [
+        {
+          "roles": [
+            "parent",
+            "child1"
+          ],
+          "actual_http_overlap_sec": 3.235320556640625
+        },
+        {
+          "roles": [
+            "parent",
+            "child2"
+          ],
+          "actual_http_overlap_sec": 1.12777490234375
+        },
+        {
+          "roles": [
+            "child1",
+            "child2"
+          ],
+          "actual_http_overlap_sec": 7.64660400390625
+        }
+      ],
+      "parent_receipts": 4,
+      "parent_tail_after_last_child_message_sec": 38.91389179229736,
+      "exact_cross_role_lookup_groups": [],
+      "cross_role_repeat_calls": 0,
+      "actual_http_note": "Dispatch-to-settlement wall overlap includes provider/network; not pure model compute. Tool call span overlap is separate."
+    }
+  ],
+  "new_model_requests": 0
+}

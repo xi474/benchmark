@@ -1,5 +1,15 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+<!-- DSH-TAU-MABENCH-20261115 -->
+## DSH在τ-bench/Mabench上的受控委派对照与trace分析
+
+**[12次结果、图表与阶段异常](results/dsh-tau-mabench-v4pro-20261115/README.md)** · [逐次指标](results/dsh-tau-mabench-v4pro-20261115/cells.csv) · [192条usage](results/dsh-tau-mabench-v4pro-20261115/request-usage.csv)
+
+V4 Pro普通、四Harbor/HTTP4。12次全部处理，R1四次对话适配截断、R2四次完整但M0子、R3四次独立强委派分列；R3 S/M均2/2成功，M两题各2名有工作子并有真实请求交叠，但完整E2E+26.0%、tokens+35.3%、估算费用+147.3%。trace显示查询粒度小、第2题重复库存调查且后续退货需求较晚公开；每格1次，不作稳定因果结论。含5张PNG/SVG、缓存与费用分量、原生时间线和脱敏证据；费用估算非账单，不混用API语义准确率或本仓库50%交付奖励。全部旧报告保留。
+
+<!-- /DSH-TAU-MABENCH-20261115 -->
+
+
 <!-- DSH-LATTE-ORIGINAL12-20261115 -->
 ## DSH在LATTE原始两任务上的单／多Agent对照
 
