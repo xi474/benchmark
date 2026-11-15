@@ -1,5 +1,14 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+<!-- DSH-REFERENCE-R2-20261115 -->
+## DSH单／多Agent参考分工对照（2026-11-15）
+
+**[修复版R2图表报告](results/dsh-reference-decomposition-v4pro-20261115-r2/README.md)** · [逐次指标JSON](results/dsh-reference-decomposition-v4pro-20261115-r2/cells.json) · [协议异常与重测建议](results/dsh-reference-decomposition-v4pro-20261115-r2/protocol-notes.md) · [修复前R1历史结果](results/dsh-reference-decomposition-v4pro-20261115-r1/README.md)
+
+三题各S/M两次，12/12已处理；严格单Agent API65/72，多Agent在4个有评分试次中48/48，另有2次无评分且有分中1次协议异常，不能解释为六次全部成功。多Agent6/6真实建子，有M103的发现—修复—复验案例，但未证明决定性整体提升或稳定时间／成本双收益。附5张PNG及SVG、完整E2E阶段拆分、tokens/cache、已知估算成本与原生证据摘要；异常、控制层误拦及1笔未知用量保留，费用非账单。R1/R2分列，不改题／评分器或旧成绩。
+
+<!-- /DSH-REFERENCE-R2-20261115 -->
+
 ## 新增：实测中档20题（2026-11-13）
 
 [20题独立发布包](parallel20-calibrated-medium-v1/README.md)：20个不同题族，每题经Terminus 2＋DeepSeek V4 Pro普通模式五次有效运行、严格通过2–3/5及核心失败复核后接纳。

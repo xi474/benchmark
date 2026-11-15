@@ -1,0 +1,57 @@
+{
+  "schema": "dsh-r2-report-figures/1",
+  "source_audit_sha256": "1b4051c8cd503bfc6520b0833777682a333de736acf0de4e3965ec66652b3662",
+  "matplotlib_version": "3.10.6",
+  "font": "Microsoft YaHei / msyh.ttc",
+  "cost_is_invoice": false,
+  "paid_requests": 0,
+  "figures": [
+    {
+      "id": "00_workflow",
+      "title": "图1｜单Agent与多Agent的分工差异",
+      "caption": "S先参考后主实现；M将主实现与独立参考并行，之后仍需比较、反馈、修复和复验。示意图不表示所有试次均完整执行。",
+      "png": "figures/00_workflow.png",
+      "svg": "figures/00_workflow.svg"
+    },
+    {
+      "id": "01_quality_status",
+      "title": "图2｜逐次API结果与正式终态",
+      "caption": "M的100%仅来自4个有评分试次，其中1次协议异常；另2次无评分。灰色斜线格表示没有分数，不是0分。",
+      "png": "figures/01_quality_status.png",
+      "svg": "figures/01_quality_status.svg"
+    },
+    {
+      "id": "02_e2e_breakdown",
+      "title": "图3｜逐次完整E2E及阶段拆分",
+      "caption": "蓝色为Agent墙钟，黄色为真实排队，灰绿为评分槽持有／执行。M103的差异主要是评分执行，L114才存在明显排队差异。",
+      "png": "figures/02_e2e_breakdown.png",
+      "svg": "figures/02_e2e_breakdown.svg"
+    },
+    {
+      "id": "03_tokens_cost",
+      "title": "图4｜逐次tokens与已知估算成本",
+      "caption": "蓝色为S、橙色为M；同题同重复相邻。M103 M r1带*的值仅含已结算usage，未知请求未计入，不是完整账单。",
+      "png": "figures/03_tokens_cost.png",
+      "svg": "figures/03_tokens_cost.svg"
+    },
+    {
+      "id": "04_m103_case",
+      "title": "图5｜M103成功协作的实际时序与代价",
+      "caption": "子独立参考发现候选运行错误，父修复后子在同32例复验全过。Agent阶段短6%，但tokens和成本明显增加；完整E2E优势还包含评分执行差异。",
+      "png": "figures/04_m103_case.png",
+      "svg": "figures/04_m103_case.svg"
+    }
+  ],
+  "sha256": {
+    "00_workflow.png": "38d756d03e5a5acfce4409f2280801098ec72791569bb41649fd03336bbcb796",
+    "00_workflow.svg": "57dbaa9c47ca5d67aa5dcd50c9e3606e2ef8127a1970678ea043688cc8deff26",
+    "01_quality_status.png": "9e56394c5c9f468b2fae4079e97138463db598754dbfc92601843951d1c67b6f",
+    "01_quality_status.svg": "870120b72ef14668ccfa25533060d9640b6e3e64fb4ba2e48afdc9ffb39f95a9",
+    "02_e2e_breakdown.png": "78d0d2d9013b412cc05f356434878de194fa4cc0d76194653495f334e3378878",
+    "02_e2e_breakdown.svg": "759b75121e02faa812957413a9f6bd850f5dff9ec8265c15a20a9d043ee2338f",
+    "03_tokens_cost.png": "020c967adc99b3359a64904ec3061890998ed84ea41339edde2d3732eca104fd",
+    "03_tokens_cost.svg": "219cf8b22f75a995165ed455ca9c5a08acc2deabdd945a3e340095a018ca5ea8",
+    "04_m103_case.png": "42122fb2efe5fa8adf90a83f0c4267aef397e22880e2756b6c3bafc24687f293",
+    "04_m103_case.svg": "de1db728d3c0cb43b91df167c0f865103513c8764df41f42b8a98c08e843e32b"
+  }
+}
