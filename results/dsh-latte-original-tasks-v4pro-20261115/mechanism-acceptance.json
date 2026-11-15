@@ -1,0 +1,139 @@
+{
+  "schema": "dsh-latte-offline-acceptance/1",
+  "passed": true,
+  "provider_requests": 0,
+  "network": "none",
+  "checks": [
+    {
+      "name": "12-unique-identities-three-balanced-waves",
+      "passed": true
+    },
+    {
+      "name": "no-paid-consumption",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/textproc/task_description.json",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/textproc/setup_data.py",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/textproc/test_suite.py",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/debug_sprint/task_description.json",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/debug_sprint/setup_data.py",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/debug_sprint/test_suite.py",
+      "passed": true
+    },
+    {
+      "name": "original-bytes-tasks/textproc/test_suite_eval.py",
+      "passed": true
+    },
+    {
+      "name": "8-existing-budget-http-observer-regressions",
+      "passed": true
+    },
+    {
+      "name": "bad-candidate-not-fake-zero-accuracy",
+      "passed": true
+    },
+    {
+      "name": "global-docker-empty-before-native-fixtures",
+      "passed": true
+    },
+    {
+      "name": "four-full-network-none-native-scored-fixtures",
+      "passed": true
+    },
+    {
+      "name": "same-memory-no-external-network",
+      "passed": true
+    },
+    {
+      "name": "four-trials-actually-overlapped",
+      "passed": true
+    }
+  ],
+  "full_harbor_trials": 4,
+  "cases": [
+    {
+      "trial_id": "offline-DBG-single",
+      "passed": true,
+      "child_count": 0,
+      "score_passed": 33,
+      "score_total": 33,
+      "requests": {
+        "sent": 5,
+        "settled": 5,
+        "unknown": 0
+      },
+      "provider_requests": 0
+    },
+    {
+      "trial_id": "offline-TP-single",
+      "passed": true,
+      "child_count": 0,
+      "score_passed": 50,
+      "score_total": 50,
+      "requests": {
+        "sent": 5,
+        "settled": 5,
+        "unknown": 0
+      },
+      "provider_requests": 0
+    },
+    {
+      "trial_id": "offline-TP-multi",
+      "passed": true,
+      "child_count": 2,
+      "score_passed": 50,
+      "score_total": 50,
+      "requests": {
+        "sent": 13,
+        "settled": 13,
+        "unknown": 0
+      },
+      "provider_requests": 0
+    },
+    {
+      "trial_id": "offline-DBG-multi",
+      "passed": true,
+      "child_count": 2,
+      "score_passed": 33,
+      "score_total": 33,
+      "requests": {
+        "sent": 13,
+        "settled": 13,
+        "unknown": 0
+      },
+      "provider_requests": 0
+    }
+  ],
+  "not_autonomous_delegation_evidence": true,
+  "retained_local_failures": [
+    {
+      "evidence_directory": "offline-acceptance-r1",
+      "reason": "mock gateway registration omitted max_output_tokens; local KeyError before loopback forwarding",
+      "real_provider_requests": 0,
+      "experimental_results": false
+    },
+    {
+      "evidence_directory": "offline-acceptance-r2",
+      "reason": "mock teammate names used uppercase suffix rejected by native lower-kebab-case validation; original full grading ran but child gate failed",
+      "real_provider_requests": 0,
+      "experimental_results": false
+    }
+  ],
+  "online_trial_failures": 0
+}

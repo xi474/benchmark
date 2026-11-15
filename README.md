@@ -1,5 +1,15 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+<!-- DSH-LATTE-ORIGINAL12-20261115 -->
+## DSH在LATTE原始两任务上的单／多Agent对照
+
+**[12次完整图表报告](results/dsh-latte-original-tasks-v4pro-20261115/README.md)** · [逐次数据](results/dsh-latte-original-tasks-v4pro-20261115/cells.csv) · [可复核指标](results/dsh-latte-original-tasks-v4pro-20261115/metrics.json)
+
+V4 Pro普通模式、四Harbor/HTTP4，TP模块扩展与DBG调试各S/M三次。12/12有原功能分、288/288结算unknown0；M6/6各建两名实际工作子，S0子。TP部分功能通过率74.7%→82.7%，两组均0/3整题全过；DBG均100%。两任务等权宏平均87.3%→91.3%，但平均完整E2E+28.2%、tokens+132.7%。附五张PNG/SVG、全量配对、原生span、资源、缓存及计价数据；保留精确子结果后续输入匹配未知、并发争用和小样本限制。费用估算非账单；不运行LATTE Harness，不覆盖旧R1/R2/R3。
+
+<!-- /DSH-LATTE-ORIGINAL12-20261115 -->
+
+
 <!-- DSH-REFERENCE-R3-20261115 -->
 ## DSH R3单与多Agent三维收益对照
 

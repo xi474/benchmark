@@ -1,0 +1,61 @@
+{
+  "schema": "dsh-latte-original12-design/1",
+  "experiment_id": "dsh-latte-original12-20261115-r1-four-concurrent",
+  "harness": "DSH",
+  "task_source": "LATTE original tasks",
+  "latte_harness_variant": null,
+  "upstream_repository": "https://github.com/emieczkowski/latte",
+  "upstream_commit": "63e6faf767894e22024af26eb02d70809df0c848",
+  "model": "deepseek-v4-pro",
+  "thinking": "disabled",
+  "dsh_version": "0.2.1-rc.2",
+  "trials": 12,
+  "replicates_per_task_arm": 3,
+  "planned_pairs": 6,
+  "all_new_trials": true,
+  "carried_trials": 0,
+  "conditions": {
+    "single": "Controlled strict single; native Team and legacy delegation disabled",
+    "multi": "Explicit reference split; parent + two fresh native teammates; legacy delegation disabled"
+  },
+  "agent_timeout_sec": 1200,
+  "max_output_tokens": 32768,
+  "request_count_cap": null,
+  "per_trial_estimated_peak_admission_usd": 3,
+  "total_estimated_peak_admission_usd": 36,
+  "actual_spend_need_not_be_equal": true,
+  "per_container": {
+    "cpus": 2,
+    "memory_mib": 3072
+  },
+  "concurrency": {
+    "harbor": 4,
+    "global_http": 4,
+    "per_trial_http": 2,
+    "verifier_slots": 1,
+    "waves": 3,
+    "four_included_pilots_then_eight": true
+  },
+  "amendment": "User changed the proposal from one isolated Harbor trial to four concurrent trials. Three balanced waves each contain both tasks and both conditions; shared contention remains a limitation.",
+  "verifier_timeout_sec": 120,
+  "paid_retries": 0,
+  "frozen_image_sha256": "sha256:650e9c9671e6bb8e61deff5f1622be4cf59f1a854adafc9b3d8229c0130505f3",
+  "numpy": "2.1.3",
+  "pytest": "8.3.5",
+  "no_custom_checkpoint_or_keyword_shell_guard": true,
+  "tasks": [
+    {
+      "id": "TP",
+      "functional_tests": 50,
+      "public_visibility": "interface existence plus five original Document regressions",
+      "functional_evaluation": "upstream test_suite_eval.py; withheld from agent"
+    },
+    {
+      "id": "DBG",
+      "functional_tests": 33,
+      "functional_evaluation": "upstream public test_suite.py"
+    }
+  ],
+  "cost_is_invoice": false,
+  "task_and_test_assertions_unchanged": true
+}
