@@ -1,5 +1,14 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+<!-- DSH-REFERENCE-R3-20261115 -->
+## DSH R3单与多Agent三维收益对照
+
+**[R3完整报告与三维收益图](results/dsh-reference-decomposition-v4pro-20261115-r3/README.md)** · [逐次指标](results/dsh-reference-decomposition-v4pro-20261115-r3/cells.json) · [同题配对](results/dsh-reference-decomposition-v4pro-20261115-r3/paired-comparison.json) · [R2历史结果](results/dsh-reference-decomposition-v4pro-20261115-r2/README.md)
+
+12/12结束、11有分及1次评分器超时；多Agent6/6真实创建子。收益分Accuracy、完整E2E与tokens：双方有分同一5对，S/M为98.3%/91.7%、565.8/665.6秒、1158/1975万tokens。局部有用协作与效率收益存在，未见稳定整体净收益。保留残留误拦、自编验证错误、共享HTTP4排队、R1/R2和历史unknown；新R3账本788/788结算unknown0，费用估算非账单。
+
+<!-- /DSH-REFERENCE-R3-20261115 -->
+
 <!-- DSH-REFERENCE-R2-20261115 -->
 ## DSH单／多Agent参考分工对照（2026-11-15）
 
