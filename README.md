@@ -12,9 +12,9 @@
 <!-- DSH-MODULAR20-COMPARISON-20261117 -->
 ## 同事模块化20题：DSH委派与自研Harness综合对比
 
-**[完整报告与统一指标总表](results/dsh-modular20-delegation-harness-comparison-20261117/README.md)** · [显式与未显式M103同题对照](results/dsh-modular20-delegation-harness-comparison-20261117/显式委派与未显式要求_同题对照.md) · [同10题不同模式](results/dsh-modular20-delegation-harness-comparison-20261117/10题不同Harness模式_统一指标对比.md)
+**[综合报告与统一指标总表](results/dsh-modular20-delegation-harness-comparison-20261117/README.md)** · **[普通模式新提示 vs 补跑后High：20题完整对比](results/dsh-modular20-delegation-harness-comparison-20261117/普通模式_vs_补跑后High_20题完整对比.md)** · [显式与未显式M103同题对照](results/dsh-modular20-delegation-harness-comparison-20261117/显式委派与未显式要求_同题对照.md) · [同10题不同模式](results/dsh-modular20-delegation-harness-comparison-20261117/10题不同Harness模式_统一指标对比.md)
 
-两部分均列严格通过率、核心转换用例通过率、50%交付reward、E2E、根子token与统一峰价成本。M103原样／显式各一次、均满分且真实子0／2；同10题reward：自研普通OFF7.25、DSH普通新提示15.75、自研普通ON17.50、自研High OFF20.00（满分20）。附8组PNG/SVG、逐题计分、来源核对和局限；本次新启动的DSH High20题仅列独立进度快照，不混算已完成结果。费用为估算，计时、恢复和控制条件未完全一致，不作因果排行榜。
+High五题补跑全部完成，当前20题严格15/20、核心192/231、reward32.125/40；普通新提示为14/20、198/231、31.4375/40，两组均0子agent。完整列出E2E、补采验收、输入／输出／总token、缓存与统一峰价成本，含40行逐题数据、离线复算和原32K历史附录。High有5题放宽输出预算，普通含3题续跑，条件差异保留；历史M103与同10题四组对比继续单列，不作因果排行榜。
 
 <!-- /DSH-MODULAR20-COMPARISON-20261117 -->
 
