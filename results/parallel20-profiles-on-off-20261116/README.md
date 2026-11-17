@@ -6,7 +6,7 @@ Paired SemServe Runtime traces for the first ten Parallel20 task profiles, run o
 - OFF source run: `20261116-parallel20-profiles-current-off-first10-v1`
 - Each JSONL file preserves the original Runtime trace bytes and event order.
 - Score columns summarize post-run results. No hidden verifier inputs, scripts, or per-case diagnostics are included.
-- `SHA256SUMS` covers all 20 traces. Paths are relative to this directory.
+- `SHA256SUMS` covers all 30 traces. Paths are relative to this directory.
 
 | Arm | Public passed | Strict passed | API passed | Reward |
 | --- | ---: | ---: | ---: | ---: |
@@ -25,3 +25,24 @@ Paired SemServe Runtime traces for the first ten Parallel20 task profiles, run o
 | L114 | [JSONL](traces/on/L114/trace.jsonl) | [JSONL](traces/off/L114/trace.jsonl) | 12/12 | 5/12 | 2 | 0.4375 |
 | Q08 | [JSONL](traces/on/Q08/trace.jsonl) | [JSONL](traces/off/Q08/trace.jsonl) | 9/9 | 0/9 | 2 | 0 |
 | Q20 | [JSONL](traces/on/Q20/trace.jsonl) | [JSONL](traces/off/Q20/trace.jsonl) | 8/8 | 8/8 | 2 | 2 |
+
+## Thinking high, semantic parallelism OFF
+
+This separate run used DeepSeek V4 Pro with thinking enabled and the provider's default high effort. Semantic parallelism was off.
+
+The ten traces are the final files assembled in `20261116-parallel20-profiles-current-reasoning-off-first10-v2-final-resume`. The archive uses one final trace per task. K64 and L114 use the final retries after earlier interruptions.
+
+Public and strict validation both passed on 10/10 tasks. API checks passed on 113/113 cases and reward was 20/20. These are post-run scores of the saved workspaces. The K64 and L114 traces also record a Runtime `task_failed` event.
+
+| Task | Thinking high trace | API passed | Reward |
+| --- | --- | ---: | ---: |
+| E112 | [JSONL](traces/thinking-high-off/E112/trace.jsonl) | 12/12 | 2 |
+| F15 | [JSONL](traces/thinking-high-off/F15/trace.jsonl) | 12/12 | 2 |
+| F18 | [JSONL](traces/thinking-high-off/F18/trace.jsonl) | 12/12 | 2 |
+| F20 | [JSONL](traces/thinking-high-off/F20/trace.jsonl) | 12/12 | 2 |
+| I06 | [JSONL](traces/thinking-high-off/I06/trace.jsonl) | 12/12 | 2 |
+| K54 | [JSONL](traces/thinking-high-off/K54/trace.jsonl) | 12/12 | 2 |
+| K64 | [JSONL](traces/thinking-high-off/K64/trace.jsonl) | 12/12 | 2 |
+| L114 | [JSONL](traces/thinking-high-off/L114/trace.jsonl) | 12/12 | 2 |
+| Q08 | [JSONL](traces/thinking-high-off/Q08/trace.jsonl) | 9/9 | 2 |
+| Q20 | [JSONL](traces/thinking-high-off/Q20/trace.jsonl) | 8/8 | 2 |
