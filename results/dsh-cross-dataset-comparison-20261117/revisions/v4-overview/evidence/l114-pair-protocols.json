@@ -1,0 +1,67 @@
+{
+  "task": "L114",
+  "same_task_two_pairs": true,
+  "trials_per_pair": 2,
+  "new_model_requests": 0,
+  "repair_does_not_modify_original_task_or_official_scoring": true,
+  "sources": {
+    "A_manifest": {
+      "author_local_provenance": "C:\\Users\\horac\\.codex\\.chatgpt-projects\\g-p-6aac9bdf1a7c81919bd7ff325c80e09d\\outputs\\dsh-reference-r3-l114-authorized-retry-20261116-r3-credit-boundary\\manifest.json",
+      "sha256": "6166ac2c20689a3f6fb135c832d9510486031ade352657b41e2163c3533487ad"
+    },
+    "A_summary": {
+      "author_local_provenance": "C:\\Users\\horac\\.codex\\.chatgpt-projects\\g-p-6aac9bdf1a7c81919bd7ff325c80e09d\\outputs\\dsh-reference-r3-l114-authorized-retry-20261116-r3-credit-boundary\\补充复验汇总.md",
+      "sha256": "69c98d7a9fff3be73bbca1d7cb3ded36c1c0c4dfd4db382e4d2014dff3a3ee2f"
+    },
+    "B_manifest": {
+      "author_local_provenance": "C:\\Users\\horac\\.codex\\.chatgpt-projects\\g-p-6aac9bdf1a7c81919bd7ff325c80e09d\\outputs\\dsh-paired-retest8-20261116\\dsh-reference-L114-firstpair-20261116-r4-transactional-freeze\\manifest.json",
+      "sha256": "6bb0b6b2f97d19d4f59e103c70eb3f14bd4cb22ae0a62ef26752cba5c8ee1a7b"
+    },
+    "B_registration": {
+      "author_local_provenance": "C:\\Users\\horac\\.codex\\.chatgpt-projects\\g-p-6aac9bdf1a7c81919bd7ff325c80e09d\\outputs\\dsh-paired-retest8-20261116\\dsh-reference-L114-firstpair-20261116-r4-transactional-freeze\\source-registration.json",
+      "sha256": "41e9a20be813e47c8a2d524e90a95e3f48a9a11e36102d9732f5c815e5c91cc2"
+    }
+  },
+  "pairs": {
+    "A": {
+      "display_name": "L114配对重测A（原重复2·协议v3）",
+      "original_replicate": 2,
+      "trials": {
+        "S": [
+          "drf3cf3-L114-single-r1"
+        ],
+        "M": [
+          "drf3cf3-L114-guided-r1"
+        ]
+      },
+      "reference_protocol": "reference-assigned-v3-context-readonly",
+      "credit_control": "trial-boundary-and-actual-wire-reservation-v2",
+      "added_transactional_freeze_v4": false,
+      "original_missing_score_reason": "single verifier exceeded600s",
+      "scheduling": "single then multi, exclusive pair according to original summary"
+    },
+    "B": {
+      "display_name": "L114配对重测B（原重复1·事务冻结v4）",
+      "original_replicate": 1,
+      "trials": {
+        "S": [
+          "drf4-L114-single-r1"
+        ],
+        "M": [
+          "drf4-L114-guided-r1"
+        ]
+      },
+      "manifest_inherited_protocol_field": "reference-assigned-v3-context-readonly",
+      "effective_reference_freeze_policy": "v4: failed/nonrunnable32 reference stays editable with diagnostics; only32 runnable objectives commit immutable freeze; no supplied oracle or model code repair",
+      "guard_policy_version": "reference-access-v3.1",
+      "runtime_delta": "transactional-freeze-v4 and bounded-read-classification-v3.1",
+      "credit_control": "trial-boundary-and-actual-wire-reservation-v2",
+      "original_error": "model reference NameError completion plus invalid reference permanently frozen",
+      "scheduling": "single then multi in this batch; external workload contention disclosed"
+    }
+  },
+  "resource_pooling": false,
+  "reason": "Different reference freeze/read-classification policies and scheduling/load; retain paired observations by version.",
+  "quality_pooling": "Selected six-pair posthoc sensitivity using unchanged12 core API checks; not randomized causal recovery.",
+  "original_files_not_modified": true
+}

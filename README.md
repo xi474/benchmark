@@ -1,5 +1,14 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+<!-- DSH-CROSS-DATASET-COMPARISON-20261117 -->
+## DSH跨任务集单Agent／委派策略对照：v4导读版
+
+**[最新报告、图表及同事审阅包](results/dsh-cross-dataset-comparison-20261117/README.md)** · [修订报告](results/dsh-cross-dataset-comparison-20261117/revisions/v4-overview/DSH单多Agent跨任务集对照报告.md) · [v4审阅包下载](results/dsh-cross-dataset-comparison-20261117/downloads/DSH对照实验-同事审阅包-20261117-v4导读版.zip)
+
+先解释R3参考分工、LATTE原题、Mabench强制／可选委派及Complex10三组各做了什么、目的与结论，再展开API／功能、E2E、tokens/cache及估算成本。L114同一道题的两次配对重测A（原重复2·协议v3）与B（原重复1·事务冻结v4）分别说明，资源不跨版本混算；Complex的M强制至少1工作子，Mabench多需求M允许自主决定、最低0。原130条主对照、145／153条运营记录与全部数值不变，旧版报告、既有结果和异常说明保留；费用估算非账单。
+
+<!-- /DSH-CROSS-DATASET-COMPARISON-20261117 -->
+
 <!-- DSH-MODULAR20-COMPARISON-20261117 -->
 ## 同事模块化20题：DSH委派与自研Harness综合对比
 

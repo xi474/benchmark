@@ -1,0 +1,5 @@
+父 Agent / S本地工作区A：扩展 Document、Tokenizer，维护基础接口；随后集成 pipeline.py 并跑公开回归
+子 Agent A / S本地工作区B：实现 sentiment.py 与 keywords.py，交付代码及公开规格下的自检结果
+子 Agent B / S本地工作区C：实现 summarizer.py、similarity.py、formatter.py，交付代码及自检结果
+父先读题和公开接口并明确文件所有权；基础接口就绪前，子可并行读代码、设计模块，实际集成须等依赖满足。不要求无意义等待全部文件写完才创建子。
+不同模块可在共享候选目录按文件所有权写入；同一时刻不得多人修改 Document/Tokenizer/Pipeline。以实际 diff 审计冲突，不用计划文本关键词拦截。

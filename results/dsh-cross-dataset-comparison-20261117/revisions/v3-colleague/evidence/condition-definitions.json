@@ -1,0 +1,90 @@
+{
+  "complex": {
+    "N": {
+      "label": "原生默认Team",
+      "minimum_children": 0,
+      "maximum_children": "原生设置，未追加固定数量",
+      "prompt": "原TASK，不追加委派提醒",
+      "timing": "模型自主决定",
+      "assignment": "模型自主决定"
+    },
+    "S": {
+      "label": "严格单Agent",
+      "minimum_children": 0,
+      "maximum_children": 0,
+      "prompt": "禁止全部委派",
+      "timing": "不适用",
+      "assignment": "父独立完成"
+    },
+    "M": {
+      "label": "显式强制至少一名工作子",
+      "minimum_children": 1,
+      "maximum_children": "未额外指定固定总数",
+      "prompt": "至少一名真实子实际工作并回传",
+      "timing": "模型自主决定",
+      "assignment": "模型自主决定",
+      "checkpoint_plugin": false
+    }
+  },
+  "r3": {
+    "S": {
+      "label": "严格单Agent完成匹配参考工作量",
+      "minimum_children": 0,
+      "maximum_children": 0
+    },
+    "M": {
+      "label": "显式固定一名reference-validator",
+      "minimum_children": 1,
+      "maximum_children": 1,
+      "timing": "读完公开SPEC/contract后、修改主实现前",
+      "assignment": "父主算法、子独立参考验证",
+      "research_inputs": 32,
+      "official_api_checks_per_trial": 12
+    }
+  },
+  "latte": {
+    "S": {
+      "label": "严格单Agent完成A/B/C分区",
+      "minimum_children": 0,
+      "maximum_children": 0
+    },
+    "M": {
+      "label": "显式固定两名子及B/C分区",
+      "minimum_children": 2,
+      "maximum_children": 2,
+      "timing": "读原题/接口及必要基线后",
+      "assignment": "TP共享候选按文件所有权写；DBG子在副本诊断、父唯一正式写入"
+    }
+  },
+  "mabench_strict": {
+    "S": {
+      "label": "严格单Agent",
+      "minimum_children": 0,
+      "maximum_children": 0
+    },
+    "M": {
+      "label": "强制两子且有运行时前置门禁",
+      "minimum_children": 2,
+      "maximum_children": 2,
+      "timing": "身份/订单输入具备后，父产品查询前创建两子",
+      "assignment": "两子互补只读调查；父唯一客户交互与状态写入",
+      "checkpoint_plugin": true
+    }
+  },
+  "mabench_optional": {
+    "S": {
+      "label": "严格单Agent",
+      "minimum_children": 0,
+      "maximum_children": 0
+    },
+    "M": {
+      "label": "鼓励评估、自主可选委派",
+      "minimum_children": 0,
+      "maximum_children": 3,
+      "timing": "模型自主评估，0子合法",
+      "assignment": "只在已公开且输入就绪的互补只读分支上委派",
+      "checkpoint_plugin": false,
+      "zero_children_valid": true
+    }
+  }
+}
