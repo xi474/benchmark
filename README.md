@@ -1,5 +1,14 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+<!-- DSH-MODULAR20-COMPARISON-20261117 -->
+## 同事模块化20题：DSH委派与自研Harness综合对比
+
+**[完整报告与统一指标总表](results/dsh-modular20-delegation-harness-comparison-20261117/README.md)** · [显式与未显式M103同题对照](results/dsh-modular20-delegation-harness-comparison-20261117/显式委派与未显式要求_同题对照.md) · [同10题不同模式](results/dsh-modular20-delegation-harness-comparison-20261117/10题不同Harness模式_统一指标对比.md)
+
+两部分均列严格通过率、核心转换用例通过率、50%交付reward、E2E、根子token与统一峰价成本。M103原样／显式各一次、均满分且真实子0／2；同10题reward：自研普通OFF7.25、DSH普通新提示15.75、自研普通ON17.50、自研High OFF20.00（满分20）。附8组PNG/SVG、逐题计分、来源核对和局限；本次新启动的DSH High20题仅列独立进度快照，不混算已完成结果。费用为估算，计时、恢复和控制条件未完全一致，不作因果排行榜。
+
+<!-- /DSH-MODULAR20-COMPARISON-20261117 -->
+
 <!-- DSH-TAU-MABENCH-20261115 -->
 ## DSH在τ-bench/Mabench上的受控委派对照与trace分析
 

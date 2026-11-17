@@ -1,0 +1,2256 @@
+{
+  "updated_at": "2026-11-17T13:02:16+08:00",
+  "summary": {
+    "completed": 20,
+    "selected": 20,
+    "final_decomposition_choices": {
+      "no": 14,
+      "yes": 6
+    },
+    "final_delegation_choices": {
+      "no": 20
+    },
+    "tasks_with_creation_attempts": 0,
+    "tasks_with_actual_children": 0,
+    "all_completed_have_team_tool": true,
+    "all_completed_ordinary_mode_verified": true,
+    "trials_with_controlled_single_or_explicit_only_guard": [],
+    "strict_failures_without_children": [
+      "F18",
+      "K54",
+      "K64",
+      "U109",
+      "X13",
+      "Z10"
+    ],
+    "initial_decomposition_named_before_or_tied_write": 16
+  },
+  "rows": [
+    {
+      "task_id": "E112",
+      "title": "共享道路与有资格避难所的全局撤离",
+      "trial_id": "cm20-E112-guided-softtime-c1",
+      "cohort": "reused-three-resumed",
+      "root_session_id": "session-a0de5dab-acc9-473f-a909-b52c0a612556",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 67,
+        "read": 18,
+        "write": 6,
+        "edit": 9,
+        "job_output": 4,
+        "job_list": 1
+      },
+      "root_model_steps": 96,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "Yes — the task cleanly splits into two independent helper modules (fire arrival via Dijkstra, and the joint evacuation planning/optimization) plus a thin engine glue, each with distinct write scopes and testable interfaces.",
+          "native_time_ms": 1794843275870,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "0fd0618262b9e4e141cfe8085e2d724576f0a7a1addb17c93b666b27f9f840a9"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — this is a tightly coupled combinatorial optimization where the fire model (trivial Dijkstra) feeds the planner, and the planner's correctness hinges on subtle joint constraints (collisions, edge swaps, capacity, occupancy) that are easier to get right in one coherent implementation than to coordinate across agents. The code volume is modest.",
+          "native_time_ms": 1794843275870,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "0fd0618262b9e4e141cfe8085e2d724576f0a7a1addb17c93b666b27f9f840a9"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "Yes — the task split cleanly into two independent helper modules (fire arrival via Dijkstra, and the joint evacuation planner) plus a thin engine glue, each with distinct write scopes and testable interfaces per the given local-check contracts.",
+          "native_time_ms": 1794845842982,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "697f27073df7508d602ffab02509de4554cf9d63ca81e5ec42188051d8621747"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the two modules are tightly coupled through the shared hazard semantics and the planner's correctness hinges on subtle joint constraints (per-tick occupancy, opposing-edge swaps, cumulative shelter capacity, fire/closure safety at the ignition boundary). A single coherent implementation was simpler and lower-coordination-risk than splitting the combinatorial search across agents. I worked alone (0 teammates), so this matches my initial decision.",
+          "native_time_ms": 1794845842982,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "697f27073df7508d602ffab02509de4554cf9d63ca81e5ec42188051d8621747"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 19,
+          "sha256": "730067d2426671f8b68c5e348b332c4c5f0cac732db12c221b024b0b02f35032"
+        },
+        {
+          "path": "packages/analysis/hazard_model.py",
+          "nonempty_noncomment_lines": 35,
+          "sha256": "8b98f7ff16525fd58ed4ce020bec545616ad02af55cc0f7bda5fab98c5fe757e"
+        },
+        {
+          "path": "packages/analysis/joint_evacuation.py",
+          "nonempty_noncomment_lines": 242,
+          "sha256": "44a977d4bcf103647b9ec1c5df52e214e53448ce6e47887fb8dae8c99eab9180"
+        }
+      ],
+      "largest_module_line_share": 0.8175675675675675,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261116-soft-budget-r1/jobs/cm20-E112-guided-softtime-c1/modular-E112__bjFGbdN/agent"
+    },
+    {
+      "task_id": "F15",
+      "title": "分隔平面的最低通行费面积",
+      "trial_id": "cm20-F15-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-1a775a80-f4e1-47e0-90de-75f9555af939",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 13,
+        "list_agents": 1,
+        "read": 9,
+        "write": 3
+      },
+      "root_model_steps": 17,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No. Two helpers are small and tightly coupled (one produces the region graph, the other consumes it), single cohesive algorithm.",
+          "native_time_ms": 1794888510152,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "71765ca1e19afa6219bb97322b7061a2ce73e2846fe592680f3d060d1c59d63d"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No. Small, self-contained task; delegation overhead > benefit.",
+          "native_time_ms": 1794888510152,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "71765ca1e19afa6219bb97322b7061a2ce73e2846fe592680f3d060d1c59d63d"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the two helper stubs (`build_regions` and `fee_areas`) are two halves of one cohesive algorithm (build a compressed region graph, then run Dijkstra over it), tightly coupled by a single interface, and small enough that decomposition added no value.",
+          "native_time_ms": 1794888577813,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "785fcb13eeec8087121d0f17c7a603b26704fe52014d14d862380062fef09611"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the task is small and self-contained; coordinate-compression + shortest-path logic benefits from being held together by one author. Teammates used: 0. No change from the initial decision was needed.",
+          "native_time_ms": 1794888577813,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "785fcb13eeec8087121d0f17c7a603b26704fe52014d14d862380062fef09611"
+        }
+      },
+      "statement_count": 6,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 12,
+          "sha256": "ff4ba98ec20b61964318b1dc6c8ea62467f8139ffae68a507f308d6e6ca09fdb"
+        },
+        {
+          "path": "engines/analysis/access_costs.py",
+          "nonempty_noncomment_lines": 30,
+          "sha256": "cf459f56ae640a71ea2d43e9547a9ecc8656f24d8f13048b6c3c0fdb1c2541ea"
+        },
+        {
+          "path": "engines/analysis/floor_regions.py",
+          "nonempty_noncomment_lines": 153,
+          "sha256": "2d24e8a34f609ccdbac86718fd34dee112af9e6d9937267bc07747a1553ab6ae"
+        }
+      ],
+      "largest_module_line_share": 0.7846153846153846,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-F15-guidedsoft-fresh-r1/modular-F15__5A4CPJi/agent"
+    },
+    {
+      "task_id": "F18",
+      "title": "带回流与停滞分支的交付时间",
+      "trial_id": "cm20-F18-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-d0743a4e-0298-40f1-a6d0-cd0502db10eb",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 8,
+        "read": 11,
+        "write": 3
+      },
+      "root_model_steps": 14,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "yes — the task cleanly splits into two independently-testable helpers (routing kernel normalization + absorbing-chain outcome computation) exactly as the spec defines.",
+          "native_time_ms": 1794888655373,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "a9073bbd13633eb995d824d0dd88500f31c7ae69795eb56a8a4f6f1e9803e721"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — small, math-dense core with tricky edge cases (loops, no-delivery, parallel routes); I'll keep computation accurate locally.",
+          "native_time_ms": 1794888655373,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "a9073bbd13633eb995d824d0dd88500f31c7ae69795eb56a8a4f6f1e9803e721"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "yes — the task naturally splits into the two independent helper modules defined in the spec (routing normalization vs. absorbing-chain outcome computation), each with a self-contained example fixture.",
+          "native_time_ms": 1794888695493,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "5a69d01c3c43eb5938d2e1bb1790cbe08782a2949979c709eae1253e397eb49c"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — the work is small and math-dense: exact rational Gaussian elimination over an absorbing Markov chain, with subtle edge cases (self-loops, parallel routes, dead-end/no-delivery components). Keeping computation in one place avoided interface mismatch risk, so I implemented everything locally.",
+          "native_time_ms": 1794888695493,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "5a69d01c3c43eb5938d2e1bb1790cbe08782a2949979c709eae1253e397eb49c"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 12,
+          "sha256": "f2212c2e25deb3149ec7ec6018b564527cd06edf3703f3e7aaa497b1f3bc56fa"
+        },
+        {
+          "path": "packages/analysis/delivery_outcomes.py",
+          "nonempty_noncomment_lines": 96,
+          "sha256": "c86e5f34c5c5fe3e71d155bf47d1789776548f03b588dfe5493d25b7b65c3646"
+        },
+        {
+          "path": "packages/analysis/routing_model.py",
+          "nonempty_noncomment_lines": 51,
+          "sha256": "ec83ea33b3e60eba100d0d2eacbf4c70a1137c971b9e4dc6e6d426e8c6c60a5a"
+        }
+      ],
+      "largest_module_line_share": 0.6037735849056604,
+      "strict_pass": false,
+      "core_pass": 0,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [
+        {
+          "id": "A/analysis/1",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/2",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/3",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/4",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/5",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/6",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/7",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/8",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/9",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/10",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/11",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/12",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "B/analysis",
+          "category": "B",
+          "passed": false,
+          "detail": "two_clean_builds_and_loaders"
+        }
+      ],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-F18-guidedsoft-fresh-r1/modular-F18__5NFBvaf/agent"
+    },
+    {
+      "task_id": "F20",
+      "title": "生产循环的可持续单位产出",
+      "trial_id": "cm20-F20-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-e5874c18-af3c-4143-955c-096173b469c0",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 10,
+        "list_agents": 1,
+        "read": 11,
+        "write": 3,
+        "edit": 2
+      },
+      "root_model_steps": 18,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no. The task is a single, coherent graph-algorithm implementation (SCC detection → cycle region identification → maximum cycle mean via Karp's theorem → per-station reachable-maximum aggregation) where every piece is tightly coupled through shared graph semantics. The three modules are small enough that decomposition would introduce integration seams and consistency risk without meaningful parallelism gain.",
+          "native_time_ms": 1794888824522,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "2b2bf8cdf0278d85b44077281f082d1351d310b7b64c6d97c26d949a7f9eb93b"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no. The workspace has no teammates and the total work is a few hundred lines of stdlib-only code with clear, verifiable local checks; solo implementation with brute-force verification was faster and safer than coordinating delegation for this size.",
+          "native_time_ms": 1794888824522,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "2b2bf8cdf0278d85b44077281f082d1351d310b7b64c6d97c26d949a7f9eb93b"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no. The task is a single, coherent graph-algorithm implementation (SCC detection → cycle region identification → maximum cycle mean via Karp's theorem → per-station reachable-maximum aggregation) where every piece is tightly coupled through shared graph semantics. The three modules are small enough that decomposition would introduce integration seams and consistency risk without meaningful parallelism gain.",
+          "native_time_ms": 1794888824522,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "2b2bf8cdf0278d85b44077281f082d1351d310b7b64c6d97c26d949a7f9eb93b"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no. The workspace has no teammates and the total work is a few hundred lines of stdlib-only code with clear, verifiable local checks; solo implementation with brute-force verification was faster and safer than coordinating delegation for this size.",
+          "native_time_ms": 1794888824522,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "2b2bf8cdf0278d85b44077281f082d1351d310b7b64c6d97c26d949a7f9eb93b"
+        }
+      },
+      "statement_count": 2,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 28,
+          "sha256": "b981c9a9b0d601813284733bef0c3d5637a1172b33065bfbfe40f7d3dcac5d8e"
+        },
+        {
+          "path": "packages/analysis/cycle_mean.py",
+          "nonempty_noncomment_lines": 40,
+          "sha256": "3666bac9839d4d765290571444ba72c34181c636a964034b62d18764829d0af7"
+        },
+        {
+          "path": "packages/analysis/cycle_regions.py",
+          "nonempty_noncomment_lines": 93,
+          "sha256": "8ebef4d4bd7c9a88befff57701a417b4170c3de02a7b02b2616ab8322d934808"
+        }
+      ],
+      "largest_module_line_share": 0.577639751552795,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-F20-guidedsoft-fresh-r1/modular-F20__3BJTPdv/agent"
+    },
+    {
+      "task_id": "I06",
+      "title": "共享校准与整数装配的中等规模对照",
+      "trial_id": "cm20-I06-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-d1812d03-bffb-48ea-bd8e-2905cfc031f7",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 6,
+        "list_agents": 1,
+        "read": 11,
+        "write": 3
+      },
+      "root_model_steps": 10,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is a compact, tightly-coupled optimization with only two helper modules plus a thin engine, where correctness depends entirely on a single shared notion of feasibility across calibration, lattice, and selection. Splitting it would add coordination cost without real independence.",
+          "native_time_ms": 1794888850002,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "8af2642f4fbe364cbdbd4e53d227bec60e8b3eb0d2fd990763e0f523fdaa791e"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — I'm the only agent in this session, and the actual implementation workload is small enough (two pure helper functions + a ~60-line orchestration) that delegation would only add integration risk for no benefit. No teammates were used.",
+          "native_time_ms": 1794888850002,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "8af2642f4fbe364cbdbd4e53d227bec60e8b3eb0d2fd990763e0f523fdaa791e"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is a compact, tightly-coupled optimization with only two helper modules plus a thin engine, where correctness depends entirely on a single shared notion of feasibility across calibration, lattice, and selection. Splitting it would add coordination cost without real independence.",
+          "native_time_ms": 1794888850002,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "8af2642f4fbe364cbdbd4e53d227bec60e8b3eb0d2fd990763e0f523fdaa791e"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — I'm the only agent in this session, and the actual implementation workload is small enough (two pure helper functions + a ~60-line orchestration) that delegation would only add integration risk for no benefit. No teammates were used.",
+          "native_time_ms": 1794888850002,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "8af2642f4fbe364cbdbd4e53d227bec60e8b3eb0d2fd990763e0f523fdaa791e"
+        }
+      },
+      "statement_count": 2,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 63,
+          "sha256": "1692e0744e3f99924625727cb7b40da9d9610fcbac62903fb51dd0b119343919"
+        },
+        {
+          "path": "packages/analysis/board_calibration.py",
+          "nonempty_noncomment_lines": 48,
+          "sha256": "3508b0114e56c7a46c892c15975c0f4c9ddf5f01eb4fd63ebfb4655cfac18914"
+        },
+        {
+          "path": "packages/analysis/setup_lattice.py",
+          "nonempty_noncomment_lines": 80,
+          "sha256": "4633d420f5f697e799524d36fa243defdb82d3e7c5630bbf7ca770642871daba"
+        }
+      ],
+      "largest_module_line_share": 0.418848167539267,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-I06-guidedsoft-fresh-r1/modular-I06__buNevpc/agent"
+    },
+    {
+      "task_id": "K54",
+      "title": "完整CFG的最优溢出与加权phi合并",
+      "trial_id": "cm20-K54-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-e2ff87bf-e705-442b-a8da-3ce3431da22a",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 16,
+        "list_agents": 1,
+        "read": 12,
+        "todo_write": 2,
+        "write": 4,
+        "edit": 4
+      },
+      "root_model_steps": 30,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no — This is a single cohesive algorithm (liveness feeds interference feeds allocation); the three modules are tightly coupled through shared data structures and exact-optimality requirements, so splitting writes across teammates would risk inconsistency for little benefit.",
+          "native_time_ms": 1794888756175,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "ddef08698024c59330ef116177517a69f5c5782b5d9dd062bfa33c5c921b02e2"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — I'm the sole agent and the task is well-scoped; implementing locally gives tight control over the exact-optimality and precedence subtleties.",
+          "native_time_ms": 1794888756175,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "ddef08698024c59330ef116177517a69f5c5782b5d9dd062bfa33c5c921b02e2"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no — the liveness analysis, interference construction, and exact allocation are one tightly-coupled dataflow chain (liveness → interference → call constraints → allocation), so a single cohesive implementation was cleaner than splitting across teammates.",
+          "native_time_ms": 1794888875938,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "7c75a5c31fdd5b7204b635abc05643596594567a4165a2aec7faef6b326e7672"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — I was the sole agent (only `lead` present), and the task's exact-optimality and precedence subtleties were best handled by one consistent implementation.",
+          "native_time_ms": 1794888875938,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "7c75a5c31fdd5b7204b635abc05643596594567a4165a2aec7faef6b326e7672"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 29,
+          "sha256": "03de82d57873f60538d2a092bb3ec078d210ce9ee40f71678aeffa0baec0cae0"
+        },
+        {
+          "path": "engines/analysis/cfg_facts.py",
+          "nonempty_noncomment_lines": 95,
+          "sha256": "8a1ea860d7a561b9a104d5b7edaecbd416967086d8d0ef6b68de72162a4ca430"
+        },
+        {
+          "path": "engines/analysis/weighted_allocation.py",
+          "nonempty_noncomment_lines": 150,
+          "sha256": "db0e4bd0058aba00237c72a9e6203ae8cbc18f33bb0d1951ecd6a44db03258b3"
+        }
+      ],
+      "largest_module_line_share": 0.5474452554744526,
+      "strict_pass": false,
+      "core_pass": 8,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [
+        {
+          "id": "A/analysis/9",
+          "category": "A",
+          "passed": false,
+          "detail": "KeyError"
+        },
+        {
+          "id": "A/analysis/10",
+          "category": "A",
+          "passed": false,
+          "detail": "KeyError"
+        },
+        {
+          "id": "A/analysis/11",
+          "category": "A",
+          "passed": false,
+          "detail": "KeyError"
+        },
+        {
+          "id": "A/analysis/12",
+          "category": "A",
+          "passed": false,
+          "detail": "KeyError"
+        },
+        {
+          "id": "D/analysis",
+          "category": "D",
+          "passed": false,
+          "detail": ""
+        },
+        {
+          "id": "D/final_report",
+          "category": "D",
+          "passed": false,
+          "detail": ""
+        }
+      ],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-K54-guidedsoft-fresh-r1/modular-K54__iCaWDtA/agent"
+    },
+    {
+      "task_id": "K64",
+      "title": "包依赖闭包与冲突的中等规模对照",
+      "trial_id": "cm20-K64-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-9974c3c0-5564-42cf-94f8-ddd3a303f944",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 14,
+        "todo_write": 3,
+        "write": 4,
+        "read": 3,
+        "edit": 3
+      },
+      "root_model_steps": 24,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "Yes — the task has three clean modules (assessment semantics, global search, engine/final report) with clear interfaces, but they're tightly coupled and I understand them fully already.",
+          "native_time_ms": 1794888886618,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "431140be2aeb3c3277544335282e80f2c40ebb374dec074e63dc774a12d0d02e"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the whole problem is a small, self-contained solver where the reference semantics already live in `comparison.py`; parallel delegation would add coordination overhead without benefit.",
+          "native_time_ms": 1794888886618,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "431140be2aeb3c3277544335282e80f2c40ebb374dec074e63dc774a12d0d02e"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "Yes — three clean modules with well-defined interfaces (assessment, global search, report projection) mapped naturally to separate files, which I implemented in that order.",
+          "native_time_ms": 1794888973708,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "ee08df9e803a7b0267044804510aacab81738946879353ec75fdd750d8d2740a"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the solver is small and self-contained, the reference semantics already live in `comparison.py`, and parallel delegation would have added only coordination overhead.",
+          "native_time_ms": 1794888973708,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "ee08df9e803a7b0267044804510aacab81738946879353ec75fdd750d8d2740a"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 53,
+          "sha256": "85adc935cbd43c2e43fb1e6de6acf2849fcab522f235646841e6381e80fb3454"
+        },
+        {
+          "path": "packages/analysis/global_selection.py",
+          "nonempty_noncomment_lines": 61,
+          "sha256": "69f432bfb46cb819265fe494b287662a17c5b7f034286565041b782c5fce78e8"
+        },
+        {
+          "path": "packages/analysis/selection_constraints.py",
+          "nonempty_noncomment_lines": 84,
+          "sha256": "1b3071dfac963249529fc155d54f21976a4fcd3187e484dbb610f27fc6a6eae8"
+        }
+      ],
+      "largest_module_line_share": 0.42424242424242425,
+      "strict_pass": false,
+      "core_pass": 11,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [
+        {
+          "id": "A/analysis/12",
+          "category": "A",
+          "passed": false,
+          "detail": "timeout"
+        }
+      ],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-K64-guidedsoft-fresh-r1/modular-K64__vwBvWWd/agent"
+    },
+    {
+      "task_id": "L114",
+      "title": "编码子空间与前置交付的全局地面链路",
+      "trial_id": "cm20-L114-guided-softtime-c1",
+      "cohort": "reused-three-resumed",
+      "root_session_id": "session-d228b3e0-4a27-4fc3-b581-d59f258e22a5",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 41,
+        "list_agents": 1,
+        "read": 20,
+        "write": 10,
+        "edit": 8,
+        "job_kill": 4,
+        "job_output": 3,
+        "job_list": 1
+      },
+      "root_model_steps": 79,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "yes — the task naturally splits into two independent, well-specified helper modules (a GF(2) basis routine and a per-tick legal-batch generator) plus a global search orchestrator, each with clear interfaces and disjoint scopes.",
+          "native_time_ms": 1794842097832,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "28031547355e55b7093831c3ee7f814d65b81fa3bca0581695c03b35301ac64d"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — the pieces are tightly coupled through exact state semantics (canonical spans, cooldown/history, eligibility timing) that the verifier replays; integrating parallel implementations risks subtle divergence, and the whole solver is small enough to build coherently by one author.",
+          "native_time_ms": 1794842097832,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "28031547355e55b7093831c3ee7f814d65b81fa3bca0581695c03b35301ac64d"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "yes",
+          "native_time_ms": 1794846501450,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "2e609477234b3d0ce970696396608143185a821853b5b712a59aae3a96730ad4"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no. The three pieces share exact state semantics (canonical spans, cooldown/eligibility timing, completion) that the independent verifier replays; integrating parallel implementations risked subtle divergence, and the solver is small enough to build coherently by one author. Final: 0 teammates used — no change from the initial decision.",
+          "native_time_ms": 1794846501450,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "2e609477234b3d0ce970696396608143185a821853b5b712a59aae3a96730ad4"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 172,
+          "sha256": "c609ade061afd669a79d38df31a7b62a42ba51fef2958238db236f18911432c0"
+        },
+        {
+          "path": "engines/analysis/coding_basis.py",
+          "nonempty_noncomment_lines": 25,
+          "sha256": "ac38b8e55f7ee4f4d4bd098ee970f377b92f037ad73528d4a1fd6574637027b0"
+        },
+        {
+          "path": "engines/analysis/contact_policy.py",
+          "nonempty_noncomment_lines": 54,
+          "sha256": "31b881211a94d2284c0c090b564f4dfc62a87afa018981a7deaf3f8af2064faa"
+        }
+      ],
+      "largest_module_line_share": 0.6852589641434262,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261116-soft-budget-r1/jobs/cm20-L114-guided-softtime-c1/modular-L114__EiRKa5T/agent"
+    },
+    {
+      "task_id": "M103",
+      "title": "端口驻留与储能的全时域恢复",
+      "trial_id": "cm20-M103-guided-softtime-c1",
+      "cohort": "reused-three-resumed",
+      "root_session_id": "session-db56d447-a280-4d3b-84e0-b308ceb0b844",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 68,
+        "read": 28,
+        "write": 8,
+        "edit": 31,
+        "job_output": 15,
+        "job_list": 1
+      },
+      "root_model_steps": 142,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No. The two helper modules (`port_policy.py`, `energy_ledger.py`) plus the `transform` engine form a tightly-coupled whole — the transform needs exact semantics of `port_choices` and `energy_choices` to combine them correctly over the horizon. Working alone avoids interface-mismatch rework.",
+          "native_time_ms": 1794839279661,
+          "relation_to_first_named_write_or_spawn": "same-millisecond",
+          "full_message_sha256": "c9fb7bc2860573fd3c6c8fdbc8039bfc9b06af569e071b95048d9ddd8e8711ae"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No. The task is small (two helper functions + one orchestration function), and the state-space search spans all three modules. Delegating would add coordination cost exceeding the benefit.",
+          "native_time_ms": 1794839279661,
+          "relation_to_first_named_write_or_spawn": "same-millisecond",
+          "full_message_sha256": "c9fb7bc2860573fd3c6c8fdbc8039bfc9b06af569e071b95048d9ddd8e8711ae"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No. The two helper modules (`port_policy.py`, `energy_ledger.py`) plus the `transform` engine form a tightly-coupled whole — the transform needs exact semantics of `port_choices` and `energy_choices` to combine them correctly over the horizon. Working alone avoids interface-mismatch rework.",
+          "native_time_ms": 1794839279661,
+          "relation_to_first_named_write_or_spawn": "same-millisecond",
+          "full_message_sha256": "c9fb7bc2860573fd3c6c8fdbc8039bfc9b06af569e071b95048d9ddd8e8711ae"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No. The task is small (two helper functions + one orchestration function), and the state-space search spans all three modules. Delegating would add coordination cost exceeding the benefit.",
+          "native_time_ms": 1794839279661,
+          "relation_to_first_named_write_or_spawn": "same-millisecond",
+          "full_message_sha256": "c9fb7bc2860573fd3c6c8fdbc8039bfc9b06af569e071b95048d9ddd8e8711ae"
+        }
+      },
+      "statement_count": 2,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 221,
+          "sha256": "74e31ea2443166a4f5f39d6d5cf389e56d4353a03841c8beef4074923792a706"
+        },
+        {
+          "path": "packages/analysis/energy_ledger.py",
+          "nonempty_noncomment_lines": 55,
+          "sha256": "961709de98e7a52e6e4e3483d991ef134d1d45d57669e63dcf94f56fe597f202"
+        },
+        {
+          "path": "packages/analysis/port_policy.py",
+          "nonempty_noncomment_lines": 28,
+          "sha256": "c091020366cc99d0afbaf4bf14bfa011a6f98d449fa8eae5d27a92d65d3ef142"
+        }
+      ],
+      "largest_module_line_share": 0.7269736842105263,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261116-soft-budget-r1/jobs/cm20-M103-guided-softtime-c1/modular-M103__ttV6EJz/agent"
+    },
+    {
+      "task_id": "Q08",
+      "title": "碎片质谱的一对一峰匹配",
+      "trial_id": "cm20-Q08-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-c5eaad9c-2a02-408c-a6f0-624299f0d931",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 12,
+        "read": 13,
+        "write": 3,
+        "edit": 6
+      },
+      "root_model_steps": 25,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is a single cohesive algorithm with tightly coupled pieces (fragments → match_score → transform orchestration), small in scope, and my understanding is already complete. Splitting adds coordination overhead without benefit.",
+          "native_time_ms": 1794888950986,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "ad6528abac587cd8e9ffc2d402448fb036277cfcba8891dadac973ee8461d6ba"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the implementation is compact and I've already fully traced the domain logic; delegation would introduce integration risk for no throughput gain.",
+          "native_time_ms": 1794888950986,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "ad6528abac587cd8e9ffc2d402448fb036277cfcba8891dadac973ee8461d6ba"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No. The task is a single cohesive algorithm — segmentation → variant generation → fragment ions → one-to-one matching → ranking/FDR — all in one compact domain. The pieces are tightly coupled and I could fully trace the domain semantics up front, so splitting them would only add coordination overhead.",
+          "native_time_ms": 1794889019253,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "707d49d4df5003af97fce7c62b5d110a520b55cb12823adc19e7caf860748ab1"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No. The implementation is small (three modules, ~200 lines total), self-contained, and the correct behavior is fully determined by the spec plus the worked example. Delegation would introduce integration risk with no throughput benefit.",
+          "native_time_ms": 1794889019253,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "707d49d4df5003af97fce7c62b5d110a520b55cb12823adc19e7caf860748ab1"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 61,
+          "sha256": "02d187b4e199528b8d4e2daa97bebd44a0cd765b59a9ce9cf3572d23fcd77be9"
+        },
+        {
+          "path": "engines/analysis/candidate_fragments.py",
+          "nonempty_noncomment_lines": 86,
+          "sha256": "bb9204ebe2b3995974c41f5a6afe7e1a65bc749fa5806535e419f67f425bedf2"
+        },
+        {
+          "path": "engines/analysis/peak_matching.py",
+          "nonempty_noncomment_lines": 39,
+          "sha256": "15e139e5702bacb85ac1ec1ca8f157386bc7726547c74f9f788c9d3de8e97efa"
+        }
+      ],
+      "largest_module_line_share": 0.46236559139784944,
+      "strict_pass": true,
+      "core_pass": 9,
+      "core_total": 9,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-Q08-guidedsoft-fresh-r1/modular-Q08__8uViMPt/agent"
+    },
+    {
+      "task_id": "Q20",
+      "title": "海流场反演与漂流轨迹",
+      "trial_id": "cm20-Q20-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-bbc74853-f11f-439c-b61a-af630978b8b0",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 7,
+        "read": 11,
+        "write": 3
+      },
+      "root_model_steps": 13,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the business spec is a single compact domain with one linear pipeline (fit field → replay drifters); splitting adds coordination overhead with no independent surface beyond the two already-separated helper stubs.",
+          "native_time_ms": 1794888994789,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "2bb876ef4adc64ee04bdbf607ed95fbe8fba5d01cae0033abe784c7ec9f0a30e"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the work is small and sequential (tracker depends on fitted field semantics), so a single author is faster and less error-prone than coordinating context hand-offs.",
+          "native_time_ms": 1794888994789,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "2bb876ef4adc64ee04bdbf607ed95fbe8fba5d01cae0033abe784c7ec9f0a30e"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the spec is one compact, linear domain (fit field → replay drifters) with the only natural seams already expressed as the two helper stubs, so nothing meaningful to parallelize.",
+          "native_time_ms": 1794889019711,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "98d2369fa1e523705923438c2eeac84bb3c4a0fe7463237543dced8f479f80c9"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the task is small and the tracker semantics depend on the fitted-field semantics, so a single author completes it faster and more reliably than coordinating context hand-offs.",
+          "native_time_ms": 1794889019711,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "98d2369fa1e523705923438c2eeac84bb3c4a0fe7463237543dced8f479f80c9"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 18,
+          "sha256": "9ecef2779bdfebe621ef1ead638a7ab544378a4715b84fc516d9cb555aab0204"
+        },
+        {
+          "path": "engines/analysis/drifter_tracking.py",
+          "nonempty_noncomment_lines": 28,
+          "sha256": "cef9f46b7d49972c57bb893860f7f8621d43d292fdae07322a35a316171d7629"
+        },
+        {
+          "path": "engines/analysis/field_fit.py",
+          "nonempty_noncomment_lines": 52,
+          "sha256": "c47596a0fe8c98a7ee66fde282ad6487443e596e9b650f66f210c55a6150b3e6"
+        }
+      ],
+      "largest_module_line_share": 0.5306122448979592,
+      "strict_pass": true,
+      "core_pass": 8,
+      "core_total": 8,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-Q20-guidedsoft-fresh-r1/modular-Q20__W3hBUZQ/agent"
+    },
+    {
+      "task_id": "S02",
+      "title": "祖先性状变化的全局支持度",
+      "trial_id": "cm20-S02-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-823d50e7-cd0e-490b-8d38-993807744a20",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 9,
+        "read": 11,
+        "write": 3
+      },
+      "root_model_steps": 16,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is small and intrinsically sequential (subtree summaries feed edge-change counts, which feed the report), with counting semantics that are easier to get right as one coherent DP than split across independent owners.",
+          "native_time_ms": 1794889400502,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "5f6a4b4270a84476e8ee79d59add55a2fbaf8619c5845bb1cde0d0d89c064d12"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the two helpers depend on shared traversal/state-index conventions, so coordinating disjoint write scopes would cost more than the ~100 lines of closely-coupled, well-defined code. I implemented everything locally (0 teammates used, unchanged from the initial decision).",
+          "native_time_ms": 1794889400502,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "5f6a4b4270a84476e8ee79d59add55a2fbaf8619c5845bb1cde0d0d89c064d12"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is small and intrinsically sequential (subtree summaries feed edge-change counts, which feed the report), with counting semantics that are easier to get right as one coherent DP than split across independent owners.",
+          "native_time_ms": 1794889400502,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "5f6a4b4270a84476e8ee79d59add55a2fbaf8619c5845bb1cde0d0d89c064d12"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the two helpers depend on shared traversal/state-index conventions, so coordinating disjoint write scopes would cost more than the ~100 lines of closely-coupled, well-defined code. I implemented everything locally (0 teammates used, unchanged from the initial decision).",
+          "native_time_ms": 1794889400502,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "5f6a4b4270a84476e8ee79d59add55a2fbaf8619c5845bb1cde0d0d89c064d12"
+        }
+      },
+      "statement_count": 2,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 31,
+          "sha256": "89cd05b83807acf29d0a6f78c605eddadef4de12498b947de58775116cbc3545"
+        },
+        {
+          "path": "engines/analysis/edge_support.py",
+          "nonempty_noncomment_lines": 108,
+          "sha256": "a7c695b6de110ae96193edfc8881c441f6fb5fb27f2baadcd7b537c0f6a401fc"
+        },
+        {
+          "path": "engines/analysis/subtree_support.py",
+          "nonempty_noncomment_lines": 63,
+          "sha256": "a7e5fcb952fc515d7cd60ee77a8806e9185f16889802258e77943f1f4a711256"
+        }
+      ],
+      "largest_module_line_share": 0.5346534653465347,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-S02-guidedsoft-fresh-r1/modular-S02__7PNkotK/agent"
+    },
+    {
+      "task_id": "S129",
+      "title": "重试与逆依赖回滚的最短补偿事务",
+      "trial_id": "cm20-S129-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-e7cfa41b-796f-4233-b3a9-8677ca8d2f4f",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "read": 18,
+        "bash": 27,
+        "todo_write": 2,
+        "write": 6,
+        "edit": 5,
+        "job_output": 1
+      },
+      "root_model_steps": 48,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the three modules (forward moves, compensation moves, and the global transform) share one tightly-coupled state model and semantics; splitting them would add interface-friction without reducing core difficulty.",
+          "native_time_ms": 1794889267785,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "00b283cf006c8f8f457f73336cda04c1e5ea3ea9be71153011b4eafd560b156e"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — this is a single cohesive planning problem best implemented and verified locally for correctness of the coupled semantics.",
+          "native_time_ms": 1794889267785,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "00b283cf006c8f8f457f73336cda04c1e5ea3ea9be71153011b4eafd560b156e"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the three modules (forward moves, compensation moves, and the global transform) share one tightly-coupled state model (attempt-count maps + derived success/exhaustion/finished sets); splitting them would only add interface friction without reducing the core planning difficulty.",
+          "native_time_ms": 1794889595427,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "8edf49c5aa910985cd8b41cfa4c670aa8ecbbb9932c1dd84899afa3a50f3022a"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — this is a single cohesive finite-optimization problem best implemented and verified locally, since correctness hinges on coupled semantics (whole-wave abort, reverse-order compensation, checkpoint seeding) that are hard to split cleanly. Final division: worked entirely as `lead`, 0 teammates used.",
+          "native_time_ms": 1794889595427,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "8edf49c5aa910985cd8b41cfa4c670aa8ecbbb9932c1dd84899afa3a50f3022a"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 127,
+          "sha256": "6889c07a182120b10d702eae10533fb7a9f8c54483f3bf34b9956bb9961e1284"
+        },
+        {
+          "path": "engines/analysis/compensation_batches.py",
+          "nonempty_noncomment_lines": 67,
+          "sha256": "2ea38ddcdd514848fa01e059981bdf3ac93dec2e959a0a47442924ee75f9e2e0"
+        },
+        {
+          "path": "engines/analysis/forward_batches.py",
+          "nonempty_noncomment_lines": 67,
+          "sha256": "5e8903d434d68c69d184f9d45c2231afd18a711438c4b8cd95e5fc229c1ca993"
+        }
+      ],
+      "largest_module_line_share": 0.48659003831417624,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-S129-guidedsoft-fresh-r1/modular-S129__ivMDso5/agent"
+    },
+    {
+      "task_id": "U109",
+      "title": "组合拍卖全部最优分配与反事实支付",
+      "trial_id": "cm20-U109-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-c91895de-4bb9-41d4-a96f-4afa7ec3d9f8",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 12,
+        "list_agents": 1,
+        "read": 12,
+        "write": 3,
+        "edit": 2
+      },
+      "root_model_steps": 20,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no — the solver, tie-counting, and payment audit share a single domain model (bundles, disjointness, eligibility) and must agree exactly on objective/tie semantics; splitting them would create integration rework for no real speedup at this input size.",
+          "native_time_ms": 1794889295825,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "8a8a82e14da31aeaf7a22cdd1d304592fef221ae59f2fa42670f6890465b1c7f"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — the work is one cohesive algorithmic unit with subtle cross-cutting semantics, and I can implement and verify it directly faster than coordinating teammates.",
+          "native_time_ms": 1794889295825,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "8a8a82e14da31aeaf7a22cdd1d304592fef221ae59f2fa42670f6890465b1c7f"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no — the solver, all-tied-optima counting, and payment audit share one tightly-coupled domain model (eligible bundles, disjointness across goods, one-bid-per-bidder, three-level objective, and \"audit all ties\" semantics). Splitting them would introduce interface-drift risk for no speedup at ≤16 goods / ≤144 bids.",
+          "native_time_ms": 1794889373731,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "e839f2722fcd52af26255e877be22fc7526d5bbdc39dc53fda3d8db2fa2b5be2"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — one cohesive algorithmic unit with subtle cross-cutting tie semantics; I implemented and validated it directly faster than coordinating teammates.",
+          "native_time_ms": 1794889373731,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "e839f2722fcd52af26255e877be22fc7526d5bbdc39dc53fda3d8db2fa2b5be2"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 51,
+          "sha256": "25a1a2b3faa4c079ba73598c4a7167fdc672994e9e100f33a42d51a27e0eff3e"
+        },
+        {
+          "path": "engines/analysis/auction_search.py",
+          "nonempty_noncomment_lines": 99,
+          "sha256": "a75b9a803fbd8b54dbb123ac3e2ff291483afe2634455eebdff77f2c6ba3e814"
+        },
+        {
+          "path": "engines/analysis/payment_audit.py",
+          "nonempty_noncomment_lines": 50,
+          "sha256": "98e505bcb5eba66e0770f6fbe445f2759be1effcafdda3ac2875d90804010150"
+        }
+      ],
+      "largest_module_line_share": 0.495,
+      "strict_pass": false,
+      "core_pass": 10,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [
+        {
+          "id": "A/analysis/11",
+          "category": "A",
+          "passed": false,
+          "detail": "timeout"
+        },
+        {
+          "id": "A/analysis/12",
+          "category": "A",
+          "passed": false,
+          "detail": "timeout"
+        },
+        {
+          "id": "D/analysis",
+          "category": "D",
+          "passed": false,
+          "detail": ""
+        },
+        {
+          "id": "D/final_report",
+          "category": "D",
+          "passed": false,
+          "detail": ""
+        }
+      ],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-U109-guidedsoft-fresh-r1/modular-U109__P6aYjgd/agent"
+    },
+    {
+      "task_id": "V163",
+      "title": "共享建设的跨季节生态廊道",
+      "trial_id": "cm20-V163-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-f9c4aafc-31e3-4cc7-9f7e-b2f472af5b67",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 8,
+        "list_agents": 1,
+        "read": 11,
+        "write": 3
+      },
+      "root_model_steps": 13,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is small and tightly coupled: the optimizer (subset search) directly depends on the exact semantics of both helper functions (max-flow and reachability), so splitting introduces integration risk without reducing difficulty.",
+          "native_time_ms": 1794889975342,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "3058fe2921611d370e2c7793407f999c81fa4ec856379b1093e49c6e01f62959"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the deliverable is a handful of short, interdependent functions; a single implementer can verify cross-function contracts more cheaply than coordinating separate scopes.",
+          "native_time_ms": 1794889975342,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "3058fe2921611d370e2c7793407f999c81fa4ec856379b1093e49c6e01f62959"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the task is small and tightly coupled: the subset-selection optimizer depends directly on the exact semantics of both helper functions, so a single implementer verifies the cross-function contracts (max-flow net-capacity, capacity-ignoring reachability) more cheaply than coordinating separate scopes.",
+          "native_time_ms": 1794890019556,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "773ddacdbba785cd78f12ee371749a34dc49a3f80efcfad766c55e21c3195b87"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the deliverable is a handful of short, interdependent functions; there was no meaningful independent work to fan out.",
+          "native_time_ms": 1794890019556,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "773ddacdbba785cd78f12ee371749a34dc49a3f80efcfad766c55e21c3195b87"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "stages/analysis/engine.py",
+          "nonempty_noncomment_lines": 95,
+          "sha256": "8fbcc655ed6315f421a25ea25d2534dc3f8a0f624a0add0331e5739a1336d372"
+        },
+        {
+          "path": "stages/analysis/season_coverage.py",
+          "nonempty_noncomment_lines": 25,
+          "sha256": "0f373a524db161c39e23bb7aab53ba7b27dc726009318bfeba1b2d5f12b4df2e"
+        },
+        {
+          "path": "stages/analysis/season_flow.py",
+          "nonempty_noncomment_lines": 59,
+          "sha256": "a062e6a7663f15058ba87e14fe63d57c1e2b6f266eda2cc9ec382cd9532e36a4"
+        }
+      ],
+      "largest_module_line_share": 0.5307262569832403,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-V163-guidedsoft-fresh-r1/modular-V163__dfpDB7z/agent"
+    },
+    {
+      "task_id": "W07",
+      "title": "多版本事务的传播隔离",
+      "trial_id": "cm20-W07-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-677b3e44-b192-42a7-a70a-1df0876038f6",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 13,
+        "read": 12,
+        "write": 3,
+        "edit": 4
+      },
+      "root_model_steps": 26,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "Yes — two clearly separable, independently testable modules (`evidence_links.py` and `containment_query.py`) plus a thin engine wiring.",
+          "native_time_ms": 1794890035498,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "e01e8bb48c75074e8665e6bbe8c2a8b2f4a8895fe4ff233a64f7d181d645bad2"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the task is small (two pure functions + wiring), interfaces are fully specified, and the hardest part is the minimum-cut \"all minimum sets\" logic which is subtle enough that splitting risks integration errors. Working alone is faster and safer here.",
+          "native_time_ms": 1794890035498,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "e01e8bb48c75074e8665e6bbe8c2a8b2f4a8895fe4ff233a64f7d181d645bad2"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "Yes — the task naturally splits into two independent pure functions (`derive_evidence_links` for the WR/WW/RW/PHANTOM audit graph, and `minimum_containment` for the min vertex-cut propagation) plus thin wiring in `transform`, each with a spec-provided local check that allowed independent verification.",
+          "native_time_ms": 1794890131255,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "f421d38e4b62ae376e80e324f96fa24de0e0ac8eb15c5a37ae2061854d5579c2"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the total scope is small (two ~100-line modules with fully specified interfaces), and the \"all minimum-cost removal sets\" requirement is a subtle min-cut problem where splitting work across teammates would add integration risk without offsetting benefit. I implemented everything locally as the Lead.",
+          "native_time_ms": 1794890131255,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "f421d38e4b62ae376e80e324f96fa24de0e0ac8eb15c5a37ae2061854d5579c2"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 33,
+          "sha256": "83c5b29f4cc5ebd6eae72ef5a92e54ca12d7a126ed15ba37c99eaf75d201f15a"
+        },
+        {
+          "path": "engines/analysis/containment_query.py",
+          "nonempty_noncomment_lines": 137,
+          "sha256": "84da4cccf973966d52fb217f0a026d2ae281e8b9d1af00e8af5f222727087be7"
+        },
+        {
+          "path": "engines/analysis/evidence_links.py",
+          "nonempty_noncomment_lines": 82,
+          "sha256": "f676a2ccd4773d90ba49fb55a233e87938f109a53b28e2b69fa37185663f9cf3"
+        }
+      ],
+      "largest_module_line_share": 0.5436507936507936,
+      "strict_pass": true,
+      "core_pass": 10,
+      "core_total": 10,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-W07-guidedsoft-fresh-r1/modular-W07__mrZjhb3/agent"
+    },
+    {
+      "task_id": "W11",
+      "title": "共享时钟下的真实时序余量",
+      "trial_id": "cm20-W11-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-2637efc6-b4ce-4449-a634-ed5dabd20f44",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 6,
+        "read": 10,
+        "write": 3
+      },
+      "root_model_steps": 11,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the domain is a single cohesive computation (clock difference + data path bounds + slack aggregation) with two tiny helpers that must share exact interval semantics; splitting risks interface drift for negligible gain.",
+          "native_time_ms": 1794890032623,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "4407d06fd74f77fcb399205d171668b7431a196f6fb791c861d59d222c7e9e82"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the whole implementation is ~60 lines with tight numeric coupling (shared-segment cancellation, forbidden-word containment), and integration would cost more than writing it directly.",
+          "native_time_ms": 1794890032623,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "4407d06fd74f77fcb399205d171668b7431a196f6fb791c861d59d222c7e9e82"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the domain is a single cohesive computation (clock difference + data path bounds + slack aggregation) with two tiny helpers that must share exact interval semantics; splitting risks interface drift for negligible gain.",
+          "native_time_ms": 1794890032623,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "4407d06fd74f77fcb399205d171668b7431a196f6fb791c861d59d222c7e9e82"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the whole implementation is ~60 lines with tight numeric coupling (shared-segment cancellation, forbidden-word containment), and integration would cost more than writing it directly.",
+          "native_time_ms": 1794890032623,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "4407d06fd74f77fcb399205d171668b7431a196f6fb791c861d59d222c7e9e82"
+        }
+      },
+      "statement_count": 2,
+      "code": [
+        {
+          "path": "engines/analysis/engine.py",
+          "nonempty_noncomment_lines": 48,
+          "sha256": "5285622b4f54dc414ba4561de5cb9d4d42699a8014826f3cf7bae0ca914c78c7"
+        },
+        {
+          "path": "engines/analysis/clock_difference.py",
+          "nonempty_noncomment_lines": 18,
+          "sha256": "7f617dc22ea7750799b84afe9ef8c13640a32bd5643e964759b387c3e8e7cf77"
+        },
+        {
+          "path": "engines/analysis/data_path_delay.py",
+          "nonempty_noncomment_lines": 40,
+          "sha256": "6b06e900d5dd30f4162d144a9e68886481f5ec508b0726a71042ce900108e467"
+        }
+      ],
+      "largest_module_line_share": 0.4528301886792453,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-W11-guidedsoft-fresh-r1/modular-W11__G9kQt9A/agent"
+    },
+    {
+      "task_id": "X13",
+      "title": "跨链审查场次的最优排程",
+      "trial_id": "cm20-X13-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-cf437f02-5bc5-4e07-b08d-51ab57ffd05b",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 31,
+        "read": 17,
+        "write": 4,
+        "edit": 11,
+        "job_output": 1,
+        "job_kill": 3,
+        "web_search": 1
+      },
+      "root_model_steps": 59,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no. The task is a single cohesive algorithm (transitive ancestor closure → max-weight schedule) with tight coupling between the two helper functions and the transform; the residual \"hard\" part (exact max-weight scheduling with transitive precedence + optional selection) is one atomic unit that can't be split into independent pieces.",
+          "native_time_ms": 1794891306451,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "34447642037cb5c1ee48b5b48bd695f2e1a6da35bf68174128b6a53748a7ac35"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no. There was no task-specific parallelism benefit — the three modules share one dependency chain (`derive_ancestors` feeds `choose_review_schedule` feeds `transform`), and the hard parts required iterative verification against brute force, which is best done in one focused loop. I worked alone with 0 teammates.",
+          "native_time_ms": 1794891306451,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "34447642037cb5c1ee48b5b48bd695f2e1a6da35bf68174128b6a53748a7ac35"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "no. The task is a single cohesive algorithm (transitive ancestor closure → max-weight schedule) with tight coupling between the two helper functions and the transform; the residual \"hard\" part (exact max-weight scheduling with transitive precedence + optional selection) is one atomic unit that can't be split into independent pieces.",
+          "native_time_ms": 1794891306451,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "34447642037cb5c1ee48b5b48bd695f2e1a6da35bf68174128b6a53748a7ac35"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no. There was no task-specific parallelism benefit — the three modules share one dependency chain (`derive_ancestors` feeds `choose_review_schedule` feeds `transform`), and the hard parts required iterative verification against brute force, which is best done in one focused loop. I worked alone with 0 teammates.",
+          "native_time_ms": 1794891306451,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "34447642037cb5c1ee48b5b48bd695f2e1a6da35bf68174128b6a53748a7ac35"
+        }
+      },
+      "statement_count": 2,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 14,
+          "sha256": "99b62f795f0fd16423a8da4ada1fdb8ec14a7132d787c27fa755563c71678118"
+        },
+        {
+          "path": "packages/analysis/causal_ancestry.py",
+          "nonempty_noncomment_lines": 20,
+          "sha256": "589837c6c7b4a5ffb84412cedb4abb32b4a91325f0695bece452030310fd7a70"
+        },
+        {
+          "path": "packages/analysis/review_schedule.py",
+          "nonempty_noncomment_lines": 198,
+          "sha256": "ef7d8b3d6ca6965f40a3ccd14e266d89523737b8dfe279bc9120417cb9043c62"
+        }
+      ],
+      "largest_module_line_share": 0.853448275862069,
+      "strict_pass": false,
+      "core_pass": 0,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [
+        {
+          "id": "A/analysis/1",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/2",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/3",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/4",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/5",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/6",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/7",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/8",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/9",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/10",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/11",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "A/analysis/12",
+          "category": "A",
+          "passed": false,
+          "detail": "ImportError"
+        },
+        {
+          "id": "B/analysis",
+          "category": "B",
+          "passed": false,
+          "detail": "two_clean_builds_and_loaders"
+        }
+      ],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-X13-guidedsoft-fresh-r1/modular-X13__JfoiHp4/agent"
+    },
+    {
+      "task_id": "Y193",
+      "title": "共享堆位与多吊机的全局取货",
+      "trial_id": "cm20-Y193-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-4a7e62e3-3e96-4037-93e4-272018713b50",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {
+        "list_agents": 1
+      },
+      "root_tool_counts": {
+        "bash": 35,
+        "list_agents": 1,
+        "write": 4,
+        "read": 9,
+        "job_kill": 1,
+        "edit": 9,
+        "job_list": 1
+      },
+      "root_model_steps": 60,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the two helper modules and the engine are tightly coupled (global search over state-graph calls wave-options at every state); splitting them risks interface drift on a small, coherent solver.",
+          "native_time_ms": 1794890168273,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "64632d2806c0cde981ffa809afe395985635b74617f18fff8e986f13fb6522b9"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the search space is small (2–6 containers, 3–5 stacks, 1–3 cranes) and correctness depends on a single consistent state/optimization model; delegation would add coordination overhead without meaningful parallelization.",
+          "native_time_ms": 1794890168273,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "64632d2806c0cde981ffa809afe395985635b74617f18fff8e986f13fb6522b9"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "no",
+          "text": "No — the two helper modules and the engine form one tightly-coupled solver (global search calls wave-options at every state); splitting them would risk interface drift with no benefit on a compact, coherent problem.",
+          "native_time_ms": 1794890548181,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "07f521ad9f5611085e740c071c004742e33b8d6746f0227c94763e3daa18bb48"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "No — the search space is small (2–6 containers, 3–5 stacks, 1–3 cranes) and correctness depends on a single consistent state/optimization model, so coordination overhead would outweigh any parallelization gain. Final: worked alone, 0 teammates (matching the initial decision, no revision needed).",
+          "native_time_ms": 1794890548181,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "07f521ad9f5611085e740c071c004742e33b8d6746f0227c94763e3daa18bb48"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "products/analysis/engine.py",
+          "nonempty_noncomment_lines": 41,
+          "sha256": "d16824b23ce706eb2fc5bbf2fb960f3ef50e7c9bad77ebb732db2ad67b169daf"
+        },
+        {
+          "path": "products/analysis/yard_global_search.py",
+          "nonempty_noncomment_lines": 75,
+          "sha256": "9527a9bba40ec99316c9efef3e4bbe5be98d3ee93ba169fef90b0e39e839d8c3"
+        },
+        {
+          "path": "products/analysis/yard_wave_options.py",
+          "nonempty_noncomment_lines": 190,
+          "sha256": "c3d1613d41d96b1930c2fd56f466462f02ec15bb9cde27553d0116745c072781"
+        }
+      ],
+      "largest_module_line_share": 0.6209150326797386,
+      "strict_pass": true,
+      "core_pass": 12,
+      "core_total": 12,
+      "score_source": "original-native-score",
+      "failures": [],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-Y193-guidedsoft-fresh-r1/modular-Y193__ZrYXRcM/agent"
+    },
+    {
+      "task_id": "Z10",
+      "title": "配额申诉后各项分配的变动频率",
+      "trial_id": "cm20-Z10-guidedsoft-fresh-r1",
+      "cohort": "fresh-seventeen-soft-time",
+      "root_session_id": "session-88cae4fc-1394-40aa-8cc2-6526809b768c",
+      "ordinary_mode_verified": true,
+      "delegation_tool_available": true,
+      "creation_attempts": [],
+      "team_tool_calls": {},
+      "root_tool_counts": {
+        "bash": 14,
+        "write": 4,
+        "read": 4,
+        "edit": 2
+      },
+      "root_model_steps": 23,
+      "children": [],
+      "first_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "yes — the task is naturally split into two independent, well-specified helper modules (`row_award_options.py` and `appeal_optimal_counts.py`) with clear source-level interfaces, plus a thin `engine.py` orchestrator binding them together.",
+          "native_time_ms": 1794890200572,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "9ae61454adefc6c38bd6bf4f168f08bc6239333cf4eabf8ece23dc78e07d353c"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — the work is small (two compact pure-Python functions plus a small engine), the interfaces are already fully specified, and coordination overhead would exceed the implementation cost. I'll implement everything locally.",
+          "native_time_ms": 1794890200572,
+          "relation_to_first_named_write_or_spawn": "before",
+          "full_message_sha256": "9ae61454adefc6c38bd6bf4f168f08bc6239333cf4eabf8ece23dc78e07d353c"
+        }
+      },
+      "final_statements": {
+        "work decomposition": {
+          "dimension": "work decomposition",
+          "choice": "yes",
+          "text": "yes — the task naturally split into two independent helper modules with fully-specified interfaces (`row_award_options` and `appeal_optimal_counts`) plus a thin `engine.py` orchestrator.",
+          "native_time_ms": 1794890267315,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "4a58304f90aaabc193c77c7365b0639db4062d627e99d493700a8e5005abb786"
+        },
+        "subagent delegation": {
+          "dimension": "subagent delegation",
+          "choice": "no",
+          "text": "no — the work is compact (two pure-Python functions and a small engine), interfaces were already fully specified, and coordination overhead would exceed implementation cost; I implemented everything locally with 0 teammates.",
+          "native_time_ms": 1794890267315,
+          "relation_to_first_named_write_or_spawn": "after",
+          "full_message_sha256": "4a58304f90aaabc193c77c7365b0639db4062d627e99d493700a8e5005abb786"
+        }
+      },
+      "statement_count": 4,
+      "code": [
+        {
+          "path": "packages/analysis/engine.py",
+          "nonempty_noncomment_lines": 30,
+          "sha256": "fd175fe22d55b286f30c346c4550d1e0a140d9dfb951ddf3f8cb7bfd6b9cd070"
+        },
+        {
+          "path": "packages/analysis/appeal_optimal_counts.py",
+          "nonempty_noncomment_lines": 67,
+          "sha256": "dd0ae6437dd226e2324cc4ecce39fc2342d5ba4f1e5342cb477a1eea3556a87e"
+        },
+        {
+          "path": "packages/analysis/row_award_options.py",
+          "nonempty_noncomment_lines": 88,
+          "sha256": "4c0b0d54f592ca61e36ddba6d4e9ce82be76deadd3a5032807897db950f1fc3e"
+        }
+      ],
+      "largest_module_line_share": 0.4756756756756757,
+      "strict_pass": false,
+      "core_pass": 10,
+      "core_total": 12,
+      "score_source": "offline-original-scorer-recovery",
+      "failures": [
+        {
+          "id": "A/analysis/11",
+          "category": "A",
+          "passed": false,
+          "detail": "timeout"
+        },
+        {
+          "id": "A/analysis/12",
+          "category": "A",
+          "passed": false,
+          "detail": "timeout"
+        },
+        {
+          "id": "D/analysis",
+          "category": "D",
+          "passed": false,
+          "detail": ""
+        },
+        {
+          "id": "D/final_report",
+          "category": "D",
+          "passed": false,
+          "detail": ""
+        }
+      ],
+      "request_policy_flags": {
+        "controlled_single_present": [
+          false
+        ],
+        "controlled_multi_present": [
+          false
+        ],
+        "explicit_only_guard_present": [
+          false
+        ],
+        "guided_rationale_instruction_present": [
+          true
+        ],
+        "explicit_delegation_instruction_present": [
+          false
+        ]
+      },
+      "native_evidence_path": "<local-run-root>/colleague-modular20-dsh-20261117-full20-r1/jobs/cm20-Z10-guidedsoft-fresh-r1/modular-Z10__wWUXjgM/agent"
+    }
+  ],
+  "interpretation": "Ordinary visible self-reports, not private reasoning or causal ground truth. Lines include docstrings; posthoc code size is not difficulty or measured parallel speedup. Timing covers named write/edit/spawn tools; Bash writes can be missed and millisecond ties are not strictly ordered."
+}
