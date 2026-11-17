@@ -12,9 +12,9 @@
 <!-- DSH-MODULAR20-COMPARISON-20261117 -->
 ## 同事模块化20题：DSH委派与自研Harness综合对比
 
-**[综合报告与统一指标总表](results/dsh-modular20-delegation-harness-comparison-20261117/README.md)** · **[普通模式新提示 vs 补跑后High：20题完整对比](results/dsh-modular20-delegation-harness-comparison-20261117/普通模式_vs_补跑后High_20题完整对比.md)** · [显式与未显式M103同题对照](results/dsh-modular20-delegation-harness-comparison-20261117/显式委派与未显式要求_同题对照.md) · [同10题不同模式](results/dsh-modular20-delegation-harness-comparison-20261117/10题不同Harness模式_统一指标对比.md)
+**[报告与实验数据导航](results/dsh-modular20-delegation-harness-comparison-20261117/阅读导航.md)** · [综合报告](results/dsh-modular20-delegation-harness-comparison-20261117/README.md) · [未委派原因分析](results/dsh-modular20-delegation-harness-comparison-20261117/未委派原因分析.md) · [普通新提示与补跑后High20题](results/dsh-modular20-delegation-harness-comparison-20261117/普通模式_vs_补跑后High_20题完整对比.md) · [M103显式对照](results/dsh-modular20-delegation-harness-comparison-20261117/显式委派与未显式要求_同题对照.md) · [同10题不同模式](results/dsh-modular20-delegation-harness-comparison-20261117/10题不同Harness模式_统一指标对比.md)
 
-High五题补跑全部完成，当前20题严格15/20、核心192/231、reward32.125/40；普通新提示为14/20、198/231、31.4375/40，两组均0子agent。完整列出E2E、补采验收、输入／输出／总token、缓存与统一峰价成本，含40行逐题数据、离线复算和原32K历史附录。High有5题放宽输出预算，普通含3题续跑，条件差异保留；历史M103与同10题四组对比继续单列，不作因果排行榜。
+High五题补跑全部完成，当前20题严格15/20、核心192/231、reward32.125/40；普通新提示为14/20、198/231、31.4375/40，两组均0子agent。汇总5份报告、40行逐题指标、45份trace审计导出＋额外1份真实创建正对照、20对理由与离线复核脚本。包含E2E、token、统一峰价成本和原32K历史附录；High五题放宽预算及普通三题续跑分列，不作因果排行榜。
 
 <!-- /DSH-MODULAR20-COMPARISON-20261117 -->
 
