@@ -1,0 +1,811 @@
+[
+  {
+    "id": "scan-1",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "A"
+          ],
+          "replace": {
+            "root": {
+              "files": {
+                "old": "1"
+              },
+              "dirs": {
+                "mirror": "disk"
+              },
+              "ignore": []
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/old": "1",
+          "A/mirror/intro": "2",
+          "B/intro": "2"
+        },
+        "changed": {
+          "4": [
+            [
+              "A/d/gone"
+            ],
+            []
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            [
+              "A/mirror/intro",
+              "B/intro"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-2",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "A"
+          ],
+          "replace": {
+            "root": {
+              "files": {
+                "old": "1"
+              },
+              "dirs": {
+                "d": "disk",
+                "mirror": "disk"
+              },
+              "ignore": [
+                "d"
+              ]
+            }
+          }
+        },
+        {
+          "finish": [
+            "A/mirror"
+          ],
+          "replace": {}
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/old": "1",
+          "A/mirror/intro": "2",
+          "B/intro": "2"
+        },
+        "changed": {
+          "4": [
+            [
+              "A/d/gone"
+            ],
+            []
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            [
+              "A/mirror/intro",
+              "B/intro"
+            ]
+          ]
+        }
+      },
+      {
+        "index": {
+          "A/old": "1",
+          "A/mirror/intro": "2",
+          "B/intro": "2",
+          "A/mirror/end": "3"
+        },
+        "changed": {
+          "3": [
+            [],
+            [
+              "A/mirror/end"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-3",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "A"
+          ],
+          "replace": {
+            "root": {
+              "files": {
+                "d": "5"
+              },
+              "dirs": {
+                "mirror": "disk"
+              },
+              "ignore": []
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/mirror/intro": "2",
+          "B/intro": "2",
+          "A/d": "5"
+        },
+        "changed": {
+          "5": [
+            [],
+            [
+              "A/d"
+            ]
+          ],
+          "4": [
+            [
+              "A/d/gone"
+            ],
+            []
+          ],
+          "1": [
+            [
+              "A/old"
+            ],
+            []
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            [
+              "A/mirror/intro",
+              "B/intro"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-4",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "A"
+          ],
+          "replace": {
+            "root": {
+              "files": {},
+              "dirs": {
+                "d": "disk",
+                "old": "disk",
+                "mirror": "disk"
+              },
+              "ignore": []
+            }
+          }
+        },
+        {
+          "finish": [
+            "A/old"
+          ],
+          "replace": {}
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/d/intro": "2",
+          "A/d/gone": "4",
+          "A/mirror/intro": "2",
+          "B/intro": "2"
+        },
+        "changed": {
+          "1": [
+            [
+              "A/old"
+            ],
+            []
+          ]
+        }
+      },
+      {
+        "index": {
+          "A/d/intro": "2",
+          "A/d/gone": "4",
+          "A/mirror/intro": "2",
+          "B/intro": "2",
+          "A/old/intro": "2",
+          "A/old/end": "3"
+        },
+        "changed": {
+          "3": [
+            [],
+            [
+              "A/old/end"
+            ]
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "A/old/intro",
+              "B/intro"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-5",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "B"
+          ],
+          "replace": {
+            "disk": {
+              "files": {
+                "renamed": "2",
+                "end": "3"
+              },
+              "dirs": {},
+              "ignore": []
+            }
+          }
+        },
+        {
+          "finish": [
+            "A/d"
+          ],
+          "replace": {}
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/old": "1",
+          "A/d/intro": "2",
+          "A/d/gone": "4",
+          "A/mirror/intro": "2",
+          "B/renamed": "2",
+          "B/end": "3"
+        },
+        "changed": {
+          "3": [
+            [],
+            [
+              "B/end"
+            ]
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/renamed"
+            ]
+          ]
+        }
+      },
+      {
+        "index": {
+          "A/old": "1",
+          "A/mirror/intro": "2",
+          "B/renamed": "2",
+          "B/end": "3",
+          "A/d/renamed": "2",
+          "A/d/end": "3"
+        },
+        "changed": {
+          "3": [
+            [
+              "B/end"
+            ],
+            [
+              "A/d/end",
+              "B/end"
+            ]
+          ],
+          "4": [
+            [
+              "A/d/gone"
+            ],
+            []
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/renamed"
+            ],
+            [
+              "A/d/renamed",
+              "A/mirror/intro",
+              "B/renamed"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-6",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [],
+          "replace": {
+            "disk": {
+              "files": {
+                "end": "3"
+              },
+              "dirs": {},
+              "ignore": []
+            }
+          }
+        },
+        {
+          "finish": [
+            "A",
+            "A/d",
+            "A/mirror",
+            "B"
+          ],
+          "replace": {}
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/old": "1",
+          "A/d/intro": "2",
+          "A/d/gone": "4",
+          "A/mirror/intro": "2",
+          "B/intro": "2"
+        },
+        "changed": {}
+      },
+      {
+        "index": {
+          "A/old": "1",
+          "A/d/end": "3",
+          "A/mirror/end": "3",
+          "B/end": "3"
+        },
+        "changed": {
+          "3": [
+            [],
+            [
+              "A/d/end",
+              "A/mirror/end",
+              "B/end"
+            ]
+          ],
+          "4": [
+            [
+              "A/d/gone"
+            ],
+            []
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            []
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-7",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "A/mirror",
+            "A"
+          ],
+          "replace": {
+            "disk": {
+              "files": {
+                "intro": "2",
+                "end": "3"
+              },
+              "dirs": {},
+              "ignore": [
+                "intro"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/old": "1",
+          "A/d/intro": "2",
+          "A/d/gone": "4",
+          "B/intro": "2",
+          "A/mirror/end": "3"
+        },
+        "changed": {
+          "3": [
+            [],
+            [
+              "A/mirror/end"
+            ]
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            [
+              "A/d/intro",
+              "B/intro"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "scan-8",
+    "input": {
+      "nodes": {
+        "root": {
+          "files": {
+            "old": "1"
+          },
+          "dirs": {
+            "d": "disk",
+            "mirror": "disk"
+          },
+          "ignore": []
+        },
+        "disk": {
+          "files": {
+            "intro": "2",
+            "end": "3"
+          },
+          "dirs": {},
+          "ignore": []
+        }
+      },
+      "mounts": {
+        "A": "root",
+        "B": "disk"
+      },
+      "initial": {
+        "A/old": "1",
+        "A/d/intro": "2",
+        "A/d/gone": "4",
+        "A/mirror/intro": "2",
+        "B/intro": "2"
+      },
+      "scans": [
+        {
+          "finish": [
+            "A",
+            "A/d",
+            "B"
+          ],
+          "replace": {
+            "root": {
+              "files": {
+                "x": "1"
+              },
+              "dirs": {
+                "d": "disk"
+              },
+              "ignore": []
+            },
+            "disk": {
+              "files": {
+                "intro": "1"
+              },
+              "dirs": {},
+              "ignore": []
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "index": {
+          "A/d/intro": "1",
+          "B/intro": "1",
+          "A/x": "1"
+        },
+        "changed": {
+          "4": [
+            [
+              "A/d/gone"
+            ],
+            []
+          ],
+          "1": [
+            [
+              "A/old"
+            ],
+            [
+              "A/d/intro",
+              "A/x",
+              "B/intro"
+            ]
+          ],
+          "2": [
+            [
+              "A/d/intro",
+              "A/mirror/intro",
+              "B/intro"
+            ],
+            []
+          ]
+        }
+      }
+    ]
+  }
+]

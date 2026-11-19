@@ -1,0 +1,185 @@
+{
+  "config": {
+    "roots": [
+      {
+        "package": "A",
+        "min": null,
+        "max": null
+      },
+      {
+        "package": "B",
+        "min": null,
+        "max": null
+      }
+    ],
+    "features": [
+      "turbo"
+    ],
+    "prior": {
+      "A": [
+        2,
+        0,
+        0
+      ],
+      "B": [
+        1,
+        0,
+        0
+      ],
+      "C": [
+        1,
+        0,
+        0
+      ]
+    }
+  },
+  "catalog": [
+    {
+      "package": "A",
+      "versions": [
+        {
+          "version": [
+            1,
+            0,
+            0
+          ],
+          "deps": [
+            {
+              "package": "C",
+              "min": [
+                1,
+                0,
+                0
+              ],
+              "max": [
+                2,
+                0,
+                0
+              ],
+              "kind": "required",
+              "feature": null
+            }
+          ]
+        },
+        {
+          "version": [
+            2,
+            0,
+            0
+          ],
+          "deps": [
+            {
+              "package": "C",
+              "min": [
+                2,
+                0,
+                0
+              ],
+              "max": [
+                3,
+                0,
+                0
+              ],
+              "kind": "required",
+              "feature": null
+            },
+            {
+              "package": "D",
+              "min": null,
+              "max": null,
+              "kind": "peer",
+              "feature": "turbo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "package": "B",
+      "versions": [
+        {
+          "version": [
+            1,
+            0,
+            0
+          ],
+          "deps": [
+            {
+              "package": "C",
+              "min": [
+                1,
+                0,
+                0
+              ],
+              "max": [
+                2,
+                0,
+                0
+              ],
+              "kind": "required",
+              "feature": null
+            }
+          ]
+        },
+        {
+          "version": [
+            2,
+            0,
+            0
+          ],
+          "deps": [
+            {
+              "package": "C",
+              "min": [
+                2,
+                0,
+                0
+              ],
+              "max": [
+                3,
+                0,
+                0
+              ],
+              "kind": "required",
+              "feature": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "package": "C",
+      "versions": [
+        {
+          "version": [
+            1,
+            0,
+            0
+          ],
+          "deps": []
+        },
+        {
+          "version": [
+            2,
+            0,
+            0
+          ],
+          "deps": []
+        }
+      ]
+    },
+    {
+      "package": "D",
+      "versions": [
+        {
+          "version": [
+            1,
+            0,
+            0
+          ],
+          "deps": []
+        }
+      ]
+    }
+  ]
+}

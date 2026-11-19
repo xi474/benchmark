@@ -1,0 +1,103 @@
+{
+  "habitats": [
+    {
+      "id": "S",
+      "quality": 1
+    },
+    {
+      "id": "X",
+      "quality": 4
+    },
+    {
+      "id": "T",
+      "quality": 2
+    },
+    {
+      "id": "U",
+      "quality": 0
+    },
+    {
+      "id": "V",
+      "quality": 0
+    }
+  ],
+  "corridors": [
+    {
+      "id": "summer",
+      "a": "S",
+      "b": "U",
+      "cost": 1,
+      "capacity": 2,
+      "open": [
+        "summer"
+      ]
+    },
+    {
+      "id": "winter",
+      "a": "S",
+      "b": "V",
+      "cost": 1,
+      "capacity": 2,
+      "open": [
+        "winter"
+      ]
+    },
+    {
+      "id": "SX",
+      "a": "S",
+      "b": "X",
+      "cost": 2,
+      "capacity": 2,
+      "open": [
+        "summer",
+        "winter"
+      ]
+    },
+    {
+      "id": "XT",
+      "a": "X",
+      "b": "T",
+      "cost": 2,
+      "capacity": 2,
+      "open": [
+        "summer",
+        "winter"
+      ]
+    },
+    {
+      "id": "UT",
+      "a": "U",
+      "b": "T",
+      "cost": 2,
+      "capacity": 2,
+      "open": [
+        "summer"
+      ]
+    },
+    {
+      "id": "VT",
+      "a": "V",
+      "b": "T",
+      "cost": 2,
+      "capacity": 2,
+      "open": [
+        "winter"
+      ]
+    }
+  ],
+  "seasons": [
+    {
+      "id": "summer",
+      "source": "S",
+      "sink": "T",
+      "demand": 2
+    },
+    {
+      "id": "winter",
+      "source": "S",
+      "sink": "T",
+      "demand": 2
+    }
+  ],
+  "budget": 8
+}

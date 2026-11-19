@@ -1,0 +1,254 @@
+{
+  "all_checks_passed": false,
+  "candidate_hashes_after_materialize": {},
+  "candidate_hashes_before": {},
+  "catalog_sha256": "38a930b6c4bb909957723a5d52b792b1f321936bea3c933eff5b9e978df9dc55",
+  "categories": {
+    "business": {
+      "passed": 9,
+      "total": 12
+    },
+    "domain_validation": {
+      "passed": 7,
+      "total": 7
+    },
+    "integration": {
+      "passed": 2,
+      "total": 5
+    },
+    "interface": {
+      "passed": 3,
+      "total": 3
+    }
+  },
+  "checks": [
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/0",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/1",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/2",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/3",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/event_codec/4",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/event_codec/5",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parser": true
+      },
+      "id": "io/event_codec",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "15",
+        "expected": "16",
+        "path": "$.value.result.next_offsets.cold"
+      },
+      "id": "api/checkpoint_restore/0",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "15",
+        "expected": "16",
+        "path": "$.value.result.next_offsets.cold"
+      },
+      "id": "api/checkpoint_restore/1",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "15",
+        "expected": "16",
+        "path": "$.value.result.next_offsets.cold"
+      },
+      "id": "api/checkpoint_restore/2",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/3",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/4",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/5",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/6",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parser": true
+      },
+      "id": "io/checkpoint_restore",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/diagnostic_logs/0",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/diagnostic_logs/1",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/diagnostic_logs/2",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/diagnostic_logs/3",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/diagnostic_logs/4",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/diagnostic_logs/5",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parser": true
+      },
+      "id": "io/diagnostic_logs",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual": "15",
+        "expected": "16",
+        "path": "$.result.next_offsets.cold"
+      },
+      "id": "output/outputs/checkpoint_restore.json",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual": "15",
+        "expected": "16",
+        "path": "$.components.checkpoint_restore.next_offsets.cold"
+      },
+      "id": "output/outputs/core_manifest.json",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "matched",
+      "id": "output/outputs/diagnostic_logs.json",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "matched",
+      "id": "output/outputs/event_codec.json",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual": "302d6ff29cc51885590e062219816d3a29a7f5db6bac32757adaf80efe715eb5",
+        "expected": "288ec582642cd484235e181c1dd1498177bdeeca2be1e66d1c303aad545f2591",
+        "path": "$.sha256"
+      },
+      "id": "output/outputs/final_report.json",
+      "passed": false
+    }
+  ],
+  "checks_sha256": "04b0d70e2d76d752c052c8fbd643247cc222c81a61fc8df6a41e766c6dfa9892",
+  "difficulty": "H",
+  "elapsed_seconds": 2.367,
+  "integrity_ok": true,
+  "integrity_violations": [],
+  "max_reward": 3.0,
+  "model_requests": 0,
+  "pass_ratio": 0.7777777777777778,
+  "passed_verifiers": 21,
+  "policy_sha256": "708ffbf17b3e3efcbe213ea4f883ab60f981fd73bb336baa073f97370a50187a",
+  "policy_version": "2.0.0",
+  "reward": 2.333333,
+  "root_execution_succeeded": true,
+  "schema": "benchmark.partial-reward.v2",
+  "scoring_revision": "linux-preserve-candidate-v1",
+  "status": "scored",
+  "task": "hard/streaming_checkpoint_recovery_spec_v4",
+  "total_verifiers": 27
+}

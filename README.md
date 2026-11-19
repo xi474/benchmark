@@ -1,5 +1,11 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+## Capstone Benchmark v1.0.0 · 87 道中难题
+
+42 道中档，45 道难档。每题附五次校准评分、来源和构建批次。
+
+[发布清单](capstone-benchmark-v1.0.0/README.md) · [浏览 87 道题](capstone-benchmark-v1.0.0/tasks/) · [下载完整 ZIP](capstone-benchmark-v1.0.0/capstone-benchmark-87-v1.0.0.zip?raw=true) · [六个 harness 的历史运行覆盖](capstone-benchmark-v1.0.0/附录A-构建批次与六Harness历史覆盖.md)
+
 <!-- DSH-CROSS-DATASET-COMPARISON-20261117 -->
 ## DSH跨任务集单Agent／委派策略对照：v4导读版
 

@@ -1,0 +1,289 @@
+{
+  "schema_version": "medium6.original-provenance.v2",
+  "audit_date": "2026-11-08",
+  "task_count": 6,
+  "unique_original_task_count": 6,
+  "source_counts_by_adapted_task": {
+    "TB": 2,
+    "GAIA": 4
+  },
+  "package_source_revisions": {
+    "gaia2_are_repository": "a9fd2edccb4bc7e22fbf45c8482a5fef30a2a5a4",
+    "gaia2_data": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+    "swe_pro_data": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+    "swe_pro_repository": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "swe_verified_data": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal_bench_repository": "2fd12b88aafdd04a52c298e3940bcb189f9766d6"
+  },
+  "verified_revision_caveat": "包内记录的历史 revision 的 README 请求返回 404；改用当前可访问的 c104f840cc67f8b6eec6f759ebc8b2693d585d4a 固定数据核验，同一 8 个来源题的 ID、题面、base_commit、难度和解码后测试列表均一致。未覆盖或改写历史记录。",
+  "records": [
+    {
+      "task_id": "MP04",
+      "title": "多格式用户合并与完整冲突报告",
+      "source_benchmark": "Terminal-Bench",
+      "source_group": "TB",
+      "entry_id": "multistage4/multiformat_user_merge",
+      "structure_style": "multistage4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "合并 JSON、CSV、Parquet 中模式不一致的用户数据，按映射和来源优先级输出标准数据与冲突报告。",
+      "adaptation_zh": "把 Parquet 改成 JSONL，保留三路解析、字段归一、优先级和完整冲突证据；固定空值及类型语义，使用标准库和合成夹具。",
+      "original_tasks": [
+        {
+          "source_id": "multi-source-data-merger",
+          "original_task_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/multi-source-data-merger/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "author_metadata_label",
+          "official_difficulty": "medium",
+          "difficulty_note": "官方仓库的作者 metadata 标签；不是论文 Figure 6 多模型实测分档。",
+          "expert_time_estimate_min": 30.0,
+          "junior_time_estimate_min": 120.0,
+          "category": "data-processing",
+          "tags": [
+            "data-processing",
+            "etl",
+            "schema-mapping",
+            "conflict-resolution",
+            "pandas",
+            "parquet"
+          ],
+          "agent_timeout_sec": 900.0,
+          "verifier_timeout_sec": 900.0,
+          "environment": {
+            "cpus": 1,
+            "memory_mb": 2048,
+            "allow_internet": true
+          },
+          "data_revision_used_for_audit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/multi-source-data-merger/task.toml"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP08",
+      "title": "节日照片迁移后发送与缺失报告",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "linux2/holiday_photo_migration",
+      "structure_style": "linux2",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "寻找三类节日照片并迁移，迁移后发圣诞照片给符合条件的女儿，报告缺失照片，并删除另一类旧照片。",
+      "adaptation_zh": "保留先迁移后发送、缺失报告及独立删除；把原 Ambiguity 场景改成静态、可判定的缺失处理，不运行追问对话。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_28_wy635e",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=110",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 110,
+          "row_id": "0200_ndh9u8xbnpvnqmyy787miw5glb62ecu0",
+          "category": "ambiguity",
+          "tags": [
+            "Universe",
+            "Ambiguity"
+          ],
+          "oracle_event_count": 7,
+          "oracle_state_apps": [
+            "AgentUserInterface",
+            "Emails",
+            "Files"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP09",
+      "title": "两场座谈会、群邀请与物资采购",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "reasoning4/panel_events_procurement",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "安排两场指定规则的座谈会，通知满足标题和活跃日期条件的群，并购买可用商品中最贵的指定玩具。",
+      "adaptation_zh": "保留空档搜索、日期计算、群筛选和商品选择；用本地日历、通知与采购计划替代跨应用真实副作用。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_29_8hgfug",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=65",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 65,
+          "row_id": "0058_0gz1go8jip8421i5ju1331o1xiavxc6q",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 8,
+          "oracle_state_apps": [
+            "Calendar",
+            "Messages",
+            "Shopping"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP10",
+      "title": "晚宴计划、联系人定位与餐具采购",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "context8/dinner_contact_checkout",
+      "structure_style": "context8",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "安排周日晚宴，从最近会话定位两名邀请对象，分别发邀请邮件，并采购满足规格的杯子和餐盘。",
+      "adaptation_zh": "保留日历、联系人及多属性商品三路处理；改为静态计划接口。本题改编规格存在独立审计争议，当前主难度仍待裁决，不能用原题类别替它背书。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_26_135a24",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=66",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 66,
+          "row_id": "0077_nhfl8dp2dlgn844d8fhx7mth1tiud6as",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 6,
+          "oracle_state_apps": [
+            "Calendar",
+            "Emails",
+            "Shopping"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP11",
+      "title": "取消会面、研讨会叫车与图书采购",
+      "source_benchmark": "GAIA2 公开 mini / validation",
+      "source_group": "GAIA",
+      "entry_id": "reasoning4/meeting_ride_book_plan",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "取消与特定联系人的一段日期内会面并邮件通知；为研讨会提前叫默认服务类型的车，另采购指定精装书。",
+      "adaptation_zh": "保留取消→通知的局部顺序，以及交通与采购两条独立支路；用离线计划替代叫车、付款和发送。",
+      "original_tasks": [
+        {
+          "source_id": "scenario_universe_23_2gyolt",
+          "original_task_url": "https://huggingface.co/datasets/meta-agents-research-environments/gaia2/viewer/mini/validation?row=73",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "not_published_for_selected_scenario",
+          "official_difficulty": null,
+          "difficulty_note": "所选 mini/validation 场景记录及官方说明未提供逐题 easy/medium/hard 或 GAIA Level 1/2/3 标签。",
+          "data_revision_used_for_audit": "78ea3bdbdeec2bdcd6afa5420915d8a22f23ed99",
+          "source_config": "mini",
+          "source_split": "validation",
+          "source_row": 73,
+          "row_id": "0103_2eew091qx234vunawg1dvmneqq5l3jut",
+          "category": "execution",
+          "tags": [
+            "Universe",
+            "Execution"
+          ],
+          "oracle_event_count": 8,
+          "oracle_state_apps": [
+            "Cabs",
+            "Calendar",
+            "Emails",
+            "Shopping"
+          ],
+          "oracle_count_note": "审计脚本从原事件记录统计；并非官方难度，也不包括全部搜索/读取操作，不能当作最少步数。",
+          "original_environment": "ARE 多应用有状态模拟环境；所选场景属于 mini/validation，不使用真实外部账号。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    },
+    {
+      "task_id": "MP24",
+      "title": "大学任职、在读人数与国家集合查询",
+      "source_benchmark": "Terminal-Bench",
+      "source_group": "TB",
+      "entry_id": "reasoning4/university_relation_query",
+      "structure_style": "reasoning4",
+      "source_relation": "single_source_adaptation",
+      "source_task_count": 1,
+      "original_goal_zh": "编写 SPARQL，筛选满足职称、EU 任职和某个任职部门在读学生数条件的教授，并列出其当前任职国家。",
+      "adaptation_zh": "改成受限关系/日期/去重查询接口；修订原参考查询跨部门累计的歧义，要求至少一个部门自身人数超过阈值。无需搭建完整 RDF 工具栈。",
+      "original_tasks": [
+        {
+          "source_id": "sparql-university",
+          "original_task_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/sparql-university/instruction.md",
+          "official_single_task_pass_rate": null,
+          "pass_rate_note": "本次未核验统一模型、harness、预算及重复次数下的官方单题通过率；不以排行榜总分代填。",
+          "difficulty_kind": "author_metadata_label",
+          "official_difficulty": "hard",
+          "difficulty_note": "官方仓库的作者 metadata 标签；不是论文 Figure 6 多模型实测分档。",
+          "expert_time_estimate_min": 800.0,
+          "junior_time_estimate_min": 10000.0,
+          "category": "data-querying",
+          "tags": [
+            "knowledge-graph",
+            "sparql-query",
+            "information-retrieval"
+          ],
+          "agent_timeout_sec": 900.0,
+          "verifier_timeout_sec": 900.0,
+          "environment": {
+            "cpus": 1,
+            "memory_mb": 2048,
+            "allow_internet": true
+          },
+          "data_revision_used_for_audit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+          "metadata_url": "https://github.com/harbor-framework/terminal-bench-2/blob/2fd12b88aafdd04a52c298e3940bcb189f9766d6/sparql-university/task.toml",
+          "time_estimate_caveat": "800/10000 分钟为上游原值，未发现本次审计可验证的实测依据；不当作实际完成人时或本地超时。"
+        }
+      ],
+      "original_benchmark_equivalent": false,
+      "our_historic_design_target": "M（候选设计目标，不能作为已校准档位）",
+      "our_empirical_difficulty": "按 Terminus 2 + DeepSeek V4 Pro 普通模式五次有效结果另行校准；不继承来源标签。"
+    }
+  ],
+  "scope_note": "原始难度与改编前信息为v1来源审计记录；当前本地范围以TASK/README及本次修订归因为准。"
+}

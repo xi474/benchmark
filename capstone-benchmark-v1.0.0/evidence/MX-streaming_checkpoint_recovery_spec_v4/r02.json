@@ -1,0 +1,310 @@
+{
+  "all_checks_passed": false,
+  "candidate_hashes_after_materialize": {},
+  "candidate_hashes_before": {},
+  "catalog_sha256": "38a930b6c4bb909957723a5d52b792b1f321936bea3c933eff5b9e978df9dc55",
+  "categories": {
+    "business": {
+      "passed": 4,
+      "total": 12
+    },
+    "domain_validation": {
+      "passed": 5,
+      "total": 7
+    },
+    "integration": {
+      "passed": 0,
+      "total": 5
+    },
+    "interface": {
+      "passed": 2,
+      "total": 3
+    }
+  },
+  "checks": [
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/0",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/1",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/2",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/event_codec/3",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/event_codec/4",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/event_codec/5",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parser": true
+      },
+      "id": "io/event_codec",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "NoneType",
+        "expected_type": "dict",
+        "path": "$.value"
+      },
+      "id": "api/checkpoint_restore/0",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "NoneType",
+        "expected_type": "dict",
+        "path": "$.value"
+      },
+      "id": "api/checkpoint_restore/1",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "NoneType",
+        "expected_type": "dict",
+        "path": "$.value"
+      },
+      "id": "api/checkpoint_restore/2",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "NoneType",
+        "expected_type": "dict",
+        "path": "$.value"
+      },
+      "id": "api/checkpoint_restore/3",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/4",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/5",
+      "passed": true
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/checkpoint_restore/6",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parser": true
+      },
+      "id": "io/checkpoint_restore",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/diagnostic_logs/0",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/diagnostic_logs/1",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/diagnostic_logs/2",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/diagnostic_logs/3",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/diagnostic_logs/4",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/diagnostic_logs/5",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parser": false
+      },
+      "id": "io/diagnostic_logs",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/outputs/checkpoint_restore.json",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/outputs/core_manifest.json",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/outputs/diagnostic_logs.json",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/outputs/event_codec.json",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/outputs/final_report.json",
+      "passed": false
+    }
+  ],
+  "checks_sha256": "04b0d70e2d76d752c052c8fbd643247cc222c81a61fc8df6a41e766c6dfa9892",
+  "difficulty": "H",
+  "elapsed_seconds": 2.949,
+  "integrity_ok": true,
+  "integrity_violations": [],
+  "max_reward": 3.0,
+  "model_requests": 0,
+  "pass_ratio": 0.4074074074074074,
+  "passed_verifiers": 11,
+  "policy_sha256": "708ffbf17b3e3efcbe213ea4f883ab60f981fd73bb336baa073f97370a50187a",
+  "policy_version": "2.0.0",
+  "reward": 1.222222,
+  "root_execution_succeeded": false,
+  "schema": "benchmark.partial-reward.v2",
+  "scoring_revision": "linux-preserve-candidate-v1",
+  "status": "scored",
+  "task": "hard/streaming_checkpoint_recovery_spec_v4",
+  "total_verifiers": 27
+}

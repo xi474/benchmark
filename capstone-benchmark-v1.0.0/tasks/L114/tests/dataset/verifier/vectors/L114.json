@@ -1,0 +1,4593 @@
+{
+  "task": "L114",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "P",
+                "dimension": 2,
+                "priority": 1,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "choose",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 0,
+                "end": 1,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "later",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 1,
+                "end": 2,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 1
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 1,
+            "count": 1,
+            "rank": 2
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 2,
+              "completion": 2
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "choose"
+            },
+            {
+              "tick": 1,
+              "contact": "later"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "choose",
+              "packet": "P",
+              "vector": 2
+            },
+            {
+              "tick": 1,
+              "contact": "later",
+              "packet": "P",
+              "vector": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "P",
+                "dimension": 3,
+                "priority": 1,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "first",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 0,
+                "end": 1,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 4
+                  }
+                ]
+              },
+              {
+                "id": "last",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 1,
+                "end": 2,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 1,
+            "count": 1,
+            "rank": 3
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 3,
+              "completion": 2
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "first"
+            },
+            {
+              "tick": 1,
+              "contact": "last"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "first",
+              "packet": "P",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "first",
+              "packet": "P",
+              "vector": 4
+            },
+            {
+              "tick": 1,
+              "contact": "last",
+              "packet": "P",
+              "vector": 3
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "P",
+                "dimension": 2,
+                "priority": 1,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": []
+              },
+              {
+                "id": "C",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": [
+                  "P"
+                ]
+              },
+              {
+                "id": "F",
+                "dimension": 2,
+                "priority": 6,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "all",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 0,
+                "end": 2,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "C",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "C",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "F",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "F",
+                    "vector": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 10,
+            "count": 2,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 2,
+              "completion": 1
+            },
+            {
+              "id": "C",
+              "rank": 2,
+              "completion": 2
+            },
+            {
+              "id": "F",
+              "rank": 0,
+              "completion": null
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "all"
+            },
+            {
+              "tick": 1,
+              "contact": "all"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "P",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "P",
+              "vector": 2
+            },
+            {
+              "tick": 1,
+              "contact": "all",
+              "packet": "C",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "all",
+              "packet": "C",
+              "vector": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "P",
+                "dimension": 2,
+                "priority": 1,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": []
+              },
+              {
+                "id": "C",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": [
+                  "P"
+                ]
+              },
+              {
+                "id": "F",
+                "dimension": 2,
+                "priority": 6,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 2,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "all",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 0,
+                "end": 1,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "C",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "C",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "F",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "F",
+                    "vector": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 6,
+            "count": 1,
+            "rank": 2
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 0,
+              "completion": null
+            },
+            {
+              "id": "C",
+              "rank": 0,
+              "completion": null
+            },
+            {
+              "id": "F",
+              "rank": 2,
+              "completion": 1
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "all"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "F",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "F",
+              "vector": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 1,
+            "packets": [
+              {
+                "id": "X",
+                "dimension": 2,
+                "priority": 4,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 3,
+                "requires": []
+              },
+              {
+                "id": "Y",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "y",
+                "release": 0,
+                "deadline": 3,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "x",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 0,
+                "end": 3,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "X",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "X",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "y",
+                "station": "s",
+                "craft": "A",
+                "band": "y",
+                "group": "g",
+                "start": 0,
+                "end": 3,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "Y",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "Y",
+                    "vector": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 13,
+            "count": 2,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "X",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "Y",
+              "rank": 2,
+              "completion": 1
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "y"
+            },
+            {
+              "tick": 2,
+              "contact": "x"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "y",
+              "packet": "Y",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "y",
+              "packet": "Y",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "x",
+              "packet": "X",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "x",
+              "packet": "X",
+              "vector": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "A",
+                "dimension": 2,
+                "priority": 5,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 3,
+                "requires": []
+              },
+              {
+                "id": "B",
+                "dimension": 2,
+                "priority": 7,
+                "craft": "B",
+                "band": "x",
+                "release": 0,
+                "deadline": 3,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "a",
+                "station": "sA",
+                "craft": "A",
+                "band": "x",
+                "group": "gA",
+                "start": 0,
+                "end": 3,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "A",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "A",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "b",
+                "station": "sB",
+                "craft": "B",
+                "band": "x",
+                "group": "gB",
+                "start": 0,
+                "end": 3,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "B",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "B",
+                    "vector": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 12,
+            "count": 2,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "A",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "B",
+              "rank": 2,
+              "completion": 3
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 1,
+              "contact": "a"
+            },
+            {
+              "tick": 1,
+              "contact": "b"
+            },
+            {
+              "tick": 2,
+              "contact": "a"
+            },
+            {
+              "tick": 2,
+              "contact": "b"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 1,
+              "contact": "a",
+              "packet": "A",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "b",
+              "packet": "B",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "a",
+              "packet": "A",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "b",
+              "packet": "B",
+              "vector": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "P",
+                "dimension": 4,
+                "priority": 1,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 3,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "early",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 0,
+                "end": 2,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 4
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 8
+                  }
+                ]
+              },
+              {
+                "id": "later",
+                "station": "s",
+                "craft": "A",
+                "band": "x",
+                "group": "g",
+                "start": 2,
+                "end": 3,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "P",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 6
+                  },
+                  {
+                    "packet": "P",
+                    "vector": 12
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 1,
+            "count": 1,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 4,
+              "completion": 3
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 1,
+              "contact": "early"
+            },
+            {
+              "tick": 2,
+              "contact": "later"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 1,
+              "contact": "early",
+              "packet": "P",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "early",
+              "packet": "P",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "later",
+              "packet": "P",
+              "vector": 6
+            },
+            {
+              "tick": 2,
+              "contact": "later",
+              "packet": "P",
+              "vector": 12
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 2,
+            "packets": [
+              {
+                "id": "p0",
+                "dimension": 2,
+                "priority": 5,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 4,
+                "requires": []
+              },
+              {
+                "id": "p1",
+                "dimension": 3,
+                "priority": 2,
+                "craft": "B",
+                "band": "x",
+                "release": 0,
+                "deadline": 4,
+                "requires": []
+              },
+              {
+                "id": "p2",
+                "dimension": 2,
+                "priority": 4,
+                "craft": "A",
+                "band": "y",
+                "release": 0,
+                "deadline": 4,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "Ax",
+                "station": "s0",
+                "craft": "A",
+                "band": "x",
+                "group": "g0",
+                "start": 0,
+                "end": 4,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p0",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 3
+                  }
+                ]
+              },
+              {
+                "id": "Ay",
+                "station": "s1",
+                "craft": "A",
+                "band": "y",
+                "group": "g0",
+                "start": 0,
+                "end": 4,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "Bx",
+                "station": "s0",
+                "craft": "B",
+                "band": "x",
+                "group": "g1",
+                "start": 0,
+                "end": 4,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 4
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 6
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 5
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "brief",
+                "station": "extra",
+                "craft": "A",
+                "band": "y",
+                "group": "other",
+                "start": 2,
+                "end": 4,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 9,
+            "count": 2,
+            "rank": 6
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p1",
+              "rank": 2,
+              "completion": null
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 3
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Ax"
+            },
+            {
+              "tick": 2,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "brief"
+            },
+            {
+              "tick": 3,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 4
+            },
+            {
+              "tick": 1,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 6
+            },
+            {
+              "tick": 2,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 3
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "p0",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 4,
+                "requires": []
+              },
+              {
+                "id": "p1",
+                "dimension": 3,
+                "priority": 9,
+                "craft": "B",
+                "band": "x",
+                "release": 0,
+                "deadline": 4,
+                "requires": []
+              },
+              {
+                "id": "p2",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "y",
+                "release": 0,
+                "deadline": 4,
+                "requires": [
+                  "p0"
+                ]
+              },
+              {
+                "id": "p3",
+                "dimension": 2,
+                "priority": 5,
+                "craft": "B",
+                "band": "y",
+                "release": 0,
+                "deadline": 4,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "Ax",
+                "station": "s0",
+                "craft": "A",
+                "band": "x",
+                "group": "g0",
+                "start": 0,
+                "end": 4,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p0",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 3
+                  }
+                ]
+              },
+              {
+                "id": "Ay",
+                "station": "s1",
+                "craft": "A",
+                "band": "y",
+                "group": "g0",
+                "start": 0,
+                "end": 4,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  }
+                ]
+              },
+              {
+                "id": "Bx",
+                "station": "s0",
+                "craft": "B",
+                "band": "x",
+                "group": "g1",
+                "start": 0,
+                "end": 4,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 7
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 4
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 5
+                  }
+                ]
+              },
+              {
+                "id": "By",
+                "station": "s1",
+                "craft": "B",
+                "band": "y",
+                "group": "g1",
+                "start": 0,
+                "end": 4,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p3",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "brief",
+                "station": "extra",
+                "craft": "B",
+                "band": "x",
+                "group": "other",
+                "start": 2,
+                "end": 4,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 7
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 5
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 32,
+            "count": 4,
+            "rank": 9
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 4
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p3",
+              "rank": 2,
+              "completion": 2
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 1,
+              "contact": "By"
+            },
+            {
+              "tick": 2,
+              "contact": "brief"
+            },
+            {
+              "tick": 2,
+              "contact": "Ax"
+            },
+            {
+              "tick": 3,
+              "contact": "Bx"
+            },
+            {
+              "tick": 3,
+              "contact": "Ay"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 1,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 3
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "brief",
+              "packet": "p1",
+              "vector": 7
+            },
+            {
+              "tick": 3,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 3
+            },
+            {
+              "tick": 3,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 1
+            },
+            {
+              "tick": 3,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 4
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 1,
+            "packets": [
+              {
+                "id": "p0",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              },
+              {
+                "id": "p1",
+                "dimension": 3,
+                "priority": 4,
+                "craft": "B",
+                "band": "x",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              },
+              {
+                "id": "p2",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "y",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              },
+              {
+                "id": "p3",
+                "dimension": 2,
+                "priority": 3,
+                "craft": "B",
+                "band": "y",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "Ax",
+                "station": "s0",
+                "craft": "A",
+                "band": "x",
+                "group": "g0",
+                "start": 0,
+                "end": 5,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p0",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 3
+                  }
+                ]
+              },
+              {
+                "id": "Ay",
+                "station": "s1",
+                "craft": "A",
+                "band": "y",
+                "group": "g0",
+                "start": 0,
+                "end": 5,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  }
+                ]
+              },
+              {
+                "id": "Bx",
+                "station": "s0",
+                "craft": "B",
+                "band": "x",
+                "group": "g1",
+                "start": 0,
+                "end": 5,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 6
+                  }
+                ]
+              },
+              {
+                "id": "By",
+                "station": "s1",
+                "craft": "B",
+                "band": "y",
+                "group": "g1",
+                "start": 0,
+                "end": 5,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p3",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 3
+                  }
+                ]
+              },
+              {
+                "id": "brief",
+                "station": "extra",
+                "craft": "A",
+                "band": "y",
+                "group": "other",
+                "start": 3,
+                "end": 5,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 25,
+            "count": 4,
+            "rank": 9
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 5
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 4
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p3",
+              "rank": 2,
+              "completion": 5
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "By"
+            },
+            {
+              "tick": 2,
+              "contact": "Ax"
+            },
+            {
+              "tick": 3,
+              "contact": "Bx"
+            },
+            {
+              "tick": 3,
+              "contact": "brief"
+            },
+            {
+              "tick": 4,
+              "contact": "By"
+            },
+            {
+              "tick": 4,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 2
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 6
+            },
+            {
+              "tick": 3,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 2,
+            "packets": [
+              {
+                "id": "p0",
+                "dimension": 2,
+                "priority": 2,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              },
+              {
+                "id": "p1",
+                "dimension": 3,
+                "priority": 4,
+                "craft": "B",
+                "band": "x",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              },
+              {
+                "id": "p2",
+                "dimension": 2,
+                "priority": 2,
+                "craft": "A",
+                "band": "y",
+                "release": 0,
+                "deadline": 5,
+                "requires": [
+                  "p1"
+                ]
+              },
+              {
+                "id": "p3",
+                "dimension": 2,
+                "priority": 6,
+                "craft": "B",
+                "band": "y",
+                "release": 0,
+                "deadline": 5,
+                "requires": [
+                  "p0",
+                  "p2"
+                ]
+              },
+              {
+                "id": "p4",
+                "dimension": 3,
+                "priority": 2,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 5,
+                "requires": []
+              }
+            ],
+            "contacts": [
+              {
+                "id": "Ax",
+                "station": "s0",
+                "craft": "A",
+                "band": "x",
+                "group": "g0",
+                "start": 0,
+                "end": 5,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p0",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 5
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 6
+                  }
+                ]
+              },
+              {
+                "id": "Ay",
+                "station": "s1",
+                "craft": "A",
+                "band": "y",
+                "group": "g0",
+                "start": 0,
+                "end": 5,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "Bx",
+                "station": "s0",
+                "craft": "B",
+                "band": "x",
+                "group": "g1",
+                "start": 0,
+                "end": 5,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 7
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 4
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 5
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "By",
+                "station": "s1",
+                "craft": "B",
+                "band": "y",
+                "group": "g1",
+                "start": 0,
+                "end": 5,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p3",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 3
+                  }
+                ]
+              },
+              {
+                "id": "brief",
+                "station": "extra",
+                "craft": "B",
+                "band": "x",
+                "group": "other",
+                "start": 3,
+                "end": 5,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 6
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 14,
+            "count": 4,
+            "rank": 11
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 2
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "p3",
+              "rank": 2,
+              "completion": 5
+            },
+            {
+              "id": "p4",
+              "rank": 2,
+              "completion": null
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "Ay"
+            },
+            {
+              "tick": 3,
+              "contact": "Ax"
+            },
+            {
+              "tick": 4,
+              "contact": "By"
+            },
+            {
+              "tick": 4,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 7
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 4
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 5
+            },
+            {
+              "tick": 2,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 3
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "Ax",
+              "packet": "p4",
+              "vector": 5
+            },
+            {
+              "tick": 4,
+              "contact": "Ax",
+              "packet": "p4",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "switch_cooldown": 0,
+            "packets": [
+              {
+                "id": "p0",
+                "dimension": 2,
+                "priority": 9,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 6,
+                "requires": []
+              },
+              {
+                "id": "p1",
+                "dimension": 3,
+                "priority": 7,
+                "craft": "B",
+                "band": "x",
+                "release": 0,
+                "deadline": 6,
+                "requires": []
+              },
+              {
+                "id": "p2",
+                "dimension": 2,
+                "priority": 7,
+                "craft": "A",
+                "band": "y",
+                "release": 0,
+                "deadline": 6,
+                "requires": []
+              },
+              {
+                "id": "p3",
+                "dimension": 2,
+                "priority": 7,
+                "craft": "B",
+                "band": "y",
+                "release": 0,
+                "deadline": 6,
+                "requires": [
+                  "p0"
+                ]
+              },
+              {
+                "id": "p4",
+                "dimension": 3,
+                "priority": 4,
+                "craft": "A",
+                "band": "x",
+                "release": 0,
+                "deadline": 6,
+                "requires": [
+                  "p1",
+                  "p2"
+                ]
+              }
+            ],
+            "contacts": [
+              {
+                "id": "Ax",
+                "station": "s0",
+                "craft": "A",
+                "band": "x",
+                "group": "g0",
+                "start": 0,
+                "end": 6,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p0",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p0",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 4
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 2
+                  },
+                  {
+                    "packet": "p4",
+                    "vector": 6
+                  }
+                ]
+              },
+              {
+                "id": "Ay",
+                "station": "s1",
+                "craft": "A",
+                "band": "y",
+                "group": "g0",
+                "start": 0,
+                "end": 6,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "Bx",
+                "station": "s0",
+                "craft": "B",
+                "band": "x",
+                "group": "g1",
+                "start": 0,
+                "end": 6,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p1",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 5
+                  },
+                  {
+                    "packet": "p1",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "By",
+                "station": "s1",
+                "craft": "B",
+                "band": "y",
+                "group": "g1",
+                "start": 0,
+                "end": 6,
+                "rate": 1,
+                "symbols": [
+                  {
+                    "packet": "p3",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 3
+                  },
+                  {
+                    "packet": "p3",
+                    "vector": 2
+                  }
+                ]
+              },
+              {
+                "id": "brief",
+                "station": "extra",
+                "craft": "A",
+                "band": "y",
+                "group": "other",
+                "start": 4,
+                "end": 6,
+                "rate": 2,
+                "symbols": [
+                  {
+                    "packet": "p2",
+                    "vector": 1
+                  },
+                  {
+                    "packet": "p2",
+                    "vector": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "expected": {
+          "score": {
+            "priority": 23,
+            "count": 3,
+            "rank": 9
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 5
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 5
+            },
+            {
+              "id": "p3",
+              "rank": 1,
+              "completion": null
+            },
+            {
+              "id": "p4",
+              "rank": 1,
+              "completion": null
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "Ax"
+            },
+            {
+              "tick": 3,
+              "contact": "Ax"
+            },
+            {
+              "tick": 4,
+              "contact": "Bx"
+            },
+            {
+              "tick": 4,
+              "contact": "brief"
+            },
+            {
+              "tick": 5,
+              "contact": "By"
+            },
+            {
+              "tick": 5,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 3
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 4,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 5
+            },
+            {
+              "tick": 4,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 5,
+              "contact": "Ax",
+              "packet": "p4",
+              "vector": 1
+            },
+            {
+              "tick": 5,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "P",
+            "dimension": 2,
+            "priority": 1,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "choose",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 0,
+            "end": 1,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 1
+              },
+              {
+                "packet": "P",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "later",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 1,
+            "end": 2,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 1
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 1,
+            "count": 1,
+            "rank": 2
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 2,
+              "completion": 2
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "choose"
+            },
+            {
+              "tick": 1,
+              "contact": "later"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "choose",
+              "packet": "P",
+              "vector": 2
+            },
+            {
+              "tick": 1,
+              "contact": "later",
+              "packet": "P",
+              "vector": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "P",
+            "dimension": 3,
+            "priority": 1,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "first",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 0,
+            "end": 1,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 1
+              },
+              {
+                "packet": "P",
+                "vector": 2
+              },
+              {
+                "packet": "P",
+                "vector": 4
+              }
+            ]
+          },
+          {
+            "id": "last",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 1,
+            "end": 2,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 3
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 1,
+            "count": 1,
+            "rank": 3
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 3,
+              "completion": 2
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "first"
+            },
+            {
+              "tick": 1,
+              "contact": "last"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "first",
+              "packet": "P",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "first",
+              "packet": "P",
+              "vector": 4
+            },
+            {
+              "tick": 1,
+              "contact": "last",
+              "packet": "P",
+              "vector": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "P",
+            "dimension": 2,
+            "priority": 1,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": []
+          },
+          {
+            "id": "C",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": [
+              "P"
+            ]
+          },
+          {
+            "id": "F",
+            "dimension": 2,
+            "priority": 6,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "all",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 0,
+            "end": 2,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 1
+              },
+              {
+                "packet": "P",
+                "vector": 2
+              },
+              {
+                "packet": "C",
+                "vector": 1
+              },
+              {
+                "packet": "C",
+                "vector": 2
+              },
+              {
+                "packet": "F",
+                "vector": 1
+              },
+              {
+                "packet": "F",
+                "vector": 2
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 10,
+            "count": 2,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 2,
+              "completion": 1
+            },
+            {
+              "id": "C",
+              "rank": 2,
+              "completion": 2
+            },
+            {
+              "id": "F",
+              "rank": 0,
+              "completion": null
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "all"
+            },
+            {
+              "tick": 1,
+              "contact": "all"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "P",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "P",
+              "vector": 2
+            },
+            {
+              "tick": 1,
+              "contact": "all",
+              "packet": "C",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "all",
+              "packet": "C",
+              "vector": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "P",
+            "dimension": 2,
+            "priority": 1,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": []
+          },
+          {
+            "id": "C",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": [
+              "P"
+            ]
+          },
+          {
+            "id": "F",
+            "dimension": 2,
+            "priority": 6,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 2,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "all",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 0,
+            "end": 1,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 1
+              },
+              {
+                "packet": "P",
+                "vector": 2
+              },
+              {
+                "packet": "C",
+                "vector": 1
+              },
+              {
+                "packet": "C",
+                "vector": 2
+              },
+              {
+                "packet": "F",
+                "vector": 1
+              },
+              {
+                "packet": "F",
+                "vector": 2
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 6,
+            "count": 1,
+            "rank": 2
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 0,
+              "completion": null
+            },
+            {
+              "id": "C",
+              "rank": 0,
+              "completion": null
+            },
+            {
+              "id": "F",
+              "rank": 2,
+              "completion": 1
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "all"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "F",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "all",
+              "packet": "F",
+              "vector": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 1,
+        "packets": [
+          {
+            "id": "X",
+            "dimension": 2,
+            "priority": 4,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 3,
+            "requires": []
+          },
+          {
+            "id": "Y",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "y",
+            "release": 0,
+            "deadline": 3,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "x",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 0,
+            "end": 3,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "X",
+                "vector": 1
+              },
+              {
+                "packet": "X",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "y",
+            "station": "s",
+            "craft": "A",
+            "band": "y",
+            "group": "g",
+            "start": 0,
+            "end": 3,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "Y",
+                "vector": 1
+              },
+              {
+                "packet": "Y",
+                "vector": 2
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 13,
+            "count": 2,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "X",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "Y",
+              "rank": 2,
+              "completion": 1
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "y"
+            },
+            {
+              "tick": 2,
+              "contact": "x"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "y",
+              "packet": "Y",
+              "vector": 1
+            },
+            {
+              "tick": 0,
+              "contact": "y",
+              "packet": "Y",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "x",
+              "packet": "X",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "x",
+              "packet": "X",
+              "vector": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "A",
+            "dimension": 2,
+            "priority": 5,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 3,
+            "requires": []
+          },
+          {
+            "id": "B",
+            "dimension": 2,
+            "priority": 7,
+            "craft": "B",
+            "band": "x",
+            "release": 0,
+            "deadline": 3,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "a",
+            "station": "sA",
+            "craft": "A",
+            "band": "x",
+            "group": "gA",
+            "start": 0,
+            "end": 3,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "A",
+                "vector": 1
+              },
+              {
+                "packet": "A",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "station": "sB",
+            "craft": "B",
+            "band": "x",
+            "group": "gB",
+            "start": 0,
+            "end": 3,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "B",
+                "vector": 1
+              },
+              {
+                "packet": "B",
+                "vector": 2
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 12,
+            "count": 2,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "A",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "B",
+              "rank": 2,
+              "completion": 3
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 1,
+              "contact": "a"
+            },
+            {
+              "tick": 1,
+              "contact": "b"
+            },
+            {
+              "tick": 2,
+              "contact": "a"
+            },
+            {
+              "tick": 2,
+              "contact": "b"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 1,
+              "contact": "a",
+              "packet": "A",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "b",
+              "packet": "B",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "a",
+              "packet": "A",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "b",
+              "packet": "B",
+              "vector": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "P",
+            "dimension": 4,
+            "priority": 1,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 3,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "early",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 0,
+            "end": 2,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 1
+              },
+              {
+                "packet": "P",
+                "vector": 2
+              },
+              {
+                "packet": "P",
+                "vector": 4
+              },
+              {
+                "packet": "P",
+                "vector": 8
+              }
+            ]
+          },
+          {
+            "id": "later",
+            "station": "s",
+            "craft": "A",
+            "band": "x",
+            "group": "g",
+            "start": 2,
+            "end": 3,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "P",
+                "vector": 3
+              },
+              {
+                "packet": "P",
+                "vector": 6
+              },
+              {
+                "packet": "P",
+                "vector": 12
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 1,
+            "count": 1,
+            "rank": 4
+          },
+          "packets": [
+            {
+              "id": "P",
+              "rank": 4,
+              "completion": 3
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 1,
+              "contact": "early"
+            },
+            {
+              "tick": 2,
+              "contact": "later"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 1,
+              "contact": "early",
+              "packet": "P",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "early",
+              "packet": "P",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "later",
+              "packet": "P",
+              "vector": 6
+            },
+            {
+              "tick": 2,
+              "contact": "later",
+              "packet": "P",
+              "vector": 12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 2,
+        "packets": [
+          {
+            "id": "p0",
+            "dimension": 2,
+            "priority": 5,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 4,
+            "requires": []
+          },
+          {
+            "id": "p1",
+            "dimension": 3,
+            "priority": 2,
+            "craft": "B",
+            "band": "x",
+            "release": 0,
+            "deadline": 4,
+            "requires": []
+          },
+          {
+            "id": "p2",
+            "dimension": 2,
+            "priority": 4,
+            "craft": "A",
+            "band": "y",
+            "release": 0,
+            "deadline": 4,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "Ax",
+            "station": "s0",
+            "craft": "A",
+            "band": "x",
+            "group": "g0",
+            "start": 0,
+            "end": 4,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p0",
+                "vector": 1
+              },
+              {
+                "packet": "p0",
+                "vector": 2
+              },
+              {
+                "packet": "p0",
+                "vector": 3
+              }
+            ]
+          },
+          {
+            "id": "Ay",
+            "station": "s1",
+            "craft": "A",
+            "band": "y",
+            "group": "g0",
+            "start": 0,
+            "end": 4,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 3
+              },
+              {
+                "packet": "p2",
+                "vector": 1
+              },
+              {
+                "packet": "p2",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "Bx",
+            "station": "s0",
+            "craft": "B",
+            "band": "x",
+            "group": "g1",
+            "start": 0,
+            "end": 4,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 4
+              },
+              {
+                "packet": "p1",
+                "vector": 6
+              },
+              {
+                "packet": "p1",
+                "vector": 5
+              },
+              {
+                "packet": "p1",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "brief",
+            "station": "extra",
+            "craft": "A",
+            "band": "y",
+            "group": "other",
+            "start": 2,
+            "end": 4,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 2
+              },
+              {
+                "packet": "p2",
+                "vector": 3
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 9,
+            "count": 2,
+            "rank": 6
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p1",
+              "rank": 2,
+              "completion": null
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 3
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Ax"
+            },
+            {
+              "tick": 2,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "brief"
+            },
+            {
+              "tick": 3,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 4
+            },
+            {
+              "tick": 1,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 6
+            },
+            {
+              "tick": 2,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 3
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "p0",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 4,
+            "requires": []
+          },
+          {
+            "id": "p1",
+            "dimension": 3,
+            "priority": 9,
+            "craft": "B",
+            "band": "x",
+            "release": 0,
+            "deadline": 4,
+            "requires": []
+          },
+          {
+            "id": "p2",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "y",
+            "release": 0,
+            "deadline": 4,
+            "requires": [
+              "p0"
+            ]
+          },
+          {
+            "id": "p3",
+            "dimension": 2,
+            "priority": 5,
+            "craft": "B",
+            "band": "y",
+            "release": 0,
+            "deadline": 4,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "Ax",
+            "station": "s0",
+            "craft": "A",
+            "band": "x",
+            "group": "g0",
+            "start": 0,
+            "end": 4,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p0",
+                "vector": 2
+              },
+              {
+                "packet": "p0",
+                "vector": 1
+              },
+              {
+                "packet": "p0",
+                "vector": 3
+              }
+            ]
+          },
+          {
+            "id": "Ay",
+            "station": "s1",
+            "craft": "A",
+            "band": "y",
+            "group": "g0",
+            "start": 0,
+            "end": 4,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 3
+              },
+              {
+                "packet": "p2",
+                "vector": 2
+              },
+              {
+                "packet": "p2",
+                "vector": 1
+              }
+            ]
+          },
+          {
+            "id": "Bx",
+            "station": "s0",
+            "craft": "B",
+            "band": "x",
+            "group": "g1",
+            "start": 0,
+            "end": 4,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 1
+              },
+              {
+                "packet": "p1",
+                "vector": 7
+              },
+              {
+                "packet": "p1",
+                "vector": 4
+              },
+              {
+                "packet": "p1",
+                "vector": 5
+              }
+            ]
+          },
+          {
+            "id": "By",
+            "station": "s1",
+            "craft": "B",
+            "band": "y",
+            "group": "g1",
+            "start": 0,
+            "end": 4,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p3",
+                "vector": 1
+              },
+              {
+                "packet": "p3",
+                "vector": 3
+              },
+              {
+                "packet": "p3",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "brief",
+            "station": "extra",
+            "craft": "B",
+            "band": "x",
+            "group": "other",
+            "start": 2,
+            "end": 4,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 7
+              },
+              {
+                "packet": "p1",
+                "vector": 5
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 32,
+            "count": 4,
+            "rank": 9
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 4
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p3",
+              "rank": 2,
+              "completion": 2
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 1,
+              "contact": "By"
+            },
+            {
+              "tick": 2,
+              "contact": "brief"
+            },
+            {
+              "tick": 2,
+              "contact": "Ax"
+            },
+            {
+              "tick": 3,
+              "contact": "Bx"
+            },
+            {
+              "tick": 3,
+              "contact": "Ay"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 1,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            },
+            {
+              "tick": 1,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 3
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "brief",
+              "packet": "p1",
+              "vector": 7
+            },
+            {
+              "tick": 3,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 3
+            },
+            {
+              "tick": 3,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 1
+            },
+            {
+              "tick": 3,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 1,
+        "packets": [
+          {
+            "id": "p0",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          },
+          {
+            "id": "p1",
+            "dimension": 3,
+            "priority": 4,
+            "craft": "B",
+            "band": "x",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          },
+          {
+            "id": "p2",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "y",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          },
+          {
+            "id": "p3",
+            "dimension": 2,
+            "priority": 3,
+            "craft": "B",
+            "band": "y",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "Ax",
+            "station": "s0",
+            "craft": "A",
+            "band": "x",
+            "group": "g0",
+            "start": 0,
+            "end": 5,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p0",
+                "vector": 2
+              },
+              {
+                "packet": "p0",
+                "vector": 1
+              },
+              {
+                "packet": "p0",
+                "vector": 3
+              }
+            ]
+          },
+          {
+            "id": "Ay",
+            "station": "s1",
+            "craft": "A",
+            "band": "y",
+            "group": "g0",
+            "start": 0,
+            "end": 5,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 2
+              },
+              {
+                "packet": "p2",
+                "vector": 3
+              },
+              {
+                "packet": "p2",
+                "vector": 1
+              }
+            ]
+          },
+          {
+            "id": "Bx",
+            "station": "s0",
+            "craft": "B",
+            "band": "x",
+            "group": "g1",
+            "start": 0,
+            "end": 5,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 2
+              },
+              {
+                "packet": "p1",
+                "vector": 1
+              },
+              {
+                "packet": "p1",
+                "vector": 3
+              },
+              {
+                "packet": "p1",
+                "vector": 6
+              }
+            ]
+          },
+          {
+            "id": "By",
+            "station": "s1",
+            "craft": "B",
+            "band": "y",
+            "group": "g1",
+            "start": 0,
+            "end": 5,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p3",
+                "vector": 2
+              },
+              {
+                "packet": "p3",
+                "vector": 1
+              },
+              {
+                "packet": "p3",
+                "vector": 3
+              }
+            ]
+          },
+          {
+            "id": "brief",
+            "station": "extra",
+            "craft": "A",
+            "band": "y",
+            "group": "other",
+            "start": 3,
+            "end": 5,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 2
+              },
+              {
+                "packet": "p2",
+                "vector": 1
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 25,
+            "count": 4,
+            "rank": 9
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 5
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 4
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p3",
+              "rank": 2,
+              "completion": 5
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "By"
+            },
+            {
+              "tick": 2,
+              "contact": "Ax"
+            },
+            {
+              "tick": 3,
+              "contact": "Bx"
+            },
+            {
+              "tick": 3,
+              "contact": "brief"
+            },
+            {
+              "tick": 4,
+              "contact": "By"
+            },
+            {
+              "tick": 4,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 2
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 2,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 6
+            },
+            {
+              "tick": 3,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 2,
+        "packets": [
+          {
+            "id": "p0",
+            "dimension": 2,
+            "priority": 2,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          },
+          {
+            "id": "p1",
+            "dimension": 3,
+            "priority": 4,
+            "craft": "B",
+            "band": "x",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          },
+          {
+            "id": "p2",
+            "dimension": 2,
+            "priority": 2,
+            "craft": "A",
+            "band": "y",
+            "release": 0,
+            "deadline": 5,
+            "requires": [
+              "p1"
+            ]
+          },
+          {
+            "id": "p3",
+            "dimension": 2,
+            "priority": 6,
+            "craft": "B",
+            "band": "y",
+            "release": 0,
+            "deadline": 5,
+            "requires": [
+              "p0",
+              "p2"
+            ]
+          },
+          {
+            "id": "p4",
+            "dimension": 3,
+            "priority": 2,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 5,
+            "requires": []
+          }
+        ],
+        "contacts": [
+          {
+            "id": "Ax",
+            "station": "s0",
+            "craft": "A",
+            "band": "x",
+            "group": "g0",
+            "start": 0,
+            "end": 5,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p0",
+                "vector": 2
+              },
+              {
+                "packet": "p0",
+                "vector": 1
+              },
+              {
+                "packet": "p0",
+                "vector": 3
+              },
+              {
+                "packet": "p4",
+                "vector": 5
+              },
+              {
+                "packet": "p4",
+                "vector": 1
+              },
+              {
+                "packet": "p4",
+                "vector": 3
+              },
+              {
+                "packet": "p4",
+                "vector": 6
+              }
+            ]
+          },
+          {
+            "id": "Ay",
+            "station": "s1",
+            "craft": "A",
+            "band": "y",
+            "group": "g0",
+            "start": 0,
+            "end": 5,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 1
+              },
+              {
+                "packet": "p2",
+                "vector": 3
+              },
+              {
+                "packet": "p2",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "Bx",
+            "station": "s0",
+            "craft": "B",
+            "band": "x",
+            "group": "g1",
+            "start": 0,
+            "end": 5,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 7
+              },
+              {
+                "packet": "p1",
+                "vector": 4
+              },
+              {
+                "packet": "p1",
+                "vector": 5
+              },
+              {
+                "packet": "p1",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "By",
+            "station": "s1",
+            "craft": "B",
+            "band": "y",
+            "group": "g1",
+            "start": 0,
+            "end": 5,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p3",
+                "vector": 1
+              },
+              {
+                "packet": "p3",
+                "vector": 2
+              },
+              {
+                "packet": "p3",
+                "vector": 3
+              }
+            ]
+          },
+          {
+            "id": "brief",
+            "station": "extra",
+            "craft": "B",
+            "band": "x",
+            "group": "other",
+            "start": 3,
+            "end": 5,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 3
+              },
+              {
+                "packet": "p1",
+                "vector": 6
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 14,
+            "count": 4,
+            "rank": 11
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 2
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 3
+            },
+            {
+              "id": "p3",
+              "rank": 2,
+              "completion": 5
+            },
+            {
+              "id": "p4",
+              "rank": 2,
+              "completion": null
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "Ay"
+            },
+            {
+              "tick": 3,
+              "contact": "Ax"
+            },
+            {
+              "tick": 4,
+              "contact": "By"
+            },
+            {
+              "tick": 4,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 7
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 4
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 5
+            },
+            {
+              "tick": 2,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Ay",
+              "packet": "p2",
+              "vector": 3
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "Ax",
+              "packet": "p4",
+              "vector": 5
+            },
+            {
+              "tick": 4,
+              "contact": "Ax",
+              "packet": "p4",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "switch_cooldown": 0,
+        "packets": [
+          {
+            "id": "p0",
+            "dimension": 2,
+            "priority": 9,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 6,
+            "requires": []
+          },
+          {
+            "id": "p1",
+            "dimension": 3,
+            "priority": 7,
+            "craft": "B",
+            "band": "x",
+            "release": 0,
+            "deadline": 6,
+            "requires": []
+          },
+          {
+            "id": "p2",
+            "dimension": 2,
+            "priority": 7,
+            "craft": "A",
+            "band": "y",
+            "release": 0,
+            "deadline": 6,
+            "requires": []
+          },
+          {
+            "id": "p3",
+            "dimension": 2,
+            "priority": 7,
+            "craft": "B",
+            "band": "y",
+            "release": 0,
+            "deadline": 6,
+            "requires": [
+              "p0"
+            ]
+          },
+          {
+            "id": "p4",
+            "dimension": 3,
+            "priority": 4,
+            "craft": "A",
+            "band": "x",
+            "release": 0,
+            "deadline": 6,
+            "requires": [
+              "p1",
+              "p2"
+            ]
+          }
+        ],
+        "contacts": [
+          {
+            "id": "Ax",
+            "station": "s0",
+            "craft": "A",
+            "band": "x",
+            "group": "g0",
+            "start": 0,
+            "end": 6,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p0",
+                "vector": 1
+              },
+              {
+                "packet": "p0",
+                "vector": 2
+              },
+              {
+                "packet": "p0",
+                "vector": 3
+              },
+              {
+                "packet": "p4",
+                "vector": 1
+              },
+              {
+                "packet": "p4",
+                "vector": 4
+              },
+              {
+                "packet": "p4",
+                "vector": 2
+              },
+              {
+                "packet": "p4",
+                "vector": 6
+              }
+            ]
+          },
+          {
+            "id": "Ay",
+            "station": "s1",
+            "craft": "A",
+            "band": "y",
+            "group": "g0",
+            "start": 0,
+            "end": 6,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 3
+              },
+              {
+                "packet": "p2",
+                "vector": 1
+              },
+              {
+                "packet": "p2",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "Bx",
+            "station": "s0",
+            "craft": "B",
+            "band": "x",
+            "group": "g1",
+            "start": 0,
+            "end": 6,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p1",
+                "vector": 3
+              },
+              {
+                "packet": "p1",
+                "vector": 1
+              },
+              {
+                "packet": "p1",
+                "vector": 5
+              },
+              {
+                "packet": "p1",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "By",
+            "station": "s1",
+            "craft": "B",
+            "band": "y",
+            "group": "g1",
+            "start": 0,
+            "end": 6,
+            "rate": 1,
+            "symbols": [
+              {
+                "packet": "p3",
+                "vector": 1
+              },
+              {
+                "packet": "p3",
+                "vector": 3
+              },
+              {
+                "packet": "p3",
+                "vector": 2
+              }
+            ]
+          },
+          {
+            "id": "brief",
+            "station": "extra",
+            "craft": "A",
+            "band": "y",
+            "group": "other",
+            "start": 4,
+            "end": 6,
+            "rate": 2,
+            "symbols": [
+              {
+                "packet": "p2",
+                "vector": 1
+              },
+              {
+                "packet": "p2",
+                "vector": 2
+              }
+            ]
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "score": {
+            "priority": 23,
+            "count": 3,
+            "rank": 9
+          },
+          "packets": [
+            {
+              "id": "p0",
+              "rank": 2,
+              "completion": 4
+            },
+            {
+              "id": "p1",
+              "rank": 3,
+              "completion": 5
+            },
+            {
+              "id": "p2",
+              "rank": 2,
+              "completion": 5
+            },
+            {
+              "id": "p3",
+              "rank": 1,
+              "completion": null
+            },
+            {
+              "id": "p4",
+              "rank": 1,
+              "completion": null
+            }
+          ],
+          "contacts": [
+            {
+              "tick": 0,
+              "contact": "Bx"
+            },
+            {
+              "tick": 1,
+              "contact": "Bx"
+            },
+            {
+              "tick": 2,
+              "contact": "Ax"
+            },
+            {
+              "tick": 3,
+              "contact": "Ax"
+            },
+            {
+              "tick": 4,
+              "contact": "Bx"
+            },
+            {
+              "tick": 4,
+              "contact": "brief"
+            },
+            {
+              "tick": 5,
+              "contact": "By"
+            },
+            {
+              "tick": 5,
+              "contact": "Ax"
+            }
+          ],
+          "transmissions": [
+            {
+              "tick": 0,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 3
+            },
+            {
+              "tick": 1,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 1
+            },
+            {
+              "tick": 2,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 1
+            },
+            {
+              "tick": 3,
+              "contact": "Ax",
+              "packet": "p0",
+              "vector": 2
+            },
+            {
+              "tick": 4,
+              "contact": "Bx",
+              "packet": "p1",
+              "vector": 5
+            },
+            {
+              "tick": 4,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 1
+            },
+            {
+              "tick": 4,
+              "contact": "brief",
+              "packet": "p2",
+              "vector": 2
+            },
+            {
+              "tick": 5,
+              "contact": "Ax",
+              "packet": "p4",
+              "vector": 1
+            },
+            {
+              "tick": 5,
+              "contact": "By",
+              "packet": "p3",
+              "vector": 1
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

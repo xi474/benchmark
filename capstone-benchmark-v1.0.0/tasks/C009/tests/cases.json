@@ -1,0 +1,2148 @@
+[
+  {
+    "id": "core-01",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 3,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 20,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 14,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 4,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [],
+          "profit": 0,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 11
+            }
+          ],
+          "profit": 27,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 11
+            }
+          ],
+          "profit": 27,
+          "cancelled": [
+            "j1"
+          ],
+          "ignored_cancellations": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-02",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 1,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 21,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 15,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 2,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 15
+            }
+          ],
+          "profit": 15,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 15
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 10
+            }
+          ],
+          "profit": 41,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 15
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 10
+            }
+          ],
+          "profit": 41,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-03",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 1,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 16,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 4,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 16
+            }
+          ],
+          "profit": 16,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 11
+            }
+          ],
+          "profit": 43,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 11
+            }
+          ],
+          "profit": 43,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-04",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 3,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 23,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 17,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 2,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [],
+          "profit": 0,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 14
+            }
+          ],
+          "profit": 30,
+          "cancelled": [
+            "j1"
+          ],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 14
+            }
+          ],
+          "profit": 30,
+          "cancelled": [
+            "j1"
+          ],
+          "ignored_cancellations": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-05",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 1,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 24,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 18,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 4,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 18
+            }
+          ],
+          "profit": 18,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 18
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 13
+            }
+          ],
+          "profit": 47,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 18
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 13
+            }
+          ],
+          "profit": 47,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-06",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 1,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 25,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 19,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 2,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 19
+            }
+          ],
+          "profit": 19,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 19
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 14
+            }
+          ],
+          "profit": 49,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 19
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 14
+            }
+          ],
+          "profit": 49,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-07",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 3,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 26,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 20,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 4,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [],
+          "profit": 0,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 17
+            }
+          ],
+          "profit": 33,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 17
+            }
+          ],
+          "profit": 33,
+          "cancelled": [
+            "j1"
+          ],
+          "ignored_cancellations": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-08",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 1,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 27,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 21,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 2,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 21
+            }
+          ],
+          "profit": 21,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 21
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 16
+            }
+          ],
+          "profit": 53,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 21
+            },
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v2",
+              "driver": "d1",
+              "supplier": "s2",
+              "start": 4,
+              "end": 5,
+              "quantity": 1,
+              "profit": 16
+            }
+          ],
+          "profit": 53,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-09",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 2,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 1,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 28,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 22,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 4,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 22
+            }
+          ],
+          "profit": 22,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 22
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s2",
+              "start": 3,
+              "end": 4,
+              "quantity": 1,
+              "profit": 18
+            }
+          ],
+          "profit": 40,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j1",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 1,
+              "end": 3,
+              "quantity": 2,
+              "profit": 22
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s2",
+              "start": 3,
+              "end": 4,
+              "quantity": 1,
+              "profit": 18
+            }
+          ],
+          "profit": 40,
+          "cancelled": [],
+          "ignored_cancellations": [
+            "j1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-10",
+    "input": {
+      "vehicles": [
+        {
+          "id": "v1",
+          "type": "bulk",
+          "capacity": 3,
+          "cost": 1
+        },
+        {
+          "id": "v2",
+          "type": "bulk",
+          "capacity": 2,
+          "cost": 2
+        }
+      ],
+      "drivers": [
+        {
+          "id": "d1",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 4,
+          "max_continuous": 2,
+          "break": 1
+        },
+        {
+          "id": "d2",
+          "types": [
+            "bulk"
+          ],
+          "max_work": 3,
+          "max_continuous": 3,
+          "break": 2
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "s1",
+          "stock": 4,
+          "close": 5,
+          "unit_cost": 2
+        },
+        {
+          "id": "s2",
+          "stock": 4,
+          "close": 4,
+          "unit_cost": 3
+        }
+      ],
+      "events": [
+        {
+          "id": "e1",
+          "visible": 1,
+          "kind": "request",
+          "job": {
+            "id": "j1",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 3,
+            "deadline": 4,
+            "duration": 2,
+            "revenue": 29,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e2",
+          "visible": 2,
+          "kind": "request",
+          "job": {
+            "id": "j2",
+            "type": "bulk",
+            "quantity": 2,
+            "release": 2,
+            "deadline": 5,
+            "duration": 2,
+            "revenue": 22,
+            "suppliers": [
+              "s1"
+            ]
+          }
+        },
+        {
+          "id": "e3",
+          "visible": 3,
+          "kind": "request",
+          "job": {
+            "id": "j3",
+            "type": "bulk",
+            "quantity": 1,
+            "release": 3,
+            "deadline": 6,
+            "duration": 1,
+            "revenue": 23,
+            "suppliers": [
+              "s1",
+              "s2"
+            ]
+          }
+        },
+        {
+          "id": "e4",
+          "visible": 2,
+          "kind": "cancel",
+          "job": "j1"
+        }
+      ],
+      "rounds": [
+        {
+          "cutoff": 1,
+          "commit": true
+        },
+        {
+          "cutoff": 3,
+          "commit": true
+        },
+        {
+          "cutoff": 4,
+          "commit": false
+        }
+      ]
+    },
+    "expected": {
+      "rounds": [
+        {
+          "cutoff": 1,
+          "assignments": [],
+          "profit": 0,
+          "cancelled": [],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 3,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 20
+            }
+          ],
+          "profit": 36,
+          "cancelled": [
+            "j1"
+          ],
+          "ignored_cancellations": []
+        },
+        {
+          "cutoff": 4,
+          "assignments": [
+            {
+              "job": "j2",
+              "vehicle": "v1",
+              "driver": "d1",
+              "supplier": "s1",
+              "start": 3,
+              "end": 5,
+              "quantity": 2,
+              "profit": 16
+            },
+            {
+              "job": "j3",
+              "vehicle": "v1",
+              "driver": "d2",
+              "supplier": "s1",
+              "start": 5,
+              "end": 6,
+              "quantity": 1,
+              "profit": 20
+            }
+          ],
+          "profit": 36,
+          "cancelled": [
+            "j1"
+          ],
+          "ignored_cancellations": []
+        }
+      ]
+    }
+  }
+]

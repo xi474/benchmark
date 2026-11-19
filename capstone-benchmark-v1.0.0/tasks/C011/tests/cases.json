@@ -1,0 +1,2546 @@
+[
+  {
+    "id": "core-01",
+    "input": {
+      "run_id": "run-0",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 3,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 4
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-0",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-0",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-0",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "w0",
+            "run": "run-0",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-0",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-0",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-0",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-0",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-0",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-0",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0004",
+          "run": "run-0",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-02",
+    "input": {
+      "run_id": "run-1",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 1,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 8
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 2,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-1",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-1",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-1",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "w0",
+            "run": "run-1",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-1",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-1",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-1",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-1",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-1",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-1",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 2,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-03",
+    "input": {
+      "run_id": "run-2",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 3,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 8
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 3,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2",
+        "o3"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-2",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-2",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-2",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "o3",
+            "run": "run-2",
+            "sku": "A",
+            "qty": 1,
+            "due": 8,
+            "start": 6,
+            "end": 8,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o3"
+          },
+          {
+            "wo": "w0",
+            "run": "run-2",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-2",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-2",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-2",
+          "line": "L1",
+          "seq": 3,
+          "wo": "o3",
+          "qty": 1,
+          "start": 6,
+          "end": 8,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-2",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-2",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-2",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-2",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0004",
+          "run": "run-2",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0005",
+          "run": "run-2",
+          "wo": "o3",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0006",
+          "run": "run-2",
+          "wo": "o3",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-04",
+    "input": {
+      "run_id": "run-3",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 1,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 4
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-3",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-3",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-3",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "w0",
+            "run": "run-3",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-3",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-3",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-3",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-3",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-3",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-3",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 2,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-05",
+    "input": {
+      "run_id": "run-4",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 3,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 8
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 2,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2",
+        "o3"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-4",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-4",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-4",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "o3",
+            "run": "run-4",
+            "sku": "A",
+            "qty": 1,
+            "due": 8,
+            "start": 6,
+            "end": 8,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o3"
+          },
+          {
+            "wo": "w0",
+            "run": "run-4",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-4",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-4",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-4",
+          "line": "L1",
+          "seq": 3,
+          "wo": "o3",
+          "qty": 1,
+          "start": 6,
+          "end": 8,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-4",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-4",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-4",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-4",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0004",
+          "run": "run-4",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0005",
+          "run": "run-4",
+          "wo": "o3",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0006",
+          "run": "run-4",
+          "wo": "o3",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-06",
+    "input": {
+      "run_id": "run-5",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 1,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 8
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 3,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-5",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-5",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-5",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "w0",
+            "run": "run-5",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-5",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-5",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-5",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-5",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-5",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-5",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 2,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-07",
+    "input": {
+      "run_id": "run-6",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A",
+        "B"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 3,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 4
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o2"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-6",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-6",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 2,
+            "end": 4,
+            "line": "L2",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o2",
+            "run": "run-6",
+            "sku": "B",
+            "qty": 1,
+            "due": 6,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o2"
+          },
+          {
+            "wo": "w0",
+            "run": "run-6",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-6",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-6",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o2",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-6",
+          "line": "L2",
+          "seq": 1,
+          "wo": "o1",
+          "qty": 1,
+          "start": 2,
+          "end": 4,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-6",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-6",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-6",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0004",
+          "run": "run-6",
+          "wo": "o2",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-08",
+    "input": {
+      "run_id": "run-7",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 1,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 8
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 2,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o3"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-7",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-7",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o3",
+            "run": "run-7",
+            "sku": "A",
+            "qty": 1,
+            "due": 8,
+            "start": 6,
+            "end": 8,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o3"
+          },
+          {
+            "wo": "w0",
+            "run": "run-7",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-7",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-7",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o1",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-7",
+          "line": "L1",
+          "seq": 3,
+          "wo": "o3",
+          "qty": 1,
+          "start": 6,
+          "end": 8,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-7",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-7",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-7",
+          "wo": "o3",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0004",
+          "run": "run-7",
+          "wo": "o3",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-09",
+    "input": {
+      "run_id": "run-8",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              2,
+              5
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 3,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 8
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 3,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [
+        "o1",
+        "o3"
+      ],
+      "erp": {
+        "run": {
+          "id": "run-8",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "o1",
+            "run": "run-8",
+            "sku": "A",
+            "qty": 1,
+            "due": 5,
+            "start": 3,
+            "end": 5,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o1"
+          },
+          {
+            "wo": "o3",
+            "run": "run-8",
+            "sku": "A",
+            "qty": 1,
+            "due": 8,
+            "start": 6,
+            "end": 8,
+            "line": "L1",
+            "status": "PLANNED",
+            "parent": "o3"
+          },
+          {
+            "wo": "w0",
+            "run": "run-8",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-8",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        },
+        {
+          "run": "run-8",
+          "line": "L1",
+          "seq": 2,
+          "wo": "o1",
+          "qty": 1,
+          "start": 3,
+          "end": 5,
+          "status": "PLANNED"
+        },
+        {
+          "run": "run-8",
+          "line": "L1",
+          "seq": 3,
+          "wo": "o3",
+          "qty": 1,
+          "start": 6,
+          "end": 8,
+          "status": "PLANNED"
+        }
+      ],
+      "wms": [
+        {
+          "reservation": "r0001",
+          "run": "run-8",
+          "wo": "o1",
+          "component": "M",
+          "lot": "m1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0002",
+          "run": "run-8",
+          "wo": "o1",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0003",
+          "run": "run-8",
+          "wo": "o3",
+          "component": "M",
+          "lot": "m2",
+          "qty": 1,
+          "status": "RESERVED"
+        },
+        {
+          "reservation": "r0004",
+          "run": "run-8",
+          "wo": "o3",
+          "component": "N",
+          "lot": "n1",
+          "qty": 1,
+          "status": "RESERVED"
+        }
+      ]
+    }
+  },
+  {
+    "id": "core-10",
+    "input": {
+      "run_id": "run-9",
+      "freeze": 1,
+      "changeover": 1,
+      "lines": [
+        {
+          "id": "L1",
+          "qualified": [
+            "A",
+            "B"
+          ],
+          "windows": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "L2",
+          "qualified": [
+            "A"
+          ],
+          "windows": [
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "bom": {
+        "A": {
+          "sub": 1,
+          "M": 1
+        },
+        "sub": {
+          "N": 1
+        },
+        "B": {
+          "M": 2
+        }
+      },
+      "released": [
+        "A"
+      ],
+      "routing": {
+        "A": {
+          "setup": 1,
+          "per_unit": 1
+        },
+        "B": {
+          "setup": 1,
+          "per_unit": 1
+        }
+      },
+      "substitutes": {
+        "M": [
+          "M",
+          "ALT"
+        ],
+        "N": [
+          "N"
+        ]
+      },
+      "lots": [
+        {
+          "id": "m1",
+          "material": "M",
+          "qty": 1,
+          "status": "PASS",
+          "expiry": 5
+        },
+        {
+          "id": "m2",
+          "material": "ALT",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 9
+        },
+        {
+          "id": "n1",
+          "material": "N",
+          "qty": 2,
+          "status": "PASS",
+          "expiry": 4
+        },
+        {
+          "id": "bad",
+          "material": "M",
+          "qty": 10,
+          "status": "HOLD",
+          "expiry": 20
+        }
+      ],
+      "orders": [
+        {
+          "id": "o1",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 5
+        },
+        {
+          "id": "o2",
+          "sku": "B",
+          "qty": 1,
+          "priority": 2,
+          "due": 6
+        },
+        {
+          "id": "o3",
+          "sku": "A",
+          "qty": 1,
+          "priority": 1,
+          "due": 8
+        }
+      ],
+      "wip": [
+        {
+          "id": "w0",
+          "sku": "B",
+          "qty": 1,
+          "line": "L1",
+          "start": 1,
+          "end": 2,
+          "due": 3
+        }
+      ]
+    },
+    "expected": {
+      "selected": [],
+      "erp": {
+        "run": {
+          "id": "run-9",
+          "freeze": 1
+        },
+        "orders": [
+          {
+            "wo": "w0",
+            "run": "run-9",
+            "sku": "B",
+            "qty": 1,
+            "due": 3,
+            "start": 1,
+            "end": 2,
+            "line": "L1",
+            "status": "WIP_CONT",
+            "parent": null
+          }
+        ]
+      },
+      "mes": [
+        {
+          "run": "run-9",
+          "line": "L1",
+          "seq": 1,
+          "wo": "w0",
+          "qty": 1,
+          "start": 1,
+          "end": 2,
+          "status": "WIP_CONT"
+        }
+      ],
+      "wms": []
+    }
+  }
+]

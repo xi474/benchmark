@@ -1,0 +1,12 @@
+{
+  "name": "squared",
+  "op": "block_square",
+  "bindings": {
+    "matrix": "inputs/request.json#/matrix",
+    "layout": "outputs/block_layout.json#"
+  },
+  "spec": "计算 B²，返回同分块结构；每个块仍含 rows/cols。全零块 data=null，其他块 data为整数二维列表。不得折叠成无形状标量0。",
+  "output": "outputs/squared.json",
+  "component": "squared",
+  "task": "N11"
+}

@@ -1,0 +1,4503 @@
+{
+  "task": "F18",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "A",
+              "B",
+              "OK",
+              "Return"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "A",
+                "to": "B",
+                "weight": 1,
+                "time": 4
+              },
+              {
+                "from": "A",
+                "to": "Return",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "B",
+                "to": "B",
+                "weight": 1,
+                "time": 2
+              },
+              {
+                "from": "B",
+                "to": "OK",
+                "weight": 1,
+                "time": 3
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "A": {
+              "success": [
+                1,
+                2
+              ],
+              "mean_if_success": [
+                9,
+                1
+              ]
+            },
+            "B": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                5,
+                1
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Return": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "Drop",
+                "weight": 1,
+                "time": 9
+              },
+              {
+                "from": "n0",
+                "to": "Trap",
+                "weight": 1,
+                "time": 9
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 3,
+                "time": 4
+              },
+              {
+                "from": "n1",
+                "to": "Drop",
+                "weight": 5,
+                "time": 6
+              },
+              {
+                "from": "n1",
+                "to": "n2",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "n1",
+                "to": "OK",
+                "weight": 1,
+                "time": 6
+              },
+              {
+                "from": "n2",
+                "to": "OK",
+                "weight": 1,
+                "time": 7
+              },
+              {
+                "from": "n2",
+                "to": "n2",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "n2",
+                "to": "n3",
+                "weight": 1,
+                "time": 3
+              },
+              {
+                "from": "n3",
+                "to": "n2",
+                "weight": 4,
+                "time": 9
+              },
+              {
+                "from": "n3",
+                "to": "n3",
+                "weight": 1,
+                "time": 9
+              },
+              {
+                "from": "n3",
+                "to": "Trap",
+                "weight": 4,
+                "time": 4
+              },
+              {
+                "from": "n4",
+                "to": "OK",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "n4",
+                "weight": 2,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "n0",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                3,
+                5
+              ],
+              "mean_if_success": [
+                4,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                5,
+                21
+              ],
+              "mean_if_success": [
+                593,
+                60
+              ]
+            },
+            "n2": {
+              "success": [
+                2,
+                3
+              ],
+              "mean_if_success": [
+                353,
+                24
+              ]
+            },
+            "n3": {
+              "success": [
+                1,
+                3
+              ],
+              "mean_if_success": [
+                149,
+                6
+              ]
+            },
+            "n4": {
+              "success": [
+                17,
+                25
+              ],
+              "mean_if_success": [
+                599,
+                85
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "Drop",
+                "weight": 5,
+                "time": 9
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 3,
+                "time": 6
+              },
+              {
+                "from": "n1",
+                "to": "OK",
+                "weight": 4,
+                "time": 3
+              },
+              {
+                "from": "n1",
+                "to": "n5",
+                "weight": 4,
+                "time": 8
+              },
+              {
+                "from": "n2",
+                "to": "Trap",
+                "weight": 2,
+                "time": 6
+              },
+              {
+                "from": "n2",
+                "to": "n4",
+                "weight": 3,
+                "time": 9
+              },
+              {
+                "from": "n3",
+                "to": "Drop",
+                "weight": 2,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "n4",
+                "weight": 5,
+                "time": 2
+              },
+              {
+                "from": "n4",
+                "to": "n5",
+                "weight": 5,
+                "time": 2
+              },
+              {
+                "from": "n4",
+                "to": "OK",
+                "weight": 2,
+                "time": 6
+              },
+              {
+                "from": "n5",
+                "to": "n2",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "n5",
+                "to": "n3",
+                "weight": 4,
+                "time": 2
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                3,
+                8
+              ],
+              "mean_if_success": [
+                6,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                44,
+                65
+              ],
+              "mean_if_success": [
+                24153,
+                2288
+              ]
+            },
+            "n2": {
+              "success": [
+                21,
+                65
+              ],
+              "mean_if_success": [
+                633,
+                26
+              ]
+            },
+            "n3": {
+              "success": [
+                5,
+                13
+              ],
+              "mean_if_success": [
+                451,
+                26
+              ]
+            },
+            "n4": {
+              "success": [
+                7,
+                13
+              ],
+              "mean_if_success": [
+                399,
+                26
+              ]
+            },
+            "n5": {
+              "success": [
+                23,
+                65
+              ],
+              "mean_if_success": [
+                14299,
+                598
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "n6",
+                "weight": 4,
+                "time": 7
+              },
+              {
+                "from": "n0",
+                "to": "n5",
+                "weight": 1,
+                "time": 8
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 3,
+                "time": 1
+              },
+              {
+                "from": "n1",
+                "to": "n1",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n1",
+                "to": "Drop",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n1",
+                "to": "n2",
+                "weight": 3,
+                "time": 4
+              },
+              {
+                "from": "n2",
+                "to": "n4",
+                "weight": 4,
+                "time": 7
+              },
+              {
+                "from": "n2",
+                "to": "n0",
+                "weight": 2,
+                "time": 2
+              },
+              {
+                "from": "n2",
+                "to": "OK",
+                "weight": 1,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "Trap",
+                "weight": 5,
+                "time": 5
+              },
+              {
+                "from": "n3",
+                "to": "n0",
+                "weight": 2,
+                "time": 3
+              },
+              {
+                "from": "n3",
+                "to": "n4",
+                "weight": 5,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "Trap",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "n1",
+                "weight": 3,
+                "time": 5
+              },
+              {
+                "from": "n4",
+                "to": "Drop",
+                "weight": 5,
+                "time": 7
+              },
+              {
+                "from": "n5",
+                "to": "Trap",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "n5",
+                "to": "n3",
+                "weight": 3,
+                "time": 4
+              },
+              {
+                "from": "n5",
+                "to": "n2",
+                "weight": 1,
+                "time": 4
+              },
+              {
+                "from": "n6",
+                "to": "n1",
+                "weight": 3,
+                "time": 9
+              },
+              {
+                "from": "n6",
+                "to": "n2",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "n6",
+                "to": "n6",
+                "weight": 5,
+                "time": 1
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                40451,
+                81442
+              ],
+              "mean_if_success": [
+                9778089295,
+                1647205171
+              ]
+            },
+            "n1": {
+              "success": [
+                4683,
+                40721
+              ],
+              "mean_if_success": [
+                776020878,
+                63565481
+              ]
+            },
+            "n2": {
+              "success": [
+                12488,
+                40721
+              ],
+              "mean_if_success": [
+                3220589417,
+                508523848
+              ]
+            },
+            "n3": {
+              "success": [
+                12064,
+                122163
+              ],
+              "mean_if_success": [
+                5126693407,
+                491258144
+              ]
+            },
+            "n4": {
+              "success": [
+                1561,
+                40721
+              ],
+              "mean_if_success": [
+                1093848283,
+                63565481
+              ]
+            },
+            "n5": {
+              "success": [
+                3069,
+                40721
+              ],
+              "mean_if_success": [
+                514433783,
+                41657583
+              ]
+            },
+            "n6": {
+              "success": [
+                9143,
+                40721
+              ],
+              "mean_if_success": [
+                5292483858,
+                372312103
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 2,
+                "time": 1
+              },
+              {
+                "from": "n0",
+                "to": "n1",
+                "weight": 4,
+                "time": 8
+              },
+              {
+                "from": "n1",
+                "to": "n3",
+                "weight": 2,
+                "time": 4
+              },
+              {
+                "from": "n1",
+                "to": "n2",
+                "weight": 4,
+                "time": 3
+              },
+              {
+                "from": "n2",
+                "to": "Trap",
+                "weight": 5,
+                "time": 1
+              },
+              {
+                "from": "n2",
+                "to": "n2",
+                "weight": 1,
+                "time": 6
+              },
+              {
+                "from": "n3",
+                "to": "n0",
+                "weight": 1,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "Drop",
+                "weight": 3,
+                "time": 1
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                6,
+                17
+              ],
+              "mean_if_success": [
+                31,
+                17
+              ]
+            },
+            "n1": {
+              "success": [
+                1,
+                34
+              ],
+              "mean_if_success": [
+                133,
+                17
+              ]
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                3,
+                34
+              ],
+              "mean_if_success": [
+                65,
+                17
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "Drop",
+                "weight": 3,
+                "time": 4
+              },
+              {
+                "from": "n0",
+                "to": "Trap",
+                "weight": 2,
+                "time": 2
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 5,
+                "time": 1
+              },
+              {
+                "from": "n1",
+                "to": "n2",
+                "weight": 4,
+                "time": 8
+              },
+              {
+                "from": "n1",
+                "to": "n4",
+                "weight": 3,
+                "time": 7
+              },
+              {
+                "from": "n1",
+                "to": "n1",
+                "weight": 1,
+                "time": 4
+              },
+              {
+                "from": "n2",
+                "to": "n2",
+                "weight": 5,
+                "time": 4
+              },
+              {
+                "from": "n2",
+                "to": "OK",
+                "weight": 1,
+                "time": 8
+              },
+              {
+                "from": "n2",
+                "to": "n3",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n3",
+                "to": "n4",
+                "weight": 3,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "Drop",
+                "weight": 1,
+                "time": 4
+              },
+              {
+                "from": "n3",
+                "to": "OK",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n4",
+                "to": "n0",
+                "weight": 2,
+                "time": 8
+              },
+              {
+                "from": "n4",
+                "to": "n3",
+                "weight": 3,
+                "time": 2
+              },
+              {
+                "from": "n4",
+                "to": "Drop",
+                "weight": 5,
+                "time": 6
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                1,
+                2
+              ],
+              "mean_if_success": [
+                1,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                908,
+                1701
+              ],
+              "mean_if_success": [
+                257120,
+                14301
+              ]
+            },
+            "n2": {
+              "success": [
+                173,
+                243
+              ],
+              "mean_if_success": [
+                16331,
+                1557
+              ]
+            },
+            "n3": {
+              "success": [
+                53,
+                81
+              ],
+              "mean_if_success": [
+                1859,
+                477
+              ]
+            },
+            "n4": {
+              "success": [
+                8,
+                27
+              ],
+              "mean_if_success": [
+                125,
+                18
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 5,
+                "time": 9
+              },
+              {
+                "from": "n0",
+                "to": "Trap",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "n1",
+                "to": "Drop",
+                "weight": 2,
+                "time": 4
+              },
+              {
+                "from": "n1",
+                "to": "Trap",
+                "weight": 3,
+                "time": 5
+              },
+              {
+                "from": "n2",
+                "to": "n2",
+                "weight": 2,
+                "time": 7
+              },
+              {
+                "from": "n2",
+                "to": "Drop",
+                "weight": 1,
+                "time": 7
+              },
+              {
+                "from": "n3",
+                "to": "n0",
+                "weight": 3,
+                "time": 5
+              },
+              {
+                "from": "n3",
+                "to": "n2",
+                "weight": 3,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "n5",
+                "weight": 3,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "n3",
+                "weight": 2,
+                "time": 5
+              },
+              {
+                "from": "n5",
+                "to": "n4",
+                "weight": 3,
+                "time": 6
+              },
+              {
+                "from": "n5",
+                "to": "n3",
+                "weight": 5,
+                "time": 2
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                5,
+                9
+              ],
+              "mean_if_success": [
+                9,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                5,
+                18
+              ],
+              "mean_if_success": [
+                14,
+                1
+              ]
+            },
+            "n4": {
+              "success": [
+                5,
+                18
+              ],
+              "mean_if_success": [
+                622,
+                31
+              ]
+            },
+            "n5": {
+              "success": [
+                5,
+                18
+              ],
+              "mean_if_success": [
+                613,
+                31
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "n4",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "n0",
+                "to": "n1",
+                "weight": 5,
+                "time": 1
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 2,
+                "time": 3
+              },
+              {
+                "from": "n1",
+                "to": "Trap",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "n1",
+                "to": "n4",
+                "weight": 1,
+                "time": 8
+              },
+              {
+                "from": "n1",
+                "to": "n2",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n2",
+                "to": "OK",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "n2",
+                "to": "n0",
+                "weight": 2,
+                "time": 3
+              },
+              {
+                "from": "n2",
+                "to": "n5",
+                "weight": 5,
+                "time": 4
+              },
+              {
+                "from": "n3",
+                "to": "n2",
+                "weight": 4,
+                "time": 7
+              },
+              {
+                "from": "n3",
+                "to": "OK",
+                "weight": 3,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "Trap",
+                "weight": 2,
+                "time": 4
+              },
+              {
+                "from": "n4",
+                "to": "n3",
+                "weight": 3,
+                "time": 9
+              },
+              {
+                "from": "n4",
+                "to": "Trap",
+                "weight": 2,
+                "time": 8
+              },
+              {
+                "from": "n4",
+                "to": "n1",
+                "weight": 3,
+                "time": 9
+              },
+              {
+                "from": "n5",
+                "to": "n6",
+                "weight": 4,
+                "time": 1
+              },
+              {
+                "from": "n5",
+                "to": "OK",
+                "weight": 2,
+                "time": 1
+              },
+              {
+                "from": "n5",
+                "to": "Drop",
+                "weight": 2,
+                "time": 2
+              },
+              {
+                "from": "n6",
+                "to": "n2",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n6",
+                "to": "Drop",
+                "weight": 5,
+                "time": 6
+              },
+              {
+                "from": "n6",
+                "to": "n5",
+                "weight": 5,
+                "time": 8
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                401,
+                716
+              ],
+              "mean_if_success": [
+                5436521,
+                502453
+              ]
+            },
+            "n1": {
+              "success": [
+                529,
+                1253
+              ],
+              "mean_if_success": [
+                9782146,
+                662837
+              ]
+            },
+            "n2": {
+              "success": [
+                648,
+                1253
+              ],
+              "mean_if_success": [
+                334076,
+                33831
+              ]
+            },
+            "n3": {
+              "success": [
+                2117,
+                3759
+              ],
+              "mean_if_success": [
+                21408594,
+                2652601
+              ]
+            },
+            "n4": {
+              "success": [
+                463,
+                1253
+              ],
+              "mean_if_success": [
+                11565630,
+                580139
+              ]
+            },
+            "n5": {
+              "success": [
+                1011,
+                2506
+              ],
+              "mean_if_success": [
+                12880758,
+                2111305
+              ]
+            },
+            "n6": {
+              "success": [
+                769,
+                2506
+              ],
+              "mean_if_success": [
+                64616718,
+                4817785
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 3,
+                "time": 5
+              },
+              {
+                "from": "n0",
+                "to": "Trap",
+                "weight": 1,
+                "time": 7
+              },
+              {
+                "from": "n1",
+                "to": "n3",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "n1",
+                "to": "Drop",
+                "weight": 1,
+                "time": 9
+              },
+              {
+                "from": "n2",
+                "to": "Drop",
+                "weight": 5,
+                "time": 9
+              },
+              {
+                "from": "n2",
+                "to": "Trap",
+                "weight": 1,
+                "time": 4
+              },
+              {
+                "from": "n3",
+                "to": "n0",
+                "weight": 5,
+                "time": 6
+              },
+              {
+                "from": "n3",
+                "to": "n2",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                3,
+                4
+              ],
+              "mean_if_success": [
+                5,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                1,
+                2
+              ],
+              "mean_if_success": [
+                16,
+                1
+              ]
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                5,
+                8
+              ],
+              "mean_if_success": [
+                11,
+                1
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "Drop",
+                "weight": 4,
+                "time": 1
+              },
+              {
+                "from": "n0",
+                "to": "n1",
+                "weight": 1,
+                "time": 9
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 2,
+                "time": 1
+              },
+              {
+                "from": "n1",
+                "to": "Drop",
+                "weight": 1,
+                "time": 8
+              },
+              {
+                "from": "n1",
+                "to": "n3",
+                "weight": 1,
+                "time": 3
+              },
+              {
+                "from": "n1",
+                "to": "Trap",
+                "weight": 3,
+                "time": 6
+              },
+              {
+                "from": "n2",
+                "to": "OK",
+                "weight": 1,
+                "time": 7
+              },
+              {
+                "from": "n2",
+                "to": "n2",
+                "weight": 5,
+                "time": 7
+              },
+              {
+                "from": "n2",
+                "to": "Drop",
+                "weight": 2,
+                "time": 9
+              },
+              {
+                "from": "n3",
+                "to": "n2",
+                "weight": 2,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "n1",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "n3",
+                "to": "OK",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "n4",
+                "to": "Drop",
+                "weight": 5,
+                "time": 8
+              },
+              {
+                "from": "n4",
+                "to": "n3",
+                "weight": 4,
+                "time": 3
+              },
+              {
+                "from": "n4",
+                "to": "OK",
+                "weight": 3,
+                "time": 5
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                17,
+                57
+              ],
+              "mean_if_success": [
+                13189,
+                6783
+              ]
+            },
+            "n1": {
+              "success": [
+                5,
+                57
+              ],
+              "mean_if_success": [
+                4126,
+                285
+              ]
+            },
+            "n2": {
+              "success": [
+                1,
+                3
+              ],
+              "mean_if_success": [
+                56,
+                3
+              ]
+            },
+            "n3": {
+              "success": [
+                25,
+                57
+              ],
+              "mean_if_success": [
+                3271,
+                285
+              ]
+            },
+            "n4": {
+              "success": [
+                271,
+                684
+              ],
+              "mean_if_success": [
+                131255,
+                15447
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "n4",
+                "weight": 4,
+                "time": 4
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 5,
+                "time": 3
+              },
+              {
+                "from": "n1",
+                "to": "n4",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "n1",
+                "to": "n3",
+                "weight": 4,
+                "time": 2
+              },
+              {
+                "from": "n2",
+                "to": "n2",
+                "weight": 5,
+                "time": 8
+              },
+              {
+                "from": "n2",
+                "to": "Drop",
+                "weight": 3,
+                "time": 8
+              },
+              {
+                "from": "n3",
+                "to": "Drop",
+                "weight": 5,
+                "time": 6
+              },
+              {
+                "from": "n3",
+                "to": "n5",
+                "weight": 3,
+                "time": 3
+              },
+              {
+                "from": "n4",
+                "to": "n1",
+                "weight": 5,
+                "time": 9
+              },
+              {
+                "from": "n4",
+                "to": "Drop",
+                "weight": 2,
+                "time": 1
+              },
+              {
+                "from": "n5",
+                "to": "Trap",
+                "weight": 2,
+                "time": 7
+              },
+              {
+                "from": "n5",
+                "to": "n3",
+                "weight": 3,
+                "time": 3
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                5,
+                9
+              ],
+              "mean_if_success": [
+                3,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n4": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n5": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "stations": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "OK",
+              "Drop",
+              "Trap"
+            ],
+            "delivered": [
+              "OK"
+            ],
+            "routes": [
+              {
+                "from": "n0",
+                "to": "Trap",
+                "weight": 1,
+                "time": 8
+              },
+              {
+                "from": "n0",
+                "to": "n2",
+                "weight": 5,
+                "time": 9
+              },
+              {
+                "from": "n0",
+                "to": "OK",
+                "weight": 3,
+                "time": 4
+              },
+              {
+                "from": "n1",
+                "to": "n1",
+                "weight": 4,
+                "time": 2
+              },
+              {
+                "from": "n1",
+                "to": "n2",
+                "weight": 5,
+                "time": 7
+              },
+              {
+                "from": "n1",
+                "to": "n6",
+                "weight": 1,
+                "time": 9
+              },
+              {
+                "from": "n2",
+                "to": "n6",
+                "weight": 1,
+                "time": 5
+              },
+              {
+                "from": "n2",
+                "to": "OK",
+                "weight": 3,
+                "time": 1
+              },
+              {
+                "from": "n2",
+                "to": "n4",
+                "weight": 4,
+                "time": 1
+              },
+              {
+                "from": "n3",
+                "to": "OK",
+                "weight": 5,
+                "time": 2
+              },
+              {
+                "from": "n3",
+                "to": "n6",
+                "weight": 4,
+                "time": 4
+              },
+              {
+                "from": "n3",
+                "to": "n3",
+                "weight": 4,
+                "time": 3
+              },
+              {
+                "from": "n4",
+                "to": "OK",
+                "weight": 4,
+                "time": 1
+              },
+              {
+                "from": "n4",
+                "to": "n2",
+                "weight": 3,
+                "time": 6
+              },
+              {
+                "from": "n4",
+                "to": "n5",
+                "weight": 1,
+                "time": 1
+              },
+              {
+                "from": "n5",
+                "to": "Trap",
+                "weight": 4,
+                "time": 2
+              },
+              {
+                "from": "n5",
+                "to": "n1",
+                "weight": 4,
+                "time": 5
+              },
+              {
+                "from": "n5",
+                "to": "n4",
+                "weight": 5,
+                "time": 7
+              },
+              {
+                "from": "n6",
+                "to": "n3",
+                "weight": 2,
+                "time": 8
+              },
+              {
+                "from": "n6",
+                "to": "OK",
+                "weight": 3,
+                "time": 1
+              },
+              {
+                "from": "n6",
+                "to": "n1",
+                "weight": 4,
+                "time": 1
+              },
+              {
+                "from": "Trap",
+                "to": "Trap",
+                "weight": 1,
+                "time": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "stations": {
+            "n0": {
+              "success": [
+                455984,
+                522027
+              ],
+              "mean_if_success": [
+                581931560371,
+                52896879904
+              ]
+            },
+            "n1": {
+              "success": [
+                56543,
+                58003
+              ],
+              "mean_if_success": [
+                208440945007,
+                13118654516
+              ]
+            },
+            "n2": {
+              "success": [
+                56395,
+                58003
+              ],
+              "mean_if_success": [
+                41358016301,
+                6542158370
+              ]
+            },
+            "n3": {
+              "success": [
+                57683,
+                58003
+              ],
+              "mean_if_success": [
+                31278488078,
+                3345787049
+              ]
+            },
+            "n4": {
+              "success": [
+                4997,
+                5273
+              ],
+              "mean_if_success": [
+                3969775669,
+                579681982
+              ]
+            },
+            "n5": {
+              "success": [
+                38539,
+                58003
+              ],
+              "mean_if_success": [
+                76121820003,
+                4470755234
+              ]
+            },
+            "n6": {
+              "success": [
+                57283,
+                58003
+              ],
+              "mean_if_success": [
+                38638023610,
+                3322585849
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "stations": [
+          "A",
+          "B",
+          "OK",
+          "Return"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "A",
+            "to": "B",
+            "weight": 1,
+            "time": 4
+          },
+          {
+            "from": "A",
+            "to": "Return",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "B",
+            "to": "B",
+            "weight": 1,
+            "time": 2
+          },
+          {
+            "from": "B",
+            "to": "OK",
+            "weight": 1,
+            "time": 3
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "A": {
+              "success": [
+                1,
+                2
+              ],
+              "mean_if_success": [
+                9,
+                1
+              ]
+            },
+            "B": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                5,
+                1
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Return": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "Drop",
+            "weight": 1,
+            "time": 9
+          },
+          {
+            "from": "n0",
+            "to": "Trap",
+            "weight": 1,
+            "time": 9
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 3,
+            "time": 4
+          },
+          {
+            "from": "n1",
+            "to": "Drop",
+            "weight": 5,
+            "time": 6
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "n1",
+            "to": "OK",
+            "weight": 1,
+            "time": 6
+          },
+          {
+            "from": "n2",
+            "to": "OK",
+            "weight": 1,
+            "time": 7
+          },
+          {
+            "from": "n2",
+            "to": "n2",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "n2",
+            "to": "n3",
+            "weight": 1,
+            "time": 3
+          },
+          {
+            "from": "n3",
+            "to": "n2",
+            "weight": 4,
+            "time": 9
+          },
+          {
+            "from": "n3",
+            "to": "n3",
+            "weight": 1,
+            "time": 9
+          },
+          {
+            "from": "n3",
+            "to": "Trap",
+            "weight": 4,
+            "time": 4
+          },
+          {
+            "from": "n4",
+            "to": "OK",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "n4",
+            "weight": 2,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "n0",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                3,
+                5
+              ],
+              "mean_if_success": [
+                4,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                5,
+                21
+              ],
+              "mean_if_success": [
+                593,
+                60
+              ]
+            },
+            "n2": {
+              "success": [
+                2,
+                3
+              ],
+              "mean_if_success": [
+                353,
+                24
+              ]
+            },
+            "n3": {
+              "success": [
+                1,
+                3
+              ],
+              "mean_if_success": [
+                149,
+                6
+              ]
+            },
+            "n4": {
+              "success": [
+                17,
+                25
+              ],
+              "mean_if_success": [
+                599,
+                85
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "n5",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "Drop",
+            "weight": 5,
+            "time": 9
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 3,
+            "time": 6
+          },
+          {
+            "from": "n1",
+            "to": "OK",
+            "weight": 4,
+            "time": 3
+          },
+          {
+            "from": "n1",
+            "to": "n5",
+            "weight": 4,
+            "time": 8
+          },
+          {
+            "from": "n2",
+            "to": "Trap",
+            "weight": 2,
+            "time": 6
+          },
+          {
+            "from": "n2",
+            "to": "n4",
+            "weight": 3,
+            "time": 9
+          },
+          {
+            "from": "n3",
+            "to": "Drop",
+            "weight": 2,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "n4",
+            "weight": 5,
+            "time": 2
+          },
+          {
+            "from": "n4",
+            "to": "n5",
+            "weight": 5,
+            "time": 2
+          },
+          {
+            "from": "n4",
+            "to": "OK",
+            "weight": 2,
+            "time": 6
+          },
+          {
+            "from": "n5",
+            "to": "n2",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "n5",
+            "to": "n3",
+            "weight": 4,
+            "time": 2
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                3,
+                8
+              ],
+              "mean_if_success": [
+                6,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                44,
+                65
+              ],
+              "mean_if_success": [
+                24153,
+                2288
+              ]
+            },
+            "n2": {
+              "success": [
+                21,
+                65
+              ],
+              "mean_if_success": [
+                633,
+                26
+              ]
+            },
+            "n3": {
+              "success": [
+                5,
+                13
+              ],
+              "mean_if_success": [
+                451,
+                26
+              ]
+            },
+            "n4": {
+              "success": [
+                7,
+                13
+              ],
+              "mean_if_success": [
+                399,
+                26
+              ]
+            },
+            "n5": {
+              "success": [
+                23,
+                65
+              ],
+              "mean_if_success": [
+                14299,
+                598
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "n5",
+          "n6",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "n6",
+            "weight": 4,
+            "time": 7
+          },
+          {
+            "from": "n0",
+            "to": "n5",
+            "weight": 1,
+            "time": 8
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 3,
+            "time": 1
+          },
+          {
+            "from": "n1",
+            "to": "n1",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n1",
+            "to": "Drop",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "weight": 3,
+            "time": 4
+          },
+          {
+            "from": "n2",
+            "to": "n4",
+            "weight": 4,
+            "time": 7
+          },
+          {
+            "from": "n2",
+            "to": "n0",
+            "weight": 2,
+            "time": 2
+          },
+          {
+            "from": "n2",
+            "to": "OK",
+            "weight": 1,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "Trap",
+            "weight": 5,
+            "time": 5
+          },
+          {
+            "from": "n3",
+            "to": "n0",
+            "weight": 2,
+            "time": 3
+          },
+          {
+            "from": "n3",
+            "to": "n4",
+            "weight": 5,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "Trap",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "n1",
+            "weight": 3,
+            "time": 5
+          },
+          {
+            "from": "n4",
+            "to": "Drop",
+            "weight": 5,
+            "time": 7
+          },
+          {
+            "from": "n5",
+            "to": "Trap",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "n5",
+            "to": "n3",
+            "weight": 3,
+            "time": 4
+          },
+          {
+            "from": "n5",
+            "to": "n2",
+            "weight": 1,
+            "time": 4
+          },
+          {
+            "from": "n6",
+            "to": "n1",
+            "weight": 3,
+            "time": 9
+          },
+          {
+            "from": "n6",
+            "to": "n2",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "n6",
+            "to": "n6",
+            "weight": 5,
+            "time": 1
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                40451,
+                81442
+              ],
+              "mean_if_success": [
+                9778089295,
+                1647205171
+              ]
+            },
+            "n1": {
+              "success": [
+                4683,
+                40721
+              ],
+              "mean_if_success": [
+                776020878,
+                63565481
+              ]
+            },
+            "n2": {
+              "success": [
+                12488,
+                40721
+              ],
+              "mean_if_success": [
+                3220589417,
+                508523848
+              ]
+            },
+            "n3": {
+              "success": [
+                12064,
+                122163
+              ],
+              "mean_if_success": [
+                5126693407,
+                491258144
+              ]
+            },
+            "n4": {
+              "success": [
+                1561,
+                40721
+              ],
+              "mean_if_success": [
+                1093848283,
+                63565481
+              ]
+            },
+            "n5": {
+              "success": [
+                3069,
+                40721
+              ],
+              "mean_if_success": [
+                514433783,
+                41657583
+              ]
+            },
+            "n6": {
+              "success": [
+                9143,
+                40721
+              ],
+              "mean_if_success": [
+                5292483858,
+                372312103
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 2,
+            "time": 1
+          },
+          {
+            "from": "n0",
+            "to": "n1",
+            "weight": 4,
+            "time": 8
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "weight": 2,
+            "time": 4
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "weight": 4,
+            "time": 3
+          },
+          {
+            "from": "n2",
+            "to": "Trap",
+            "weight": 5,
+            "time": 1
+          },
+          {
+            "from": "n2",
+            "to": "n2",
+            "weight": 1,
+            "time": 6
+          },
+          {
+            "from": "n3",
+            "to": "n0",
+            "weight": 1,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "Drop",
+            "weight": 3,
+            "time": 1
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                6,
+                17
+              ],
+              "mean_if_success": [
+                31,
+                17
+              ]
+            },
+            "n1": {
+              "success": [
+                1,
+                34
+              ],
+              "mean_if_success": [
+                133,
+                17
+              ]
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                3,
+                34
+              ],
+              "mean_if_success": [
+                65,
+                17
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "Drop",
+            "weight": 3,
+            "time": 4
+          },
+          {
+            "from": "n0",
+            "to": "Trap",
+            "weight": 2,
+            "time": 2
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 5,
+            "time": 1
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "weight": 4,
+            "time": 8
+          },
+          {
+            "from": "n1",
+            "to": "n4",
+            "weight": 3,
+            "time": 7
+          },
+          {
+            "from": "n1",
+            "to": "n1",
+            "weight": 1,
+            "time": 4
+          },
+          {
+            "from": "n2",
+            "to": "n2",
+            "weight": 5,
+            "time": 4
+          },
+          {
+            "from": "n2",
+            "to": "OK",
+            "weight": 1,
+            "time": 8
+          },
+          {
+            "from": "n2",
+            "to": "n3",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n3",
+            "to": "n4",
+            "weight": 3,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "Drop",
+            "weight": 1,
+            "time": 4
+          },
+          {
+            "from": "n3",
+            "to": "OK",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n4",
+            "to": "n0",
+            "weight": 2,
+            "time": 8
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "weight": 3,
+            "time": 2
+          },
+          {
+            "from": "n4",
+            "to": "Drop",
+            "weight": 5,
+            "time": 6
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                1,
+                2
+              ],
+              "mean_if_success": [
+                1,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                908,
+                1701
+              ],
+              "mean_if_success": [
+                257120,
+                14301
+              ]
+            },
+            "n2": {
+              "success": [
+                173,
+                243
+              ],
+              "mean_if_success": [
+                16331,
+                1557
+              ]
+            },
+            "n3": {
+              "success": [
+                53,
+                81
+              ],
+              "mean_if_success": [
+                1859,
+                477
+              ]
+            },
+            "n4": {
+              "success": [
+                8,
+                27
+              ],
+              "mean_if_success": [
+                125,
+                18
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "n5",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 5,
+            "time": 9
+          },
+          {
+            "from": "n0",
+            "to": "Trap",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "n1",
+            "to": "Drop",
+            "weight": 2,
+            "time": 4
+          },
+          {
+            "from": "n1",
+            "to": "Trap",
+            "weight": 3,
+            "time": 5
+          },
+          {
+            "from": "n2",
+            "to": "n2",
+            "weight": 2,
+            "time": 7
+          },
+          {
+            "from": "n2",
+            "to": "Drop",
+            "weight": 1,
+            "time": 7
+          },
+          {
+            "from": "n3",
+            "to": "n0",
+            "weight": 3,
+            "time": 5
+          },
+          {
+            "from": "n3",
+            "to": "n2",
+            "weight": 3,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "n5",
+            "weight": 3,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "weight": 2,
+            "time": 5
+          },
+          {
+            "from": "n5",
+            "to": "n4",
+            "weight": 3,
+            "time": 6
+          },
+          {
+            "from": "n5",
+            "to": "n3",
+            "weight": 5,
+            "time": 2
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                5,
+                9
+              ],
+              "mean_if_success": [
+                9,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                5,
+                18
+              ],
+              "mean_if_success": [
+                14,
+                1
+              ]
+            },
+            "n4": {
+              "success": [
+                5,
+                18
+              ],
+              "mean_if_success": [
+                622,
+                31
+              ]
+            },
+            "n5": {
+              "success": [
+                5,
+                18
+              ],
+              "mean_if_success": [
+                613,
+                31
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "n5",
+          "n6",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "n4",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "n0",
+            "to": "n1",
+            "weight": 5,
+            "time": 1
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 2,
+            "time": 3
+          },
+          {
+            "from": "n1",
+            "to": "Trap",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "n1",
+            "to": "n4",
+            "weight": 1,
+            "time": 8
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n2",
+            "to": "OK",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "n2",
+            "to": "n0",
+            "weight": 2,
+            "time": 3
+          },
+          {
+            "from": "n2",
+            "to": "n5",
+            "weight": 5,
+            "time": 4
+          },
+          {
+            "from": "n3",
+            "to": "n2",
+            "weight": 4,
+            "time": 7
+          },
+          {
+            "from": "n3",
+            "to": "OK",
+            "weight": 3,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "Trap",
+            "weight": 2,
+            "time": 4
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "weight": 3,
+            "time": 9
+          },
+          {
+            "from": "n4",
+            "to": "Trap",
+            "weight": 2,
+            "time": 8
+          },
+          {
+            "from": "n4",
+            "to": "n1",
+            "weight": 3,
+            "time": 9
+          },
+          {
+            "from": "n5",
+            "to": "n6",
+            "weight": 4,
+            "time": 1
+          },
+          {
+            "from": "n5",
+            "to": "OK",
+            "weight": 2,
+            "time": 1
+          },
+          {
+            "from": "n5",
+            "to": "Drop",
+            "weight": 2,
+            "time": 2
+          },
+          {
+            "from": "n6",
+            "to": "n2",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n6",
+            "to": "Drop",
+            "weight": 5,
+            "time": 6
+          },
+          {
+            "from": "n6",
+            "to": "n5",
+            "weight": 5,
+            "time": 8
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                401,
+                716
+              ],
+              "mean_if_success": [
+                5436521,
+                502453
+              ]
+            },
+            "n1": {
+              "success": [
+                529,
+                1253
+              ],
+              "mean_if_success": [
+                9782146,
+                662837
+              ]
+            },
+            "n2": {
+              "success": [
+                648,
+                1253
+              ],
+              "mean_if_success": [
+                334076,
+                33831
+              ]
+            },
+            "n3": {
+              "success": [
+                2117,
+                3759
+              ],
+              "mean_if_success": [
+                21408594,
+                2652601
+              ]
+            },
+            "n4": {
+              "success": [
+                463,
+                1253
+              ],
+              "mean_if_success": [
+                11565630,
+                580139
+              ]
+            },
+            "n5": {
+              "success": [
+                1011,
+                2506
+              ],
+              "mean_if_success": [
+                12880758,
+                2111305
+              ]
+            },
+            "n6": {
+              "success": [
+                769,
+                2506
+              ],
+              "mean_if_success": [
+                64616718,
+                4817785
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 3,
+            "time": 5
+          },
+          {
+            "from": "n0",
+            "to": "Trap",
+            "weight": 1,
+            "time": 7
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "n1",
+            "to": "Drop",
+            "weight": 1,
+            "time": 9
+          },
+          {
+            "from": "n2",
+            "to": "Drop",
+            "weight": 5,
+            "time": 9
+          },
+          {
+            "from": "n2",
+            "to": "Trap",
+            "weight": 1,
+            "time": 4
+          },
+          {
+            "from": "n3",
+            "to": "n0",
+            "weight": 5,
+            "time": 6
+          },
+          {
+            "from": "n3",
+            "to": "n2",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                3,
+                4
+              ],
+              "mean_if_success": [
+                5,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                1,
+                2
+              ],
+              "mean_if_success": [
+                16,
+                1
+              ]
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                5,
+                8
+              ],
+              "mean_if_success": [
+                11,
+                1
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "Drop",
+            "weight": 4,
+            "time": 1
+          },
+          {
+            "from": "n0",
+            "to": "n1",
+            "weight": 1,
+            "time": 9
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 2,
+            "time": 1
+          },
+          {
+            "from": "n1",
+            "to": "Drop",
+            "weight": 1,
+            "time": 8
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "weight": 1,
+            "time": 3
+          },
+          {
+            "from": "n1",
+            "to": "Trap",
+            "weight": 3,
+            "time": 6
+          },
+          {
+            "from": "n2",
+            "to": "OK",
+            "weight": 1,
+            "time": 7
+          },
+          {
+            "from": "n2",
+            "to": "n2",
+            "weight": 5,
+            "time": 7
+          },
+          {
+            "from": "n2",
+            "to": "Drop",
+            "weight": 2,
+            "time": 9
+          },
+          {
+            "from": "n3",
+            "to": "n2",
+            "weight": 2,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "n1",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "n3",
+            "to": "OK",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "n4",
+            "to": "Drop",
+            "weight": 5,
+            "time": 8
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "weight": 4,
+            "time": 3
+          },
+          {
+            "from": "n4",
+            "to": "OK",
+            "weight": 3,
+            "time": 5
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                17,
+                57
+              ],
+              "mean_if_success": [
+                13189,
+                6783
+              ]
+            },
+            "n1": {
+              "success": [
+                5,
+                57
+              ],
+              "mean_if_success": [
+                4126,
+                285
+              ]
+            },
+            "n2": {
+              "success": [
+                1,
+                3
+              ],
+              "mean_if_success": [
+                56,
+                3
+              ]
+            },
+            "n3": {
+              "success": [
+                25,
+                57
+              ],
+              "mean_if_success": [
+                3271,
+                285
+              ]
+            },
+            "n4": {
+              "success": [
+                271,
+                684
+              ],
+              "mean_if_success": [
+                131255,
+                15447
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "n5",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "n4",
+            "weight": 4,
+            "time": 4
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 5,
+            "time": 3
+          },
+          {
+            "from": "n1",
+            "to": "n4",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "weight": 4,
+            "time": 2
+          },
+          {
+            "from": "n2",
+            "to": "n2",
+            "weight": 5,
+            "time": 8
+          },
+          {
+            "from": "n2",
+            "to": "Drop",
+            "weight": 3,
+            "time": 8
+          },
+          {
+            "from": "n3",
+            "to": "Drop",
+            "weight": 5,
+            "time": 6
+          },
+          {
+            "from": "n3",
+            "to": "n5",
+            "weight": 3,
+            "time": 3
+          },
+          {
+            "from": "n4",
+            "to": "n1",
+            "weight": 5,
+            "time": 9
+          },
+          {
+            "from": "n4",
+            "to": "Drop",
+            "weight": 2,
+            "time": 1
+          },
+          {
+            "from": "n5",
+            "to": "Trap",
+            "weight": 2,
+            "time": 7
+          },
+          {
+            "from": "n5",
+            "to": "n3",
+            "weight": 3,
+            "time": 3
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                5,
+                9
+              ],
+              "mean_if_success": [
+                3,
+                1
+              ]
+            },
+            "n1": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n2": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n3": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n4": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "n5": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "stations": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4",
+          "n5",
+          "n6",
+          "OK",
+          "Drop",
+          "Trap"
+        ],
+        "delivered": [
+          "OK"
+        ],
+        "routes": [
+          {
+            "from": "n0",
+            "to": "Trap",
+            "weight": 1,
+            "time": 8
+          },
+          {
+            "from": "n0",
+            "to": "n2",
+            "weight": 5,
+            "time": 9
+          },
+          {
+            "from": "n0",
+            "to": "OK",
+            "weight": 3,
+            "time": 4
+          },
+          {
+            "from": "n1",
+            "to": "n1",
+            "weight": 4,
+            "time": 2
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "weight": 5,
+            "time": 7
+          },
+          {
+            "from": "n1",
+            "to": "n6",
+            "weight": 1,
+            "time": 9
+          },
+          {
+            "from": "n2",
+            "to": "n6",
+            "weight": 1,
+            "time": 5
+          },
+          {
+            "from": "n2",
+            "to": "OK",
+            "weight": 3,
+            "time": 1
+          },
+          {
+            "from": "n2",
+            "to": "n4",
+            "weight": 4,
+            "time": 1
+          },
+          {
+            "from": "n3",
+            "to": "OK",
+            "weight": 5,
+            "time": 2
+          },
+          {
+            "from": "n3",
+            "to": "n6",
+            "weight": 4,
+            "time": 4
+          },
+          {
+            "from": "n3",
+            "to": "n3",
+            "weight": 4,
+            "time": 3
+          },
+          {
+            "from": "n4",
+            "to": "OK",
+            "weight": 4,
+            "time": 1
+          },
+          {
+            "from": "n4",
+            "to": "n2",
+            "weight": 3,
+            "time": 6
+          },
+          {
+            "from": "n4",
+            "to": "n5",
+            "weight": 1,
+            "time": 1
+          },
+          {
+            "from": "n5",
+            "to": "Trap",
+            "weight": 4,
+            "time": 2
+          },
+          {
+            "from": "n5",
+            "to": "n1",
+            "weight": 4,
+            "time": 5
+          },
+          {
+            "from": "n5",
+            "to": "n4",
+            "weight": 5,
+            "time": 7
+          },
+          {
+            "from": "n6",
+            "to": "n3",
+            "weight": 2,
+            "time": 8
+          },
+          {
+            "from": "n6",
+            "to": "OK",
+            "weight": 3,
+            "time": 1
+          },
+          {
+            "from": "n6",
+            "to": "n1",
+            "weight": 4,
+            "time": 1
+          },
+          {
+            "from": "Trap",
+            "to": "Trap",
+            "weight": 1,
+            "time": 2
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "stations": {
+            "n0": {
+              "success": [
+                455984,
+                522027
+              ],
+              "mean_if_success": [
+                581931560371,
+                52896879904
+              ]
+            },
+            "n1": {
+              "success": [
+                56543,
+                58003
+              ],
+              "mean_if_success": [
+                208440945007,
+                13118654516
+              ]
+            },
+            "n2": {
+              "success": [
+                56395,
+                58003
+              ],
+              "mean_if_success": [
+                41358016301,
+                6542158370
+              ]
+            },
+            "n3": {
+              "success": [
+                57683,
+                58003
+              ],
+              "mean_if_success": [
+                31278488078,
+                3345787049
+              ]
+            },
+            "n4": {
+              "success": [
+                4997,
+                5273
+              ],
+              "mean_if_success": [
+                3969775669,
+                579681982
+              ]
+            },
+            "n5": {
+              "success": [
+                38539,
+                58003
+              ],
+              "mean_if_success": [
+                76121820003,
+                4470755234
+              ]
+            },
+            "n6": {
+              "success": [
+                57283,
+                58003
+              ],
+              "mean_if_success": [
+                38638023610,
+                3322585849
+              ]
+            },
+            "OK": {
+              "success": [
+                1,
+                1
+              ],
+              "mean_if_success": [
+                0,
+                1
+              ]
+            },
+            "Drop": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            },
+            "Trap": {
+              "success": [
+                0,
+                1
+              ],
+              "mean_if_success": null
+            }
+          }
+        }
+      }
+    }
+  ]
+}

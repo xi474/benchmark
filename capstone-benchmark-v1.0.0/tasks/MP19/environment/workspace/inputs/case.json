@@ -1,0 +1,17 @@
+{
+  "aliases": {
+    "six.moves.urllib.parse": "urllib.parse"
+  },
+  "entry": "main.py",
+  "externals": [
+    "json",
+    "urllib"
+  ],
+  "modules": {
+    "main.py": "import pkg.a\n# 47\n",
+    "pkg/__init__.py": "from . import b\n",
+    "pkg/a.py": "from . import b\nimport six.moves.urllib.parse\n",
+    "pkg/b.py": "from . import a\nimport json\n",
+    "unused.py": "print(\"unused\")"
+  }
+}

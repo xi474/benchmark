@@ -1,0 +1,655 @@
+[
+  {
+    "id": "C062-01",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "git"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "close"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "git",
+          "state": "closed",
+          "job": null,
+          "revision": 0,
+          "closed_at": 1,
+          "updates": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-02",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "s3"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "poll",
+          "job": "j"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "op": "close"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "op": "complete",
+          "job": "j",
+          "changed": true,
+          "revision": 9
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "poll_started",
+          "job": "j"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "event": "cancel_sent",
+          "job": "j"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "event": "callback_cancelled",
+          "job": "j"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "s3",
+          "state": "closed",
+          "job": null,
+          "revision": 0,
+          "closed_at": 4,
+          "updates": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-03",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "local"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "poll",
+          "job": "j"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "op": "complete",
+          "job": "j",
+          "changed": true,
+          "revision": 2
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "op": "close"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "poll_started",
+          "job": "j"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "event": "snapshot_updated",
+          "job": "j"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "local",
+          "state": "closed",
+          "job": null,
+          "revision": 2,
+          "closed_at": 3,
+          "updates": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-04",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "azure"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "close"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "op": "close"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "op": "poll",
+          "job": "unused"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "close_returned"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "event": "close_returned"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "event": "poll_rejected"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "azure",
+          "state": "closed",
+          "job": null,
+          "revision": 0,
+          "closed_at": 1,
+          "updates": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-05",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "oci"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "poll",
+          "job": "j"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "op": "poll",
+          "job": "j2"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "op": "complete",
+          "job": "j",
+          "changed": false
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "op": "close"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "poll_started",
+          "job": "j"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "event": "poll_coalesced"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "event": "poll_unchanged",
+          "job": "j"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "oci",
+          "state": "closed",
+          "job": null,
+          "revision": 0,
+          "closed_at": 4,
+          "updates": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-06",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "git",
+          "revision": 3
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "poll",
+          "job": "a"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "op": "complete",
+          "job": "a",
+          "changed": false
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "op": "poll",
+          "job": "b"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "op": "complete",
+          "job": "b",
+          "changed": true,
+          "revision": 5
+        },
+        {
+          "time": 5,
+          "store": "s",
+          "op": "close"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "poll_started",
+          "job": "a"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "event": "poll_unchanged",
+          "job": "a"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "event": "poll_started",
+          "job": "b"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "event": "snapshot_updated",
+          "job": "b"
+        },
+        {
+          "time": 5,
+          "store": "s",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "git",
+          "state": "closed",
+          "job": null,
+          "revision": 5,
+          "closed_at": 5,
+          "updates": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-07",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "a",
+          "op": "open",
+          "backend": "git"
+        },
+        {
+          "time": 0,
+          "store": "b",
+          "op": "open",
+          "backend": "s3"
+        },
+        {
+          "time": 1,
+          "store": "a",
+          "op": "poll",
+          "job": "ja"
+        },
+        {
+          "time": 1,
+          "store": "b",
+          "op": "poll",
+          "job": "jb"
+        },
+        {
+          "time": 2,
+          "store": "a",
+          "op": "close"
+        },
+        {
+          "time": 3,
+          "store": "b",
+          "op": "complete",
+          "job": "jb",
+          "changed": true,
+          "revision": 8
+        },
+        {
+          "time": 4,
+          "store": "a",
+          "op": "complete",
+          "job": "ja",
+          "changed": true,
+          "revision": 7
+        },
+        {
+          "time": 5,
+          "store": "b",
+          "op": "close"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "a",
+          "event": "opened"
+        },
+        {
+          "time": 0,
+          "store": "b",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "a",
+          "event": "poll_started",
+          "job": "ja"
+        },
+        {
+          "time": 1,
+          "store": "b",
+          "event": "poll_started",
+          "job": "jb"
+        },
+        {
+          "time": 2,
+          "store": "a",
+          "event": "cancel_sent",
+          "job": "ja"
+        },
+        {
+          "time": 3,
+          "store": "b",
+          "event": "snapshot_updated",
+          "job": "jb"
+        },
+        {
+          "time": 4,
+          "store": "a",
+          "event": "callback_cancelled",
+          "job": "ja"
+        },
+        {
+          "time": 4,
+          "store": "a",
+          "event": "close_returned"
+        },
+        {
+          "time": 5,
+          "store": "b",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "a": {
+          "backend": "git",
+          "state": "closed",
+          "job": null,
+          "revision": 0,
+          "closed_at": 4,
+          "updates": 0
+        },
+        "b": {
+          "backend": "s3",
+          "state": "closed",
+          "job": null,
+          "revision": 8,
+          "closed_at": 5,
+          "updates": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "C062-08",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "op": "open",
+          "backend": "local"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "op": "poll",
+          "job": "a"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "op": "close"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "op": "close"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "op": "poll",
+          "job": "b"
+        },
+        {
+          "time": 5,
+          "store": "s",
+          "op": "complete",
+          "job": "a",
+          "changed": true,
+          "revision": 8
+        },
+        {
+          "time": 6,
+          "store": "s",
+          "op": "close"
+        }
+      ]
+    },
+    "expected": {
+      "events": [
+        {
+          "time": 0,
+          "store": "s",
+          "event": "opened"
+        },
+        {
+          "time": 1,
+          "store": "s",
+          "event": "poll_started",
+          "job": "a"
+        },
+        {
+          "time": 2,
+          "store": "s",
+          "event": "cancel_sent",
+          "job": "a"
+        },
+        {
+          "time": 3,
+          "store": "s",
+          "event": "close_waiting"
+        },
+        {
+          "time": 4,
+          "store": "s",
+          "event": "poll_rejected"
+        },
+        {
+          "time": 5,
+          "store": "s",
+          "event": "callback_cancelled",
+          "job": "a"
+        },
+        {
+          "time": 5,
+          "store": "s",
+          "event": "close_returned"
+        },
+        {
+          "time": 6,
+          "store": "s",
+          "event": "close_returned"
+        }
+      ],
+      "stores": {
+        "s": {
+          "backend": "local",
+          "state": "closed",
+          "job": null,
+          "revision": 0,
+          "closed_at": 5,
+          "updates": 0
+        }
+      }
+    }
+  }
+]

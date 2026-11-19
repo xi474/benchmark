@@ -1,0 +1,462 @@
+{
+  "all_checks_passed": false,
+  "candidate_hashes_after_materialize": {},
+  "candidate_hashes_before": {},
+  "catalog_sha256": "38a930b6c4bb909957723a5d52b792b1f321936bea3c933eff5b9e978df9dc55",
+  "categories": {
+    "business": {
+      "passed": 12,
+      "total": 20
+    },
+    "domain_validation": {
+      "passed": 1,
+      "total": 1
+    },
+    "integration": {
+      "passed": 2,
+      "total": 7
+    },
+    "interface": {
+      "passed": 5,
+      "total": 5
+    },
+    "robustness": {
+      "passed": 8,
+      "total": 10
+    }
+  },
+  "checks": [
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/reader/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/reader/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/reader/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/reader/boundary",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/reader/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/reader/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/reader/invalid-business-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/reader",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "matched",
+      "id": "output/reader",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "name",
+          "alternates"
+        ],
+        "expected_keys": [
+          "title",
+          "alternates"
+        ],
+        "path": "$.value.result.records[0].titles[0]"
+      },
+      "id": "api/names/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "name",
+          "alternates"
+        ],
+        "expected_keys": [
+          "title",
+          "alternates"
+        ],
+        "path": "$.value.result.records[0].titles[0]"
+      },
+      "id": "api/names/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "name",
+          "alternates"
+        ],
+        "expected_keys": [
+          "title",
+          "alternates"
+        ],
+        "path": "$.value.result.records[0].titles[0]"
+      },
+      "id": "api/names/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "name",
+          "alternates"
+        ],
+        "expected_keys": [
+          "title",
+          "alternates"
+        ],
+        "path": "$.value.result.records[0].titles[0]"
+      },
+      "id": "api/names/boundary",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/names/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/names/nonfinite-ignored-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/names",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual_keys": [
+          "alternates",
+          "name"
+        ],
+        "expected_keys": [
+          "title",
+          "alternates"
+        ],
+        "path": "$.result.records[0].titles[0]"
+      },
+      "id": "output/names",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/languages/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/languages/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/languages/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/languages/boundary",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/languages/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/languages/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/languages",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "matched",
+      "id": "output/languages",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "Jesuits.Dept.",
+        "expected": "Jesuits. Dept.",
+        "path": "$.value.result.records[0].subjects.organizations[0].value"
+      },
+      "id": "api/subjects/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "Jesuits.Dept.",
+        "expected": "Jesuits. Dept.",
+        "path": "$.value.result.records[0].subjects.organizations[0].value"
+      },
+      "id": "api/subjects/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "Jesuits.Dept.",
+        "expected": "Jesuits. Dept.",
+        "path": "$.value.result.records[0].subjects.organizations[0].value"
+      },
+      "id": "api/subjects/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual": "New Org.Dept.",
+        "expected": "New Org. Dept.",
+        "path": "$.value.result.records[0].subjects.organizations[0].value"
+      },
+      "id": "api/subjects/boundary",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/subjects/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/subjects/nonfinite-ignored-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/subjects",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual": "Jesuits.Dept.",
+        "expected": "Jesuits. Dept.",
+        "path": "$.result.records[0].subjects.organizations[0].value"
+      },
+      "id": "output/subjects",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/catalog/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/catalog/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/catalog/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/catalog/boundary",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/catalog/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/catalog/nonfinite-ignored-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/catalog",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual": "Jesuits.Dept.",
+        "expected": "Jesuits. Dept.",
+        "path": "$.result.records[0].subjects.organizations[0].value"
+      },
+      "id": "output/catalog",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual": "Jesuits.Dept.",
+        "expected": "Jesuits. Dept.",
+        "path": "$.components.catalog.records[0].subjects.organizations[0].value"
+      },
+      "id": "output/core_manifest",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/final_report",
+      "passed": false
+    }
+  ],
+  "checks_sha256": "1bcfdc153412185193196e3d29193c8444247cfa88e95318c2e43208b156548e",
+  "difficulty": "M",
+  "elapsed_seconds": 4.353,
+  "integrity_ok": true,
+  "integrity_violations": [],
+  "max_reward": 2.0,
+  "model_requests": 0,
+  "pass_ratio": 0.6511627906976745,
+  "passed_verifiers": 28,
+  "policy_sha256": "708ffbf17b3e3efcbe213ea4f883ab60f981fd73bb336baa073f97370a50187a",
+  "policy_version": "2.0.0",
+  "reward": 1.302326,
+  "root_execution_succeeded": false,
+  "schema": "benchmark.partial-reward.v2",
+  "scoring_revision": "linux-preserve-candidate-v1",
+  "status": "scored",
+  "task": "medium/MP22",
+  "total_verifiers": 43
+}

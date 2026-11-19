@@ -1,0 +1,105 @@
+{
+  "id": "MP09",
+  "title": "两场座谈会、群邀请与物资采购",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "calendar",
+      "label": "两场最早空档选择",
+      "kind": "work",
+      "folder": "engines/calendar",
+      "operation": "panel_slots"
+    },
+    {
+      "id": "invitees",
+      "label": "邀请群成员并集",
+      "kind": "work",
+      "folder": "engines/invitees",
+      "operation": "panel_invitees"
+    },
+    {
+      "id": "supplies",
+      "label": "库存与评分采购",
+      "kind": "work",
+      "folder": "engines/supplies",
+      "operation": "supply_selection"
+    },
+    {
+      "id": "commit",
+      "label": "活动创建与联合通知",
+      "kind": "work",
+      "folder": "engines/commit",
+      "operation": "panel_commit"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "calendar"
+    },
+    {
+      "source": "input",
+      "target": "invitees"
+    },
+    {
+      "source": "input",
+      "target": "supplies"
+    },
+    {
+      "source": "calendar",
+      "target": "commit"
+    },
+    {
+      "source": "invitees",
+      "target": "commit"
+    },
+    {
+      "source": "supplies",
+      "target": "commit"
+    },
+    {
+      "source": "calendar",
+      "target": "_core"
+    },
+    {
+      "source": "invitees",
+      "target": "_core"
+    },
+    {
+      "source": "supplies",
+      "target": "_core"
+    },
+    {
+      "source": "commit",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

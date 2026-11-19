@@ -1,0 +1,140 @@
+{
+  "clients": [
+    {
+      "id": "j0",
+      "weight": 4,
+      "deadline": 12,
+      "mandatory": true
+    },
+    {
+      "id": "j1",
+      "weight": 5,
+      "deadline": 12,
+      "mandatory": true
+    },
+    {
+      "id": "j2",
+      "weight": 6,
+      "deadline": 12,
+      "mandatory": true
+    },
+    {
+      "id": "j3",
+      "weight": 7,
+      "deadline": 12,
+      "mandatory": true
+    },
+    {
+      "id": "j4",
+      "weight": 8,
+      "deadline": 12,
+      "mandatory": true
+    },
+    {
+      "id": "j5",
+      "weight": 2,
+      "deadline": 12,
+      "mandatory": true
+    }
+  ],
+  "windows": [
+    {
+      "id": "overlap",
+      "start": 1,
+      "end": 5,
+      "cost": 3,
+      "clients": [
+        "j1",
+        "j2",
+        "j3",
+        "j4"
+      ]
+    },
+    {
+      "id": "single",
+      "start": 0,
+      "end": 1,
+      "cost": 1,
+      "clients": [
+        "j0"
+      ]
+    },
+    {
+      "id": "first_half",
+      "start": 0,
+      "end": 2,
+      "cost": 2,
+      "clients": [
+        "j0",
+        "j1",
+        "j2"
+      ]
+    },
+    {
+      "id": "expensive",
+      "start": 0,
+      "end": 2,
+      "cost": 10,
+      "clients": [
+        "j0",
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5"
+      ]
+    },
+    {
+      "id": "second_half",
+      "start": 4,
+      "end": 6,
+      "cost": 2,
+      "clients": [
+        "j3",
+        "j4",
+        "j5"
+      ]
+    },
+    {
+      "id": "all_fast",
+      "start": 0,
+      "end": 4,
+      "cost": 6,
+      "clients": [
+        "j0",
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5"
+      ]
+    },
+    {
+      "id": "late",
+      "start": 10,
+      "end": 14,
+      "cost": 1,
+      "clients": [
+        "j0",
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5"
+      ]
+    },
+    {
+      "id": "tail",
+      "start": 7,
+      "end": 9,
+      "cost": 2,
+      "clients": [
+        "j3",
+        "j4",
+        "j5"
+      ]
+    }
+  ],
+  "budget": 8,
+  "cooldown": 1
+}
