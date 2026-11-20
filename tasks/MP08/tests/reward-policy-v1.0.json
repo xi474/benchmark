@@ -1,0 +1,52 @@
+{
+  "schema": "benchmark.scoring-standard",
+  "version": "1.0.0",
+  "adopted_date": "2026-11-09",
+  "scoring_revision": "delivery-bonus-50-v1",
+  "status": "adopted_specification",
+  "implementation_status": "legacy_graders_require_separate_versioned_migration",
+  "task_content_changes": false,
+  "overwrite_historical_scores": false,
+  "completion_bonus_fraction": 0.5,
+  "progress_fraction": 0.5,
+  "difficulty_max_reward": {"E": 1, "M": 2, "H": 3},
+  "reward_weight_role": "release_frozen_reward_difficulty_not_posthoc_empirical_grade",
+  "reward_formula": "I * W * (0.5 * K / N + 0.5 * S)",
+  "progress_metric": "registered_core_verifier_pass_ratio",
+  "primary_success": "strict_pass",
+  "strict_pass_formula": "integrity_ok and public_check_ok and all(A) and all(B) and all(D)",
+  "public_pass_formula": "integrity_ok and public_check_ok",
+  "full_spec_pass_formula": "strict_pass and robustness_all_passed",
+  "core_sets": {
+    "A": "one_verifier_per_frozen_core_transform_case",
+    "B": "one_all_subchecks_required_interface_bundle_per_component",
+    "D": "one_verifier_per_frozen_artifact_module_or_integration_check",
+    "P": "one_public_execution_verifier_per_task_no_duplicate_existing_root_check"
+  },
+  "integrity_violation_reward": 0,
+  "fixed_denominator": true,
+  "missing_timeout_exception": "failed_verifier_not_removed_from_denominator",
+  "rounding": {"decimal_places": 6, "method": "ROUND_HALF_UP", "stage": "final_per_task_reward_only"},
+  "sum_semantics": "sum_final_six_decimal_task_rewards",
+  "core_transform_case_pass_rate": {
+    "display_name_zh": "核心转换用例通过率",
+    "formula": "core_transform_cases_passed / core_transform_cases_total",
+    "legacy_display_name": "API acc",
+    "includes": ["direct_transform_cases_under_existing_task_contract"],
+    "excludes": ["load_payload", "build_component", "parser_compatibility", "public_execution", "artifacts", "optional_robustness"],
+    "not_applicable": null
+  },
+  "interface_independence": {
+    "fresh_root": true,
+    "preexisting_target_artifact": false,
+    "direct_function_call": true,
+    "distinct_legal_inputs_or_equivalent_frozen_coverage": 2,
+    "assertions_must_follow_existing_task_contract": true
+  },
+  "optional_robustness_affects_core_reward": false,
+  "optional_robustness_affects_strict_pass": false,
+  "unregistered_robustness_and_full_spec_result": null,
+  "legacy_reaggregation_label": "legacy-reaggregation-50",
+  "recommended_sensitivity_fractions": [0.2, 0.3, 0.5],
+  "reference": "https://arxiv.org/html/2412.14161v1#S4.SS1"
+}

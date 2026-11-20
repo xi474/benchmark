@@ -1,5 +1,0 @@
-父 Agent / S本地工作区A：诊断 find_peaks、zero_crossings 和三个复合函数，统一应用修复并跑全套回归
-子 Agent A / S本地工作区B：诊断 normalize、rms、autocorrelation、downsample，返回局部补丁/明确替换方案与验证证据
-子 Agent B / S本地工作区C：诊断 moving_average、linear_detrend，返回局部补丁/明确替换方案与验证证据
-首次读代码/跑公开基线后分工；独立函数可同步诊断，复合函数的最终验证等基础修复集成后完成。
-因为只有一个正式源码文件，子在各自固定起始快照的诊断副本试验并返回补丁文本，父为唯一正式文件写入者；父不修改子诊断副本，集成后统一复验。临时副本不进入提交，两组允许同类验证。

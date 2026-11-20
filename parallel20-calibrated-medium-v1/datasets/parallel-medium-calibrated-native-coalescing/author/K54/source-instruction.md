@@ -1,1 +1,0 @@
-Implement `python -m project.cli INPUT_DIRECTORY OUTPUT_JSON` in `/app/workspace/project`. Read the full project-defined CFG allocation contract in `/app/workspace/README.md`. The public graph is `/app/workspace/fixtures/public/input`; hidden graphs vary block topology, backedges, phi inputs, call locations, variable IDs and register sets. Choose your own work organization.
