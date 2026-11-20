@@ -1,0 +1,370 @@
+{
+  "components": {
+    "template_dependencies": [
+      {
+        "payload": {
+          "templates": {
+            "a": "{{ conf.auto_save.interval + conf.hints.min_chars }}",
+            "b": "{{ conf.aliases['a'].propname }} {{ notconf.hints.min_chars }}"
+          },
+          "options": [
+            "auto_save.interval",
+            "hints.min_chars",
+            "aliases"
+          ]
+        },
+        "expected": {
+          "a": [
+            "auto_save.interval",
+            "hints.min_chars"
+          ],
+          "b": [
+            "aliases"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "templates": {
+            "dark": "{{ conf.colors['webpage'].bg }}",
+            "plain": "conf.colors.webpage.bg is plain text",
+            "other": "{{ other.x }}"
+          },
+          "options": [
+            "colors.webpage.bg"
+          ]
+        },
+        "expected": {
+          "dark": [
+            "colors.webpage.bg"
+          ],
+          "plain": [],
+          "other": []
+        }
+      },
+      {
+        "payload": {
+          "templates": {
+            "a": "{{ conf.backend }} {{ conf.backend }}",
+            "b": "{{ conf.backend }}"
+          },
+          "options": [
+            "backend",
+            "unused"
+          ]
+        },
+        "expected": {
+          "a": [
+            "backend"
+          ],
+          "b": [
+            "backend"
+          ]
+        }
+      }
+    ],
+    "reverse_index": [
+      {
+        "payload": {
+          "dependencies": {
+            "a": [
+              "auto_save.interval",
+              "hints.min_chars"
+            ],
+            "b": [
+              "aliases"
+            ]
+          }
+        },
+        "expected": {
+          "auto_save.interval": [
+            "a"
+          ],
+          "hints.min_chars": [
+            "a"
+          ],
+          "aliases": [
+            "b"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "dependencies": {
+            "dark": [
+              "colors.webpage.bg"
+            ],
+            "plain": [],
+            "other": []
+          }
+        },
+        "expected": {
+          "colors.webpage.bg": [
+            "dark"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "dependencies": {
+            "a": [
+              "backend"
+            ],
+            "b": [
+              "backend"
+            ]
+          }
+        },
+        "expected": {
+          "backend": [
+            "a",
+            "b"
+          ]
+        }
+      }
+    ],
+    "stylesheet_updates": [
+      {
+        "payload": {
+          "dependencies": {
+            "a": [
+              "auto_save.interval",
+              "hints.min_chars"
+            ],
+            "b": [
+              "aliases"
+            ]
+          },
+          "reverse": {
+            "auto_save.interval": [
+              "a"
+            ],
+            "hints.min_chars": [
+              "a"
+            ],
+            "aliases": [
+              "b"
+            ]
+          },
+          "changed": [
+            "hints.min_chars"
+          ]
+        },
+        "expected": {
+          "dependencies": {
+            "a": [
+              "auto_save.interval",
+              "hints.min_chars"
+            ],
+            "b": [
+              "aliases"
+            ]
+          },
+          "affected": [
+            "a"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "dependencies": {
+            "dark": [
+              "colors.webpage.bg"
+            ],
+            "plain": [],
+            "other": []
+          },
+          "reverse": {
+            "colors.webpage.bg": [
+              "dark"
+            ]
+          },
+          "changed": [
+            "colors.webpage.bg"
+          ]
+        },
+        "expected": {
+          "dependencies": {
+            "dark": [
+              "colors.webpage.bg"
+            ],
+            "plain": [],
+            "other": []
+          },
+          "affected": [
+            "dark"
+          ]
+        }
+      },
+      {
+        "payload": {
+          "dependencies": {
+            "a": [
+              "backend"
+            ],
+            "b": [
+              "backend"
+            ]
+          },
+          "reverse": {
+            "backend": [
+              "a",
+              "b"
+            ]
+          },
+          "changed": [
+            "unused"
+          ]
+        },
+        "expected": {
+          "dependencies": {
+            "a": [
+              "backend"
+            ],
+            "b": [
+              "backend"
+            ]
+          },
+          "affected": []
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "templates": {
+          "a": "{{ conf.auto_save.interval + conf.hints.min_chars }}",
+          "b": "{{ conf.aliases['a'].propname }} {{ notconf.hints.min_chars }}"
+        },
+        "options": [
+          "auto_save.interval",
+          "hints.min_chars",
+          "aliases"
+        ],
+        "changed": [
+          "hints.min_chars"
+        ]
+      },
+      "results": {
+        "template_dependencies": {
+          "a": [
+            "auto_save.interval",
+            "hints.min_chars"
+          ],
+          "b": [
+            "aliases"
+          ]
+        },
+        "reverse_index": {
+          "auto_save.interval": [
+            "a"
+          ],
+          "hints.min_chars": [
+            "a"
+          ],
+          "aliases": [
+            "b"
+          ]
+        },
+        "stylesheet_updates": {
+          "dependencies": {
+            "a": [
+              "auto_save.interval",
+              "hints.min_chars"
+            ],
+            "b": [
+              "aliases"
+            ]
+          },
+          "affected": [
+            "a"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "templates": {
+          "dark": "{{ conf.colors['webpage'].bg }}",
+          "plain": "conf.colors.webpage.bg is plain text",
+          "other": "{{ other.x }}"
+        },
+        "options": [
+          "colors.webpage.bg"
+        ],
+        "changed": [
+          "colors.webpage.bg"
+        ]
+      },
+      "results": {
+        "template_dependencies": {
+          "dark": [
+            "colors.webpage.bg"
+          ],
+          "plain": [],
+          "other": []
+        },
+        "reverse_index": {
+          "colors.webpage.bg": [
+            "dark"
+          ]
+        },
+        "stylesheet_updates": {
+          "dependencies": {
+            "dark": [
+              "colors.webpage.bg"
+            ],
+            "plain": [],
+            "other": []
+          },
+          "affected": [
+            "dark"
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "templates": {
+          "a": "{{ conf.backend }} {{ conf.backend }}",
+          "b": "{{ conf.backend }}"
+        },
+        "options": [
+          "backend",
+          "unused"
+        ],
+        "changed": [
+          "unused"
+        ]
+      },
+      "results": {
+        "template_dependencies": {
+          "a": [
+            "backend"
+          ],
+          "b": [
+            "backend"
+          ]
+        },
+        "reverse_index": {
+          "backend": [
+            "a",
+            "b"
+          ]
+        },
+        "stylesheet_updates": {
+          "dependencies": {
+            "a": [
+              "backend"
+            ],
+            "b": [
+              "backend"
+            ]
+          },
+          "affected": []
+        }
+      }
+    }
+  ]
+}

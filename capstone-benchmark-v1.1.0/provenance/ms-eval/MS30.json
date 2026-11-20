@@ -1,0 +1,97 @@
+{
+  "upstream": {
+    "id": "terminal-yf-canvas-excel-gcal-email",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-yf-canvas-excel-gcal-email.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "5322e6709a8ec2a95bee643ef01f12e31e46ca940f9a673cc16b29729fa06c93",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS30",
+    "title": "金融素养工作坊的双向稳定分班",
+    "source_id": "terminal-yf-canvas-excel-gcal-email",
+    "retained": "两门财务课每次提交百分比的等权分层、市场数据最新日和 30 天窗口、按绝对涨跌挑选案例、定向工作坊。",
+    "delta": "学生偏好与工作坊分层优先级可并列；以稳定性而非单边评分判断分班，并核对取消活动后的最大覆盖。",
+    "axes": [
+      2,
+      1,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "带双边并列优先级的稳定匹配计数及最大覆盖。",
+      "S": "取消后不补榜，改变可阻挡的双方。",
+      "C": "独立的教务和行情分支在双向可接受图上汇合。",
+      "I": "课程、行情、班方与学生四种记录。"
+    },
+    "counterexample": "两个学生同样偏好同场且班方也对两人并列，未录取者虽想换入，班方没有严格替换意愿，两种分法都稳定。",
+    "nodes": {
+      "课程提交分层": [],
+      "市场波动榜": [],
+      "双边偏好": [],
+      "可开班次": [
+        "市场波动榜"
+      ],
+      "有效录取边": [
+        "课程提交分层",
+        "双边偏好",
+        "可开班次"
+      ],
+      "局部稳定分班": [
+        "有效录取边"
+      ],
+      "全校覆盖分布与必配": [
+        "局部稳定分班"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 10,
+    "dag_layers": [
+      [
+        "双边偏好",
+        "市场波动榜",
+        "课程提交分层"
+      ],
+      [
+        "可开班次"
+      ],
+      [
+        "有效录取边"
+      ],
+      [
+        "局部稳定分班"
+      ],
+      [
+        "全校覆盖分布与必配"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-yf-canvas-excel-gcal-email.task.md",
+    "upstream_waves": 1,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS30",
+    "title": "金融素养工作坊的双向稳定分班",
+    "grade": "中",
+    "source": "terminal-yf-canvas-excel-gcal-email",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-yf-canvas-excel-gcal-email.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 2,
+    "repeats": 5,
+    "package_sha256": "5e5d82c8f224e3102a07f6648757d5599c0c6655ca9f2cd9f90e7dc9154aed27"
+  }
+}

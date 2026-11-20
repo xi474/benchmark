@@ -1,0 +1,91 @@
+{
+  "upstream": {
+    "id": "arxiv-latex-reasoning-gsheet",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/arxiv-latex-reasoning-gsheet.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "789d89c53c8cf280001c221022b45a6131a2fc44942316e2373325c0aaf08406",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS41",
+    "title": "推理方法综述中的自一致投票复核",
+    "source_id": "arxiv-latex-reasoning-gsheet",
+    "retained": "保留原综述比较逐次作答与 self-consistency 等方法并形成统一比较表的目标；用给定的方法与试验资料代替外部检索。",
+    "delta": "从描述性文献对比扩展为准确评估合成方法状态图；处理未决循环、同题多票共享的潜在版本、提前决出胜负与正确条件下的总花费。数值并非上游论文报告的实验。",
+    "axes": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "有闭类的吸收过程、条件花费的一阶矩和有限票数的动态规划。",
+      "S": "一场内共享同一潜在版本，已收票数改变是否继续，发起的未决票不能跳过。",
+      "C": "闭类可以吸走一部分概率，正确条件下的累积花费还依赖此前投错的已完成样本。",
+      "I": "论文方法表、题目版本和评审的计票规则独立输入。"
+    },
+    "nodes": {
+      "各方法转移表": [],
+      "题目版本权重": [],
+      "计票与平局规则": [],
+      "单票结果与条件耗费": [
+        "各方法转移表"
+      ],
+      "逐版本整场投票": [
+        "单票结果与条件耗费",
+        "计票与平局规则"
+      ],
+      "版本混合与方法排名": [
+        "逐版本整场投票",
+        "题目版本权重"
+      ]
+    },
+    "counterexample": "两种等权题目版本中，某方法分别必投 A 或必投 B。同一题取三票时三个结果总相同；先对单票分布做平均再假定三票独立，会算错实际发起票数及正确条件花费。",
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 11,
+    "dag_layers": [
+      [
+        "各方法转移表",
+        "计票与平局规则",
+        "题目版本权重"
+      ],
+      [
+        "单票结果与条件耗费"
+      ],
+      [
+        "逐版本整场投票"
+      ],
+      [
+        "版本混合与方法排名"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/arxiv-latex-reasoning-gsheet.task.md",
+    "upstream_waves": 1,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS41",
+    "title": "推理方法综述中的自一致投票复核",
+    "grade": "难",
+    "source": "arxiv-latex-reasoning-gsheet",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/arxiv-latex-reasoning-gsheet.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 1,
+    "repeats": 5,
+    "package_sha256": "46d2b6f94f675384d04f954ba3e6342b8550bfef33662645b2f4e17c6e65d770"
+  }
+}

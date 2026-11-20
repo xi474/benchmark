@@ -1,0 +1,95 @@
+{
+  "upstream": {
+    "id": "customer-satisfaction-analytics-framework",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/customer-satisfaction-analytics-framework.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "0099824ed38be6ba3673c950df7450976fe8db5a52540ca9458dc61d1077cd34",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS23",
+    "title": "三个匿名反馈渠道的改进优先级",
+    "source_id": "customer-satisfaction-analytics-framework",
+    "retained": "调查、商品评论、服务接触点的客户满意度汇总及改进方向判断。",
+    "delta": "将跨渠道失去逐人链接建模为保留全部两两投影的匿名整数表，核验净支持人数的完整识别范围。",
+    "axes": [
+      2,
+      1,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "三维整数列联表计数、统计量分布和证据见证。",
+      "S": "每个切片消耗其余两个投影的边际余量。",
+      "C": "两两相容不会自动推出三份报表整体相容。",
+      "I": "接收三张异源的匿名交叉表。"
+    },
+    "counterexample": "三个二元渠道若 AB 总是同值且 BC 总是同值，AC 就不可能总是异值，即使单列人数都相等。",
+    "nodes": {
+      "调查与评论交叉表": [],
+      "售后与评论交叉表": [],
+      "调查与售后交叉表": [],
+      "可行分片": [
+        "调查与评论交叉表",
+        "售后与评论交叉表"
+      ],
+      "全局相容表族": [
+        "可行分片",
+        "调查与售后交叉表"
+      ],
+      "净支持分布": [
+        "全局相容表族"
+      ],
+      "强制存在的群体与见证": [
+        "全局相容表族"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 10,
+    "dag_layers": [
+      [
+        "售后与评论交叉表",
+        "调查与售后交叉表",
+        "调查与评论交叉表"
+      ],
+      [
+        "可行分片"
+      ],
+      [
+        "全局相容表族"
+      ],
+      [
+        "净支持分布",
+        "强制存在的群体与见证"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/customer-satisfaction-analytics-framework.task.md",
+    "upstream_waves": 1,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS23",
+    "title": "三个匿名反馈渠道的改进优先级",
+    "grade": "中",
+    "source": "customer-satisfaction-analytics-framework",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/customer-satisfaction-analytics-framework.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 3,
+    "repeats": 5,
+    "package_sha256": "621dc9753a4af723a6693f92beaef44f94862a3677a0d78c1fd32259bb15c987"
+  }
+}

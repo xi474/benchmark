@@ -1,0 +1,20 @@
+schema_version = "1.0"
+version = "2.0.0"
+artifacts = ["/app"]
+[task]
+name = "reward-v2/hard-identity_federation_transition_spec_v4"
+version = "2.0.0"
+description = "Existing task with count-based difficulty-weighted reward"
+[metadata]
+source_task = "mixed16-precise-spec-v4/tasks/context8/identity_federation_transition_spec_v4"
+evaluation_version = "reward-v2"
+[verifier]
+environment_mode = "separate"
+timeout_sec = 1800.0
+[agent]
+timeout_sec = 3600.0
+[environment]
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+build_timeout_sec = 900.0

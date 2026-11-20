@@ -1,5 +1,11 @@
 # SemServe Agent-Parallelism 18-Entry Task Pack
 
+## Capstone Benchmark v1.1.0 · 97 道中难题
+
+本版新增 MS-Eval 改编题 10 道。主集共 48 道中档、49 道难档，每题附五次校准成绩。
+
+[97 题发布清单](capstone-benchmark-v1.1.0/README.md) · [新增十题的上游来源与改编说明](capstone-benchmark-v1.1.0/provenance/ms-eval/README.md) · [下载完整题库](capstone-benchmark-v1.1.0/capstone-benchmark-97-v1.1.0.zip?raw=true) · [只下载新增十题](capstone-benchmark-v1.1.0/MS-Eval中难题发布包.zip?raw=true)
+
 ## Capstone Benchmark v1.0.0 · 87 道中难题
 
 42 道中档，45 道难档。每题附五次校准评分、来源和构建批次。

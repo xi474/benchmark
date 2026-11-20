@@ -1,0 +1,105 @@
+{
+  "upstream": {
+    "id": "canvas-course-comparison-word",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/canvas-course-comparison-word.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "8d29fd47dba91617e7444b732064483cb12375a608cb44e5a7d90482659ca58c",
+  "upstream_delegation_waves": 2,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS42",
+    "title": "跨年课程的可比考核与成绩变化",
+    "source_id": "canvas-course-comparison-word",
+    "retained": "保留按开课代码共同前缀匹配两个秋季学期、排除空分数和以所有已评分提交计算均值的口径。",
+    "delta": "存在全校共享但有多解的标签字典，用两年的先修偏序约束考核对齐。统计真实配对集合，给出最优证据下整体均值之差的范围。",
+    "axes": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "偏序诱导子图对齐、带可延拓字典的计数、整体比值差的极值。",
+      "S": "在一门课采用一条标签对应会限制其他课程可以选择的配对。",
+      "C": "完整字典的多解会重复解释同一份证据，课程均值和局部最值也不能直接平均。",
+      "I": "两个学期的成绩与考核先修数据可按课程独立分析，学校规则在汇合处生效。"
+    },
+    "nodes": {
+      "两个学期的课程与提交": [],
+      "各课完整先修图": [],
+      "全校允许的对照规则": [],
+      "逐课程合法匹配": [
+        "两个学期的课程与提交",
+        "各课完整先修图"
+      ],
+      "全校共享字典可行性": [
+        "逐课程合法匹配",
+        "全校允许的对照规则"
+      ],
+      "不同最优考核对齐": [
+        "全校共享字典可行性"
+      ],
+      "整体均值差与必要证据": [
+        "不同最优考核对齐",
+        "两个学期的课程与提交"
+      ]
+    },
+    "counterexample": "只观察到标签 A 对 X 的一组考核时，另外两种未使用标签可以互换。两本完整字典不能把同一份对齐算成两种。",
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 12,
+    "dag_layers": [
+      [
+        "两个学期的课程与提交",
+        "全校允许的对照规则",
+        "各课完整先修图"
+      ],
+      [
+        "逐课程合法匹配"
+      ],
+      [
+        "全校共享字典可行性"
+      ],
+      [
+        "不同最优考核对齐"
+      ],
+      [
+        "整体均值差与必要证据"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/canvas-course-comparison-word.task.md",
+    "upstream_waves": 2,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS42",
+    "title": "跨年课程的可比考核与成绩变化",
+    "grade": "难",
+    "source": "canvas-course-comparison-word",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/canvas-course-comparison-word.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 0,
+    "repeats": 5,
+    "package_sha256": "873a89697b770460cd503871f0b5f841b4049d0d60ab067521d5a02545c9e3a7",
+    "interpretation": "实测档对成绩表示敏感，作为纯算法难题时单列。",
+    "reporting_control": {
+      "case": "global-mean",
+      "scale": 4,
+      "strict_with_control": 4,
+      "repeats": 5
+    }
+  }
+}

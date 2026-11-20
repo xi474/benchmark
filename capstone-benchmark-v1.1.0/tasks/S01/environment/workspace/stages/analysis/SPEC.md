@@ -1,0 +1,5 @@
+# Confidence in a tail-biting telemetry packet
+
+Each length-n binary payload is equally likely a priori (n >= 3). Encoding is circular. At position i the three source bits are word[i], word[i-1], word[i-2], with indices modulo n. Two positive three-bit tap masks are given in order. For each mask, XOR the source bits selected by its bits 0, 1, 2, respectively. The first XOR is the high bit and the second is the low bit of channel symbol 0..3.
+
+likelihoods[i] gives four positive integer likelihood weights for the received sample at position i. A complete word has weight equal to the product of its observed symbol weights. Report weight (sum of weights of all complete words), best_weight (the largest individual word weight), best_count (number of words attaining it), and one_mass (array whose i-th entry is the sum of weights of all words with bit i equal to one). These unnormalized values let the receiver recover posterior confidence without rounding. Include each circular word exactly once. All observations are part of the same packet.

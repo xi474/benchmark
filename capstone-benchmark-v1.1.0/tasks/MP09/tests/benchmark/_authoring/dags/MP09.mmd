@@ -1,0 +1,21 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    calendar["两场最早空档选择"]
+    invitees["邀请群成员并集"]
+    supplies["库存与评分采购"]
+    commit["活动创建与联合通知"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> calendar
+    input --> invitees
+    input --> supplies
+    calendar --> commit
+    invitees --> commit
+    supplies --> commit
+    calendar --> _core
+    invitees --> _core
+    supplies --> _core
+    commit --> _core
+    _core --> _report
+    _report --> _verify

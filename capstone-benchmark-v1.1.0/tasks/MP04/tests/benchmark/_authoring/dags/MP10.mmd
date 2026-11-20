@@ -1,0 +1,18 @@
+flowchart TD
+    input["本地输入与公开契约"]
+    dinner["下个星期日程"]
+    contact["最近匹配会话身份"]
+    shopping["多属性变体与结算"]
+    _core["组件结果集成"]
+    _report["最终报告与摘要"]
+    _verify["工作区外正式验证"]
+    input --> dinner
+    input --> contact
+    input --> shopping
+    dinner --> shopping
+    contact --> shopping
+    dinner --> _core
+    contact --> _core
+    shopping --> _core
+    _core --> _report
+    _report --> _verify

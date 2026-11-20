@@ -1,0 +1,2032 @@
+[
+  {
+    "id": "unseen-delivery",
+    "input": {
+      "recipes": [
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 4
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "B": [
+          "rice",
+          "bean",
+          "herb"
+        ],
+        "C": [
+          "rice",
+          "bean",
+          "fish"
+        ],
+        "D": [
+          "rice",
+          "herb",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 1
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 2
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 60,
+        "cost": 41,
+        "count": 1,
+        "menu": [
+          "R1",
+          "R0",
+          "R4",
+          "R4",
+          "R3",
+          "R4"
+        ],
+        "allowed": [
+          [
+            "R1"
+          ],
+          [
+            "R0"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R4"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "shared-menu",
+    "input": {
+      "recipes": [
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 1
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "bean",
+          "herb"
+        ],
+        "B": [
+          "rice",
+          "bean",
+          "fish"
+        ],
+        "C": [
+          "rice",
+          "herb",
+          "fish"
+        ],
+        "D": [
+          "bean",
+          "herb",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 1
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 3
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 54,
+        "cost": 43,
+        "count": 1,
+        "menu": [
+          "R4",
+          "R3",
+          "R2",
+          "R1",
+          "R2",
+          "R1"
+        ],
+        "allowed": [
+          [
+            "R4"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R2"
+          ],
+          [
+            "R1"
+          ],
+          [
+            "R2"
+          ],
+          [
+            "R1"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "unaffordable",
+    "input": {
+      "recipes": [
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 2
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "bean",
+          "fish"
+        ],
+        "B": [
+          "rice",
+          "herb",
+          "fish"
+        ],
+        "C": [
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "D": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ]
+      },
+      "budget": 2,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": null
+    }
+  },
+  {
+    "id": "many-optima",
+    "input": {
+      "recipes": [
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 2
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        }
+      ],
+      "groups": [
+        [
+          "all",
+          3,
+          [],
+          [
+            "veg",
+            "soup",
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "herb",
+          "fish"
+        ],
+        "B": [
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "C": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "D": [
+          "rice",
+          "bean",
+          "herb"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 3,
+        "utility": 54,
+        "cost": 36,
+        "count": 828,
+        "menu": [
+          "R0",
+          "R1",
+          "R2",
+          "R2",
+          "R1",
+          "R2"
+        ],
+        "allowed": [
+          [
+            "R0",
+            "R2",
+            "R3",
+            "R4"
+          ],
+          [
+            "R1",
+            "R2",
+            "R3",
+            "R5"
+          ],
+          [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5"
+          ],
+          [
+            "R0",
+            "R1",
+            "R2",
+            "R4",
+            "R5"
+          ],
+          [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5"
+          ],
+          [
+            "R0",
+            "R1",
+            "R2",
+            "R4",
+            "R5"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "dual-root",
+    "input": {
+      "recipes": [
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 4
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "B": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "C": [
+          "rice",
+          "bean",
+          "herb"
+        ],
+        "D": [
+          "rice",
+          "bean",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 1
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "B",
+            "C",
+            "D"
+          ],
+          "weight": 2
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 60,
+        "cost": 38,
+        "count": 2,
+        "menu": [
+          "R1",
+          "R3",
+          "R4",
+          "R4",
+          "R1",
+          "R0",
+          "R4"
+        ],
+        "allowed": [
+          [
+            "R1"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R1",
+            "R4"
+          ],
+          [
+            "R0"
+          ],
+          [
+            "R1",
+            "R4"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "group-fairness",
+    "input": {
+      "recipes": [
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 1
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          10,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "B": [
+          "rice",
+          "bean",
+          "herb"
+        ],
+        "C": [
+          "rice",
+          "bean",
+          "fish"
+        ],
+        "D": [
+          "rice",
+          "herb",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 132,
+        "cost": 51,
+        "count": 1,
+        "menu": [
+          "R1",
+          "R2",
+          "R4",
+          "R4",
+          "R3",
+          "R4"
+        ],
+        "allowed": [
+          [
+            "R1"
+          ],
+          [
+            "R2"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R4"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "no-consecutive-category",
+    "input": {
+      "recipes": [
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 2
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "bean",
+          "herb"
+        ],
+        "B": [
+          "rice",
+          "bean",
+          "fish"
+        ],
+        "C": [
+          "rice",
+          "herb",
+          "fish"
+        ],
+        "D": [
+          "bean",
+          "herb",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 56,
+        "cost": 41,
+        "count": 1,
+        "menu": [
+          "R4",
+          "R5",
+          "R3",
+          "R1",
+          "R2",
+          "R1"
+        ],
+        "allowed": [
+          [
+            "R4"
+          ],
+          [
+            "R5"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R1"
+          ],
+          [
+            "R2"
+          ],
+          [
+            "R1"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "late-reuse",
+    "input": {
+      "recipes": [
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 3
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "bean",
+          "fish"
+        ],
+        "B": [
+          "rice",
+          "herb",
+          "fish"
+        ],
+        "C": [
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "D": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "B",
+            "C",
+            "A"
+          ],
+          "weight": 3
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D",
+            "A"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "A"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D",
+          "A"
+        ]
+      ],
+      "optimal": {
+        "floor": 2,
+        "utility": 48,
+        "cost": 24,
+        "count": 7,
+        "menu": [
+          "R0",
+          "R4",
+          "R5",
+          "R1",
+          "R5",
+          "R1"
+        ],
+        "allowed": [
+          [
+            "R0",
+            "R1",
+            "R4"
+          ],
+          [
+            "R0",
+            "R4"
+          ],
+          [
+            "R1",
+            "R5"
+          ],
+          [
+            "R1",
+            "R4",
+            "R5"
+          ],
+          [
+            "R1",
+            "R4",
+            "R5"
+          ],
+          [
+            "R1",
+            "R4",
+            "R5"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "weighted-trade",
+    "input": {
+      "recipes": [
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 4
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "rice",
+          "herb",
+          "fish"
+        ],
+        "B": [
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "C": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "D": [
+          "rice",
+          "bean",
+          "herb"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 1
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 3
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 60,
+        "cost": 36,
+        "count": 1,
+        "menu": [
+          "R4",
+          "R3",
+          "R1",
+          "R1",
+          "R3",
+          "R1"
+        ],
+        "allowed": [
+          [
+            "R4"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R1"
+          ],
+          [
+            "R1"
+          ],
+          [
+            "R3"
+          ],
+          [
+            "R1"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "restricted-ingredient",
+    "input": {
+      "recipes": [
+        {
+          "id": "R1",
+          "cat": "staple",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R5",
+          "cat": "veg",
+          "ingredients": [
+            "bean"
+          ],
+          "difficulty": 1,
+          "cost": 4
+        },
+        {
+          "id": "R0",
+          "cat": "soup",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R2",
+          "cat": "veg",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 1,
+          "cost": 1
+        },
+        {
+          "id": "R4",
+          "cat": "staple",
+          "ingredients": [
+            "rice"
+          ],
+          "difficulty": 1,
+          "cost": 3
+        },
+        {
+          "id": "R3",
+          "cat": "soup",
+          "ingredients": [
+            "fish"
+          ],
+          "difficulty": 1,
+          "cost": 2
+        },
+        {
+          "id": "R6",
+          "cat": "soup",
+          "ingredients": [
+            "herb"
+          ],
+          "difficulty": 5,
+          "cost": 1
+        }
+      ],
+      "groups": [
+        [
+          "night",
+          2,
+          [
+            "fish"
+          ],
+          [
+            "veg",
+            "soup"
+          ]
+        ],
+        [
+          "day",
+          4,
+          [],
+          [
+            "staple"
+          ]
+        ]
+      ],
+      "delivery": {
+        "A": [
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "B": [
+          "rice",
+          "bean",
+          "herb",
+          "fish"
+        ],
+        "C": [
+          "rice",
+          "bean",
+          "herb"
+        ],
+        "D": [
+          "rice",
+          "bean",
+          "fish"
+        ]
+      },
+      "budget": 10,
+      "scenarios": [
+        {
+          "signals": [
+            "A",
+            "C",
+            "D"
+          ],
+          "weight": 1
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "C"
+          ],
+          "weight": 2
+        },
+        {
+          "signals": [
+            "A",
+            "B",
+            "D"
+          ],
+          "weight": 3
+        }
+      ]
+    },
+    "expected": {
+      "histories": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "optimal": {
+        "floor": 1,
+        "utility": 60,
+        "cost": 48,
+        "count": 1,
+        "menu": [
+          "R1",
+          "R2",
+          "R4",
+          "R4",
+          "R2",
+          "R4"
+        ],
+        "allowed": [
+          [
+            "R1"
+          ],
+          [
+            "R2"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R4"
+          ],
+          [
+            "R2"
+          ],
+          [
+            "R4"
+          ]
+        ]
+      }
+    }
+  }
+]

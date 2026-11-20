@@ -1,0 +1,43 @@
+{
+  "old": [
+    {
+      "name": "legacy_id",
+      "type": "int",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "str",
+      "required": false
+    }
+  ],
+  "new": [
+    {
+      "name": "doc_id",
+      "type": "float",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "str",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "region",
+      "type": "str",
+      "required": true,
+      "default": "global"
+    }
+  ],
+  "renames": [
+    {
+      "from": "legacy_id",
+      "to": "intermediate"
+    },
+    {
+      "from": "intermediate",
+      "to": "doc_id"
+    }
+  ]
+}

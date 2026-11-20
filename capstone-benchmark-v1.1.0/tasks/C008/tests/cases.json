@@ -1,0 +1,670 @@
+[
+  {
+    "id": "C008-01",
+    "input": {
+      "seed": 1,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_b2aa27409443"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_3c06ce39b13c"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_3c06ce39b13c"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-02",
+    "input": {
+      "seed": 1,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "tenant": "a",
+          "subject": "s",
+          "time": 10
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_b2aa27409443"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_3c06ce39b13c"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_3c06ce39b13c"
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "time": 10,
+          "token": "ref_3c06ce39b13c"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-03",
+    "input": {
+      "seed": 2,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_c05224f0399b"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_180ff1385c15"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_180ff1385c15"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-04",
+    "input": {
+      "seed": 2,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "tenant": "a",
+          "subject": "s",
+          "time": 10
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_c05224f0399b"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_180ff1385c15"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_180ff1385c15"
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "time": 10,
+          "token": "ref_180ff1385c15"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-05",
+    "input": {
+      "seed": 5,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_1fe24263d657"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_8d34f11b153e"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_8d34f11b153e"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-06",
+    "input": {
+      "seed": 5,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "tenant": "a",
+          "subject": "s",
+          "time": 10
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_1fe24263d657"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_8d34f11b153e"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_8d34f11b153e"
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "time": 10,
+          "token": "ref_8d34f11b153e"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-07",
+    "input": {
+      "seed": 10,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_6c92c2cd6179"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_2c86e6d1b38a"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_2c86e6d1b38a"
+        }
+      ]
+    }
+  },
+  {
+    "id": "C008-08",
+    "input": {
+      "seed": 10,
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "tenant": "a",
+          "subject": "t",
+          "time": 1
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "tenant": "a",
+          "subject": "s",
+          "time": 7
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "tenant": "b",
+          "subject": "u",
+          "time": 7
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "tenant": "a",
+          "subject": "s",
+          "time": 10
+        }
+      ],
+      "links": [
+        {
+          "a": [
+            "b",
+            "u"
+          ],
+          "b": [
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "a": [
+            "a",
+            "s"
+          ],
+          "b": [
+            "a",
+            "t"
+          ],
+          "from": 5,
+          "to": 10
+        }
+      ]
+    },
+    "expected": {
+      "records": [
+        {
+          "table": "orders",
+          "id": "o1",
+          "time": 1,
+          "token": "ref_6c92c2cd6179"
+        },
+        {
+          "table": "history",
+          "id": "v1",
+          "time": 7,
+          "token": "ref_2c86e6d1b38a"
+        },
+        {
+          "table": "events",
+          "id": "e1",
+          "time": 7,
+          "token": "ref_2c86e6d1b38a"
+        },
+        {
+          "table": "history",
+          "id": "v2",
+          "time": 10,
+          "token": "ref_2c86e6d1b38a"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,808 @@
+[
+  {
+    "id": "C077-01",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "refresh"
+        },
+        {
+          "time": 1,
+          "op": "response",
+          "id": "fetch-1",
+          "items": [
+            "a"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 0
+        }
+      ],
+      "commits": [
+        {
+          "time": 1,
+          "items": [
+            "a"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 1,
+          "event": "committed",
+          "id": "fetch-1"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "a"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-02",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "start",
+          "id": "a"
+        },
+        {
+          "time": 1,
+          "op": "start",
+          "id": "b"
+        },
+        {
+          "time": 2,
+          "op": "refresh"
+        },
+        {
+          "time": 3,
+          "op": "finish",
+          "id": "a"
+        },
+        {
+          "time": 4,
+          "op": "finish",
+          "id": "b"
+        },
+        {
+          "time": 5,
+          "op": "response",
+          "id": "fetch-1",
+          "items": [
+            "new"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 4
+        }
+      ],
+      "commits": [
+        {
+          "time": 5,
+          "items": [
+            "new"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "modification_started",
+          "id": "a"
+        },
+        {
+          "time": 1,
+          "event": "modification_started",
+          "id": "b"
+        },
+        {
+          "time": 3,
+          "event": "modification_finished",
+          "id": "a"
+        },
+        {
+          "time": 4,
+          "event": "modification_finished",
+          "id": "b"
+        },
+        {
+          "time": 4,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 5,
+          "event": "committed",
+          "id": "fetch-1"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "new"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-03",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "refresh"
+        },
+        {
+          "time": 1,
+          "op": "response",
+          "id": "fetch-1",
+          "failed": true
+        },
+        {
+          "time": 2001,
+          "op": "advance"
+        },
+        {
+          "time": 2002,
+          "op": "response",
+          "id": "fetch-2",
+          "items": [
+            "retry"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 0
+        },
+        {
+          "id": "fetch-2",
+          "time": 2001
+        }
+      ],
+      "commits": [
+        {
+          "time": 2002,
+          "items": [
+            "retry"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 1,
+          "event": "retry_scheduled",
+          "due": 2001,
+          "reason": "failure"
+        },
+        {
+          "time": 2001,
+          "event": "fetch",
+          "id": "fetch-2"
+        },
+        {
+          "time": 2002,
+          "event": "committed",
+          "id": "fetch-2"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "retry"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-04",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "refresh"
+        },
+        {
+          "time": 1,
+          "op": "response",
+          "id": "fetch-1",
+          "stale": 1,
+          "items": [
+            "old"
+          ]
+        },
+        {
+          "time": 500,
+          "op": "refresh"
+        },
+        {
+          "time": 1001,
+          "op": "advance"
+        },
+        {
+          "time": 1002,
+          "op": "response",
+          "id": "fetch-2",
+          "items": [
+            "fresh"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 0
+        },
+        {
+          "id": "fetch-2",
+          "time": 1001
+        }
+      ],
+      "commits": [
+        {
+          "time": 1002,
+          "items": [
+            "fresh"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 1,
+          "event": "retry_scheduled",
+          "due": 1001,
+          "reason": "stale"
+        },
+        {
+          "time": 1001,
+          "event": "fetch",
+          "id": "fetch-2"
+        },
+        {
+          "time": 1002,
+          "event": "committed",
+          "id": "fetch-2"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "fresh"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-05",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "refresh"
+        },
+        {
+          "time": 1,
+          "op": "response",
+          "id": "fetch-1",
+          "stale": 1
+        },
+        {
+          "time": 500,
+          "op": "start",
+          "id": "a"
+        },
+        {
+          "time": 1001,
+          "op": "advance"
+        },
+        {
+          "time": 1200,
+          "op": "finish",
+          "id": "a"
+        },
+        {
+          "time": 1201,
+          "op": "response",
+          "id": "fetch-2",
+          "items": [
+            "fixed"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 0
+        },
+        {
+          "id": "fetch-2",
+          "time": 1200
+        }
+      ],
+      "commits": [
+        {
+          "time": 1201,
+          "items": [
+            "fixed"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 1,
+          "event": "retry_scheduled",
+          "due": 1001,
+          "reason": "stale"
+        },
+        {
+          "time": 500,
+          "event": "modification_started",
+          "id": "a"
+        },
+        {
+          "time": 1200,
+          "event": "modification_finished",
+          "id": "a"
+        },
+        {
+          "time": 1200,
+          "event": "fetch",
+          "id": "fetch-2"
+        },
+        {
+          "time": 1201,
+          "event": "committed",
+          "id": "fetch-2"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "fixed"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-06",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "refresh"
+        },
+        {
+          "time": 1,
+          "op": "refresh"
+        },
+        {
+          "time": 2,
+          "op": "response",
+          "id": "fetch-1",
+          "items": [
+            "first"
+          ]
+        },
+        {
+          "time": 3,
+          "op": "response",
+          "id": "fetch-2",
+          "items": [
+            "second"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 0
+        },
+        {
+          "id": "fetch-2",
+          "time": 2
+        }
+      ],
+      "commits": [
+        {
+          "time": 2,
+          "items": [
+            "first"
+          ]
+        },
+        {
+          "time": 3,
+          "items": [
+            "second"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 2,
+          "event": "committed",
+          "id": "fetch-1"
+        },
+        {
+          "time": 2,
+          "event": "fetch",
+          "id": "fetch-2"
+        },
+        {
+          "time": 3,
+          "event": "committed",
+          "id": "fetch-2"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "second"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-07",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "start",
+          "id": "a"
+        },
+        {
+          "time": 1,
+          "op": "finish",
+          "id": "a"
+        },
+        {
+          "time": 2,
+          "op": "start",
+          "id": "b"
+        },
+        {
+          "time": 3,
+          "op": "refresh"
+        },
+        {
+          "time": 4,
+          "op": "finish",
+          "id": "b"
+        },
+        {
+          "time": 5,
+          "op": "response",
+          "id": "fetch-1",
+          "items": [
+            "intermediate"
+          ]
+        },
+        {
+          "time": 6,
+          "op": "response",
+          "id": "fetch-2",
+          "items": [
+            "last"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 1
+        },
+        {
+          "id": "fetch-2",
+          "time": 5
+        }
+      ],
+      "commits": [
+        {
+          "time": 5,
+          "items": [
+            "intermediate"
+          ]
+        },
+        {
+          "time": 6,
+          "items": [
+            "last"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "modification_started",
+          "id": "a"
+        },
+        {
+          "time": 1,
+          "event": "modification_finished",
+          "id": "a"
+        },
+        {
+          "time": 1,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 2,
+          "event": "modification_started",
+          "id": "b"
+        },
+        {
+          "time": 4,
+          "event": "modification_finished",
+          "id": "b"
+        },
+        {
+          "time": 5,
+          "event": "committed",
+          "id": "fetch-1"
+        },
+        {
+          "time": 5,
+          "event": "fetch",
+          "id": "fetch-2"
+        },
+        {
+          "time": 6,
+          "event": "committed",
+          "id": "fetch-2"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "last"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-08",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "refresh"
+        },
+        {
+          "time": 1,
+          "op": "response",
+          "id": "fetch-1",
+          "failed": true
+        },
+        {
+          "time": 10,
+          "op": "refresh"
+        },
+        {
+          "time": 20,
+          "op": "refresh"
+        },
+        {
+          "time": 2001,
+          "op": "advance"
+        },
+        {
+          "time": 2002,
+          "op": "response",
+          "id": "fetch-2",
+          "stale": 1
+        },
+        {
+          "time": 3002,
+          "op": "advance"
+        },
+        {
+          "time": 3003,
+          "op": "response",
+          "id": "fetch-3",
+          "items": [
+            "ok"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [
+        {
+          "id": "fetch-1",
+          "time": 0
+        },
+        {
+          "id": "fetch-2",
+          "time": 2001
+        },
+        {
+          "id": "fetch-3",
+          "time": 3002
+        }
+      ],
+      "commits": [
+        {
+          "time": 3003,
+          "items": [
+            "ok"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0,
+          "event": "fetch",
+          "id": "fetch-1"
+        },
+        {
+          "time": 1,
+          "event": "retry_scheduled",
+          "due": 2001,
+          "reason": "failure"
+        },
+        {
+          "time": 2001,
+          "event": "fetch",
+          "id": "fetch-2"
+        },
+        {
+          "time": 2002,
+          "event": "retry_scheduled",
+          "due": 3002,
+          "reason": "stale"
+        },
+        {
+          "time": 3002,
+          "event": "fetch",
+          "id": "fetch-3"
+        },
+        {
+          "time": 3003,
+          "event": "committed",
+          "id": "fetch-3"
+        }
+      ],
+      "state": {
+        "active": [],
+        "owed": false,
+        "loading": false,
+        "placeholders": false,
+        "in_flight": null,
+        "retry_at": null,
+        "items": [
+          "ok"
+        ]
+      }
+    }
+  },
+  {
+    "id": "C077-09",
+    "input": {
+      "events": [
+        {
+          "time": 0,
+          "op": "start",
+          "id": "a"
+        },
+        {
+          "time": 2,
+          "op": "refresh"
+        },
+        {
+          "time": 3,
+          "op": "refresh"
+        }
+      ]
+    },
+    "expected": {
+      "fetches": [],
+      "commits": [],
+      "events": [
+        {
+          "time": 0,
+          "event": "modification_started",
+          "id": "a"
+        }
+      ],
+      "state": {
+        "active": [
+          "a"
+        ],
+        "owed": true,
+        "loading": true,
+        "placeholders": true,
+        "in_flight": null,
+        "retry_at": null,
+        "items": []
+      }
+    }
+  }
+]

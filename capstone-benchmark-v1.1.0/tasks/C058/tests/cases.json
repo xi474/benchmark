@@ -1,0 +1,863 @@
+[
+  {
+    "id": "C058-01",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [],
+      "program": {}
+    },
+    "expected": {
+      "batches": [],
+      "final": {
+        "h0": "ok",
+        "h1": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-02",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [],
+      "program": {
+        "tasks": [
+          {
+            "id": "one"
+          },
+          {
+            "id": "two"
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "one",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "one",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "two",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "two",
+            "kind": "task",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok",
+        "h1": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-03",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [
+        "restart"
+      ],
+      "program": {
+        "tasks": [
+          {
+            "id": "notify",
+            "only": [
+              "h0"
+            ],
+            "notify": [
+              "restart"
+            ]
+          },
+          {
+            "id": "after"
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "notify",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "after",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "after",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "flush_handlers",
+            "kind": "flush",
+            "handlers": [
+              "restart"
+            ],
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "restart",
+            "kind": "handler",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok",
+        "h1": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-04",
+    "input": {
+      "hosts": [
+        "h0"
+      ],
+      "handlers": [
+        "a",
+        "b"
+      ],
+      "program": {
+        "pre": [
+          {
+            "id": "x",
+            "notify": [
+              "b",
+              "a"
+            ]
+          },
+          {
+            "id": "y",
+            "notify": [
+              "a"
+            ]
+          }
+        ],
+        "post": [
+          {
+            "id": "z"
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "x",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "y",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "flush_handlers",
+            "kind": "flush",
+            "handlers": [
+              "a",
+              "b"
+            ],
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "a",
+            "kind": "handler",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "b",
+            "kind": "handler",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "z",
+            "kind": "task",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-05",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [],
+      "program": {
+        "tasks": [
+          {
+            "block": {
+              "tasks": [
+                {
+                  "id": "one",
+                  "fail_hosts": [
+                    "h1"
+                  ]
+                },
+                {
+                  "id": "two"
+                }
+              ],
+              "rescue": [
+                {
+                  "id": "rescue1"
+                },
+                {
+                  "id": "rescue2"
+                }
+              ]
+            }
+          },
+          {
+            "id": "after"
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "one",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "one",
+            "kind": "task",
+            "status": "failed"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "two",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h1",
+            "task": "rescue1",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h1",
+            "task": "rescue2",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "after",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "after",
+            "kind": "task",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok",
+        "h1": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-06",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [
+        "cleanup"
+      ],
+      "program": {
+        "tasks": [
+          {
+            "block": {
+              "tasks": [
+                {
+                  "id": "a"
+                },
+                {
+                  "block": {
+                    "tasks": [
+                      {
+                        "id": "b",
+                        "fail_hosts": [
+                          "h1"
+                        ]
+                      }
+                    ],
+                    "rescue": [
+                      {
+                        "id": "r"
+                      }
+                    ],
+                    "always": [
+                      {
+                        "id": "inner_always"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "always": [
+                {
+                  "id": "outer_always",
+                  "notify": [
+                    "cleanup"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "a",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "a",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "b",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "b",
+            "kind": "task",
+            "status": "failed"
+          }
+        ],
+        [
+          {
+            "host": "h1",
+            "task": "r",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "inner_always",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "inner_always",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "outer_always",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "outer_always",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "flush_handlers",
+            "kind": "flush",
+            "handlers": [
+              "cleanup"
+            ],
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "flush_handlers",
+            "kind": "flush",
+            "handlers": [
+              "cleanup"
+            ],
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "cleanup",
+            "kind": "handler",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "cleanup",
+            "kind": "handler",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok",
+        "h1": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-07",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [],
+      "program": {
+        "tasks": [
+          {
+            "block": {
+              "tasks": [
+                {
+                  "id": "a",
+                  "fail_hosts": [
+                    "h1"
+                  ]
+                },
+                {
+                  "id": "skip"
+                }
+              ],
+              "always": [
+                {
+                  "id": "always"
+                }
+              ]
+            }
+          },
+          {
+            "id": "after"
+          }
+        ],
+        "post": [
+          {
+            "id": "post"
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "a",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "a",
+            "kind": "task",
+            "status": "failed"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "skip",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "always",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "always",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "after",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "post",
+            "kind": "task",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok",
+        "h1": "failed"
+      }
+    }
+  },
+  {
+    "id": "C058-08",
+    "input": {
+      "hosts": [
+        "h0",
+        "h1"
+      ],
+      "handlers": [
+        "handler"
+      ],
+      "program": {
+        "pre": [
+          {
+            "id": "pre"
+          }
+        ],
+        "roles": [
+          {
+            "block": {
+              "tasks": [
+                {
+                  "id": "role",
+                  "only": [
+                    "h0"
+                  ],
+                  "notify": [
+                    "handler"
+                  ]
+                }
+              ],
+              "always": [
+                {
+                  "id": "role_always"
+                }
+              ]
+            }
+          }
+        ],
+        "includes": [
+          {
+            "id": "include"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "main"
+          }
+        ],
+        "post": [
+          {
+            "id": "post"
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "pre",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "pre",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "role",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "role_always",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "role_always",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "flush_handlers",
+            "kind": "flush",
+            "handlers": [
+              "handler"
+            ],
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "handler",
+            "kind": "handler",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "include",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "include",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "main",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "main",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "post",
+            "kind": "task",
+            "status": "ok"
+          },
+          {
+            "host": "h1",
+            "task": "post",
+            "kind": "task",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "ok",
+        "h1": "ok"
+      }
+    }
+  },
+  {
+    "id": "C058-09",
+    "input": {
+      "hosts": [
+        "h0"
+      ],
+      "handlers": [
+        "h"
+      ],
+      "program": {
+        "tasks": [
+          {
+            "block": {
+              "tasks": [
+                {
+                  "id": "bad",
+                  "fail_hosts": [
+                    "h0"
+                  ]
+                }
+              ],
+              "rescue": [
+                {
+                  "id": "bad_rescue",
+                  "fail_hosts": [
+                    "h0"
+                  ]
+                }
+              ],
+              "always": [
+                {
+                  "id": "last",
+                  "notify": [
+                    "h"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "expected": {
+      "batches": [
+        [
+          {
+            "host": "h0",
+            "task": "bad",
+            "kind": "task",
+            "status": "failed"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "bad_rescue",
+            "kind": "task",
+            "status": "failed"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "last",
+            "kind": "task",
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "flush_handlers",
+            "kind": "flush",
+            "handlers": [
+              "h"
+            ],
+            "status": "ok"
+          }
+        ],
+        [
+          {
+            "host": "h0",
+            "task": "h",
+            "kind": "handler",
+            "status": "ok"
+          }
+        ]
+      ],
+      "final": {
+        "h0": "failed"
+      }
+    }
+  }
+]

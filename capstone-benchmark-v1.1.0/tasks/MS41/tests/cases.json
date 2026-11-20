@@ -1,0 +1,1344 @@
+[
+  {
+    "id": "abstaining-class",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "standard": 1
+      },
+      "methods": [
+        {
+          "id": "direct",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "standard": {
+              "entry": [
+                [
+                  "A",
+                  1,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  5
+                ],
+                [
+                  "discard",
+                  1,
+                  2
+                ]
+              ],
+              "discard": [
+                [
+                  "retry",
+                  1,
+                  8
+                ]
+              ],
+              "retry": [
+                [
+                  "discard",
+                  1,
+                  4
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "vote",
+          "votes": 3,
+          "start": "entry",
+          "graphs": {
+            "standard": {
+              "entry": [
+                [
+                  "A",
+                  1,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  5
+                ],
+                [
+                  "discard",
+                  1,
+                  2
+                ]
+              ],
+              "discard": [
+                [
+                  "retry",
+                  1,
+                  8
+                ]
+              ],
+              "retry": [
+                [
+                  "discard",
+                  1,
+                  4
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "direct",
+        "prob": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "unresolved": [
+          1,
+          3
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": [
+          1,
+          1
+        ]
+      },
+      {
+        "id": "vote",
+        "prob": [
+          [
+            5,
+            27
+          ],
+          [
+            5,
+            27
+          ]
+        ],
+        "unresolved": [
+          17,
+          27
+        ],
+        "launches": [
+          17,
+          9
+        ],
+        "cost_if_correct": [
+          4,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "revision-self-loop",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "x": 1
+      },
+      "methods": [
+        {
+          "id": "direct",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "entry",
+                  2,
+                  4
+                ],
+                [
+                  "A",
+                  2,
+                  7
+                ],
+                [
+                  "B",
+                  1,
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "vote",
+          "votes": 3,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "entry",
+                  2,
+                  4
+                ],
+                [
+                  "A",
+                  2,
+                  7
+                ],
+                [
+                  "B",
+                  1,
+                  1
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "vote",
+        "prob": [
+          [
+            20,
+            27
+          ],
+          [
+            7,
+            27
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          22,
+          9
+        ],
+        "cost_if_correct": [
+          104,
+          5
+        ]
+      },
+      {
+        "id": "direct",
+        "prob": [
+          [
+            2,
+            3
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": [
+          29,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "id": "common-profile",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "one": 1,
+        "two": 3
+      },
+      "methods": [
+        {
+          "id": "direct",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "one": {
+              "entry": [
+                [
+                  "A",
+                  1,
+                  8
+                ]
+              ]
+            },
+            "two": {
+              "entry": [
+                [
+                  "B",
+                  1,
+                  2
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "vote",
+          "votes": 3,
+          "start": "entry",
+          "graphs": {
+            "one": {
+              "entry": [
+                [
+                  "A",
+                  1,
+                  8
+                ]
+              ]
+            },
+            "two": {
+              "entry": [
+                [
+                  "B",
+                  1,
+                  2
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "direct",
+        "prob": [
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": [
+          8,
+          1
+        ]
+      },
+      {
+        "id": "vote",
+        "prob": [
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          2,
+          1
+        ],
+        "cost_if_correct": [
+          16,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "no-correct",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "x": 1
+      },
+      "methods": [
+        {
+          "id": "direct",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "B",
+                  2,
+                  1
+                ],
+                [
+                  "discard",
+                  1,
+                  1
+                ]
+              ],
+              "discard": [
+                [
+                  "discard",
+                  1,
+                  2
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "vote",
+          "votes": 3,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "B",
+                  2,
+                  1
+                ],
+                [
+                  "discard",
+                  1,
+                  1
+                ]
+              ],
+              "discard": [
+                [
+                  "discard",
+                  1,
+                  2
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "direct",
+        "prob": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "unresolved": [
+          1,
+          3
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": null
+      },
+      {
+        "id": "vote",
+        "prob": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            9
+          ]
+        ],
+        "unresolved": [
+          5,
+          9
+        ],
+        "launches": [
+          5,
+          3
+        ],
+        "cost_if_correct": null
+      }
+    ]
+  },
+  {
+    "id": "always-undecided",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "x": 1
+      },
+      "methods": [
+        {
+          "id": "direct",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "w",
+                  1,
+                  1
+                ]
+              ],
+              "w": [
+                [
+                  "entry",
+                  1,
+                  3
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "vote",
+          "votes": 3,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "w",
+                  1,
+                  1
+                ]
+              ],
+              "w": [
+                [
+                  "entry",
+                  1,
+                  3
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "direct",
+        "prob": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "unresolved": [
+          1,
+          1
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": null
+      },
+      {
+        "id": "vote",
+        "prob": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "unresolved": [
+          1,
+          1
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": null
+      }
+    ]
+  },
+  {
+    "id": "priority-tie",
+    "input": {
+      "answers": [
+        "B",
+        "A"
+      ],
+      "correct": "A",
+      "profiles": {
+        "g": 1
+      },
+      "methods": [
+        {
+          "id": "even",
+          "votes": 2,
+          "start": "entry",
+          "graphs": {
+            "g": {
+              "entry": [
+                [
+                  "A",
+                  2,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  3
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "longer",
+          "votes": 4,
+          "start": "entry",
+          "graphs": {
+            "g": {
+              "entry": [
+                [
+                  "A",
+                  2,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  3
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "longer",
+        "prob": [
+          [
+            11,
+            27
+          ],
+          [
+            16,
+            27
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          10,
+          3
+        ],
+        "cost_if_correct": [
+          9,
+          2
+        ]
+      },
+      {
+        "id": "even",
+        "prob": [
+          [
+            5,
+            9
+          ],
+          [
+            4,
+            9
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          5,
+          3
+        ],
+        "cost_if_correct": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "two-profile-mix",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "x": 2,
+        "y": 5
+      },
+      "methods": [
+        {
+          "id": "five",
+          "votes": 5,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "entry",
+                  2,
+                  4
+                ],
+                [
+                  "A",
+                  2,
+                  7
+                ],
+                [
+                  "B",
+                  1,
+                  1
+                ]
+              ]
+            },
+            "y": {
+              "entry": [
+                [
+                  "A",
+                  1,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  5
+                ],
+                [
+                  "discard",
+                  1,
+                  2
+                ]
+              ],
+              "discard": [
+                [
+                  "retry",
+                  1,
+                  8
+                ]
+              ],
+              "retry": [
+                [
+                  "discard",
+                  1,
+                  4
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "one",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "x": {
+              "entry": [
+                [
+                  "entry",
+                  2,
+                  4
+                ],
+                [
+                  "A",
+                  2,
+                  7
+                ],
+                [
+                  "B",
+                  1,
+                  1
+                ]
+              ]
+            },
+            "y": {
+              "entry": [
+                [
+                  "A",
+                  1,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  5
+                ],
+                [
+                  "discard",
+                  1,
+                  2
+                ]
+              ],
+              "discard": [
+                [
+                  "retry",
+                  1,
+                  8
+                ]
+              ],
+              "retry": [
+                [
+                  "discard",
+                  1,
+                  4
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "one",
+        "prob": [
+          [
+            3,
+            7
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "unresolved": [
+          5,
+          21
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": [
+          131,
+          27
+        ]
+      },
+      {
+        "id": "five",
+        "prob": [
+          [
+            8,
+            27
+          ],
+          [
+            74,
+            567
+          ]
+        ],
+        "unresolved": [
+          325,
+          567
+        ],
+        "launches": [
+          77,
+          27
+        ],
+        "cost_if_correct": [
+          13253,
+          504
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cost-follows-answer",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "X": 1
+      },
+      "methods": [
+        {
+          "id": "odd",
+          "votes": 3,
+          "start": "entry",
+          "graphs": {
+            "X": {
+              "entry": [
+                [
+                  "cheap",
+                  1,
+                  1
+                ],
+                [
+                  "slow",
+                  1,
+                  4
+                ]
+              ],
+              "cheap": [
+                [
+                  "B",
+                  2,
+                  1
+                ],
+                [
+                  "A",
+                  1,
+                  9
+                ]
+              ],
+              "slow": [
+                [
+                  "slow",
+                  3,
+                  3
+                ],
+                [
+                  "A",
+                  1,
+                  7
+                ],
+                [
+                  "B",
+                  2,
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "even",
+          "votes": 4,
+          "start": "entry",
+          "graphs": {
+            "X": {
+              "entry": [
+                [
+                  "cheap",
+                  1,
+                  1
+                ],
+                [
+                  "slow",
+                  1,
+                  4
+                ]
+              ],
+              "cheap": [
+                [
+                  "B",
+                  2,
+                  1
+                ],
+                [
+                  "A",
+                  1,
+                  9
+                ]
+              ],
+              "slow": [
+                [
+                  "slow",
+                  3,
+                  3
+                ],
+                [
+                  "A",
+                  1,
+                  7
+                ],
+                [
+                  "B",
+                  2,
+                  1
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "even",
+        "prob": [
+          [
+            11,
+            27
+          ],
+          [
+            16,
+            27
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          10,
+          3
+        ],
+        "cost_if_correct": [
+          324,
+          11
+        ]
+      },
+      {
+        "id": "odd",
+        "prob": [
+          [
+            7,
+            27
+          ],
+          [
+            20,
+            27
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          22,
+          9
+        ],
+        "cost_if_correct": [
+          188,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "id": "two-state-cycle",
+    "input": {
+      "answers": [
+        "C",
+        "B",
+        "A"
+      ],
+      "correct": "B",
+      "profiles": {
+        "U": 1
+      },
+      "methods": [
+        {
+          "id": "v",
+          "votes": 6,
+          "start": "entry",
+          "graphs": {
+            "U": {
+              "entry": [
+                [
+                  "other",
+                  2,
+                  1
+                ],
+                [
+                  "A",
+                  1,
+                  7
+                ]
+              ],
+              "other": [
+                [
+                  "entry",
+                  3,
+                  4
+                ],
+                [
+                  "B",
+                  1,
+                  2
+                ],
+                [
+                  "C",
+                  2,
+                  6
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "v",
+        "prob": [
+          [
+            2269,
+            5832
+          ],
+          [
+            1373,
+            23328
+          ],
+          [
+            53,
+            96
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          20267,
+          3888
+        ],
+        "cost_if_correct": [
+          52588,
+          1373
+        ]
+      }
+    ]
+  },
+  {
+    "id": "early-with-unreachable-rival",
+    "input": {
+      "answers": [
+        "A",
+        "C",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "U": 1
+      },
+      "methods": [
+        {
+          "id": "long",
+          "votes": 5,
+          "start": "entry",
+          "graphs": {
+            "U": {
+              "entry": [
+                [
+                  "A",
+                  2,
+                  1
+                ],
+                [
+                  "B",
+                  1,
+                  3
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "long",
+        "prob": [
+          [
+            64,
+            81
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            17,
+            81
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          107,
+          27
+        ],
+        "cost_if_correct": [
+          45,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "id": "duplicate-transitions",
+    "input": {
+      "answers": [
+        "A",
+        "B"
+      ],
+      "correct": "A",
+      "profiles": {
+        "U": 1
+      },
+      "methods": [
+        {
+          "id": "single",
+          "votes": 1,
+          "start": "entry",
+          "graphs": {
+            "U": {
+              "entry": [
+                [
+                  "A",
+                  3,
+                  2
+                ],
+                [
+                  "A",
+                  2,
+                  9
+                ],
+                [
+                  "B",
+                  1,
+                  7
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "four",
+          "votes": 4,
+          "start": "entry",
+          "graphs": {
+            "U": {
+              "entry": [
+                [
+                  "A",
+                  3,
+                  2
+                ],
+                [
+                  "A",
+                  2,
+                  9
+                ],
+                [
+                  "B",
+                  1,
+                  7
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "four",
+        "prob": [
+          [
+            425,
+            432
+          ],
+          [
+            7,
+            432
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          19,
+          8
+        ],
+        "cost_if_correct": [
+          1026,
+          85
+        ]
+      },
+      {
+        "id": "single",
+        "prob": [
+          [
+            5,
+            6
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "unresolved": [
+          0,
+          1
+        ],
+        "launches": [
+          1,
+          1
+        ],
+        "cost_if_correct": [
+          24,
+          5
+        ]
+      }
+    ]
+  }
+]

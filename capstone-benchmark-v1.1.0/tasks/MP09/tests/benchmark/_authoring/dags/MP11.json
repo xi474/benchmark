@@ -1,0 +1,82 @@
+{
+  "id": "MP11",
+  "title": "取消会面、研讨会叫车与图书采购",
+  "semantics": "artifact_file_dependencies_not_agent_schedule",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "本地输入与公开契约",
+      "kind": "input"
+    },
+    {
+      "id": "cancellations",
+      "label": "取消范围与通知快照",
+      "kind": "work",
+      "folder": "engines/cancellations",
+      "operation": "meeting_cancel_plan"
+    },
+    {
+      "id": "ride",
+      "label": "研讨会提前叫车",
+      "kind": "work",
+      "folder": "engines/ride",
+      "operation": "seminar_ride"
+    },
+    {
+      "id": "books",
+      "label": "书目条件与评分",
+      "kind": "work",
+      "folder": "engines/books",
+      "operation": "book_purchase"
+    },
+    {
+      "id": "_core",
+      "label": "组件结果集成",
+      "kind": "work"
+    },
+    {
+      "id": "_report",
+      "label": "最终报告与摘要",
+      "kind": "output"
+    },
+    {
+      "id": "_verify",
+      "label": "工作区外正式验证",
+      "kind": "verify"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "cancellations"
+    },
+    {
+      "source": "input",
+      "target": "ride"
+    },
+    {
+      "source": "input",
+      "target": "books"
+    },
+    {
+      "source": "cancellations",
+      "target": "_core"
+    },
+    {
+      "source": "ride",
+      "target": "_core"
+    },
+    {
+      "source": "books",
+      "target": "_core"
+    },
+    {
+      "source": "_core",
+      "target": "_report"
+    },
+    {
+      "source": "_report",
+      "target": "_verify"
+    }
+  ]
+}

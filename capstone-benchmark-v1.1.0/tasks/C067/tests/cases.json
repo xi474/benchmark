@@ -1,0 +1,1064 @@
+[
+  {
+    "id": "C067-01",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 1,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "b",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        }
+      ],
+      "authorizer_calls": 2,
+      "service_lookups": 2,
+      "remote_routes": 2,
+      "certificates_issued": 1,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-1",
+          "expires": 5
+        }
+      ]
+    }
+  },
+  {
+    "id": "C067-02",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "policy",
+          "time": 1,
+          "user": "alice",
+          "allow": []
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 2,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "b",
+          "status": "denied"
+        }
+      ],
+      "authorizer_calls": 2,
+      "service_lookups": 1,
+      "remote_routes": 1,
+      "certificates_issued": 1,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-1",
+          "expires": 5
+        }
+      ]
+    }
+  },
+  {
+    "id": "C067-03",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "here",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 1,
+          "user": "alice",
+          "cluster": "here",
+          "service": "k",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "local",
+          "route": "local"
+        },
+        {
+          "id": "b",
+          "status": "ok",
+          "credential": "local",
+          "route": "local"
+        }
+      ],
+      "authorizer_calls": 2,
+      "service_lookups": 2,
+      "remote_routes": 0,
+      "certificates_issued": 0,
+      "cache": []
+    }
+  },
+  {
+    "id": "C067-04",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "service",
+          "time": 0,
+          "cluster": "away",
+          "service": "k",
+          "available": false
+        },
+        {
+          "op": "request",
+          "id": "a",
+          "time": 1,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "not_found"
+        }
+      ],
+      "authorizer_calls": 1,
+      "service_lookups": 1,
+      "remote_routes": 0,
+      "certificates_issued": 0,
+      "cache": []
+    }
+  },
+  {
+    "id": "C067-05",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "service",
+          "time": 1,
+          "cluster": "away",
+          "service": "k",
+          "available": false
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 2,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "b",
+          "status": "not_found"
+        }
+      ],
+      "authorizer_calls": 2,
+      "service_lookups": 2,
+      "remote_routes": 1,
+      "certificates_issued": 1,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-1",
+          "expires": 5
+        }
+      ]
+    }
+  },
+  {
+    "id": "C067-06",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 4,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "c",
+          "time": 5,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "d",
+          "time": 9,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "b",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "c",
+          "status": "ok",
+          "credential": "cert-2",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "d",
+          "status": "ok",
+          "credential": "cert-2",
+          "route": "reverse_tunnel"
+        }
+      ],
+      "authorizer_calls": 4,
+      "service_lookups": 4,
+      "remote_routes": 4,
+      "certificates_issued": 2,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-2",
+          "expires": 10
+        }
+      ]
+    }
+  },
+  {
+    "id": "C067-07",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 1,
+          "user": "alice",
+          "cluster": "far",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "c",
+          "time": 2,
+          "user": "alice",
+          "cluster": "away",
+          "service": "other",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "b",
+          "status": "ok",
+          "credential": "cert-2",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "c",
+          "status": "ok",
+          "credential": "cert-3",
+          "route": "reverse_tunnel"
+        }
+      ],
+      "authorizer_calls": 3,
+      "service_lookups": 3,
+      "remote_routes": 3,
+      "certificates_issued": 3,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-1",
+          "expires": 5
+        },
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "other",
+          "credential": "cert-3",
+          "expires": 7
+        },
+        {
+          "user": "alice",
+          "cluster": "far",
+          "service": "k",
+          "credential": "cert-2",
+          "expires": 6
+        }
+      ]
+    }
+  },
+  {
+    "id": "C067-08",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "request",
+          "id": "a",
+          "time": 0,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 1,
+          "user": "bob",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "c",
+          "time": 2,
+          "user": "bob",
+          "cluster": "away",
+          "service": "k",
+          "verb": "write"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "b",
+          "status": "ok",
+          "credential": "cert-2",
+          "route": "reverse_tunnel"
+        },
+        {
+          "id": "c",
+          "status": "denied"
+        }
+      ],
+      "authorizer_calls": 3,
+      "service_lookups": 2,
+      "remote_routes": 2,
+      "certificates_issued": 2,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-1",
+          "expires": 5
+        },
+        {
+          "user": "bob",
+          "cluster": "away",
+          "service": "k",
+          "credential": "cert-2",
+          "expires": 6
+        }
+      ]
+    }
+  },
+  {
+    "id": "C067-09",
+    "input": {
+      "ttl": 5,
+      "clusters": {
+        "here": {
+          "mode": "local",
+          "services": {
+            "k": true
+          }
+        },
+        "away": {
+          "mode": "remote",
+          "services": {
+            "k": true,
+            "other": true
+          }
+        },
+        "far": {
+          "mode": "remote",
+          "services": {
+            "k": true
+          }
+        }
+      },
+      "policies": {
+        "alice": [
+          {
+            "cluster": "here",
+            "verb": "read"
+          },
+          {
+            "cluster": "here",
+            "verb": "write"
+          },
+          {
+            "cluster": "away",
+            "verb": "read"
+          },
+          {
+            "cluster": "away",
+            "verb": "write"
+          },
+          {
+            "cluster": "far",
+            "verb": "read"
+          },
+          {
+            "cluster": "far",
+            "verb": "write"
+          }
+        ],
+        "bob": [
+          {
+            "cluster": "away",
+            "verb": "read"
+          }
+        ]
+      },
+      "events": [
+        {
+          "op": "policy",
+          "time": 0,
+          "user": "alice",
+          "allow": [
+            {
+              "cluster": "away",
+              "verb": "read",
+              "service": "other"
+            }
+          ]
+        },
+        {
+          "op": "request",
+          "id": "a",
+          "time": 1,
+          "user": "alice",
+          "cluster": "away",
+          "service": "k",
+          "verb": "read"
+        },
+        {
+          "op": "request",
+          "id": "b",
+          "time": 2,
+          "user": "alice",
+          "cluster": "away",
+          "service": "other",
+          "verb": "read"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "a",
+          "status": "denied"
+        },
+        {
+          "id": "b",
+          "status": "ok",
+          "credential": "cert-1",
+          "route": "reverse_tunnel"
+        }
+      ],
+      "authorizer_calls": 2,
+      "service_lookups": 1,
+      "remote_routes": 1,
+      "certificates_issued": 1,
+      "cache": [
+        {
+          "user": "alice",
+          "cluster": "away",
+          "service": "other",
+          "credential": "cert-1",
+          "expires": 7
+        }
+      ]
+    }
+  }
+]

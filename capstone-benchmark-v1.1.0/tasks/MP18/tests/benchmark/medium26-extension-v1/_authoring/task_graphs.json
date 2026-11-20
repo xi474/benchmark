@@ -1,0 +1,2563 @@
+[
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "fit"
+      },
+      {
+        "source": "fit",
+        "target": "hard"
+      },
+      {
+        "source": "fit",
+        "target": "soft"
+      },
+      {
+        "source": "hard",
+        "target": "comparison"
+      },
+      {
+        "source": "soft",
+        "target": "comparison"
+      },
+      {
+        "source": "fit",
+        "target": "_core"
+      },
+      {
+        "source": "hard",
+        "target": "_core"
+      },
+      {
+        "source": "soft",
+        "target": "_core"
+      },
+      {
+        "source": "comparison",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP01",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/fit",
+        "id": "fit",
+        "kind": "work",
+        "label": "成员筛选与拟合记录",
+        "operation": "fit_members"
+      },
+      {
+        "folder": "views/hard",
+        "id": "hard",
+        "kind": "work",
+        "label": "硬加权投票",
+        "operation": "hard_vote"
+      },
+      {
+        "folder": "views/soft",
+        "id": "soft",
+        "kind": "work",
+        "label": "概率列对齐与软投票",
+        "operation": "soft_vote"
+      },
+      {
+        "folder": "views/comparison",
+        "id": "comparison",
+        "kind": "work",
+        "label": "两路结果比较",
+        "operation": "vote_comparison"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "可关闭成员的硬/软加权投票"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "index"
+      },
+      {
+        "source": "input",
+        "target": "attributes"
+      },
+      {
+        "source": "input",
+        "target": "table"
+      },
+      {
+        "source": "index",
+        "target": "table"
+      },
+      {
+        "source": "attributes",
+        "target": "table"
+      },
+      {
+        "source": "index",
+        "target": "_core"
+      },
+      {
+        "source": "attributes",
+        "target": "_core"
+      },
+      {
+        "source": "table",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP02",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/index",
+        "id": "index",
+        "kind": "work",
+        "label": "坐标索引与旁观轴",
+        "operation": "segment_index"
+      },
+      {
+        "folder": "domains/attributes",
+        "id": "attributes",
+        "kind": "work",
+        "label": "属性优先级与冲突",
+        "operation": "segment_attributes"
+      },
+      {
+        "folder": "views/table",
+        "id": "table",
+        "kind": "work",
+        "label": "按坐标装配数据",
+        "operation": "segment_assemble"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "单变化轴的数据分片拼接"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "fstab"
+      },
+      {
+        "source": "input",
+        "target": "aix"
+      },
+      {
+        "source": "input",
+        "target": "mount"
+      },
+      {
+        "source": "fstab",
+        "target": "merged"
+      },
+      {
+        "source": "aix",
+        "target": "merged"
+      },
+      {
+        "source": "mount",
+        "target": "merged"
+      },
+      {
+        "source": "fstab",
+        "target": "_core"
+      },
+      {
+        "source": "aix",
+        "target": "_core"
+      },
+      {
+        "source": "mount",
+        "target": "_core"
+      },
+      {
+        "source": "merged",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP03",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/fstab",
+        "id": "fstab",
+        "kind": "work",
+        "label": "fstab文本解析",
+        "operation": "fstab_parse"
+      },
+      {
+        "folder": "domains/aix",
+        "id": "aix",
+        "kind": "work",
+        "label": "AIX段落解析",
+        "operation": "aix_parse"
+      },
+      {
+        "folder": "domains/mount",
+        "id": "mount",
+        "kind": "work",
+        "label": "Linux mount解析",
+        "operation": "mount_parse"
+      },
+      {
+        "folder": "views/merged",
+        "id": "merged",
+        "kind": "work",
+        "label": "来源优先归并与冲突",
+        "operation": "mount_merge"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "三种挂载格式的离线事实归并"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "json_users"
+      },
+      {
+        "source": "input",
+        "target": "csv_users"
+      },
+      {
+        "source": "input",
+        "target": "jsonl_users"
+      },
+      {
+        "source": "json_users",
+        "target": "directory"
+      },
+      {
+        "source": "csv_users",
+        "target": "directory"
+      },
+      {
+        "source": "jsonl_users",
+        "target": "directory"
+      },
+      {
+        "source": "json_users",
+        "target": "_core"
+      },
+      {
+        "source": "csv_users",
+        "target": "_core"
+      },
+      {
+        "source": "jsonl_users",
+        "target": "_core"
+      },
+      {
+        "source": "directory",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP04",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/json_users",
+        "id": "json_users",
+        "kind": "work",
+        "label": "JSON用户适配",
+        "operation": "users_json"
+      },
+      {
+        "folder": "domains/csv_users",
+        "id": "csv_users",
+        "kind": "work",
+        "label": "CSV用户适配",
+        "operation": "users_csv"
+      },
+      {
+        "folder": "domains/jsonl_users",
+        "id": "jsonl_users",
+        "kind": "work",
+        "label": "JSONL用户适配",
+        "operation": "users_jsonl"
+      },
+      {
+        "folder": "views/directory",
+        "id": "directory",
+        "kind": "work",
+        "label": "用户并集与冲突证据",
+        "operation": "users_merge"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "多格式用户合并与完整冲突报告"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "groups"
+      },
+      {
+        "source": "input",
+        "target": "mail"
+      },
+      {
+        "source": "input",
+        "target": "calendar"
+      },
+      {
+        "source": "input",
+        "target": "ranking"
+      },
+      {
+        "source": "groups",
+        "target": "ranking"
+      },
+      {
+        "source": "mail",
+        "target": "ranking"
+      },
+      {
+        "source": "calendar",
+        "target": "ranking"
+      },
+      {
+        "source": "groups",
+        "target": "_core"
+      },
+      {
+        "source": "mail",
+        "target": "_core"
+      },
+      {
+        "source": "calendar",
+        "target": "_core"
+      },
+      {
+        "source": "ranking",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP05",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/groups",
+        "id": "groups",
+        "kind": "work",
+        "label": "命中群成员候选",
+        "operation": "group_candidates"
+      },
+      {
+        "folder": "domains/mail",
+        "id": "mail",
+        "kind": "work",
+        "label": "邮件发件人候选",
+        "operation": "mail_candidates"
+      },
+      {
+        "folder": "domains/calendar",
+        "id": "calendar",
+        "kind": "work",
+        "label": "共同活动时长",
+        "operation": "shared_durations"
+      },
+      {
+        "folder": "views/ranking",
+        "id": "ranking",
+        "kind": "work",
+        "label": "候选并集与排名",
+        "operation": "contact_rank"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "跨应用候选并集与相处时长排名"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "calendar"
+      },
+      {
+        "source": "input",
+        "target": "channels"
+      },
+      {
+        "source": "calendar",
+        "target": "notifications"
+      },
+      {
+        "source": "channels",
+        "target": "notifications"
+      },
+      {
+        "source": "calendar",
+        "target": "_core"
+      },
+      {
+        "source": "channels",
+        "target": "_core"
+      },
+      {
+        "source": "notifications",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP06",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/calendar",
+        "id": "calendar",
+        "kind": "work",
+        "label": "取消目标及前置快照",
+        "operation": "cancel_morning"
+      },
+      {
+        "folder": "domains/channels",
+        "id": "channels",
+        "kind": "work",
+        "label": "联系人渠道与回退",
+        "operation": "channel_directory"
+      },
+      {
+        "folder": "views/notifications",
+        "id": "notifications",
+        "kind": "work",
+        "label": "取消后多渠道通知",
+        "operation": "cancel_notifications"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "取消日程后多渠道通知"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "receipts"
+      },
+      {
+        "source": "input",
+        "target": "cleanup"
+      },
+      {
+        "source": "input",
+        "target": "archive"
+      },
+      {
+        "source": "receipts",
+        "target": "archive"
+      },
+      {
+        "source": "cleanup",
+        "target": "archive"
+      },
+      {
+        "source": "receipts",
+        "target": "_core"
+      },
+      {
+        "source": "cleanup",
+        "target": "_core"
+      },
+      {
+        "source": "archive",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP07",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "products/receipts",
+        "id": "receipts",
+        "kind": "work",
+        "label": "附件摘要与成功回执",
+        "operation": "attachment_receipts"
+      },
+      {
+        "folder": "products/cleanup",
+        "id": "cleanup",
+        "kind": "work",
+        "label": "独立目录清理",
+        "operation": "independent_cleanup"
+      },
+      {
+        "folder": "products/archive",
+        "id": "archive",
+        "kind": "work",
+        "label": "成功门控与归档重放",
+        "operation": "archive_after_send"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "附件发送后归档与独立清理"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "classify"
+      },
+      {
+        "source": "input",
+        "target": "migrate"
+      },
+      {
+        "source": "classify",
+        "target": "migrate"
+      },
+      {
+        "source": "input",
+        "target": "outbox"
+      },
+      {
+        "source": "classify",
+        "target": "outbox"
+      },
+      {
+        "source": "migrate",
+        "target": "outbox"
+      },
+      {
+        "source": "classify",
+        "target": "_core"
+      },
+      {
+        "source": "migrate",
+        "target": "_core"
+      },
+      {
+        "source": "outbox",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP08",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "products/classify",
+        "id": "classify",
+        "kind": "work",
+        "label": "节日分类与缺失集合",
+        "operation": "photo_classification"
+      },
+      {
+        "folder": "products/migrate",
+        "id": "migrate",
+        "kind": "work",
+        "label": "照片路径迁移",
+        "operation": "photo_migration"
+      },
+      {
+        "folder": "products/outbox",
+        "id": "outbox",
+        "kind": "work",
+        "label": "迁移后附件与报告",
+        "operation": "photo_outbox"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "节日照片迁移后发送与缺失报告"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "calendar"
+      },
+      {
+        "source": "input",
+        "target": "invitees"
+      },
+      {
+        "source": "input",
+        "target": "supplies"
+      },
+      {
+        "source": "calendar",
+        "target": "commit"
+      },
+      {
+        "source": "invitees",
+        "target": "commit"
+      },
+      {
+        "source": "supplies",
+        "target": "commit"
+      },
+      {
+        "source": "calendar",
+        "target": "_core"
+      },
+      {
+        "source": "invitees",
+        "target": "_core"
+      },
+      {
+        "source": "supplies",
+        "target": "_core"
+      },
+      {
+        "source": "commit",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP09",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/calendar",
+        "id": "calendar",
+        "kind": "work",
+        "label": "两场最早空档选择",
+        "operation": "panel_slots"
+      },
+      {
+        "folder": "engines/invitees",
+        "id": "invitees",
+        "kind": "work",
+        "label": "邀请群成员并集",
+        "operation": "panel_invitees"
+      },
+      {
+        "folder": "engines/supplies",
+        "id": "supplies",
+        "kind": "work",
+        "label": "库存与评分采购",
+        "operation": "supply_selection"
+      },
+      {
+        "folder": "engines/commit",
+        "id": "commit",
+        "kind": "work",
+        "label": "活动创建与联合通知",
+        "operation": "panel_commit"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "两场座谈会、群邀请与物资采购"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "dinner"
+      },
+      {
+        "source": "input",
+        "target": "contact"
+      },
+      {
+        "source": "input",
+        "target": "shopping"
+      },
+      {
+        "source": "dinner",
+        "target": "shopping"
+      },
+      {
+        "source": "contact",
+        "target": "shopping"
+      },
+      {
+        "source": "dinner",
+        "target": "_core"
+      },
+      {
+        "source": "contact",
+        "target": "_core"
+      },
+      {
+        "source": "shopping",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP10",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "dinner",
+        "id": "dinner",
+        "kind": "work",
+        "label": "下个星期日程",
+        "operation": "dinner_date"
+      },
+      {
+        "folder": "contact",
+        "id": "contact",
+        "kind": "work",
+        "label": "最近匹配会话身份",
+        "operation": "recent_contact"
+      },
+      {
+        "folder": "shopping",
+        "id": "shopping",
+        "kind": "work",
+        "label": "多属性变体与结算",
+        "operation": "dinner_checkout"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "晚宴计划、联系人定位与餐具采购"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "cancellations"
+      },
+      {
+        "source": "input",
+        "target": "ride"
+      },
+      {
+        "source": "input",
+        "target": "books"
+      },
+      {
+        "source": "cancellations",
+        "target": "_core"
+      },
+      {
+        "source": "ride",
+        "target": "_core"
+      },
+      {
+        "source": "books",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP11",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/cancellations",
+        "id": "cancellations",
+        "kind": "work",
+        "label": "取消范围与通知快照",
+        "operation": "meeting_cancel_plan"
+      },
+      {
+        "folder": "engines/ride",
+        "id": "ride",
+        "kind": "work",
+        "label": "研讨会提前叫车",
+        "operation": "seminar_ride"
+      },
+      {
+        "folder": "engines/books",
+        "id": "books",
+        "kind": "work",
+        "label": "书目条件与评分",
+        "operation": "book_purchase"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "取消会面、研讨会叫车与图书采购"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "files"
+      },
+      {
+        "source": "input",
+        "target": "mail"
+      },
+      {
+        "source": "input",
+        "target": "reply"
+      },
+      {
+        "source": "input",
+        "target": "commit"
+      },
+      {
+        "source": "files",
+        "target": "commit"
+      },
+      {
+        "source": "mail",
+        "target": "commit"
+      },
+      {
+        "source": "reply",
+        "target": "commit"
+      },
+      {
+        "source": "files",
+        "target": "_core"
+      },
+      {
+        "source": "mail",
+        "target": "_core"
+      },
+      {
+        "source": "reply",
+        "target": "_core"
+      },
+      {
+        "source": "commit",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP12",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "products/files",
+        "id": "files",
+        "kind": "work",
+        "label": "下载目录分类归档",
+        "operation": "download_archive"
+      },
+      {
+        "folder": "products/mail",
+        "id": "mail",
+        "kind": "work",
+        "label": "当月目标邮件清理",
+        "operation": "mail_trash"
+      },
+      {
+        "folder": "products/reply",
+        "id": "reply",
+        "kind": "work",
+        "label": "精确邮件ID回复",
+        "operation": "manager_reply"
+      },
+      {
+        "folder": "products/commit",
+        "id": "commit",
+        "kind": "work",
+        "label": "作用域冲突与状态提交",
+        "operation": "workspace_commit"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "下载目录归档、邮件清理与目标回复"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "numeric"
+      },
+      {
+        "source": "input",
+        "target": "category"
+      },
+      {
+        "source": "input",
+        "target": "time"
+      },
+      {
+        "source": "numeric",
+        "target": "union"
+      },
+      {
+        "source": "category",
+        "target": "union"
+      },
+      {
+        "source": "time",
+        "target": "union"
+      },
+      {
+        "source": "numeric",
+        "target": "_core"
+      },
+      {
+        "source": "category",
+        "target": "_core"
+      },
+      {
+        "source": "time",
+        "target": "_core"
+      },
+      {
+        "source": "union",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP13",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/numeric",
+        "id": "numeric",
+        "kind": "work",
+        "label": "分组数值特征",
+        "operation": "numeric_features"
+      },
+      {
+        "folder": "engines/category",
+        "id": "category",
+        "kind": "work",
+        "label": "固定词表类别特征",
+        "operation": "category_features"
+      },
+      {
+        "folder": "engines/time",
+        "id": "time",
+        "kind": "work",
+        "label": "时间起止跨度",
+        "operation": "time_features"
+      },
+      {
+        "folder": "engines/union",
+        "id": "union",
+        "kind": "work",
+        "label": "特征行键外连接",
+        "operation": "feature_union"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "聚合特征的行键保真与特征合并"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "chain"
+      },
+      {
+        "source": "input",
+        "target": "frames"
+      },
+      {
+        "source": "chain",
+        "target": "report"
+      },
+      {
+        "source": "frames",
+        "target": "report"
+      },
+      {
+        "source": "chain",
+        "target": "_core"
+      },
+      {
+        "source": "frames",
+        "target": "_core"
+      },
+      {
+        "source": "report",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP14",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "chain",
+        "id": "chain",
+        "kind": "work",
+        "label": "异常因果链与抑制",
+        "operation": "exception_chain"
+      },
+      {
+        "folder": "frames",
+        "id": "frames",
+        "kind": "work",
+        "label": "可移植帧及局部变量",
+        "operation": "portable_frames"
+      },
+      {
+        "folder": "report",
+        "id": "report",
+        "kind": "work",
+        "label": "异常报告重建",
+        "operation": "exception_report"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "异常链的可移植序列化与报告"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "ordinary"
+      },
+      {
+        "source": "input",
+        "target": "annotations"
+      },
+      {
+        "source": "input",
+        "target": "comments"
+      },
+      {
+        "source": "input",
+        "target": "analysis"
+      },
+      {
+        "source": "ordinary",
+        "target": "analysis"
+      },
+      {
+        "source": "annotations",
+        "target": "analysis"
+      },
+      {
+        "source": "comments",
+        "target": "analysis"
+      },
+      {
+        "source": "ordinary",
+        "target": "_core"
+      },
+      {
+        "source": "annotations",
+        "target": "_core"
+      },
+      {
+        "source": "comments",
+        "target": "_core"
+      },
+      {
+        "source": "analysis",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP15",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/ordinary",
+        "id": "ordinary",
+        "kind": "work",
+        "label": "普通表达式引用",
+        "operation": "ordinary_uses"
+      },
+      {
+        "folder": "engines/annotations",
+        "id": "annotations",
+        "kind": "work",
+        "label": "注解中的引用",
+        "operation": "annotation_uses"
+      },
+      {
+        "folder": "engines/comments",
+        "id": "comments",
+        "kind": "work",
+        "label": "赋值类型注释引用",
+        "operation": "type_comment_uses"
+      },
+      {
+        "folder": "engines/analysis",
+        "id": "analysis",
+        "kind": "work",
+        "label": "作用域遮蔽与未用导入",
+        "operation": "import_usage_join"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "普通引用、注解和类型注释的导入分析"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "signatures"
+      },
+      {
+        "source": "input",
+        "target": "parameters"
+      },
+      {
+        "source": "input",
+        "target": "inheritance"
+      },
+      {
+        "source": "signatures",
+        "target": "document"
+      },
+      {
+        "source": "parameters",
+        "target": "document"
+      },
+      {
+        "source": "inheritance",
+        "target": "document"
+      },
+      {
+        "source": "signatures",
+        "target": "_core"
+      },
+      {
+        "source": "parameters",
+        "target": "_core"
+      },
+      {
+        "source": "inheritance",
+        "target": "_core"
+      },
+      {
+        "source": "document",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP16",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "signatures",
+        "id": "signatures",
+        "kind": "work",
+        "label": "重载与参数种类",
+        "operation": "overload_signatures"
+      },
+      {
+        "folder": "parameters",
+        "id": "parameters",
+        "kind": "work",
+        "label": "复杂参数类型文档",
+        "operation": "parameter_docs"
+      },
+      {
+        "folder": "inheritance",
+        "id": "inheritance",
+        "kind": "work",
+        "label": "继承文档提供者",
+        "operation": "inherited_doc"
+      },
+      {
+        "folder": "document",
+        "id": "document",
+        "kind": "work",
+        "label": "提供者命名空间合并",
+        "operation": "api_documentation"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "API 文档的签名、参数与继承信息聚合"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "parts"
+      },
+      {
+        "source": "parts",
+        "target": "encoding"
+      },
+      {
+        "source": "input",
+        "target": "body"
+      },
+      {
+        "source": "encoding",
+        "target": "body"
+      },
+      {
+        "source": "parts",
+        "target": "_core"
+      },
+      {
+        "source": "encoding",
+        "target": "_core"
+      },
+      {
+        "source": "body",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP17",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "parts",
+        "id": "parts",
+        "kind": "work",
+        "label": "部件类型与MIME元数据",
+        "operation": "multipart_parts"
+      },
+      {
+        "folder": "encoding",
+        "id": "encoding",
+        "kind": "work",
+        "label": "内联与文件载荷编码",
+        "operation": "multipart_encoding"
+      },
+      {
+        "folder": "body",
+        "id": "body",
+        "kind": "work",
+        "label": "边界及请求体组装",
+        "operation": "multipart_body"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "文本、内联内容和文件的 multipart 组装"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "inventory"
+      },
+      {
+        "source": "input",
+        "target": "selection"
+      },
+      {
+        "source": "inventory",
+        "target": "selection"
+      },
+      {
+        "source": "inventory",
+        "target": "archive"
+      },
+      {
+        "source": "selection",
+        "target": "archive"
+      },
+      {
+        "source": "inventory",
+        "target": "_core"
+      },
+      {
+        "source": "selection",
+        "target": "_core"
+      },
+      {
+        "source": "archive",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP18",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "products/inventory",
+        "id": "inventory",
+        "kind": "work",
+        "label": "文件与链接清单",
+        "operation": "manifest_inventory"
+      },
+      {
+        "folder": "products/selection",
+        "id": "selection",
+        "kind": "work",
+        "label": "有序指令及最终排除",
+        "operation": "manifest_selection"
+      },
+      {
+        "folder": "products/archive",
+        "id": "archive",
+        "kind": "work",
+        "label": "归档大小与字节摘要",
+        "operation": "manifest_archive"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "集合文件清单的指令选择与归档元数据"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "scanner"
+      },
+      {
+        "source": "input",
+        "target": "dependencies"
+      },
+      {
+        "source": "scanner",
+        "target": "dependencies"
+      },
+      {
+        "source": "input",
+        "target": "payload"
+      },
+      {
+        "source": "dependencies",
+        "target": "payload"
+      },
+      {
+        "source": "scanner",
+        "target": "_core"
+      },
+      {
+        "source": "dependencies",
+        "target": "_core"
+      },
+      {
+        "source": "payload",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP19",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/scanner",
+        "id": "scanner",
+        "kind": "work",
+        "label": "静态及相对导入扫描",
+        "operation": "module_import_scan"
+      },
+      {
+        "folder": "engines/dependencies",
+        "id": "dependencies",
+        "kind": "work",
+        "label": "循环依赖与包初始化",
+        "operation": "module_dependency_closure"
+      },
+      {
+        "folder": "engines/payload",
+        "id": "payload",
+        "kind": "work",
+        "label": "可重复ZIP载荷",
+        "operation": "module_zip"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "Python 支持模块发现与可重复 ZIP 载荷"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "schema"
+      },
+      {
+        "source": "input",
+        "target": "attachments"
+      },
+      {
+        "source": "schema",
+        "target": "references"
+      },
+      {
+        "source": "input",
+        "target": "snapshot"
+      },
+      {
+        "source": "schema",
+        "target": "snapshot"
+      },
+      {
+        "source": "attachments",
+        "target": "snapshot"
+      },
+      {
+        "source": "references",
+        "target": "snapshot"
+      },
+      {
+        "source": "schema",
+        "target": "_core"
+      },
+      {
+        "source": "attachments",
+        "target": "_core"
+      },
+      {
+        "source": "references",
+        "target": "_core"
+      },
+      {
+        "source": "snapshot",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP20",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/schema",
+        "id": "schema",
+        "kind": "work",
+        "label": "模式结构校验",
+        "operation": "feature_schema"
+      },
+      {
+        "folder": "domains/attachments",
+        "id": "attachments",
+        "kind": "work",
+        "label": "嵌套附件编解码",
+        "operation": "feature_attachments"
+      },
+      {
+        "folder": "views/references",
+        "id": "references",
+        "kind": "work",
+        "label": "分阶段引用检查",
+        "operation": "feature_references"
+      },
+      {
+        "folder": "views/snapshot",
+        "id": "snapshot",
+        "kind": "work",
+        "label": "原子快照及导出",
+        "operation": "feature_snapshot"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "特性配置的模式、附件与引用一致性"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "playlist"
+      },
+      {
+        "source": "input",
+        "target": "query"
+      },
+      {
+        "source": "playlist",
+        "target": "export"
+      },
+      {
+        "source": "playlist",
+        "target": "_core"
+      },
+      {
+        "source": "query",
+        "target": "_core"
+      },
+      {
+        "source": "export",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP21",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "playlist",
+        "id": "playlist",
+        "kind": "work",
+        "label": "完整替换及统计重建",
+        "operation": "playlist_replace"
+      },
+      {
+        "folder": "query",
+        "id": "query",
+        "kind": "work",
+        "label": "白名单条件SQL",
+        "operation": "playlist_query"
+      },
+      {
+        "folder": "export",
+        "id": "export",
+        "kind": "work",
+        "label": "半入舍入M3U导出",
+        "operation": "playlist_m3u"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "播放列表重写、条件查询与 M3U 导出"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "reader"
+      },
+      {
+        "source": "reader",
+        "target": "names"
+      },
+      {
+        "source": "input",
+        "target": "languages"
+      },
+      {
+        "source": "reader",
+        "target": "languages"
+      },
+      {
+        "source": "reader",
+        "target": "subjects"
+      },
+      {
+        "source": "names",
+        "target": "catalog"
+      },
+      {
+        "source": "languages",
+        "target": "catalog"
+      },
+      {
+        "source": "subjects",
+        "target": "catalog"
+      },
+      {
+        "source": "reader",
+        "target": "_core"
+      },
+      {
+        "source": "names",
+        "target": "_core"
+      },
+      {
+        "source": "languages",
+        "target": "_core"
+      },
+      {
+        "source": "subjects",
+        "target": "_core"
+      },
+      {
+        "source": "catalog",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP22",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/reader",
+        "id": "reader",
+        "kind": "work",
+        "label": "有限MARC XML读取",
+        "operation": "marc_xml_records"
+      },
+      {
+        "folder": "domains/names",
+        "id": "names",
+        "kind": "work",
+        "label": "作者标题与替代文字",
+        "operation": "marc_names_titles"
+      },
+      {
+        "folder": "domains/languages",
+        "id": "languages",
+        "kind": "work",
+        "label": "定长及分组语言代码",
+        "operation": "marc_languages"
+      },
+      {
+        "folder": "domains/subjects",
+        "id": "subjects",
+        "kind": "work",
+        "label": "主题细分与次数",
+        "operation": "marc_subjects"
+      },
+      {
+        "folder": "views/catalog",
+        "id": "catalog",
+        "kind": "work",
+        "label": "书目语义汇合",
+        "operation": "marc_catalog"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "MARC 作者标题、语言和主题导入"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "chunks"
+      },
+      {
+        "source": "input",
+        "target": "layout"
+      },
+      {
+        "source": "chunks",
+        "target": "layout"
+      },
+      {
+        "source": "layout",
+        "target": "restore"
+      },
+      {
+        "source": "chunks",
+        "target": "_core"
+      },
+      {
+        "source": "layout",
+        "target": "_core"
+      },
+      {
+        "source": "restore",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP23",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "products/chunks",
+        "id": "chunks",
+        "kind": "work",
+        "label": "字节保真分块",
+        "operation": "reshard_chunks"
+      },
+      {
+        "folder": "products/layout",
+        "id": "layout",
+        "kind": "work",
+        "label": "索引分块与目录布局",
+        "operation": "reshard_layout"
+      },
+      {
+        "folder": "products/restore",
+        "id": "restore",
+        "kind": "work",
+        "label": "容量验证及精确恢复",
+        "operation": "reshard_restore"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "受目录容量限制的可逆文件重分片"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "eu"
+      },
+      {
+        "source": "input",
+        "target": "students"
+      },
+      {
+        "source": "input",
+        "target": "countries"
+      },
+      {
+        "source": "input",
+        "target": "query"
+      },
+      {
+        "source": "eu",
+        "target": "query"
+      },
+      {
+        "source": "students",
+        "target": "query"
+      },
+      {
+        "source": "countries",
+        "target": "query"
+      },
+      {
+        "source": "eu",
+        "target": "_core"
+      },
+      {
+        "source": "students",
+        "target": "_core"
+      },
+      {
+        "source": "countries",
+        "target": "_core"
+      },
+      {
+        "source": "query",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP24",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/eu",
+        "id": "eu",
+        "kind": "work",
+        "label": "欧盟任职资格",
+        "operation": "eu_professors"
+      },
+      {
+        "folder": "engines/students",
+        "id": "students",
+        "kind": "work",
+        "label": "逐部门在读人数",
+        "operation": "department_students"
+      },
+      {
+        "folder": "engines/countries",
+        "id": "countries",
+        "kind": "work",
+        "label": "全部任职国家",
+        "operation": "employment_countries"
+      },
+      {
+        "folder": "engines/query",
+        "id": "query",
+        "kind": "work",
+        "label": "存在性条件与国家汇合",
+        "operation": "university_query"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "大学任职、在读人数与国家集合查询"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "classification"
+      },
+      {
+        "source": "input",
+        "target": "amounts"
+      },
+      {
+        "source": "input",
+        "target": "archive"
+      },
+      {
+        "source": "classification",
+        "target": "archive"
+      },
+      {
+        "source": "amounts",
+        "target": "archive"
+      },
+      {
+        "source": "classification",
+        "target": "_core"
+      },
+      {
+        "source": "amounts",
+        "target": "_core"
+      },
+      {
+        "source": "archive",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP25",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "domains/classification",
+        "id": "classification",
+        "kind": "work",
+        "label": "文本票据分类",
+        "operation": "invoice_classification"
+      },
+      {
+        "folder": "domains/amounts",
+        "id": "amounts",
+        "kind": "work",
+        "label": "金额标签与精确小数",
+        "operation": "invoice_amounts"
+      },
+      {
+        "folder": "views/archive",
+        "id": "archive",
+        "kind": "work",
+        "label": "字节归档与CSV汇总",
+        "operation": "invoice_archive_summary"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "文本票据分类、金额提取与归档汇总"
+  },
+  {
+    "edges": [
+      {
+        "source": "input",
+        "target": "dates"
+      },
+      {
+        "source": "input",
+        "target": "calendar"
+      },
+      {
+        "source": "dates",
+        "target": "plan"
+      },
+      {
+        "source": "calendar",
+        "target": "plan"
+      },
+      {
+        "source": "plan",
+        "target": "notifications"
+      },
+      {
+        "source": "calendar",
+        "target": "apply"
+      },
+      {
+        "source": "plan",
+        "target": "apply"
+      },
+      {
+        "source": "notifications",
+        "target": "apply"
+      },
+      {
+        "source": "dates",
+        "target": "_core"
+      },
+      {
+        "source": "calendar",
+        "target": "_core"
+      },
+      {
+        "source": "plan",
+        "target": "_core"
+      },
+      {
+        "source": "notifications",
+        "target": "_core"
+      },
+      {
+        "source": "apply",
+        "target": "_core"
+      },
+      {
+        "source": "_core",
+        "target": "_report"
+      },
+      {
+        "source": "_report",
+        "target": "_verify"
+      }
+    ],
+    "id": "MP26",
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "input",
+        "label": "本地输入与公开契约"
+      },
+      {
+        "folder": "engines/dates",
+        "id": "dates",
+        "kind": "work",
+        "label": "下周五闭区间日期",
+        "operation": "dinner_days"
+      },
+      {
+        "folder": "engines/calendar",
+        "id": "calendar",
+        "kind": "work",
+        "label": "区间及已有晚餐索引",
+        "operation": "dinner_calendar_index"
+      },
+      {
+        "folder": "engines/plan",
+        "id": "plan",
+        "kind": "work",
+        "label": "冲突取消及新增计划",
+        "operation": "dinner_change_plan"
+      },
+      {
+        "folder": "engines/notifications",
+        "id": "notifications",
+        "kind": "work",
+        "label": "受影响对象去重通知",
+        "operation": "dinner_notifications"
+      },
+      {
+        "folder": "engines/apply",
+        "id": "apply",
+        "kind": "work",
+        "label": "最终日历与幂等状态",
+        "operation": "dinner_apply"
+      },
+      {
+        "id": "_core",
+        "kind": "work",
+        "label": "组件结果集成"
+      },
+      {
+        "id": "_report",
+        "kind": "output",
+        "label": "最终报告与摘要"
+      },
+      {
+        "id": "_verify",
+        "kind": "verify",
+        "label": "工作区外正式验证"
+      }
+    ],
+    "semantics": "artifact_file_dependencies_not_agent_schedule",
+    "title": "每日晚餐提醒的去重、冲突取消与通知"
+  }
+]

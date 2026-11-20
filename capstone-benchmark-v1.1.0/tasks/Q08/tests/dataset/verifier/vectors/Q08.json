@@ -1,0 +1,915 @@
+{
+  "task": "Q08",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P1",
+                "sequence": "ACKR"
+              }
+            ],
+            "modifications": [
+              {
+                "name": "shift",
+                "residue": "C",
+                "shift": 2
+              }
+            ],
+            "spectra": [
+              {
+                "id": "S1",
+                "peaks": [
+                  {
+                    "mass": 71,
+                    "intensity": 3
+                  },
+                  {
+                    "mass": 103,
+                    "intensity": 2
+                  },
+                  {
+                    "mass": 174,
+                    "intensity": 4
+                  }
+                ]
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 9,
+          "winners": [
+            {
+              "spectrum": "S1",
+              "candidate": "P1/target:1-3:none",
+              "kind": "target",
+              "score": [
+                2,
+                7,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "KP"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S",
+                "peaks": [
+                  {
+                    "mass": 128,
+                    "intensity": 2
+                  },
+                  {
+                    "mass": 97,
+                    "intensity": 3
+                  },
+                  {
+                    "mass": 225,
+                    "intensity": 4
+                  }
+                ]
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                5,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "AKR"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S",
+                "peaks": [
+                  {
+                    "mass": 71,
+                    "intensity": 2
+                  },
+                  {
+                    "mass": 128,
+                    "intensity": 9
+                  },
+                  {
+                    "mass": 199,
+                    "intensity": 3
+                  }
+                ]
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                11,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "AC"
+              }
+            ],
+            "modifications": [
+              {
+                "name": "m",
+                "residue": "C",
+                "shift": 1
+              }
+            ],
+            "spectra": [
+              {
+                "id": "S",
+                "peaks": [
+                  {
+                    "mass": 71,
+                    "intensity": 1
+                  },
+                  {
+                    "mass": 71,
+                    "intensity": 4
+                  }
+                ]
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:m@2",
+              "kind": "target",
+              "score": [
+                1,
+                4,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "AC"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S",
+                "peaks": [
+                  {
+                    "mass": 72,
+                    "intensity": 3
+                  },
+                  {
+                    "mass": 103,
+                    "intensity": 1
+                  }
+                ]
+              }
+            ],
+            "tolerance": 1
+          }
+        },
+        "expected": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                4,
+                -1
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "AA"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S",
+                "peaks": [
+                  {
+                    "mass": 71,
+                    "intensity": 5
+                  }
+                ]
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                1,
+                5,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "AK"
+              },
+              {
+                "id": "Q",
+                "sequence": "RC"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S2",
+                "peaks": []
+              },
+              {
+                "id": "S1",
+                "peaks": []
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S1",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                0,
+                0,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            },
+            {
+              "spectrum": "S2",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                0,
+                0,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 2
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "RKPE"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S0",
+                "peaks": [
+                  {
+                    "mass": 216,
+                    "intensity": 6
+                  },
+                  {
+                    "mass": 262,
+                    "intensity": 3
+                  },
+                  {
+                    "mass": 253,
+                    "intensity": 3
+                  },
+                  {
+                    "mass": 94,
+                    "intensity": 2
+                  }
+                ]
+              }
+            ],
+            "tolerance": 1
+          }
+        },
+        "expected": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S0",
+              "candidate": "P/target:1-4:none",
+              "kind": "target",
+              "score": [
+                0,
+                0,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "proteins": [
+              {
+                "id": "P",
+                "sequence": "AA"
+              }
+            ],
+            "modifications": [],
+            "spectra": [
+              {
+                "id": "S",
+                "peaks": [
+                  {
+                    "mass": 71,
+                    "intensity": 7
+                  },
+                  {
+                    "mass": 71,
+                    "intensity": 3
+                  }
+                ]
+              }
+            ],
+            "tolerance": 0
+          }
+        },
+        "expected": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                10,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P1",
+            "sequence": "ACKR"
+          }
+        ],
+        "modifications": [
+          {
+            "name": "shift",
+            "residue": "C",
+            "shift": 2
+          }
+        ],
+        "spectra": [
+          {
+            "id": "S1",
+            "peaks": [
+              {
+                "mass": 71,
+                "intensity": 3
+              },
+              {
+                "mass": 103,
+                "intensity": 2
+              },
+              {
+                "mass": 174,
+                "intensity": 4
+              }
+            ]
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 9,
+          "winners": [
+            {
+              "spectrum": "S1",
+              "candidate": "P1/target:1-3:none",
+              "kind": "target",
+              "score": [
+                2,
+                7,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "KP"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S",
+            "peaks": [
+              {
+                "mass": 128,
+                "intensity": 2
+              },
+              {
+                "mass": 97,
+                "intensity": 3
+              },
+              {
+                "mass": 225,
+                "intensity": 4
+              }
+            ]
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                5,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "AKR"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S",
+            "peaks": [
+              {
+                "mass": 71,
+                "intensity": 2
+              },
+              {
+                "mass": 128,
+                "intensity": 9
+              },
+              {
+                "mass": 199,
+                "intensity": 3
+              }
+            ]
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                11,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "AC"
+          }
+        ],
+        "modifications": [
+          {
+            "name": "m",
+            "residue": "C",
+            "shift": 1
+          }
+        ],
+        "spectra": [
+          {
+            "id": "S",
+            "peaks": [
+              {
+                "mass": 71,
+                "intensity": 1
+              },
+              {
+                "mass": 71,
+                "intensity": 4
+              }
+            ]
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:m@2",
+              "kind": "target",
+              "score": [
+                1,
+                4,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "AC"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S",
+            "peaks": [
+              {
+                "mass": 72,
+                "intensity": 3
+              },
+              {
+                "mass": 103,
+                "intensity": 1
+              }
+            ]
+          }
+        ],
+        "tolerance": 1
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                4,
+                -1
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "AA"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S",
+            "peaks": [
+              {
+                "mass": 71,
+                "intensity": 5
+              }
+            ]
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                1,
+                5,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "AK"
+          },
+          {
+            "id": "Q",
+            "sequence": "RC"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S2",
+            "peaks": []
+          },
+          {
+            "id": "S1",
+            "peaks": []
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S1",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                0,
+                0,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            },
+            {
+              "spectrum": "S2",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                0,
+                0,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "RKPE"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S0",
+            "peaks": [
+              {
+                "mass": 216,
+                "intensity": 6
+              },
+              {
+                "mass": 262,
+                "intensity": 3
+              },
+              {
+                "mass": 253,
+                "intensity": 3
+              },
+              {
+                "mass": 94,
+                "intensity": 2
+              }
+            ]
+          }
+        ],
+        "tolerance": 1
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 4,
+          "winners": [
+            {
+              "spectrum": "S0",
+              "candidate": "P/target:1-4:none",
+              "kind": "target",
+              "score": [
+                0,
+                0,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": {
+        "proteins": [
+          {
+            "id": "P",
+            "sequence": "AA"
+          }
+        ],
+        "modifications": [],
+        "spectra": [
+          {
+            "id": "S",
+            "peaks": [
+              {
+                "mass": 71,
+                "intensity": 7
+              },
+              {
+                "mass": 71,
+                "intensity": 3
+              }
+            ]
+          }
+        ],
+        "tolerance": 0
+      },
+      "results": {
+        "analysis": {
+          "candidate_count": 2,
+          "winners": [
+            {
+              "spectrum": "S",
+              "candidate": "P/target:1-2:none",
+              "kind": "target",
+              "score": [
+                2,
+                10,
+                0
+              ],
+              "fdr_numerator": 0,
+              "fdr_denominator": 1
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

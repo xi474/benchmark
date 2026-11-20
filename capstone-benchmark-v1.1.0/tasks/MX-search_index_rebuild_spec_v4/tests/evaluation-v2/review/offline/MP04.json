@@ -1,0 +1,485 @@
+{
+  "all_checks_passed": false,
+  "catalog_sha256": "38a930b6c4bb909957723a5d52b792b1f321936bea3c933eff5b9e978df9dc55",
+  "categories": {
+    "business": {
+      "passed": 0,
+      "total": 20
+    },
+    "domain_validation": {
+      "passed": 1,
+      "total": 1
+    },
+    "integration": {
+      "passed": 2,
+      "total": 6
+    },
+    "interface": {
+      "passed": 3,
+      "total": 4
+    },
+    "robustness": {
+      "passed": 5,
+      "total": 8
+    }
+  },
+  "checks": [
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/json_users/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/json_users/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/json_users/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/json_users/boundary",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/json_users/empty-inputs",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/json_users/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/json_users/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/json_users/invalid-business-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/json_users",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.result.records"
+      },
+      "id": "output/json_users",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/csv_users/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/csv_users/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/csv_users/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/csv_users/boundary",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/csv_users/empty-inputs",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/csv_users/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/csv_users/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/csv_users",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.result.records"
+      },
+      "id": "output/csv_users",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/jsonl_users/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/jsonl_users/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/jsonl_users/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/jsonl_users/boundary",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.value.result.records"
+      },
+      "id": "api/jsonl_users/empty-inputs",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/jsonl_users/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/jsonl_users/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/jsonl_users",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.result.records"
+      },
+      "id": "output/jsonl_users",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/directory/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/directory/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/directory/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/directory/boundary",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/directory/empty-inputs",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/directory/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/directory/nonfinite-ignored-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": false
+      },
+      "id": "io/directory",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "matched",
+      "id": "output/directory",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": {
+        "actual_type": "dict",
+        "expected_type": "list",
+        "path": "$.components.csv_users.records"
+      },
+      "id": "output/core_manifest",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "matched",
+      "id": "output/final_report",
+      "passed": true
+    }
+  ],
+  "checks_sha256": "c1fe0011a2f0c3606ea4965f82be62462357432c5e4164517f4157b6239679cd",
+  "difficulty": "M",
+  "elapsed_seconds": 5.808,
+  "integrity_ok": true,
+  "integrity_violations": [],
+  "max_reward": 2.0,
+  "model_requests": 0,
+  "pass_ratio": 0.28205128205128205,
+  "passed_verifiers": 11,
+  "policy_sha256": "708ffbf17b3e3efcbe213ea4f883ab60f981fd73bb336baa073f97370a50187a",
+  "policy_version": "2.0.0",
+  "reward": 0.564103,
+  "root_execution_succeeded": true,
+  "schema": "benchmark.partial-reward.v2",
+  "status": "scored",
+  "task": "medium/MP04",
+  "total_verifiers": 39
+}

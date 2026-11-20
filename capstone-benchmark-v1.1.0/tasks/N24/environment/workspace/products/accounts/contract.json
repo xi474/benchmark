@@ -1,0 +1,11 @@
+{
+  "name": "accounts",
+  "op": "parse_accounts",
+  "bindings": {
+    "text": "inputs/request.json#/accounts"
+  },
+  "spec": "按34字符定长记录解析账户，字段 ID4/姓名20/余额10。返回 [{id,name:去掉末尾填充空格,balance:整数}]，保持文件顺序。合法 ASCII 输入。",
+  "output": "outputs/accounts.json",
+  "component": "accounts",
+  "task": "N24"
+}

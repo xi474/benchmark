@@ -1,0 +1,10 @@
+{
+  "source": "dag300-verified200-candidate-suite/tasks/dag300new43-mvcc-serializability",
+  "original_notice": "# Source\n\nProject-original synthetic MVCC serializability audit, fixed version `2026-10-25-mvcc-serializability-v0.1.2`. History fixtures were authored in this batch. No external benchmark task, production transaction log or private validation set is included. v0.1.1 reserves INIT/MISSING transaction IDs to disambiguate version sentinels and adds a clean acyclic hidden history.\n\nRevision 0.1.2 repairs only the Harbor reward entry: test success writes 1.0; test failure writes 0.0 and exits nonzero. Business rules and fixtures are unchanged.\n",
+  "source_rules_sha256": "ecadef9e2a841b9e7a7495809f1e1f74f8fdc958962e60c04a4d2d6cf9f162cd",
+  "source_family": "dag300new43-mvcc-serializability",
+  "adaptation": "All contracts, examples, and solvers for this revision are project-authored.",
+  "registered_cases": 10,
+  "reference_module": "rollback.py",
+  "reference_entry": "solve(request, independent=False/True)"
+}

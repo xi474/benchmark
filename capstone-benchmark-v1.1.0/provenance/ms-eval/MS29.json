@@ -1,0 +1,95 @@
+{
+  "upstream": {
+    "id": "howtocook-workshop-materials",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/howtocook-workshop-materials.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "190a76eeb5f78e94e9510b38a2b60e52d3a18b90f97f3e643324c6ea715e558b",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS29",
+    "title": "三道工作坊菜品的合并采购与可执行备料",
+    "source_id": "howtocook-workshop-materials",
+    "retained": "三道不同品类的容易菜、食材合并购物单、按实际可行顺序给出备料步骤。",
+    "delta": "按整包采购，允许共用副产物和有启动物料要求的循环工序，核对最低成本采购与实际可执行见证。",
+    "axes": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "有界资源转换搜索和整包采购的分层最优选择。",
+      "S": "库存必须逐步可用，不能仅检查期末净额。",
+      "C": "同一包原料及一道工序的副产物可能被不同菜共用。",
+      "I": "菜谱、采购报价、库存与备料工序统一口径。"
+    },
+    "counterexample": "两个工序互为对方提供启动物料，即使净额可满足所有终点需求，无启动库存时仍不可执行。",
+    "nodes": {
+      "易菜与品类": [],
+      "报价与整包库存": [],
+      "工序物料流": [],
+      "组合总用料": [
+        "易菜与品类"
+      ],
+      "可执行备料状态": [
+        "报价与整包库存",
+        "工序物料流"
+      ],
+      "最低成本材料单": [
+        "组合总用料",
+        "可执行备料状态"
+      ],
+      "步骤与余料": [
+        "最低成本材料单"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 9,
+    "dag_layers": [
+      [
+        "工序物料流",
+        "报价与整包库存",
+        "易菜与品类"
+      ],
+      [
+        "可执行备料状态",
+        "组合总用料"
+      ],
+      [
+        "最低成本材料单"
+      ],
+      [
+        "步骤与余料"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/howtocook-workshop-materials.task.md",
+    "upstream_waves": 1,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS29",
+    "title": "三道工作坊菜品的合并采购与可执行备料",
+    "grade": "中",
+    "source": "howtocook-workshop-materials",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/howtocook-workshop-materials.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 2,
+    "repeats": 5,
+    "package_sha256": "b8b25ef2864ac2de9f94ccda23564a4b1fb57b6049f709c38ed49f7d065451e1"
+  }
+}

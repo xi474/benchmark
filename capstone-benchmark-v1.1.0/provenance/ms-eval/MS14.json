@@ -1,0 +1,100 @@
+{
+  "upstream": {
+    "id": "fetch-notion-monitoring",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/fetch-notion-monitoring.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "40800ad379d3327f17651ce2ee1cd9bb8520dd1a4607f0264e1c78b24a65ce6d",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS14",
+    "title": "共享故障域的可用性报告与持续恢复方案",
+    "source_id": "fetch-notion-monitoring",
+    "retained": "up/down/degraded 时间日志、按服务提取连续事故、恢复时刻或窗口末截断。",
+    "delta": "加入版本化观测、共享底层依赖与法定数服务规则；要求跨完整值班窗口持续恢复的全部包含极小方案。",
+    "axes": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "阈值网络的极小割修复族与反链吸收。",
+      "S": "生效时间与收录时间分别限定回放，跨时隙修复保持。",
+      "C": "通用底层域会从多个中间服务汇入同一目标。",
+      "I": "监测与服务依赖定义联合计算。"
+    },
+    "counterexample": "网关或两组副本均可恢复站点。单独修网关和每组各修一个域都包含极小；只列最少修复数会漏报。",
+    "nodes": {
+      "日志可见版本": [],
+      "服务定义": [],
+      "时隙域状态": [
+        "日志可见版本"
+      ],
+      "各服务事故": [
+        "时隙域状态",
+        "服务定义"
+      ],
+      "各时隙修复反链": [
+        "服务定义",
+        "时隙域状态"
+      ],
+      "跨窗口持续恢复": [
+        "各时隙修复反链"
+      ],
+      "事故与修复报告": [
+        "各服务事故",
+        "跨窗口持续恢复"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 10,
+    "dag_layers": [
+      [
+        "日志可见版本",
+        "服务定义"
+      ],
+      [
+        "时隙域状态"
+      ],
+      [
+        "各时隙修复反链",
+        "各服务事故"
+      ],
+      [
+        "跨窗口持续恢复"
+      ],
+      [
+        "事故与修复报告"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/fetch-notion-monitoring.task.md",
+    "upstream_waves": 1,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS14",
+    "title": "共享故障域的可用性报告与持续恢复方案",
+    "grade": "难",
+    "source": "fetch-notion-monitoring",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/fetch-notion-monitoring.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 0,
+    "repeats": 5,
+    "package_sha256": "a34c6a7546b74b2febf42b35c99aff08b7f7e3dd6df056fac0f8bcd1c6c156f8"
+  }
+}

@@ -1,0 +1,20 @@
+schema_version = "1.0"
+version = "3.0.0"
+artifacts = ["/app"]
+[task]
+name = "core-v3/core6-MP24"
+version = "3.0.0"
+description = "Business core success and optional robustness scored independently"
+[metadata]
+source_task = "adapted6-core-v3/tasks/reasoning4/university_relation_query"
+evaluation_version = "core-v3"
+[verifier]
+environment_mode = "separate"
+timeout_sec = 1800.0
+[agent]
+timeout_sec = 3600.0
+[environment]
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+build_timeout_sec = 900.0

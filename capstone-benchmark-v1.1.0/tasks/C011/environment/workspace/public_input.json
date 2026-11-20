@@ -1,0 +1,135 @@
+{
+  "run_id": "run-0",
+  "freeze": 1,
+  "changeover": 1,
+  "lines": [
+    {
+      "id": "L1",
+      "qualified": [
+        "A",
+        "B"
+      ],
+      "windows": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "id": "L2",
+      "qualified": [
+        "A"
+      ],
+      "windows": [
+        [
+          2,
+          5
+        ],
+        [
+          6,
+          9
+        ]
+      ]
+    }
+  ],
+  "bom": {
+    "A": {
+      "sub": 1,
+      "M": 1
+    },
+    "sub": {
+      "N": 1
+    },
+    "B": {
+      "M": 2
+    }
+  },
+  "released": [
+    "A",
+    "B"
+  ],
+  "routing": {
+    "A": {
+      "setup": 1,
+      "per_unit": 1
+    },
+    "B": {
+      "setup": 1,
+      "per_unit": 1
+    }
+  },
+  "substitutes": {
+    "M": [
+      "M",
+      "ALT"
+    ],
+    "N": [
+      "N"
+    ]
+  },
+  "lots": [
+    {
+      "id": "m1",
+      "material": "M",
+      "qty": 3,
+      "status": "PASS",
+      "expiry": 5
+    },
+    {
+      "id": "m2",
+      "material": "ALT",
+      "qty": 2,
+      "status": "PASS",
+      "expiry": 9
+    },
+    {
+      "id": "n1",
+      "material": "N",
+      "qty": 2,
+      "status": "PASS",
+      "expiry": 4
+    },
+    {
+      "id": "bad",
+      "material": "M",
+      "qty": 10,
+      "status": "HOLD",
+      "expiry": 20
+    }
+  ],
+  "orders": [
+    {
+      "id": "o1",
+      "sku": "A",
+      "qty": 1,
+      "priority": 1,
+      "due": 5
+    },
+    {
+      "id": "o2",
+      "sku": "B",
+      "qty": 1,
+      "priority": 2,
+      "due": 6
+    },
+    {
+      "id": "o3",
+      "sku": "A",
+      "qty": 1,
+      "priority": 1,
+      "due": 8
+    }
+  ],
+  "wip": [
+    {
+      "id": "w0",
+      "sku": "B",
+      "qty": 1,
+      "line": "L1",
+      "start": 1,
+      "end": 2,
+      "due": 3
+    }
+  ]
+}

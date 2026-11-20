@@ -1,0 +1,329 @@
+{
+  "all_checks_passed": false,
+  "candidate_hashes_after_materialize": {},
+  "candidate_hashes_before": {},
+  "catalog_sha256": "38a930b6c4bb909957723a5d52b792b1f321936bea3c933eff5b9e978df9dc55",
+  "categories": {
+    "business": {
+      "passed": 10,
+      "total": 15
+    },
+    "domain_validation": {
+      "passed": 1,
+      "total": 1
+    },
+    "integration": {
+      "passed": 0,
+      "total": 5
+    },
+    "interface": {
+      "passed": 2,
+      "total": 3
+    },
+    "robustness": {
+      "passed": 4,
+      "total": 6
+    }
+  },
+  "checks": [
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/chunks/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/chunks/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/chunks/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/chunks/boundary",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/chunks/empty-files",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/chunks/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/chunks/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/chunks/invalid-business-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/chunks",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/chunks",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/layout/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/layout/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/layout/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/layout/boundary",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/layout/empty-files",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/layout/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/layout/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/layout",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/layout",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/restore/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/restore/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/restore/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/restore/boundary",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/restore/empty-files",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/restore/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/restore/nonfinite-ignored-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": false
+      },
+      "id": "io/restore",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/restore",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/core_manifest",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/final_report",
+      "passed": false
+    }
+  ],
+  "checks_sha256": "73481a30150af0a90ad35980ad1d20f48cc508337b218dfad45471041872cb3f",
+  "difficulty": "M",
+  "elapsed_seconds": 2.682,
+  "integrity_ok": true,
+  "integrity_violations": [],
+  "max_reward": 2.0,
+  "model_requests": 0,
+  "pass_ratio": 0.5666666666666667,
+  "passed_verifiers": 17,
+  "policy_sha256": "708ffbf17b3e3efcbe213ea4f883ab60f981fd73bb336baa073f97370a50187a",
+  "policy_version": "2.0.0",
+  "reward": 1.133333,
+  "root_execution_succeeded": false,
+  "schema": "benchmark.partial-reward.v2",
+  "scoring_revision": "linux-preserve-candidate-v1",
+  "status": "scored",
+  "task": "medium/MP23",
+  "total_verifiers": 30
+}

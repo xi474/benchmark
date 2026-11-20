@@ -1,0 +1,1329 @@
+{
+  "task": "Q10",
+  "components": {
+    "analysis": [
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P1",
+                "initial_stock": 5,
+                "reported": {
+                  "valid": 2,
+                  "spoiled": 0,
+                  "provisional_accepted": 1
+                }
+              },
+              {
+                "id": "P2",
+                "initial_stock": 2,
+                "reported": {
+                  "valid": 0,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 3,
+                "type": "return",
+                "precinct": "P1",
+                "qty": 2,
+                "outcome": "valid"
+              },
+              {
+                "seq": 1,
+                "type": "issue",
+                "precinct": "P1",
+                "qty": 2
+              },
+              {
+                "seq": 2,
+                "type": "provisional_cast",
+                "precinct": "P1",
+                "qty": 1
+              },
+              {
+                "seq": 4,
+                "type": "adjudicate",
+                "precinct": "P1",
+                "qty": 1,
+                "outcome": "accepted"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P1",
+              "stock": 3,
+              "outstanding": 0,
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 1,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [],
+              "balanced": true
+            },
+            {
+              "id": "P2",
+              "stock": 2,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [],
+              "balanced": true
+            }
+          ],
+          "totals": {
+            "stock": 5,
+            "outstanding": 0,
+            "valid": 2,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 1,
+            "provisional_rejected": 0,
+            "alert_count": 0,
+            "discrepancy_count": 0
+          },
+          "balanced_count": 2
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P",
+                "initial_stock": 1,
+                "reported": {
+                  "valid": 0,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 1,
+                "type": "issue",
+                "qty": 2,
+                "precinct": "P"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": -1,
+              "outstanding": 2,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "stock_deficit:1"
+              ],
+              "discrepancies": [],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": -1,
+            "outstanding": 2,
+            "valid": 0,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 0
+          },
+          "balanced_count": 0
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P",
+                "initial_stock": 3,
+                "reported": {
+                  "valid": 0,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 1,
+                "type": "return",
+                "qty": 2,
+                "precinct": "P",
+                "outcome": "valid"
+              },
+              {
+                "seq": 2,
+                "type": "issue",
+                "qty": 3,
+                "precinct": "P"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": 0,
+              "outstanding": 1,
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "return_excess:1"
+              ],
+              "discrepancies": [
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 0,
+            "outstanding": 1,
+            "valid": 2,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 1
+          },
+          "balanced_count": 0
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P",
+                "initial_stock": 3,
+                "reported": {
+                  "valid": 0,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 1,
+                "type": "adjudicate",
+                "qty": 1,
+                "precinct": "P",
+                "outcome": "accepted"
+              },
+              {
+                "seq": 2,
+                "type": "provisional_cast",
+                "qty": 2,
+                "precinct": "P"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": 3,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 1,
+              "provisional_accepted": 1,
+              "provisional_rejected": 0,
+              "alerts": [
+                "provisional_excess:1"
+              ],
+              "discrepancies": [
+                "provisional_accepted"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 3,
+            "outstanding": 0,
+            "valid": 0,
+            "spoiled": 0,
+            "provisional_pending": 1,
+            "provisional_accepted": 1,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 1
+          },
+          "balanced_count": 0
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P1",
+                "initial_stock": 1,
+                "reported": {
+                  "valid": 0,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              },
+              {
+                "id": "P2",
+                "initial_stock": 0,
+                "reported": {
+                  "valid": 0,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 1,
+                "type": "transfer",
+                "qty": 2,
+                "from": "P1",
+                "to": "P2"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P1",
+              "stock": -1,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "stock_deficit:1"
+              ],
+              "discrepancies": [],
+              "balanced": false
+            },
+            {
+              "id": "P2",
+              "stock": 2,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [],
+              "balanced": true
+            }
+          ],
+          "totals": {
+            "stock": 1,
+            "outstanding": 0,
+            "valid": 0,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 0
+          },
+          "balanced_count": 1
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P",
+                "initial_stock": 2,
+                "reported": {
+                  "valid": 1,
+                  "spoiled": 0,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 1,
+                "type": "issue",
+                "qty": 1,
+                "precinct": "P"
+              },
+              {
+                "seq": 2,
+                "type": "return",
+                "qty": 1,
+                "precinct": "P",
+                "outcome": "spoiled"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": 1,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 1,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [
+                "spoiled",
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 1,
+            "outstanding": 0,
+            "valid": 0,
+            "spoiled": 1,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 0,
+            "discrepancy_count": 2
+          },
+          "balanced_count": 0
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P0",
+                "initial_stock": 4,
+                "reported": {
+                  "valid": 1,
+                  "spoiled": 2,
+                  "provisional_accepted": 0
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 3,
+                "type": "adjudicate",
+                "qty": 4,
+                "precinct": "P0",
+                "outcome": "rejected"
+              },
+              {
+                "seq": 8,
+                "type": "adjudicate",
+                "qty": 2,
+                "precinct": "P0",
+                "outcome": "rejected"
+              },
+              {
+                "seq": 7,
+                "type": "issue",
+                "qty": 2,
+                "precinct": "P0"
+              },
+              {
+                "seq": 9,
+                "type": "return",
+                "qty": 1,
+                "precinct": "P0",
+                "outcome": "spoiled"
+              },
+              {
+                "seq": 5,
+                "type": "issue",
+                "qty": 1,
+                "precinct": "P0"
+              },
+              {
+                "seq": 1,
+                "type": "adjudicate",
+                "qty": 3,
+                "precinct": "P0",
+                "outcome": "accepted"
+              },
+              {
+                "seq": 2,
+                "type": "provisional_cast",
+                "qty": 2,
+                "precinct": "P0"
+              },
+              {
+                "seq": 6,
+                "type": "return",
+                "qty": 4,
+                "precinct": "P0",
+                "outcome": "valid"
+              },
+              {
+                "seq": 4,
+                "type": "adjudicate",
+                "qty": 1,
+                "precinct": "P0",
+                "outcome": "accepted"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P0",
+              "stock": 1,
+              "outstanding": -2,
+              "valid": 4,
+              "spoiled": 1,
+              "provisional_pending": -8,
+              "provisional_accepted": 4,
+              "provisional_rejected": 6,
+              "alerts": [
+                "provisional_excess:1",
+                "provisional_excess:3",
+                "provisional_excess:4",
+                "return_excess:6",
+                "provisional_excess:8",
+                "return_excess:9"
+              ],
+              "discrepancies": [
+                "provisional_accepted",
+                "spoiled",
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 1,
+            "outstanding": -2,
+            "valid": 4,
+            "spoiled": 1,
+            "provisional_pending": -8,
+            "provisional_accepted": 4,
+            "provisional_rejected": 6,
+            "alert_count": 6,
+            "discrepancy_count": 3
+          },
+          "balanced_count": 0
+        }
+      },
+      {
+        "payload": {
+          "request": {
+            "precincts": [
+              {
+                "id": "P1",
+                "initial_stock": 5,
+                "reported": {
+                  "valid": 1,
+                  "spoiled": 0,
+                  "provisional_accepted": 2
+                }
+              },
+              {
+                "id": "P0",
+                "initial_stock": 2,
+                "reported": {
+                  "valid": 2,
+                  "spoiled": 2,
+                  "provisional_accepted": 0
+                }
+              },
+              {
+                "id": "P2",
+                "initial_stock": 5,
+                "reported": {
+                  "valid": 1,
+                  "spoiled": 2,
+                  "provisional_accepted": 2
+                }
+              }
+            ],
+            "events": [
+              {
+                "seq": 1,
+                "type": "provisional_cast",
+                "qty": 3,
+                "precinct": "P0"
+              },
+              {
+                "seq": 2,
+                "type": "return",
+                "qty": 2,
+                "precinct": "P0",
+                "outcome": "valid"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "precincts": [
+            {
+              "id": "P0",
+              "stock": 2,
+              "outstanding": -2,
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_pending": 3,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "return_excess:2"
+              ],
+              "discrepancies": [
+                "spoiled"
+              ],
+              "balanced": false
+            },
+            {
+              "id": "P1",
+              "stock": 5,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [
+                "provisional_accepted",
+                "valid"
+              ],
+              "balanced": false
+            },
+            {
+              "id": "P2",
+              "stock": 5,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [
+                "provisional_accepted",
+                "spoiled",
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 12,
+            "outstanding": -2,
+            "valid": 2,
+            "spoiled": 0,
+            "provisional_pending": 3,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 6
+          },
+          "balanced_count": 0
+        }
+      }
+    ]
+  },
+  "integration": [
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P1",
+            "initial_stock": 5,
+            "reported": {
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_accepted": 1
+            }
+          },
+          {
+            "id": "P2",
+            "initial_stock": 2,
+            "reported": {
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 3,
+            "type": "return",
+            "precinct": "P1",
+            "qty": 2,
+            "outcome": "valid"
+          },
+          {
+            "seq": 1,
+            "type": "issue",
+            "precinct": "P1",
+            "qty": 2
+          },
+          {
+            "seq": 2,
+            "type": "provisional_cast",
+            "precinct": "P1",
+            "qty": 1
+          },
+          {
+            "seq": 4,
+            "type": "adjudicate",
+            "precinct": "P1",
+            "qty": 1,
+            "outcome": "accepted"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P1",
+              "stock": 3,
+              "outstanding": 0,
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 1,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [],
+              "balanced": true
+            },
+            {
+              "id": "P2",
+              "stock": 2,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [],
+              "balanced": true
+            }
+          ],
+          "totals": {
+            "stock": 5,
+            "outstanding": 0,
+            "valid": 2,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 1,
+            "provisional_rejected": 0,
+            "alert_count": 0,
+            "discrepancy_count": 0
+          },
+          "balanced_count": 2
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P",
+            "initial_stock": 1,
+            "reported": {
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "type": "issue",
+            "qty": 2,
+            "precinct": "P"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": -1,
+              "outstanding": 2,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "stock_deficit:1"
+              ],
+              "discrepancies": [],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": -1,
+            "outstanding": 2,
+            "valid": 0,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 0
+          },
+          "balanced_count": 0
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P",
+            "initial_stock": 3,
+            "reported": {
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "type": "return",
+            "qty": 2,
+            "precinct": "P",
+            "outcome": "valid"
+          },
+          {
+            "seq": 2,
+            "type": "issue",
+            "qty": 3,
+            "precinct": "P"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": 0,
+              "outstanding": 1,
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "return_excess:1"
+              ],
+              "discrepancies": [
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 0,
+            "outstanding": 1,
+            "valid": 2,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 1
+          },
+          "balanced_count": 0
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P",
+            "initial_stock": 3,
+            "reported": {
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "type": "adjudicate",
+            "qty": 1,
+            "precinct": "P",
+            "outcome": "accepted"
+          },
+          {
+            "seq": 2,
+            "type": "provisional_cast",
+            "qty": 2,
+            "precinct": "P"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": 3,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 1,
+              "provisional_accepted": 1,
+              "provisional_rejected": 0,
+              "alerts": [
+                "provisional_excess:1"
+              ],
+              "discrepancies": [
+                "provisional_accepted"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 3,
+            "outstanding": 0,
+            "valid": 0,
+            "spoiled": 0,
+            "provisional_pending": 1,
+            "provisional_accepted": 1,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 1
+          },
+          "balanced_count": 0
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P1",
+            "initial_stock": 1,
+            "reported": {
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          },
+          {
+            "id": "P2",
+            "initial_stock": 0,
+            "reported": {
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "type": "transfer",
+            "qty": 2,
+            "from": "P1",
+            "to": "P2"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P1",
+              "stock": -1,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "stock_deficit:1"
+              ],
+              "discrepancies": [],
+              "balanced": false
+            },
+            {
+              "id": "P2",
+              "stock": 2,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [],
+              "balanced": true
+            }
+          ],
+          "totals": {
+            "stock": 1,
+            "outstanding": 0,
+            "valid": 0,
+            "spoiled": 0,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 0
+          },
+          "balanced_count": 1
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P",
+            "initial_stock": 2,
+            "reported": {
+              "valid": 1,
+              "spoiled": 0,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "type": "issue",
+            "qty": 1,
+            "precinct": "P"
+          },
+          {
+            "seq": 2,
+            "type": "return",
+            "qty": 1,
+            "precinct": "P",
+            "outcome": "spoiled"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P",
+              "stock": 1,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 1,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [
+                "spoiled",
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 1,
+            "outstanding": 0,
+            "valid": 0,
+            "spoiled": 1,
+            "provisional_pending": 0,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 0,
+            "discrepancy_count": 2
+          },
+          "balanced_count": 0
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P0",
+            "initial_stock": 4,
+            "reported": {
+              "valid": 1,
+              "spoiled": 2,
+              "provisional_accepted": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 3,
+            "type": "adjudicate",
+            "qty": 4,
+            "precinct": "P0",
+            "outcome": "rejected"
+          },
+          {
+            "seq": 8,
+            "type": "adjudicate",
+            "qty": 2,
+            "precinct": "P0",
+            "outcome": "rejected"
+          },
+          {
+            "seq": 7,
+            "type": "issue",
+            "qty": 2,
+            "precinct": "P0"
+          },
+          {
+            "seq": 9,
+            "type": "return",
+            "qty": 1,
+            "precinct": "P0",
+            "outcome": "spoiled"
+          },
+          {
+            "seq": 5,
+            "type": "issue",
+            "qty": 1,
+            "precinct": "P0"
+          },
+          {
+            "seq": 1,
+            "type": "adjudicate",
+            "qty": 3,
+            "precinct": "P0",
+            "outcome": "accepted"
+          },
+          {
+            "seq": 2,
+            "type": "provisional_cast",
+            "qty": 2,
+            "precinct": "P0"
+          },
+          {
+            "seq": 6,
+            "type": "return",
+            "qty": 4,
+            "precinct": "P0",
+            "outcome": "valid"
+          },
+          {
+            "seq": 4,
+            "type": "adjudicate",
+            "qty": 1,
+            "precinct": "P0",
+            "outcome": "accepted"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P0",
+              "stock": 1,
+              "outstanding": -2,
+              "valid": 4,
+              "spoiled": 1,
+              "provisional_pending": -8,
+              "provisional_accepted": 4,
+              "provisional_rejected": 6,
+              "alerts": [
+                "provisional_excess:1",
+                "provisional_excess:3",
+                "provisional_excess:4",
+                "return_excess:6",
+                "provisional_excess:8",
+                "return_excess:9"
+              ],
+              "discrepancies": [
+                "provisional_accepted",
+                "spoiled",
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 1,
+            "outstanding": -2,
+            "valid": 4,
+            "spoiled": 1,
+            "provisional_pending": -8,
+            "provisional_accepted": 4,
+            "provisional_rejected": 6,
+            "alert_count": 6,
+            "discrepancy_count": 3
+          },
+          "balanced_count": 0
+        }
+      }
+    },
+    {
+      "input": {
+        "precincts": [
+          {
+            "id": "P1",
+            "initial_stock": 5,
+            "reported": {
+              "valid": 1,
+              "spoiled": 0,
+              "provisional_accepted": 2
+            }
+          },
+          {
+            "id": "P0",
+            "initial_stock": 2,
+            "reported": {
+              "valid": 2,
+              "spoiled": 2,
+              "provisional_accepted": 0
+            }
+          },
+          {
+            "id": "P2",
+            "initial_stock": 5,
+            "reported": {
+              "valid": 1,
+              "spoiled": 2,
+              "provisional_accepted": 2
+            }
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "type": "provisional_cast",
+            "qty": 3,
+            "precinct": "P0"
+          },
+          {
+            "seq": 2,
+            "type": "return",
+            "qty": 2,
+            "precinct": "P0",
+            "outcome": "valid"
+          }
+        ]
+      },
+      "results": {
+        "analysis": {
+          "precincts": [
+            {
+              "id": "P0",
+              "stock": 2,
+              "outstanding": -2,
+              "valid": 2,
+              "spoiled": 0,
+              "provisional_pending": 3,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [
+                "return_excess:2"
+              ],
+              "discrepancies": [
+                "spoiled"
+              ],
+              "balanced": false
+            },
+            {
+              "id": "P1",
+              "stock": 5,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [
+                "provisional_accepted",
+                "valid"
+              ],
+              "balanced": false
+            },
+            {
+              "id": "P2",
+              "stock": 5,
+              "outstanding": 0,
+              "valid": 0,
+              "spoiled": 0,
+              "provisional_pending": 0,
+              "provisional_accepted": 0,
+              "provisional_rejected": 0,
+              "alerts": [],
+              "discrepancies": [
+                "provisional_accepted",
+                "spoiled",
+                "valid"
+              ],
+              "balanced": false
+            }
+          ],
+          "totals": {
+            "stock": 12,
+            "outstanding": -2,
+            "valid": 2,
+            "spoiled": 0,
+            "provisional_pending": 3,
+            "provisional_accepted": 0,
+            "provisional_rejected": 0,
+            "alert_count": 1,
+            "discrepancy_count": 6
+          },
+          "balanced_count": 0
+        }
+      }
+    }
+  ]
+}

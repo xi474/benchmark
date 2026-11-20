@@ -1,0 +1,347 @@
+{
+  "all_checks_passed": false,
+  "candidate_hashes_after_materialize": {},
+  "candidate_hashes_before": {},
+  "catalog_sha256": "38a930b6c4bb909957723a5d52b792b1f321936bea3c933eff5b9e978df9dc55",
+  "categories": {
+    "business": {
+      "passed": 10,
+      "total": 15
+    },
+    "domain_validation": {
+      "passed": 1,
+      "total": 1
+    },
+    "integration": {
+      "passed": 0,
+      "total": 5
+    },
+    "interface": {
+      "passed": 2,
+      "total": 3
+    },
+    "robustness": {
+      "passed": 3,
+      "total": 6
+    }
+  },
+  "checks": [
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/classification/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/classification/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/classification/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/classification/boundary",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/classification/empty-collection",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/classification/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/classification/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/classification",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/classification",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/amounts/heldout-101",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/amounts/heldout-202",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/amounts/heldout-303",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/amounts/boundary",
+      "passed": true
+    },
+    {
+      "category": "business",
+      "detail": "matched",
+      "id": "api/amounts/empty-collection",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/amounts/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "value"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/amounts/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "domain_validation",
+      "detail": "matched",
+      "id": "api/amounts/invalid-business-field",
+      "passed": true
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": true
+      },
+      "id": "io/amounts",
+      "passed": true
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/amounts",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/archive/heldout-101",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/archive/heldout-202",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/archive/heldout-303",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/archive/boundary",
+      "passed": false
+    },
+    {
+      "category": "business",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind",
+          "value"
+        ],
+        "path": "$"
+      },
+      "id": "api/archive/empty-collection",
+      "passed": false
+    },
+    {
+      "category": "robustness",
+      "detail": "matched",
+      "id": "api/archive/invalid-top-level",
+      "passed": true
+    },
+    {
+      "category": "robustness",
+      "detail": {
+        "actual_keys": [
+          "kind",
+          "type",
+          "message"
+        ],
+        "expected_keys": [
+          "kind"
+        ],
+        "path": "$"
+      },
+      "id": "api/archive/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "category": "interface",
+      "detail": {
+        "loader_cases": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "render": false
+      },
+      "id": "io/archive",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/archive",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/core_manifest",
+      "passed": false
+    },
+    {
+      "category": "integration",
+      "detail": "missing/unsafe output",
+      "id": "output/final_report",
+      "passed": false
+    }
+  ],
+  "checks_sha256": "b2e50a73c55a0779ab9a90fee1a6971f0e02f5edd589a2376f8387ceb149f442",
+  "difficulty": "M",
+  "elapsed_seconds": 2.41,
+  "integrity_ok": true,
+  "integrity_violations": [],
+  "max_reward": 2.0,
+  "model_requests": 0,
+  "pass_ratio": 0.5333333333333333,
+  "passed_verifiers": 16,
+  "policy_sha256": "708ffbf17b3e3efcbe213ea4f883ab60f981fd73bb336baa073f97370a50187a",
+  "policy_version": "2.0.0",
+  "reward": 1.066667,
+  "root_execution_succeeded": false,
+  "schema": "benchmark.partial-reward.v2",
+  "scoring_revision": "linux-preserve-candidate-v1",
+  "status": "scored",
+  "task": "medium/MP25",
+  "total_verifiers": 30
+}

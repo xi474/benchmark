@@ -1,0 +1,97 @@
+{
+  "upstream": {
+    "id": "terminal-canvas-wc-excel-ppt-email",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-canvas-wc-excel-ppt-email.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "f8ec4df9460d79948989e37753a50197ba1ad66d084a711dab0d380b3cfb4119",
+  "upstream_delegation_waves": 2,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS11",
+    "title": "匿名书店账户与学生成绩的关联区间",
+    "source_id": "terminal-canvas-wc-excel-ppt-email",
+    "retained": "两门课全部已评分提交、学生与书店账户登记、所有订单状态、电子与相机品类、消费与成绩的 Pearson 方向。",
+    "delta": "将唯一登记映射扩展为按来源可撤回的多候选登记，求最优映射族上的相关方向范围和必要配对。",
+    "axes": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "全局瓶颈限制下的加权完美匹配与最优解族统计。",
+      "S": "撤回来源可能拆开整个连通块。",
+      "C": "跨块共用最低配对分，局部最大瓶颈会错过全局总分最优。",
+      "I": "课程、订单与登记在稳定键上连接。"
+    },
+    "counterexample": "一个二乘二块的两种映射置信度分别为 [6,6] 与 [4,11]。另一块瓶颈为 2 时应选总分 15 的映射。",
+    "nodes": {
+      "课程成绩": [],
+      "逐账户净品类消费": [],
+      "逐来源登记去重": [],
+      "撤回后证据块": [
+        "逐来源登记去重"
+      ],
+      "全校可行瓶颈": [
+        "撤回后证据块"
+      ],
+      "各块最优映射族": [
+        "全校可行瓶颈",
+        "课程成绩",
+        "逐账户净品类消费"
+      ],
+      "相关区间及必要配对": [
+        "各块最优映射族"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 10,
+    "dag_layers": [
+      [
+        "课程成绩",
+        "逐来源登记去重",
+        "逐账户净品类消费"
+      ],
+      [
+        "撤回后证据块"
+      ],
+      [
+        "全校可行瓶颈"
+      ],
+      [
+        "各块最优映射族"
+      ],
+      [
+        "相关区间及必要配对"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-canvas-wc-excel-ppt-email.task.md",
+    "upstream_waves": 2,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS11",
+    "title": "匿名书店账户与学生成绩的关联区间",
+    "grade": "难",
+    "source": "terminal-canvas-wc-excel-ppt-email",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-canvas-wc-excel-ppt-email.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 1,
+    "repeats": 5,
+    "package_sha256": "6deb4a88c0bdb7e6a90be7c648d922b95db41c6d5ac042af4d1a4cf615e4f41a"
+  }
+}

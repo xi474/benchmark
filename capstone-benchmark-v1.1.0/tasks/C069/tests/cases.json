@@ -1,0 +1,954 @@
+[
+  {
+    "id": "C069-01",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 10,
+          "prev": "s0"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjExMCwiZXh0ZW5zaW9ucyI6eyJkYl91c2VycyI6WyJkYjEiXSwibG9naW5zIjpbImFsaWNlIl19LCJsb2dpbl90aW1lIjowLCJyb2xlcyI6WyJiYXNlIl19",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOltdLCJleHBpcmVzIjoxMTAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1"
+      ]
+    }
+  },
+  {
+    "id": "C069-02",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 10,
+          "prev": "s0",
+          "access_request": "r1"
+        },
+        {
+          "op": "renew",
+          "id": "s2",
+          "time": 20,
+          "prev": "s1",
+          "access_request": "r2"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjcwLCJleHRlbnNpb25zIjp7ImRiX3VzZXJzIjpbImRiMSJdLCJsb2dpbnMiOlsiYWxpY2UiXX0sImxvZ2luX3RpbWUiOjAsInJvbGVzIjpbImJhc2UiLCJyZWFkZXIiXX0",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicjEiXSwiZXhwaXJlcyI6NzAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "s2",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjYwLCJleHRlbnNpb25zIjp7ImRiX3VzZXJzIjpbImRiMSJdLCJsb2dpbnMiOlsiYWxpY2UiXX0sImxvZ2luX3RpbWUiOjAsInJvbGVzIjpbImJhc2UiLCJyZWFkZXIiLCJ3cml0ZXIiXX0",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicjEiLCJyMiJdLCJleHBpcmVzIjo2MCwibG9naW5fdGltZSI6MCwidXNlciI6ImFsaWNlIn0"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    }
+  },
+  {
+    "id": "C069-03",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 10,
+          "prev": "s0",
+          "access_request": "q1"
+        },
+        {
+          "op": "renew",
+          "id": "bad",
+          "time": 20,
+          "prev": "s1",
+          "access_request": "q1"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6WyJkYjpvbmUiXSwiZXhwaXJlcyI6NTAsImV4dGVuc2lvbnMiOnsiZGJfdXNlcnMiOlsiZGIxIl0sImxvZ2lucyI6WyJhbGljZSJdfSwibG9naW5fdGltZSI6MCwicm9sZXMiOlsiYmFzZSJdfQ",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicTEiXSwiZXhwaXJlcyI6NTAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "bad",
+          "status": "resource_already_active"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1"
+      ]
+    }
+  },
+  {
+    "id": "C069-04",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 10,
+          "prev": "s0",
+          "access_request": "r1"
+        },
+        {
+          "op": "renew",
+          "id": "s2",
+          "time": 20,
+          "prev": "s1",
+          "access_request": "q1"
+        },
+        {
+          "op": "renew",
+          "id": "s3",
+          "time": 30,
+          "prev": "s2",
+          "switchback": true
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjcwLCJleHRlbnNpb25zIjp7ImRiX3VzZXJzIjpbImRiMSJdLCJsb2dpbnMiOlsiYWxpY2UiXX0sImxvZ2luX3RpbWUiOjAsInJvbGVzIjpbImJhc2UiLCJyZWFkZXIiXX0",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicjEiXSwiZXhwaXJlcyI6NzAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "s2",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6WyJkYjpvbmUiXSwiZXhwaXJlcyI6NTAsImV4dGVuc2lvbnMiOnsiZGJfdXNlcnMiOlsiZGIxIl0sImxvZ2lucyI6WyJhbGljZSJdfSwibG9naW5fdGltZSI6MCwicm9sZXMiOlsiYmFzZSIsInJlYWRlciJdfQ",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicTEiLCJyMSJdLCJleHBpcmVzIjo1MCwibG9naW5fdGltZSI6MCwidXNlciI6ImFsaWNlIn0"
+        },
+        {
+          "id": "s3",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjEzMCwiZXh0ZW5zaW9ucyI6eyJkYl91c2VycyI6WyJkYjEiXSwibG9naW5zIjpbImFsaWNlIl19LCJsb2dpbl90aW1lIjowLCJyb2xlcyI6WyJiYXNlIl19",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOltdLCJleHBpcmVzIjoxMzAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ]
+    }
+  },
+  {
+    "id": "C069-05",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "update_user",
+          "time": 10,
+          "traits": {
+            "logins": [
+              "new"
+            ],
+            "db_users": [
+              "db2"
+            ]
+          }
+        },
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 20,
+          "prev": "s0"
+        },
+        {
+          "op": "renew",
+          "id": "s2",
+          "time": 30,
+          "prev": "s1",
+          "reload_user": true
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjEyMCwiZXh0ZW5zaW9ucyI6eyJkYl91c2VycyI6WyJkYjEiXSwibG9naW5zIjpbImFsaWNlIl19LCJsb2dpbl90aW1lIjowLCJyb2xlcyI6WyJiYXNlIl19",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOltdLCJleHBpcmVzIjoxMjAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "s2",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjEzMCwiZXh0ZW5zaW9ucyI6eyJkYl91c2VycyI6WyJkYjIiXSwibG9naW5zIjpbIm5ldyJdfSwibG9naW5fdGltZSI6MCwicm9sZXMiOlsiYmFzZSJdfQ",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOltdLCJleHBpcmVzIjoxMzAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    }
+  },
+  {
+    "id": "C069-06",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 10,
+          "prev": "s0",
+          "access_request": "r1"
+        },
+        {
+          "op": "update_user",
+          "time": 15,
+          "roles": [
+            "newbase"
+          ],
+          "traits": {
+            "logins": [
+              "latest"
+            ],
+            "db_users": []
+          }
+        },
+        {
+          "op": "renew",
+          "id": "s2",
+          "time": 20,
+          "prev": "s1",
+          "reload_user": true
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjcwLCJleHRlbnNpb25zIjp7ImRiX3VzZXJzIjpbImRiMSJdLCJsb2dpbnMiOlsiYWxpY2UiXX0sImxvZ2luX3RpbWUiOjAsInJvbGVzIjpbImJhc2UiLCJyZWFkZXIiXX0",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicjEiXSwiZXhwaXJlcyI6NzAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "s2",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjcwLCJleHRlbnNpb25zIjp7ImRiX3VzZXJzIjpbXSwibG9naW5zIjpbImxhdGVzdCJdfSwibG9naW5fdGltZSI6MCwicm9sZXMiOlsibmV3YmFzZSIsInJlYWRlciJdfQ",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicjEiXSwiZXhwaXJlcyI6NzAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    }
+  },
+  {
+    "id": "C069-07",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "bad",
+          "time": 100,
+          "prev": "s0"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "bad",
+          "status": "expired"
+        }
+      ],
+      "session_ids": [
+        "s0"
+      ]
+    }
+  },
+  {
+    "id": "C069-08",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "bad",
+          "time": 20,
+          "prev": "s0",
+          "access_request": "old"
+        },
+        {
+          "op": "renew",
+          "id": "bad2",
+          "time": 21,
+          "prev": "s0",
+          "access_request": "no"
+        },
+        {
+          "op": "renew",
+          "id": "ok",
+          "time": 22,
+          "prev": "s0"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "bad",
+          "status": "request_unavailable"
+        },
+        {
+          "id": "bad2",
+          "status": "request_unavailable"
+        },
+        {
+          "id": "ok",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjEyMiwiZXh0ZW5zaW9ucyI6eyJkYl91c2VycyI6WyJkYjEiXSwibG9naW5zIjpbImFsaWNlIl19LCJsb2dpbl90aW1lIjowLCJyb2xlcyI6WyJiYXNlIl19",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOltdLCJleHBpcmVzIjoxMjIsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "ok"
+      ]
+    }
+  },
+  {
+    "id": "C069-09",
+    "input": {
+      "user": {
+        "name": "alice",
+        "roles": [
+          "base"
+        ],
+        "traits": {
+          "logins": [
+            "alice"
+          ],
+          "db_users": [
+            "db1"
+          ]
+        }
+      },
+      "start_time": 0,
+      "session_ttl": 100,
+      "access_requests": {
+        "r1": {
+          "approved": true,
+          "expiry": 70,
+          "roles": [
+            "reader"
+          ]
+        },
+        "r2": {
+          "approved": true,
+          "expiry": 60,
+          "roles": [
+            "writer"
+          ]
+        },
+        "q1": {
+          "approved": true,
+          "expiry": 50,
+          "resources": [
+            "db:one"
+          ]
+        },
+        "q2": {
+          "approved": true,
+          "expiry": 40,
+          "resources": [
+            "db:two"
+          ]
+        },
+        "no": {
+          "approved": false,
+          "expiry": 90,
+          "roles": [
+            "admin"
+          ]
+        },
+        "old": {
+          "approved": true,
+          "expiry": 15,
+          "roles": [
+            "reader"
+          ]
+        }
+      },
+      "events": [
+        {
+          "op": "renew",
+          "id": "s1",
+          "time": 10,
+          "prev": "s0",
+          "access_request": "q1"
+        },
+        {
+          "op": "renew",
+          "id": "bad",
+          "time": 20,
+          "prev": "s1",
+          "access_request": "q2"
+        },
+        {
+          "op": "renew",
+          "id": "s2",
+          "time": 21,
+          "prev": "s1",
+          "switchback": true
+        },
+        {
+          "op": "renew",
+          "id": "s3",
+          "time": 22,
+          "prev": "s2",
+          "access_request": "q2"
+        }
+      ]
+    },
+    "expected": {
+      "replies": [
+        {
+          "id": "s1",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6WyJkYjpvbmUiXSwiZXhwaXJlcyI6NTAsImV4dGVuc2lvbnMiOnsiZGJfdXNlcnMiOlsiZGIxIl0sImxvZ2lucyI6WyJhbGljZSJdfSwibG9naW5fdGltZSI6MCwicm9sZXMiOlsiYmFzZSJdfQ",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicTEiXSwiZXhwaXJlcyI6NTAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "bad",
+          "status": "resource_already_active"
+        },
+        {
+          "id": "s2",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6W10sImV4cGlyZXMiOjEyMSwiZXh0ZW5zaW9ucyI6eyJkYl91c2VycyI6WyJkYjEiXSwibG9naW5zIjpbImFsaWNlIl19LCJsb2dpbl90aW1lIjowLCJyb2xlcyI6WyJiYXNlIl19",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOltdLCJleHBpcmVzIjoxMjEsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        },
+        {
+          "id": "s3",
+          "status": "ok",
+          "ssh_certificate": "SSH-MODEL1.eyJhbGxvd2VkX3Jlc291cmNlcyI6WyJkYjp0d28iXSwiZXhwaXJlcyI6NDAsImV4dGVuc2lvbnMiOnsiZGJfdXNlcnMiOlsiZGIxIl0sImxvZ2lucyI6WyJhbGljZSJdfSwibG9naW5fdGltZSI6MCwicm9sZXMiOlsiYmFzZSJdfQ",
+          "tls_certificate": "TLS-MODEL1.eyJhY3RpdmVfcmVxdWVzdHMiOlsicTIiXSwiZXhwaXJlcyI6NDAsImxvZ2luX3RpbWUiOjAsInVzZXIiOiJhbGljZSJ9"
+        }
+      ],
+      "session_ids": [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ]
+    }
+  }
+]

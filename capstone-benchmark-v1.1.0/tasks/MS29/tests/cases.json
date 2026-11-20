@@ -1,0 +1,1456 @@
+[
+  {
+    "id": "shared-coproduct",
+    "input": {
+      "dishes": [
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ]
+      ],
+      "stock": {},
+      "offers": [
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ],
+        [
+          "coop",
+          {
+            "root": 2
+          },
+          3,
+          1
+        ],
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ]
+      ],
+      "prep": [
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ],
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ],
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {}
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            "pare",
+            "pare"
+          ],
+          "left": {
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "unseeded-cycle",
+    "input": {
+      "dishes": [
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ]
+      ],
+      "stock": {},
+      "offers": [
+        [
+          "flour",
+          {
+            "flour": 2
+          },
+          2,
+          2
+        ]
+      ],
+      "prep": [
+        [
+          "B",
+          {
+            "meal": 1
+          },
+          {
+            "peel": 1,
+            "seed": 1
+          },
+          2
+        ],
+        [
+          "A",
+          {
+            "seed": 1
+          },
+          {
+            "mash": 1,
+            "meal": 1
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": null
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": null
+      }
+    ]
+  },
+  {
+    "id": "seeded-cycle",
+    "input": {
+      "dishes": [
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ]
+      ],
+      "stock": {
+        "seed": 1
+      },
+      "offers": [
+        [
+          "flour",
+          {
+            "flour": 2
+          },
+          2,
+          2
+        ]
+      ],
+      "prep": [
+        [
+          "A",
+          {
+            "seed": 1
+          },
+          {
+            "mash": 1,
+            "meal": 1
+          },
+          2
+        ],
+        [
+          "B",
+          {
+            "meal": 1
+          },
+          {
+            "peel": 1,
+            "seed": 1
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 2,
+          "buy": [
+            1
+          ],
+          "steps": [
+            "A",
+            "B"
+          ],
+          "left": {
+            "seed": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 2,
+          "buy": [
+            1
+          ],
+          "steps": [
+            "A",
+            "B",
+            "A"
+          ],
+          "left": {
+            "flour": 1,
+            "meal": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "same-cost-baskets",
+    "input": {
+      "dishes": [
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ],
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ]
+      ],
+      "stock": {},
+      "offers": [
+        [
+          "coop",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ],
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ],
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ]
+      ],
+      "prep": [
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ],
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ],
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {}
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 6,
+          "buy": [
+            0,
+            2,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare",
+            "pare"
+          ],
+          "left": {
+            "grain": 1,
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "unused-stock",
+    "input": {
+      "dishes": [
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ]
+      ],
+      "stock": {
+        "lime": 2
+      },
+      "offers": [
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ],
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ],
+        [
+          "coop",
+          {
+            "root": 2
+          },
+          3,
+          1
+        ]
+      ],
+      "prep": [
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ],
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ],
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {
+            "lime": 2
+          }
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            "pare",
+            "pare"
+          ],
+          "left": {
+            "lime": 2,
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "overlapping-ingredients",
+    "input": {
+      "dishes": [
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1,
+            "mash": 2
+          }
+        ]
+      ],
+      "stock": {},
+      "offers": [
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ],
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ],
+        [
+          "coop",
+          {
+            "root": 2
+          },
+          3,
+          1
+        ]
+      ],
+      "prep": [
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ],
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ],
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            "pare",
+            "slice"
+          ],
+          "left": {}
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 6,
+          "buy": [
+            1,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare",
+            "pare",
+            "slice"
+          ],
+          "left": {
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "category-alternative",
+    "input": {
+      "dishes": [
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "bread",
+          "snack",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          1,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ]
+      ],
+      "stock": {},
+      "offers": [
+        [
+          "coop",
+          {
+            "root": 2
+          },
+          3,
+          1
+        ],
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ],
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ]
+      ],
+      "prep": [
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ],
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ],
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 3
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chef",
+          "pie"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            0,
+            1,
+            1
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {
+            "peel": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "bread",
+          "chef",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            0,
+            1,
+            1
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "bread",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            0,
+            1,
+            1
+          ],
+          "steps": [
+            "mill",
+            "slice"
+          ],
+          "left": {
+            "flour": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "chef",
+          "chips",
+          "pie"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {}
+        }
+      },
+      {
+        "dishes": [
+          "chef",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare"
+          ],
+          "left": {
+            "flour": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "chef",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "slice"
+          ],
+          "left": {}
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            "pare",
+            "pare"
+          ],
+          "left": {
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "different-order",
+    "input": {
+      "dishes": [
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ],
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ]
+      ],
+      "stock": {
+        "root": 1
+      },
+      "offers": [
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ],
+        [
+          "coop",
+          {
+            "root": 2
+          },
+          3,
+          1
+        ],
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          2
+        ]
+      ],
+      "prep": [
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ],
+        [
+          "after",
+          {
+            "mash": 1
+          },
+          {
+            "flour": 2,
+            "peel": 2
+          },
+          1
+        ],
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ],
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 0,
+          "buy": [
+            0,
+            0,
+            0
+          ],
+          "steps": [
+            "slice",
+            "after"
+          ],
+          "left": {
+            "peel": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 3,
+          "buy": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            "mill",
+            "pare",
+            "pare"
+          ],
+          "left": {
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pack-cap",
+    "input": {
+      "dishes": [
+        [
+          "chef",
+          "dessert",
+          5,
+          {
+            "flour": 1
+          }
+        ],
+        [
+          "bread",
+          "main",
+          2,
+          {
+            "flour": 2
+          }
+        ],
+        [
+          "pie",
+          "main",
+          2,
+          {
+            "flour": 1,
+            "mash": 1
+          }
+        ],
+        [
+          "chips",
+          "snack",
+          1,
+          {
+            "peel": 1
+          }
+        ],
+        [
+          "soup",
+          "soup",
+          2,
+          {
+            "mash": 1
+          }
+        ]
+      ],
+      "stock": {},
+      "offers": [
+        [
+          "coop",
+          {
+            "root": 2
+          },
+          3,
+          1
+        ],
+        [
+          "farm",
+          {
+            "root": 1,
+            "grain": 1
+          },
+          3,
+          0
+        ],
+        [
+          "market",
+          {
+            "flour": 2
+          },
+          2,
+          1
+        ]
+      ],
+      "prep": [
+        [
+          "pare",
+          {
+            "root": 1
+          },
+          {
+            "peel": 1,
+            "mash": 1
+          },
+          2
+        ],
+        [
+          "mill",
+          {
+            "grain": 1
+          },
+          {
+            "flour": 2
+          },
+          2
+        ],
+        [
+          "slice",
+          {
+            "root": 1
+          },
+          {
+            "mash": 2
+          },
+          2
+        ]
+      ],
+      "max_difficulty": 2
+    },
+    "expected": [
+      {
+        "dishes": [
+          "bread",
+          "chips",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            "pare"
+          ],
+          "left": {
+            "root": 1
+          }
+        }
+      },
+      {
+        "dishes": [
+          "chips",
+          "pie",
+          "soup"
+        ],
+        "plan": {
+          "cost": 5,
+          "buy": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            "pare",
+            "pare"
+          ],
+          "left": {
+            "flour": 1,
+            "peel": 1
+          }
+        }
+      }
+    ]
+  }
+]

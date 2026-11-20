@@ -1,0 +1,97 @@
+{
+  "upstream": {
+    "id": "canvas-assignment-deadline-word-gcal",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/canvas-assignment-deadline-word-gcal.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "f6c628395ca6b9d8331747ac47e5f8c6427f8d37c246dd6cd534ad2a90bffd51",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS28",
+    "title": "截止日辅导窗口的共同容量瓶颈",
+    "source_id": "canvas-assignment-deadline-word-gcal",
+    "retained": "逐作业截止日、无截止日处理、提前七天的日历窗口、作业点数及统一教务报告。",
+    "delta": "把多个提醒窗口投射到共享辅导日历，求所需容量的精确倍数和达到瓶颈的全部集合之间的必要关系。",
+    "axes": [
+      2,
+      1,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "Hall 型容量瓶颈比、紧集族计数与局部块合成。",
+      "S": "时隙撤销会分割原有的需求连通块。",
+      "C": "共享时隙只能计一次，所有相同最大峰值的独立块可组合。",
+      "I": "作业积分、开放日历与截止日对齐。"
+    },
+    "counterexample": "两门独立课各占用等比的独立辅导时隙时，两个单门集合及它们的并集共三个紧集。",
+    "nodes": {
+      "作业与截止日": [],
+      "辅导日历": [],
+      "停开情景": [],
+      "有效窗口": [
+        "作业与截止日",
+        "辅导日历",
+        "停开情景"
+      ],
+      "局部需求与容量比": [
+        "有效窗口"
+      ],
+      "全校负载峰值": [
+        "局部需求与容量比"
+      ],
+      "紧集计数与蕴含": [
+        "全校负载峰值"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 10,
+    "dag_layers": [
+      [
+        "作业与截止日",
+        "停开情景",
+        "辅导日历"
+      ],
+      [
+        "有效窗口"
+      ],
+      [
+        "局部需求与容量比"
+      ],
+      [
+        "全校负载峰值"
+      ],
+      [
+        "紧集计数与蕴含"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/canvas-assignment-deadline-word-gcal.task.md",
+    "upstream_waves": 1,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS28",
+    "title": "截止日辅导窗口的共同容量瓶颈",
+    "grade": "中",
+    "source": "canvas-assignment-deadline-word-gcal",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/canvas-assignment-deadline-word-gcal.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 3,
+    "repeats": 5,
+    "package_sha256": "0b0f8d5c906d026b3dd8f1ca13a93e8a561de9ff69995c4b22016bdfbc09f074"
+  }
+}

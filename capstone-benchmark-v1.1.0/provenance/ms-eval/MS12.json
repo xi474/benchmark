@@ -1,0 +1,97 @@
+{
+  "upstream": {
+    "id": "terminal-howtocook-gform-excel-notion-email",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-howtocook-gform-excel-notion-email.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "1eb3184222c4dd5b368a953912e235d69e91af9d294734a96cbcc0546096224d",
+  "upstream_delegation_waves": 3,
+  "construction_date": "2026-11-20",
+  "construction_batch": "MS-Eval 可委派题续选",
+  "frozen_design_card": {
+    "id": "MS12",
+    "title": "午餐供应波动下的全周菜单承诺",
+    "source_id": "terminal-howtocook-gform-excel-notion-email",
+    "retained": "饮食偏好、禁用配料、难度上限、相邻品类不同及面向全员的周菜单成本。",
+    "delta": "在可观察的交货情景树上合并前缀决策，联合求解群体公平、加权满意度与支出，并核对多解。",
+    "axes": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "带非预知约束的多阶段离散优化。",
+      "S": "已选菜集、前日品类、累计成本和群体效用随路径延续。",
+      "C": "相同交货历史必须共享承诺，服务下限又在全部分支间共用。",
+      "I": "员工调查与目录、交货、预算采用四种实体。"
+    },
+    "counterexample": "两条情景首日交货相同，次日各仅能供应一种不同品类。分别优化的两个首日菜单可能无法共同执行。",
+    "nodes": {
+      "菜谱和过敏筛选": [],
+      "群体偏好和人数": [],
+      "交货前缀树": [],
+      "各路径可行菜单": [
+        "菜谱和过敏筛选",
+        "交货前缀树"
+      ],
+      "全场景公平门槛": [
+        "各路径可行菜单",
+        "群体偏好和人数"
+      ],
+      "共享前缀承诺": [
+        "全场景公平门槛"
+      ],
+      "可发布菜单范围": [
+        "共享前缀承诺"
+      ]
+    },
+    "design_grade": "H",
+    "design_target": "H",
+    "empirical_grade": null,
+    "empirical_runs": 0,
+    "max_reward": 3,
+    "public": 1,
+    "hidden": 10,
+    "dag_layers": [
+      [
+        "交货前缀树",
+        "群体偏好和人数",
+        "菜谱和过敏筛选"
+      ],
+      [
+        "各路径可行菜单"
+      ],
+      [
+        "全场景公平门槛"
+      ],
+      [
+        "共享前缀承诺"
+      ],
+      [
+        "可发布菜单范围"
+      ]
+    ],
+    "origin": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-howtocook-gform-excel-notion-email.task.md",
+    "upstream_waves": 3,
+    "upstream_grade": null,
+    "oracle": "static independent expected values generated before model evaluation",
+    "qa": true
+  },
+  "calibration": {
+    "id": "MS12",
+    "title": "午餐供应波动下的全周菜单承诺",
+    "grade": "中",
+    "source": "terminal-howtocook-gform-excel-notion-email",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/terminal-howtocook-gform-excel-notion-email.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 3,
+    "repeats": 5,
+    "package_sha256": "f20465339d21ef0e30be1189582d9088247ecad33ce7a8a9ede3679cd5857832"
+  }
+}

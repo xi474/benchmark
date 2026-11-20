@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "id": "engineering",
+      "parents": [
+        "staff"
+      ],
+      "roles": [
+        "developer"
+      ]
+    },
+    {
+      "id": "staff",
+      "parents": [
+        "engineering"
+      ],
+      "roles": [
+        "reader"
+      ]
+    },
+    {
+      "id": "contractor",
+      "parents": [
+        "staff"
+      ],
+      "roles": [
+        "restricted"
+      ]
+    },
+    {
+      "id": "service",
+      "parents": [],
+      "roles": [
+        "automation"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "read",
+      "role": "reader",
+      "resource": "repo/*",
+      "action": "read",
+      "effect": "allow"
+    },
+    {
+      "id": "write",
+      "role": "developer",
+      "resource": "repo/*",
+      "action": "write",
+      "effect": "allow"
+    },
+    {
+      "id": "restrict",
+      "role": "restricted",
+      "resource": "repo/private*",
+      "action": "*",
+      "effect": "deny"
+    },
+    {
+      "id": "auto",
+      "role": "automation",
+      "resource": "jobs/*",
+      "action": "run",
+      "effect": "allow"
+    }
+  ],
+  "requests": [
+    {
+      "id": "r0",
+      "token": "new",
+      "resource": "repo/private",
+      "action": "read"
+    },
+    {
+      "id": "r1",
+      "token": "bob",
+      "resource": "repo/private",
+      "action": "read"
+    },
+    {
+      "id": "r2",
+      "token": "service",
+      "resource": "jobs/reindex",
+      "action": "run"
+    },
+    {
+      "id": "r3",
+      "token": "old",
+      "resource": "repo/x",
+      "action": "read"
+    },
+    {
+      "id": "r4",
+      "token": "missing",
+      "resource": "repo/x",
+      "action": "read"
+    }
+  ]
+}

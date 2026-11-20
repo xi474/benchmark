@@ -1,0 +1,70 @@
+{
+  "upstream": {
+    "id": "academic-literature-review",
+    "url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/academic-literature-review.task.md",
+    "change_url": null,
+    "revision": "4c1bbd3dc0d736623bba563e56cfd8666f85daac",
+    "upstream_grade": null
+  },
+  "upstream_file_sha256": "e532c7738ccacfa55ffc49cfb9825d40a41736b9384042248e594e56cfd99c23",
+  "upstream_delegation_waves": 1,
+  "construction_date": "2026-11-19",
+  "construction_batch": "MS-Eval 首批十题",
+  "frozen_design_card": {
+    "title": "文献综述主题分配与证据图更新",
+    "origin": "MS-Eval 上游改编",
+    "origin_evidence": "原题固定版本 4c1bbd3dc0d736623bba563e56cfd8666f85daac，采用合成快照离线复现指定业务。",
+    "delta": "不同主题争用相同证据源，引入先保瓶颈再保总质量的联合分配。",
+    "algorithm": "瓶颈匹配与总权重、图事实合并",
+    "counterexample": "两主题都偏爱同一篇综述时，局部择优可能使一个主题仅剩无方法证据的稿件。",
+    "axes": [
+      1,
+      0,
+      2,
+      1
+    ],
+    "axis_evidence": {
+      "A": "按质量阈值验证可行后做单位需求加权二部匹配；多层平局仍可由标准匹配完成。",
+      "S": "研究快照与既有关系作一次性集合运算。",
+      "C": "同一论文若缺方法章节就从某主题的候选集中移除，可能令另一主题必须换论文或全局无解。",
+      "I": "按稳定论文编号和章节键归并重复证据，再映射为图边。"
+    },
+    "nodes": {
+      "主题一证据": [],
+      "主题二证据": [],
+      "分配": [
+        "主题一证据",
+        "主题二证据"
+      ],
+      "综述": [
+        "分配"
+      ],
+      "图更新": [
+        "分配"
+      ]
+    },
+    "oracle_note": "穷举论文ID排列，逐主题重读方法证据后以三层目标比较全解。",
+    "history_anchor": "原14个 reasoning4 的 Q24 类问题是单位名额指派；这里也存在一个论文不能指派两次的竞争，不足以单独支持H。",
+    "source_id": "academic-literature-review",
+    "source_path": "data/oracle166/academic-literature-review.task.md",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/academic-literature-review.task.md",
+    "source_summary": "围绕RAG五个互异主题选5篇不同论文，每项证据要来自已读方法章节，并保留原知识图中的无关事实。",
+    "upstream_prior": "1波并行派5个 explore，各负责一种固定主题；主控核对5个不同稳定ID，再写知识图和文档。",
+    "retained": "主题槽与稳定论文ID一一匹配，方法证据作为准入，保留既有知识图边，综述仅用最终论文。",
+    "structure_tier": "M"
+  },
+  "calibration": {
+    "id": "MS02",
+    "title": "文献综述主题分配与证据图更新",
+    "grade": "中",
+    "source": "academic-literature-review",
+    "source_url": "https://github.com/LINs-lab/MS-Eval/blob/4c1bbd3dc0d736623bba563e56cfd8666f85daac/data/oracle166/academic-literature-review.task.md",
+    "model": "deepseek-v4-pro",
+    "thinking": "disabled",
+    "harness": "Terminus 2",
+    "scoring_revision": "delivery-bonus-50-v1",
+    "strict": 3,
+    "repeats": 5,
+    "package_sha256": "659fa82c6042f314db07faf406c165794edc4a013cc4454147ea42002f019b89"
+  }
+}
