@@ -1,0 +1,41 @@
+{
+  "task": "C062",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "store_initializers",
+      "implementation": "components/store_initializers/work.py",
+      "read_fields": [
+        "events"
+      ],
+      "input": "components/store_initializers/input.json",
+      "public_expected": "components/store_initializers/expected.json",
+      "output": "components/store_initializers/result.json",
+      "run": "python -B components/store_initializers/run.py",
+      "check": "python -B components/store_initializers/check.py",
+      "contract": "对每个 open 事件按其原始位置（十进制字符串）建立初始状态，字段同最终 stores 项。"
+    },
+    {
+      "name": "completion_effects",
+      "implementation": "components/completion_effects/work.py",
+      "read_fields": [
+        "events"
+      ],
+      "input": "components/completion_effects/input.json",
+      "public_expected": "components/completion_effects/expected.json",
+      "output": "components/completion_effects/result.json",
+      "run": "python -B components/completion_effects/run.py",
+      "check": "python -B components/completion_effects/check.py",
+      "contract": "对每个 complete 事件按原始位置记录 [正常完成事件名,新 revision 或 null]。取消与关闭优先级由整合逻辑决定。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/store_initializers/result.json",
+      "components/completion_effects/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

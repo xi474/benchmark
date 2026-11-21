@@ -1,0 +1,42 @@
+{
+  "task": "MS14",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "observed_outages",
+      "implementation": "components/observed_outages/work.py",
+      "read_fields": [
+        "queries",
+        "log"
+      ],
+      "input": "components/observed_outages/input.json",
+      "public_expected": "components/observed_outages/expected.json",
+      "output": "components/observed_outages/result.json",
+      "run": "python -B components/observed_outages/run.py",
+      "check": "python -B components/observed_outages/check.py",
+      "contract": "为每个查询逐时隙列出当时可见且实际为 down 的域名数组，升序；按有效时刻再按看到时刻选择最新记录。"
+    },
+    {
+      "name": "service_quorums",
+      "implementation": "components/service_quorums/work.py",
+      "read_fields": [
+        "services"
+      ],
+      "input": "components/service_quorums/input.json",
+      "public_expected": "components/service_quorums/expected.json",
+      "output": "components/service_quorums/result.json",
+      "run": "python -B components/service_quorums/run.py",
+      "check": "python -B components/service_quorums/check.py",
+      "contract": "按服务 ID 索引门槛及直接输入，值为 [need,inputs]；保留输入顺序和共享故障域。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/observed_outages/result.json",
+      "components/service_quorums/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

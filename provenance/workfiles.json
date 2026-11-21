@@ -1,0 +1,618 @@
+[
+  {
+    "id": "C007",
+    "units": [
+      {
+        "name": "mobile_cable",
+        "fields": [
+          "records"
+        ],
+        "contract": "标准化 ('mobile', 'cable') 渠道记录，返回 [原位置,字段对象] 数组。对象字段 id,first,last,dob,ssn,mail,phone,address，日期 ISO，文字小写去非字母数字，电话及证件仅留数字。"
+      },
+      {
+        "name": "internet_streaming",
+        "fields": [
+          "records"
+        ],
+        "contract": "标准化 ('internet', 'streaming') 渠道记录，返回 [原位置,字段对象] 数组。对象字段 id,first,last,dob,ssn,mail,phone,address，日期 ISO，文字小写去非字母数字，电话及证件仅留数字。"
+      }
+    ]
+  },
+  {
+    "id": "C008",
+    "units": [
+      {
+        "name": "relationship_windows",
+        "fields": [
+          "links",
+          "merges"
+        ],
+        "contract": "将链接和合并登记为 [起点,终点,生效时刻,失效时刻]。保留原顺序并补齐缺省区间。"
+      },
+      {
+        "name": "record_subjects",
+        "fields": [
+          "records"
+        ],
+        "contract": "按记录顺序产生 [表名,行号,时间,[租户,主体]]，为跨表归一化保留租户作用域。"
+      }
+    ]
+  },
+  {
+    "id": "C009",
+    "units": [
+      {
+        "name": "visible_events",
+        "fields": [
+          "events"
+        ],
+        "contract": "返回按可见时刻及事件 ID 排序的业务事件。"
+      },
+      {
+        "name": "crew_compatibility",
+        "fields": [
+          "vehicles",
+          "drivers"
+        ],
+        "contract": "返回每辆车可使用的司机 ID 数组，保留司机声明顺序。"
+      }
+    ]
+  },
+  {
+    "id": "C011",
+    "units": [
+      {
+        "name": "material_demand",
+        "fields": [
+          "orders",
+          "bom"
+        ],
+        "contract": "按工单 ID 输出递归展开后的基础物料需求映射。"
+      },
+      {
+        "name": "line_windows",
+        "fields": [
+          "orders",
+          "released",
+          "routing",
+          "lines",
+          "wip",
+          "freeze",
+          "changeover"
+        ],
+        "contract": "按工单 ID 输出合格产线及可行起止窗口三元组，按产线及起点的原遍历顺序。"
+      }
+    ]
+  },
+  {
+    "id": "C017",
+    "units": [
+      {
+        "name": "contact_keys",
+        "fields": [
+          "batches"
+        ],
+        "contract": "保留批次和行序，为每条记录生成清理首尾空白并转小写的邮箱。"
+      },
+      {
+        "name": "contact_profiles",
+        "fields": [
+          "batches"
+        ],
+        "contract": "保留批次和行序，返回 name,city,source,time 对象；姓名与城市的空白折叠为单个空格。"
+      }
+    ]
+  },
+  {
+    "id": "C031",
+    "units": [
+      {
+        "name": "key_sequences",
+        "fields": [
+          "steps"
+        ],
+        "contract": "每步按 Linux 终端键表编码为连续字节，返回十六进制字符串列表。"
+      },
+      {
+        "name": "session_config",
+        "fields": [
+          "startup",
+          "timeout_seconds",
+          "steps"
+        ],
+        "contract": "输出 rc（固定主提示 PROMPT>、续行提示 CONT>、禁用历史、追加 startup）、timeout（缺省 4）、markers（原顺序的 until，可为 null）。"
+      }
+    ]
+  },
+  {
+    "id": "C033",
+    "units": [
+      {
+        "name": "elf_segments",
+        "fields": [
+          "elf_hex"
+        ],
+        "contract": "输出 [入口地址, [[地址,字节],…]]，按加载后的地址升序排列，包括 PT_LOAD 零填充。"
+      },
+      {
+        "name": "io_buffers",
+        "fields": [
+          "files",
+          "stdin_hex"
+        ],
+        "contract": "返回 [文件名字节数组映射,标准输入字节数组]，未指定文件或 stdin 时为空。"
+      }
+    ]
+  },
+  {
+    "id": "C039",
+    "units": [
+      {
+        "name": "admissible_edges",
+        "fields": [
+          "nodes",
+          "allowed",
+          "root"
+        ],
+        "contract": "排除指向根的边，按 allowed 顺序返回节点下标对。"
+      },
+      {
+        "name": "local_regressions",
+        "fields": [
+          "nodes",
+          "covariance",
+          "allowed",
+          "root",
+          "max_parents"
+        ],
+        "contract": "为每个节点及其容许的父集合计算未舍入回归系数；返回每节点一张表，以逗号分隔的升序父下标为键，空集用空字符串。"
+      }
+    ]
+  },
+  {
+    "id": "C049",
+    "units": [
+      {
+        "name": "batch_gradients",
+        "fields": [
+          "layers",
+          "world_size",
+          "microbatches"
+        ],
+        "contract": "按实际 stage 保留每个微批激活并反传；返回整题格式的 loss 和各层 gradients，采用微批等权和 float64。"
+      },
+      {
+        "name": "pipeline_schedule",
+        "fields": [
+          "layers",
+          "world_size",
+          "microbatches"
+        ],
+        "contract": "输出 partitions 和 AFAB 的 events；层边界为 floor(n*r/world)，保留正序前向、逆序反向及跨 stage 发送。"
+      }
+    ]
+  },
+  {
+    "id": "C055",
+    "units": [
+      {
+        "name": "trusted_bindings",
+        "fields": [
+          "sources"
+        ],
+        "contract": "解析受信任文档的覆盖和文档内锚点。每个有效键输出 [原源序号,声明位置,[值位置,文本,是否密文,来源是否可信]]；位置为 [源名,行,列]。"
+      },
+      {
+        "name": "external_bindings",
+        "fields": [
+          "sources"
+        ],
+        "contract": "解析不受信任文档的覆盖和文档内锚点。每个有效键输出 [原源序号,声明位置,[值位置,文本,是否密文,来源是否可信]]；位置为 [源名,行,列]。"
+      }
+    ]
+  },
+  {
+    "id": "C056",
+    "units": [
+      {
+        "name": "dependency_waves",
+        "fields": [
+          "tasks"
+        ],
+        "contract": "返回各依赖批次，每批含按 ID 升序排列的任务 ID。同批共享同一事实快照。"
+      },
+      {
+        "name": "feed_statistics",
+        "fields": [
+          "feeds"
+        ],
+        "contract": "每个 host/stream 返回各次循环读取的 [items,数量,总和] 列表，保持原顺序。"
+      }
+    ]
+  },
+  {
+    "id": "C058",
+    "units": [
+      {
+        "name": "host_conditions",
+        "fields": [
+          "hosts",
+          "program"
+        ],
+        "contract": "每个 host 对应一张节点表，按树位置（各级整数以 / 分隔）记录 [可执行,会失败]；包含块节点。"
+      },
+      {
+        "name": "handler_bindings",
+        "fields": [
+          "handlers",
+          "program"
+        ],
+        "contract": "输出 [处理器声明顺序映射,叶节点到通知清单的映射]。叶节点按同一树位置编码；通知名去重并按声明顺序排列，含 rescue、always。"
+      }
+    ]
+  },
+  {
+    "id": "C062",
+    "units": [
+      {
+        "name": "store_initializers",
+        "fields": [
+          "events"
+        ],
+        "contract": "对每个 open 事件按其原始位置（十进制字符串）建立初始状态，字段同最终 stores 项。"
+      },
+      {
+        "name": "completion_effects",
+        "fields": [
+          "events"
+        ],
+        "contract": "对每个 complete 事件按原始位置记录 [正常完成事件名,新 revision 或 null]。取消与关闭优先级由整合逻辑决定。"
+      }
+    ]
+  },
+  {
+    "id": "C066",
+    "units": [
+      {
+        "name": "row_identities",
+        "fields": [
+          "txs"
+        ],
+        "contract": "按事务、语句生成被消费旧主键的去重有序数组，I 不消耗旧主键。"
+      },
+      {
+        "name": "column_decoding",
+        "fields": [
+          "txs"
+        ],
+        "contract": "按事务、语句、行变更生成已解码的列映射。D 用空对象；类型错误用 null，使整合端按事务回滚。"
+      }
+    ]
+  },
+  {
+    "id": "C067",
+    "units": [
+      {
+        "name": "policy_decisions",
+        "fields": [
+          "policies",
+          "events"
+        ],
+        "contract": "按输入顺序重放策略变更，为每个 request 原位置生成授权布尔值。"
+      },
+      {
+        "name": "service_routes",
+        "fields": [
+          "clusters",
+          "events"
+        ],
+        "contract": "按事件位置返回请求当时的 [集群模式,服务是否可用]；合并端负责授权优先和实际计数。"
+      }
+    ]
+  },
+  {
+    "id": "C068",
+    "units": [
+      {
+        "name": "cleanup_clock",
+        "fields": [
+          "ttl",
+          "events"
+        ],
+        "contract": "按 get 驱动的 16×TTL 规则生成触发清理的 get 位置，以及下一次清理的时间。输出以位置字符串为键的映射。"
+      },
+      {
+        "name": "load_proposals",
+        "fields": [
+          "events"
+        ],
+        "contract": "为每个 get 的原始位置生成 [若启动时的完成时刻,value,error]；只有命中未复用时才实际启动。"
+      }
+    ]
+  },
+  {
+    "id": "C069",
+    "units": [
+      {
+        "name": "user_history",
+        "fields": [
+          "events",
+          "user"
+        ],
+        "contract": "记录各续期事件发生时的用户快照，重放 update_user 的 roles、traits；以原位置字符串为键。"
+      },
+      {
+        "name": "grant_catalog",
+        "fields": [
+          "access_requests"
+        ],
+        "contract": "生成授权条目的有效条件和有序角色/资源集合。以原授权 ID 为键，每项含 approved、expiry、roles、resources。"
+      }
+    ]
+  },
+  {
+    "id": "C074",
+    "units": [
+      {
+        "name": "directory_snapshots",
+        "fields": [
+          "nodes",
+          "mounts",
+          "scans"
+        ],
+        "contract": "按扫描轮次生成映射，从每个完成目录的逻辑路径映射至 [保留文件映射,可见子目录名升序数组]。按轮累计替换节点。"
+      },
+      {
+        "name": "scan_precedence",
+        "fields": [
+          "scans"
+        ],
+        "contract": "每轮返回完成的逻辑路径，按深度先父后子，同深度维持输入顺序。"
+      }
+    ]
+  },
+  {
+    "id": "C077",
+    "units": [
+      {
+        "name": "mutation_membership",
+        "fields": [
+          "events"
+        ],
+        "contract": "对 start/finish 事件按输入位置给出处理后仍活动的修改 ID 有序列表。"
+      },
+      {
+        "name": "response_deadlines",
+        "fields": [
+          "events"
+        ],
+        "contract": "按 response 位置记录 [原因,到期时间]；失败优先于陈旧，延迟分别为 2000/1000，正常相应用 null。"
+      }
+    ]
+  },
+  {
+    "id": "C079",
+    "units": [
+      {
+        "name": "block_manifest",
+        "fields": [
+          "file_hex",
+          "chunk_size",
+          "thumbnail_hex"
+        ],
+        "contract": "返回 [kind,index,hex] 列表；若有缩略图则排首，再按块大小顺序切出文件块。"
+      },
+      {
+        "name": "retry_faults",
+        "fields": [
+          "corrupt_attempts",
+          "max_retries"
+        ],
+        "contract": "按块标签返回可发生的损坏尝试号，限制在 0 至 max_retries，升序去重。"
+      }
+    ]
+  },
+  {
+    "id": "MS02",
+    "units": [
+      {
+        "name": "evidence_scores",
+        "fields": [
+          "topics",
+          "papers"
+        ],
+        "contract": "按主题输入顺序生成评分表；每行把具有效章节证据的论文 ID 映射到该主题最高质量分。"
+      },
+      {
+        "name": "graph_facts",
+        "fields": [
+          "graph"
+        ],
+        "contract": "返回去重并按三元组字典序排列的已有图事实。"
+      }
+    ]
+  },
+  {
+    "id": "MS11",
+    "units": [
+      {
+        "name": "student_scores",
+        "fields": [
+          "grades"
+        ],
+        "contract": "按学生 ID 输出课程 1、2 非空成绩的百分制整型均值（sum×100 整除数量）。"
+      },
+      {
+        "name": "buyer_totals",
+        "fields": [
+          "buyers",
+          "orders"
+        ],
+        "contract": "按买家 ID 汇总属于 Cameras 或 Electronics 的行金额，每行只计一次；无购买为零。"
+      }
+    ]
+  },
+  {
+    "id": "MS12",
+    "units": [
+      {
+        "name": "scenario_prefixes",
+        "fields": [
+          "scenarios"
+        ],
+        "contract": "输出 [信号历史,该完整叶的权重或 null]，去重生成所有非空前缀，按历史字典序排列。"
+      },
+      {
+        "name": "menu_eligibility",
+        "fields": [
+          "recipes",
+          "groups",
+          "delivery"
+        ],
+        "contract": "每个到货信号映射至可供菜品 ID，保持 recipes 顺序，检查难度、原料可得性和过敏限制。"
+      }
+    ]
+  },
+  {
+    "id": "MS14",
+    "units": [
+      {
+        "name": "observed_outages",
+        "fields": [
+          "queries",
+          "log"
+        ],
+        "contract": "为每个查询逐时隙列出当时可见且实际为 down 的域名数组，升序；按有效时刻再按看到时刻选择最新记录。"
+      },
+      {
+        "name": "service_quorums",
+        "fields": [
+          "services"
+        ],
+        "contract": "按服务 ID 索引门槛及直接输入，值为 [need,inputs]；保留输入顺序和共享故障域。"
+      }
+    ]
+  },
+  {
+    "id": "MS23",
+    "units": [
+      {
+        "name": "margin_constraints",
+        "fields": [
+          "snapshots"
+        ],
+        "contract": "为每个快照输出 [ab 与 ac 各 a 总量是否相容,按 a,c 行优先展开的 ac 配额]。"
+      },
+      {
+        "name": "layer_candidates",
+        "fields": [
+          "snapshots"
+        ],
+        "contract": "为每个快照按 b 生成候选层数组。每层候选为 [按 a,c 行优先的计数向量,该层的中位数净分]，满足边际、禁止格和 ac 上限；按向量字典序。"
+      }
+    ]
+  },
+  {
+    "id": "MS28",
+    "units": [
+      {
+        "name": "deadline_windows",
+        "fields": [
+          "assignments",
+          "slots"
+        ],
+        "contract": "为有截止日的作业返回 [需求,合格时段 ID 升序数组]，先按原始时段和七天半开窗口筛选。"
+      },
+      {
+        "name": "remaining_slots",
+        "fields": [
+          "slots",
+          "withdrawals"
+        ],
+        "contract": "每个撤回情景返回仍可用的时段映射，时段 ID 对应 [时刻,容量]。"
+      }
+    ]
+  },
+  {
+    "id": "MS29",
+    "units": [
+      {
+        "name": "dish_requirements",
+        "fields": [
+          "dishes",
+          "max_difficulty"
+        ],
+        "contract": "返回合格的三类菜品组合及合并需求，格式 [菜品 ID 数组,原料到数量映射]，按菜品字典序枚举。"
+      },
+      {
+        "name": "purchase_baskets",
+        "fields": [
+          "offers"
+        ],
+        "contract": "输出所有限量采购篮 [总价,总件数,按排序后 offer 的购买数量向量]；按这三项升序排列。"
+      }
+    ]
+  },
+  {
+    "id": "MS30",
+    "units": [
+      {
+        "name": "student_tiers",
+        "fields": [
+          "grades"
+        ],
+        "contract": "使用 16、17 号课程非空成绩的精确分数比，按原门槛输出学生到 P/D/N 层级映射。"
+      },
+      {
+        "name": "market_ranking",
+        "fields": [
+          "market",
+          "top"
+        ],
+        "contract": "按最新市场日的 30 天窗口、相对绝对涨跌幅和代号打破平局，返回前 top 个房间代号（保持排名）。"
+      }
+    ]
+  },
+  {
+    "id": "MS41",
+    "units": [
+      {
+        "name": "ballot_rules",
+        "fields": [
+          "profiles",
+          "methods",
+          "answers"
+        ],
+        "contract": "输出 [先验映射,方法提前决胜表]。先验为最简分数。每种方法列出从零票起可达的计数状态（键为逗号分隔的答案票数）；值是已经胜出的答案下标或 null。决胜后不扩展。"
+      },
+      {
+        "name": "answer_absorption",
+        "fields": [
+          "methods",
+          "profiles",
+          "answers"
+        ],
+        "contract": "按 method ID、profile 名输出 [各答案吸收概率,各答案加权成本质量]；向量元素均为约分的 [分子,分母]，保留 answers 顺序。"
+      }
+    ]
+  },
+  {
+    "id": "MS42",
+    "units": [
+      {
+        "name": "rubric_mappings",
+        "fields": [
+          "rubrics"
+        ],
+        "contract": "返回 [所有可行映射位掩码,旧标签到各新标签的掩码映射]；位序按新标签升序的排列枚举。"
+      },
+      {
+        "name": "course_evidence",
+        "fields": [
+          "courses"
+        ],
+        "contract": "为每门课生成 [项目统计,传递可达表]；统计行 [ID,标签,[成绩和分子,分母],非空数] 按 ID 排序，保留零成绩。可达表的值为有序 ID 数组。"
+      }
+    ]
+  }
+]

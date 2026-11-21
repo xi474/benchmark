@@ -9,6 +9,8 @@
 | `MS` | MS-Eval 改编 | 10 | MS-Eval（10） |
 | `N` | 新增 30 道候选 | 4 | SWE-bench Verified（1）、SWE-bench Pro（1）、Terminal-Bench 2.0（2） |
 
+表中五测和历史覆盖属于原校准版本。C/MS 新工作区的逐题分工见 [改编说明](WORKFILES.md)。
+
 ## 逐题登记
 
 | 题号 | 题名 | 上游与原题 | 五测档 | 通过 | 冻结满分 | A/B/D/P | 六组历史覆盖 |

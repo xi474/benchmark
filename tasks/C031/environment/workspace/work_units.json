@@ -1,0 +1,43 @@
+{
+  "task": "C031",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "key_sequences",
+      "implementation": "components/key_sequences/work.py",
+      "read_fields": [
+        "steps"
+      ],
+      "input": "components/key_sequences/input.json",
+      "public_expected": "components/key_sequences/expected.json",
+      "output": "components/key_sequences/result.json",
+      "run": "python -B components/key_sequences/run.py",
+      "check": "python -B components/key_sequences/check.py",
+      "contract": "每步按 Linux 终端键表编码为连续字节，返回十六进制字符串列表。"
+    },
+    {
+      "name": "session_config",
+      "implementation": "components/session_config/work.py",
+      "read_fields": [
+        "startup",
+        "timeout_seconds",
+        "steps"
+      ],
+      "input": "components/session_config/input.json",
+      "public_expected": "components/session_config/expected.json",
+      "output": "components/session_config/result.json",
+      "run": "python -B components/session_config/run.py",
+      "check": "python -B components/session_config/check.py",
+      "contract": "输出 rc（固定主提示 PROMPT>、续行提示 CONT>、禁用历史、追加 startup）、timeout（缺省 4）、markers（原顺序的 until，可为 null）。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/key_sequences/result.json",
+      "components/session_config/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

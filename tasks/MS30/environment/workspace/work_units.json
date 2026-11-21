@@ -1,0 +1,42 @@
+{
+  "task": "MS30",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "student_tiers",
+      "implementation": "components/student_tiers/work.py",
+      "read_fields": [
+        "grades"
+      ],
+      "input": "components/student_tiers/input.json",
+      "public_expected": "components/student_tiers/expected.json",
+      "output": "components/student_tiers/result.json",
+      "run": "python -B components/student_tiers/run.py",
+      "check": "python -B components/student_tiers/check.py",
+      "contract": "使用 16、17 号课程非空成绩的精确分数比，按原门槛输出学生到 P/D/N 层级映射。"
+    },
+    {
+      "name": "market_ranking",
+      "implementation": "components/market_ranking/work.py",
+      "read_fields": [
+        "market",
+        "top"
+      ],
+      "input": "components/market_ranking/input.json",
+      "public_expected": "components/market_ranking/expected.json",
+      "output": "components/market_ranking/result.json",
+      "run": "python -B components/market_ranking/run.py",
+      "check": "python -B components/market_ranking/check.py",
+      "contract": "按最新市场日的 30 天窗口、相对绝对涨跌幅和代号打破平局，返回前 top 个房间代号（保持排名）。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/student_tiers/result.json",
+      "components/market_ranking/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

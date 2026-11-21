@@ -1,0 +1,42 @@
+{
+  "task": "MS02",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "evidence_scores",
+      "implementation": "components/evidence_scores/work.py",
+      "read_fields": [
+        "topics",
+        "papers"
+      ],
+      "input": "components/evidence_scores/input.json",
+      "public_expected": "components/evidence_scores/expected.json",
+      "output": "components/evidence_scores/result.json",
+      "run": "python -B components/evidence_scores/run.py",
+      "check": "python -B components/evidence_scores/check.py",
+      "contract": "按主题输入顺序生成评分表；每行把具有效章节证据的论文 ID 映射到该主题最高质量分。"
+    },
+    {
+      "name": "graph_facts",
+      "implementation": "components/graph_facts/work.py",
+      "read_fields": [
+        "graph"
+      ],
+      "input": "components/graph_facts/input.json",
+      "public_expected": "components/graph_facts/expected.json",
+      "output": "components/graph_facts/result.json",
+      "run": "python -B components/graph_facts/run.py",
+      "check": "python -B components/graph_facts/check.py",
+      "contract": "返回去重并按三元组字典序排列的已有图事实。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/evidence_scores/result.json",
+      "components/graph_facts/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

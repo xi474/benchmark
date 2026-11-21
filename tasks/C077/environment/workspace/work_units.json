@@ -1,0 +1,41 @@
+{
+  "task": "C077",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "mutation_membership",
+      "implementation": "components/mutation_membership/work.py",
+      "read_fields": [
+        "events"
+      ],
+      "input": "components/mutation_membership/input.json",
+      "public_expected": "components/mutation_membership/expected.json",
+      "output": "components/mutation_membership/result.json",
+      "run": "python -B components/mutation_membership/run.py",
+      "check": "python -B components/mutation_membership/check.py",
+      "contract": "对 start/finish 事件按输入位置给出处理后仍活动的修改 ID 有序列表。"
+    },
+    {
+      "name": "response_deadlines",
+      "implementation": "components/response_deadlines/work.py",
+      "read_fields": [
+        "events"
+      ],
+      "input": "components/response_deadlines/input.json",
+      "public_expected": "components/response_deadlines/expected.json",
+      "output": "components/response_deadlines/result.json",
+      "run": "python -B components/response_deadlines/run.py",
+      "check": "python -B components/response_deadlines/check.py",
+      "contract": "按 response 位置记录 [原因,到期时间]；失败优先于陈旧，延迟分别为 2000/1000，正常相应用 null。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/mutation_membership/result.json",
+      "components/response_deadlines/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

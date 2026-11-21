@@ -1,0 +1,45 @@
+{
+  "task": "MS41",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "ballot_rules",
+      "implementation": "components/ballot_rules/work.py",
+      "read_fields": [
+        "profiles",
+        "methods",
+        "answers"
+      ],
+      "input": "components/ballot_rules/input.json",
+      "public_expected": "components/ballot_rules/expected.json",
+      "output": "components/ballot_rules/result.json",
+      "run": "python -B components/ballot_rules/run.py",
+      "check": "python -B components/ballot_rules/check.py",
+      "contract": "输出 [先验映射,方法提前决胜表]。先验为最简分数。每种方法列出从零票起可达的计数状态（键为逗号分隔的答案票数）；值是已经胜出的答案下标或 null。决胜后不扩展。"
+    },
+    {
+      "name": "answer_absorption",
+      "implementation": "components/answer_absorption/work.py",
+      "read_fields": [
+        "methods",
+        "profiles",
+        "answers"
+      ],
+      "input": "components/answer_absorption/input.json",
+      "public_expected": "components/answer_absorption/expected.json",
+      "output": "components/answer_absorption/result.json",
+      "run": "python -B components/answer_absorption/run.py",
+      "check": "python -B components/answer_absorption/check.py",
+      "contract": "按 method ID、profile 名输出 [各答案吸收概率,各答案加权成本质量]；向量元素均为约分的 [分子,分母]，保留 answers 顺序。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/ballot_rules/result.json",
+      "components/answer_absorption/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

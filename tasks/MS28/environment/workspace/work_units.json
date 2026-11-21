@@ -1,0 +1,43 @@
+{
+  "task": "MS28",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "deadline_windows",
+      "implementation": "components/deadline_windows/work.py",
+      "read_fields": [
+        "assignments",
+        "slots"
+      ],
+      "input": "components/deadline_windows/input.json",
+      "public_expected": "components/deadline_windows/expected.json",
+      "output": "components/deadline_windows/result.json",
+      "run": "python -B components/deadline_windows/run.py",
+      "check": "python -B components/deadline_windows/check.py",
+      "contract": "为有截止日的作业返回 [需求,合格时段 ID 升序数组]，先按原始时段和七天半开窗口筛选。"
+    },
+    {
+      "name": "remaining_slots",
+      "implementation": "components/remaining_slots/work.py",
+      "read_fields": [
+        "slots",
+        "withdrawals"
+      ],
+      "input": "components/remaining_slots/input.json",
+      "public_expected": "components/remaining_slots/expected.json",
+      "output": "components/remaining_slots/result.json",
+      "run": "python -B components/remaining_slots/run.py",
+      "check": "python -B components/remaining_slots/check.py",
+      "contract": "每个撤回情景返回仍可用的时段映射，时段 ID 对应 [时刻,容量]。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/deadline_windows/result.json",
+      "components/remaining_slots/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

@@ -11,3 +11,26 @@ records的id在全输入唯一；source为mobile/internet/cable/streaming。fiel
 
 ## 交付
 实现solution.py的transform(payload)、load_payload(path)、build_component(input_path,output_path)。后者在干净目录读取输入、计算、写入并返回JSON结果；不得依赖旧产物。运行python run_all.py --input PATH --output PATH；python public_check.py执行公开示例。公开契约和检查文件受保护，业务实现可自由重构。只验下述正常业务域，不验任意坏输入、NaN、错误文案或代码风格。
+
+## 可独立运行的业务文件
+
+本版已接好 `solution.py` 的三个公开入口。实现下列两个组件的 `compute(payload)` 和工作区根目录 `integration.py` 的 `combine(payload, left, right)`。left、right 按表中两行的顺序对应，两项工作可同时开展。整合端消费组件的业务值，并完成题面其余计算。
+
+| 实现文件 | 返回值约定 | 独占的结果文件 |
+|---|---|---|
+| `components/mobile_cable/work.py` | 标准化 ('mobile', 'cable') 渠道记录，返回 [原位置,字段对象] 数组。对象字段 id,first,last,dob,ssn,mail,phone,address，日期 ISO，文字小写去非字母数字，电话及证件仅留数字。 | `components/mobile_cable/result.json` |
+| `components/internet_streaming/work.py` | 标准化 ('internet', 'streaming') 渠道记录，返回 [原位置,字段对象] 数组。对象字段 id,first,last,dob,ssn,mail,phone,address，日期 ISO，文字小写去非字母数字，电话及证件仅留数字。 | `components/internet_streaming/result.json` |
+
+每个组件目录已有独立公开输入 `input.json`、样例结果 `expected.json` 及可覆写的 `result.json`。分别运行组件可落盘，汇总命令只读取两份已有结果。最终交付路径 `outputs/result.json` 也已预建。
+
+```sh
+python -B component_runtime.py check mobile_cable
+python -B component_runtime.py run mobile_cable
+python -B component_runtime.py check internet_streaming
+python -B component_runtime.py run internet_streaming
+python -B component_runtime.py join
+python -B run_all.py --input public_input.json --output outputs/result.json
+python -B public_check.py
+```
+
+默认组件样例与整题公开输入对应。处理另一个输入文件时，请在两个 run 命令和 join 命令上使用相同的 `--input PATH`。每次独立实验使用自己的题目工作区。组件样例仅供开发自检，正式评分继续使用整题的冻结用例。
