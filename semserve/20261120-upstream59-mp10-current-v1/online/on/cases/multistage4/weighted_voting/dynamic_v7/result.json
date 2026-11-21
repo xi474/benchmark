@@ -1,0 +1,718 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "multistage4",
+  "case": "weighted_voting",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/multistage4/weighted_voting",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "d0bb5e71979ec5df38372e3ad6e5445bedfd496e171f1ec97f38cc9161e4d691",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 220.71634578704834,
+  "background_summary_drain_seconds": 8.107999997264415e-05,
+  "background_speculative_drain_seconds": 4.601478576660156e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 5,
+      "committed": 1,
+      "discarded": 4,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 85381,
+        "completion_tokens": 1457,
+        "total_tokens": 86838,
+        "prompt_cache_hit_tokens": 62720,
+        "prompt_cache_miss_tokens": 22661,
+        "input_tokens": 85381,
+        "output_tokens": 1457
+      },
+      "usage_discarded": {
+        "prompt_tokens": 79349,
+        "completion_tokens": 1397,
+        "total_tokens": 80746,
+        "prompt_cache_hit_tokens": 57216,
+        "prompt_cache_miss_tokens": 22133,
+        "input_tokens": 79349,
+        "output_tokens": 1397
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 220.71647288183408,
+  "runtime_error": {
+    "type": "RuntimeLimitExceeded",
+    "detail": "duplicate tool loop: progress recovery exhausted after two business turns without verified progress"
+  },
+  "workspace_progress_observation": [
+    {
+      "seconds": 0.8796103420005181,
+      "scans": 577,
+      "epoch": 19
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": false,
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/workspace/views/soft/render.py\", line 28, in <module>\n    result = build_component(root, contract_path)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/views/soft/render.py\", line 14, in build_component\n    return transform(payloads, contract)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/views/soft/transform.py\", line 89, in transform\n    raise ValueError(\"weight sum must be positive\")\nValueError: weight sum must be positive\nTraceback (most recent call last):\n  File \"/workspace/run_all.py\", line 89, in <module>\n    main()\n  File \"/workspace/run_all.py\", line 71, in main\n    raise RuntimeError(\nRuntimeError: component soft failed with exit code 1\nTraceback (most recent call last):\n  File \"/workspace/check.py\", line 18, in <module>\n    if __name__=='__main__': main()\n                             ^^^^^^\n  File \"/workspace/check.py\", line 10, in main\n    subprocess.run([sys.executable,str(ROOT/'run_all.py')],cwd=ROOT,check=True,timeout=180)\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/workspace/run_all.py']' returned non-zero exit status 1.\n"
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "domains/fit/check_module.py": true,
+    "domains/fit/contract.json": true,
+    "domains/fit/model.py": false,
+    "domains/fit/render.py": false,
+    "domains/fit/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true,
+    "views/comparison/check_module.py": true,
+    "views/comparison/contract.json": true,
+    "views/comparison/model.py": false,
+    "views/comparison/render.py": false,
+    "views/comparison/transform.py": false,
+    "views/hard/check_module.py": true,
+    "views/hard/contract.json": true,
+    "views/hard/model.py": false,
+    "views/hard/render.py": false,
+    "views/hard/transform.py": false,
+    "views/soft/check_module.py": true,
+    "views/soft/contract.json": true,
+    "views/soft/model.py": false,
+    "views/soft/render.py": false,
+    "views/soft/transform.py": false
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 279,
+    "dag_node_transition": 835,
+    "task_started": 7,
+    "execution_state_observed": 68,
+    "parallel_v2_request_boundary": 34,
+    "parallel_v2_frontier_filtered": 4,
+    "fork_only_parent_passthrough": 34,
+    "dag_edge_added": 329,
+    "model_request": 71,
+    "model_response": 71,
+    "tool_result": 102,
+    "validation_progress_guard_cost": 64,
+    "repeated_business_output_observed": 64,
+    "parallel_v2_frontier_handshake_scheduled": 5,
+    "parallel_v2_generic_evidence_boundary": 49,
+    "handshake_speculation_started": 5,
+    "report_authorization_granted": 5,
+    "handshake_speculation_response": 5,
+    "parallel_v2_frontier_report_committed": 5,
+    "handshake_speculation_authorized": 1,
+    "handshake_speculation_committed": 1,
+    "g1_early_semantic_review_injected": 1,
+    "parallel_v2_frontier_validation_feedback": 4,
+    "handshake_speculation_discarded": 4,
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 6,
+    "branch_context_compiled": 6,
+    "fork_only_child_envelope": 37,
+    "g1_branch_shell_completed": 11,
+    "verified_tool_artifact_recorded": 6,
+    "task_completed": 6,
+    "branch_completed_from_verified_artifact": 6,
+    "branch_result_bound_to_verified_artifact": 6,
+    "e1_problem_stalled": 10,
+    "parallel_v2_plan_completed": 2,
+    "root_integration_checkpoint_activated": 1,
+    "parallel_v2_post_join_watch_armed": 1,
+    "validation_progress_observed": 4,
+    "recovery_state_changed": 4,
+    "e1_problem_recovery_requested": 5,
+    "progress_recovery_resolved": 1,
+    "e1_problem_revalidation_allowed": 1,
+    "literal_write_preflight_suppressed": 3,
+    "cross_operation_loop_detected": 2,
+    "tool_loop_circuit_breaker": 2,
+    "e1_loop_history_compacted": 1,
+    "e1_problem_diagnostic_extension": 1,
+    "e1_problem_action_rejected": 1,
+    "e1_problem_recovery_exhausted": 1,
+    "task_failed": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 5,
+    "parallel_v2_frontier_report_committed": 5
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-7f7010674a52",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/fit/model.py",
+                "domains/fit/transform.py",
+                "domains/fit/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "fit-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement fit_members model/transform/render per contract and pass its local check."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/hard/model.py",
+                "views/hard/transform.py",
+                "views/hard/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "hard-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement hard_vote model/transform/render per contract and pass its local check."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/soft/model.py",
+                "views/soft/transform.py",
+                "views/soft/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "soft-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement soft_vote model/transform/render per contract and pass its local check."
+          }
+        ]
+      },
+      "reason": "Three independent component implementations with disjoint file ownership and materialized inputs are ready."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-dac7359c6f26",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/comparison/model.py",
+                "views/comparison/transform.py",
+                "views/comparison/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "comparison-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement vote_comparison model/transform/render per contract and pass its local check."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "run-all",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement run_all.py orchestrating all components then integrate."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "final-report",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement final_report.py reading core manifest and writing report."
+          }
+        ]
+      },
+      "reason": "Three independent root-owned units with disjoint writes are ready."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 19.113616,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 2215786,
+    "completion_tokens": 25057,
+    "total_tokens": 2240843,
+    "prompt_cache_hit_tokens": 1987840,
+    "prompt_cache_miss_tokens": 227946,
+    "input_tokens": 2215786,
+    "output_tokens": 25057
+  },
+  "model_timing": {
+    "turn_count": 70,
+    "request_seconds_sum": 289.81708669662476,
+    "request_wall_union_seconds": 197.4171450138092
+  },
+  "overlap": {
+    "child_model_turns": 37,
+    "overlap_pair_count": 60,
+    "max_model_request_overlap_seconds": 8.29966950416565,
+    "pairs": [
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 2.3163530826568604
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 2.320862054824829
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 2.9436888694763184
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 0.5987815856933594
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 0.3348205089569092
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 0.9678027629852295
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 2.222504138946533
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 2.222504138946533
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 2.664395809173584
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 0.050098419189453125
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 1.494386911392212
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 1.4067037105560303
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 2.9467406272888184
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 1.5236940383911133
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 2.899893283843994
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 1.358788251876831
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 3.5407917499542236
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 2.1658263206481934
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 3.6572790145874023
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 3.6572790145874023
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 7.129715919494629
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 1.272249698638916
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 2.11344575881958
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 0.8234364986419678
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 2.6599466800689697
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 3.4997360706329346
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 2.698390483856201
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 0.022410869598388672
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 0.34218335151672363
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 0.3042459487915039
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 4.791883945465088
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 4.4713428020477295
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 2.257453203201294
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 2.257453203201294
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 8.29966950416565
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 0.9568996429443359
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "seconds": 0.6275556087493896
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 1.9604637622833252
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 0.5276212692260742
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-2/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 1.5357606410980225
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 2.2289531230926514
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 1.2795755863189697
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 0.9534809589385986
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 2.050281286239624
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "seconds": 0.8535215854644775
+      },
+      {
+        "a": "root/plan-002-76aee3d8/v2-7f7010674a52-0/attempt-1",
+        "b": "root/plan-002-76aee3d8/v2-7f7010674a52-1/attempt-1",
+        "seconds": 1.2045705318450928
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "seconds": 2.4698638916015625
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "seconds": 2.4698638916015625
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "seconds": 4.528303623199463
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "seconds": 2.0284197330474854
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "seconds": 2.0387816429138184
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "seconds": 4.085789918899536
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "seconds": 4.792784690856934
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "seconds": 2.7259414196014404
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "seconds": 0.11476540565490723
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "seconds": 3.2950432300567627
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "seconds": 1.6251094341278076
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-2/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "seconds": 1.4922256469726562
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "seconds": 1.5367379188537598
+      },
+      {
+        "a": "root/plan-003-ef322104/v2-dac7359c6f26-0/attempt-1",
+        "b": "root/plan-003-ef322104/v2-dac7359c6f26-1/attempt-1",
+        "seconds": 1.2088780403137207
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 76,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

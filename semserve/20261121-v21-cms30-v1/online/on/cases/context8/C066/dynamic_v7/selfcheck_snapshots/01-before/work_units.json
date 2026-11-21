@@ -1,0 +1,41 @@
+{
+  "task": "C066",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "row_identities",
+      "implementation": "components/row_identities/work.py",
+      "read_fields": [
+        "txs"
+      ],
+      "input": "components/row_identities/input.json",
+      "public_expected": "components/row_identities/expected.json",
+      "output": "components/row_identities/result.json",
+      "run": "python -B components/row_identities/run.py",
+      "check": "python -B components/row_identities/check.py",
+      "contract": "按事务、语句生成被消费旧主键的去重有序数组，I 不消耗旧主键。"
+    },
+    {
+      "name": "column_decoding",
+      "implementation": "components/column_decoding/work.py",
+      "read_fields": [
+        "txs"
+      ],
+      "input": "components/column_decoding/input.json",
+      "public_expected": "components/column_decoding/expected.json",
+      "output": "components/column_decoding/result.json",
+      "run": "python -B components/column_decoding/run.py",
+      "check": "python -B components/column_decoding/check.py",
+      "contract": "按事务、语句、行变更生成已解码的列映射。D 用空对象；类型错误用 null，使整合端按事务回滚。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/row_identities/result.json",
+      "components/column_decoding/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

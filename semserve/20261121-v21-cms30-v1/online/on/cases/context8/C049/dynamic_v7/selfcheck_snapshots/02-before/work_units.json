@@ -1,0 +1,48 @@
+{
+  "task": "C049",
+  "sample_tolerance": {
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "units": [
+    {
+      "name": "batch_gradients",
+      "implementation": "components/batch_gradients/work.py",
+      "read_fields": [
+        "layers",
+        "world_size",
+        "microbatches"
+      ],
+      "input": "components/batch_gradients/input.json",
+      "public_expected": "components/batch_gradients/expected.json",
+      "output": "components/batch_gradients/result.json",
+      "run": "python -B components/batch_gradients/run.py",
+      "check": "python -B components/batch_gradients/check.py",
+      "contract": "按实际 stage 保留每个微批激活并反传；返回整题格式的 loss 和各层 gradients，采用微批等权和 float64。"
+    },
+    {
+      "name": "pipeline_schedule",
+      "implementation": "components/pipeline_schedule/work.py",
+      "read_fields": [
+        "layers",
+        "world_size",
+        "microbatches"
+      ],
+      "input": "components/pipeline_schedule/input.json",
+      "public_expected": "components/pipeline_schedule/expected.json",
+      "output": "components/pipeline_schedule/result.json",
+      "run": "python -B components/pipeline_schedule/run.py",
+      "check": "python -B components/pipeline_schedule/check.py",
+      "contract": "输出 partitions 和 AFAB 的 events；层边界为 floor(n*r/world)，保留正序前向、逆序反向及跨 stage 发送。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/batch_gradients/result.json",
+      "components/pipeline_schedule/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

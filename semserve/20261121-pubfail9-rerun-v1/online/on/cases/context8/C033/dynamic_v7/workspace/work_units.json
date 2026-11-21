@@ -1,0 +1,42 @@
+{
+  "task": "C033",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "elf_segments",
+      "implementation": "components/elf_segments/work.py",
+      "read_fields": [
+        "elf_hex"
+      ],
+      "input": "components/elf_segments/input.json",
+      "public_expected": "components/elf_segments/expected.json",
+      "output": "components/elf_segments/result.json",
+      "run": "python -B components/elf_segments/run.py",
+      "check": "python -B components/elf_segments/check.py",
+      "contract": "输出 [入口地址, [[地址,字节],…]]，按加载后的地址升序排列，包括 PT_LOAD 零填充。"
+    },
+    {
+      "name": "io_buffers",
+      "implementation": "components/io_buffers/work.py",
+      "read_fields": [
+        "files",
+        "stdin_hex"
+      ],
+      "input": "components/io_buffers/input.json",
+      "public_expected": "components/io_buffers/expected.json",
+      "output": "components/io_buffers/result.json",
+      "run": "python -B components/io_buffers/run.py",
+      "check": "python -B components/io_buffers/check.py",
+      "contract": "返回 [文件名字节数组映射,标准输入字节数组]，未指定文件或 stdin 时为空。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/elf_segments/result.json",
+      "components/io_buffers/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

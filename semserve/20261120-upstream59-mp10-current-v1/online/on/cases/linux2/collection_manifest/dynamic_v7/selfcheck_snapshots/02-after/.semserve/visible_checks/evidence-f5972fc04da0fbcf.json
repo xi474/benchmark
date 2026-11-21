@@ -1,0 +1,563 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795175678.0239732,
+  "end": 1795175684.572173,
+  "seconds": 6.548199892044067,
+  "workspace_version": "d38f37e3e04024523a5b17c5be016378ee08aa0ce2ebc1d419c016e73789fdfa",
+  "script_sha256": "edc40be0062bb33a65c60bf46c356d0dc817d1dfb95f09f39e1ebcf416ad540a",
+  "spec_sha256": "532a82067de26fb357efe84cb3efa8647edce81e0775d6c58a1fa2cd81aaba72",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 0,
+  "output": "VISIBLE_CONTRACT_CHECK_JSON:{\"schema_version\": \"semserve.visible-contract-check.v2\", \"test_framework\": \"unittest\", \"status\": \"PASS_BOUNDED\", \"actual_case_count\": 10, \"passed_cases\": 10, \"failed_cases\": 0, \"cases\": [], \"resolutions\": [], \"promoted\": {}, \"test_ids\": [\"TestApiBoundary.test_archive_boundary\", \"TestApiBoundary.test_inventory_boundary\", \"TestApiBoundary.test_selection_boundary\", \"TestArchive.test_archive_rejects_unknown_selected\", \"TestArchive.test_archive_sha256_over_bytes\", \"TestInventory.test_inventory_output_shape\", \"TestInventory.test_inventory_rejects_unsafe_path\", \"TestSelection.test_selection_build_ignore\", \"TestSelection.test_selection_manifest_and_ignore_conflict\", \"TestSelection.test_selection_manifest_instructions\"], \"test_plan_accepted\": true, \"test_failures\": [], \"skipped_cases\": 0, \"expected_failures\": 0, \"nonfinite_probes\": [{\"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"nan\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"9b8b7c2ffda6ae8fc13898536caa5324fc5db564b3ade9cde31983aa285f9e44\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"9b8b7c2ffda6ae8fc13898536caa5324fc5db564b3ade9cde31983aa285f9e44\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"9b8b7c2ffda6ae8fc13898536caa5324fc5db564b3ade9cde31983aa285f9e44\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"nan\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"7ce5fd7f17e10ba82dab111a9c6279cd5e27c132ee2d3ea1cfba0176d8c62087\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"7ce5fd7f17e10ba82dab111a9c6279cd5e27c132ee2d3ea1cfba0176d8c62087\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"7ce5fd7f17e10ba82dab111a9c6279cd5e27c132ee2d3ea1cfba0176d8c62087\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"nan\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"384c413dafcf0a19feb120b18dbf293f628c81b8c86ca90c9106ce42824575bb\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"384c413dafcf0a19feb120b18dbf293f628c81b8c86ca90c9106ce42824575bb\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"384c413dafcf0a19feb120b18dbf293f628c81b8c86ca90c9106ce42824575bb\", \"extension_probe\": true, \"error_type\": \"ValueError\"}], \"api_boundary_coverage\": {\"required\": {\"products/archive/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"products/inventory/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"products/selection/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"]}, \"verified\": {\"products/archive/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"products/inventory/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"products/selection/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"]}, \"missing\": {}, \"unreviewed\": {}, \"not_applicable\": [], \"inventoried_targets\": [\"products/archive/transform.py\", \"products/inventory/transform.py\", \"products/selection/transform.py\"], \"review_errors\": [], \"declarations\": [{\"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}}}, {\"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}}}, {\"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}}}]}, \"api_boundary_requirements\": [{\"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}}}, {\"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}}}, {\"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"document_sha256\": \"47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732\"}}}], \"error\": null, \"api_boundary_checks\": [{\"rule\": \"nonfinite_unknown_field\", \"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"nan\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"invalid_payload_type\", \"target_path\": \"products/archive/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"null\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"boolean\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"integer\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"string\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"nonfinite_unknown_field\", \"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"nan\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"invalid_payload_type\", \"target_path\": \"products/inventory/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"null\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"boolean\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"integer\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"string\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"nonfinite_unknown_field\", \"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"未知额外字段可忽略，但其中非有限JSON仍非法\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"nan\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"invalid_payload_type\", \"target_path\": \"products/selection/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"null\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"boolean\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"integer\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"string\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}], \"script_output\": \"\", \"test_output\": \"test_archive_boundary (_semserve_visible_unittest.TestApiBoundary.test_archive_boundary) ... ok\\ntest_inventory_boundary (_semserve_visible_unittest.TestApiBoundary.test_inventory_boundary) ... ok\\ntest_selection_boundary (_semserve_visible_unittest.TestApiBoundary.test_selection_boundary) ... ok\\ntest_archive_rejects_unknown_selected (_semserve_visible_unittest.TestArchive.test_archive_rejects_unknown_selected) ... ok\\ntest_archive_sha256_over_bytes (_semserve_visible_unittest.TestArchive.test_archive_sha256_over_bytes) ... ok\\ntest_inventory_output_shape (_semserve_visible_unittest.TestInventory.test_inventory_output_shape) ... ok\\ntest_inventory_rejects_unsafe_path (_semserve_visible_unittest.TestInventory.test_inventory_rejects_unsafe_path) ... ok\\ntest_selection_build_ignore (_semserve_visible_unittest.TestSelection.test_selection_build_ignore) ... ok\\ntest_selection_manifest_and_ignore_conflict (_semserve_visible_unittest.TestSelection.test_selection_manifest_and_ignore_conflict) ... ok\\ntest_selection_manifest_instructions (_semserve_visible_unittest.TestSelection.test_selection_manifest_instructions) ... ok\\n\\n----------------------------------------------------------------------\\nRan 10 tests in 6.358s\\n\\nOK\\n\", \"check_ok\": true}\n",
+  "process_ok": true,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 13193,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "PASS_BOUNDED",
+  "actual_case_count": 10,
+  "passed_cases": 10,
+  "failed_cases": 0,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TestApiBoundary.test_archive_boundary",
+    "TestApiBoundary.test_inventory_boundary",
+    "TestApiBoundary.test_selection_boundary",
+    "TestArchive.test_archive_rejects_unknown_selected",
+    "TestArchive.test_archive_sha256_over_bytes",
+    "TestInventory.test_inventory_output_shape",
+    "TestInventory.test_inventory_rejects_unsafe_path",
+    "TestSelection.test_selection_build_ignore",
+    "TestSelection.test_selection_manifest_and_ignore_conflict",
+    "TestSelection.test_selection_manifest_instructions"
+  ],
+  "test_plan_accepted": true,
+  "test_failures": [],
+  "skipped_cases": 0,
+  "expected_failures": 0,
+  "nonfinite_probes": [
+    {
+      "target_path": "products/archive/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "nan",
+      "outcome": "candidate_exception",
+      "seed_sha256": "9b8b7c2ffda6ae8fc13898536caa5324fc5db564b3ade9cde31983aa285f9e44",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/archive/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "positive_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "9b8b7c2ffda6ae8fc13898536caa5324fc5db564b3ade9cde31983aa285f9e44",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/archive/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "negative_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "9b8b7c2ffda6ae8fc13898536caa5324fc5db564b3ade9cde31983aa285f9e44",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/inventory/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "nan",
+      "outcome": "candidate_exception",
+      "seed_sha256": "7ce5fd7f17e10ba82dab111a9c6279cd5e27c132ee2d3ea1cfba0176d8c62087",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/inventory/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "positive_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "7ce5fd7f17e10ba82dab111a9c6279cd5e27c132ee2d3ea1cfba0176d8c62087",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/inventory/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "negative_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "7ce5fd7f17e10ba82dab111a9c6279cd5e27c132ee2d3ea1cfba0176d8c62087",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/selection/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "nan",
+      "outcome": "candidate_exception",
+      "seed_sha256": "384c413dafcf0a19feb120b18dbf293f628c81b8c86ca90c9106ce42824575bb",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/selection/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "positive_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "384c413dafcf0a19feb120b18dbf293f628c81b8c86ca90c9106ce42824575bb",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "products/selection/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "negative_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "384c413dafcf0a19feb120b18dbf293f628c81b8c86ca90c9106ce42824575bb",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    }
+  ],
+  "api_boundary_coverage": {
+    "required": {
+      "products/archive/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "products/inventory/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "products/selection/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "verified": {
+      "products/archive/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "products/inventory/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "products/selection/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "missing": {},
+    "unreviewed": {},
+    "not_applicable": [],
+    "inventoried_targets": [
+      "products/archive/transform.py",
+      "products/inventory/transform.py",
+      "products/selection/transform.py"
+    ],
+    "review_errors": [],
+    "declarations": [
+      {
+        "target_path": "products/inventory/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+            "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+          }
+        }
+      },
+      {
+        "target_path": "products/selection/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+            "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+          }
+        }
+      },
+      {
+        "target_path": "products/archive/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+            "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+          }
+        }
+      }
+    ]
+  },
+  "api_boundary_requirements": [
+    {
+      "target_path": "products/inventory/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+          "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        }
+      }
+    },
+    {
+      "target_path": "products/selection/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+          "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        }
+      }
+    },
+    {
+      "target_path": "products/archive/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+          "document_sha256": "47de5e413e9af129880453b0e82468a9e1346e3821fb0b5b1d82c3c5bfba1732"
+        }
+      }
+    }
+  ],
+  "error": null,
+  "api_boundary_checks": [
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "products/archive/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "nan",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "positive_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "negative_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "products/archive/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "null",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "boolean",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "integer",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "string",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "products/inventory/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "nan",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "positive_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "negative_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "products/inventory/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "null",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "boolean",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "integer",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "string",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "products/selection/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "nan",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "positive_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "negative_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "products/selection/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "null",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "boolean",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "integer",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "string",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "script_output": "",
+  "test_output": "test_archive_boundary (_semserve_visible_unittest.TestApiBoundary.test_archive_boundary) ... ok\ntest_inventory_boundary (_semserve_visible_unittest.TestApiBoundary.test_inventory_boundary) ... ok\ntest_selection_boundary (_semserve_visible_unittest.TestApiBoundary.test_selection_boundary) ... ok\ntest_archive_rejects_unknown_selected (_semserve_visible_unittest.TestArchive.test_archive_rejects_unknown_selected) ... ok\ntest_archive_sha256_over_bytes (_semserve_visible_unittest.TestArchive.test_archive_sha256_over_bytes) ... ok\ntest_inventory_output_shape (_semserve_visible_unittest.TestInventory.test_inventory_output_shape) ... ok\ntest_inventory_rejects_unsafe_path (_semserve_visible_unittest.TestInventory.test_inventory_rejects_unsafe_path) ... ok\ntest_selection_build_ignore (_semserve_visible_unittest.TestSelection.test_selection_build_ignore) ... ok\ntest_selection_manifest_and_ignore_conflict (_semserve_visible_unittest.TestSelection.test_selection_manifest_and_ignore_conflict) ... ok\ntest_selection_manifest_instructions (_semserve_visible_unittest.TestSelection.test_selection_manifest_instructions) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 6.358s\n\nOK\n",
+  "check_ok": true,
+  "failure_stage": null,
+  "executions": 1,
+  "frozen_regressions": 0,
+  "reused": false
+}

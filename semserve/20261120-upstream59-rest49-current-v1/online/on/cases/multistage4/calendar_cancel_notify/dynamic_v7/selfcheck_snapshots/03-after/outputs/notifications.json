@@ -1,0 +1,81 @@
+{
+  "name": "notifications",
+  "result": {
+    "group": {
+      "id": "cancelled-social",
+      "members": [
+        "c0"
+      ],
+      "requires": [
+        "e47-1",
+        "e47-4",
+        "e47-5"
+      ]
+    },
+    "outbox": [
+      {
+        "channel": "chat",
+        "recipients": [
+          "c1"
+        ],
+        "requires": [
+          "e47-1",
+          "e47-4",
+          "e47-5"
+        ],
+        "to": "h1"
+      },
+      {
+        "channel": "chat",
+        "recipients": [
+          "c4"
+        ],
+        "requires": [
+          "e47-1",
+          "e47-4",
+          "e47-5"
+        ],
+        "to": "h4"
+      },
+      {
+        "channel": "email",
+        "recipients": [
+          "c1"
+        ],
+        "requires": [
+          "e47-1",
+          "e47-4",
+          "e47-5"
+        ],
+        "to": "1@x"
+      },
+      {
+        "channel": "email",
+        "recipients": [
+          "c5"
+        ],
+        "requires": [
+          "e47-1",
+          "e47-4",
+          "e47-5"
+        ],
+        "to": "5@x"
+      },
+      {
+        "channel": "message_group",
+        "recipients": [
+          "c0"
+        ],
+        "requires": [
+          "e47-1",
+          "e47-4",
+          "e47-5"
+        ],
+        "to": "cancelled-social"
+      }
+    ],
+    "unreachable": [
+      "c2"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "clusters": {
+    "here": {
+      "mode": "local",
+      "services": {
+        "k": true
+      }
+    },
+    "away": {
+      "mode": "remote",
+      "services": {
+        "k": true,
+        "other": true
+      }
+    },
+    "far": {
+      "mode": "remote",
+      "services": {
+        "k": true
+      }
+    }
+  },
+  "events": [
+    {
+      "op": "request",
+      "id": "a",
+      "time": 0,
+      "user": "alice",
+      "cluster": "away",
+      "service": "k",
+      "verb": "read"
+    },
+    {
+      "op": "request",
+      "id": "b",
+      "time": 1,
+      "user": "alice",
+      "cluster": "away",
+      "service": "k",
+      "verb": "read"
+    }
+  ]
+}

@@ -1,0 +1,1169 @@
+{
+  "task_id": "MP26",
+  "entry_id": "reasoning4/recurring_dinner_calendar",
+  "title": "每日晚餐提醒的去重、冲突取消与通知",
+  "dataset": "medium26",
+  "arm": "on",
+  "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\reasoning4\\recurring_dinner_calendar\\dynamic_v7",
+  "actor_state": "completed",
+  "grade": {
+    "public_pass": true,
+    "strict_pass": false,
+    "official": {
+      "status": "failed",
+      "reason": "held-out API mismatch: engines/dates nonfinite-ignored-field"
+    },
+    "public_replay": {
+      "public_pass": true,
+      "returncode": 0
+    },
+    "core_transform_passed": 29,
+    "core_transform_total": 36,
+    "api_unexecuted": 0,
+    "api_components": {
+      "engines/dates": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "nonfinite-ignored-field"
+        ]
+      },
+      "engines/calendar": {
+        "state": "evaluated",
+        "api_total": 8,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "nonfinite-ignored-field",
+          "invalid-business-field"
+        ]
+      },
+      "engines/plan": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 5,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "invalid-top-level",
+          "nonfinite-ignored-field"
+        ]
+      },
+      "engines/notifications": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 7,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": []
+      },
+      "engines/apply": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 5,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "invalid-top-level",
+          "nonfinite-ignored-field"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "live_public": true,
+    "runtime_error": {
+      "type": "SelfcheckDeadlineExceeded",
+      "detail": "selfcheck_budget_exhausted: self-check incomplete; public pass remains separate"
+    },
+    "e2e_seconds": 479.49604082107544,
+    "completion_inclusive_seconds": 479.49624150292993,
+    "confirmed_parallel_wall_seconds": 68.5614550113678,
+    "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\reasoning4\\recurring_dinner_calendar\\dynamic_v7",
+    "public_passed": true,
+    "external_status": "failed",
+    "child_failure_events": 0,
+    "ownership_error_events": 3,
+    "real_child_parallel": true,
+    "offer_driven_parallel": true,
+    "autonomous_parallel": false,
+    "unknown_source_parallel": false,
+    "child_count": 6,
+    "offer_accepted": 2,
+    "offer_declined": 0,
+    "predictor_count": 4,
+    "waves": [
+      {
+        "plan_id": "plan-002-9e220023",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-002-9e220023/v2-66ada319a599-0/attempt-1",
+            "start": 1795175748.7355075,
+            "end": 1795175791.9176033,
+            "status": "succeeded",
+            "task_id": "child_task-000364"
+          },
+          {
+            "scope": "root/plan-002-9e220023/v2-66ada319a599-1/attempt-1",
+            "start": 1795175748.735789,
+            "end": 1795175793.1766117,
+            "status": "succeeded",
+            "task_id": "child_task-000365"
+          },
+          {
+            "scope": "root/plan-002-9e220023/v2-66ada319a599-2/attempt-1",
+            "start": 1795175748.736108,
+            "end": 1795175773.4875185,
+            "status": "succeeded",
+            "task_id": "child_task-000366"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 38.361083030700684,
+        "child_lifecycle_union_seconds": 44.44110417366028,
+        "child_lifecycle_duration_sum_seconds": 112.37432885169983,
+        "same_trace_child_lifecycle_overlap_work_seconds": 67.93322467803955,
+        "child_request_union_seconds": 44.397984981536865,
+        "child_request_duration_sum_seconds": 106.36044931411743,
+        "same_trace_child_request_overlap_work_seconds": 61.962464332580566,
+        "join_status": "succeeded"
+      },
+      {
+        "plan_id": "plan-003-308f3753",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-003-308f3753/v2-fbdd9a3f3fe7-0/attempt-1",
+            "start": 1795175817.479394,
+            "end": 1795175849.9634626,
+            "status": "succeeded",
+            "task_id": "child_task-000841"
+          },
+          {
+            "scope": "root/plan-003-308f3753/v2-fbdd9a3f3fe7-1/attempt-1",
+            "start": 1795175817.480745,
+            "end": 1795175831.107965,
+            "status": "succeeded",
+            "task_id": "child_task-000847"
+          },
+          {
+            "scope": "root/plan-003-308f3753/v2-fbdd9a3f3fe7-2/attempt-1",
+            "start": 1795175817.4935112,
+            "end": 1795175859.4720821,
+            "status": "succeeded",
+            "task_id": "child_task-000862"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 30.200371980667114,
+        "child_lifecycle_union_seconds": 41.99268817901611,
+        "child_lifecycle_duration_sum_seconds": 88.08985948562622,
+        "same_trace_child_lifecycle_overlap_work_seconds": 46.09717130661011,
+        "child_request_union_seconds": 40.921035289764404,
+        "child_request_duration_sum_seconds": 84.09606575965881,
+        "same_trace_child_request_overlap_work_seconds": 43.17503046989441,
+        "join_status": "succeeded"
+      }
+    ],
+    "subtask_joins": {
+      "plan-002-9e220023": "succeeded",
+      "plan-003-308f3753": "succeeded"
+    },
+    "deepseek_handshake": {
+      "physical_requests": 6,
+      "requests_with_usage": 6,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 6,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 119500,
+      "output_tokens": 4416,
+      "cache_hit_tokens": 50304,
+      "cache_miss_tokens": 69196,
+      "input_cost_usd": 0.046776048,
+      "output_cost_usd": 0.00874368,
+      "cost_usd": 0.05551972800000001,
+      "input_cost_cny": 0.31892760000000003,
+      "output_cost_cny": 0.059616,
+      "cost_cny": 0.3785436,
+      "issue_counts": {
+        "holiday_calendar_unverified": 6
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.4209539748953975,
+      "usd_estimate_including_unpartitioned_input": 0.055519728000000004,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.055519728000000004
+    },
+    "deepseek_total": {
+      "physical_requests": 127,
+      "requests_with_usage": 126,
+      "requests_missing_usage": 1,
+      "requests_cache_partition_known": 126,
+      "requests_cache_partition_unknown": 1,
+      "input_tokens": 6593683,
+      "output_tokens": 51958,
+      "cache_hit_tokens": 5912960,
+      "cache_miss_tokens": 680723,
+      "input_cost_usd": 0.5793623000000001,
+      "output_cost_usd": 0.10287684000000005,
+      "cost_usd": 0.68223914,
+      "input_cost_cny": 3.9501974999999994,
+      "output_cost_cny": 0.7014330000000003,
+      "cost_cny": 4.6516305,
+      "issue_counts": {
+        "holiday_calendar_unverified": 126,
+        "usage_missing_not_zero_cost": 1
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.8967613396033749,
+      "usd_estimate_including_unpartitioned_input": 0.6822391400000002,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.6822391399999997
+    },
+    "external_api_total": {
+      "physical_requests": 129,
+      "requests_with_usage": 128,
+      "requests_missing_usage": 1,
+      "requests_cache_partition_known": 126,
+      "requests_cache_partition_unknown": 3,
+      "input_tokens": 6616929,
+      "output_tokens": 52614,
+      "cache_hit_tokens": 5912960,
+      "cache_miss_tokens": 680723,
+      "input_cost_usd": 0.5793623000000001,
+      "output_cost_usd": 0.10313924000000005,
+      "cost_usd": 0.68223914,
+      "input_cost_cny": 3.9501974999999994,
+      "output_cost_cny": 0.7014330000000003,
+      "cost_cny": 4.6516305,
+      "input_estimate_without_cache_partition_usd": 0.0023246,
+      "input_tokens_cache_partition_unknown": 23246,
+      "issue_counts": {
+        "holiday_calendar_unverified": 126,
+        "cache_partition_unreported_standard_input_estimate_only": 2,
+        "usage_missing_not_zero_cost": 1
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.8967613396033749,
+      "usd_estimate_including_unpartitioned_input": 0.6848261400000002,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.6848261399999999
+    },
+    "wire_missing_receipt_ids": [],
+    "handshakes": [
+      {
+        "step": 2,
+        "turn_start": 1795175690.9019067,
+        "turn_end": 1795175692.404509,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 1,
+            "frontier_version": "03ed2550b8f1055a16b34320a03a88ece61e1c242d012e529b424eac2bfbcc25",
+            "safe_width": 0,
+            "fact_digest": "da3498248d2ca058d6dcad9a1479acde84b507aae4fea9cdd6b5bf5bbdda0e3d"
+          }
+        ],
+        "physical_request_ids": [
+          "14ac22b3752e425681b82432db7eedbc"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 5420,
+          "output_tokens": 156,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 5420,
+          "input_cost_usd": 0.0035772000000000004,
+          "output_cost_usd": 0.00030888,
+          "cost_usd": 0.0038860800000000005,
+          "input_cost_cny": 0.02439,
+          "output_cost_cny": 0.002106,
+          "cost_cny": 0.026496,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.0038860800000000005,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0038860800000000005
+        }
+      },
+      {
+        "step": 4,
+        "turn_start": 1795175692.443536,
+        "turn_end": 1795175699.9733596,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "dates-engine",
+            "kind": "component-implementation",
+            "surface": "engines/dates",
+            "goal": "Implement dates model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/dates/contract.json",
+              "engines/dates/check_module.py",
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py"
+            ],
+            "write_set": [
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py"
+            ],
+            "focused_check": "python3 engines/dates/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dates/model.py",
+                "engines/dates/transform.py",
+                "engines/dates/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "calendar-engine",
+            "kind": "component-implementation",
+            "surface": "engines/calendar",
+            "goal": "Implement calendar model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/calendar/contract.json",
+              "engines/calendar/check_module.py",
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py"
+            ],
+            "write_set": [
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py"
+            ],
+            "focused_check": "python3 engines/calendar/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/calendar/model.py",
+                "engines/calendar/transform.py",
+                "engines/calendar/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "plan-engine",
+            "kind": "component-implementation",
+            "surface": "engines/plan",
+            "goal": "Implement plan model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/plan/contract.json",
+              "engines/plan/check_module.py",
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "write_set": [
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "focused_check": "python3 engines/plan/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/plan/model.py",
+                "engines/plan/transform.py",
+                "engines/plan/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 2,
+            "frontier_version": "e144c152be18000191c1f6646456469e0fec07a40ff5b480b3ac96ee3220c998",
+            "safe_width": 0,
+            "fact_digest": "c2ee7b0ee6b5a2ee14e36a416355009f6ade844cd3317bebd9bd0e20e3ded220"
+          }
+        ],
+        "physical_request_ids": [
+          "85d55df041544fb1a9cb2abc4540885a"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 9839,
+          "output_tokens": 807,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 9839,
+          "input_cost_usd": 0.0064937400000000004,
+          "output_cost_usd": 0.00159786,
+          "cost_usd": 0.008091600000000001,
+          "input_cost_cny": 0.0442755,
+          "output_cost_cny": 0.0108945,
+          "cost_cny": 0.055170000000000004,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.008091600000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.008091600000000001
+        }
+      },
+      {
+        "step": 6,
+        "turn_start": 1795175702.1049314,
+        "turn_end": 1795175710.5477178,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "dates-engine",
+            "kind": "component-implementation",
+            "surface": "engines-dates",
+            "goal": "Implement dates model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/dates/contract.json",
+              "engines/dates/check_module.py",
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py"
+            ],
+            "focused_check": "python3 engines/dates/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dates/model.py",
+                "engines/dates/transform.py",
+                "engines/dates/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "calendar-engine",
+            "kind": "component-implementation",
+            "surface": "engines-calendar",
+            "goal": "Implement calendar model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/calendar/contract.json",
+              "engines/calendar/check_module.py",
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py"
+            ],
+            "focused_check": "python3 engines/calendar/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/calendar/model.py",
+                "engines/calendar/transform.py",
+                "engines/calendar/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "plan-engine",
+            "kind": "component-implementation",
+            "surface": "engines-plan",
+            "goal": "Implement plan model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/plan/contract.json",
+              "engines/plan/check_module.py",
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "write_set": [
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "focused_check": "python3 engines/plan/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/plan/model.py",
+                "engines/plan/transform.py",
+                "engines/plan/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 3,
+            "frontier_version": "6dee3e17e21346fef16477233046966b2d6638c83332b67252cddad72eaf3305",
+            "safe_width": 0,
+            "fact_digest": "a2b4e0feb59f056750715e448404356082660608a7c4413cbff8bb061b8a7acf"
+          }
+        ],
+        "physical_request_ids": [
+          "10cca6f6e8604d4fbbb59922d2987be6"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 15348,
+          "output_tokens": 854,
+          "cache_hit_tokens": 4736,
+          "cache_miss_tokens": 10612,
+          "input_cost_usd": 0.007108112,
+          "output_cost_usd": 0.00169092,
+          "cost_usd": 0.008799032,
+          "input_cost_cny": 0.048464400000000005,
+          "output_cost_cny": 0.011529,
+          "cost_cny": 0.0599934,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.3085744070888715,
+          "usd_estimate_including_unpartitioned_input": 0.008799032,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.008799032
+        }
+      },
+      {
+        "step": 8,
+        "turn_start": 1795175716.4214897,
+        "turn_end": 1795175723.355502,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "dates-engine",
+            "kind": "component-implementation",
+            "surface": "engines-dates",
+            "goal": "Implement dates model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/dates/contract.json",
+              "engines/dates/check_module.py",
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py"
+            ],
+            "focused_check": "python3 engines/dates/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dates/model.py",
+                "engines/dates/transform.py",
+                "engines/dates/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "calendar-engine",
+            "kind": "component-implementation",
+            "surface": "engines-calendar",
+            "goal": "Implement calendar model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/calendar/contract.json",
+              "engines/calendar/check_module.py",
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py"
+            ],
+            "focused_check": "python3 engines/calendar/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/calendar/model.py",
+                "engines/calendar/transform.py",
+                "engines/calendar/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "plan-engine",
+            "kind": "component-implementation",
+            "surface": "engines-plan",
+            "goal": "Implement plan model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/plan/contract.json",
+              "engines/plan/check_module.py",
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "write_set": [
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "focused_check": "python3 engines/plan/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/plan/model.py",
+                "engines/plan/transform.py",
+                "engines/plan/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium",
+            "validation_mode": "isolated_fixture",
+            "validation_read_set": [
+              "outputs/dates.json",
+              "outputs/calendar.json"
+            ]
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 4,
+            "frontier_version": "23e4f82e95af8987d71e15b270f13f59610888bff28e0994d0f91fabf86d9301",
+            "safe_width": 0,
+            "fact_digest": "700db63a98f98e38f53c9bcb0e90c00b01f5a03edb3961f044f9353cc41f3820"
+          }
+        ],
+        "physical_request_ids": [
+          "ebdc796840d44ca58c6b10baeb6fcce3"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 22595,
+          "output_tokens": 909,
+          "cache_hit_tokens": 9088,
+          "cache_miss_tokens": 13507,
+          "input_cost_usd": 0.009114556000000001,
+          "output_cost_usd": 0.00179982,
+          "cost_usd": 0.010914376000000002,
+          "input_cost_cny": 0.0621447,
+          "output_cost_cny": 0.0122715,
+          "cost_cny": 0.0744162,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.40221287895552116,
+          "usd_estimate_including_unpartitioned_input": 0.010914376000000002,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.010914376000000002
+        }
+      },
+      {
+        "step": 10,
+        "turn_start": 1795175726.9766886,
+        "turn_end": 1795175733.510931,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "dates-engine",
+            "kind": "component-implementation",
+            "surface": "engines-dates",
+            "goal": "Implement dates model/transform/render and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/dates/contract.json",
+              "engines/dates/check_module.py",
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/dates/model.py",
+              "engines/dates/transform.py",
+              "engines/dates/render.py"
+            ],
+            "focused_check": "python3 engines/dates/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dates/model.py",
+                "engines/dates/transform.py",
+                "engines/dates/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "calendar-engine",
+            "kind": "component-implementation",
+            "surface": "engines-calendar",
+            "goal": "Implement calendar model/transform/render and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/calendar/contract.json",
+              "engines/calendar/check_module.py",
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/calendar/model.py",
+              "engines/calendar/transform.py",
+              "engines/calendar/render.py"
+            ],
+            "focused_check": "python3 engines/calendar/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/calendar/model.py",
+                "engines/calendar/transform.py",
+                "engines/calendar/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "plan-engine",
+            "kind": "component-implementation",
+            "surface": "engines-plan",
+            "goal": "Implement plan model/transform/render and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/plan/contract.json",
+              "engines/plan/check_module.py",
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "write_set": [
+              "engines/plan/model.py",
+              "engines/plan/transform.py",
+              "engines/plan/render.py"
+            ],
+            "focused_check": "python3 engines/plan/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/plan/model.py",
+                "engines/plan/transform.py",
+                "engines/plan/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium",
+            "validation_read_set": [
+              "outputs/dates.json",
+              "outputs/calendar.json"
+            ],
+            "validation_mode": "isolated_fixture"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 5,
+            "frontier_version": "c11e8f994764e38c2dd83f8d49a3c0705b6d0f53cd6f481d09169b21b690c720",
+            "safe_width": 3,
+            "fact_digest": "9d52541103cb35df3a0c367da6c9eaeb0df3b2de5c48e619de6e1f40c06e76f8"
+          }
+        ],
+        "physical_request_ids": [
+          "2d15dfc298054ea498cfd7d13e350b22"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 28844,
+          "output_tokens": 860,
+          "cache_hit_tokens": 14592,
+          "cache_miss_tokens": 14252,
+          "input_cost_usd": 0.009727343999999999,
+          "output_cost_usd": 0.0017028,
+          "cost_usd": 0.011430144,
+          "input_cost_cny": 0.0663228,
+          "output_cost_cny": 0.01161,
+          "cost_cny": 0.0779328,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.5058937734017473,
+          "usd_estimate_including_unpartitioned_input": 0.011430144,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.011430144
+        }
+      },
+      {
+        "step": 12,
+        "turn_start": 1795175793.203162,
+        "turn_end": 1795175801.0717201,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "notifications-engine",
+            "kind": "component-implementation",
+            "surface": "engines-notifications",
+            "goal": "Implement notifications model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/notifications/contract.json",
+              "engines/notifications/check_module.py",
+              "engines/notifications/model.py",
+              "engines/notifications/transform.py",
+              "engines/notifications/render.py"
+            ],
+            "write_set": [
+              "engines/notifications/model.py",
+              "engines/notifications/transform.py",
+              "engines/notifications/render.py"
+            ],
+            "focused_check": "python3 engines/notifications/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/notifications/model.py",
+                "engines/notifications/transform.py",
+                "engines/notifications/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short",
+            "validation_read_set": [
+              "outputs/plan.json"
+            ],
+            "validation_mode": "isolated_fixture"
+          },
+          {
+            "work_unit_id": "apply-engine",
+            "kind": "component-implementation",
+            "surface": "engines-apply",
+            "goal": "Implement apply model/transform/render per contract and pass check_module",
+            "needs": [],
+            "read_set": [
+              "engines/apply/contract.json",
+              "engines/apply/check_module.py",
+              "engines/apply/model.py",
+              "engines/apply/transform.py",
+              "engines/apply/render.py"
+            ],
+            "write_set": [
+              "engines/apply/model.py",
+              "engines/apply/transform.py",
+              "engines/apply/render.py"
+            ],
+            "focused_check": "python3 engines/apply/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/apply/model.py",
+                "engines/apply/transform.py",
+                "engines/apply/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short",
+            "validation_read_set": [
+              "outputs/calendar.json",
+              "outputs/plan.json",
+              "outputs/notifications.json"
+            ],
+            "validation_mode": "isolated_fixture"
+          },
+          {
+            "work_unit_id": "run-all-final-report",
+            "kind": "orchestration",
+            "surface": "root",
+            "goal": "Implement run_all.py and final_report.py orchestration and report generation",
+            "needs": [],
+            "read_set": [
+              "run_all.py",
+              "final_report.py",
+              "integrate.py",
+              "check.py"
+            ],
+            "write_set": [
+              "run_all.py",
+              "final_report.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py",
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium",
+            "validation_read_set": [
+              "outputs/core_manifest.json"
+            ],
+            "validation_mode": "isolated_fixture"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 6,
+            "frontier_version": "d006d07fd452f1e3f0f5d3907f04be45f643b2bd010ddd514578b8dc9ef6e105",
+            "safe_width": 3,
+            "fact_digest": "6f2bec18c7922fa061094a4edef4b4c8815ca253f19fe4e66ae022341b242fc7"
+          }
+        ],
+        "physical_request_ids": [
+          "47d182c530c647a39f1aac497eb914d8"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 37454,
+          "output_tokens": 830,
+          "cache_hit_tokens": 21888,
+          "cache_miss_tokens": 15566,
+          "input_cost_usd": 0.010755096000000002,
+          "output_cost_usd": 0.0016434000000000002,
+          "cost_usd": 0.012398496000000002,
+          "input_cost_cny": 0.0733302,
+          "output_cost_cny": 0.011205,
+          "cost_cny": 0.0845352,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.5843968601484487,
+          "usd_estimate_including_unpartitioned_input": 0.012398496000000002,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.012398496000000002
+        }
+      }
+    ],
+    "first_deepseek_root_request": {
+      "input_tokens": 5448,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 5448,
+      "http_status": 200
+    },
+    "first_handshake_request": {
+      "input_tokens": 5420,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 5420,
+      "http_status": 200
+    }
+  },
+  "protocol": {
+    "mode_receipts": [
+      {
+        "enabled": true,
+        "controller": "active",
+        "allow_subtasks": true,
+        "allow_initial_subtasks": true,
+        "allow_recovery_subtasks": true,
+        "allowed_tools": [
+          "choose_execution_mode_v2",
+          "deliver_files",
+          "deliver_frontier_report",
+          "list_files",
+          "read_file",
+          "report_frontier_state",
+          "search_text",
+          "shell",
+          "spawn_subtasks",
+          "write_file",
+          "write_file_chunk"
+        ],
+        "_line": 1
+      }
+    ],
+    "mode_matches_arm": true,
+    "scheduled_handshakes": 6,
+    "accepted_offers": 0,
+    "selfcheck_entered": true,
+    "selfcheck_completed": false
+  },
+  "cold_namespace": {
+    "state": "verified_cold",
+    "prefix_sha256": "9cb68c4dc2bf8008586b4baf1177e3e90cb1dbe7bdf48a23c9cda9abbf02d606",
+    "wire_audit_complete": true,
+    "deepseek_request_count": 127,
+    "first_prompt_cache_hit_tokens": 0,
+    "first_prompt_cache_miss_tokens": 5448,
+    "receipt_present": true,
+    "reconciled_with_wire_audit": true,
+    "matches_runner_status": true
+  },
+  "wire_audit": {
+    "deepseek_requests": 127,
+    "thinking": "disabled",
+    "reasoning_effort": null
+  },
+  "scoring_error": null,
+  "metrics_error": null,
+  "protocol_error": null
+}

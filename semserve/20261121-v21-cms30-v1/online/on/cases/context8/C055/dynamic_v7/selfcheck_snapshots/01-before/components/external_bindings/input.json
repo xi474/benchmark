@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "name": "base",
+      "trusted": true,
+      "yaml": "x: &base first\ny: *base\nz: see-${x}\n"
+    },
+    {
+      "name": "override",
+      "trusted": false,
+      "yaml": "x: plain-${y}\n"
+    }
+  ]
+}

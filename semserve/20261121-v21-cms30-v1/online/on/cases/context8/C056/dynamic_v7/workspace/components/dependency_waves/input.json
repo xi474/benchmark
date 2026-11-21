@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": "c",
+      "needs": [
+        "a",
+        "b"
+      ],
+      "pool": "p",
+      "stream": "s",
+      "attempts": 3
+    },
+    {
+      "id": "b",
+      "needs": [],
+      "pool": "p",
+      "stream": "t",
+      "attempts": 2
+    },
+    {
+      "id": "a",
+      "needs": [],
+      "pool": "q",
+      "stream": "s",
+      "attempts": 1
+    }
+  ]
+}

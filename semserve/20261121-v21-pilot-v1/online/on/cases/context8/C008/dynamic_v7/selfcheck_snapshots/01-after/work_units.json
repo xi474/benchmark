@@ -1,0 +1,42 @@
+{
+  "task": "C008",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "relationship_windows",
+      "implementation": "components/relationship_windows/work.py",
+      "read_fields": [
+        "links",
+        "merges"
+      ],
+      "input": "components/relationship_windows/input.json",
+      "public_expected": "components/relationship_windows/expected.json",
+      "output": "components/relationship_windows/result.json",
+      "run": "python -B components/relationship_windows/run.py",
+      "check": "python -B components/relationship_windows/check.py",
+      "contract": "将链接和合并登记为 [起点,终点,生效时刻,失效时刻]。保留原顺序并补齐缺省区间。"
+    },
+    {
+      "name": "record_subjects",
+      "implementation": "components/record_subjects/work.py",
+      "read_fields": [
+        "records"
+      ],
+      "input": "components/record_subjects/input.json",
+      "public_expected": "components/record_subjects/expected.json",
+      "output": "components/record_subjects/result.json",
+      "run": "python -B components/record_subjects/run.py",
+      "check": "python -B components/record_subjects/check.py",
+      "contract": "按记录顺序产生 [表名,行号,时间,[租户,主体]]，为跨表归一化保留租户作用域。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/relationship_windows/result.json",
+      "components/record_subjects/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

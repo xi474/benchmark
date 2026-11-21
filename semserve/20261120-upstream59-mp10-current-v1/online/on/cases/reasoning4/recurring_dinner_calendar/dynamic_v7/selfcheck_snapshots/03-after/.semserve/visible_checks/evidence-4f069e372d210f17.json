@@ -1,0 +1,752 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795176076.4756207,
+  "end": 1795176079.4776266,
+  "seconds": 3.0020058155059814,
+  "workspace_version": "69947bd6011a2e7a6733f88b5049af3158455689a318b5439f40b5295278cb04",
+  "script_sha256": "0eb68b25fc5f7fbd774b83b3f6ef5b5d06f76cd9d5903cdb1c813e5efa667ecb",
+  "spec_sha256": "a3ef1bdc65289787346aa94d98a90546c62ce9027484080b8d6572978965327b",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 1,
+  "output": "8-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 428, in check_api_boundary\\n    call(target_path, 'transform', args=control)\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: ValueError: payload count mismatch\\n\\n======================================================================\\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/notifications/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 281, in test_api_boundary_rules\\n    check_api_boundary(\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 428, in check_api_boundary\\n    call(target_path, 'transform', args=control)\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: KeyError: 0\\n\\n======================================================================\\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/apply/transform.py', rule='nonfinite_unknown_field')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 281, in test_api_boundary_rules\\n    check_api_boundary(\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/apply/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 281, in test_api_boundary_rules\\n    check_api_boundary(\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_apply_remove_and_add (_semserve_visible_unittest.TestApply.test_apply_remove_and_add)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 266, in test_apply_remove_and_add\\n    result = call_candidate(\\\"engines/apply/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: argument_binding in engines/apply/transform.py::transform: TypeError: too many positional arguments\\n\\n======================================================================\\nERROR: test_attendees_dedup_sorted (_semserve_visible_unittest.TestCalendar.test_attendees_dedup_sorted)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 197, in test_attendees_dedup_sorted\\n    result = call_candidate(\\\"engines/calendar/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\\n\\n======================================================================\\nERROR: test_existing_dinner_dedup (_semserve_visible_unittest.TestCalendar.test_existing_dinner_dedup)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 186, in test_existing_dinner_dedup\\n    result = call_candidate(\\\"engines/calendar/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\\n\\n======================================================================\\nERROR: test_dates_monday_start (_semserve_visible_unittest.TestDates.test_dates_monday_start)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 168, in test_dates_monday_start\\n    result = call_candidate(\\\"engines/dates/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\\n\\n======================================================================\\nERROR: test_dates_range (_semserve_visible_unittest.TestDates.test_dates_range)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 157, in test_dates_range\\n    result = call_candidate(\\\"engines/dates/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\\n\\n======================================================================\\nERROR: test_outbox_grouped (_semserve_visible_unittest.TestNotifications.test_outbox_grouped)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 243, in test_outbox_grouped\\n    result = call_candidate(\\\"engines/notifications/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: KeyError: 0\\n\\n======================================================================\\nERROR: test_plan_exact_end_no_conflict (_semserve_visible_unittest.TestPlan.test_plan_exact_end_no_conflict)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 229, in test_plan_exact_end_no_conflict\\n    result = call_candidate(\\\"engines/plan/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\\n\\n======================================================================\\nERROR: test_plan_skip_existing_and_cancel (_semserve_visible_unittest.TestPlan.test_plan_skip_existing_and_cancel)\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 213, in test_plan_skip_existing_and_cancel\\n    result = call_candidate(\\\"engines/plan/transform.py\\\", \\\"transform\\\",\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\\n\\n----------------------------------------------------------------------\\nRan 9 tests in 2.792s\\n\\nFAILED (errors=18)\\n\", \"check_ok\": false, \"selfcheck_feedback\": {\"kind\": \"probe_setup\", \"code\": \"boundary_control_failed\", \"scope\": \"check_api_boundary\", \"target\": \"engines/dates/transform.py\", \"details\": {\"failure_phase\": \"candidate_exception\", \"error_type\": \"ValueError\", \"accepted_signature\": \"(payloads, contract)\", \"error\": \"payload count mismatch\", \"rule\": \"nonfinite_unknown_field\", \"message\": \"candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\"}, \"next_action\": \"Run one finite positive control using the public transform signature and payload shape. Resolve that failure before interpreting any negative probe.\"}}\n",
+  "process_ok": false,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 77765,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "SCRIPT_ERROR",
+  "actual_case_count": 9,
+  "passed_cases": 0,
+  "failed_cases": 9,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TestApiBoundaries.test_api_boundary_rules",
+    "TestApply.test_apply_remove_and_add",
+    "TestCalendar.test_attendees_dedup_sorted",
+    "TestCalendar.test_existing_dinner_dedup",
+    "TestDates.test_dates_monday_start",
+    "TestDates.test_dates_range",
+    "TestNotifications.test_outbox_grouped",
+    "TestPlan.test_plan_exact_end_no_conflict",
+    "TestPlan.test_plan_skip_existing_and_cancel"
+  ],
+  "test_plan_accepted": true,
+  "test_failures": [
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/dates/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/dates/transform.py\", line 12, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/dates/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/dates/transform.py', rule='invalid_payload_type')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/dates/transform.py\", line 12, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/dates/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/calendar/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/calendar/transform.py\", line 22, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/calendar/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/calendar/transform.py', rule='invalid_payload_type')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/calendar/transform.py\", line 22, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/calendar/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/plan/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/plan/transform.py"
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/plan/transform.py', rule='invalid_payload_type')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/plan/transform.py"
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/notifications/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/notifications/transform.py\", line 9, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/notifications/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/notifications/transform.py', rule='invalid_payload_type')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: KeyError: 0\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "KeyError",
+        "error": "0",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/notifications/transform.py\", line 11, in transform\n    plan = _unwrap(payloads[0])\n                   ~~~~~~~~^^^\nKeyError: 0\n",
+        "target_path": "engines/notifications/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/apply/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/apply/transform.py"
+      }
+    },
+    {
+      "test_id": "TestApiBoundaries.test_api_boundary_rules (target='engines/apply/transform.py', rule='invalid_payload_type')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/apply/transform.py"
+      }
+    },
+    {
+      "test_id": "TestApply.test_apply_remove_and_add",
+      "kind": "argument_binding",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 266, in test_apply_remove_and_add\n    result = call_candidate(\"engines/apply/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/apply/transform.py::transform: TypeError: too many positional arguments\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "TypeError",
+        "error": "too many positional arguments",
+        "stage": "load",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 234, in call_main\n    signature.bind(*case['args'],**case['kwargs'])\n  File \"/usr/local/lib/python3.12/inspect.py\", line 3280, in bind\n    return self._bind(args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/inspect.py\", line 3199, in _bind\n    raise TypeError('too many positional arguments') from None\nTypeError: too many positional arguments\n",
+        "target_path": "engines/apply/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "argument_binding",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestCalendar.test_attendees_dedup_sorted",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 197, in test_attendees_dedup_sorted\n    result = call_candidate(\"engines/calendar/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/calendar/transform.py\", line 22, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/calendar/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestCalendar.test_existing_dinner_dedup",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 186, in test_existing_dinner_dedup\n    result = call_candidate(\"engines/calendar/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/calendar/transform.py\", line 22, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/calendar/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestDates.test_dates_monday_start",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 168, in test_dates_monday_start\n    result = call_candidate(\"engines/dates/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/dates/transform.py\", line 12, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/dates/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestDates.test_dates_range",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 157, in test_dates_range\n    result = call_candidate(\"engines/dates/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "ValueError",
+        "error": "payload count mismatch",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/dates/transform.py\", line 12, in transform\n    raise ValueError(\"payload count mismatch\")\nValueError: payload count mismatch\n",
+        "target_path": "engines/dates/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestNotifications.test_outbox_grouped",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 243, in test_outbox_grouped\n    result = call_candidate(\"engines/notifications/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: KeyError: 0\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "KeyError",
+        "error": "0",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/engines/notifications/transform.py\", line 11, in transform\n    plan = _unwrap(payloads[0])\n                   ~~~~~~~~^^^\nKeyError: 0\n",
+        "target_path": "engines/notifications/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestPlan.test_plan_exact_end_no_conflict",
+      "kind": "argument_binding",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 229, in test_plan_exact_end_no_conflict\n    result = call_candidate(\"engines/plan/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "TypeError",
+        "error": "too many positional arguments",
+        "stage": "load",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 234, in call_main\n    signature.bind(*case['args'],**case['kwargs'])\n  File \"/usr/local/lib/python3.12/inspect.py\", line 3280, in bind\n    return self._bind(args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/inspect.py\", line 3199, in _bind\n    raise TypeError('too many positional arguments') from None\nTypeError: too many positional arguments\n",
+        "target_path": "engines/plan/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "argument_binding",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestPlan.test_plan_skip_existing_and_cancel",
+      "kind": "argument_binding",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 213, in test_plan_skip_existing_and_cancel\n    result = call_candidate(\"engines/plan/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "TypeError",
+        "error": "too many positional arguments",
+        "stage": "load",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 234, in call_main\n    signature.bind(*case['args'],**case['kwargs'])\n  File \"/usr/local/lib/python3.12/inspect.py\", line 3280, in bind\n    return self._bind(args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/inspect.py\", line 3199, in _bind\n    raise TypeError('too many positional arguments') from None\nTypeError: too many positional arguments\n",
+        "target_path": "engines/plan/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "argument_binding",
+        "candidate_output": ""
+      }
+    }
+  ],
+  "skipped_cases": 0,
+  "expected_failures": 0,
+  "api_boundary_coverage": {
+    "required": {
+      "engines/apply/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/calendar/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/dates/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/notifications/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/plan/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "verified": {},
+    "missing": {
+      "engines/apply/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/calendar/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/dates/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/notifications/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "engines/plan/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "unreviewed": {},
+    "not_applicable": [],
+    "inventoried_targets": [
+      "engines/apply/transform.py",
+      "engines/calendar/transform.py",
+      "engines/dates/transform.py",
+      "engines/notifications/transform.py",
+      "engines/plan/transform.py"
+    ],
+    "review_errors": [],
+    "declarations": [
+      {
+        "target_path": "engines/dates/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          }
+        }
+      },
+      {
+        "target_path": "engines/calendar/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          }
+        }
+      },
+      {
+        "target_path": "engines/plan/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          }
+        }
+      },
+      {
+        "target_path": "engines/notifications/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          }
+        }
+      },
+      {
+        "target_path": "engines/apply/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+            "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+          }
+        }
+      }
+    ]
+  },
+  "api_boundary_requirements": [
+    {
+      "target_path": "engines/dates/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        }
+      }
+    },
+    {
+      "target_path": "engines/calendar/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        }
+      }
+    },
+    {
+      "target_path": "engines/plan/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        }
+      }
+    },
+    {
+      "target_path": "engines/notifications/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        }
+      }
+    },
+    {
+      "target_path": "engines/apply/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+          "document_sha256": "a7dd37412cd63d8379a334933ccf88153f8c5f23b3be85674588a07f2830bfe0"
+        }
+      }
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 213, in test_plan_skip_existing_and_cancel\n    result = call_candidate(\"engines/plan/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\n",
+  "api_boundary_checks": [
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "engines/dates/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "ValueError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "payload count mismatch"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "engines/dates/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "ValueError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "payload count mismatch"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "engines/calendar/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "ValueError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "payload count mismatch"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "engines/calendar/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "ValueError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "payload count mismatch"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "engines/plan/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/plan/transform.py"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "engines/plan/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/plan/transform.py"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "engines/notifications/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in engines/notifications/transform.py::transform: ValueError: payload count mismatch",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "ValueError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "payload count mismatch"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "engines/notifications/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in engines/notifications/transform.py::transform: KeyError: 0",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "KeyError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "0"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "engines/apply/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/apply/transform.py"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "engines/apply/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "model.load_payload(path:Path)：读取UTF8 JSON，仅对象/数组顶层合法",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "engines/apply/transform.py"
+      }
+    }
+  ],
+  "script_output": "",
+  "test_output": "test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) ... \n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/dates/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/dates/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/calendar/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/calendar/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/plan/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/plan/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/notifications/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/notifications/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/apply/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/apply/transform.py', rule='invalid_payload_type') ... ERROR\ntest_apply_remove_and_add (_semserve_visible_unittest.TestApply.test_apply_remove_and_add) ... ERROR\ntest_attendees_dedup_sorted (_semserve_visible_unittest.TestCalendar.test_attendees_dedup_sorted) ... ERROR\ntest_existing_dinner_dedup (_semserve_visible_unittest.TestCalendar.test_existing_dinner_dedup) ... ERROR\ntest_dates_monday_start (_semserve_visible_unittest.TestDates.test_dates_monday_start) ... ERROR\ntest_dates_range (_semserve_visible_unittest.TestDates.test_dates_range) ... ERROR\ntest_outbox_grouped (_semserve_visible_unittest.TestNotifications.test_outbox_grouped) ... ERROR\ntest_plan_exact_end_no_conflict (_semserve_visible_unittest.TestPlan.test_plan_exact_end_no_conflict) ... ERROR\ntest_plan_skip_existing_and_cancel (_semserve_visible_unittest.TestPlan.test_plan_skip_existing_and_cancel) ... ERROR\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/dates/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/dates/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/calendar/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/calendar/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/plan/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/plan/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/notifications/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/notifications/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: KeyError: 0\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/apply/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_rules (_semserve_visible_unittest.TestApiBoundaries.test_api_boundary_rules) (target='engines/apply/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 281, in test_api_boundary_rules\n    check_api_boundary(\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_apply_remove_and_add (_semserve_visible_unittest.TestApply.test_apply_remove_and_add)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 266, in test_apply_remove_and_add\n    result = call_candidate(\"engines/apply/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/apply/transform.py::transform: TypeError: too many positional arguments\n\n======================================================================\nERROR: test_attendees_dedup_sorted (_semserve_visible_unittest.TestCalendar.test_attendees_dedup_sorted)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 197, in test_attendees_dedup_sorted\n    result = call_candidate(\"engines/calendar/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_existing_dinner_dedup (_semserve_visible_unittest.TestCalendar.test_existing_dinner_dedup)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 186, in test_existing_dinner_dedup\n    result = call_candidate(\"engines/calendar/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/calendar/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_dates_monday_start (_semserve_visible_unittest.TestDates.test_dates_monday_start)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 168, in test_dates_monday_start\n    result = call_candidate(\"engines/dates/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_dates_range (_semserve_visible_unittest.TestDates.test_dates_range)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 157, in test_dates_range\n    result = call_candidate(\"engines/dates/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch\n\n======================================================================\nERROR: test_outbox_grouped (_semserve_visible_unittest.TestNotifications.test_outbox_grouped)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 243, in test_outbox_grouped\n    result = call_candidate(\"engines/notifications/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in engines/notifications/transform.py::transform: KeyError: 0\n\n======================================================================\nERROR: test_plan_exact_end_no_conflict (_semserve_visible_unittest.TestPlan.test_plan_exact_end_no_conflict)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 229, in test_plan_exact_end_no_conflict\n    result = call_candidate(\"engines/plan/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\n\n======================================================================\nERROR: test_plan_skip_existing_and_cancel (_semserve_visible_unittest.TestPlan.test_plan_skip_existing_and_cancel)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 213, in test_plan_skip_existing_and_cancel\n    result = call_candidate(\"engines/plan/transform.py\", \"transform\",\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: argument_binding in engines/plan/transform.py::transform: TypeError: too many positional arguments\n\n----------------------------------------------------------------------\nRan 9 tests in 2.792s\n\nFAILED (errors=18)\n",
+  "check_ok": false,
+  "selfcheck_feedback": {
+    "kind": "probe_setup",
+    "code": "boundary_control_failed",
+    "scope": "check_api_boundary",
+    "target": "engines/dates/transform.py",
+    "details": {
+      "failure_phase": "candidate_exception",
+      "error_type": "ValueError",
+      "accepted_signature": "(payloads, contract)",
+      "error": "payload count mismatch",
+      "rule": "nonfinite_unknown_field",
+      "message": "candidate_exception in engines/dates/transform.py::transform: ValueError: payload count mismatch"
+    },
+    "next_action": "Run one finite positive control using the public transform signature and payload shape. Resolve that failure before interpreting any negative probe."
+  },
+  "failure_stage": "test_setup_or_execution",
+  "executions": 2,
+  "preparation_deferrals": 0,
+  "infra_errors": 2,
+  "mismatch_rounds": 0,
+  "frozen_regressions": 0,
+  "pending_reference_reviews": 0,
+  "pending_cases": {}
+}

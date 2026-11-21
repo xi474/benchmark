@@ -1,0 +1,43 @@
+{
+  "task": "C058",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "host_conditions",
+      "implementation": "components/host_conditions/work.py",
+      "read_fields": [
+        "hosts",
+        "program"
+      ],
+      "input": "components/host_conditions/input.json",
+      "public_expected": "components/host_conditions/expected.json",
+      "output": "components/host_conditions/result.json",
+      "run": "python -B components/host_conditions/run.py",
+      "check": "python -B components/host_conditions/check.py",
+      "contract": "每个 host 对应一张节点表，按树位置（各级整数以 / 分隔）记录 [可执行,会失败]；包含块节点。"
+    },
+    {
+      "name": "handler_bindings",
+      "implementation": "components/handler_bindings/work.py",
+      "read_fields": [
+        "handlers",
+        "program"
+      ],
+      "input": "components/handler_bindings/input.json",
+      "public_expected": "components/handler_bindings/expected.json",
+      "output": "components/handler_bindings/result.json",
+      "run": "python -B components/handler_bindings/run.py",
+      "check": "python -B components/handler_bindings/check.py",
+      "contract": "输出 [处理器声明顺序映射,叶节点到通知清单的映射]。叶节点按同一树位置编码；通知名去重并按声明顺序排列，含 rescue、always。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/host_conditions/result.json",
+      "components/handler_bindings/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "task": "C074",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "directory_snapshots",
+      "implementation": "components/directory_snapshots/work.py",
+      "read_fields": [
+        "nodes",
+        "mounts",
+        "scans"
+      ],
+      "input": "components/directory_snapshots/input.json",
+      "public_expected": "components/directory_snapshots/expected.json",
+      "output": "components/directory_snapshots/result.json",
+      "run": "python -B components/directory_snapshots/run.py",
+      "check": "python -B components/directory_snapshots/check.py",
+      "contract": "按扫描轮次生成映射，从每个完成目录的逻辑路径映射至 [保留文件映射,可见子目录名升序数组]。按轮累计替换节点。"
+    },
+    {
+      "name": "scan_precedence",
+      "implementation": "components/scan_precedence/work.py",
+      "read_fields": [
+        "scans"
+      ],
+      "input": "components/scan_precedence/input.json",
+      "public_expected": "components/scan_precedence/expected.json",
+      "output": "components/scan_precedence/result.json",
+      "run": "python -B components/scan_precedence/run.py",
+      "check": "python -B components/scan_precedence/check.py",
+      "contract": "每轮返回完成的逻辑路径，按深度先父后子，同深度维持输入顺序。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/directory_snapshots/result.json",
+      "components/scan_precedence/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

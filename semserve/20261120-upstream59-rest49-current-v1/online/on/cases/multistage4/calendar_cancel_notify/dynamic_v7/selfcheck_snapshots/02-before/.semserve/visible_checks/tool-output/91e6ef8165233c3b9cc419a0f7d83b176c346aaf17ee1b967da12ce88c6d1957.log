@@ -1,0 +1,825 @@
+"""Runtime-owned visible cases. No hidden oracle or model-reported pass counts."""
+from __future__ import annotations
+import ast, contextlib, copy, hashlib, importlib.util, inspect, io, json, os, re, subprocess, sys, traceback, types, unittest
+from pathlib import Path
+PREFIX = 'VISIBLE_CONTRACT_CHECK_JSON:'
+CALL_PREFIX = 'VISIBLE_CANDIDATE_RESULT_JSON:'
+VERSION = 'semserve.visible-contract-check.v2'
+MAX_CASES = 12
+NONFINITE_VALUES = {'nan': float('nan'), 'positive_infinity': float('inf'),
+                    'negative_infinity': float('-inf')}
+NONFINITE_EXTENSION = '_semserve_nonfinite_probe'
+FIELD_TYPES = {
+    'object': ((dict,), []), 'array': ((list,), {}), 'string': ((str,), 1),
+    'integer': ((int,), 'wrong-type'), 'number': ((int, float), 'wrong-type'),
+    'boolean': ((bool,), 1),
+}
+BOUNDARY_RULES = ('nonfinite_unknown_field', 'invalid_payload_type')
+
+
+def public_api_targets(root):
+    """Inventory candidates for the existing two-argument transform interface.
+
+    This is an interface inventory, never a hidden-verifier target list. No
+    contract filename, JSON key, operation name or business rule is inferred.
+    """
+    targets = []
+    for path in sorted(root.rglob('*.py')):
+        rel = path.relative_to(root)
+        if path.is_symlink() or any(p.startswith('.') or p == '__pycache__' for p in rel.parts):
+            continue
+        try:
+            tree = ast.parse(path.read_text(encoding='utf8'))
+        except (OSError, UnicodeError, SyntaxError):
+            continue
+        if any(isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+               and node.name == 'transform'
+               and len(node.args.posonlyargs + node.args.args) >= 2 for node in tree.body):
+            targets.append(rel.as_posix())
+    return targets
+
+
+def api_boundary_coverage(root, targets, declarations, checks, retained=()):
+    """LLM classifies visible requirements; Runtime verifies actual execution."""
+    if not isinstance(declarations, list):
+        raise ValueError('API_BOUNDARY_REQUIREMENTS must be a list')
+    rows, review_errors = {}, []
+    for row in declarations:
+        if not isinstance(row, dict) or row.get('target_path') not in targets:
+            raise ValueError('Declare only inventoried visible API target_path values')
+        target = row['target_path']
+        if target in rows or row.get('function', 'transform') != 'transform':
+            raise ValueError('Declare each visible transform once')
+        rules = row.get('rules', {})
+        if not isinstance(rules, dict) or set(rules) - set(BOUNDARY_RULES):
+            raise ValueError('Use supported API boundary rule names')
+        rows[target] = {}
+        for rule, decision in rules.items():
+            if not isinstance(decision, dict) or type(decision.get('applicable')) is not bool:
+                raise ValueError('Declare applicable true/false with visible evidence')
+            try:
+                document = validate_contract(root, decision.get('contract_path'), decision.get('requirement_quote'))
+                if not decision['applicable'] and not str(decision.get('reason', '')).strip():
+                    raise CheckInputError('missing_exclusion_reason', 'reason',
+                        'A not-applicable declaration needs a public-contract reason')
+            except (ValueError, TypeError, OSError) as exc:
+                details = getattr(exc, 'details', {})
+                review_errors.append(dict(target_path=target, rule=rule, error=str(exc),
+                                          **{k: details[k] for k in ('code', 'field', 'missing_fields') if k in details}))
+                continue
+            decision['document_sha256'] = hashlib.sha256(document.read_bytes()).hexdigest()
+            rows[target][rule] = decision
+    required = {target: set() for target in targets}
+    unreviewed = {target: set(BOUNDARY_RULES) - set(rows.get(target, {})) for target in targets}
+    exclusions = []
+    for target, rules in rows.items():
+        for rule, decision in rules.items():
+            if decision['applicable']:
+                required[target].add(rule)
+            else:
+                exclusions.append(dict(target_path=target, rule=rule,
+                    classification='model_declared_exclusion_not_independently_verified', **decision))
+    for row in retained or ():
+        target = row.get('target_path')
+        if target not in required:
+            raise ValueError('Previously required API target disappeared: ' + str(target))
+        for rule, decision in row.get('rules', {}).items():
+            if decision.get('applicable'):
+                required[target].add(rule)
+                if not rows.get(target, {}).get(rule, {}).get('applicable'):
+                    unreviewed[target].add(rule)
+    expected = {'nonfinite_unknown_field': {'nan', 'positive_infinity', 'negative_infinity'},
+                'invalid_payload_type': {'null', 'boolean', 'integer', 'string'}}
+    verified = {target: set() for target in targets}
+    for check in checks:
+        target, rule = check.get('target_path'), check.get('rule')
+        outcomes = check.get('outcomes', [])
+        if (target in verified and rule in expected and check.get('status') == 'passed'
+                and any(o.get('variant') == 'control' and o.get('passed') for o in outcomes)
+                and expected[rule] <= {o.get('variant') for o in outcomes if o.get('passed')
+                    and o.get('outcome') == 'candidate_exception' and o.get('error_type') == 'ValueError'}):
+            verified[target].add(rule)
+    compact = lambda values: {t: sorted(rules) for t, rules in values.items() if rules}
+    return dict(required=compact(required), verified=compact(verified),
+                missing=compact({t: required[t] - verified[t] for t in targets}),
+                unreviewed=compact(unreviewed), not_applicable=exclusions,
+                inventoried_targets=targets, review_errors=review_errors,
+                declarations=[dict(target_path=t, function='transform', rules=r) for t,r in rows.items()])
+
+class CheckInputError(ValueError):
+    def __init__(self,code,field,message,**details):
+        super().__init__(message)
+        self.details=dict(code=code,field=field,message=message,**details)
+
+def validate_contract(root,path,quote):
+    missing = [field for field, value in (('contract_path', path), ('requirement_quote', quote))
+               if value is None or isinstance(value, str) and not value.strip()]
+    if missing:
+        raise CheckInputError('missing_contract_citation', missing[0],
+            'Supply contract_path and requirement_quote from the visible specification, including when a rule is not applicable.',
+            missing_fields=missing)
+    try:
+        contract=relative_file(root,path)
+    except (ValueError, OSError) as exc:
+        raise CheckInputError('invalid_contract_path', 'contract_path',
+            'contract_path must name an existing visible specification relative to the workspace.',
+            received=path) from exc
+    if '.semserve' in Path(path).parts or contract.suffix.lower() not in ('.md','.txt','.rst','.json','.yaml','.yml','.toml'):
+        raise CheckInputError('invalid_contract_path','contract_path',
+            'Cite an existing visible specification document, not generated tests or candidate code.',received=path)
+    normalize=lambda s:' '.join(s.split())
+    if not isinstance(quote,str) or not 8<=len(quote)<=300 or normalize(quote) not in normalize(contract.read_text(encoding='utf8')):
+        raise CheckInputError('requirement_quote_mismatch','requirement_quote',
+            'Requirement quotation is absent from the visible contract. Read the cited file and copy an exact 8-300 character requirement; changing only the path does not repair the quote.',
+            contract_path=path,received=quote)
+    return contract
+
+def digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+def relative_file(root, value):
+    if not isinstance(value, str) or not value or '\\' in value:
+        raise ValueError('Use an existing workspace-relative POSIX path')
+    p = Path(value)
+    if p.is_absolute() or '..' in p.parts:
+        raise ValueError('Path escapes visible workspace')
+    resolved = (root / p).resolve()
+    if not resolved.is_relative_to(root) or not resolved.is_file():
+        raise ValueError('Referenced visible file does not exist: ' + value)
+    return resolved
+
+def validate_case(root, case):
+    target = relative_file(root, case['target_path'])
+    if target.suffix != '.py' or '.semserve' in Path(case['target_path']).parts:
+        raise ValueError('Target must be a candidate Python module')
+    if not re.fullmatch(r'[A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*', case['function']):
+        raise ValueError('Function must name a visible callable')
+    validate_contract(root,case['contract_path'],case['requirement_quote'])
+    if case['method'] not in ('independent_oracle', 'invariant', 'boundary_case', 'negative_case'):
+        raise ValueError('Unknown check method')
+    if not isinstance(case['args'], list) or not isinstance(case['kwargs'], dict):
+        raise ValueError('args must be a list and kwargs a dictionary')
+    if case['comparison'] not in ('equal', 'raises'):
+        raise ValueError('Unknown comparison')
+    if not isinstance(case['select'], list) or any(type(v) not in (str, int) for v in case['select']):
+        raise ValueError('select must contain dictionary keys/list indices')
+    if case['comparison'] == 'raises' and not isinstance(case['expected'], str):
+        raise ValueError('Expected exception must be its type name')
+    json.dumps(case, allow_nan=False)
+
+def invoke(root, case):
+    """Fresh interpreter for each case, including all same-named sibling imports."""
+    isolation = ['-I'] if case.get('isolated_unittest') else []
+    p = subprocess.run([sys.executable, *isolation, '-B', str(Path(__file__).resolve()), '--call'],
+        input=json.dumps({'workspace':str(root),'case':case}), cwd=root,
+        capture_output=True, text=True, encoding='utf8', timeout=5,
+        env={**os.environ, 'PYTHONDONTWRITEBYTECODE':'1'})
+    tagged = [x[len(CALL_PREFIX):] for x in p.stdout.splitlines() if x.startswith(CALL_PREFIX)]
+    if p.returncode or len(tagged) != 1:
+        raise RuntimeError('Candidate subprocess failed: ' + (p.stdout+p.stderr)[-2000:])
+    return json.loads(tagged[0])
+
+def argument_slot(args, path):
+    if not isinstance(path, list) or len(path) < 2:
+        raise ValueError('Use an existing nested path rooted at the positional args list')
+    parent, child = None, args
+    for key in path:
+        parent = child
+        if type(key) is int and isinstance(parent, list) and 0 <= key < len(parent):
+            child = parent[key]
+        elif isinstance(key, str) and isinstance(parent, dict) and key in parent:
+            child = parent[key]
+        else:
+            raise ValueError('Mutation path does not exist: ' + repr(path))
+    return parent, path[-1]
+
+
+def nonfinite_slot(args, mutation):
+    if not isinstance(mutation, dict) or set(mutation) != {'path', 'value'}:
+        raise ValueError('Provide a nonfinite mutation with path and value')
+    path, value = mutation['path'], mutation['value']
+    if not isinstance(value, str) or value not in NONFINITE_VALUES:
+        raise ValueError('Use nan, positive_infinity, or negative_infinity')
+    parent, key = argument_slot(args, path)
+    child = parent[key]
+    if type(child) not in (int, float):
+        raise ValueError('Nonfinite mutation must replace a finite numeric placeholder')
+    return parent, key
+
+
+def call_main():
+    request = json.load(sys.stdin); root = Path(request['workspace']).resolve(); case=request['case']
+    output = io.StringIO(); stage = 'load'; phase = 'module_load'; signature=None
+    try:
+        target = relative_file(root,case['target_path'])
+        if case.get('isolated_unittest') and (
+                target.suffix != '.py' or '.semserve' in target.relative_to(root).parts):
+            raise ValueError('Target must be a workspace Python module outside .semserve')
+        sys.path[:0] = [str(target.parent), str(root)]
+        name = '_visible_' + hashlib.sha256(str(target).encode()).hexdigest()[:16]
+        with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
+            spec=importlib.util.spec_from_file_location(name,target)
+            module=importlib.util.module_from_spec(spec);sys.modules[name]=module;spec.loader.exec_module(module)
+            phase = 'callable_lookup'
+            fn=module
+            for part in case['function'].split('.'): fn=getattr(fn,part)
+            # A malformed probe call is not evidence against business semantics.
+            signature=inspect.signature(fn)
+            if 'nonfinite_mutation' in case:
+                phase = 'probe_input'
+                mutation = case['nonfinite_mutation']
+                parent, key = nonfinite_slot(case['args'], mutation)
+                parent[key] = NONFINITE_VALUES[mutation['value']]
+            phase = 'argument_binding'
+            signature.bind(*case['args'],**case['kwargs'])
+            stage='call'; phase = 'candidate_exception'
+            result=fn(*case['args'],**case['kwargs'])
+            phase = 'result_encoding'
+            for key in case['select']: result=result[key]
+        receipt={'ok':True,'actual':result}
+        json.dumps(receipt,allow_nan=False)
+    except Exception as exc:
+        receipt={'ok':False,'error_type':type(exc).__name__,'error':str(exc),'stage':stage,'traceback':traceback.format_exc()[-5000:],
+                 'target_path':case['target_path'],'function':case['function'],
+                 'accepted_signature':str(signature) if signature is not None else None}
+        if case.get('isolated_unittest'):receipt['failure_phase']=phase
+    receipt['candidate_output']=output.getvalue()[-2000:]
+    # The isolated interpreter ignores PYTHONIOENCODING. ASCII JSON preserves
+    # Unicode values without depending on its platform-default stream encoding.
+    print(CALL_PREFIX+json.dumps(receipt,ensure_ascii=True))
+
+
+class CandidateCallError(RuntimeError):
+    """An isolated probe failed before an ordinary unittest assertion."""
+
+    def __init__(self, details):
+        self.details = details
+        super().__init__(f"{details['failure_phase']} in {details['target_path']}::{details['function']}: "
+                         f"{details['error_type']}: {details['error']}")
+
+
+def call_candidate(root, target_path, function, *, args=None, kwargs=None,
+                   nonfinite_mutation=None, _probe_receipts=None, _accepted_seeds=None):
+    try:
+        args = [] if args is None else args
+        kwargs = {} if kwargs is None else kwargs
+        if not isinstance(target_path, str) or not isinstance(function, str) or not all(
+                part.isidentifier() for part in function.split('.')):
+            raise ValueError('Provide a workspace-relative path and a dotted callable name')
+        if not isinstance(args, list) or not isinstance(kwargs, dict) or any(
+                not isinstance(key, str) for key in kwargs):
+            raise ValueError('args must be a JSON array and kwargs a JSON object with string keys')
+        case = dict(target_path=target_path, function=function, args=args, kwargs=kwargs,
+                    select=[], isolated_unittest=True)
+        if nonfinite_mutation is not None:
+            nonfinite_slot(args, nonfinite_mutation)
+            case['nonfinite_mutation'] = nonfinite_mutation
+        json.dumps(case, allow_nan=False)
+    except (TypeError, ValueError) as exc:
+        raise CandidateCallError(dict(failure_phase='probe_input', target_path=str(target_path),
+                                     function=str(function), error_type=type(exc).__name__, error=str(exc))) from exc
+    try:
+        receipt = invoke(root, case)
+    except (OSError, subprocess.TimeoutExpired, RuntimeError, ValueError) as exc:
+        raise CandidateCallError(dict(failure_phase='subprocess', target_path=target_path,
+                                     function=function, error_type=type(exc).__name__, error=str(exc))) from exc
+    target = Path(target_path).as_posix()
+    seed = digest([target, function, args, kwargs]) if _accepted_seeds is not None else None
+    if nonfinite_mutation is None and receipt['ok'] and _accepted_seeds is not None:
+        _accepted_seeds.add(seed)
+    if nonfinite_mutation is not None and _probe_receipts is not None:
+        probe = dict(target_path=target, function=function, **nonfinite_mutation,
+                     outcome='returned' if receipt['ok'] else receipt['failure_phase'])
+        if seed is not None:
+            probe.update(seed_sha256=seed, extension_probe=is_extension_probe(args, nonfinite_mutation['path']))
+        if receipt['ok']:
+            probe['actual_preview'] = repr(receipt['actual'])[:240]
+        else:
+            probe['error_type'] = receipt['error_type']
+        _probe_receipts.append(probe)
+    if not receipt['ok']:
+        raise CandidateCallError(receipt)
+    return receipt['actual']
+
+
+def is_extension_probe(args, path):
+    if len(path) < 2 or path[0] != 0:
+        return False
+    if isinstance(args[0], dict):
+        payload, relative = args[0], path[1:]
+    elif isinstance(args[0], list) and type(path[1]) is int:
+        payload, relative = args[0][path[1]], path[2:]
+    else:
+        return False
+    if not isinstance(payload, dict):
+        return False
+    if set(payload) == {'name', 'result'}:
+        return relative[:2] == ['result', NONFINITE_EXTENSION]
+    return relative[:1] == [NONFINITE_EXTENSION]
+
+
+def nonfinite_coverage(targets, probes, accepted_seeds):
+    attempted = {target: set() for target in targets}
+    rejected = {target: set() for target in targets}
+    failed = {target: set() for target in targets}
+    for probe in probes:
+        target, value = probe['target_path'], probe['value']
+        if (target not in attempted or probe['function'] != 'transform'
+                or not probe.get('extension_probe') or probe.get('seed_sha256') not in accepted_seeds
+                or probe['outcome'] not in {'returned', 'candidate_exception', 'result_encoding'}):
+            continue
+        attempted[target].add(value)
+        if (probe['outcome'], probe.get('error_type')) == ('candidate_exception', 'ValueError'):
+            rejected[target].add(value)
+        else:
+            failed[target].add(value)
+    kinds = set(NONFINITE_VALUES)
+    return dict(
+        required_targets=targets,
+        missing_targets={target: sorted(kinds - seen) for target, seen in attempted.items() if seen != kinds},
+        failed_targets={target: sorted(bad) for target, bad in failed.items() if bad},
+        verified_targets=[target for target in targets if rejected[target] == kinds and not failed[target]],
+    )
+
+
+def boundary_variants(args, rule, path, expected_type):
+    """Derive one finite control and negative calls without modifying the seed."""
+    direct = isinstance(args[0], dict)
+    default_path = [0] if direct else [0, 0]
+    path = default_path if path is None else path
+    if (not isinstance(path, list) or not path or type(path[0]) is not int or path[0] != 0
+            or not direct and (len(path) < 2 or type(path[1]) is not int)):
+        raise ValueError('Use a path rooted in args: [0] for a direct object or [0, payload_index] for a batch.')
+    if not direct and not 0 <= path[1] < len(args[0]):
+        raise ValueError('Select an existing payload_index from the finite batch seed.')
+    parent, key = (args, 0) if path == [0] else argument_slot(args, path)
+    value = parent[key]
+    top_level = len(path) == len(default_path)
+    if rule in {'nonfinite_unknown_field', 'invalid_payload_type'} and not top_level:
+        raise ValueError('This rule takes the top-level payload path [0] or [0, payload_index].')
+
+    if rule == 'nonfinite_unknown_field':
+        control = copy.deepcopy(args)
+        payload = control[0] if direct else control[0][path[1]]
+        if isinstance(payload, dict) and set(payload) == {'name', 'result'}:
+            payload = payload['result']
+            path = path + ['result']
+        if not isinstance(payload, dict) or NONFINITE_EXTENSION in payload:
+            raise ValueError('Choose an object payload without the reserved probe field')
+        payload[NONFINITE_EXTENSION] = {'nested': [0.0]}
+        slot = path + [NONFINITE_EXTENSION, 'nested', 0]
+        return control, [(kind, control, {'path': slot, 'value': kind}) for kind in NONFINITE_VALUES]
+
+    if rule == 'missing_required_field':
+        if top_level or not isinstance(parent, dict):
+            raise ValueError('Choose an existing required object field')
+        negative = copy.deepcopy(args)
+        obj, field = argument_slot(negative, path)
+        del obj[field]
+        return args, [('missing', negative, None)]
+    if rule == 'invalid_payload_type':
+        if type(value) not in (dict, list):
+            raise ValueError('The positive payload must be an object or array')
+        replacements = [('null', None), ('boolean', True), ('integer', 1), ('string', 'wrong-type')]
+    elif rule == 'invalid_field_type':
+        field_type = FIELD_TYPES.get(expected_type) if isinstance(expected_type, str) else None
+        if top_level or not field_type or type(value) not in field_type[0]:
+            raise ValueError('Provide a field path and its documented type, matching the finite seed')
+        replacements = [('wrong_type', field_type[1])]
+    elif rule == 'bool_as_number':
+        if top_level or type(value) not in (int, float):
+            raise ValueError('Choose a numeric field whose contract excludes booleans')
+        replacements = [('true', True), ('false', False)]
+    else:
+        raise ValueError('Unknown API boundary rule: ' + repr(rule))
+    variants = []
+    for label, replacement in replacements:
+        negative = copy.deepcopy(args)
+        obj, field = (negative, 0) if path == [0] else argument_slot(negative, path)
+        obj[field] = replacement
+        variants.append((label, negative, None))
+    return args, variants
+
+
+def check_api_boundary(root, call, records, target_path, *, rule, contract_path,
+                       requirement_quote, args=None, path=None, expected_type=None):
+    receipt = dict(rule=rule, target_path=target_path, function='transform',
+                   contract_path=contract_path, requirement_quote=requirement_quote,
+                   status='setup_error', outcomes=[])
+    records.append(receipt)
+    try:
+        validate_contract(root, contract_path, requirement_quote)
+        try:
+            target = relative_file(root, target_path)
+        except (ValueError, OSError) as exc:
+            raise CheckInputError('invalid_candidate_path', 'target_path', str(exc),
+                                  target_path=target_path) from exc
+        if target.suffix != '.py':
+            raise CheckInputError('invalid_candidate_path', 'target_path', 'Choose a visible Python API module.',
+                                  target_path=target_path)
+        if (not isinstance(args, list) or len(args) != 2 or not isinstance(args[0], (dict, list))
+                or not isinstance(args[1], dict)):
+            raise CheckInputError('invalid_boundary_args', 'args',
+                'Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, '
+                'or args=[payloads, contract] for a batch. Keep the declared payload shape.',
+                target_path=target_path)
+        json.dumps(args, allow_nan=False)
+        control, variants = boundary_variants(args, rule, path, expected_type)
+        call(target_path, 'transform', args=control)
+    except (OSError, KeyError, TypeError, ValueError, CandidateCallError) as exc:
+        receipt['error'] = str(exc)
+        if isinstance(exc, CandidateCallError):
+            receipt['error_details'] = {k: exc.details.get(k) for k in
+                ('failure_phase', 'error_type', 'accepted_signature', 'error')}
+            raise
+        if isinstance(exc, CheckInputError):
+            receipt['error_details'] = exc.details
+            raise
+        issue = CheckInputError('invalid_boundary_setup', 'args', str(exc), target_path=target_path)
+        receipt['error_details'] = issue.details
+        raise issue from exc
+
+    receipt['outcomes'].append(dict(variant='control', outcome='returned', passed=True))
+    for label, negative, mutation in variants:
+        try:
+            actual = call(target_path, 'transform', args=negative, nonfinite_mutation=mutation)
+        except CandidateCallError as exc:
+            phase = exc.details['failure_phase']
+            kind = exc.details['error_type']
+            receipt['outcomes'].append(dict(variant=label, outcome=phase, error_type=kind,
+                                            passed=phase == 'candidate_exception' and kind == 'ValueError'))
+            if phase not in {'candidate_exception', 'result_encoding'}:
+                receipt['error'] = str(exc)
+                raise
+        else:
+            receipt['outcomes'].append(dict(variant=label, outcome='returned', passed=False,
+                                            actual_preview=repr(actual)[:240]))
+    failures = [f"{row['variant']} ({row['outcome']})" for row in receipt['outcomes'] if not row['passed']]
+    receipt['status'] = 'failed' if failures else 'passed'
+    if failures:
+        raise AssertionError(f"{target_path} violates {rule}; expected ValueError from transform for: " +
+                             ', '.join(failures))
+    return copy.deepcopy(receipt)
+
+
+@contextlib.contextmanager
+def bound_unittest_sdk(root, probes, accepted_seeds, boundary_checks):
+    """Expose one runtime-bound callable through globals and ordinary imports."""
+    name = 'visible_contract_check_sdk'
+    previous = sys.modules.get(name)
+    api = types.ModuleType(name)
+
+    def bound_call(*args, **kwargs):
+        if len(args) == 3:
+            if Path(args[0]).resolve() != root:
+                raise ValueError('Explicit workspace root must match the self-check workspace')
+            args = args[1:]
+        return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)
+
+    def bound_boundary(target_path, **kwargs):
+        return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)
+
+    api.call_candidate, api.CandidateCallError = bound_call, CandidateCallError
+    api.check_api_boundary = bound_boundary
+    sys.modules[name] = api
+    try:
+        yield api
+    finally:
+        if previous is None:
+            sys.modules.pop(name, None)
+        else:
+            sys.modules[name] = previous
+
+
+class IsolatedTestResult(unittest.TextTestResult):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.probe_errors = {}
+        self.setup_errors = {}
+
+    def addError(self, test, err):
+        if isinstance(err[1], CandidateCallError):
+            self.probe_errors[id(test)] = err[1].details
+        if details := script_setup_details(err[1]):
+            self.setup_errors[id(test)] = details
+        super().addError(test, err)
+
+    def addSubTest(self, test, subtest, err):
+        if err is not None and isinstance(err[1], CandidateCallError):
+            self.probe_errors[id(subtest)] = err[1].details
+        if err is not None and (details := script_setup_details(err[1])):
+            self.setup_errors[id(subtest)] = details
+        super().addSubTest(test, subtest, err)
+
+
+def script_setup_details(error):
+    if isinstance(error, CheckInputError):
+        return error.details
+    if isinstance(error, ModuleNotFoundError) and error.name == 'semserve_check':
+        return dict(code='sdk_scope_error', message=str(error), field='import', module=error.name)
+    return None
+
+
+class CaseRunner:
+    def __init__(self,root,pending=None,reviewed=None):
+        self.root=root;self.results=[];self.cache={};self.finished=False;self.oracle_problem=None
+        self.pending=pending or {};self.reviewed=reviewed or {};self.resolutions={};self.promoted={}
+    def run(self,case,regression=False):
+        case=json.loads(json.dumps(case,allow_nan=False));validate_case(self.root,case);identity=digest(case)
+        if identity in self.cache:
+            if regression:self.cache[identity]['regression']=True
+            return self.cache[identity]
+        if len(self.results)>=MAX_CASES:raise ValueError('At most 12 distinct cases including frozen regressions')
+        first=invoke(self.root,case)
+        if not first.get('ok') and first.get('stage')=='load':
+            raise CheckInputError('invalid_candidate_call','args' if first.get('accepted_signature') else 'target_path',
+                'Candidate loading/callable selection failed; inspect target path and imports: '+first.get('traceback',''),
+                target_path=case['target_path'],function=case['function'],accepted_signature=first.get('accepted_signature'))
+        matches=lambda x: (x.get('ok') is True and x.get('actual')==case['expected']) if case['comparison']=='equal' else (x.get('ok') is False and x.get('error_type')==case['expected'])
+        passed=matches(first);replay=None if passed else invoke(self.root,case)
+        stable=lambda x:{k:v for k,v in x.items() if k not in ('traceback','candidate_output')}
+        same=replay is None or stable(first)==stable(replay)
+        row={'case_id':identity,'case':case,'passed':passed,'actual':first,'failure_replayed':replay is not None,
+             'replay_consistent':same,'regression':regression,'reference_validity':'model_proposed_not_formally_proven'}
+        if replay is not None:row['replay_actual']=replay
+        self.results.append(row);self.cache[identity]=row;return row
+    def check_equal(self,target_path,function,args,expected,*,contract_path,requirement_quote,method='independent_oracle',kwargs=None,select=None,seed=None):
+        return self.run(dict(target_path=target_path,function=function,args=args,kwargs=kwargs or {},expected=expected,
+            contract_path=contract_path,requirement_quote=requirement_quote,method=method,comparison='equal',select=select or [],seed=seed))['passed']
+    def check_raises(self,target_path,function,args,expected,**metadata):
+        case=dict(target_path=target_path,function=function,args=args,kwargs=metadata.pop('kwargs',{}),expected=expected,
+            contract_path=metadata.pop('contract_path'),requirement_quote=metadata.pop('requirement_quote'),
+            method=metadata.pop('method','negative_case'),comparison='raises',select=[],seed=metadata.pop('seed',None))
+        if metadata:raise ValueError('Unexpected check metadata')
+        return self.run(case)['passed']
+    def oracle_error(self,reason):self.oracle_problem=str(reason)
+    def finish(self):self.finished=True
+    def resolve_failure(self,case_id,kind,*,contract_path,requirement_quote,reason):
+        if case_id not in self.pending and case_id in self.reviewed:
+            old=self.reviewed[case_id]
+            if kind!=old['decision']['kind']:raise ValueError('Cannot change an accepted reference resolution')
+            validate_case(self.root,{**old['case'],'contract_path':contract_path,'requirement_quote':requirement_quote})
+            if kind=='candidate_error':self.run(old['case'],regression=True)
+            return
+        if case_id not in self.pending or kind not in ('probe_error','candidate_error'):
+            raise ValueError('Resolve an existing pending case as probe_error or candidate_error')
+        if not isinstance(reason,str) or len(reason.strip())<16:
+            raise ValueError('Explain the reference/input validity using the visible contract')
+        cited={**self.pending[case_id],'contract_path':contract_path,'requirement_quote':requirement_quote}
+        validate_case(self.root,cited)
+        self.resolutions[case_id]={'case_id':case_id,'kind':kind,'contract_path':contract_path,
+            'requirement_quote':requirement_quote,'reason':reason,'review_authority':'model_reviewed_not_formally_proven'}
+        if kind=='candidate_error':
+            self.promoted[case_id]=self.pending[case_id]
+            self.run(self.pending[case_id],regression=True)
+
+def selfcheck_feedback(result):
+    """A bounded repair instruction alongside the full immutable diagnostic."""
+    status = result.get('status')
+    if status == 'PASS_BOUNDED':
+        return None
+    coverage = result.get('api_boundary_coverage') or {}
+    failures = result.get('test_failures') or []
+    setup = result.get('error_details') or next(
+        (failure['error_details'] for failure in failures if failure.get('error_details')), {})
+    probes = [probe for probe in result.get('api_boundary_checks', [])
+              if probe.get('status') != 'passed']
+    if status == 'COVERAGE_REQUIRED':
+        reviews = coverage.get('review_errors') or []
+        if reviews:
+            return dict(kind='coverage_review', code=reviews[0].get('code', 'invalid_coverage_declaration'),
+                        scope='API_BOUNDARY_REQUIREMENTS', target=reviews[0].get('target_path'),
+                        details={'review_errors': reviews[:4]},
+                        next_action='Correct the listed declaration fields with an exact visible citation, including for applicable=False. Preserve the existing assertions; rerun the same check.')
+        return dict(kind='coverage_review', code='missing_boundary_coverage', scope='API_BOUNDARY_REQUIREMENTS',
+                    details={key: list((coverage.get(key) or {}).items())[:4]
+                             for key in ('missing', 'unreviewed')},
+                    next_action='Review each unreviewed rule against its visible specification; execute missing applicable probes with the injected helper and preserve the existing tests.')
+    if setup.get('code') == 'sdk_scope_error':
+        return dict(kind='script_setup', code=setup['code'], scope='check.py',
+                    details={'module': setup.get('module'), 'field': setup.get('field')},
+                    next_action='Remove the semserve_check import. Use the Runtime-injected call_candidate, CandidateCallError and check_api_boundary directly in check.py; rerun with the supplied command.')
+    probe_setup = next((probe for probe in probes if probe.get('status') == 'setup_error'), None)
+    if probe_setup:
+        details = {**(probe_setup.get('error_details') or {}), 'rule': probe_setup.get('rule')}
+        details.setdefault('message', probe_setup.get('error'))
+        if details.get('failure_phase'):
+            next_action = 'Run one finite positive control using the public transform signature and payload shape. Resolve that failure before interpreting any negative probe.'
+        elif details.get('field') in ('contract_path', 'requirement_quote'):
+            next_action = 'Read the public specification and correct the cited file and exact quotation before rerunning this probe.'
+        elif details.get('field') == 'target_path':
+            next_action = 'Use the inventoried workspace-relative Python module path for the callable under test, then rerun this probe.'
+        else:
+            next_action = 'Use a finite seed with the public transform signature and the matching payload path. Preserve its object or batch shape and rerun the same check.'
+        return dict(kind='probe_setup', code=details.get('code', 'boundary_control_failed' if
+                    details.get('failure_phase') else 'invalid_boundary_setup'),
+                    scope='check_api_boundary', target=probe_setup.get('target_path'),
+                    details={k: v[-320:] if isinstance(v, str) else v for k, v in details.items()},
+                    next_action=next_action)
+    failed_probe = next((probe for probe in probes if probe.get('status') == 'failed'), None)
+    if failed_probe:
+        variants = [{'variant': item['variant'], 'outcome': item['outcome'],
+                     'error_type': item.get('error_type')}
+                    for item in failed_probe['outcomes'] if not item['passed']]
+        return dict(kind='assertion_mismatch', code='boundary_negative_mismatch', scope='check_api_boundary',
+                    target=failed_probe.get('target_path'),
+                    details={'rule': failed_probe.get('rule'), 'expected': 'ValueError', 'failed_variants': variants},
+                    next_action='The finite control passed. Check the cited boundary rule and fix the behavior for the failed variants, then rerun the same probes.')
+    if status == 'CANDIDATE_MISMATCH':
+        details = [{'test_id': failure['test_id'], 'kind': failure.get('kind'),
+                    'diagnostic': str(failure.get('traceback', ''))[-360:]}
+                   for failure in failures[:2]]
+        return dict(kind='assertion_mismatch', code='assertion_failed', scope='check.py',
+                    details={'tests': details},
+                    next_action='Recompute the expected result from the cited public rule for this exact input. Repair the responsible test or candidate and rerun without dropping the assertion.')
+    if status == 'PREPARE_REQUIRED':
+        return None
+    if status in ('TIMEOUT', 'BUDGET_EXHAUSTED'):
+        return dict(kind='execution_budget', code=status.lower(), scope='check.py', details={},
+                    next_action='Report the incomplete checks and preserve their evidence.' if status == 'BUDGET_EXHAUSTED'
+                    else 'Identify the stalled case, use a minimal fixture that preserves the same assertion, and rerun only if the budget allows.')
+    if status == 'SCRIPT_ERROR':
+        return dict(kind='script_setup', code=setup.get('code', 'script_error'), scope='check.py',
+                    details={'field': setup.get('field'), 'message': str(setup.get('message') or result.get('error', ''))[-320:]},
+                    next_action='Fix the reported test setup error before changing business code; preserve existing checks and rerun.')
+    return None
+
+
+def _write_result(plan,result):
+    feedback = selfcheck_feedback(result)
+    if feedback is not None:
+        result['selfcheck_feedback'] = feedback
+    encoded=json.dumps(result,ensure_ascii=False)
+    if plan.get('result_path'):
+        target=Path(plan['result_path']);temporary=target.with_suffix('.tmp')
+        temporary.write_text(encoded,encoding='utf8');temporary.replace(target)
+    if plan.get('manual_unittest'):
+        print(result['test_output'], end='')
+        if result.get('error') and not result.get('test_failures'):print(result['error'])
+        if feedback is not None:
+            print('SELF-CHECK FEEDBACK: '+json.dumps(feedback, ensure_ascii=False))
+    print(PREFIX+encoded)
+    return 0 if result['status']=='PASS_BOUNDED' else 1
+
+def standard_worker(plan):
+    """Run ordinary unittest cases; no injected module or citation schema required."""
+    root=Path(plan['workspace']).resolve();captured=io.StringIO();stream=io.StringIO()
+    result=dict(schema_version=VERSION,test_framework='unittest',status='SCRIPT_ERROR',
+                actual_case_count=0,passed_cases=0,failed_cases=0,cases=[],resolutions=[],promoted={},test_ids=[])
+    boundary_checks = []
+    sys.path[:0]=[str(root),str(root/'.semserve/visible_checks')]
+    try:
+        if plan.get('pending') or plan.get('regressions'):
+            raise ValueError('Resolve existing SDK pending/frozen cases using the compatibility SDK before switching test frameworks.')
+        module=types.ModuleType('_semserve_visible_unittest');module.__file__=str(root/'.semserve/visible_checks/check.py')
+        sys.modules[module.__name__]=module
+        # D2-only standard-library boilerplate. Ordinary V2/D1 stay unchanged.
+        maximum=plan.get('max_cases',MAX_CASES)
+        if type(maximum) is not int or not 1<=maximum<=20:
+            raise ValueError('Invalid Runtime-owned case limit')
+        if plan.get('d2_bootstrap'):
+            import tempfile
+            module.__dict__.update(unittest=unittest,Path=Path,json=json,sys=sys,tempfile=tempfile,importlib=__import__('importlib'))
+        isolated = plan.get('isolated_candidate_calls', False)
+        targets = public_api_targets(root) if isolated else []
+        nonfinite_probes, accepted_seeds = [], set()
+        sdk = (bound_unittest_sdk(root, nonfinite_probes, accepted_seeds, boundary_checks)
+               if isolated else contextlib.nullcontext())
+        with sdk as api, contextlib.redirect_stdout(captured), contextlib.redirect_stderr(captured):
+            if api:
+                module.__dict__.update(call_candidate=api.call_candidate, CandidateCallError=api.CandidateCallError,
+                                       check_api_boundary=api.check_api_boundary)
+            exec(compile(plan['script'],module.__file__,'exec'),module.__dict__)
+            # Freeze model declarations before test methods can mutate globals.
+            declarations = copy.deepcopy(module.__dict__.get('API_BOUNDARY_REQUIREMENTS', []))
+            suite=unittest.defaultTestLoader.loadTestsFromModule(module)
+            def flatten(value):
+                for item in value:
+                    if isinstance(item,unittest.TestSuite):yield from flatten(item)
+                    else:yield item
+            ids=[test.id().split('.',1)[-1] for test in flatten(suite)]
+            result['test_ids']=ids
+            if plan.get('d2_bootstrap'):result['discovered_case_count']=len(ids)
+            if not ids:raise ValueError('No unittest.TestCase tests discovered. Printed success text is not test evidence.')
+            if len(ids)>maximum:
+                if plan.get('d2_bootstrap'):
+                    raise CheckInputError('CASE_LIMIT_EXCEEDED','source',f'Discovered {len(ids)} tests; maximum {maximum}; target 8. Replan only this branch.',discovered_case_count=len(ids),maximum=maximum,target=8,executed_case_count=0)
+                raise ValueError(f'At most {maximum} distinct cases per execution')
+            missing=set(plan.get('required_test_ids',[]))-set(ids)
+            if missing:raise ValueError('Retain existing unittest coverage; missing tests: '+', '.join(sorted(missing)))
+            if os.environ.get('SEMSERVE_G1') == '1':
+                # A rejected/over-budget plan never establishes frozen coverage.
+                # Count execution independently from a model's printed success.
+                result['test_plan_accepted'] = True
+            actual=unittest.TextTestRunner(stream=stream,verbosity=2,
+                resultclass=IsolatedTestResult if isolated else None).run(suite)
+        problems=[dict(test_id=t.id().split('.',1)[-1],kind=kind,traceback=tb)
+                  for kind,items in [('assertion_failure',actual.failures),('test_error',actual.errors)] for t,tb in items]
+        if isolated:
+            failed_tests = actual.failures + actual.errors
+            for problem, (test, _) in zip(problems, failed_tests):
+                details = actual.probe_errors.get(id(test))
+                if details:
+                    problem.update(kind=details['failure_phase'], candidate_call=details)
+                if id(test) in actual.setup_errors:
+                    problem['error_details'] = actual.setup_errors[id(test)]
+        parent_id=lambda test:getattr(test,'test_case',test).id()
+        skipped={parent_id(t) for t,_ in actual.skipped}
+        failed={parent_id(t) for t,_ in actual.failures+actual.errors}
+        unresolved={parent_id(t) for t,_ in actual.expectedFailures}|{parent_id(t) for t in actual.unexpectedSuccesses}
+        count=max(0,actual.testsRun-len(skipped))
+        result.update(actual_case_count=count,passed_cases=max(0,count-len(failed)-len(unresolved)),
+                      failed_cases=len(failed),test_failures=problems,
+                      skipped_cases=len(actual.skipped),expected_failures=len(actual.expectedFailures))
+        if isolated and nonfinite_probes:
+            result['nonfinite_probes'] = nonfinite_probes
+        if targets or plan.get('retained_api_requirements'):
+            coverage = api_boundary_coverage(root, targets, declarations, boundary_checks,
+                                             plan.get('retained_api_requirements', []))
+            result['api_boundary_coverage'] = coverage
+            result['api_boundary_requirements'] = coverage['declarations']
+        if actual.errors:result.update(status='SCRIPT_ERROR',error=problems[-1]['traceback'])
+        elif actual.failures:result.update(status='CANDIDATE_MISMATCH',error=problems[-1]['traceback'])
+        elif actual.expectedFailures or actual.unexpectedSuccesses or count<=0:
+            result.update(status='SCRIPT_ERROR',error='Run real, non-skipped assertions; expected failures are unresolved self-checks.')
+        elif any(row['status'] == 'setup_error' for row in boundary_checks):
+            result.update(status='SCRIPT_ERROR',error='API boundary setup failed; inspect the control or public contract.')
+        elif any(row['status'] == 'failed' for row in boundary_checks):
+            result.update(status='CANDIDATE_MISMATCH',error='Candidate violated an executed API boundary check.')
+        elif targets and (coverage['missing'] or coverage['unreviewed']):
+            result.update(status='COVERAGE_REQUIRED', error='API boundary coverage incomplete: ' +
+                json.dumps({key: coverage[key] for key in ('missing', 'unreviewed')}, ensure_ascii=False) +
+                '. Review every inventoried API against visible specifications in API_BOUNDARY_REQUIREMENTS, then execute applicable check_api_boundary rules with explicit finite args. Ordinary business tests do not establish these probes.')
+        elif (os.environ.get('SEMSERVE_G1') == '1' and isolated
+              and not accepted_seeds and not nonfinite_probes and not boundary_checks):
+            result.update(status='SCRIPT_ERROR', test_plan_accepted=False,
+                          error='No actual candidate invocation was verified. Use the injected call_candidate/check_api_boundary in an ordinary unittest; placeholder assertions are not a check.')
+        else:result.update(status='PASS_BOUNDED',error=None)
+    except BaseException as exc:
+        details = script_setup_details(exc) if plan.get('isolated_candidate_calls') else None
+        details = details or getattr(exc, 'details', None)
+        if details is None:
+            details = dict(code=type(exc).__name__, message=str(exc), field='check.py')
+        result.update(status='SCRIPT_ERROR',error=traceback.format_exc(),error_details=details)
+    if boundary_checks:
+        result['api_boundary_checks'] = boundary_checks
+    result['script_output']=captured.getvalue()[-2000:]
+    result['test_output']=stream.getvalue()
+    result['check_ok']=result['status']=='PASS_BOUNDED'
+    return _write_result(plan,result)
+
+def worker(plan):
+    tree=ast.parse(plan['script'])
+    legacy=any((isinstance(n,ast.ImportFrom) and n.module=='semserve_check') or
+               (isinstance(n,ast.Import) and any(a.name=='semserve_check' for a in n.names)) for n in ast.walk(tree))
+    if not legacy or (plan.get('isolated_candidate_calls') and (
+            public_api_targets(Path(plan['workspace']).resolve()) or plan.get('retained_api_requirements'))):
+        return standard_worker(plan)
+    root=Path(plan['workspace']).resolve();runner=CaseRunner(root,plan.get('pending'),plan.get('reviewed'));status=error=None;captured=io.StringIO()
+    error_details=None
+    try:
+        for case in plan.get('regressions',[]):runner.run(case,regression=True)
+        if any(not x['replay_consistent'] for x in runner.results):
+            status,error='ORACLE_ERROR','Frozen failure is not deterministic; inspect reference/test assumptions'
+        else:
+            sdk=types.ModuleType('semserve_check')
+            for name in ('check_equal','check_raises','finish','oracle_error','resolve_failure'):setattr(sdk,name,getattr(runner,name))
+            sys.modules['semserve_check']=sdk
+            with contextlib.redirect_stdout(captured),contextlib.redirect_stderr(captured):
+                exec(compile(plan['script'],'.semserve/visible_checks/check.py','exec'),{'__name__':'__main__','__file__':str(root/'.semserve/visible_checks/check.py')})
+            for identity,resolution in runner.resolutions.items():
+                if resolution['kind']=='probe_error' and not any(r['case_id']!=identity and r['case']['target_path']==runner.pending[identity]['target_path'] for r in runner.results):
+                    raise ValueError('A probe_error resolution requires an executed corrected case for the same target')
+            if runner.oracle_problem:status,error='ORACLE_ERROR',runner.oracle_problem
+            elif not runner.finished or not runner.results:status,error='SCRIPT_ERROR','Use supplied check_equal/check_raises and finish(); printed verdicts are not evidence'
+            elif any(not x['replay_consistent'] for x in runner.results):status,error='ORACLE_ERROR','Mismatch did not reproduce deterministically'
+            elif any(not x['passed'] and x['regression'] for x in runner.results):status='CANDIDATE_MISMATCH'
+            elif set(runner.pending)-set(runner.resolutions) or any(not x['passed'] for x in runner.results):
+                status,error='REFERENCE_REVIEW_REQUIRED','Review each pending failure against the visible contract before freezing a regression; repair erroneous probes without changing correct business code'
+            elif not any(x['case']['method'] in ('independent_oracle','invariant') for x in runner.results):status,error='SCRIPT_ERROR','Include an independent oracle/invariant'
+            else:status='PASS_BOUNDED'
+    except subprocess.TimeoutExpired:status,error='TIMEOUT','Candidate invocation exceeded five seconds'
+    except BaseException as exc:
+        status,error='SCRIPT_ERROR',traceback.format_exc()[-5000:]
+        error_details=getattr(exc,'details',dict(code=type(exc).__name__,message=str(exc)))
+    result={'schema_version':VERSION,'status':status,'error':error,'error_details':error_details,
+        'test_framework':'legacy_sdk','check_ok':status=='PASS_BOUNDED',
+        'actual_case_count':len(runner.results),'passed_cases':sum(x['passed'] for x in runner.results),
+        'failed_cases':sum(not x['passed'] for x in runner.results),'cases':runner.results,
+        'resolutions':list(runner.resolutions.values()),'promoted':runner.promoted,
+        'script_output':captured.getvalue()[-2000:]}
+    return _write_result(plan,result)
+
+if __name__=='__main__':
+    if sys.argv[1:]==['--call']:call_main()
+    elif sys.argv[1:]==['--unittest']:
+        root = Path.cwd().resolve()
+        try:
+            script = relative_file(root, '.semserve/visible_checks/check.py').read_text(encoding='utf8')
+        except (OSError, ValueError) as exc:
+            raise SystemExit(str(exc)) from exc
+        raise SystemExit(standard_worker(dict(workspace=str(root), script=script,
+            isolated_candidate_calls=True, manual_unittest=True)))
+    elif len(sys.argv)==3 and sys.argv[1]=='--worker':raise SystemExit(worker(json.loads(Path(sys.argv[2]).read_text(encoding='utf8'))))
+    else:raise SystemExit('Runtime worker arguments required')
+

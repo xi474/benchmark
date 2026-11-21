@@ -1,0 +1,487 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "multistage4",
+  "case": "cross_app_contact_ranking",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/multistage4/cross_app_contact_ranking",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "fac5074cb6b3fb60fde02106f9e8e8d38cfda825d794fe3ac65d8ef74bc97550",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 240.1172833442688,
+  "background_summary_drain_seconds": 0.000558090000026823,
+  "background_speculative_drain_seconds": 4.673004150390625e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 4,
+      "committed": 1,
+      "discarded": 3,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 67616,
+        "completion_tokens": 1229,
+        "total_tokens": 68845,
+        "prompt_cache_hit_tokens": 39680,
+        "prompt_cache_miss_tokens": 27936,
+        "input_tokens": 67616,
+        "output_tokens": 1229
+      },
+      "usage_discarded": {
+        "prompt_tokens": 61414,
+        "completion_tokens": 1045,
+        "total_tokens": 62459,
+        "prompt_cache_hit_tokens": 34176,
+        "prompt_cache_miss_tokens": 27238,
+        "input_tokens": 61414,
+        "output_tokens": 1045
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 240.11788816431033,
+  "runtime_error": null,
+  "workspace_progress_observation": [
+    {
+      "seconds": 0.7870160650005573,
+      "scans": 432,
+      "epoch": 25
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": true,
+    "returncode": 0,
+    "stdout": "MODULE_OK mail\nMODULE_OK calendar\nMODULE_OK groups\nMODULE_OK ranking\nLOCAL_CHECKS_PASSED; external verifier determines official correctness\n",
+    "stderr": ""
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "domains/calendar/check_module.py": true,
+    "domains/calendar/contract.json": true,
+    "domains/calendar/model.py": false,
+    "domains/calendar/render.py": false,
+    "domains/calendar/transform.py": false,
+    "domains/groups/check_module.py": true,
+    "domains/groups/contract.json": true,
+    "domains/groups/model.py": false,
+    "domains/groups/render.py": false,
+    "domains/groups/transform.py": false,
+    "domains/mail/check_module.py": true,
+    "domains/mail/contract.json": true,
+    "domains/mail/model.py": false,
+    "domains/mail/render.py": false,
+    "domains/mail/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true,
+    "views/ranking/check_module.py": true,
+    "views/ranking/contract.json": true,
+    "views/ranking/model.py": false,
+    "views/ranking/render.py": false,
+    "views/ranking/transform.py": false
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 220,
+    "dag_node_transition": 656,
+    "task_started": 6,
+    "execution_state_observed": 44,
+    "parallel_v2_request_boundary": 12,
+    "parallel_v2_frontier_filtered": 4,
+    "fork_only_parent_passthrough": 23,
+    "dag_edge_added": 277,
+    "model_request": 50,
+    "model_response": 50,
+    "tool_result": 91,
+    "validation_progress_guard_cost": 44,
+    "repeated_business_output_observed": 42,
+    "parallel_v2_frontier_handshake_scheduled": 4,
+    "parallel_v2_generic_evidence_boundary": 32,
+    "handshake_speculation_started": 4,
+    "report_authorization_granted": 4,
+    "handshake_speculation_response": 4,
+    "parallel_v2_frontier_report_committed": 4,
+    "handshake_speculation_authorized": 1,
+    "handshake_speculation_committed": 1,
+    "g1_early_semantic_review_injected": 1,
+    "parallel_v2_frontier_validation_feedback": 3,
+    "handshake_speculation_discarded": 3,
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 5,
+    "branch_context_compiled": 5,
+    "fork_only_child_envelope": 27,
+    "g1_branch_shell_completed": 15,
+    "verified_tool_artifact_recorded": 5,
+    "task_completed": 6,
+    "branch_completed_from_verified_artifact": 5,
+    "branch_result_bound_to_verified_artifact": 5,
+    "e1_problem_stalled": 2,
+    "parallel_v2_plan_completed": 2,
+    "root_integration_checkpoint_activated": 1,
+    "output_guard_public_check_started": 2,
+    "output_guard_public_check_finished": 2,
+    "selfcheck_serial_started": 1,
+    "visible_contract_completion_deferred": 1,
+    "visible_contract_instruction_deduplicated": 1,
+    "e1_selfcheck_failure_observed": 3,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 4,
+    "parallel_v2_frontier_report_committed": 4
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-2f550e18c267",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/groups/model.py",
+                "domains/groups/transform.py",
+                "domains/groups/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "groups-impl",
+            "task": "Implement groups model/transform/render from contract and pass its check_module."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/mail/model.py",
+                "domains/mail/transform.py",
+                "domains/mail/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "mail-impl",
+            "task": "Implement mail model/transform/render from contract and pass its check_module."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/calendar/model.py",
+                "domains/calendar/transform.py",
+                "domains/calendar/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "calendar-impl",
+            "task": "Implement calendar model/transform/render from contract and pass its check_module."
+          }
+        ]
+      },
+      "reason": "Three independent domain components with disjoint writes and observed inputs are ready."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-156cb9c0c092",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/ranking/model.py",
+                "views/ranking/transform.py",
+                "views/ranking/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "ranking-impl",
+            "task": "Implement ranking model/transform/render from contract and pass its check_module."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py",
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "run-all-final",
+            "task": "Implement run_all.py orchestration and final_report.py report generation."
+          }
+        ]
+      },
+      "reason": "Two independent units with disjoint writes: ranking component and root orchestration/report."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 20.177628,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      3,
+      3,
+      2,
+      2
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1765605,
+    "completion_tokens": 21533,
+    "total_tokens": 1787138,
+    "prompt_cache_hit_tokens": 1539456,
+    "prompt_cache_miss_tokens": 226149,
+    "input_tokens": 1765605,
+    "output_tokens": 21533
+  },
+  "model_timing": {
+    "turn_count": 49,
+    "request_seconds_sum": 228.1362109184265,
+    "request_wall_union_seconds": 177.71647763252258
+  },
+  "overlap": {
+    "child_model_turns": 27,
+    "overlap_pair_count": 22,
+    "max_model_request_overlap_seconds": 7.826939344406128,
+    "pairs": [
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "seconds": 7.282167434692383
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 7.288552522659302
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 7.826939344406128
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "seconds": 0.5073812007904053
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "seconds": 2.894083261489868
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "seconds": 2.3563320636749268
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "seconds": 5.7010204792022705
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 3.309556245803833
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "seconds": 0.6476831436157227
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 4.505948066711426
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "seconds": 0.03678774833679199
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-1/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 1.1473338603973389
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 1.4205279350280762
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 1.1481027603149414
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "seconds": 0.14864444732666016
+      },
+      {
+        "a": "root/plan-002-ba7ba084/v2-2f550e18c267-0/attempt-1",
+        "b": "root/plan-002-ba7ba084/v2-2f550e18c267-2/attempt-1",
+        "seconds": 0.9606540203094482
+      },
+      {
+        "a": "root/plan-003-c62825f4/v2-156cb9c0c092-1/attempt-1",
+        "b": "root/plan-003-c62825f4/v2-156cb9c0c092-0/attempt-1",
+        "seconds": 2.6124868392944336
+      },
+      {
+        "a": "root/plan-003-c62825f4/v2-156cb9c0c092-0/attempt-1",
+        "b": "root/plan-003-c62825f4/v2-156cb9c0c092-1/attempt-1",
+        "seconds": 5.637614965438843
+      },
+      {
+        "a": "root/plan-003-c62825f4/v2-156cb9c0c092-1/attempt-1",
+        "b": "root/plan-003-c62825f4/v2-156cb9c0c092-0/attempt-1",
+        "seconds": 2.6122941970825195
+      },
+      {
+        "a": "root/plan-003-c62825f4/v2-156cb9c0c092-0/attempt-1",
+        "b": "root/plan-003-c62825f4/v2-156cb9c0c092-1/attempt-1",
+        "seconds": 3.1960394382476807
+      },
+      {
+        "a": "root/plan-003-c62825f4/v2-156cb9c0c092-1/attempt-1",
+        "b": "root/plan-003-c62825f4/v2-156cb9c0c092-0/attempt-1",
+        "seconds": 1.8415420055389404
+      },
+      {
+        "a": "root/plan-003-c62825f4/v2-156cb9c0c092-1/attempt-1",
+        "b": "root/plan-003-c62825f4/v2-156cb9c0c092-0/attempt-1",
+        "seconds": 1.4779491424560547
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 54,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

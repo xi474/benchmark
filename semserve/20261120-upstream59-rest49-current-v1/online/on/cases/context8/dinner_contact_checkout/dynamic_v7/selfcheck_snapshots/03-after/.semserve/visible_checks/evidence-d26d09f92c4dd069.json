@@ -1,0 +1,897 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795194067.424566,
+  "end": 1795194074.5389526,
+  "seconds": 7.114386558532715,
+  "workspace_version": "4ce8d336faa1f8393db5596e28d04df302faa4372afbb7288c6b0dbd4dc8fbd0",
+  "script_sha256": "fea873835de5291558110b5de1392318a73cba40e516e70c794f0a1caf83e984",
+  "spec_sha256": "5377f83a8d94b7659c4a7d81a173e790ddabe7c03a0f7708714a010eb0f2f3f3",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 0,
+  "output": "VISIBLE_CONTRACT_CHECK_JSON:{\"schema_version\": \"semserve.visible-contract-check.v2\", \"test_framework\": \"unittest\", \"status\": \"PASS_BOUNDED\", \"actual_case_count\": 8, \"passed_cases\": 8, \"failed_cases\": 0, \"cases\": [], \"resolutions\": [], \"promoted\": {}, \"test_ids\": [\"TestApiBoundaries.test_api_boundaries\", \"TestContact.test_contact_latest_ts_tiebreak\", \"TestContact.test_contact_no_match_null\", \"TestDinner.test_dinner_bool_weekday_rejected\", \"TestDinner.test_dinner_date_next_weekday\", \"TestDinner.test_dinner_same_weekday_adds_seven\", \"TestShopping.test_shopping_lowest_price_then_id\", \"TestShopping.test_shopping_unavailable_and_no_checkout\"], \"test_plan_accepted\": true, \"test_failures\": [], \"skipped_cases\": 0, \"expected_failures\": 0, \"nonfinite_probes\": [{\"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"nan\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"e0829f62a5a94f72299583831e21894ca02fd68f3c4f5e79f7146c9fe1137b8c\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"e0829f62a5a94f72299583831e21894ca02fd68f3c4f5e79f7146c9fe1137b8c\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"e0829f62a5a94f72299583831e21894ca02fd68f3c4f5e79f7146c9fe1137b8c\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"nan\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"fbd963b7edbb5eb6ee6318e1889caf916d0e1731c3249778d655391b0ff4e17b\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"fbd963b7edbb5eb6ee6318e1889caf916d0e1731c3249778d655391b0ff4e17b\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"fbd963b7edbb5eb6ee6318e1889caf916d0e1731c3249778d655391b0ff4e17b\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"nan\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"8a77dc85f238785f86f076397893f86214e7946ce6fbea02b826dabf0e29d1a7\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"8a77dc85f238785f86f076397893f86214e7946ce6fbea02b826dabf0e29d1a7\", \"extension_probe\": true, \"error_type\": \"ValueError\"}, {\"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"path\": [0, 0, \"_semserve_nonfinite_probe\", \"nested\", 0], \"value\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"seed_sha256\": \"8a77dc85f238785f86f076397893f86214e7946ce6fbea02b826dabf0e29d1a7\", \"extension_probe\": true, \"error_type\": \"ValueError\"}], \"api_boundary_coverage\": {\"required\": {\"contact/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"dinner/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"shopping/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"]}, \"verified\": {\"contact/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"dinner/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"], \"shopping/transform.py\": [\"invalid_payload_type\", \"nonfinite_unknown_field\"]}, \"missing\": {}, \"unreviewed\": {}, \"not_applicable\": [], \"inventoried_targets\": [\"contact/transform.py\", \"dinner/transform.py\", \"shopping/transform.py\"], \"review_errors\": [], \"declarations\": [{\"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"args\": [[{\"today\": \"2026-11-04\", \"weekday\": 5, \"hour\": 19, \"guest_count\": 6}], {\"name\": \"dinner\", \"operation\": \"dinner_date\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"args\": [[{\"today\": \"2026-11-04\", \"weekday\": 5, \"hour\": 19, \"guest_count\": 6}], {\"name\": \"dinner\", \"operation\": \"dinner_date\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}}}, {\"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"args\": [[{\"topic\": \"dinner\", \"conversations\": [{\"id\": \"a\", \"contact_id\": \"c1\", \"ts\": 5, \"topic\": \"Dinner\"}]}], {\"name\": \"contact\", \"operation\": \"recent_contact\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"args\": [[{\"topic\": \"dinner\", \"conversations\": [{\"id\": \"a\", \"contact_id\": \"c1\", \"ts\": 5, \"topic\": \"Dinner\"}]}], {\"name\": \"contact\", \"operation\": \"recent_contact\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}}}, {\"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"args\": [[{\"variants\": [{\"id\": \"v0\", \"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}, \"stock\": 5, \"price_cents\": 10}], \"wanted\": [{\"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}}]}, {\"start\": \"2026-11-07T19:00\", \"guest_count\": 2}, {\"contact_id\": \"c1\", \"conversation_id\": \"a\"}], {\"name\": \"shopping\", \"operation\": \"dinner_checkout\", \"inputs\": [\"a\", \"b\", \"c\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"args\": [[{\"variants\": [{\"id\": \"v0\", \"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}, \"stock\": 5, \"price_cents\": 10}], \"wanted\": [{\"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}}]}, {\"start\": \"2026-11-07T19:00\", \"guest_count\": 2}, {\"contact_id\": \"c1\", \"conversation_id\": \"a\"}], {\"name\": \"shopping\", \"operation\": \"dinner_checkout\", \"inputs\": [\"a\", \"b\", \"c\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}}}]}, \"api_boundary_requirements\": [{\"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"args\": [[{\"today\": \"2026-11-04\", \"weekday\": 5, \"hour\": 19, \"guest_count\": 6}], {\"name\": \"dinner\", \"operation\": \"dinner_date\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"args\": [[{\"today\": \"2026-11-04\", \"weekday\": 5, \"hour\": 19, \"guest_count\": 6}], {\"name\": \"dinner\", \"operation\": \"dinner_date\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}}}, {\"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"args\": [[{\"topic\": \"dinner\", \"conversations\": [{\"id\": \"a\", \"contact_id\": \"c1\", \"ts\": 5, \"topic\": \"Dinner\"}]}], {\"name\": \"contact\", \"operation\": \"recent_contact\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"args\": [[{\"topic\": \"dinner\", \"conversations\": [{\"id\": \"a\", \"contact_id\": \"c1\", \"ts\": 5, \"topic\": \"Dinner\"}]}], {\"name\": \"contact\", \"operation\": \"recent_contact\", \"inputs\": [\"x\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}}}, {\"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"args\": [[{\"variants\": [{\"id\": \"v0\", \"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}, \"stock\": 5, \"price_cents\": 10}], \"wanted\": [{\"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}}]}, {\"start\": \"2026-11-07T19:00\", \"guest_count\": 2}, {\"contact_id\": \"c1\", \"conversation_id\": \"a\"}], {\"name\": \"shopping\", \"operation\": \"dinner_checkout\", \"inputs\": [\"a\", \"b\", \"c\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}, \"invalid_payload_type\": {\"applicable\": true, \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"args\": [[{\"variants\": [{\"id\": \"v0\", \"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}, \"stock\": 5, \"price_cents\": 10}], \"wanted\": [{\"kind\": \"cup\", \"attributes\": {\"c\": \"w\"}}]}, {\"start\": \"2026-11-07T19:00\", \"guest_count\": 2}, {\"contact_id\": \"c1\", \"conversation_id\": \"a\"}], {\"name\": \"shopping\", \"operation\": \"dinner_checkout\", \"inputs\": [\"a\", \"b\", \"c\"], \"output\": \"y\"}], \"document_sha256\": \"4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd\"}}}], \"error\": null, \"api_boundary_checks\": [{\"rule\": \"nonfinite_unknown_field\", \"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"nan\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"invalid_payload_type\", \"target_path\": \"dinner/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"null\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"boolean\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"integer\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"string\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"nonfinite_unknown_field\", \"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"nan\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"invalid_payload_type\", \"target_path\": \"contact/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"null\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"boolean\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"integer\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"string\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"nonfinite_unknown_field\", \"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"nan\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"positive_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"negative_infinity\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}, {\"rule\": \"invalid_payload_type\", \"target_path\": \"shopping/transform.py\", \"function\": \"transform\", \"contract_path\": \"README.md\", \"requirement_quote\": \"仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError\", \"status\": \"passed\", \"outcomes\": [{\"variant\": \"control\", \"outcome\": \"returned\", \"passed\": true}, {\"variant\": \"null\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"boolean\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"integer\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}, {\"variant\": \"string\", \"outcome\": \"candidate_exception\", \"error_type\": \"ValueError\", \"passed\": true}]}], \"script_output\": \"\", \"test_output\": \"test_api_boundaries (_semserve_visible_unittest.TestApiBoundaries.test_api_boundaries) ... ok\\ntest_contact_latest_ts_tiebreak (_semserve_visible_unittest.TestContact.test_contact_latest_ts_tiebreak) ... ok\\ntest_contact_no_match_null (_semserve_visible_unittest.TestContact.test_contact_no_match_null) ... ok\\ntest_dinner_bool_weekday_rejected (_semserve_visible_unittest.TestDinner.test_dinner_bool_weekday_rejected) ... ok\\ntest_dinner_date_next_weekday (_semserve_visible_unittest.TestDinner.test_dinner_date_next_weekday) ... ok\\ntest_dinner_same_weekday_adds_seven (_semserve_visible_unittest.TestDinner.test_dinner_same_weekday_adds_seven) ... ok\\ntest_shopping_lowest_price_then_id (_semserve_visible_unittest.TestShopping.test_shopping_lowest_price_then_id) ... ok\\ntest_shopping_unavailable_and_no_checkout (_semserve_visible_unittest.TestShopping.test_shopping_unavailable_and_no_checkout) ... ok\\n\\n----------------------------------------------------------------------\\nRan 8 tests in 6.853s\\n\\nOK\\n\", \"check_ok\": true}\n",
+  "process_ok": true,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 15812,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "PASS_BOUNDED",
+  "actual_case_count": 8,
+  "passed_cases": 8,
+  "failed_cases": 0,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TestApiBoundaries.test_api_boundaries",
+    "TestContact.test_contact_latest_ts_tiebreak",
+    "TestContact.test_contact_no_match_null",
+    "TestDinner.test_dinner_bool_weekday_rejected",
+    "TestDinner.test_dinner_date_next_weekday",
+    "TestDinner.test_dinner_same_weekday_adds_seven",
+    "TestShopping.test_shopping_lowest_price_then_id",
+    "TestShopping.test_shopping_unavailable_and_no_checkout"
+  ],
+  "test_plan_accepted": true,
+  "test_failures": [],
+  "skipped_cases": 0,
+  "expected_failures": 0,
+  "nonfinite_probes": [
+    {
+      "target_path": "dinner/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "nan",
+      "outcome": "candidate_exception",
+      "seed_sha256": "e0829f62a5a94f72299583831e21894ca02fd68f3c4f5e79f7146c9fe1137b8c",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "dinner/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "positive_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "e0829f62a5a94f72299583831e21894ca02fd68f3c4f5e79f7146c9fe1137b8c",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "dinner/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "negative_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "e0829f62a5a94f72299583831e21894ca02fd68f3c4f5e79f7146c9fe1137b8c",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "contact/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "nan",
+      "outcome": "candidate_exception",
+      "seed_sha256": "fbd963b7edbb5eb6ee6318e1889caf916d0e1731c3249778d655391b0ff4e17b",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "contact/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "positive_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "fbd963b7edbb5eb6ee6318e1889caf916d0e1731c3249778d655391b0ff4e17b",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "contact/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "negative_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "fbd963b7edbb5eb6ee6318e1889caf916d0e1731c3249778d655391b0ff4e17b",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "shopping/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "nan",
+      "outcome": "candidate_exception",
+      "seed_sha256": "8a77dc85f238785f86f076397893f86214e7946ce6fbea02b826dabf0e29d1a7",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "shopping/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "positive_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "8a77dc85f238785f86f076397893f86214e7946ce6fbea02b826dabf0e29d1a7",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    },
+    {
+      "target_path": "shopping/transform.py",
+      "function": "transform",
+      "path": [
+        0,
+        0,
+        "_semserve_nonfinite_probe",
+        "nested",
+        0
+      ],
+      "value": "negative_infinity",
+      "outcome": "candidate_exception",
+      "seed_sha256": "8a77dc85f238785f86f076397893f86214e7946ce6fbea02b826dabf0e29d1a7",
+      "extension_probe": true,
+      "error_type": "ValueError"
+    }
+  ],
+  "api_boundary_coverage": {
+    "required": {
+      "contact/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "dinner/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "shopping/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "verified": {
+      "contact/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "dinner/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "shopping/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "missing": {},
+    "unreviewed": {},
+    "not_applicable": [],
+    "inventoried_targets": [
+      "contact/transform.py",
+      "dinner/transform.py",
+      "shopping/transform.py"
+    ],
+    "review_errors": [],
+    "declarations": [
+      {
+        "target_path": "dinner/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+            "args": [
+              [
+                {
+                  "today": "2026-11-04",
+                  "weekday": 5,
+                  "hour": 19,
+                  "guest_count": 6
+                }
+              ],
+              {
+                "name": "dinner",
+                "operation": "dinner_date",
+                "inputs": [
+                  "x"
+                ],
+                "output": "y"
+              }
+            ],
+            "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+            "args": [
+              [
+                {
+                  "today": "2026-11-04",
+                  "weekday": 5,
+                  "hour": 19,
+                  "guest_count": 6
+                }
+              ],
+              {
+                "name": "dinner",
+                "operation": "dinner_date",
+                "inputs": [
+                  "x"
+                ],
+                "output": "y"
+              }
+            ],
+            "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+          }
+        }
+      },
+      {
+        "target_path": "contact/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+            "args": [
+              [
+                {
+                  "topic": "dinner",
+                  "conversations": [
+                    {
+                      "id": "a",
+                      "contact_id": "c1",
+                      "ts": 5,
+                      "topic": "Dinner"
+                    }
+                  ]
+                }
+              ],
+              {
+                "name": "contact",
+                "operation": "recent_contact",
+                "inputs": [
+                  "x"
+                ],
+                "output": "y"
+              }
+            ],
+            "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+            "args": [
+              [
+                {
+                  "topic": "dinner",
+                  "conversations": [
+                    {
+                      "id": "a",
+                      "contact_id": "c1",
+                      "ts": 5,
+                      "topic": "Dinner"
+                    }
+                  ]
+                }
+              ],
+              {
+                "name": "contact",
+                "operation": "recent_contact",
+                "inputs": [
+                  "x"
+                ],
+                "output": "y"
+              }
+            ],
+            "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+          }
+        }
+      },
+      {
+        "target_path": "shopping/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+            "args": [
+              [
+                {
+                  "variants": [
+                    {
+                      "id": "v0",
+                      "kind": "cup",
+                      "attributes": {
+                        "c": "w"
+                      },
+                      "stock": 5,
+                      "price_cents": 10
+                    }
+                  ],
+                  "wanted": [
+                    {
+                      "kind": "cup",
+                      "attributes": {
+                        "c": "w"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "start": "2026-11-07T19:00",
+                  "guest_count": 2
+                },
+                {
+                  "contact_id": "c1",
+                  "conversation_id": "a"
+                }
+              ],
+              {
+                "name": "shopping",
+                "operation": "dinner_checkout",
+                "inputs": [
+                  "a",
+                  "b",
+                  "c"
+                ],
+                "output": "y"
+              }
+            ],
+            "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+            "args": [
+              [
+                {
+                  "variants": [
+                    {
+                      "id": "v0",
+                      "kind": "cup",
+                      "attributes": {
+                        "c": "w"
+                      },
+                      "stock": 5,
+                      "price_cents": 10
+                    }
+                  ],
+                  "wanted": [
+                    {
+                      "kind": "cup",
+                      "attributes": {
+                        "c": "w"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "start": "2026-11-07T19:00",
+                  "guest_count": 2
+                },
+                {
+                  "contact_id": "c1",
+                  "conversation_id": "a"
+                }
+              ],
+              {
+                "name": "shopping",
+                "operation": "dinner_checkout",
+                "inputs": [
+                  "a",
+                  "b",
+                  "c"
+                ],
+                "output": "y"
+              }
+            ],
+            "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+          }
+        }
+      }
+    ]
+  },
+  "api_boundary_requirements": [
+    {
+      "target_path": "dinner/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+          "args": [
+            [
+              {
+                "today": "2026-11-04",
+                "weekday": 5,
+                "hour": 19,
+                "guest_count": 6
+              }
+            ],
+            {
+              "name": "dinner",
+              "operation": "dinner_date",
+              "inputs": [
+                "x"
+              ],
+              "output": "y"
+            }
+          ],
+          "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+          "args": [
+            [
+              {
+                "today": "2026-11-04",
+                "weekday": 5,
+                "hour": 19,
+                "guest_count": 6
+              }
+            ],
+            {
+              "name": "dinner",
+              "operation": "dinner_date",
+              "inputs": [
+                "x"
+              ],
+              "output": "y"
+            }
+          ],
+          "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+        }
+      }
+    },
+    {
+      "target_path": "contact/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+          "args": [
+            [
+              {
+                "topic": "dinner",
+                "conversations": [
+                  {
+                    "id": "a",
+                    "contact_id": "c1",
+                    "ts": 5,
+                    "topic": "Dinner"
+                  }
+                ]
+              }
+            ],
+            {
+              "name": "contact",
+              "operation": "recent_contact",
+              "inputs": [
+                "x"
+              ],
+              "output": "y"
+            }
+          ],
+          "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+          "args": [
+            [
+              {
+                "topic": "dinner",
+                "conversations": [
+                  {
+                    "id": "a",
+                    "contact_id": "c1",
+                    "ts": 5,
+                    "topic": "Dinner"
+                  }
+                ]
+              }
+            ],
+            {
+              "name": "contact",
+              "operation": "recent_contact",
+              "inputs": [
+                "x"
+              ],
+              "output": "y"
+            }
+          ],
+          "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+        }
+      }
+    },
+    {
+      "target_path": "shopping/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+          "args": [
+            [
+              {
+                "variants": [
+                  {
+                    "id": "v0",
+                    "kind": "cup",
+                    "attributes": {
+                      "c": "w"
+                    },
+                    "stock": 5,
+                    "price_cents": 10
+                  }
+                ],
+                "wanted": [
+                  {
+                    "kind": "cup",
+                    "attributes": {
+                      "c": "w"
+                    }
+                  }
+                ]
+              },
+              {
+                "start": "2026-11-07T19:00",
+                "guest_count": 2
+              },
+              {
+                "contact_id": "c1",
+                "conversation_id": "a"
+              }
+            ],
+            {
+              "name": "shopping",
+              "operation": "dinner_checkout",
+              "inputs": [
+                "a",
+                "b",
+                "c"
+              ],
+              "output": "y"
+            }
+          ],
+          "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+          "args": [
+            [
+              {
+                "variants": [
+                  {
+                    "id": "v0",
+                    "kind": "cup",
+                    "attributes": {
+                      "c": "w"
+                    },
+                    "stock": 5,
+                    "price_cents": 10
+                  }
+                ],
+                "wanted": [
+                  {
+                    "kind": "cup",
+                    "attributes": {
+                      "c": "w"
+                    }
+                  }
+                ]
+              },
+              {
+                "start": "2026-11-07T19:00",
+                "guest_count": 2
+              },
+              {
+                "contact_id": "c1",
+                "conversation_id": "a"
+              }
+            ],
+            {
+              "name": "shopping",
+              "operation": "dinner_checkout",
+              "inputs": [
+                "a",
+                "b",
+                "c"
+              ],
+              "output": "y"
+            }
+          ],
+          "document_sha256": "4d9efb5e12c38b8d98d6b8de8888e58d113251175bfd044062e583b0c7594dcd"
+        }
+      }
+    }
+  ],
+  "error": null,
+  "api_boundary_checks": [
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "dinner/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "nan",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "positive_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "negative_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "dinner/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "null",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "boolean",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "integer",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "string",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "contact/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "nan",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "positive_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "negative_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "contact/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "null",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "boolean",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "integer",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "string",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "shopping/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "必需字段缺失、指定非法类型/重复/冲突均ValueError。整数排除bool，有限数允许int/float但排除bool及非有限数",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "nan",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "positive_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "negative_infinity",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "shopping/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError",
+      "status": "passed",
+      "outcomes": [
+        {
+          "variant": "control",
+          "outcome": "returned",
+          "passed": true
+        },
+        {
+          "variant": "null",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "boolean",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "integer",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        },
+        {
+          "variant": "string",
+          "outcome": "candidate_exception",
+          "error_type": "ValueError",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "script_output": "",
+  "test_output": "test_api_boundaries (_semserve_visible_unittest.TestApiBoundaries.test_api_boundaries) ... ok\ntest_contact_latest_ts_tiebreak (_semserve_visible_unittest.TestContact.test_contact_latest_ts_tiebreak) ... ok\ntest_contact_no_match_null (_semserve_visible_unittest.TestContact.test_contact_no_match_null) ... ok\ntest_dinner_bool_weekday_rejected (_semserve_visible_unittest.TestDinner.test_dinner_bool_weekday_rejected) ... ok\ntest_dinner_date_next_weekday (_semserve_visible_unittest.TestDinner.test_dinner_date_next_weekday) ... ok\ntest_dinner_same_weekday_adds_seven (_semserve_visible_unittest.TestDinner.test_dinner_same_weekday_adds_seven) ... ok\ntest_shopping_lowest_price_then_id (_semserve_visible_unittest.TestShopping.test_shopping_lowest_price_then_id) ... ok\ntest_shopping_unavailable_and_no_checkout (_semserve_visible_unittest.TestShopping.test_shopping_unavailable_and_no_checkout) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 6.853s\n\nOK\n",
+  "check_ok": true,
+  "failure_stage": null,
+  "executions": 2,
+  "frozen_regressions": 0,
+  "reused": false
+}

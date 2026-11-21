@@ -1,0 +1,50 @@
+Exception (client): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\transport.py", line 2227, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\packet.py", line 673, in _read_timeout
+    raise socket.timeout()
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\transport.py", line 2043, in run
+    self._check_banner()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\transport.py", line 2231, in _check_banner
+    raise SSHException(
+        "Error reading SSH protocol banner" + str(e)
+    )
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (client): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\transport.py", line 2227, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\packet.py", line 673, in _read_timeout
+    raise socket.timeout()
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\transport.py", line 2043, in run
+    self._check_banner()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\yaohua xi\.workbuddy\binaries\python\envs\default\Lib\site-packages\paramiko\transport.py", line 2231, in _check_banner
+    raise SSHException(
+        "Error reading SSH protocol banner" + str(e)
+    )
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+attempt 0 failed: SSHException No existing session
+attempt 1 failed: SSHException No existing session
+attempt 2 failed: SSHException No existing session
+Exception (client): Error reading SSH protocol banner[WinError 10038] 在一个非套接字上尝试了一个操作。

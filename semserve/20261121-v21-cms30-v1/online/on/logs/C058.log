@@ -1,0 +1,9 @@
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 4, "event": "tool_results", "action": "parallel_ready", "width": null, "workload": "medium"}
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 4, "event": "tool_results", "action": "parallel_ready", "width": null, "workload": "medium"}
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 8, "event": "tool_results", "action": "parallel_ready", "width": null, "workload": "medium"}
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 8, "event": "tool_results", "action": "parallel_ready", "width": null, "workload": "medium"}
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 9, "event": "tool_results", "action": "parallel_ready", "width": null, "workload": "medium"}
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 12, "event": "tool_results", "action": "serial", "width": null, "workload": "medium"}
+RETEST18_PREDICTION {"group": "context8", "case": "C058", "step": 16, "event": "tool_results", "action": "serial", "width": null, "workload": "medium"}
+Implemented C058 fully. host_conditions/work.py and handler_bindings/work.py compute their component values; integration.py combine simulates the linear multi-host strategy producing batches (task/flush/handler) and final ok/failed; solution.py re-exports load_payload/transform/build_component. Public checks pass (component checks, join, run_all --check, public_check, outputs/result.json). Bounded visible-contract unittest self-check passes 5/5.
+RETEST18_COMPLETE {"group": "context8", "case": "C058", "arm": "dynamic_v7", "seconds": 327.73, "validation": true, "runtime_error": null, "predictions": 7, "accepted": 1, "completed": 1, "overlap": 70.6777892112732, "reasoning_tokens": 0, "result": "/results/context8/C058/dynamic_v7/result.json"}

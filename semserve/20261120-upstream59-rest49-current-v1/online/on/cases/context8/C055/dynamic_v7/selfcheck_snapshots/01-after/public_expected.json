@@ -1,0 +1,51 @@
+{
+  "status": "ok",
+  "entries": [
+    [
+      "x",
+      [
+        "override",
+        1,
+        1
+      ],
+      [
+        "override",
+        1,
+        4
+      ],
+      false,
+      "plain-${y}"
+    ],
+    [
+      "y",
+      [
+        "base",
+        2,
+        1
+      ],
+      [
+        "base",
+        1,
+        4
+      ],
+      true,
+      "first"
+    ],
+    [
+      "z",
+      [
+        "base",
+        3,
+        1
+      ],
+      [
+        "base",
+        3,
+        4
+      ],
+      true,
+      "see-plain-${y}"
+    ]
+  ],
+  "dump": "x: \"plain-${y}\"\ny: \"first\"\nz: \"see-${x}\"\n"
+}

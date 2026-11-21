@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py", line 792, in _run_loop
+    with self._guard_selfcheck_deadline_scope(state):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/output_guard.py", line 225, in _guard_selfcheck_deadline_scope
+    self._guard_check_selfcheck_deadline(state)
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/output_guard.py", line 220, in _guard_check_selfcheck_deadline
+    raise SelfcheckDeadlineExceeded('selfcheck_budget_exhausted: self-check incomplete; public pass remains separate')
+agent_runtime_demo.selfcheck_deadline.SelfcheckDeadlineExceeded: selfcheck_budget_exhausted: self-check incomplete; public pass remains separate
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/run_case_live.py", line 907, in main
+    cli.main()
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/cli.py", line 927, in main
+    final_answer = runtime.run(
+                   ^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py", line 528, in run
+    final = self._run_loop(state)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py", line 807, in _run_loop
+    self._guard_check_selfcheck_deadline(state)
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/output_guard.py", line 220, in _guard_check_selfcheck_deadline
+    raise SelfcheckDeadlineExceeded('selfcheck_budget_exhausted: self-check incomplete; public pass remains separate')
+agent_runtime_demo.selfcheck_deadline.SelfcheckDeadlineExceeded: selfcheck_budget_exhausted: self-check incomplete; public pass remains separate

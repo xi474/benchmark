@@ -1,0 +1,237 @@
+{
+  "components": {
+    "calendar": {
+      "cancelled": [
+        "e47-1",
+        "e47-4",
+        "e47-5"
+      ],
+      "remaining": {
+        "e47-0": {
+          "attendees": [
+            "c0",
+            "c1"
+          ],
+          "cancelled": false,
+          "end": 67740,
+          "id": "e47-0",
+          "social": false,
+          "start": 67680
+        },
+        "e47-2": {
+          "attendees": [
+            "c2",
+            "c3"
+          ],
+          "cancelled": true,
+          "end": 67980,
+          "id": "e47-2",
+          "social": true,
+          "start": 67920
+        },
+        "e47-3": {
+          "attendees": [
+            "c3",
+            "c4"
+          ],
+          "cancelled": false,
+          "end": 68100,
+          "id": "e47-3",
+          "social": false,
+          "start": 68040
+        },
+        "e47-6": {
+          "attendees": [
+            "c0",
+            "c1"
+          ],
+          "cancelled": false,
+          "end": 68460,
+          "id": "e47-6",
+          "social": false,
+          "start": 68400
+        },
+        "e47-7": {
+          "attendees": [
+            "c1",
+            "c2"
+          ],
+          "cancelled": false,
+          "end": 68580,
+          "id": "e47-7",
+          "social": true,
+          "start": 68520
+        },
+        "e47-8": {
+          "attendees": [
+            "c2",
+            "c3"
+          ],
+          "cancelled": false,
+          "end": 68700,
+          "id": "e47-8",
+          "social": true,
+          "start": 68640
+        },
+        "e47-9": {
+          "attendees": [
+            "c3",
+            "c4"
+          ],
+          "cancelled": false,
+          "end": 68820,
+          "id": "e47-9",
+          "social": false,
+          "start": 68760
+        }
+      },
+      "snapshots": {
+        "e47-1": {
+          "attendees": [
+            "c1",
+            "c2"
+          ],
+          "cancelled": false,
+          "end": 67860,
+          "id": "e47-1",
+          "social": true,
+          "start": 67800
+        },
+        "e47-4": {
+          "attendees": [
+            "c4",
+            "c5"
+          ],
+          "cancelled": false,
+          "end": 68220,
+          "id": "e47-4",
+          "social": true,
+          "start": 68160
+        },
+        "e47-5": {
+          "attendees": [
+            "c5",
+            "c0"
+          ],
+          "cancelled": false,
+          "end": 68340,
+          "id": "e47-5",
+          "social": true,
+          "start": 68280
+        }
+      }
+    },
+    "channels": {
+      "contacts": {
+        "c0": {
+          "address": "m0",
+          "email": null,
+          "primary": "message"
+        },
+        "c1": {
+          "address": "h1",
+          "email": "1@x",
+          "primary": "chat"
+        },
+        "c2": {
+          "address": null,
+          "email": null,
+          "primary": null
+        },
+        "c3": {
+          "address": "m3",
+          "email": "3@x",
+          "primary": "message"
+        },
+        "c4": {
+          "address": "h4",
+          "email": null,
+          "primary": "chat"
+        },
+        "c5": {
+          "address": null,
+          "email": "5@x",
+          "primary": null
+        }
+      }
+    },
+    "notifications": {
+      "group": {
+        "id": "cancelled-social",
+        "members": [
+          "c0"
+        ],
+        "requires": [
+          "e47-1",
+          "e47-4",
+          "e47-5"
+        ]
+      },
+      "outbox": [
+        {
+          "channel": "chat",
+          "recipients": [
+            "c1"
+          ],
+          "requires": [
+            "e47-1",
+            "e47-4",
+            "e47-5"
+          ],
+          "to": "h1"
+        },
+        {
+          "channel": "chat",
+          "recipients": [
+            "c4"
+          ],
+          "requires": [
+            "e47-1",
+            "e47-4",
+            "e47-5"
+          ],
+          "to": "h4"
+        },
+        {
+          "channel": "email",
+          "recipients": [
+            "c1"
+          ],
+          "requires": [
+            "e47-1",
+            "e47-4",
+            "e47-5"
+          ],
+          "to": "1@x"
+        },
+        {
+          "channel": "email",
+          "recipients": [
+            "c5"
+          ],
+          "requires": [
+            "e47-1",
+            "e47-4",
+            "e47-5"
+          ],
+          "to": "5@x"
+        },
+        {
+          "channel": "message_group",
+          "recipients": [
+            "c0"
+          ],
+          "requires": [
+            "e47-1",
+            "e47-4",
+            "e47-5"
+          ],
+          "to": "cancelled-social"
+        }
+      ],
+      "unreachable": [
+        "c2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "task": "C068",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "cleanup_clock",
+      "implementation": "components/cleanup_clock/work.py",
+      "read_fields": [
+        "ttl",
+        "events"
+      ],
+      "input": "components/cleanup_clock/input.json",
+      "public_expected": "components/cleanup_clock/expected.json",
+      "output": "components/cleanup_clock/result.json",
+      "run": "python -B components/cleanup_clock/run.py",
+      "check": "python -B components/cleanup_clock/check.py",
+      "contract": "按 get 驱动的 16×TTL 规则生成触发清理的 get 位置，以及下一次清理的时间。输出以位置字符串为键的映射。"
+    },
+    {
+      "name": "load_proposals",
+      "implementation": "components/load_proposals/work.py",
+      "read_fields": [
+        "events"
+      ],
+      "input": "components/load_proposals/input.json",
+      "public_expected": "components/load_proposals/expected.json",
+      "output": "components/load_proposals/result.json",
+      "run": "python -B components/load_proposals/run.py",
+      "check": "python -B components/load_proposals/check.py",
+      "contract": "为每个 get 的原始位置生成 [若启动时的完成时刻,value,error]；只有命中未复用时才实际启动。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/cleanup_clock/result.json",
+      "components/load_proposals/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

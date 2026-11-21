@@ -1,0 +1,408 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "multistage4",
+  "case": "text_invoice_archive",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/multistage4/text_invoice_archive",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "01f73559da7be64f46e71d38ae1985e70de824e534661b354bb9dbf343434701",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 117.85479855537415,
+  "background_summary_drain_seconds": 0.00014226099983716267,
+  "background_speculative_drain_seconds": 6.604194641113281e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 6,
+      "committed": 2,
+      "discarded": 4,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 94884,
+        "completion_tokens": 1518,
+        "total_tokens": 96402,
+        "prompt_cache_hit_tokens": 75392,
+        "prompt_cache_miss_tokens": 19492,
+        "input_tokens": 94884,
+        "output_tokens": 1518
+      },
+      "usage_discarded": {
+        "prompt_tokens": 74791,
+        "completion_tokens": 1091,
+        "total_tokens": 75882,
+        "prompt_cache_hit_tokens": 56448,
+        "prompt_cache_miss_tokens": 18343,
+        "input_tokens": 74791,
+        "output_tokens": 1091
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 117.8550068583204,
+  "runtime_error": {
+    "type": "RuntimeLimitExceeded",
+    "detail": "duplicate tool loop: progress recovery exhausted after two business turns without verified progress"
+  },
+  "workspace_progress_observation": [
+    {
+      "seconds": 0.2703273099978105,
+      "scans": 190,
+      "epoch": 12
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": false,
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/workspace/domains/amounts/render.py\", line 21, in <module>\n    result = build_component(root, cp)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/domains/amounts/render.py\", line 14, in build_component\n    return transform(payloads, contract)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/domains/amounts/transform.py\", line 53, in transform\n    raise ValueError('duplicate total')\nValueError: duplicate total\nTraceback (most recent call last):\n  File \"/workspace/run_all.py\", line 38, in <module>\n    main()\n  File \"/workspace/run_all.py\", line 24, in main\n    subprocess.run(\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/workspace/domains/amounts/render.py', '/workspace', '/workspace/domains/amounts/contract.json']' returned non-zero exit status 1.\nTraceback (most recent call last):\n  File \"/workspace/check.py\", line 18, in <module>\n    if __name__=='__main__': main()\n                             ^^^^^^\n  File \"/workspace/check.py\", line 10, in main\n    subprocess.run([sys.executable,str(ROOT/'run_all.py')],cwd=ROOT,check=True,timeout=180)\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/workspace/run_all.py']' returned non-zero exit status 1.\n"
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "domains/amounts/check_module.py": true,
+    "domains/amounts/contract.json": true,
+    "domains/amounts/model.py": false,
+    "domains/amounts/render.py": false,
+    "domains/amounts/transform.py": false,
+    "domains/classification/check_module.py": true,
+    "domains/classification/contract.json": true,
+    "domains/classification/model.py": false,
+    "domains/classification/render.py": false,
+    "domains/classification/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true,
+    "views/archive/check_module.py": true,
+    "views/archive/contract.json": true,
+    "views/archive/model.py": false,
+    "views/archive/render.py": false,
+    "views/archive/transform.py": false
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 103,
+    "dag_node_transition": 307,
+    "task_started": 1,
+    "execution_state_observed": 50,
+    "parallel_v2_request_boundary": 25,
+    "parallel_v2_frontier_filtered": 7,
+    "fork_only_parent_passthrough": 25,
+    "dag_edge_added": 127,
+    "model_request": 25,
+    "model_response": 25,
+    "tool_result": 50,
+    "validation_progress_guard_cost": 16,
+    "repeated_business_output_observed": 16,
+    "parallel_v2_frontier_handshake_scheduled": 6,
+    "parallel_v2_generic_evidence_boundary": 10,
+    "handshake_speculation_started": 6,
+    "report_authorization_granted": 6,
+    "handshake_speculation_response": 6,
+    "parallel_v2_frontier_report_committed": 6,
+    "handshake_speculation_authorized": 2,
+    "handshake_speculation_committed": 2,
+    "g1_early_semantic_review_injected": 1,
+    "parallel_v2_frontier_validation_feedback": 4,
+    "handshake_speculation_discarded": 4,
+    "parallel_v2_evaluated": 6,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "branch_delivery_contract_rejected": 2,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_plan_rejected": 1,
+    "validation_progress_observed": 1,
+    "literal_write_preflight_suppressed": 3,
+    "e1_problem_stalled": 4,
+    "tool_loop_circuit_breaker": 1,
+    "recovery_state_changed": 2,
+    "e1_loop_history_compacted": 1,
+    "e1_problem_recovery_requested": 2,
+    "e1_problem_action_rejected": 1,
+    "e1_problem_recovery_exhausted": 1,
+    "task_failed": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 6,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 1,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 6,
+    "parallel_v2_frontier_report_committed": 6
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-d99e7885840f",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/classification/model.py",
+                "domains/classification/transform.py",
+                "domains/classification/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "classification-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement load_payload, transform, and render for invoice_classification using the observed contract and input."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/amounts/model.py",
+                "domains/amounts/transform.py",
+                "domains/amounts/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "amounts-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement load_payload, transform, and render for invoice_amounts using the observed contract and input."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/archive/model.py",
+                "views/archive/transform.py",
+                "views/archive/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "archive-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement load_payload, transform, and render for invoice_archive_summary using the observed contract and input."
+          }
+        ]
+      },
+      "reason": "Three independent component implementations with disjoint write sets and observed contracts/inputs are ready now."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-d980ab493c49",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/classification/model.py",
+                "domains/classification/transform.py",
+                "domains/classification/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "classification-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement load_payload, transform, and render for invoice_classification using the observed contract and input."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/amounts/model.py",
+                "domains/amounts/transform.py",
+                "domains/amounts/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "amounts-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement load_payload, transform, and render for invoice_amounts using the observed contract and input."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/archive/model.py",
+                "views/archive/transform.py",
+                "views/archive/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "archive-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement load_payload, transform, and render for invoice_archive_summary using the observed contract and input."
+          }
+        ]
+      },
+      "reason": "Three independent component implementations with disjoint write sets and observed contracts/inputs are ready now."
+    },
+    {
+      "mode": "serial",
+      "offer_id": "v2-d980ab493c49",
+      "reason": "Parallel plan rejected due to ambiguous ownership; implement components serially in the root."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 16.656759,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 592991,
+    "completion_tokens": 11801,
+    "total_tokens": 604792,
+    "prompt_cache_hit_tokens": 446976,
+    "prompt_cache_miss_tokens": 146015,
+    "input_tokens": 592991,
+    "output_tokens": 11801
+  },
+  "model_timing": {
+    "turn_count": 23,
+    "request_seconds_sum": 99.9182071685791,
+    "request_wall_union_seconds": 99.9182071685791
+  },
+  "overlap": {
+    "child_model_turns": 0,
+    "overlap_pair_count": 0,
+    "max_model_request_overlap_seconds": 0.0,
+    "pairs": []
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 30,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

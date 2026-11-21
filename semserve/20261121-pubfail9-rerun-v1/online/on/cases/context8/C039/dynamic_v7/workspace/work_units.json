@@ -1,0 +1,47 @@
+{
+  "task": "C039",
+  "sample_tolerance": 1e-05,
+  "units": [
+    {
+      "name": "admissible_edges",
+      "implementation": "components/admissible_edges/work.py",
+      "read_fields": [
+        "nodes",
+        "allowed",
+        "root"
+      ],
+      "input": "components/admissible_edges/input.json",
+      "public_expected": "components/admissible_edges/expected.json",
+      "output": "components/admissible_edges/result.json",
+      "run": "python -B components/admissible_edges/run.py",
+      "check": "python -B components/admissible_edges/check.py",
+      "contract": "排除指向根的边，按 allowed 顺序返回节点下标对。"
+    },
+    {
+      "name": "local_regressions",
+      "implementation": "components/local_regressions/work.py",
+      "read_fields": [
+        "nodes",
+        "covariance",
+        "allowed",
+        "root",
+        "max_parents"
+      ],
+      "input": "components/local_regressions/input.json",
+      "public_expected": "components/local_regressions/expected.json",
+      "output": "components/local_regressions/result.json",
+      "run": "python -B components/local_regressions/run.py",
+      "check": "python -B components/local_regressions/check.py",
+      "contract": "为每个节点及其容许的父集合计算未舍入回归系数；返回每节点一张表，以逗号分隔的升序父下标为键，空集用空字符串。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/admissible_edges/result.json",
+      "components/local_regressions/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

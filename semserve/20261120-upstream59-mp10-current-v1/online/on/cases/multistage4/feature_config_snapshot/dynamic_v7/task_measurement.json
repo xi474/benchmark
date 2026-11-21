@@ -1,0 +1,1973 @@
+{
+  "task_id": "MP20",
+  "entry_id": "multistage4/feature_config_snapshot",
+  "title": "特性配置的模式、附件与引用一致性",
+  "dataset": "medium26",
+  "arm": "on",
+  "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\multistage4\\feature_config_snapshot\\dynamic_v7",
+  "actor_state": "completed",
+  "grade": {
+    "public_pass": false,
+    "strict_pass": false,
+    "official": {
+      "status": "failed",
+      "reason": "local execution failed:  Traceback (most recent call last):\n  File \"/tmp/candidate/views/snapshot/check_module.py\", line 5, in <module>\n    from model import load_payload\n  File \"/tmp/candidate/views/snapshot/model.py\", line 6, in <module>\n    from model import load_payload as _load_payload  # noqa: E402\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'load_payload' from partially initialized module 'model' (most likely due to a circular import) (/tmp/candidate/views/snapshot/model.py)\nTraceback (most recent call last):\n  File \"/tmp/candidate/check.py\", line 18, in <module>\n    if __name__=='__main__': main()\n                             ^^^^^^\n  File \"/tmp/candidate/check.py\", line 13, in main\n    for cp in contracts: subprocess.run([sys.executable,str(cp.with_name('check_module.py'))],cwd=ROOT,check=True,timeout=30)\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/tmp/candidate/views/snapshot/check_module.py']' returned non-zero exit status 1.\n"
+    },
+    "public_replay": {
+      "public_pass": false,
+      "returncode": 1
+    },
+    "core_transform_passed": 0,
+    "core_transform_total": 29,
+    "api_unexecuted": 29,
+    "api_components": {
+      "domains/schema": {
+        "state": "probe_error",
+        "api_total": 8,
+        "api_passed": 0,
+        "api_unexecuted": 8,
+        "loader_render_total": 9,
+        "loader_render_passed": 0,
+        "loader_render_unexecuted": 9
+      },
+      "domains/attachments": {
+        "state": "probe_error",
+        "api_total": 7,
+        "api_passed": 0,
+        "api_unexecuted": 7,
+        "loader_render_total": 9,
+        "loader_render_passed": 0,
+        "loader_render_unexecuted": 9
+      },
+      "views/references": {
+        "state": "probe_error",
+        "api_total": 7,
+        "api_passed": 0,
+        "api_unexecuted": 7,
+        "loader_render_total": 9,
+        "loader_render_passed": 0,
+        "loader_render_unexecuted": 9
+      },
+      "views/snapshot": {
+        "state": "probe_error",
+        "api_total": 7,
+        "api_passed": 0,
+        "api_unexecuted": 7,
+        "loader_render_total": 9,
+        "loader_render_passed": 0,
+        "loader_render_unexecuted": 9
+      }
+    }
+  },
+  "metrics": {
+    "live_public": false,
+    "runtime_error": {
+      "type": "RuntimeLimitExceeded",
+      "detail": "duplicate tool loop: progress recovery exhausted after two business turns without verified progress"
+    },
+    "e2e_seconds": 1128.3378460407257,
+    "completion_inclusive_seconds": 1128.3380754652035,
+    "confirmed_parallel_wall_seconds": 159.7257936000824,
+    "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\multistage4\\feature_config_snapshot\\dynamic_v7",
+    "public_passed": false,
+    "external_status": "failed",
+    "child_failure_events": 0,
+    "ownership_error_events": 1,
+    "real_child_parallel": true,
+    "offer_driven_parallel": true,
+    "autonomous_parallel": false,
+    "unknown_source_parallel": false,
+    "child_count": 3,
+    "offer_accepted": 1,
+    "offer_declined": 0,
+    "predictor_count": 4,
+    "waves": [
+      {
+        "plan_id": "plan-002-ff1bb511",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-0/attempt-1",
+            "start": 1795175706.4629145,
+            "end": 1795175728.5890274,
+            "status": "succeeded",
+            "task_id": "child_task-000076"
+          },
+          {
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-1/attempt-1",
+            "start": 1795175706.4631677,
+            "end": 1795176330.6962123,
+            "status": "succeeded",
+            "task_id": "child_task-000077"
+          },
+          {
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-2/attempt-1",
+            "start": 1795175706.4634185,
+            "end": 1795175877.9352334,
+            "status": "succeeded",
+            "task_id": "child_task-000078"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 159.7257936000824,
+        "child_lifecycle_union_seconds": 624.2332978248596,
+        "child_lifecycle_duration_sum_seconds": 817.8309724330902,
+        "same_trace_child_lifecycle_overlap_work_seconds": 193.5976746082306,
+        "child_request_union_seconds": 611.3795187473297,
+        "child_request_duration_sum_seconds": 789.0982894897461,
+        "same_trace_child_request_overlap_work_seconds": 177.71877074241638,
+        "join_status": "succeeded"
+      }
+    ],
+    "subtask_joins": {
+      "plan-002-ff1bb511": "succeeded"
+    },
+    "deepseek_handshake": {
+      "physical_requests": 18,
+      "requests_with_usage": 18,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 18,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 529186,
+      "output_tokens": 7714,
+      "cache_hit_tokens": 315264,
+      "cache_miss_tokens": 213922,
+      "input_cost_usd": 0.14812432800000003,
+      "output_cost_usd": 0.015273720000000001,
+      "cost_usd": 0.16339804800000005,
+      "input_cost_cny": 1.0099386,
+      "output_cost_cny": 0.10413900000000001,
+      "cost_cny": 1.1140776,
+      "issue_counts": {
+        "holiday_calendar_unverified": 18
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.5957527221052711,
+      "usd_estimate_including_unpartitioned_input": 0.16339804800000002,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.16339804800000002
+    },
+    "deepseek_total": {
+      "physical_requests": 84,
+      "requests_with_usage": 84,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 84,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 2384924,
+      "output_tokens": 92604,
+      "cache_hit_tokens": 2006528,
+      "cache_miss_tokens": 378396,
+      "input_cost_usd": 0.2938849760000001,
+      "output_cost_usd": 0.1833559200000001,
+      "cost_usd": 0.47724089600000014,
+      "input_cost_cny": 2.0037612,
+      "output_cost_cny": 1.2501540000000013,
+      "cost_cny": 3.2539152,
+      "issue_counts": {
+        "holiday_calendar_unverified": 84
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.8413383403412436,
+      "usd_estimate_including_unpartitioned_input": 0.4772408960000002,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.47724089599999986
+    },
+    "external_api_total": {
+      "physical_requests": 95,
+      "requests_with_usage": 95,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 84,
+      "requests_cache_partition_unknown": 11,
+      "input_tokens": 2503413,
+      "output_tokens": 95043,
+      "cache_hit_tokens": 2006528,
+      "cache_miss_tokens": 378396,
+      "input_cost_usd": 0.2938849760000001,
+      "output_cost_usd": 0.18433152000000005,
+      "cost_usd": 0.47724089600000014,
+      "input_cost_cny": 2.0037612,
+      "output_cost_cny": 1.2501540000000013,
+      "cost_cny": 3.2539152,
+      "input_estimate_without_cache_partition_usd": 0.011848899999999999,
+      "input_tokens_cache_partition_unknown": 118489,
+      "issue_counts": {
+        "holiday_calendar_unverified": 84,
+        "cache_partition_unreported_standard_input_estimate_only": 11
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.8413383403412436,
+      "usd_estimate_including_unpartitioned_input": 0.49006539600000015,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.4900653959999998
+    },
+    "wire_missing_receipt_ids": [],
+    "handshakes": [
+      {
+        "step": 2,
+        "turn_start": 1795175691.1014872,
+        "turn_end": 1795175697.3371794,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "model-load-payload",
+            "kind": "shared-model",
+            "surface": "model",
+            "goal": "Implement model.load_payload with UTF8 JSON validation and NaN/Infinity rejection.",
+            "needs": [],
+            "read_set": [
+              "README.md"
+            ],
+            "write_set": [
+              "model.py"
+            ],
+            "focused_check": "python3 -c \"import model; model.load_payload('inputs/schema.json')\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "model.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "transform-schema",
+            "kind": "component-transform",
+            "surface": "schema",
+            "goal": "Implement transform.transform for feature_schema returning deep-copied flags/segments.",
+            "needs": [],
+            "read_set": [
+              "README.md"
+            ],
+            "write_set": [
+              "transform.py"
+            ],
+            "focused_check": "python3 domains/schema/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "render-build-component",
+            "kind": "component-render",
+            "surface": "render",
+            "goal": "Implement render.build_component reading inputs and writing contract.output.",
+            "needs": [],
+            "read_set": [
+              "README.md"
+            ],
+            "write_set": [
+              "render.py"
+            ],
+            "focused_check": "python3 -c \"import render\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 1,
+            "frontier_version": "92eb2eb7ca391cf97e9613dad443be3cbb8c90641cedb9ee33a4e954dedb67d8",
+            "safe_width": 3,
+            "fact_digest": "707b78003262ccddcc63382d7b83758416636bbef0a583f6dd8d9656c59afe09"
+          }
+        ],
+        "physical_request_ids": [
+          "77ddf7007d5247dfad7772b22eb391c3"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 8006,
+          "output_tokens": 538,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 8006,
+          "input_cost_usd": 0.00528396,
+          "output_cost_usd": 0.00106524,
+          "cost_usd": 0.0063492,
+          "input_cost_cny": 0.036027,
+          "output_cost_cny": 0.007263,
+          "cost_cny": 0.04329,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.0063492,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0063492
+        }
+      },
+      {
+        "step": 4,
+        "turn_start": 1795176330.7163234,
+        "turn_end": 1795176335.8953297,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "run-all",
+            "kind": "orchestrator",
+            "surface": "run_all",
+            "goal": "Implement run_all.py to locate workspace and execute all components, recomputing outputs.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py",
+              "domains/schema/contract.json",
+              "domains/attachments/contract.json",
+              "views/references/contract.json",
+              "views/snapshot/contract.json"
+            ],
+            "write_set": [
+              "run_all.py"
+            ],
+            "focused_check": "python3 -c \"import run_all\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "final-report",
+            "kind": "report-builder",
+            "surface": "final_report",
+            "goal": "Implement final_report.py reading core object and writing final_report.json with sha256 and attention.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py"
+            ],
+            "write_set": [
+              "final_report.py"
+            ],
+            "focused_check": "python3 -c \"import final_report\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 2,
+            "frontier_version": "7bd9770f77ac84d3f488d6f40c2b811d74e836b6012f260bb8f74826a4c0b075",
+            "safe_width": 0,
+            "fact_digest": "f53f78fd836e090e841c817eaa4c8ed108898cf05276ebf16c9389aa51c97e78"
+          }
+        ],
+        "physical_request_ids": [
+          "a57d9742fc854b30a06534a26b67aa95"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 14666,
+          "output_tokens": 467,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 14666,
+          "input_cost_usd": 0.009679560000000002,
+          "output_cost_usd": 0.00092466,
+          "cost_usd": 0.010604220000000003,
+          "input_cost_cny": 0.065997,
+          "output_cost_cny": 0.0063045,
+          "cost_cny": 0.0723015,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.010604220000000003,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.010604220000000003
+        }
+      },
+      {
+        "step": 6,
+        "turn_start": 1795176338.0641243,
+        "turn_end": 1795176342.6394043,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "run-all",
+            "kind": "orchestrator",
+            "surface": "run_all",
+            "goal": "Implement run_all.py to locate workspace and execute all components, recomputing outputs.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py",
+              "domains/schema/contract.json",
+              "domains/attachments/contract.json",
+              "views/references/contract.json",
+              "views/snapshot/contract.json"
+            ],
+            "write_set": [
+              "run_all.py"
+            ],
+            "focused_check": "python3 -c \"import run_all\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "final-report",
+            "kind": "report-builder",
+            "surface": "final_report",
+            "goal": "Implement final_report.py reading core object and writing final_report.json with sha256 and attention.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py"
+            ],
+            "write_set": [
+              "final_report.py"
+            ],
+            "focused_check": "python3 -c \"import final_report\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 3,
+            "frontier_version": "25fdd76bc6f7162096395e4843936a6f8803266abd787809502d9e7da61c302c",
+            "safe_width": 2,
+            "fact_digest": "475c7b8dddda74773672611836210b02c5a8b03114aef2c7dc370d1d8d24b6c7"
+          }
+        ],
+        "physical_request_ids": [
+          "a2204a881b0347459922cec612c2a3b2"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 18795,
+          "output_tokens": 467,
+          "cache_hit_tokens": 7168,
+          "cache_miss_tokens": 11627,
+          "input_cost_usd": 0.007831516,
+          "output_cost_usd": 0.00092466,
+          "cost_usd": 0.008756176000000001,
+          "input_cost_cny": 0.0533967,
+          "output_cost_cny": 0.0063045,
+          "cost_cny": 0.059701199999999996,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.3813780260707635,
+          "usd_estimate_including_unpartitioned_input": 0.008756176000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.008756176000000001
+        }
+      },
+      {
+        "step": 8,
+        "turn_start": 1795176522.865853,
+        "turn_end": 1795176527.494882,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "run-all",
+            "kind": "orchestrator",
+            "surface": "run_all",
+            "goal": "Implement run_all.py to locate workspace, run all components in dependency order, and invoke integrate.py.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py",
+              "domains/schema/contract.json",
+              "domains/attachments/contract.json",
+              "views/references/contract.json",
+              "views/snapshot/contract.json"
+            ],
+            "write_set": [
+              "run_all.py"
+            ],
+            "focused_check": "python3 -c \"import run_all\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "final-report",
+            "kind": "report-builder",
+            "surface": "final_report",
+            "goal": "Implement final_report.py reading core object and writing final_report.json with title, count, sha256, attention.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py"
+            ],
+            "write_set": [
+              "final_report.py"
+            ],
+            "focused_check": "python3 -c \"import final_report\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 4,
+            "frontier_version": "6378cd2baf2efe5b7da0a6328c3d54965d1061048bd7ba78eb5cb90edb5ea046",
+            "safe_width": 2,
+            "fact_digest": "ec48bb291276f5425a734a410f5566ec51593fba6697604e707aa83349404995"
+          }
+        ],
+        "physical_request_ids": [
+          "40f2d6db7d244a31b98221349e613497"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 20761,
+          "output_tokens": 474,
+          "cache_hit_tokens": 13952,
+          "cache_miss_tokens": 6809,
+          "input_cost_usd": 0.004800884,
+          "output_cost_usd": 0.00093852,
+          "cost_usd": 0.005739404,
+          "input_cost_cny": 0.0327333,
+          "output_cost_cny": 0.006399,
+          "cost_cny": 0.0391323,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.6720292856798805,
+          "usd_estimate_including_unpartitioned_input": 0.005739404,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.005739404
+        }
+      },
+      {
+        "step": 10,
+        "turn_start": 1795176707.7156963,
+        "turn_end": 1795176711.9160645,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "run-all",
+            "kind": "orchestrator",
+            "surface": "run_all",
+            "goal": "Implement run_all.py to locate workspace, run all components in dependency order, and invoke integrate.py.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py",
+              "domains/schema/contract.json",
+              "domains/attachments/contract.json",
+              "views/references/contract.json",
+              "views/snapshot/contract.json"
+            ],
+            "write_set": [
+              "run_all.py"
+            ],
+            "focused_check": "python3 -c \"import run_all\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "final-report",
+            "kind": "report-builder",
+            "surface": "final_report",
+            "goal": "Implement final_report.py reading core object and writing final_report.json with title, count, sha256, attention.",
+            "needs": [],
+            "read_set": [
+              "README.md",
+              "integrate.py"
+            ],
+            "write_set": [
+              "final_report.py"
+            ],
+            "focused_check": "python3 -c \"import final_report\"",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 5,
+            "frontier_version": "6378cd2baf2efe5b7da0a6328c3d54965d1061048bd7ba78eb5cb90edb5ea046",
+            "safe_width": 2,
+            "fact_digest": "ec48bb291276f5425a734a410f5566ec51593fba6697604e707aa83349404995"
+          }
+        ],
+        "physical_request_ids": [
+          "fbab1ea517b845e19742bf64708c3ed8"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 23089,
+          "output_tokens": 474,
+          "cache_hit_tokens": 18048,
+          "cache_miss_tokens": 5041,
+          "input_cost_usd": 0.003724116,
+          "output_cost_usd": 0.00093852,
+          "cost_usd": 0.0046626359999999995,
+          "input_cost_cny": 0.0253917,
+          "output_cost_cny": 0.006399,
+          "cost_cny": 0.0317907,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7816709255489627,
+          "usd_estimate_including_unpartitioned_input": 0.0046626359999999995,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0046626359999999995
+        }
+      },
+      {
+        "step": 12,
+        "turn_start": 1795176715.818173,
+        "turn_end": 1795176718.6972706,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [
+          "llm:run-all",
+          "llm:final-report"
+        ],
+        "runtime_report_commits": [
+          {
+            "generation": 6,
+            "frontier_version": "ebcb9cd7531f9f1d2ccf875dde38654f318fa19d773d65a66d1d13c019ec6772",
+            "safe_width": 0,
+            "fact_digest": "4bc0c9bdd52ecaa247da37a83c5e28389f072c980f5fc1bcf55a1b4df577ad03"
+          }
+        ],
+        "physical_request_ids": [
+          "c85f81ed3f074be89c0cf3acb47f37cf"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 26938,
+          "output_tokens": 179,
+          "cache_hit_tokens": 20096,
+          "cache_miss_tokens": 6842,
+          "input_cost_usd": 0.0049578320000000006,
+          "output_cost_usd": 0.00035442000000000004,
+          "cost_usd": 0.005312252000000001,
+          "input_cost_cny": 0.033803400000000004,
+          "output_cost_cny": 0.0024165,
+          "cost_cny": 0.036219900000000006,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7460093548147598,
+          "usd_estimate_including_unpartitioned_input": 0.005312252000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.005312252000000001
+        }
+      },
+      {
+        "step": 15,
+        "turn_start": 1795176722.6249526,
+        "turn_end": 1795176728.343451,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-render-cli",
+            "kind": "component-render",
+            "surface": "render-cli",
+            "goal": "Implement build_component and CLI in the four component render.py files (schema, attachments, references, snapshot) to read inputs, call transform, and write contract.output.",
+            "needs": [],
+            "read_set": [
+              "render.py",
+              "transform.py",
+              "model.py",
+              "domains/schema/contract.json",
+              "domains/attachments/contract.json",
+              "views/references/contract.json",
+              "views/snapshot/contract.json"
+            ],
+            "write_set": [
+              "domains/schema/render.py",
+              "domains/attachments/render.py",
+              "views/references/render.py",
+              "views/snapshot/render.py"
+            ],
+            "focused_check": "python3 domains/schema/check_module.py && python3 domains/attachments/check_module.py && python3 views/references/check_module.py && python3 views/snapshot/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/render.py",
+                "domains/attachments/render.py",
+                "views/references/render.py",
+                "views/snapshot/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [],
+        "physical_request_ids": [
+          "2aef92215ee34b91a17c0110ce2b0313"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 31103,
+          "output_tokens": 457,
+          "cache_hit_tokens": 22400,
+          "cache_miss_tokens": 8703,
+          "input_cost_usd": 0.006236780000000001,
+          "output_cost_usd": 0.0009048600000000001,
+          "cost_usd": 0.007141640000000001,
+          "input_cost_cny": 0.0425235,
+          "output_cost_cny": 0.0061695,
+          "cost_cny": 0.048693,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7201877632382728,
+          "usd_estimate_including_unpartitioned_input": 0.007141640000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.007141640000000001
+        }
+      },
+      {
+        "step": 16,
+        "turn_start": 1795176728.374894,
+        "turn_end": 1795176732.2696805,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-render-clis",
+            "kind": "component-render",
+            "surface": "render",
+            "goal": "Implement build_component and CLI in the four component render.py files to read inputs, call transform, write contract.output.",
+            "needs": [],
+            "read_set": [
+              "domains/schema/render.py",
+              "domains/attachments/render.py",
+              "views/references/render.py",
+              "views/snapshot/render.py",
+              "render.py"
+            ],
+            "write_set": [
+              "domains/schema/render.py",
+              "domains/attachments/render.py",
+              "views/references/render.py",
+              "views/snapshot/render.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/render.py",
+                "domains/attachments/render.py",
+                "views/references/render.py",
+                "views/snapshot/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 7,
+            "frontier_version": "61620ee8d7450226f1ff804687cc4402b46b706a0bba3dd57510a8bd4a1c9d65",
+            "safe_width": 1,
+            "fact_digest": "0526192e7df637723a73e00a9be399c2aa33e4a1ac8f51dfe347ccd3ccbe98dc"
+          }
+        ],
+        "physical_request_ids": [
+          "363f2a25452c4869872fac462d0fa162"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 31716,
+          "output_tokens": 400,
+          "cache_hit_tokens": 24704,
+          "cache_miss_tokens": 7012,
+          "input_cost_usd": 0.005171408000000001,
+          "output_cost_usd": 0.000792,
+          "cost_usd": 0.005963408000000001,
+          "input_cost_cny": 0.035259599999999995,
+          "output_cost_cny": 0.0054,
+          "cost_cny": 0.0406596,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7789128515575735,
+          "usd_estimate_including_unpartitioned_input": 0.005963408000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.005963408000000001
+        }
+      },
+      {
+        "step": 18,
+        "turn_start": 1795176740.7420683,
+        "turn_end": 1795176743.2967987,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [],
+        "physical_request_ids": [
+          "7ce344e50bda4fb399c0ebccddf65aff"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 33981,
+          "output_tokens": 202,
+          "cache_hit_tokens": 24704,
+          "cache_miss_tokens": 9277,
+          "input_cost_usd": 0.006666308000000001,
+          "output_cost_usd": 0.00039996,
+          "cost_usd": 0.0070662680000000005,
+          "input_cost_cny": 0.045452099999999995,
+          "output_cost_cny": 0.002727,
+          "cost_cny": 0.048179099999999996,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.726994496924752,
+          "usd_estimate_including_unpartitioned_input": 0.0070662680000000005,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0070662680000000005
+        }
+      },
+      {
+        "step": 19,
+        "turn_start": 1795176743.3347464,
+        "turn_end": 1795176745.9898748,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 8,
+            "frontier_version": "2aa78fdec38186cdc6ef411807f624d6bfd566669b4bdae4eb2b658d693722f7",
+            "safe_width": 0,
+            "fact_digest": "4ef0446f7c857e2851ffc6d8644961594a0d1bc704da74f8c6b60f3129d7eced"
+          }
+        ],
+        "physical_request_ids": [
+          "1a3d973a4776436ab82e171ee3328648"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 34622,
+          "output_tokens": 193,
+          "cache_hit_tokens": 32768,
+          "cache_miss_tokens": 1854,
+          "input_cost_usd": 0.001944536,
+          "output_cost_usd": 0.00038214,
+          "cost_usd": 0.0023266759999999997,
+          "input_cost_cny": 0.013258200000000001,
+          "output_cost_cny": 0.0026055,
+          "cost_cny": 0.0158637,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.9464502339552886,
+          "usd_estimate_including_unpartitioned_input": 0.0023266759999999997,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0023266759999999997
+        }
+      },
+      {
+        "step": 22,
+        "turn_start": 1795176750.5948968,
+        "turn_end": 1795176755.768828,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-model-transform",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Implement model.py and transform.py in the four component dirs delegating to root shared modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 9,
+            "frontier_version": "748711168239fbbc7dfe64ad37e8258a84ed1c6f499bc5f5a2d63dfe56ca947e",
+            "safe_width": 1,
+            "fact_digest": "8bd1f65a7ab0189e35610907de7fe60c77410185667065758f56c7e5649cfaba"
+          }
+        ],
+        "physical_request_ids": [
+          "cdbd6556b0a54251823030324e09ff6e"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 37384,
+          "output_tokens": 446,
+          "cache_hit_tokens": 28800,
+          "cache_miss_tokens": 8584,
+          "input_cost_usd": 0.0062990400000000005,
+          "output_cost_usd": 0.0008830800000000001,
+          "cost_usd": 0.00718212,
+          "input_cost_cny": 0.042948,
+          "output_cost_cny": 0.006021,
+          "cost_cny": 0.048969,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7703830515728654,
+          "usd_estimate_including_unpartitioned_input": 0.00718212,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.00718212
+        }
+      },
+      {
+        "step": 24,
+        "turn_start": 1795176762.844541,
+        "turn_end": 1795176771.412636,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-render-clis",
+            "kind": "component-render",
+            "surface": "render",
+            "goal": "Implement build_component and CLI in the four component render.py files to read inputs, call transform, and write contract.output.",
+            "needs": [],
+            "read_set": [
+              "domains/schema/render.py",
+              "domains/attachments/render.py",
+              "views/references/render.py",
+              "views/snapshot/render.py",
+              "render.py"
+            ],
+            "write_set": [
+              "domains/schema/render.py",
+              "domains/attachments/render.py",
+              "views/references/render.py",
+              "views/snapshot/render.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/render.py",
+                "domains/attachments/render.py",
+                "views/references/render.py",
+                "views/snapshot/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "component-model-transform",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Implement model.py and transform.py in the four component dirs delegating to root shared modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 10,
+            "frontier_version": "3a747cb8268ac5d29b4dbc0a49e1415916da3696070a26d5bc859b3d3fb4497e",
+            "safe_width": 0,
+            "fact_digest": "9a9edfd5e42a5247243719182c3275fb88ad02b66cbf81424e7fafffe462839a"
+          }
+        ],
+        "physical_request_ids": [
+          "0cf8901ef9624c4585011ecf1415db71"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 32068,
+          "output_tokens": 680,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 32068,
+          "input_cost_usd": 0.02116488,
+          "output_cost_usd": 0.0013464,
+          "cost_usd": 0.02251128,
+          "input_cost_cny": 0.144306,
+          "output_cost_cny": 0.00918,
+          "cost_cny": 0.15348599999999998,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.02251128,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.02251128
+        }
+      },
+      {
+        "step": 27,
+        "turn_start": 1795176774.4096704,
+        "turn_end": 1795176780.5283642,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-model-transform",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Fix circular import in four component model.py/transform.py delegating to root modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 11,
+            "frontier_version": "7be15a496ee272b4ce0740f32f5288c39d8c804c0e41c770b58f1b2d4da1bb82",
+            "safe_width": 1,
+            "fact_digest": "f825725baac42e3fbb7306a83e05bfae4f15174705ff5a9273d84164521fcb8e"
+          }
+        ],
+        "physical_request_ids": [
+          "86bd3821bdca4738a728153fbb16b4dc"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 35567,
+          "output_tokens": 444,
+          "cache_hit_tokens": 22144,
+          "cache_miss_tokens": 13423,
+          "input_cost_usd": 0.009346347999999999,
+          "output_cost_usd": 0.00087912,
+          "cost_usd": 0.010225468,
+          "input_cost_cny": 0.06372509999999999,
+          "output_cost_cny": 0.005994,
+          "cost_cny": 0.06971909999999999,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.6225996007535075,
+          "usd_estimate_including_unpartitioned_input": 0.010225468,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.010225468
+        }
+      },
+      {
+        "step": 29,
+        "turn_start": 1795176780.6776319,
+        "turn_end": 1795176787.0449166,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-model-transform",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Fix circular import in four component model.py/transform.py delegating to root modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 12,
+            "frontier_version": "7be15a496ee272b4ce0740f32f5288c39d8c804c0e41c770b58f1b2d4da1bb82",
+            "safe_width": 1,
+            "fact_digest": "f825725baac42e3fbb7306a83e05bfae4f15174705ff5a9273d84164521fcb8e"
+          }
+        ],
+        "physical_request_ids": [
+          "28a2066be9904650a37ddc518697f931"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 33626,
+          "output_tokens": 444,
+          "cache_hit_tokens": 16640,
+          "cache_miss_tokens": 16986,
+          "input_cost_usd": 0.01157684,
+          "output_cost_usd": 0.00087912,
+          "cost_usd": 0.01245596,
+          "input_cost_cny": 0.078933,
+          "output_cost_cny": 0.005994,
+          "cost_cny": 0.084927,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.49485517159340986,
+          "usd_estimate_including_unpartitioned_input": 0.01245596,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.01245596
+        }
+      },
+      {
+        "step": 31,
+        "turn_start": 1795176787.9379084,
+        "turn_end": 1795176792.76394,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-model-transform",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Fix circular import in four component model.py/transform.py delegating to root modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 13,
+            "frontier_version": "14f6dd091f62ca3609d5338d0b46620a02799d803ed1a8e291111b4df579e5a3",
+            "safe_width": 0,
+            "fact_digest": "f8d9a7f6a06bb56350f789a489e8820391c581e4a711934834f7d15912a83c24"
+          }
+        ],
+        "physical_request_ids": [
+          "ec4656d859924797881733a07b3ae245"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 36709,
+          "output_tokens": 444,
+          "cache_hit_tokens": 24704,
+          "cache_miss_tokens": 12005,
+          "input_cost_usd": 0.008466788000000001,
+          "output_cost_usd": 0.00087912,
+          "cost_usd": 0.009345908000000002,
+          "input_cost_cny": 0.0577281,
+          "output_cost_cny": 0.005994,
+          "cost_cny": 0.0637221,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.6729684818436895,
+          "usd_estimate_including_unpartitioned_input": 0.009345908000000002,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.009345908000000002
+        }
+      },
+      {
+        "step": 35,
+        "turn_start": 1795176798.6982224,
+        "turn_end": 1795176804.5428467,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "fix-component-delegation",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Fix circular import in four component model.py/transform.py by delegating to root modules without self-import.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [],
+        "physical_request_ids": [
+          "97fbe59803e946549b3383dc2c298a31"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 36579,
+          "output_tokens": 487,
+          "cache_hit_tokens": 6144,
+          "cache_miss_tokens": 30435,
+          "input_cost_usd": 0.020222268000000005,
+          "output_cost_usd": 0.00096426,
+          "cost_usd": 0.021186528000000007,
+          "input_cost_cny": 0.1378791,
+          "output_cost_cny": 0.0065745,
+          "cost_cny": 0.14445360000000002,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.16796522594931518,
+          "usd_estimate_including_unpartitioned_input": 0.021186528000000007,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.021186528000000007
+        }
+      },
+      {
+        "step": 36,
+        "turn_start": 1795176804.5868983,
+        "turn_end": 1795176809.436162,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-model-transform",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Fix circular import in four component model.py/transform.py delegating to root modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 14,
+            "frontier_version": "fdd7d59088197e9d8bdaf4a80baae923bf15907ac2fef958b83ff3b6b3daa3b6",
+            "safe_width": 1,
+            "fact_digest": "0ad325a32b214e442e1c6b8e4bb9f4d431c0265a49d0db6c0bffa10a5e1c4f68"
+          }
+        ],
+        "physical_request_ids": [
+          "06ed08e790ae42149fb7a88fdd7aad1e"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 37219,
+          "output_tokens": 471,
+          "cache_hit_tokens": 32768,
+          "cache_miss_tokens": 4451,
+          "input_cost_usd": 0.0036585560000000003,
+          "output_cost_usd": 0.00093258,
+          "cost_usd": 0.004591136,
+          "input_cost_cny": 0.0249447,
+          "output_cost_cny": 0.0063585,
+          "cost_cny": 0.0313032,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.8804105430022301,
+          "usd_estimate_including_unpartitioned_input": 0.004591136,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.004591136
+        }
+      },
+      {
+        "step": 38,
+        "turn_start": 1795176809.6843693,
+        "turn_end": 1795176814.9758167,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "component-model-transform-delegation",
+            "kind": "component-impl",
+            "surface": "component-model-transform",
+            "goal": "Fix circular import in four component model.py/transform.py delegating to root modules.",
+            "needs": [],
+            "read_set": [
+              "model.py",
+              "transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py"
+            ],
+            "write_set": [
+              "domains/schema/model.py",
+              "domains/schema/transform.py",
+              "domains/attachments/model.py",
+              "domains/attachments/transform.py",
+              "views/references/model.py",
+              "views/references/transform.py",
+              "views/snapshot/model.py",
+              "views/snapshot/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/schema/model.py",
+                "domains/schema/transform.py",
+                "domains/attachments/model.py",
+                "domains/attachments/transform.py",
+                "views/references/model.py",
+                "views/references/transform.py",
+                "views/snapshot/model.py",
+                "views/snapshot/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 15,
+            "frontier_version": "8fcfbd7355f1ec35a7a619eb5f7d905168878d51743923e71f3f9cf3fb2c988d",
+            "safe_width": 1,
+            "fact_digest": "535864b2108dd19af17a5f55d230252a17690892477524c890033e4f06276b5d"
+          }
+        ],
+        "physical_request_ids": [
+          "15a2e36dabbd438cbb66e169eaf6e4b5"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 36357,
+          "output_tokens": 447,
+          "cache_hit_tokens": 20224,
+          "cache_miss_tokens": 16133,
+          "input_cost_usd": 0.011092708,
+          "output_cost_usd": 0.0008850599999999999,
+          "cost_usd": 0.011977768,
+          "input_cost_cny": 0.07563210000000001,
+          "output_cost_cny": 0.0060345,
+          "cost_cny": 0.0816666,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.5562615177269852,
+          "usd_estimate_including_unpartitioned_input": 0.011977768,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.011977768
+        }
+      }
+    ],
+    "first_deepseek_root_request": {
+      "input_tokens": 5443,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 5443,
+      "http_status": 200
+    },
+    "first_handshake_request": {
+      "input_tokens": 8006,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 8006,
+      "http_status": 200
+    }
+  },
+  "protocol": {
+    "mode_receipts": [
+      {
+        "enabled": true,
+        "controller": "active",
+        "allow_subtasks": true,
+        "allow_initial_subtasks": true,
+        "allow_recovery_subtasks": true,
+        "allowed_tools": [
+          "choose_execution_mode_v2",
+          "deliver_files",
+          "deliver_frontier_report",
+          "list_files",
+          "read_file",
+          "report_frontier_state",
+          "search_text",
+          "shell",
+          "spawn_subtasks",
+          "write_file",
+          "write_file_chunk"
+        ],
+        "_line": 1
+      }
+    ],
+    "mode_matches_arm": true,
+    "scheduled_handshakes": 15,
+    "accepted_offers": 0,
+    "selfcheck_entered": false,
+    "selfcheck_completed": false
+  },
+  "cold_namespace": {
+    "state": "verified_cold",
+    "prefix_sha256": "90c189d29151054a5848ac1b168c1e978dff5586bd8dea6eb86777a879e7401b",
+    "wire_audit_complete": true,
+    "deepseek_request_count": 84,
+    "first_prompt_cache_hit_tokens": 0,
+    "first_prompt_cache_miss_tokens": 5443,
+    "receipt_present": true,
+    "reconciled_with_wire_audit": true,
+    "matches_runner_status": true
+  },
+  "wire_audit": {
+    "deepseek_requests": 84,
+    "thinking": "disabled",
+    "reasoning_effort": null
+  },
+  "scoring_error": null,
+  "metrics_error": null,
+  "protocol_error": null
+}

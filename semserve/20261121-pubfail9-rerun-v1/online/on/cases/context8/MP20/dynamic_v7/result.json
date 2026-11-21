@@ -1,0 +1,626 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "context8",
+  "case": "MP20",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/context8/MP20",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "96b973ee7726271f76ad5681d146af8fcee89476ead2f0ced1fc5a36cc5f2ffc",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 496.47007393836975,
+  "background_summary_drain_seconds": 2.2299000079328835e-05,
+  "background_speculative_drain_seconds": 0.00010561943054199219,
+  "speculative_metrics": [
+    {
+      "submitted": 3,
+      "committed": 0,
+      "discarded": 3,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 45278,
+        "completion_tokens": 243,
+        "total_tokens": 45521,
+        "prompt_cache_hit_tokens": 29568,
+        "prompt_cache_miss_tokens": 15710,
+        "input_tokens": 45278,
+        "output_tokens": 243
+      },
+      "usage_discarded": {
+        "prompt_tokens": 45278,
+        "completion_tokens": 243,
+        "total_tokens": 45521,
+        "prompt_cache_hit_tokens": 29568,
+        "prompt_cache_miss_tokens": 15710,
+        "input_tokens": 45278,
+        "output_tokens": 243
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 496.4702018568004,
+  "runtime_error": null,
+  "workspace_progress_observation": [
+    {
+      "seconds": 1.8636158450001403,
+      "scans": 950,
+      "epoch": 41
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": true,
+    "returncode": 0,
+    "stdout": "MODULE_OK attachments\nMODULE_OK schema\nMODULE_OK references\nMODULE_OK snapshot\nLOCAL_CHECKS_PASSED; external verifier determines official correctness\n",
+    "stderr": ""
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "domains/attachments/check_module.py": true,
+    "domains/attachments/contract.json": true,
+    "domains/attachments/model.py": false,
+    "domains/attachments/render.py": false,
+    "domains/attachments/transform.py": false,
+    "domains/schema/check_module.py": true,
+    "domains/schema/contract.json": true,
+    "domains/schema/model.py": false,
+    "domains/schema/render.py": false,
+    "domains/schema/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true,
+    "views/references/check_module.py": true,
+    "views/references/contract.json": true,
+    "views/references/model.py": false,
+    "views/references/render.py": false,
+    "views/references/transform.py": false,
+    "views/snapshot/check_module.py": true,
+    "views/snapshot/contract.json": true,
+    "views/snapshot/model.py": false,
+    "views/snapshot/render.py": false,
+    "views/snapshot/transform.py": false
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 418,
+    "dag_node_transition": 1250,
+    "task_started": 6,
+    "execution_state_observed": 128,
+    "parallel_v2_request_boundary": 38,
+    "parallel_v2_frontier_filtered": 6,
+    "fork_only_parent_passthrough": 65,
+    "dag_edge_added": 478,
+    "model_request": 115,
+    "model_response": 115,
+    "tool_result": 159,
+    "validation_progress_guard_cost": 110,
+    "repeated_business_output_observed": 108,
+    "parallel_v2_frontier_handshake_scheduled": 3,
+    "parallel_v2_generic_evidence_boundary": 87,
+    "handshake_speculation_started": 3,
+    "report_authorization_granted": 3,
+    "g1_early_semantic_review_injected": 1,
+    "handshake_speculation_response": 3,
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_frontier_validation_feedback": 3,
+    "parallel_v2_frontier_report_committed": 3,
+    "handshake_speculation_discarded": 3,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 5,
+    "branch_context_compiled": 5,
+    "fork_only_child_envelope": 50,
+    "g1_branch_shell_completed": 35,
+    "verified_tool_artifact_recorded": 5,
+    "task_completed": 6,
+    "branch_completed_from_verified_artifact": 5,
+    "branch_result_bound_to_verified_artifact": 5,
+    "parallel_v2_plan_completed": 2,
+    "root_integration_checkpoint_activated": 1,
+    "validation_progress_observed": 3,
+    "e1_problem_stalled": 4,
+    "recovery_state_changed": 4,
+    "progress_recovery_requested": 3,
+    "e1_scope_recovery_requested": 3,
+    "progress_recovery_resolved": 2,
+    "cross_operation_loop_detected": 1,
+    "e1_loop_history_compacted": 1,
+    "e1_problem_resolved": 2,
+    "output_guard_public_check_started": 2,
+    "output_guard_public_check_finished": 2,
+    "selfcheck_serial_started": 1,
+    "visible_contract_completion_deferred": 1,
+    "visible_contract_instruction_deduplicated": 1,
+    "selfcheck_sdk_scope_recovery": 1,
+    "e1_selfcheck_failure_observed": 5,
+    "literal_write_preflight_suppressed": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 3,
+    "parallel_v2_frontier_report_committed": 3
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-31f3cc5fc03c",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "model.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "model-load-payload",
+            "task": "Implement model.load_payload with strict JSON validation and NaN/Infinity rejection."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "transform-schema",
+            "task": "Implement transform.transform for feature_schema operation."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "render.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "render-build",
+            "task": "Implement render.build_component reading inputs and writing contract.output."
+          }
+        ]
+      },
+      "reason": "Three independent implementation units with disjoint writes (model.py, transform.py, render.py) are ready now."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-837f442e996c",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "run-all",
+            "task": "Implement run_all.py to locate workspace and execute all components in dependency order."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "final-report",
+            "task": "Implement final_report.py reading core manifest and writing final report."
+          }
+        ]
+      },
+      "reason": "Two independent root-owned entrypoints with disjoint writes (run_all.py, final_report.py) are ready now."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 12.329392,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      3,
+      3,
+      2,
+      2
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 4409223,
+    "completion_tokens": 47277,
+    "total_tokens": 4456500,
+    "prompt_cache_hit_tokens": 4159744,
+    "prompt_cache_miss_tokens": 249479,
+    "input_tokens": 4409223,
+    "output_tokens": 47277
+  },
+  "model_timing": {
+    "turn_count": 115,
+    "request_seconds_sum": 527.5958824157715,
+    "request_wall_union_seconds": 431.98888993263245
+  },
+  "overlap": {
+    "child_model_turns": 50,
+    "overlap_pair_count": 50,
+    "max_model_request_overlap_seconds": 14.99451470375061,
+    "pairs": [
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 2.6739237308502197
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 2.6767499446868896
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 2.8080406188964844
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.6914398670196533
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.616201400756836
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.6668777465820312
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 0.3754003047943115
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 0.42241597175598145
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 1.3518826961517334
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 0.7185754776000977
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.6019959449768066
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 0.6282668113708496
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 0.6653485298156738
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 0.7031557559967041
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 0.7394237518310547
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.1908926963806152
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 2.130371570587158
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 0.9779238700866699
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 2.4321794509887695
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 2.34490966796875
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.1004772186279297
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.9020817279815674
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 0.5417013168334961
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 1.0700128078460693
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.6300911903381348
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 1.5105316638946533
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.5105316638946533
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.632946252822876
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 4.755990266799927
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "seconds": 0.6072902679443359
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 2.665625810623169
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.6829462051391602
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 0.8355450630187988
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "seconds": 1.376657247543335
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-0/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.376657247543335
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 10.511635541915894
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 14.99451470375061
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 9.743193626403809
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.6148386001586914
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 3.1513044834136963
+      },
+      {
+        "a": "root/plan-002-807a61ca/v2-31f3cc5fc03c-1/attempt-1",
+        "b": "root/plan-002-807a61ca/v2-31f3cc5fc03c-2/attempt-1",
+        "seconds": 1.338757038116455
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "seconds": 1.9606332778930664
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "seconds": 0.0335848331451416
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "seconds": 2.521331310272217
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "seconds": 2.473392963409424
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "seconds": 2.067512273788452
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "seconds": 2.1071689128875732
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "seconds": 1.572859764099121
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "seconds": 4.149911165237427
+      },
+      {
+        "a": "root/plan-003-46b00304/v2-837f442e996c-1/attempt-1",
+        "b": "root/plan-003-46b00304/v2-837f442e996c-0/attempt-1",
+        "seconds": 1.3107941150665283
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 122,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "task": "C069",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "user_history",
+      "implementation": "components/user_history/work.py",
+      "read_fields": [
+        "events",
+        "user"
+      ],
+      "input": "components/user_history/input.json",
+      "public_expected": "components/user_history/expected.json",
+      "output": "components/user_history/result.json",
+      "run": "python -B components/user_history/run.py",
+      "check": "python -B components/user_history/check.py",
+      "contract": "记录各续期事件发生时的用户快照，重放 update_user 的 roles、traits；以原位置字符串为键。"
+    },
+    {
+      "name": "grant_catalog",
+      "implementation": "components/grant_catalog/work.py",
+      "read_fields": [
+        "access_requests"
+      ],
+      "input": "components/grant_catalog/input.json",
+      "public_expected": "components/grant_catalog/expected.json",
+      "output": "components/grant_catalog/result.json",
+      "run": "python -B components/grant_catalog/run.py",
+      "check": "python -B components/grant_catalog/check.py",
+      "contract": "生成授权条目的有效条件和有序角色/资源集合。以原授权 ID 为键，每项含 approved、expiry、roles、resources。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/user_history/result.json",
+      "components/grant_catalog/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

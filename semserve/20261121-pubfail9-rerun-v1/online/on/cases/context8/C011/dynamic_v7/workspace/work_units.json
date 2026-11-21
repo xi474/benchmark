@@ -1,0 +1,48 @@
+{
+  "task": "C011",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "material_demand",
+      "implementation": "components/material_demand/work.py",
+      "read_fields": [
+        "orders",
+        "bom"
+      ],
+      "input": "components/material_demand/input.json",
+      "public_expected": "components/material_demand/expected.json",
+      "output": "components/material_demand/result.json",
+      "run": "python -B components/material_demand/run.py",
+      "check": "python -B components/material_demand/check.py",
+      "contract": "按工单 ID 输出递归展开后的基础物料需求映射。"
+    },
+    {
+      "name": "line_windows",
+      "implementation": "components/line_windows/work.py",
+      "read_fields": [
+        "orders",
+        "released",
+        "routing",
+        "lines",
+        "wip",
+        "freeze",
+        "changeover"
+      ],
+      "input": "components/line_windows/input.json",
+      "public_expected": "components/line_windows/expected.json",
+      "output": "components/line_windows/result.json",
+      "run": "python -B components/line_windows/run.py",
+      "check": "python -B components/line_windows/check.py",
+      "contract": "按工单 ID 输出合格产线及可行起止窗口三元组，按产线及起点的原遍历顺序。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/material_demand/result.json",
+      "components/line_windows/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "task": "MS12",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "scenario_prefixes",
+      "implementation": "components/scenario_prefixes/work.py",
+      "read_fields": [
+        "scenarios"
+      ],
+      "input": "components/scenario_prefixes/input.json",
+      "public_expected": "components/scenario_prefixes/expected.json",
+      "output": "components/scenario_prefixes/result.json",
+      "run": "python -B components/scenario_prefixes/run.py",
+      "check": "python -B components/scenario_prefixes/check.py",
+      "contract": "输出 [信号历史,该完整叶的权重或 null]，去重生成所有非空前缀，按历史字典序排列。"
+    },
+    {
+      "name": "menu_eligibility",
+      "implementation": "components/menu_eligibility/work.py",
+      "read_fields": [
+        "recipes",
+        "groups",
+        "delivery"
+      ],
+      "input": "components/menu_eligibility/input.json",
+      "public_expected": "components/menu_eligibility/expected.json",
+      "output": "components/menu_eligibility/result.json",
+      "run": "python -B components/menu_eligibility/run.py",
+      "check": "python -B components/menu_eligibility/check.py",
+      "contract": "每个到货信号映射至可供菜品 ID，保持 recipes 顺序，检查难度、原料可得性和过敏限制。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/scenario_prefixes/result.json",
+      "components/menu_eligibility/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

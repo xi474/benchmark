@@ -1,0 +1,41 @@
+{
+  "task": "MS42",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "rubric_mappings",
+      "implementation": "components/rubric_mappings/work.py",
+      "read_fields": [
+        "rubrics"
+      ],
+      "input": "components/rubric_mappings/input.json",
+      "public_expected": "components/rubric_mappings/expected.json",
+      "output": "components/rubric_mappings/result.json",
+      "run": "python -B components/rubric_mappings/run.py",
+      "check": "python -B components/rubric_mappings/check.py",
+      "contract": "返回 [所有可行映射位掩码,旧标签到各新标签的掩码映射]；位序按新标签升序的排列枚举。"
+    },
+    {
+      "name": "course_evidence",
+      "implementation": "components/course_evidence/work.py",
+      "read_fields": [
+        "courses"
+      ],
+      "input": "components/course_evidence/input.json",
+      "public_expected": "components/course_evidence/expected.json",
+      "output": "components/course_evidence/result.json",
+      "run": "python -B components/course_evidence/run.py",
+      "check": "python -B components/course_evidence/check.py",
+      "contract": "为每门课生成 [项目统计,传递可达表]；统计行 [ID,标签,[成绩和分子,分母],非空数] 按 ID 排序，保留零成绩。可达表的值为有序 ID 数组。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/rubric_mappings/result.json",
+      "components/course_evidence/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

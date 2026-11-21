@@ -1,0 +1,44 @@
+{
+  "task": "C079",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "block_manifest",
+      "implementation": "components/block_manifest/work.py",
+      "read_fields": [
+        "file_hex",
+        "chunk_size",
+        "thumbnail_hex"
+      ],
+      "input": "components/block_manifest/input.json",
+      "public_expected": "components/block_manifest/expected.json",
+      "output": "components/block_manifest/result.json",
+      "run": "python -B components/block_manifest/run.py",
+      "check": "python -B components/block_manifest/check.py",
+      "contract": "返回 [kind,index,hex] 列表；若有缩略图则排首，再按块大小顺序切出文件块。"
+    },
+    {
+      "name": "retry_faults",
+      "implementation": "components/retry_faults/work.py",
+      "read_fields": [
+        "corrupt_attempts",
+        "max_retries"
+      ],
+      "input": "components/retry_faults/input.json",
+      "public_expected": "components/retry_faults/expected.json",
+      "output": "components/retry_faults/result.json",
+      "run": "python -B components/retry_faults/run.py",
+      "check": "python -B components/retry_faults/check.py",
+      "contract": "按块标签返回可发生的损坏尝试号，限制在 0 至 max_retries，升序去重。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/block_manifest/result.json",
+      "components/retry_faults/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

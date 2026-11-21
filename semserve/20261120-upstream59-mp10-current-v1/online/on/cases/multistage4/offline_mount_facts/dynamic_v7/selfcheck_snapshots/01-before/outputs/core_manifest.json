@@ -1,0 +1,143 @@
+{
+  "components": {
+    "aix": {
+      "records": [
+        {
+          "device": "/dev/aix",
+          "fstype": "jfs2",
+          "mount": "/data",
+          "options": [
+            "rw"
+          ]
+        },
+        {
+          "device": "/dev/b",
+          "fstype": "jfs2",
+          "mount": "/backup",
+          "options": [
+            "rw"
+          ]
+        }
+      ]
+    },
+    "fstab": {
+      "records": [
+        {
+          "device": "/dev/d47",
+          "fstype": "ext4",
+          "mount": "/data",
+          "options": [
+            "nosuid",
+            "rw"
+          ]
+        },
+        {
+          "device": "/dev/x",
+          "fstype": "xfs",
+          "mount": "/with space",
+          "options": [
+            "ro"
+          ]
+        }
+      ]
+    },
+    "merged": {
+      "conflicts": [
+        {
+          "evidence": [
+            {
+              "device": "/dev/d47",
+              "fstype": "ext4",
+              "mount": "/data",
+              "options": [
+                "nosuid",
+                "rw"
+              ],
+              "source": "fstab"
+            },
+            {
+              "device": "/dev/aix",
+              "fstype": "jfs2",
+              "mount": "/data",
+              "options": [
+                "rw"
+              ],
+              "source": "aix"
+            },
+            {
+              "device": "/dev/live",
+              "fstype": "ext4",
+              "mount": "/data",
+              "options": [
+                "relatime",
+                "rw"
+              ],
+              "source": "mount"
+            }
+          ],
+          "mount": "/data"
+        }
+      ],
+      "records": [
+        {
+          "device": "/dev/b",
+          "fstype": "jfs2",
+          "mount": "/backup",
+          "options": [
+            "rw"
+          ],
+          "source": "aix"
+        },
+        {
+          "device": "/dev/d47",
+          "fstype": "ext4",
+          "mount": "/data",
+          "options": [
+            "nosuid",
+            "rw"
+          ],
+          "source": "fstab"
+        },
+        {
+          "device": "tmpfs",
+          "fstype": "tmpfs",
+          "mount": "/tmp47",
+          "options": [
+            "rw"
+          ],
+          "source": "mount"
+        },
+        {
+          "device": "/dev/x",
+          "fstype": "xfs",
+          "mount": "/with space",
+          "options": [
+            "ro"
+          ],
+          "source": "fstab"
+        }
+      ]
+    },
+    "mount": {
+      "records": [
+        {
+          "device": "/dev/live",
+          "fstype": "ext4",
+          "mount": "/data",
+          "options": [
+            "relatime",
+            "rw"
+          ]
+        },
+        {
+          "device": "tmpfs",
+          "fstype": "tmpfs",
+          "mount": "/tmp47",
+          "options": [
+            "rw"
+          ]
+        }
+      ]
+    }
+  }
+}

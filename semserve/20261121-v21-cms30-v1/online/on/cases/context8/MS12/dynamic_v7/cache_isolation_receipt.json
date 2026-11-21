@@ -1,0 +1,91 @@
+{
+  "entry": "context8/MS12",
+  "arm": "on",
+  "attempt": 1,
+  "state": "verified_cold",
+  "prefix_sha256": "bb535ce5f7d456648030e86cb4b5004da5452a1a3cdfb6efd2846fbd46b1fe29",
+  "wire_audit_complete": true,
+  "deepseek_request_count": 60,
+  "namespace_audit_rows": 120,
+  "first_prompt_cache_hit_tokens": 0,
+  "first_prompt_cache_miss_tokens": 6307,
+  "first_wire": {
+    "id": "9767689614f9406e93ceb6625b576442",
+    "scope": "root",
+    "start": 1795248864.4449952,
+    "attempt": 1,
+    "model": "deepseek-v4-pro",
+    "message_count": 2,
+    "tool_count": 11,
+    "request_chars": 25651,
+    "endpoint_host": "api.deepseek.com",
+    "requested_thinking": {
+      "type": "disabled"
+    }
+  },
+  "first_provider_receipt": {
+    "id": "9767689614f9406e93ceb6625b576442",
+    "scope": "root",
+    "start": 1795248864.4449952,
+    "end": 1795248866.1726294,
+    "attempt": 1,
+    "http_status": 200,
+    "requested_model": "deepseek-v4-pro",
+    "returned_model": "deepseek-v4-pro",
+    "usage": {
+      "prompt_tokens": 6307,
+      "completion_tokens": 54,
+      "total_tokens": 6361,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 6307
+    },
+    "finish_reason": "tool_calls",
+    "endpoint_host": "api.deepseek.com",
+    "reasoning_field_present": false,
+    "ordinary_content_thinking_marker": false
+  },
+  "first_namespace_records": [
+    {
+      "event": "send",
+      "epoch_seconds": 1795248864.4449952,
+      "arm": "on",
+      "id": "9767689614f9406e93ceb6625b576442",
+      "scope": "root",
+      "wire_ordinal": 1,
+      "attempt": 1,
+      "first_deepseek_request": true,
+      "first_root_deepseek_request": true,
+      "namespace_sha256": "bb535ce5f7d456648030e86cb4b5004da5452a1a3cdfb6efd2846fbd46b1fe29",
+      "namespace_chars": 70,
+      "request_sha256_before_namespace": "72515e9b7631bb388d8471b60373f65607fee4c64e1af2b0b54324f7f6811aea",
+      "request_sha256_after_namespace_and_wire_normalization": "f2220467acd4a046e0cec964a64c627dc130f7fe5f2878a7dffdb1d234ba52d0",
+      "system_sha256_before_namespace": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+      "system_sha256_after_namespace": "ed6aa9f68b624078e7a7751b2324fb24ea66b14362d08fd2a2a3e0821e84ae5e"
+    },
+    {
+      "event": "receipt",
+      "epoch_seconds": 1795248866.1726294,
+      "arm": "on",
+      "id": "9767689614f9406e93ceb6625b576442",
+      "scope": "root",
+      "wire_ordinal": 1,
+      "attempt": 1,
+      "first_deepseek_request": true,
+      "first_root_deepseek_request": true,
+      "namespace_sha256": "bb535ce5f7d456648030e86cb4b5004da5452a1a3cdfb6efd2846fbd46b1fe29",
+      "namespace_chars": 70,
+      "request_sha256_before_namespace": "72515e9b7631bb388d8471b60373f65607fee4c64e1af2b0b54324f7f6811aea",
+      "request_sha256_after_namespace_and_wire_normalization": "f2220467acd4a046e0cec964a64c627dc130f7fe5f2878a7dffdb1d234ba52d0",
+      "system_sha256_before_namespace": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+      "system_sha256_after_namespace": "ed6aa9f68b624078e7a7751b2324fb24ea66b14362d08fd2a2a3e0821e84ae5e",
+      "http_status": 200,
+      "prompt_tokens": 6307,
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 6307,
+      "error_type": null
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "nodes": {
+    "root": {
+      "files": {
+        "old": "1"
+      },
+      "dirs": {
+        "d": "disk",
+        "mirror": "disk"
+      },
+      "ignore": []
+    },
+    "disk": {
+      "files": {
+        "intro": "2",
+        "end": "3"
+      },
+      "dirs": {},
+      "ignore": []
+    }
+  },
+  "mounts": {
+    "A": "root",
+    "B": "disk"
+  },
+  "scans": [
+    {
+      "finish": [
+        "A/d",
+        "B"
+      ],
+      "replace": {}
+    }
+  ]
+}

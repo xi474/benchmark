@@ -1,0 +1,1405 @@
+{
+  "task_id": "MP17",
+  "entry_id": "context8/multipart_encoding",
+  "title": "文本、内联内容和文件的 multipart 组装",
+  "dataset": "medium26",
+  "arm": "on",
+  "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\context8\\multipart_encoding\\dynamic_v7",
+  "actor_state": "completed",
+  "grade": {
+    "public_pass": true,
+    "strict_pass": false,
+    "official": {
+      "status": "failed",
+      "reason": "held-out API mismatch: parts nonfinite-ignored-field"
+    },
+    "public_replay": {
+      "public_pass": true,
+      "returncode": 0
+    },
+    "core_transform_passed": 17,
+    "core_transform_total": 22,
+    "api_unexecuted": 0,
+    "api_components": {
+      "parts": {
+        "state": "evaluated",
+        "api_total": 8,
+        "api_passed": 7,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "nonfinite-ignored-field"
+        ]
+      },
+      "encoding": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 5,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "invalid-top-level",
+          "nonfinite-ignored-field"
+        ]
+      },
+      "body": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 5,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "invalid-top-level",
+          "nonfinite-ignored-field"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "live_public": true,
+    "runtime_error": {
+      "type": "SelfcheckDeadlineExceeded",
+      "detail": "selfcheck_budget_exhausted: self-check incomplete; public pass remains separate"
+    },
+    "e2e_seconds": 452.1229610443115,
+    "completion_inclusive_seconds": 452.1231603152328,
+    "confirmed_parallel_wall_seconds": 27.194114446640015,
+    "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\context8\\multipart_encoding\\dynamic_v7",
+    "public_passed": true,
+    "external_status": "failed",
+    "child_failure_events": 0,
+    "ownership_error_events": 2,
+    "real_child_parallel": true,
+    "offer_driven_parallel": true,
+    "autonomous_parallel": false,
+    "unknown_source_parallel": false,
+    "child_count": 3,
+    "offer_accepted": 1,
+    "offer_declined": 0,
+    "predictor_count": 2,
+    "waves": [
+      {
+        "plan_id": "plan-002-419b33bc",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-002-419b33bc/v2-765adede4d63-1/attempt-1",
+            "start": 1795174466.7824562,
+            "end": 1795174489.7535498,
+            "status": "succeeded",
+            "task_id": "child_task-000326"
+          },
+          {
+            "scope": "root/plan-002-419b33bc/v2-765adede4d63-0/attempt-1",
+            "start": 1795174466.7828438,
+            "end": 1795174495.2391894,
+            "status": "succeeded",
+            "task_id": "child_task-000325"
+          },
+          {
+            "scope": "root/plan-002-419b33bc/v2-765adede4d63-2/attempt-1",
+            "start": 1795174466.7833772,
+            "end": 1795174499.422792,
+            "status": "succeeded",
+            "task_id": "child_task-000328"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 27.194114446640015,
+        "child_lifecycle_union_seconds": 32.64033579826355,
+        "child_lifecycle_duration_sum_seconds": 84.06685400009155,
+        "same_trace_child_lifecycle_overlap_work_seconds": 51.426518201828,
+        "child_request_union_seconds": 32.20205092430115,
+        "child_request_duration_sum_seconds": 81.71287393569946,
+        "same_trace_child_request_overlap_work_seconds": 49.510823011398315,
+        "join_status": "succeeded"
+      }
+    ],
+    "subtask_joins": {
+      "plan-002-419b33bc": "succeeded"
+    },
+    "deepseek_handshake": {
+      "physical_requests": 14,
+      "requests_with_usage": 14,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 14,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 381662,
+      "output_tokens": 4673,
+      "cache_hit_tokens": 225536,
+      "cache_miss_tokens": 156126,
+      "input_cost_usd": 0.108004952,
+      "output_cost_usd": 0.00925254,
+      "cost_usd": 0.117257492,
+      "input_cost_cny": 0.7363974,
+      "output_cost_cny": 0.06308549999999999,
+      "cost_cny": 0.7994829000000001,
+      "issue_counts": {
+        "holiday_calendar_unverified": 14
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.5909312428274233,
+      "usd_estimate_including_unpartitioned_input": 0.117257492,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.11725749200000002
+    },
+    "deepseek_total": {
+      "physical_requests": 78,
+      "requests_with_usage": 77,
+      "requests_missing_usage": 1,
+      "requests_cache_partition_known": 77,
+      "requests_cache_partition_unknown": 1,
+      "input_tokens": 3369452,
+      "output_tokens": 62491,
+      "cache_hit_tokens": 3000960,
+      "cache_miss_tokens": 368492,
+      "input_cost_usd": 0.30922584,
+      "output_cost_usd": 0.12373217999999997,
+      "cost_usd": 0.43295802,
+      "input_cost_cny": 2.1083580000000004,
+      "output_cost_cny": 0.8436285000000002,
+      "cost_cny": 2.9519865,
+      "issue_counts": {
+        "holiday_calendar_unverified": 77,
+        "usage_missing_not_zero_cost": 1
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.8906374092879198,
+      "usd_estimate_including_unpartitioned_input": 0.43295801999999994,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.43295802000000005
+    },
+    "external_api_total": {
+      "physical_requests": 81,
+      "requests_with_usage": 80,
+      "requests_missing_usage": 1,
+      "requests_cache_partition_known": 77,
+      "requests_cache_partition_unknown": 4,
+      "input_tokens": 3422835,
+      "output_tokens": 64109,
+      "cache_hit_tokens": 3000960,
+      "cache_miss_tokens": 368492,
+      "input_cost_usd": 0.30922584,
+      "output_cost_usd": 0.12437937999999998,
+      "cost_usd": 0.43295802,
+      "input_cost_cny": 2.1083580000000004,
+      "output_cost_cny": 0.8436285000000002,
+      "cost_cny": 2.9519865,
+      "input_estimate_without_cache_partition_usd": 0.005338300000000001,
+      "input_tokens_cache_partition_unknown": 53383,
+      "issue_counts": {
+        "holiday_calendar_unverified": 77,
+        "cache_partition_unreported_standard_input_estimate_only": 3,
+        "usage_missing_not_zero_cost": 1
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.8906374092879198,
+      "usd_estimate_including_unpartitioned_input": 0.43894352,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.43894352000000014
+    },
+    "wire_missing_receipt_ids": [],
+    "handshakes": [
+      {
+        "step": 2,
+        "turn_start": 1795174422.7122936,
+        "turn_end": 1795174425.0810306,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 1,
+            "frontier_version": "03ed2550b8f1055a16b34320a03a88ece61e1c242d012e529b424eac2bfbcc25",
+            "safe_width": 0,
+            "fact_digest": "da3498248d2ca058d6dcad9a1479acde84b507aae4fea9cdd6b5bf5bbdda0e3d"
+          }
+        ],
+        "physical_request_ids": [
+          "09e8338db5814e54a74cb9dec8e4bdaf"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 6354,
+          "output_tokens": 162,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 6354,
+          "input_cost_usd": 0.00419364,
+          "output_cost_usd": 0.00032076,
+          "cost_usd": 0.0045144,
+          "input_cost_cny": 0.028593,
+          "output_cost_cny": 0.002187,
+          "cost_cny": 0.030780000000000002,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.0045144,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0045144
+        }
+      },
+      {
+        "step": 4,
+        "turn_start": 1795174425.1254141,
+        "turn_end": 1795174431.7615,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "parts-impl",
+            "kind": "component-implementation",
+            "surface": "parts",
+            "goal": "Implement parts/model.py, transform.py, render.py per parts/contract.json",
+            "needs": [],
+            "read_set": [
+              "/workspace/parts/contract.json",
+              "/workspace/parts/parser.py",
+              "/workspace/parts/check_module.py",
+              "/workspace/parts/__init__.py"
+            ],
+            "write_set": [
+              "/workspace/parts/model.py",
+              "/workspace/parts/transform.py",
+              "/workspace/parts/render.py"
+            ],
+            "focused_check": "python3 parts/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "/workspace/parts/model.py",
+                "/workspace/parts/transform.py",
+                "/workspace/parts/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "encoding-impl",
+            "kind": "component-implementation",
+            "surface": "encoding",
+            "goal": "Implement encoding/model.py, transform.py, render.py per encoding/contract.json",
+            "needs": [],
+            "read_set": [
+              "/workspace/encoding/contract.json",
+              "/workspace/encoding/parser.py",
+              "/workspace/encoding/check_module.py",
+              "/workspace/encoding/__init__.py"
+            ],
+            "write_set": [
+              "/workspace/encoding/model.py",
+              "/workspace/encoding/transform.py",
+              "/workspace/encoding/render.py"
+            ],
+            "focused_check": "python3 encoding/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "/workspace/encoding/model.py",
+                "/workspace/encoding/transform.py",
+                "/workspace/encoding/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "body-impl",
+            "kind": "component-implementation",
+            "surface": "body",
+            "goal": "Implement body/model.py, transform.py, render.py per body/contract.json",
+            "needs": [],
+            "read_set": [
+              "/workspace/body/contract.json",
+              "/workspace/body/parser.py",
+              "/workspace/body/check_module.py",
+              "/workspace/body/__init__.py"
+            ],
+            "write_set": [
+              "/workspace/body/model.py",
+              "/workspace/body/transform.py",
+              "/workspace/body/render.py"
+            ],
+            "focused_check": "python3 body/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "/workspace/body/model.py",
+                "/workspace/body/transform.py",
+                "/workspace/body/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 2,
+            "frontier_version": "46ce8add9cf1091e998fae524669331f200379129da23dde37662c98644747b4",
+            "safe_width": 0,
+            "fact_digest": "9aceca83d72f22b2774dadf1e22585a10da5cb9eb7caae8f1f775fe37ef4c107"
+          }
+        ],
+        "physical_request_ids": [
+          "9cf521ae4991434b9b7508b562860a56"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 10385,
+          "output_tokens": 800,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 10385,
+          "input_cost_usd": 0.0068541,
+          "output_cost_usd": 0.001584,
+          "cost_usd": 0.0084381,
+          "input_cost_cny": 0.0467325,
+          "output_cost_cny": 0.0108,
+          "cost_cny": 0.0575325,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.0084381,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0084381
+        }
+      },
+      {
+        "step": 6,
+        "turn_start": 1795174434.2535641,
+        "turn_end": 1795174439.4060612,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "parts-impl",
+            "kind": "component-implementation",
+            "surface": "parts",
+            "goal": "Implement parts/model.py, transform.py, render.py per parts/contract.json",
+            "needs": [],
+            "read_set": [
+              "parts/contract.json",
+              "parts/parser.py",
+              "parts/check_module.py",
+              "parts/__init__.py",
+              "parts/model.py",
+              "parts/transform.py",
+              "parts/render.py"
+            ],
+            "write_set": [
+              "parts/model.py",
+              "parts/transform.py",
+              "parts/render.py"
+            ],
+            "focused_check": "python3 parts/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "parts/model.py",
+                "parts/transform.py",
+                "parts/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [],
+        "physical_request_ids": [
+          "654f910f20484327b12f89f06b7e2701"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 13865,
+          "output_tokens": 469,
+          "cache_hit_tokens": 5632,
+          "cache_miss_tokens": 8233,
+          "input_cost_usd": 0.005557684000000001,
+          "output_cost_usd": 0.00092862,
+          "cost_usd": 0.006486304000000001,
+          "input_cost_cny": 0.037893300000000005,
+          "output_cost_cny": 0.0063315,
+          "cost_cny": 0.04422480000000001,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.4062026685899748,
+          "usd_estimate_including_unpartitioned_input": 0.006486304000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.006486304000000001
+        }
+      },
+      {
+        "step": 7,
+        "turn_start": 1795174439.416021,
+        "turn_end": 1795174443.638918,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "llm:parts-impl",
+            "kind": "component-implementation",
+            "surface": "parts",
+            "goal": "Implement parts/model.py, transform.py, render.py per parts/contract.json",
+            "needs": [],
+            "read_set": [
+              "parts/contract.json",
+              "parts/parser.py",
+              "parts/check_module.py",
+              "parts/__init__.py"
+            ],
+            "write_set": [
+              "parts/model.py",
+              "parts/transform.py",
+              "parts/render.py"
+            ],
+            "focused_check": "python3 parts/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "parts/model.py",
+                "parts/transform.py",
+                "parts/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 3,
+            "frontier_version": "20b8200d771d1a975c850b188db0ce72b33f1e4973f330f0cb06f9164259d3cf",
+            "safe_width": 1,
+            "fact_digest": "099b382152a95d24c4a5c33fedb9d638e77b5db4945c197605776cd22112d776"
+          }
+        ],
+        "physical_request_ids": [
+          "4fe01f9733a448d3a696d6ae1f1b7f06"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 14584,
+          "output_tokens": 391,
+          "cache_hit_tokens": 9600,
+          "cache_miss_tokens": 4984,
+          "input_cost_usd": 0.0035006399999999997,
+          "output_cost_usd": 0.00077418,
+          "cost_usd": 0.0042748199999999995,
+          "input_cost_cny": 0.023868,
+          "output_cost_cny": 0.0052785,
+          "cost_cny": 0.0291465,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.6582556226001097,
+          "usd_estimate_including_unpartitioned_input": 0.0042748199999999995,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0042748199999999995
+        }
+      },
+      {
+        "step": 9,
+        "turn_start": 1795174448.3317175,
+        "turn_end": 1795174453.7997324,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "parts-impl",
+            "kind": "component-implementation",
+            "surface": "parts",
+            "goal": "Implement parts model/transform/render for multipart_parts",
+            "needs": [],
+            "read_set": [
+              "parts/contract.json",
+              "parts/check_module.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "parts/model.py",
+              "parts/transform.py",
+              "parts/render.py"
+            ],
+            "focused_check": "python3 parts/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "parts/model.py",
+                "parts/transform.py",
+                "parts/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "encoding-impl",
+            "kind": "component-implementation",
+            "surface": "encoding",
+            "goal": "Implement encoding model/transform/render for multipart_encoding",
+            "needs": [],
+            "read_set": [
+              "encoding/contract.json",
+              "encoding/check_module.py"
+            ],
+            "write_set": [
+              "encoding/model.py",
+              "encoding/transform.py",
+              "encoding/render.py"
+            ],
+            "focused_check": "python3 encoding/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "encoding/model.py",
+                "encoding/transform.py",
+                "encoding/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "body-impl",
+            "kind": "component-implementation",
+            "surface": "body",
+            "goal": "Implement body model/transform/render for multipart_body",
+            "needs": [],
+            "read_set": [
+              "body/contract.json",
+              "body/check_module.py",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "body/model.py",
+              "body/transform.py",
+              "body/render.py"
+            ],
+            "focused_check": "python3 body/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "body/model.py",
+                "body/transform.py",
+                "body/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 4,
+            "frontier_version": "51edf226ea4278c47a68d2c10576ecdf082b196ad27c83762e2b82a679457496",
+            "safe_width": 3,
+            "fact_digest": "5efb5a21ad87ec3fdae821ee60aebdc1f2c5c27ca2649321fdc4089fa825b8bc"
+          }
+        ],
+        "physical_request_ids": [
+          "35c1eff591e042639f35e1b948650f3f"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 20943,
+          "output_tokens": 656,
+          "cache_hit_tokens": 13184,
+          "cache_miss_tokens": 7759,
+          "input_cost_usd": 0.005410988,
+          "output_cost_usd": 0.0012988799999999999,
+          "cost_usd": 0.006709868,
+          "input_cost_cny": 0.0368931,
+          "output_cost_cny": 0.008856,
+          "cost_cny": 0.0457491,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.6295182161103949,
+          "usd_estimate_including_unpartitioned_input": 0.006709868,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.006709868
+        }
+      },
+      {
+        "step": 11,
+        "turn_start": 1795174499.4460053,
+        "turn_end": 1795174504.3401372,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "root-orchestration",
+            "kind": "orchestration",
+            "surface": "run_all",
+            "goal": "Implement run_all.py and final_report.py to orchestrate components and write final report",
+            "needs": [],
+            "read_set": [
+              "run_all.py",
+              "final_report.py",
+              "integrate.py",
+              "check.py"
+            ],
+            "write_set": [
+              "run_all.py",
+              "final_report.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py",
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 5,
+            "frontier_version": "414f7817c47772c5ef0e8b008da6bf9e149edec48931e3fdd3c75efb4f3c4830",
+            "safe_width": 1,
+            "fact_digest": "0fc4ee254a0aa1177d3633352b3879c08aef89b2b54bb7a4970599bf1c15f749"
+          }
+        ],
+        "physical_request_ids": [
+          "409d0dcdae334ab89c0f59079618caf1"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 29668,
+          "output_tokens": 312,
+          "cache_hit_tokens": 13184,
+          "cache_miss_tokens": 16484,
+          "input_cost_usd": 0.011169488000000002,
+          "output_cost_usd": 0.00061776,
+          "cost_usd": 0.011787248000000002,
+          "input_cost_cny": 0.0761556,
+          "output_cost_cny": 0.004212,
+          "cost_cny": 0.0803676,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.44438452204395307,
+          "usd_estimate_including_unpartitioned_input": 0.011787248000000002,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.011787248000000002
+        }
+      },
+      {
+        "step": 13,
+        "turn_start": 1795174512.8497024,
+        "turn_end": 1795174515.6572165,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 6,
+            "frontier_version": "80d0f6a1f4d63571f4012bf86c9cb43dab4aeadd7dd26d12c6610afca1380c3c",
+            "safe_width": 0,
+            "fact_digest": "282662532ff4a2177efac965cf5c485290fcca945f6a7d6c31fb4fc5eb7097e4"
+          }
+        ],
+        "physical_request_ids": [
+          "54a0556f2fd345e78f99a4abfad22aa6"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 31546,
+          "output_tokens": 169,
+          "cache_hit_tokens": 20224,
+          "cache_miss_tokens": 11322,
+          "input_cost_usd": 0.007917448,
+          "output_cost_usd": 0.00033462,
+          "cost_usd": 0.008252068000000001,
+          "input_cost_cny": 0.0539826,
+          "output_cost_cny": 0.0022815,
+          "cost_cny": 0.0562641,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.6410955430165473,
+          "usd_estimate_including_unpartitioned_input": 0.008252068000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.008252068000000001
+        }
+      },
+      {
+        "step": 16,
+        "turn_start": 1795174520.4064753,
+        "turn_end": 1795174524.7559807,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "render-cli-fix",
+            "kind": "bugfix",
+            "surface": "render-cli",
+            "goal": "Fix relative-import failure when render.py runs as a script",
+            "needs": [],
+            "read_set": [
+              "parts/render.py",
+              "encoding/render.py",
+              "body/render.py"
+            ],
+            "write_set": [
+              "parts/render.py",
+              "encoding/render.py",
+              "body/render.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "parts/render.py",
+                "encoding/render.py",
+                "body/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 7,
+            "frontier_version": "632e0928c971375ed6e555e93d0eb6abf8277b7bcd13012fa1ec37e7b2cdece7",
+            "safe_width": 0,
+            "fact_digest": "d3dee09a4add69be5983bb281bceb1d2f3162fb7fc07fb19ef83e3d9686beb11"
+          }
+        ],
+        "physical_request_ids": [
+          "bb85c37168bd44dea7b76043d75936df"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 35020,
+          "output_tokens": 335,
+          "cache_hit_tokens": 27648,
+          "cache_miss_tokens": 7372,
+          "input_cost_usd": 0.0054737760000000005,
+          "output_cost_usd": 0.0006632999999999999,
+          "cost_usd": 0.006137076,
+          "input_cost_cny": 0.0373212,
+          "output_cost_cny": 0.0045225,
+          "cost_cny": 0.0418437,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7894917190177042,
+          "usd_estimate_including_unpartitioned_input": 0.006137076,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.006137076
+        }
+      },
+      {
+        "step": 18,
+        "turn_start": 1795174532.0304248,
+        "turn_end": 1795174534.6090572,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 8,
+            "frontier_version": "aa9c6e6a1d0fcf58070571448466176355f621b58d8763aa31167130cec70387",
+            "safe_width": 0,
+            "fact_digest": "dcd1f41a4800d0f0289a1fa8c36d991bcce03de4874e20d68815f7b9e505c0f8"
+          }
+        ],
+        "physical_request_ids": [
+          "63165daee03e40ac9ec754bf9ee08426"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 37127,
+          "output_tokens": 180,
+          "cache_hit_tokens": 32768,
+          "cache_miss_tokens": 4359,
+          "input_cost_usd": 0.003597836,
+          "output_cost_usd": 0.0003564,
+          "cost_usd": 0.003954236,
+          "input_cost_cny": 0.0245307,
+          "output_cost_cny": 0.00243,
+          "cost_cny": 0.026960699999999997,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.8825921835860694,
+          "usd_estimate_including_unpartitioned_input": 0.003954236,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.003954236
+        }
+      },
+      {
+        "step": 21,
+        "turn_start": 1795174539.0082273,
+        "turn_end": 1795174545.141289,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "body-transform-fix",
+            "kind": "bugfix",
+            "surface": "body",
+            "goal": "Fix body transform to unwrap encoding result envelope before reading parts",
+            "needs": [],
+            "read_set": [
+              "body/transform.py",
+              "encoding/transform.py",
+              "body/contract.json"
+            ],
+            "write_set": [
+              "body/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "body/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 9,
+            "frontier_version": "50d7a9baf4064441c81b867167b08e8574d9faa9755da10c20230142c7c1351e",
+            "safe_width": 0,
+            "fact_digest": "70946d130183f5354347ccbf9d936e02ca50e022a5ae0af2e5fefe3c8e161990"
+          }
+        ],
+        "physical_request_ids": [
+          "f1d2a3808c7749119737081e6850ab6a"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 34040,
+          "output_tokens": 319,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 34040,
+          "input_cost_usd": 0.0224664,
+          "output_cost_usd": 0.0006316200000000001,
+          "cost_usd": 0.02309802,
+          "input_cost_cny": 0.15318,
+          "output_cost_cny": 0.0043065,
+          "cost_cny": 0.1574865,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.02309802,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.02309802
+        }
+      },
+      {
+        "step": 23,
+        "turn_start": 1795174545.2834237,
+        "turn_end": 1795174548.8276074,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "body-transform-fix",
+            "kind": "bugfix",
+            "surface": "body",
+            "goal": "Unwrap encoding result envelope before reading parts in body transform",
+            "needs": [],
+            "read_set": [
+              "body/transform.py",
+              "encoding/transform.py",
+              "body/contract.json"
+            ],
+            "write_set": [
+              "body/transform.py"
+            ],
+            "focused_check": "python3 check.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "body/transform.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 10,
+            "frontier_version": "e5b8c4bc4e6e6c8f14e729ff45d4c06525f7089b57b47c00218e54853a0858e2",
+            "safe_width": 0,
+            "fact_digest": "0b340adbb65a29634be039901b569ea1b8209cd3cfac464001fcb3d71d2355ad"
+          }
+        ],
+        "physical_request_ids": [
+          "d14c2bdf133c4f459f17392603b05ce9"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 36286,
+          "output_tokens": 314,
+          "cache_hit_tokens": 24064,
+          "cache_miss_tokens": 12222,
+          "input_cost_usd": 0.008595928,
+          "output_cost_usd": 0.00062172,
+          "cost_usd": 0.009217647999999998,
+          "input_cost_cny": 0.0586086,
+          "output_cost_cny": 0.004239,
+          "cost_cny": 0.0628476,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.663175880504878,
+          "usd_estimate_including_unpartitioned_input": 0.009217647999999998,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.009217647999999998
+        }
+      },
+      {
+        "step": 25,
+        "turn_start": 1795174554.7093146,
+        "turn_end": 1795174557.32438,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 11,
+            "frontier_version": "b467f8312ffe29376382a4dd3dc8ba53dafc651553bda2f40ec0372f4c906bee",
+            "safe_width": 0,
+            "fact_digest": "e9fe40c0aabc76c3a75f3271e78fbed53a058317d5ee5591d3c8b5f4b4fb3a8e"
+          }
+        ],
+        "physical_request_ids": [
+          "c23461407ede466696fbd711e51a0f10"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 37822,
+          "output_tokens": 184,
+          "cache_hit_tokens": 32768,
+          "cache_miss_tokens": 5054,
+          "input_cost_usd": 0.004056536,
+          "output_cost_usd": 0.00036432,
+          "cost_usd": 0.004420856000000001,
+          "input_cost_cny": 0.0276582,
+          "output_cost_cny": 0.002484,
+          "cost_cny": 0.0301422,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.8663740680027497,
+          "usd_estimate_including_unpartitioned_input": 0.004420856000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.004420856000000001
+        }
+      },
+      {
+        "step": 27,
+        "turn_start": 1795174560.5735877,
+        "turn_end": 1795174565.647582,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 12,
+            "frontier_version": "29a35e7531a904d99f31f34ae2e660998f6941cbcd1f102d7f2aa06098668519",
+            "safe_width": 0,
+            "fact_digest": "795a81def6eb8c04905c0d66fe15f17e63e6784361e9dd8b3fa2751fa25d0bb1"
+          }
+        ],
+        "physical_request_ids": [
+          "9caa8368d4934a3db5be5767d7fbdf1d"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 36505,
+          "output_tokens": 191,
+          "cache_hit_tokens": 19200,
+          "cache_miss_tokens": 17305,
+          "input_cost_usd": 0.0118437,
+          "output_cost_usd": 0.00037818,
+          "cost_usd": 0.012221880000000001,
+          "input_cost_cny": 0.0807525,
+          "output_cost_cny": 0.0025785,
+          "cost_cny": 0.083331,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.525955348582386,
+          "usd_estimate_including_unpartitioned_input": 0.012221880000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.012221880000000001
+        }
+      },
+      {
+        "step": 29,
+        "turn_start": 1795174565.8057399,
+        "turn_end": 1795174568.1042874,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "validate",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 13,
+            "frontier_version": "29a35e7531a904d99f31f34ae2e660998f6941cbcd1f102d7f2aa06098668519",
+            "safe_width": 0,
+            "fact_digest": "795a81def6eb8c04905c0d66fe15f17e63e6784361e9dd8b3fa2751fa25d0bb1"
+          }
+        ],
+        "physical_request_ids": [
+          "12865404ac69463fbec065e40bb7d10a"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 37517,
+          "output_tokens": 191,
+          "cache_hit_tokens": 27264,
+          "cache_miss_tokens": 10253,
+          "input_cost_usd": 0.007366788000000001,
+          "output_cost_usd": 0.00037818,
+          "cost_usd": 0.0077449680000000005,
+          "input_cost_cny": 0.0502281,
+          "output_cost_cny": 0.0025785,
+          "cost_cny": 0.052806599999999995,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.7267105578804275,
+          "usd_estimate_including_unpartitioned_input": 0.0077449680000000005,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0077449680000000005
+        }
+      }
+    ],
+    "first_deepseek_root_request": {
+      "input_tokens": 5448,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 5448,
+      "http_status": 200
+    },
+    "first_handshake_request": {
+      "input_tokens": 6354,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 6354,
+      "http_status": 200
+    }
+  },
+  "protocol": {
+    "mode_receipts": [
+      {
+        "enabled": true,
+        "controller": "active",
+        "allow_subtasks": true,
+        "allow_initial_subtasks": true,
+        "allow_recovery_subtasks": true,
+        "allowed_tools": [
+          "choose_execution_mode_v2",
+          "deliver_files",
+          "deliver_frontier_report",
+          "list_files",
+          "read_file",
+          "report_frontier_state",
+          "search_text",
+          "shell",
+          "spawn_subtasks",
+          "write_file",
+          "write_file_chunk"
+        ],
+        "_line": 1
+      }
+    ],
+    "mode_matches_arm": true,
+    "scheduled_handshakes": 13,
+    "accepted_offers": 0,
+    "selfcheck_entered": true,
+    "selfcheck_completed": false
+  },
+  "cold_namespace": {
+    "state": "verified_cold",
+    "prefix_sha256": "f122370a83286b33095074d23eda9ac5138aec0135090ae2ecf705806672c10d",
+    "wire_audit_complete": true,
+    "deepseek_request_count": 78,
+    "first_prompt_cache_hit_tokens": 0,
+    "first_prompt_cache_miss_tokens": 5448,
+    "receipt_present": true,
+    "reconciled_with_wire_audit": true,
+    "matches_runner_status": true
+  },
+  "wire_audit": {
+    "deepseek_requests": 78,
+    "thinking": "disabled",
+    "reasoning_effort": null
+  },
+  "scoring_error": null,
+  "metrics_error": null,
+  "protocol_error": null
+}

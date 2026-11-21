@@ -1,0 +1,43 @@
+{
+  "task": "C067",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "policy_decisions",
+      "implementation": "components/policy_decisions/work.py",
+      "read_fields": [
+        "policies",
+        "events"
+      ],
+      "input": "components/policy_decisions/input.json",
+      "public_expected": "components/policy_decisions/expected.json",
+      "output": "components/policy_decisions/result.json",
+      "run": "python -B components/policy_decisions/run.py",
+      "check": "python -B components/policy_decisions/check.py",
+      "contract": "按输入顺序重放策略变更，为每个 request 原位置生成授权布尔值。"
+    },
+    {
+      "name": "service_routes",
+      "implementation": "components/service_routes/work.py",
+      "read_fields": [
+        "clusters",
+        "events"
+      ],
+      "input": "components/service_routes/input.json",
+      "public_expected": "components/service_routes/expected.json",
+      "output": "components/service_routes/result.json",
+      "run": "python -B components/service_routes/run.py",
+      "check": "python -B components/service_routes/check.py",
+      "contract": "按事件位置返回请求当时的 [集群模式,服务是否可用]；合并端负责授权优先和实际计数。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/policy_decisions/result.json",
+      "components/service_routes/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

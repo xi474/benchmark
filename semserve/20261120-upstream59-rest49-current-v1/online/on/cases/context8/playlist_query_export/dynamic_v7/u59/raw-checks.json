@@ -1,0 +1,134 @@
+{
+  "schema": "upstream59.modular-probes.v1",
+  "task": "MP21",
+  "integrity_ok": true,
+  "checks": [
+    {
+      "id": "api/playlist/heldout-101",
+      "passed": true
+    },
+    {
+      "id": "api/playlist/heldout-202",
+      "passed": true
+    },
+    {
+      "id": "api/playlist/heldout-303",
+      "passed": true
+    },
+    {
+      "id": "api/playlist/boundary",
+      "passed": true
+    },
+    {
+      "id": "api/playlist/empty-collection",
+      "passed": true
+    },
+    {
+      "id": "io/playlist",
+      "passed": true
+    },
+    {
+      "id": "output/playlist",
+      "passed": true
+    },
+    {
+      "id": "api/query/heldout-101",
+      "passed": false
+    },
+    {
+      "id": "api/query/heldout-202",
+      "passed": false
+    },
+    {
+      "id": "api/query/heldout-303",
+      "passed": false
+    },
+    {
+      "id": "api/query/boundary",
+      "passed": true
+    },
+    {
+      "id": "api/query/empty-collection",
+      "passed": false
+    },
+    {
+      "id": "api/query/invalid-business-field",
+      "passed": true
+    },
+    {
+      "id": "io/query",
+      "passed": false
+    },
+    {
+      "id": "output/query",
+      "passed": false
+    },
+    {
+      "id": "api/export/heldout-101",
+      "passed": true
+    },
+    {
+      "id": "api/export/heldout-202",
+      "passed": true
+    },
+    {
+      "id": "api/export/heldout-303",
+      "passed": true
+    },
+    {
+      "id": "api/export/boundary",
+      "passed": true
+    },
+    {
+      "id": "api/export/empty-collection",
+      "passed": true
+    },
+    {
+      "id": "io/export",
+      "passed": true
+    },
+    {
+      "id": "output/export",
+      "passed": true
+    },
+    {
+      "id": "output/core_manifest",
+      "passed": false
+    },
+    {
+      "id": "output/final_report",
+      "passed": false
+    },
+    {
+      "id": "P/public-check",
+      "passed": true
+    }
+  ],
+  "robustness_checks": [
+    {
+      "id": "api/playlist/invalid-top-level",
+      "passed": true
+    },
+    {
+      "id": "api/playlist/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "id": "api/query/invalid-top-level",
+      "passed": true
+    },
+    {
+      "id": "api/query/nonfinite-ignored-field",
+      "passed": false
+    },
+    {
+      "id": "api/export/invalid-top-level",
+      "passed": true
+    },
+    {
+      "id": "api/export/nonfinite-ignored-field",
+      "passed": true
+    }
+  ],
+  "robustness_all_passed": false
+}

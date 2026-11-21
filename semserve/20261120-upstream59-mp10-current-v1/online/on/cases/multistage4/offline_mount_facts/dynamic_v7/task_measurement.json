@@ -1,0 +1,936 @@
+{
+  "task_id": "MP03",
+  "entry_id": "multistage4/offline_mount_facts",
+  "title": "三种挂载格式的离线事实归并",
+  "dataset": "medium26",
+  "arm": "on",
+  "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\multistage4\\offline_mount_facts\\dynamic_v7",
+  "actor_state": "completed",
+  "grade": {
+    "public_pass": true,
+    "strict_pass": false,
+    "official": {
+      "status": "failed",
+      "reason": "held-out API mismatch: domains/fstab nonfinite-ignored-field"
+    },
+    "public_replay": {
+      "public_pass": true,
+      "returncode": 0
+    },
+    "core_transform_passed": 26,
+    "core_transform_total": 29,
+    "api_unexecuted": 0,
+    "api_components": {
+      "domains/fstab": {
+        "state": "evaluated",
+        "api_total": 8,
+        "api_passed": 7,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "nonfinite-ignored-field"
+        ]
+      },
+      "domains/aix": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "nonfinite-ignored-field"
+        ]
+      },
+      "domains/mount": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "nonfinite-ignored-field"
+        ]
+      },
+      "views/merged": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 7,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": []
+      }
+    }
+  },
+  "metrics": {
+    "live_public": true,
+    "runtime_error": {
+      "type": "SelfcheckDeadlineExceeded",
+      "detail": "selfcheck_budget_exhausted: self-check incomplete; public pass remains separate"
+    },
+    "e2e_seconds": 497.7748489379883,
+    "completion_inclusive_seconds": 497.7750256361227,
+    "confirmed_parallel_wall_seconds": 57.11626935005188,
+    "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\multistage4\\offline_mount_facts\\dynamic_v7",
+    "public_passed": true,
+    "external_status": "failed",
+    "child_failure_events": 0,
+    "ownership_error_events": 5,
+    "real_child_parallel": true,
+    "offer_driven_parallel": true,
+    "autonomous_parallel": false,
+    "unknown_source_parallel": false,
+    "child_count": 6,
+    "offer_accepted": 2,
+    "offer_declined": 0,
+    "predictor_count": 4,
+    "waves": [
+      {
+        "plan_id": "plan-002-17ea9dc8",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-002-17ea9dc8/v2-741eda897f30-0/attempt-1",
+            "start": 1795173519.3144588,
+            "end": 1795173558.776286,
+            "status": "succeeded",
+            "task_id": "child_task-000238"
+          },
+          {
+            "scope": "root/plan-002-17ea9dc8/v2-741eda897f30-1/attempt-1",
+            "start": 1795173519.3147192,
+            "end": 1795173558.4133677,
+            "status": "succeeded",
+            "task_id": "child_task-000239"
+          },
+          {
+            "scope": "root/plan-002-17ea9dc8/v2-741eda897f30-2/attempt-1",
+            "start": 1795173519.3149865,
+            "end": 1795173593.2903569,
+            "status": "succeeded",
+            "task_id": "child_task-000240"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 39.09498453140259,
+        "child_lifecycle_union_seconds": 73.97589802742004,
+        "child_lifecycle_duration_sum_seconds": 152.53584599494934,
+        "same_trace_child_lifecycle_overlap_work_seconds": 78.5599479675293,
+        "child_request_union_seconds": 68.47404313087463,
+        "child_request_duration_sum_seconds": 142.4163463115692,
+        "same_trace_child_request_overlap_work_seconds": 73.94230318069458,
+        "join_status": "succeeded"
+      },
+      {
+        "plan_id": "plan-003-81a58955",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-003-81a58955/v2-af39be0bac62-0/attempt-1",
+            "start": 1795173613.0539904,
+            "end": 1795173648.3000538,
+            "status": "succeeded",
+            "task_id": "child_task-000924"
+          },
+          {
+            "scope": "root/plan-003-81a58955/v2-af39be0bac62-1/attempt-1",
+            "start": 1795173613.0671482,
+            "end": 1795173631.1657293,
+            "status": "succeeded",
+            "task_id": "child_task-000939"
+          },
+          {
+            "scope": "root/plan-003-81a58955/v2-af39be0bac62-2/attempt-1",
+            "start": 1795173613.0854943,
+            "end": 1795173630.1010005,
+            "status": "succeeded",
+            "task_id": "child_task-000948"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 18.021284818649292,
+        "child_lifecycle_union_seconds": 35.246063470840454,
+        "child_lifecycle_duration_sum_seconds": 70.3601508140564,
+        "same_trace_child_lifecycle_overlap_work_seconds": 35.11408734321594,
+        "child_request_union_seconds": 33.982922315597534,
+        "child_request_duration_sum_seconds": 67.19508171081543,
+        "same_trace_child_request_overlap_work_seconds": 33.212159395217896,
+        "join_status": "succeeded"
+      }
+    ],
+    "subtask_joins": {
+      "plan-002-17ea9dc8": "succeeded",
+      "plan-003-81a58955": "succeeded"
+    },
+    "deepseek_handshake": {
+      "physical_requests": 5,
+      "requests_with_usage": 5,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 5,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 70647,
+      "output_tokens": 2951,
+      "cache_hit_tokens": 25600,
+      "cache_miss_tokens": 45047,
+      "input_cost_usd": 0.03029422,
+      "output_cost_usd": 0.00584298,
+      "cost_usd": 0.0361372,
+      "input_cost_cny": 0.2065515,
+      "output_cost_cny": 0.0398385,
+      "cost_cny": 0.24639,
+      "issue_counts": {
+        "holiday_calendar_unverified": 5
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.3623649978059932,
+      "usd_estimate_including_unpartitioned_input": 0.0361372,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.0361372
+    },
+    "deepseek_total": {
+      "physical_requests": 165,
+      "requests_with_usage": 162,
+      "requests_missing_usage": 3,
+      "requests_cache_partition_known": 162,
+      "requests_cache_partition_unknown": 3,
+      "input_tokens": 11515497,
+      "output_tokens": 49682,
+      "cache_hit_tokens": 11187712,
+      "cache_miss_tokens": 327785,
+      "input_cost_usd": 0.46246776399999984,
+      "output_cost_usd": 0.09837036000000036,
+      "cost_usd": 0.5608381239999995,
+      "input_cost_cny": 3.153189300000001,
+      "output_cost_cny": 0.6707069999999973,
+      "cost_cny": 3.8238963,
+      "issue_counts": {
+        "usage_missing_not_zero_cost": 3,
+        "holiday_calendar_unverified": 162
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.9715353145417867,
+      "usd_estimate_including_unpartitioned_input": 0.5608381240000002,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.5608381239999989
+    },
+    "external_api_total": {
+      "physical_requests": 168,
+      "requests_with_usage": 165,
+      "requests_missing_usage": 3,
+      "requests_cache_partition_known": 162,
+      "requests_cache_partition_unknown": 6,
+      "input_tokens": 11534552,
+      "output_tokens": 50317,
+      "cache_hit_tokens": 11187712,
+      "cache_miss_tokens": 327785,
+      "input_cost_usd": 0.46246776399999984,
+      "output_cost_usd": 0.09862436000000037,
+      "cost_usd": 0.5608381239999995,
+      "input_cost_cny": 3.153189300000001,
+      "output_cost_cny": 0.6707069999999973,
+      "cost_cny": 3.8238963,
+      "input_estimate_without_cache_partition_usd": 0.0019055,
+      "input_tokens_cache_partition_unknown": 19055,
+      "issue_counts": {
+        "usage_missing_not_zero_cost": 3,
+        "holiday_calendar_unverified": 162,
+        "cache_partition_unreported_standard_input_estimate_only": 3
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.9715353145417867,
+      "usd_estimate_including_unpartitioned_input": 0.5629976240000002,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.562997623999999
+    },
+    "wire_missing_receipt_ids": [],
+    "handshakes": [
+      {
+        "step": 2,
+        "turn_start": 1795173478.383387,
+        "turn_end": 1795173480.6079543,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 1,
+            "frontier_version": "03ed2550b8f1055a16b34320a03a88ece61e1c242d012e529b424eac2bfbcc25",
+            "safe_width": 0,
+            "fact_digest": "da3498248d2ca058d6dcad9a1479acde84b507aae4fea9cdd6b5bf5bbdda0e3d"
+          }
+        ],
+        "physical_request_ids": [
+          "46167435588442deb952d163470eda2d"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 5438,
+          "output_tokens": 158,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 5438,
+          "input_cost_usd": 0.0035890800000000006,
+          "output_cost_usd": 0.00031284,
+          "cost_usd": 0.0039019200000000006,
+          "input_cost_cny": 0.024471,
+          "output_cost_cny": 0.002133,
+          "cost_cny": 0.026604,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.0039019200000000006,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0039019200000000006
+        }
+      },
+      {
+        "step": 4,
+        "turn_start": 1795173480.663253,
+        "turn_end": 1795173487.7222538,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "fstab-parse",
+            "kind": "parser",
+            "surface": "fstab",
+            "goal": "Implement domains/fstab model.py, transform.py, render.py for fstab_parse",
+            "needs": [],
+            "read_set": [
+              "/workspace/domains/fstab/contract.json",
+              "/workspace/inputs/case.json"
+            ],
+            "write_set": [
+              "/workspace/domains/fstab/model.py",
+              "/workspace/domains/fstab/transform.py",
+              "/workspace/domains/fstab/render.py"
+            ],
+            "focused_check": "python3 domains/fstab/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "/workspace/domains/fstab/model.py",
+                "/workspace/domains/fstab/transform.py",
+                "/workspace/domains/fstab/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "aix-parse",
+            "kind": "parser",
+            "surface": "aix",
+            "goal": "Implement domains/aix model.py, transform.py, render.py for aix_parse",
+            "needs": [],
+            "read_set": [
+              "/workspace/domains/aix/contract.json",
+              "/workspace/inputs/case.json"
+            ],
+            "write_set": [
+              "/workspace/domains/aix/model.py",
+              "/workspace/domains/aix/transform.py",
+              "/workspace/domains/aix/render.py"
+            ],
+            "focused_check": "python3 domains/aix/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "/workspace/domains/aix/model.py",
+                "/workspace/domains/aix/transform.py",
+                "/workspace/domains/aix/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "mount-parse",
+            "kind": "parser",
+            "surface": "mount",
+            "goal": "Implement domains/mount model.py, transform.py, render.py for mount_parse",
+            "needs": [],
+            "read_set": [
+              "/workspace/domains/mount/contract.json",
+              "/workspace/inputs/case.json"
+            ],
+            "write_set": [
+              "/workspace/domains/mount/model.py",
+              "/workspace/domains/mount/transform.py",
+              "/workspace/domains/mount/render.py"
+            ],
+            "focused_check": "python3 domains/mount/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "/workspace/domains/mount/model.py",
+                "/workspace/domains/mount/transform.py",
+                "/workspace/domains/mount/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 2,
+            "frontier_version": "50fb98af8ab3290cdd77b9e9ade66d5b8340d24398a35961279d5d735daa1658",
+            "safe_width": 0,
+            "fact_digest": "20a95db417bb5baf5836838384e27bda389333b2750550a3fc74549e7fc60ea1"
+          }
+        ],
+        "physical_request_ids": [
+          "325fc700ca0f41299cea4395c9cc61b1"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 9890,
+          "output_tokens": 798,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 9890,
+          "input_cost_usd": 0.006527400000000001,
+          "output_cost_usd": 0.00158004,
+          "cost_usd": 0.00810744,
+          "input_cost_cny": 0.044505,
+          "output_cost_cny": 0.010773,
+          "cost_cny": 0.055278,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.00810744,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.00810744
+        }
+      },
+      {
+        "step": 6,
+        "turn_start": 1795173489.7277389,
+        "turn_end": 1795173496.254674,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "fstab-parse",
+            "kind": "parser",
+            "surface": "fstab",
+            "goal": "Implement fstab model/transform/render for fstab_parse",
+            "needs": [],
+            "read_set": [
+              "domains/fstab/contract.json",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "domains/fstab/model.py",
+              "domains/fstab/transform.py",
+              "domains/fstab/render.py"
+            ],
+            "focused_check": "python3 domains/fstab/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/fstab/model.py",
+                "domains/fstab/transform.py",
+                "domains/fstab/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "aix-parse",
+            "kind": "parser",
+            "surface": "aix",
+            "goal": "Implement aix model/transform/render for aix_parse",
+            "needs": [],
+            "read_set": [
+              "domains/aix/contract.json",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "domains/aix/model.py",
+              "domains/aix/transform.py",
+              "domains/aix/render.py"
+            ],
+            "focused_check": "python3 domains/aix/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/aix/model.py",
+                "domains/aix/transform.py",
+                "domains/aix/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "mount-parse",
+            "kind": "parser",
+            "surface": "mount",
+            "goal": "Implement mount model/transform/render for mount_parse",
+            "needs": [],
+            "read_set": [
+              "domains/mount/contract.json",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "domains/mount/model.py",
+              "domains/mount/transform.py",
+              "domains/mount/render.py"
+            ],
+            "focused_check": "python3 domains/mount/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/mount/model.py",
+                "domains/mount/transform.py",
+                "domains/mount/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 3,
+            "frontier_version": "7517029976fcd0c75d5c534d7c4f814d7f8b4559988c39165b98688d9e695a4b",
+            "safe_width": 0,
+            "fact_digest": "b15356b55d56c661932d07a0baf6b694e72f082aa237a9bbea01e2f57a6b2e08"
+          }
+        ],
+        "physical_request_ids": [
+          "b7aa13a34a7c466dbb1d74bf2c9e80eb"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 12405,
+          "output_tokens": 703,
+          "cache_hit_tokens": 4736,
+          "cache_miss_tokens": 7669,
+          "input_cost_usd": 0.005165732,
+          "output_cost_usd": 0.0013919400000000001,
+          "cost_usd": 0.0065576720000000005,
+          "input_cost_cny": 0.0352209,
+          "output_cost_cny": 0.0094905,
+          "cost_cny": 0.0447114,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.3817815397017332,
+          "usd_estimate_including_unpartitioned_input": 0.0065576720000000005,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.0065576720000000005
+        }
+      },
+      {
+        "step": 8,
+        "turn_start": 1795173499.395458,
+        "turn_end": 1795173505.3592148,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "fstab-parse",
+            "kind": "parser",
+            "surface": "fstab",
+            "goal": "Implement fstab model/transform/render for fstab_parse",
+            "needs": [],
+            "read_set": [
+              "domains/fstab/contract.json",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "domains/fstab/model.py",
+              "domains/fstab/transform.py",
+              "domains/fstab/render.py"
+            ],
+            "focused_check": "python3 domains/fstab/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/fstab/model.py",
+                "domains/fstab/transform.py",
+                "domains/fstab/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "aix-parse",
+            "kind": "parser",
+            "surface": "aix",
+            "goal": "Implement aix model/transform/render for aix_parse",
+            "needs": [],
+            "read_set": [
+              "domains/aix/contract.json",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "domains/aix/model.py",
+              "domains/aix/transform.py",
+              "domains/aix/render.py"
+            ],
+            "focused_check": "python3 domains/aix/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/aix/model.py",
+                "domains/aix/transform.py",
+                "domains/aix/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          },
+          {
+            "work_unit_id": "mount-parse",
+            "kind": "parser",
+            "surface": "mount",
+            "goal": "Implement mount model/transform/render for mount_parse",
+            "needs": [],
+            "read_set": [
+              "domains/mount/contract.json",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "domains/mount/model.py",
+              "domains/mount/transform.py",
+              "domains/mount/render.py"
+            ],
+            "focused_check": "python3 domains/mount/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "domains/mount/model.py",
+                "domains/mount/transform.py",
+                "domains/mount/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 4,
+            "frontier_version": "dbb99779071837dd9b7af03243b4129aa56d3762ec07aa8587cb32f005b49eba",
+            "safe_width": 3,
+            "fact_digest": "c3df6140cb6b8f38d2f072ffd569dc645a1b5a73bb052d57729d9f3597eaa371"
+          }
+        ],
+        "physical_request_ids": [
+          "f90a7b8f7878452f9dc4d10e6ab0f0b5"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 17435,
+          "output_tokens": 702,
+          "cache_hit_tokens": 9088,
+          "cache_miss_tokens": 8347,
+          "input_cost_usd": 0.005708956,
+          "output_cost_usd": 0.00138996,
+          "cost_usd": 0.007098916,
+          "input_cost_cny": 0.0389247,
+          "output_cost_cny": 0.009477,
+          "cost_cny": 0.0484017,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.5212503584743332,
+          "usd_estimate_including_unpartitioned_input": 0.007098916,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.007098916
+        }
+      },
+      {
+        "step": 10,
+        "turn_start": 1795173593.3138888,
+        "turn_end": 1795173599.6947026,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "merged-merge",
+            "kind": "merge-view",
+            "surface": "merged",
+            "goal": "Implement views/merged model/transform/render for mount_merge",
+            "needs": [],
+            "read_set": [
+              "views/merged/contract.json",
+              "views/merged/check_module.py"
+            ],
+            "write_set": [
+              "views/merged/model.py",
+              "views/merged/transform.py",
+              "views/merged/render.py"
+            ],
+            "focused_check": "python3 views/merged/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "views/merged/model.py",
+                "views/merged/transform.py",
+                "views/merged/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "run-all",
+            "kind": "orchestration",
+            "surface": "run_all",
+            "goal": "Implement run_all.py orchestration from file contracts",
+            "needs": [],
+            "read_set": [
+              "run_all.py",
+              "integrate.py",
+              "check.py"
+            ],
+            "write_set": [
+              "run_all.py"
+            ],
+            "focused_check": "python3 run_all.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "final-report",
+            "kind": "report",
+            "surface": "final_report",
+            "goal": "Implement final_report.py reading core manifest",
+            "needs": [],
+            "read_set": [
+              "final_report.py",
+              "integrate.py"
+            ],
+            "write_set": [
+              "final_report.py"
+            ],
+            "focused_check": "python3 final_report.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 5,
+            "frontier_version": "49cba75bc91bf6f830756c945b05eeac114607a7cce4a15a2d8bda36684fa822",
+            "safe_width": 3,
+            "fact_digest": "3f9449052291396c4fc9e3823ea70838451816ed85874964c6c9c8ffad3ef055"
+          }
+        ],
+        "physical_request_ids": [
+          "8b20acddf9e849ca874d7f156864b89c"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 25479,
+          "output_tokens": 590,
+          "cache_hit_tokens": 11776,
+          "cache_miss_tokens": 13703,
+          "input_cost_usd": 0.009303052,
+          "output_cost_usd": 0.0011682,
+          "cost_usd": 0.010471251999999999,
+          "input_cost_cny": 0.0634299,
+          "output_cost_cny": 0.007965,
+          "cost_cny": 0.0713949,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.4621845441343852,
+          "usd_estimate_including_unpartitioned_input": 0.010471251999999999,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.010471251999999999
+        }
+      }
+    ],
+    "first_deepseek_root_request": {
+      "input_tokens": null,
+      "cache_hit_tokens": null,
+      "cache_miss_tokens": null,
+      "http_status": null
+    },
+    "first_handshake_request": {
+      "input_tokens": 5438,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 5438,
+      "http_status": 200
+    }
+  },
+  "protocol": {
+    "mode_receipts": [
+      {
+        "enabled": true,
+        "controller": "active",
+        "allow_subtasks": true,
+        "allow_initial_subtasks": true,
+        "allow_recovery_subtasks": true,
+        "allowed_tools": [
+          "choose_execution_mode_v2",
+          "deliver_files",
+          "deliver_frontier_report",
+          "list_files",
+          "read_file",
+          "report_frontier_state",
+          "search_text",
+          "shell",
+          "spawn_subtasks",
+          "write_file",
+          "write_file_chunk"
+        ],
+        "_line": 1
+      }
+    ],
+    "mode_matches_arm": true,
+    "scheduled_handshakes": 5,
+    "accepted_offers": 0,
+    "selfcheck_entered": true,
+    "selfcheck_completed": false
+  },
+  "cold_namespace": {
+    "state": "verified_cold_after_transient_retry",
+    "prefix_sha256": "0d348a1c3e963155d7b61c15b645c80e36c25dd63601b1fd1cbb2d052fc5d048",
+    "wire_audit_complete": true,
+    "deepseek_request_count": 165,
+    "first_prompt_cache_hit_tokens": null,
+    "first_prompt_cache_miss_tokens": null,
+    "receipt_present": true,
+    "reconciled_with_wire_audit": true,
+    "matches_runner_status": true,
+    "first_successful_request_cache_hit_tokens": 0,
+    "first_successful_request_cache_miss_tokens": 5446
+  },
+  "wire_audit": {
+    "deepseek_requests": 165,
+    "thinking": "disabled",
+    "reasoning_effort": null
+  },
+  "scoring_error": null,
+  "metrics_error": null,
+  "protocol_error": null
+}

@@ -1,0 +1,238 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795195805.7576106,
+  "end": 1795195806.3733358,
+  "seconds": 0.6157252788543701,
+  "workspace_version": "259480d96c718e208f37c49842c636499fadc5f0b4a40851465796bb36590edf",
+  "script_sha256": "3ffaa7f03ef3d4d8ad5fa7a0ac8fbe28d2efd05ae4ad3ce400aac394b8fe8a2f",
+  "spec_sha256": "ba86d1d94e4715f806aebff3ed94ebf253dadd105812c5149457f409e9555d34",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 0,
+  "output": "VISIBLE_CONTRACT_CHECK_JSON:{\"schema_version\": \"semserve.visible-contract-check.v2\", \"test_framework\": \"unittest\", \"status\": \"PASS_BOUNDED\", \"actual_case_count\": 2, \"passed_cases\": 2, \"failed_cases\": 0, \"cases\": [], \"resolutions\": [], \"promoted\": {}, \"test_ids\": [\"TestObjectScan.test_secret_recovered_from_bundle\", \"TestRecoveryReport.test_report_shape_and_zero_remaining\"], \"test_plan_accepted\": true, \"test_failures\": [], \"skipped_cases\": 0, \"expected_failures\": 0, \"api_boundary_coverage\": {\"required\": {}, \"verified\": {}, \"missing\": {}, \"unreviewed\": {}, \"not_applicable\": [{\"target_path\": \"products/object_scan/engine.py\", \"rule\": \"nonfinite_unknown_field\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"products/object_scan/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a\"}, {\"target_path\": \"products/object_scan/engine.py\", \"rule\": \"invalid_payload_type\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"products/object_scan/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a\"}, {\"target_path\": \"products/cleaned_repo/engine.py\", \"rule\": \"nonfinite_unknown_field\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"products/cleaned_repo/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3\"}, {\"target_path\": \"products/cleaned_repo/engine.py\", \"rule\": \"invalid_payload_type\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"products/cleaned_repo/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3\"}, {\"target_path\": \"products/recovery_report/engine.py\", \"rule\": \"nonfinite_unknown_field\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"products/recovery_report/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb\"}, {\"target_path\": \"products/recovery_report/engine.py\", \"rule\": \"invalid_payload_type\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"products/recovery_report/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb\"}], \"inventoried_targets\": [\"products/cleaned_repo/engine.py\", \"products/object_scan/engine.py\", \"products/recovery_report/engine.py\"], \"review_errors\": [], \"declarations\": [{\"target_path\": \"products/object_scan/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"products/object_scan/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"products/object_scan/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a\"}}}, {\"target_path\": \"products/cleaned_repo/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"products/cleaned_repo/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"products/cleaned_repo/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3\"}}}, {\"target_path\": \"products/recovery_report/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"products/recovery_report/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"products/recovery_report/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb\"}}}]}, \"api_boundary_requirements\": [{\"target_path\": \"products/object_scan/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"products/object_scan/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"products/object_scan/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a\"}}}, {\"target_path\": \"products/cleaned_repo/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"products/cleaned_repo/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"products/cleaned_repo/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3\"}}}, {\"target_path\": \"products/recovery_report/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"products/recovery_report/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.\", \"document_sha256\": \"3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"products/recovery_report/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。\", \"reason\": \"SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.\", \"document_sha256\": \"3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb\"}}}], \"error\": null, \"script_output\": \"\", \"test_output\": \"test_secret_recovered_from_bundle (_semserve_visible_unittest.TestObjectScan.test_secret_recovered_from_bundle) ... ok\\ntest_report_shape_and_zero_remaining (_semserve_visible_unittest.TestRecoveryReport.test_report_shape_and_zero_remaining) ... ok\\n\\n----------------------------------------------------------------------\\nRan 2 tests in 0.428s\\n\\nOK\\n\", \"check_ok\": true}\n",
+  "process_ok": true,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 9003,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "PASS_BOUNDED",
+  "actual_case_count": 2,
+  "passed_cases": 2,
+  "failed_cases": 0,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TestObjectScan.test_secret_recovered_from_bundle",
+    "TestRecoveryReport.test_report_shape_and_zero_remaining"
+  ],
+  "test_plan_accepted": true,
+  "test_failures": [],
+  "skipped_cases": 0,
+  "expected_failures": 0,
+  "api_boundary_coverage": {
+    "required": {},
+    "verified": {},
+    "missing": {},
+    "unreviewed": {},
+    "not_applicable": [
+      {
+        "target_path": "products/object_scan/engine.py",
+        "rule": "nonfinite_unknown_field",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "products/object_scan/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+        "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+        "document_sha256": "2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a"
+      },
+      {
+        "target_path": "products/object_scan/engine.py",
+        "rule": "invalid_payload_type",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "products/object_scan/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+        "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+        "document_sha256": "2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a"
+      },
+      {
+        "target_path": "products/cleaned_repo/engine.py",
+        "rule": "nonfinite_unknown_field",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "products/cleaned_repo/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+        "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+        "document_sha256": "e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3"
+      },
+      {
+        "target_path": "products/cleaned_repo/engine.py",
+        "rule": "invalid_payload_type",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "products/cleaned_repo/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+        "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+        "document_sha256": "e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3"
+      },
+      {
+        "target_path": "products/recovery_report/engine.py",
+        "rule": "nonfinite_unknown_field",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "products/recovery_report/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+        "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+        "document_sha256": "3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb"
+      },
+      {
+        "target_path": "products/recovery_report/engine.py",
+        "rule": "invalid_payload_type",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "products/recovery_report/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+        "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+        "document_sha256": "3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb"
+      }
+    ],
+    "inventoried_targets": [
+      "products/cleaned_repo/engine.py",
+      "products/object_scan/engine.py",
+      "products/recovery_report/engine.py"
+    ],
+    "review_errors": [],
+    "declarations": [
+      {
+        "target_path": "products/object_scan/engine.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": false,
+            "contract_path": "products/object_scan/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+            "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+            "document_sha256": "2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a"
+          },
+          "invalid_payload_type": {
+            "applicable": false,
+            "contract_path": "products/object_scan/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+            "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+            "document_sha256": "2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a"
+          }
+        }
+      },
+      {
+        "target_path": "products/cleaned_repo/engine.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": false,
+            "contract_path": "products/cleaned_repo/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+            "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+            "document_sha256": "e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3"
+          },
+          "invalid_payload_type": {
+            "applicable": false,
+            "contract_path": "products/cleaned_repo/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+            "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+            "document_sha256": "e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3"
+          }
+        }
+      },
+      {
+        "target_path": "products/recovery_report/engine.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": false,
+            "contract_path": "products/recovery_report/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+            "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+            "document_sha256": "3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb"
+          },
+          "invalid_payload_type": {
+            "applicable": false,
+            "contract_path": "products/recovery_report/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+            "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+            "document_sha256": "3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb"
+          }
+        }
+      }
+    ]
+  },
+  "api_boundary_requirements": [
+    {
+      "target_path": "products/object_scan/engine.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": false,
+          "contract_path": "products/object_scan/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+          "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+          "document_sha256": "2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a"
+        },
+        "invalid_payload_type": {
+          "applicable": false,
+          "contract_path": "products/object_scan/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+          "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+          "document_sha256": "2c55fa33a84d69481df1e956f4896fcd1201cdd167e2fdebcc235a6b0b782f5a"
+        }
+      }
+    },
+    {
+      "target_path": "products/cleaned_repo/engine.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": false,
+          "contract_path": "products/cleaned_repo/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+          "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+          "document_sha256": "e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3"
+        },
+        "invalid_payload_type": {
+          "applicable": false,
+          "contract_path": "products/cleaned_repo/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+          "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+          "document_sha256": "e8e4d882c6b469154c11bd00be7c9af01f38840416de8b8b6e211cc6db3058c3"
+        }
+      }
+    },
+    {
+      "target_path": "products/recovery_report/engine.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": false,
+          "contract_path": "products/recovery_report/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+          "reason": "SPEC explicitly excludes arbitrary malformed input and extra-field recursion checks.",
+          "document_sha256": "3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb"
+        },
+        "invalid_payload_type": {
+          "applicable": false,
+          "contract_path": "products/recovery_report/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支，不要求任意畸形输入、额外字段递归检查、异常文案或隐藏兼容行为。",
+          "reason": "SPEC excludes arbitrary malformed input; no explicit ValueError rule for payload type.",
+          "document_sha256": "3ad7b04d9ba7ef92c2cc14853dc4afdaea228717c0165b184c6f284b7f200bdb"
+        }
+      }
+    }
+  ],
+  "error": null,
+  "script_output": "",
+  "test_output": "test_secret_recovered_from_bundle (_semserve_visible_unittest.TestObjectScan.test_secret_recovered_from_bundle) ... ok\ntest_report_shape_and_zero_remaining (_semserve_visible_unittest.TestRecoveryReport.test_report_shape_and_zero_remaining) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.428s\n\nOK\n",
+  "check_ok": true,
+  "failure_stage": null,
+  "executions": 3,
+  "frozen_regressions": 0,
+  "reused": false
+}

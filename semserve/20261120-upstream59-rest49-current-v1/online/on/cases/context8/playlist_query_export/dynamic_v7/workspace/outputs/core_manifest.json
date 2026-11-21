@@ -1,0 +1,59 @@
+{
+  "components": {
+    "export": {
+      "m3u": "#EXTM3U\n#PLAYLIST:Mix\n#EXTINF:4,A - Title 47-3\nmusic/3.mp3\n#EXTINF:2,A - Title 47-1\nmusic/1.mp3\n#EXTINF:4,A - Title 47-3\nmusic/3.mp3\n#EXTINF:8,A - Title 47-7\nmusic/7.mp3\n"
+    },
+    "playlist": {
+      "playlist": {
+        "duration": 16.0,
+        "id": "p",
+        "name": "Mix",
+        "track_count": 4,
+        "track_ids": [
+          "t3",
+          "t1",
+          "t3",
+          "t7"
+        ]
+      },
+      "tracks": [
+        {
+          "artist": "A",
+          "duration": 3.5,
+          "id": "t3",
+          "path": "music/3.mp3",
+          "title": "Title 47-3"
+        },
+        {
+          "artist": "A",
+          "duration": 1.5,
+          "id": "t1",
+          "path": "music/1.mp3",
+          "title": "Title 47-1"
+        },
+        {
+          "artist": "A",
+          "duration": 3.5,
+          "id": "t3",
+          "path": "music/3.mp3",
+          "title": "Title 47-3"
+        },
+        {
+          "artist": "A",
+          "duration": 7.5,
+          "id": "t7",
+          "path": "music/7.mp3",
+          "title": "Title 47-7"
+        }
+      ]
+    },
+    "query": {
+      "params": [
+        2,
+        "O'Reilly",
+        10
+      ],
+      "sql": "SELECT id FROM playlists WHERE track_count GE ? AND name NE ? ORDER BY id LIMIT ?"
+    }
+  }
+}

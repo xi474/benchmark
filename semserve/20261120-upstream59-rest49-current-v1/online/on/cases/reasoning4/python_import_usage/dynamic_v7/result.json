@@ -1,0 +1,851 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "reasoning4",
+  "case": "python_import_usage",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/reasoning4/python_import_usage",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "7ecd5bf9721269ddebf923aa1bc70c0248e1b16446d426dae759ae06e6dd2b0b",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 371.7337136268616,
+  "background_summary_drain_seconds": 0.00016846600010467228,
+  "background_speculative_drain_seconds": 5.650520324707031e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 5,
+      "committed": 1,
+      "discarded": 4,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 86019,
+        "completion_tokens": 735,
+        "total_tokens": 86754,
+        "prompt_cache_hit_tokens": 59264,
+        "prompt_cache_miss_tokens": 26755,
+        "input_tokens": 86019,
+        "output_tokens": 735
+      },
+      "usage_discarded": {
+        "prompt_tokens": 80013,
+        "completion_tokens": 514,
+        "total_tokens": 80527,
+        "prompt_cache_hit_tokens": 53888,
+        "prompt_cache_miss_tokens": 26125,
+        "input_tokens": 80013,
+        "output_tokens": 514
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 371.7339385980649,
+  "runtime_error": {
+    "type": "RuntimeLimitExceeded",
+    "detail": "duplicate tool loop: progress recovery exhausted after two business turns without verified progress"
+  },
+  "workspace_progress_observation": [
+    {
+      "seconds": 1.2545541300009972,
+      "scans": 790,
+      "epoch": 30
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": true,
+    "returncode": 0,
+    "stdout": "MODULE_OK annotations\nMODULE_OK ordinary\nMODULE_OK comments\nMODULE_OK analysis\nLOCAL_CHECKS_PASSED; external verifier determines official correctness\n",
+    "stderr": ""
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "engines/analysis/check_module.py": true,
+    "engines/analysis/contract.json": true,
+    "engines/analysis/model.py": false,
+    "engines/analysis/render.py": false,
+    "engines/analysis/transform.py": false,
+    "engines/annotations/check_module.py": true,
+    "engines/annotations/contract.json": true,
+    "engines/annotations/model.py": false,
+    "engines/annotations/render.py": false,
+    "engines/annotations/transform.py": false,
+    "engines/comments/check_module.py": true,
+    "engines/comments/contract.json": true,
+    "engines/comments/model.py": false,
+    "engines/comments/render.py": false,
+    "engines/comments/transform.py": false,
+    "engines/ordinary/check_module.py": true,
+    "engines/ordinary/contract.json": true,
+    "engines/ordinary/model.py": false,
+    "engines/ordinary/render.py": false,
+    "engines/ordinary/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 364,
+    "dag_node_transition": 1088,
+    "task_started": 7,
+    "execution_state_observed": 74,
+    "parallel_v2_request_boundary": 27,
+    "parallel_v2_frontier_filtered": 8,
+    "fork_only_parent_passthrough": 38,
+    "dag_edge_added": 414,
+    "model_request": 100,
+    "model_response": 100,
+    "tool_result": 131,
+    "validation_progress_guard_cost": 93,
+    "repeated_business_output_observed": 91,
+    "parallel_v2_frontier_handshake_scheduled": 5,
+    "parallel_v2_generic_evidence_boundary": 64,
+    "handshake_speculation_started": 5,
+    "report_authorization_granted": 5,
+    "handshake_speculation_response": 5,
+    "parallel_v2_frontier_report_committed": 5,
+    "handshake_speculation_authorized": 1,
+    "handshake_speculation_committed": 1,
+    "g1_early_semantic_review_injected": 1,
+    "parallel_v2_frontier_validation_feedback": 4,
+    "handshake_speculation_discarded": 4,
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 6,
+    "branch_context_compiled": 6,
+    "fork_only_child_envelope": 62,
+    "g1_branch_shell_completed": 31,
+    "e1_problem_stalled": 7,
+    "verified_tool_artifact_recorded": 6,
+    "task_completed": 6,
+    "branch_completed_from_verified_artifact": 6,
+    "branch_result_bound_to_verified_artifact": 6,
+    "parallel_v2_plan_completed": 2,
+    "root_integration_checkpoint_activated": 1,
+    "validation_progress_observed": 4,
+    "e1_problem_resolved": 1,
+    "output_guard_public_check_started": 2,
+    "output_guard_public_check_finished": 2,
+    "selfcheck_serial_started": 1,
+    "visible_contract_completion_deferred": 2,
+    "visible_contract_instruction_deduplicated": 2,
+    "literal_write_preflight_suppressed": 3,
+    "tool_loop_circuit_breaker": 1,
+    "recovery_state_changed": 2,
+    "progress_recovery_requested": 2,
+    "e1_loop_history_compacted": 1,
+    "e1_selfcheck_recovery_requested": 2,
+    "e1_selfcheck_failure_observed": 1,
+    "progress_recovery_action_rejected": 1,
+    "progress_recovery_exhausted": 1,
+    "task_failed": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 5,
+    "parallel_v2_frontier_report_committed": 5
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-05a777a54841",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "engines/ordinary/model.py",
+                "engines/ordinary/transform.py",
+                "engines/ordinary/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "ordinary-engine",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement ordinary_uses: extract Load names from ordinary expressions, excluding annotations/type comments/strings."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "engines/annotations/model.py",
+                "engines/annotations/transform.py",
+                "engines/annotations/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "annotations-engine",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement annotation_uses: extract Load names from AnnAssign and function param/return annotations, reparse forward string annotations."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "engines/comments/model.py",
+                "engines/comments/transform.py",
+                "engines/comments/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "comments-engine",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement type_comment_uses: extract Load names from Assign # type: expressions, reject function-signature/for/with type comments."
+          }
+        ]
+      },
+      "reason": "Three independent component implementations with disjoint file ownership and materialized inputs are ready now."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-d66ba95a5cef",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "engines/analysis/model.py",
+                "engines/analysis/transform.py",
+                "engines/analysis/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "analysis-engine",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement import_usage_join: resolve absolute imports, bindings, shadowing, and used_by/unused from the three use lists."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "run-all",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement run_all.py: locate workspace, run each component render in dependency order, then integrate.py."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "final-report",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement final_report.py: read core manifest and write title, component_count, sha256, attention."
+          }
+        ]
+      },
+      "reason": "Three independent units with disjoint writes: analysis engine, run_all orchestration, and final_report."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 26.629527,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 3879482,
+    "completion_tokens": 48613,
+    "total_tokens": 3928095,
+    "prompt_cache_hit_tokens": 3603840,
+    "prompt_cache_miss_tokens": 275642,
+    "input_tokens": 3879482,
+    "output_tokens": 48613
+  },
+  "model_timing": {
+    "turn_count": 99,
+    "request_seconds_sum": 452.5903162956238,
+    "request_wall_union_seconds": 325.5706293582916
+  },
+  "overlap": {
+    "child_model_turns": 62,
+    "overlap_pair_count": 86,
+    "max_model_request_overlap_seconds": 6.303331613540649,
+    "pairs": [
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 3.6197800636291504
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 3.6239099502563477
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 3.6980557441711426
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 0.06094479560852051
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.6562793254852295
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 0.7355372905731201
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 4.6747729778289795
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 3.9980480670928955
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 4.286050796508789
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.2719688415527344
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 2.166590690612793
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 1.8741035461425781
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 2.5336146354675293
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 0.6423766613006592
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.47681450843811035
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.1369493007659912
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.591433048248291
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 1.0939671993255615
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.4644808769226074
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 1.8867082595825195
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 2.3710596561431885
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.8905107975006104
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.6933629512786865
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 2.9586944580078125
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.9958133697509766
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 1.2845942974090576
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 1.4075212478637695
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 3.3438117504119873
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 3.229691505432129
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 3.702500820159912
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 0.09685564041137695
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 2.533339500427246
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 3.0043771266937256
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 4.5081517696380615
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 1.9551136493682861
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 2.009685754776001
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 2.4807686805725098
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 2.3999974727630615
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 2.5416147708892822
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.6202101707458496
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 0.9281938076019287
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 1.730971097946167
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 2.6745963096618652
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 2.7101311683654785
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.5689733028411865
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 0.355396032333374
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 1.288156509399414
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 4.690962076187134
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 3.9158878326416016
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 1.8086836338043213
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.8086836338043213
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 0.16382908821105957
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 6.303331613540649
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 1.7711412906646729
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.9514873027801514
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.875309944152832
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "seconds": 0.5076284408569336
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.3087341785430908
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.1927757263183594
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-2/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 1.5204370021820068
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 4.18025803565979
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 2.9621622562408447
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 2.1323037147521973
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 1.6660571098327637
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "seconds": 0.20490336418151855
+      },
+      {
+        "a": "root/plan-002-259bd9d8/v2-05a777a54841-0/attempt-1",
+        "b": "root/plan-002-259bd9d8/v2-05a777a54841-1/attempt-1",
+        "seconds": 0.9702551364898682
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "seconds": 1.9064900875091553
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 1.9064900875091553
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 2.4024288654327393
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "seconds": 0.4591803550720215
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "seconds": 1.4031763076782227
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "seconds": 0.921210527420044
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 2.596600294113159
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "seconds": 3.5533387660980225
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "seconds": 4.699825286865234
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "seconds": 2.0850186347961426
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "seconds": 3.015005111694336
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 0.9118952751159668
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "seconds": 0.36313939094543457
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 1.2922024726867676
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "seconds": 2.9286441802978516
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 3.6888203620910645
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-2/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 3.0593838691711426
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 1.309058666229248
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 4.255693197250366
+      },
+      {
+        "a": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+        "b": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-0/attempt-1",
+        "seconds": 1.4017844200134277
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 106,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

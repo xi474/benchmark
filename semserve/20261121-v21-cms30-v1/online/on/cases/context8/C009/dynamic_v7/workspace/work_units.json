@@ -1,0 +1,42 @@
+{
+  "task": "C009",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "visible_events",
+      "implementation": "components/visible_events/work.py",
+      "read_fields": [
+        "events"
+      ],
+      "input": "components/visible_events/input.json",
+      "public_expected": "components/visible_events/expected.json",
+      "output": "components/visible_events/result.json",
+      "run": "python -B components/visible_events/run.py",
+      "check": "python -B components/visible_events/check.py",
+      "contract": "返回按可见时刻及事件 ID 排序的业务事件。"
+    },
+    {
+      "name": "crew_compatibility",
+      "implementation": "components/crew_compatibility/work.py",
+      "read_fields": [
+        "vehicles",
+        "drivers"
+      ],
+      "input": "components/crew_compatibility/input.json",
+      "public_expected": "components/crew_compatibility/expected.json",
+      "output": "components/crew_compatibility/result.json",
+      "run": "python -B components/crew_compatibility/run.py",
+      "check": "python -B components/crew_compatibility/check.py",
+      "contract": "返回每辆车可使用的司机 ID 数组，保留司机声明顺序。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/visible_events/result.json",
+      "components/crew_compatibility/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

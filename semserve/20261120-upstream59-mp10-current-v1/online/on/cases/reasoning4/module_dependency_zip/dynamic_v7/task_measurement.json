@@ -1,0 +1,925 @@
+{
+  "task_id": "MP19",
+  "entry_id": "reasoning4/module_dependency_zip",
+  "title": "Python 支持模块发现与可重复 ZIP 载荷",
+  "dataset": "medium26",
+  "arm": "on",
+  "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\reasoning4\\module_dependency_zip\\dynamic_v7",
+  "actor_state": "completed",
+  "grade": {
+    "public_pass": true,
+    "strict_pass": false,
+    "official": {
+      "status": "failed",
+      "reason": "held-out API mismatch: engines/scanner invalid-business-field"
+    },
+    "public_replay": {
+      "public_pass": true,
+      "returncode": 0
+    },
+    "core_transform_passed": 18,
+    "core_transform_total": 19,
+    "api_unexecuted": 0,
+    "api_components": {
+      "engines/scanner": {
+        "state": "evaluated",
+        "api_total": 7,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": [
+          "invalid-business-field"
+        ]
+      },
+      "engines/dependencies": {
+        "state": "evaluated",
+        "api_total": 6,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": []
+      },
+      "engines/payload": {
+        "state": "evaluated",
+        "api_total": 6,
+        "api_passed": 6,
+        "api_unexecuted": 0,
+        "loader_render_total": 9,
+        "loader_render_passed": 9,
+        "loader_render_unexecuted": 0,
+        "failed_vectors": []
+      }
+    }
+  },
+  "metrics": {
+    "live_public": true,
+    "runtime_error": null,
+    "e2e_seconds": 365.6574971675873,
+    "completion_inclusive_seconds": 365.657675176559,
+    "confirmed_parallel_wall_seconds": 100.0183470249176,
+    "case": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-mp10-current-v1\\online\\on\\cases\\reasoning4\\module_dependency_zip\\dynamic_v7",
+    "public_passed": true,
+    "external_status": "failed",
+    "child_failure_events": 0,
+    "ownership_error_events": 2,
+    "real_child_parallel": true,
+    "offer_driven_parallel": true,
+    "autonomous_parallel": true,
+    "unknown_source_parallel": false,
+    "child_count": 5,
+    "offer_accepted": 1,
+    "offer_declined": 0,
+    "predictor_count": 3,
+    "waves": [
+      {
+        "plan_id": "plan-001-68cf8a80",
+        "source": "autonomous",
+        "children": [
+          {
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "start": 1795174915.621246,
+            "end": 1795175031.4446108,
+            "status": "succeeded",
+            "task_id": "child_task-000246"
+          },
+          {
+            "scope": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+            "start": 1795174915.6221418,
+            "end": 1795175012.5684338,
+            "status": "succeeded",
+            "task_id": "child_task-000250"
+          },
+          {
+            "scope": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+            "start": 1795174915.6223192,
+            "end": 1795174959.2663915,
+            "status": "succeeded",
+            "task_id": "child_task-000248"
+          }
+        ],
+        "child_count": 3,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 87.78939890861511,
+        "child_lifecycle_union_seconds": 115.82336473464966,
+        "child_lifecycle_duration_sum_seconds": 256.41372895240784,
+        "same_trace_child_lifecycle_overlap_work_seconds": 140.59036421775818,
+        "child_request_union_seconds": 111.70830202102661,
+        "child_request_duration_sum_seconds": 238.9214894771576,
+        "same_trace_child_request_overlap_work_seconds": 127.21318745613098,
+        "join_status": "succeeded"
+      },
+      {
+        "plan_id": "plan-003-3ca4dd8f",
+        "source": "offer",
+        "children": [
+          {
+            "scope": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+            "start": 1795175050.7545946,
+            "end": 1795175071.4407473,
+            "status": "succeeded",
+            "task_id": "child_task-001167"
+          },
+          {
+            "scope": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+            "start": 1795175050.7762907,
+            "end": 1795175063.61285,
+            "status": "succeeded",
+            "task_id": "child_task-001179"
+          }
+        ],
+        "child_count": 2,
+        "unfinished_children": 0,
+        "real_child_parallel": true,
+        "confirmed_parallel_wall_seconds": 12.22894811630249,
+        "child_lifecycle_union_seconds": 20.686152696609497,
+        "child_lifecycle_duration_sum_seconds": 33.522711992263794,
+        "same_trace_child_lifecycle_overlap_work_seconds": 12.836559295654297,
+        "child_request_union_seconds": 19.323049783706665,
+        "child_request_duration_sum_seconds": 31.551997900009155,
+        "same_trace_child_request_overlap_work_seconds": 12.22894811630249,
+        "join_status": "succeeded"
+      }
+    ],
+    "subtask_joins": {
+      "plan-001-68cf8a80": "succeeded",
+      "plan-003-3ca4dd8f": "succeeded"
+    },
+    "deepseek_handshake": {
+      "physical_requests": 5,
+      "requests_with_usage": 5,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 5,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 81648,
+      "output_tokens": 2993,
+      "cache_hit_tokens": 30976,
+      "cache_miss_tokens": 50672,
+      "input_cost_usd": 0.034124992,
+      "output_cost_usd": 0.00592614,
+      "cost_usd": 0.040051131999999996,
+      "input_cost_cny": 0.2326704,
+      "output_cost_cny": 0.0404055,
+      "cost_cny": 0.27307590000000004,
+      "issue_counts": {
+        "holiday_calendar_unverified": 5
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.37938467568097195,
+      "usd_estimate_including_unpartitioned_input": 0.040051132,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.040051132
+    },
+    "deepseek_total": {
+      "physical_requests": 107,
+      "requests_with_usage": 107,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 107,
+      "requests_cache_partition_unknown": 0,
+      "input_tokens": 3787867,
+      "output_tokens": 46376,
+      "cache_hit_tokens": 3547904,
+      "cache_miss_tokens": 239963,
+      "input_cost_usd": 0.23642946799999992,
+      "output_cost_usd": 0.09182448000000001,
+      "cost_usd": 0.3282539480000001,
+      "input_cost_cny": 1.6120190999999995,
+      "output_cost_cny": 0.6260759999999999,
+      "cost_cny": 2.238095099999999,
+      "issue_counts": {
+        "holiday_calendar_unverified": 107
+      },
+      "costs_are_complete": true,
+      "cache_hit_rate_known_partition_only": 0.9366495708534645,
+      "usd_estimate_including_unpartitioned_input": 0.32825394799999996,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.3282539479999998
+    },
+    "external_api_total": {
+      "physical_requests": 111,
+      "requests_with_usage": 111,
+      "requests_missing_usage": 0,
+      "requests_cache_partition_known": 107,
+      "requests_cache_partition_unknown": 4,
+      "input_tokens": 3808482,
+      "output_tokens": 47114,
+      "cache_hit_tokens": 3547904,
+      "cache_miss_tokens": 239963,
+      "input_cost_usd": 0.23642946799999992,
+      "output_cost_usd": 0.09211968,
+      "cost_usd": 0.3282539480000001,
+      "input_cost_cny": 1.6120190999999995,
+      "output_cost_cny": 0.6260759999999999,
+      "cost_cny": 2.238095099999999,
+      "input_estimate_without_cache_partition_usd": 0.0020615000000000004,
+      "input_tokens_cache_partition_unknown": 20615,
+      "issue_counts": {
+        "holiday_calendar_unverified": 107,
+        "cache_partition_unreported_standard_input_estimate_only": 4
+      },
+      "costs_are_complete": false,
+      "cache_hit_rate_known_partition_only": 0.9366495708534645,
+      "usd_estimate_including_unpartitioned_input": 0.3306106479999999,
+      "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+      "usd_estimate_normalized_deepseek_off_peak": 0.33061064799999973
+    },
+    "wire_missing_receipt_ids": [],
+    "handshakes": [
+      {
+        "step": 2,
+        "turn_start": 1795174878.089631,
+        "turn_end": 1795174883.9248686,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "scanner-impl",
+            "kind": "component-implementation",
+            "surface": "scanner",
+            "goal": "Implement engines/scanner model.py, transform.py, render.py for module_import_scan",
+            "needs": [],
+            "read_set": [
+              "engines/scanner/contract.json",
+              "engines/scanner/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/scanner/model.py",
+              "engines/scanner/transform.py",
+              "engines/scanner/render.py"
+            ],
+            "focused_check": "python3 engines/scanner/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/scanner/model.py",
+                "engines/scanner/transform.py",
+                "engines/scanner/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          },
+          {
+            "work_unit_id": "dependencies-impl",
+            "kind": "component-implementation",
+            "surface": "dependencies",
+            "goal": "Implement engines/dependencies model.py, transform.py, render.py for module_dependency_closure",
+            "needs": [],
+            "read_set": [
+              "engines/dependencies/contract.json",
+              "engines/dependencies/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/dependencies/model.py",
+              "engines/dependencies/transform.py",
+              "engines/dependencies/render.py"
+            ],
+            "focused_check": "python3 engines/dependencies/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dependencies/model.py",
+                "engines/dependencies/transform.py",
+                "engines/dependencies/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          },
+          {
+            "work_unit_id": "payload-impl",
+            "kind": "component-implementation",
+            "surface": "payload",
+            "goal": "Implement engines/payload model.py, transform.py, render.py for module_zip",
+            "needs": [],
+            "read_set": [
+              "engines/payload/contract.json",
+              "engines/payload/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/payload/model.py",
+              "engines/payload/transform.py",
+              "engines/payload/render.py"
+            ],
+            "focused_check": "python3 engines/payload/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/payload/model.py",
+                "engines/payload/transform.py",
+                "engines/payload/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 1,
+            "frontier_version": "fc43a157e063f0735addacdd03050f1ec346c2c64227908a9d7299b474a8a3d0",
+            "safe_width": 0,
+            "fact_digest": "75543c4a5292c97eb0d77e6c3da17983188bbffaf7a2d8d3cfda4aae2b66f6cd"
+          }
+        ],
+        "physical_request_ids": [
+          "7a17f8fe522440349d05a5c217ffd029"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 7744,
+          "output_tokens": 731,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 7744,
+          "input_cost_usd": 0.00511104,
+          "output_cost_usd": 0.0014473799999999998,
+          "cost_usd": 0.00655842,
+          "input_cost_cny": 0.034848,
+          "output_cost_cny": 0.0098685,
+          "cost_cny": 0.0447165,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.00655842,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.00655842
+        }
+      },
+      {
+        "step": 4,
+        "turn_start": 1795174885.4814103,
+        "turn_end": 1795174890.4411874,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "scanner-impl",
+            "kind": "component-implementation",
+            "surface": "scanner",
+            "goal": "Implement module_import_scan in engines/scanner model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/scanner/contract.json",
+              "engines/scanner/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/scanner/model.py",
+              "engines/scanner/transform.py",
+              "engines/scanner/render.py"
+            ],
+            "focused_check": "python3 engines/scanner/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/scanner/model.py",
+                "engines/scanner/transform.py",
+                "engines/scanner/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          },
+          {
+            "work_unit_id": "dependencies-impl",
+            "kind": "component-implementation",
+            "surface": "dependencies",
+            "goal": "Implement module_dependency_closure in engines/dependencies model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/dependencies/contract.json",
+              "engines/dependencies/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/dependencies/model.py",
+              "engines/dependencies/transform.py",
+              "engines/dependencies/render.py"
+            ],
+            "focused_check": "python3 engines/dependencies/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dependencies/model.py",
+                "engines/dependencies/transform.py",
+                "engines/dependencies/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          },
+          {
+            "work_unit_id": "payload-impl",
+            "kind": "component-implementation",
+            "surface": "payload",
+            "goal": "Implement module_zip in engines/payload model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/payload/contract.json",
+              "engines/payload/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/payload/model.py",
+              "engines/payload/transform.py",
+              "engines/payload/render.py"
+            ],
+            "focused_check": "python3 engines/payload/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/payload/model.py",
+                "engines/payload/transform.py",
+                "engines/payload/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 2,
+            "frontier_version": "fef3fd0ca1c07d724608b5a4a131cf05a73fa5369093132d970fe532485fc2b5",
+            "safe_width": 0,
+            "fact_digest": "6705224cbd09329bc9a092f8da191e5a0dbfee59fee5b7415a12e075638b3114"
+          }
+        ],
+        "physical_request_ids": [
+          "6349559d641449298d3770eb7455956e"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 11200,
+          "output_tokens": 722,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 11200,
+          "input_cost_usd": 0.007392,
+          "output_cost_usd": 0.0014295599999999999,
+          "cost_usd": 0.008821559999999999,
+          "input_cost_cny": 0.0504,
+          "output_cost_cny": 0.009747,
+          "cost_cny": 0.060147,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.0,
+          "usd_estimate_including_unpartitioned_input": 0.008821559999999999,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.008821559999999999
+        }
+      },
+      {
+        "step": 6,
+        "turn_start": 1795174892.8921697,
+        "turn_end": 1795174896.2661934,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "inspect",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "scanner-impl",
+            "kind": "component-implementation",
+            "surface": "scanner",
+            "goal": "Implement module_import_scan in engines/scanner model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/scanner/contract.json",
+              "engines/scanner/check_module.py",
+              "README.md"
+            ],
+            "write_set": [
+              "engines/scanner/model.py",
+              "engines/scanner/transform.py",
+              "engines/scanner/render.py"
+            ],
+            "focused_check": "python3 engines/scanner/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/scanner/model.py",
+                "engines/scanner/transform.py",
+                "engines/scanner/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 3,
+            "frontier_version": "b37d40dc2f4b9338157d2d741655a97dfc6457e49628b06f359690b780003d20",
+            "safe_width": 1,
+            "fact_digest": "e9f1a6196d459aa2eb09f14d43553201c7265a08dd712a6399cf132b095b79bc"
+          }
+        ],
+        "physical_request_ids": [
+          "6fa69c0202564595a4f8446cef67fe9c"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 14293,
+          "output_tokens": 350,
+          "cache_hit_tokens": 6912,
+          "cache_miss_tokens": 7381,
+          "input_cost_usd": 0.0050235240000000006,
+          "output_cost_usd": 0.000693,
+          "cost_usd": 0.005716524000000001,
+          "input_cost_cny": 0.034251300000000005,
+          "output_cost_cny": 0.004725,
+          "cost_cny": 0.038976300000000005,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.48359336738263486,
+          "usd_estimate_including_unpartitioned_input": 0.005716524000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.005716524000000001
+        }
+      },
+      {
+        "step": 8,
+        "turn_start": 1795174900.3542309,
+        "turn_end": 1795174906.6482613,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "scanner-impl",
+            "kind": "component-implementation",
+            "surface": "scanner",
+            "goal": "Implement module_import_scan in engines/scanner model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/scanner/contract.json",
+              "engines/scanner/check_module.py",
+              "README.md",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/scanner/model.py",
+              "engines/scanner/transform.py",
+              "engines/scanner/render.py"
+            ],
+            "focused_check": "python3 engines/scanner/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/scanner/model.py",
+                "engines/scanner/transform.py",
+                "engines/scanner/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          },
+          {
+            "work_unit_id": "dependencies-impl",
+            "kind": "component-implementation",
+            "surface": "dependencies",
+            "goal": "Implement module_dependency_closure in engines/dependencies model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/dependencies/contract.json",
+              "engines/dependencies/check_module.py",
+              "README.md",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/dependencies/model.py",
+              "engines/dependencies/transform.py",
+              "engines/dependencies/render.py"
+            ],
+            "focused_check": "python3 engines/dependencies/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/dependencies/model.py",
+                "engines/dependencies/transform.py",
+                "engines/dependencies/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          },
+          {
+            "work_unit_id": "payload-impl",
+            "kind": "component-implementation",
+            "surface": "payload",
+            "goal": "Implement module_zip in engines/payload model/transform/render",
+            "needs": [],
+            "read_set": [
+              "engines/payload/contract.json",
+              "engines/payload/check_module.py",
+              "README.md",
+              "inputs/case.json"
+            ],
+            "write_set": [
+              "engines/payload/model.py",
+              "engines/payload/transform.py",
+              "engines/payload/render.py"
+            ],
+            "focused_check": "python3 engines/payload/check_module.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "engines/payload/model.py",
+                "engines/payload/transform.py",
+                "engines/payload/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "hard",
+            "difficulty": "high",
+            "length": "long"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 4,
+            "frontier_version": "199beb7d28ddfa24de2151d82bbe103db9bb7b0aa023c9eb4f2d6c798b109fb0",
+            "safe_width": 3,
+            "fact_digest": "3e279636d1106ef8748118c9c8c2475858e18d638f450796a2345f4e70dcdfb6"
+          }
+        ],
+        "physical_request_ids": [
+          "74e187e375464c8bb19de03991636e82"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 19867,
+          "output_tokens": 739,
+          "cache_hit_tokens": 10496,
+          "cache_miss_tokens": 9371,
+          "input_cost_usd": 0.006415772000000001,
+          "output_cost_usd": 0.00146322,
+          "cost_usd": 0.007878992000000001,
+          "input_cost_cny": 0.0437439,
+          "output_cost_cny": 0.0099765,
+          "cost_cny": 0.0537204,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.5283132833341723,
+          "usd_estimate_including_unpartitioned_input": 0.007878992000000001,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.007878992000000001
+        }
+      },
+      {
+        "step": 10,
+        "turn_start": 1795175031.469285,
+        "turn_end": 1795175036.8459885,
+        "representation": "summary_plus_verified_state_and_delta",
+        "state_packet_field_order": [
+          "base",
+          "deltas",
+          "c4_advisory",
+          "control",
+          "latest_report_request"
+        ],
+        "memo_generation": null,
+        "memo_first_use": false,
+        "memo_refresh": false,
+        "memo_covered_step": null,
+        "raw_report_phase": "implement",
+        "raw_ready_upsert": [
+          {
+            "work_unit_id": "run-all-orchestration",
+            "kind": "orchestration",
+            "surface": "run_all",
+            "goal": "Implement run_all.py to locate workspace and execute all component render.py in dependency order",
+            "needs": [],
+            "read_set": [
+              "run_all.py",
+              "integrate.py",
+              "engines/scanner/contract.json",
+              "engines/dependencies/contract.json",
+              "engines/payload/contract.json"
+            ],
+            "write_set": [
+              "run_all.py"
+            ],
+            "focused_check": "python3 run_all.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "medium",
+            "difficulty": "medium",
+            "length": "medium"
+          },
+          {
+            "work_unit_id": "final-report",
+            "kind": "reporting",
+            "surface": "final_report",
+            "goal": "Implement final_report.py to read core manifest and write final_report.json with title, count, sha256, attention",
+            "needs": [],
+            "read_set": [
+              "final_report.py",
+              "integrate.py",
+              "README.md"
+            ],
+            "write_set": [
+              "final_report.py"
+            ],
+            "focused_check": "python3 final_report.py",
+            "completion_contract": {
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "workload_hint": "easy",
+            "difficulty": "low",
+            "length": "short"
+          }
+        ],
+        "raw_ready_remove": [],
+        "runtime_report_commits": [
+          {
+            "generation": 5,
+            "frontier_version": "6607037c0097ac1c21ce95ac208afda88a75e861ae4acfa4f9965289d44700df",
+            "safe_width": 2,
+            "fact_digest": "30390d99c53722cb1429f90d4224f0534b191896a6fdffdcbc4c510b069988a5"
+          }
+        ],
+        "physical_request_ids": [
+          "753fd89c99134d41b6c444a5e18a56ad"
+        ],
+        "metering": {
+          "physical_requests": 1,
+          "requests_with_usage": 1,
+          "requests_missing_usage": 0,
+          "requests_cache_partition_known": 1,
+          "requests_cache_partition_unknown": 0,
+          "input_tokens": 28544,
+          "output_tokens": 451,
+          "cache_hit_tokens": 13568,
+          "cache_miss_tokens": 14976,
+          "input_cost_usd": 0.010182655999999998,
+          "output_cost_usd": 0.00089298,
+          "cost_usd": 0.011075635999999998,
+          "input_cost_cny": 0.0694272,
+          "output_cost_cny": 0.0060885,
+          "cost_cny": 0.07551569999999999,
+          "issue_counts": {
+            "holiday_calendar_unverified": 1
+          },
+          "costs_are_complete": true,
+          "cache_hit_rate_known_partition_only": 0.47533632286995514,
+          "usd_estimate_including_unpartitioned_input": 0.011075635999999998,
+          "estimate_excludes_usage_missing_and_unconfigured_prices": true,
+          "usd_estimate_normalized_deepseek_off_peak": 0.011075635999999998
+        }
+      }
+    ],
+    "first_deepseek_root_request": {
+      "input_tokens": 5447,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 5447,
+      "http_status": 200
+    },
+    "first_handshake_request": {
+      "input_tokens": 7744,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 7744,
+      "http_status": 200
+    }
+  },
+  "protocol": {
+    "mode_receipts": [
+      {
+        "enabled": true,
+        "controller": "active",
+        "allow_subtasks": true,
+        "allow_initial_subtasks": true,
+        "allow_recovery_subtasks": true,
+        "allowed_tools": [
+          "choose_execution_mode_v2",
+          "deliver_files",
+          "deliver_frontier_report",
+          "list_files",
+          "read_file",
+          "report_frontier_state",
+          "search_text",
+          "shell",
+          "spawn_subtasks",
+          "write_file",
+          "write_file_chunk"
+        ],
+        "_line": 1
+      }
+    ],
+    "mode_matches_arm": true,
+    "scheduled_handshakes": 5,
+    "accepted_offers": 0,
+    "selfcheck_entered": true,
+    "selfcheck_completed": true
+  },
+  "cold_namespace": {
+    "state": "verified_cold",
+    "prefix_sha256": "cb874b470491905c7e0620bafcfa83f61d46b6399cae556dd929b6fe0b016513",
+    "wire_audit_complete": true,
+    "deepseek_request_count": 107,
+    "first_prompt_cache_hit_tokens": 0,
+    "first_prompt_cache_miss_tokens": 5447,
+    "receipt_present": true,
+    "reconciled_with_wire_audit": true,
+    "matches_runner_status": true
+  },
+  "wire_audit": {
+    "deepseek_requests": 107,
+    "thinking": "disabled",
+    "reasoning_effort": null
+  },
+  "scoring_error": null,
+  "metrics_error": null,
+  "protocol_error": null
+}

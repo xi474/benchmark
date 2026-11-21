@@ -1,0 +1,29 @@
+{
+  "name": "scanner",
+  "result": {
+    "imports": {
+      "main.py": [
+        "pkg.a"
+      ],
+      "pkg/__init__.py": [
+        "pkg.b"
+      ],
+      "pkg/a.py": [
+        "pkg.b",
+        "six.moves.urllib.parse"
+      ],
+      "pkg/b.py": [
+        "json",
+        "pkg.a"
+      ],
+      "unused.py": []
+    },
+    "module_paths": {
+      "main": "main.py",
+      "pkg": "pkg/__init__.py",
+      "pkg.a": "pkg/a.py",
+      "pkg.b": "pkg/b.py",
+      "unused": "unused.py"
+    }
+  }
+}

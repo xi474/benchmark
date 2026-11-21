@@ -1,0 +1,706 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "context8",
+  "case": "MP01",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/context8/MP01",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "d0bb5e71979ec5df38372e3ad6e5445bedfd496e171f1ec97f38cc9161e4d691",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 510.41985034942627,
+  "background_summary_drain_seconds": 0.00012888700007351872,
+  "background_speculative_drain_seconds": 9.655952453613281e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 6,
+      "committed": 1,
+      "discarded": 5,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 119652,
+        "completion_tokens": 1284,
+        "total_tokens": 120936,
+        "prompt_cache_hit_tokens": 93184,
+        "prompt_cache_miss_tokens": 26468,
+        "input_tokens": 119652,
+        "output_tokens": 1284
+      },
+      "usage_discarded": {
+        "prompt_tokens": 113623,
+        "completion_tokens": 1225,
+        "total_tokens": 114848,
+        "prompt_cache_hit_tokens": 87680,
+        "prompt_cache_miss_tokens": 25943,
+        "input_tokens": 113623,
+        "output_tokens": 1225
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 510.4200757959509,
+  "runtime_error": {
+    "type": "SelfcheckDeadlineExceeded",
+    "detail": "selfcheck_budget_exhausted: self-check incomplete; public pass remains separate"
+  },
+  "workspace_progress_observation": [
+    {
+      "seconds": 2.3965851970008885,
+      "scans": 1169,
+      "epoch": 28
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": true,
+    "returncode": 0,
+    "stdout": "MODULE_OK fit\nMODULE_OK soft\nMODULE_OK hard\nMODULE_OK comparison\nLOCAL_CHECKS_PASSED; external verifier determines official correctness\n",
+    "stderr": ""
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "domains/fit/check_module.py": true,
+    "domains/fit/contract.json": true,
+    "domains/fit/model.py": false,
+    "domains/fit/render.py": false,
+    "domains/fit/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true,
+    "views/comparison/check_module.py": true,
+    "views/comparison/contract.json": true,
+    "views/comparison/model.py": false,
+    "views/comparison/render.py": false,
+    "views/comparison/transform.py": false,
+    "views/hard/check_module.py": true,
+    "views/hard/contract.json": true,
+    "views/hard/model.py": false,
+    "views/hard/render.py": false,
+    "views/hard/transform.py": false,
+    "views/soft/check_module.py": true,
+    "views/soft/contract.json": true,
+    "views/soft/model.py": false,
+    "views/soft/render.py": false,
+    "views/soft/transform.py": false
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 533,
+    "dag_node_transition": 1594,
+    "task_started": 7,
+    "execution_state_observed": 242,
+    "parallel_v2_request_boundary": 27,
+    "parallel_v2_frontier_filtered": 6,
+    "fork_only_parent_passthrough": 123,
+    "dag_edge_added": 563,
+    "model_request": 164,
+    "model_response": 163,
+    "tool_result": 174,
+    "validation_progress_guard_cost": 155,
+    "repeated_business_output_observed": 152,
+    "parallel_v2_frontier_handshake_scheduled": 6,
+    "parallel_v2_generic_evidence_boundary": 133,
+    "handshake_speculation_started": 6,
+    "report_authorization_granted": 6,
+    "handshake_speculation_response": 6,
+    "parallel_v2_frontier_report_committed": 6,
+    "handshake_speculation_authorized": 1,
+    "handshake_speculation_committed": 1,
+    "g1_early_semantic_review_injected": 1,
+    "parallel_v2_frontier_validation_feedback": 5,
+    "handshake_speculation_discarded": 5,
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 6,
+    "branch_context_compiled": 6,
+    "fork_only_child_envelope": 41,
+    "g1_branch_shell_completed": 19,
+    "e1_problem_resolved": 2,
+    "verified_tool_artifact_recorded": 6,
+    "task_completed": 6,
+    "branch_completed_from_verified_artifact": 6,
+    "branch_result_bound_to_verified_artifact": 6,
+    "parallel_v2_plan_completed": 2,
+    "root_integration_checkpoint_activated": 1,
+    "parallel_v2_post_join_watch_armed": 1,
+    "validation_progress_observed": 3,
+    "e1_problem_stalled": 4,
+    "output_guard_public_check_started": 3,
+    "output_guard_public_check_finished": 3,
+    "selfcheck_serial_started": 1,
+    "visible_contract_completion_deferred": 3,
+    "visible_contract_instruction_deduplicated": 3,
+    "cross_operation_loop_detected": 2,
+    "recovery_state_changed": 5,
+    "progress_recovery_requested": 3,
+    "e1_loop_history_compacted": 2,
+    "e1_selfcheck_recovery_requested": 3,
+    "e1_selfcheck_failure_observed": 2,
+    "progress_recovery_resolved": 2,
+    "selfcheck_budget_exhausted": 1,
+    "task_failed": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 6,
+    "parallel_v2_frontier_report_committed": 6
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-f4b884c757d4",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "domains/fit/model.py",
+                "domains/fit/transform.py",
+                "domains/fit/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "fit-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement fit_members model/transform/render per contract and inputs, then run its local check."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/hard/model.py",
+                "views/hard/transform.py",
+                "views/hard/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "hard-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement hard_vote model/transform/render per contract, then run its local check."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/soft/model.py",
+                "views/soft/transform.py",
+                "views/soft/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "soft-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement soft_vote model/transform/render per contract, then run its local check."
+          }
+        ]
+      },
+      "reason": "Three independent component implementations with disjoint file ownership and materialized inputs are ready now."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-64c33e9ccec9",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "views/comparison/model.py",
+                "views/comparison/transform.py",
+                "views/comparison/render.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "comparison-component",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement vote_comparison model/transform/render per contract, then run its local check."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "run-all",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement run_all.py orchestration from file contracts, then run check.py."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "final-report",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement final_report.py reading core manifest, then run check.py."
+          }
+        ]
+      },
+      "reason": "Three independent root-owned artifacts with disjoint writes are ready now."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 20.215899,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 8673132,
+    "completion_tokens": 43052,
+    "total_tokens": 8716184,
+    "prompt_cache_hit_tokens": 7814144,
+    "prompt_cache_miss_tokens": 858988,
+    "input_tokens": 8673132,
+    "output_tokens": 43052
+  },
+  "model_timing": {
+    "turn_count": 163,
+    "request_seconds_sum": 540.8906192779541,
+    "request_wall_union_seconds": 453.7021131515503
+  },
+  "overlap": {
+    "child_model_turns": 41,
+    "overlap_pair_count": 57,
+    "max_model_request_overlap_seconds": 5.6477131843566895,
+    "pairs": [
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 1.7959794998168945
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 1.8002641201019287
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 3.422966480255127
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.3327043056488037
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.4003562927246094
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 1.979222059249878
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 2.1349527835845947
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 2.224754810333252
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 4.22210693359375
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 5.414907932281494
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 3.1713039875030518
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.090467929840088
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 4.280219316482544
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 2.064527988433838
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 3.175203800201416
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 3.3481714725494385
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.2650253772735596
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 0.1393129825592041
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.4227581024169922
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 1.3525476455688477
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.5129754543304443
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 1.7541584968566895
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 3.491609573364258
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 3.872405529022217
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 2.0962462425231934
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 0.5815134048461914
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 2.694019317626953
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 0.5336971282958984
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 1.5525791645050049
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 3.6627540588378906
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 2.808422088623047
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 2.287900924682617
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 2.287900924682617
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 5.6477131843566895
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 0.1181635856628418
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 1.5758049488067627
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 1.0114614963531494
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "seconds": 1.1285500526428223
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 2.5539743900299072
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "seconds": 0.06585168838500977
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-0/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 1.2137253284454346
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 2.043240547180176
+      },
+      {
+        "a": "root/plan-002-fb9dc563/v2-f4b884c757d4-1/attempt-1",
+        "b": "root/plan-002-fb9dc563/v2-f4b884c757d4-2/attempt-1",
+        "seconds": 2.0227713584899902
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "seconds": 4.175626277923584
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "seconds": 4.175626277923584
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "seconds": 5.420718431472778
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "seconds": 1.2132513523101807
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "seconds": 1.539635181427002
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "seconds": 2.775996446609497
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "seconds": 3.6280388832092285
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "seconds": 2.0520176887512207
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "seconds": 2.1906323432922363
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "seconds": 0.6637849807739258
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "seconds": 0.58087158203125
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "seconds": 0.4918034076690674
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-2/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "seconds": 1.5196707248687744
+      },
+      {
+        "a": "root/plan-003-17fb1b03/v2-64c33e9ccec9-0/attempt-1",
+        "b": "root/plan-003-17fb1b03/v2-64c33e9ccec9-1/attempt-1",
+        "seconds": 2.060657024383545
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 169,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

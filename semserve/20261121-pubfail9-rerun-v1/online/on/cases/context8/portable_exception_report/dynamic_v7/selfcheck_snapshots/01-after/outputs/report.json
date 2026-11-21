@@ -1,0 +1,40 @@
+{
+  "name": "report",
+  "result": {
+    "nodes": [
+      {
+        "frames": [
+          {
+            "file": "module.py",
+            "function": "lookup",
+            "line": 3,
+            "locals": {
+              "key": "\"x\""
+            }
+          }
+        ],
+        "id": "inner",
+        "link": null,
+        "message": "key47",
+        "type": "KeyError"
+      },
+      {
+        "frames": [
+          {
+            "file": "app.py",
+            "function": "run",
+            "line": 8,
+            "locals": {
+              "data": "[1,true,null]"
+            }
+          }
+        ],
+        "id": "outer",
+        "link": "cause",
+        "message": "failed",
+        "type": "RuntimeError"
+      }
+    ],
+    "text": "  module.py:3 in lookup\nKeyError: key47\n--- direct cause ---\n  app.py:8 in run\nRuntimeError: failed\n"
+  }
+}

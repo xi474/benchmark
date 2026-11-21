@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    {
+      "cause": null,
+      "context": null,
+      "frames": [
+        {
+          "file": "C:\\user\\module.py",
+          "function": "lookup",
+          "line": 3,
+          "locals": {
+            "key": "x"
+          }
+        }
+      ],
+      "id": "inner",
+      "message": "key47",
+      "suppress_context": false,
+      "type": "KeyError"
+    },
+    {
+      "cause": null,
+      "context": null,
+      "frames": [],
+      "id": "hidden",
+      "message": "ignored",
+      "suppress_context": false,
+      "type": "ValueError"
+    },
+    {
+      "cause": "inner",
+      "context": "hidden",
+      "frames": [
+        {
+          "file": "/tmp/app.py",
+          "function": "run",
+          "line": 8,
+          "locals": {
+            "data": [
+              1,
+              true,
+              null
+            ]
+          }
+        }
+      ],
+      "id": "outer",
+      "message": "failed",
+      "suppress_context": false,
+      "type": "RuntimeError"
+    }
+  ],
+  "root": "outer"
+}

@@ -1,0 +1,42 @@
+{
+  "nodes": {
+    "root": {
+      "files": {
+        "old": "1"
+      },
+      "dirs": {
+        "d": "disk",
+        "mirror": "disk"
+      },
+      "ignore": []
+    },
+    "disk": {
+      "files": {
+        "intro": "2",
+        "end": "3"
+      },
+      "dirs": {},
+      "ignore": []
+    }
+  },
+  "mounts": {
+    "A": "root",
+    "B": "disk"
+  },
+  "initial": {
+    "A/old": "1",
+    "A/d/intro": "2",
+    "A/d/gone": "4",
+    "A/mirror/intro": "2",
+    "B/intro": "2"
+  },
+  "scans": [
+    {
+      "finish": [
+        "A/d",
+        "B"
+      ],
+      "replace": {}
+    }
+  ]
+}

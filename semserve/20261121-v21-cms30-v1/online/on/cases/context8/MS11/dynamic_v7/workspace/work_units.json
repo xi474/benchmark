@@ -1,0 +1,42 @@
+{
+  "task": "MS11",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "student_scores",
+      "implementation": "components/student_scores/work.py",
+      "read_fields": [
+        "grades"
+      ],
+      "input": "components/student_scores/input.json",
+      "public_expected": "components/student_scores/expected.json",
+      "output": "components/student_scores/result.json",
+      "run": "python -B components/student_scores/run.py",
+      "check": "python -B components/student_scores/check.py",
+      "contract": "按学生 ID 输出课程 1、2 非空成绩的百分制整型均值（sum×100 整除数量）。"
+    },
+    {
+      "name": "buyer_totals",
+      "implementation": "components/buyer_totals/work.py",
+      "read_fields": [
+        "buyers",
+        "orders"
+      ],
+      "input": "components/buyer_totals/input.json",
+      "public_expected": "components/buyer_totals/expected.json",
+      "output": "components/buyer_totals/result.json",
+      "run": "python -B components/buyer_totals/run.py",
+      "check": "python -B components/buyer_totals/check.py",
+      "contract": "按买家 ID 汇总属于 Cameras 或 Electronics 的行金额，每行只计一次；无购买为零。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/student_scores/result.json",
+      "components/buyer_totals/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "task": "C056",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "dependency_waves",
+      "implementation": "components/dependency_waves/work.py",
+      "read_fields": [
+        "tasks"
+      ],
+      "input": "components/dependency_waves/input.json",
+      "public_expected": "components/dependency_waves/expected.json",
+      "output": "components/dependency_waves/result.json",
+      "run": "python -B components/dependency_waves/run.py",
+      "check": "python -B components/dependency_waves/check.py",
+      "contract": "返回各依赖批次，每批含按 ID 升序排列的任务 ID。同批共享同一事实快照。"
+    },
+    {
+      "name": "feed_statistics",
+      "implementation": "components/feed_statistics/work.py",
+      "read_fields": [
+        "feeds"
+      ],
+      "input": "components/feed_statistics/input.json",
+      "public_expected": "components/feed_statistics/expected.json",
+      "output": "components/feed_statistics/result.json",
+      "run": "python -B components/feed_statistics/run.py",
+      "check": "python -B components/feed_statistics/check.py",
+      "contract": "每个 host/stream 返回各次循环读取的 [items,数量,总和] 列表，保持原顺序。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/dependency_waves/result.json",
+      "components/feed_statistics/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/public_check.py\", line 18, in <module>\n    assert equal(transform(p),expected)\n                 ^^^^^^^^^^^^\n  File \"/workspace/component_runtime.py\", line 73, in transform\n    values = [evaluate_unit(name, project(payload, fields)) for name, fields in UNITS.items()]\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/component_runtime.py\", line 47, in evaluate_unit\n    return import_module(\"components.\" + name + \".work\").compute(payload)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/components/user_history/work.py\", line 3, in compute\n    raise NotImplementedError\nNotImplementedError\n"
+}

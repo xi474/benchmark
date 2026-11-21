@@ -1,0 +1,82 @@
+{
+  "components": {
+    "analysis": {
+      "imports": [
+        {
+          "line": 1,
+          "module": "abc",
+          "name": "abc",
+          "scope": "module",
+          "used_by": [
+            "comment"
+          ]
+        },
+        {
+          "line": 2,
+          "module": "os",
+          "name": "os",
+          "scope": "module",
+          "used_by": []
+        },
+        {
+          "line": 3,
+          "module": "json",
+          "name": "j",
+          "scope": "module",
+          "used_by": [
+            "ordinary"
+          ]
+        },
+        {
+          "line": 4,
+          "module": "typing",
+          "name": "List",
+          "scope": "module",
+          "used_by": [
+            "annotation"
+          ]
+        }
+      ],
+      "unused": [
+        "module:os"
+      ]
+    },
+    "annotations": {
+      "uses": [
+        {
+          "line": 6,
+          "name": "List",
+          "scope": "module"
+        },
+        {
+          "line": 6,
+          "name": "int",
+          "scope": "module"
+        }
+      ]
+    },
+    "comments": {
+      "uses": [
+        {
+          "line": 5,
+          "name": "abc",
+          "scope": "module"
+        }
+      ]
+    },
+    "ordinary": {
+      "uses": [
+        {
+          "line": 8,
+          "name": "j",
+          "scope": "f"
+        },
+        {
+          "line": 9,
+          "name": "os",
+          "scope": "f"
+        }
+      ]
+    }
+  }
+}

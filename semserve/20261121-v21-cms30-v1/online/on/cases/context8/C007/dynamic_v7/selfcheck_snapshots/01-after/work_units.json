@@ -1,0 +1,41 @@
+{
+  "task": "C007",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "mobile_cable",
+      "implementation": "components/mobile_cable/work.py",
+      "read_fields": [
+        "records"
+      ],
+      "input": "components/mobile_cable/input.json",
+      "public_expected": "components/mobile_cable/expected.json",
+      "output": "components/mobile_cable/result.json",
+      "run": "python -B components/mobile_cable/run.py",
+      "check": "python -B components/mobile_cable/check.py",
+      "contract": "标准化 ('mobile', 'cable') 渠道记录，返回 [原位置,字段对象] 数组。对象字段 id,first,last,dob,ssn,mail,phone,address，日期 ISO，文字小写去非字母数字，电话及证件仅留数字。"
+    },
+    {
+      "name": "internet_streaming",
+      "implementation": "components/internet_streaming/work.py",
+      "read_fields": [
+        "records"
+      ],
+      "input": "components/internet_streaming/input.json",
+      "public_expected": "components/internet_streaming/expected.json",
+      "output": "components/internet_streaming/result.json",
+      "run": "python -B components/internet_streaming/run.py",
+      "check": "python -B components/internet_streaming/check.py",
+      "contract": "标准化 ('internet', 'streaming') 渠道记录，返回 [原位置,字段对象] 数组。对象字段 id,first,last,dob,ssn,mail,phone,address，日期 ISO，文字小写去非字母数字，电话及证件仅留数字。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/mobile_cable/result.json",
+      "components/internet_streaming/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

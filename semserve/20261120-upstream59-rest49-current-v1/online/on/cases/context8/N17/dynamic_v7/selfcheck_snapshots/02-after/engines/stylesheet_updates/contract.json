@@ -1,0 +1,13 @@
+{
+  "name": "stylesheet_updates",
+  "op": "affected_templates",
+  "bindings": {
+    "dependencies": "outputs/template_dependencies.json#",
+    "reverse": "outputs/reverse_index.json#",
+    "changed": "inputs/request.json#/changed"
+  },
+  "spec": "changed为合法配置键列表。返回 {dependencies:全部依赖,affected:依赖与changed相交的排序模板ID列表}。",
+  "output": "outputs/stylesheet_updates.json",
+  "component": "stylesheet_updates",
+  "task": "N17"
+}

@@ -1,0 +1,41 @@
+{
+  "task": "C017",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "contact_keys",
+      "implementation": "components/contact_keys/work.py",
+      "read_fields": [
+        "batches"
+      ],
+      "input": "components/contact_keys/input.json",
+      "public_expected": "components/contact_keys/expected.json",
+      "output": "components/contact_keys/result.json",
+      "run": "python -B components/contact_keys/run.py",
+      "check": "python -B components/contact_keys/check.py",
+      "contract": "保留批次和行序，为每条记录生成清理首尾空白并转小写的邮箱。"
+    },
+    {
+      "name": "contact_profiles",
+      "implementation": "components/contact_profiles/work.py",
+      "read_fields": [
+        "batches"
+      ],
+      "input": "components/contact_profiles/input.json",
+      "public_expected": "components/contact_profiles/expected.json",
+      "output": "components/contact_profiles/result.json",
+      "run": "python -B components/contact_profiles/run.py",
+      "check": "python -B components/contact_profiles/check.py",
+      "contract": "保留批次和行序，返回 name,city,source,time 对象；姓名与城市的空白折叠为单个空格。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/contact_keys/result.json",
+      "components/contact_profiles/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

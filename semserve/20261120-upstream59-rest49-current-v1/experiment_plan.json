@@ -1,0 +1,353 @@
+{
+  "state": "prepared",
+  "image": "semserve-serial-unittest-mixed16:20261101",
+  "image_id": "sha256:7bde4872741a300b4a4e9ea4498e581e62f0267019484d448ff18ecca1acc2a5",
+  "container_prefix": "semserve-u59-rest49-v1-",
+  "actor_limits": {
+    "cpus": 4,
+    "memory_bytes": 4294967296,
+    "pids_limit": 256,
+    "timeout_seconds": 3600
+  },
+  "max_concurrency": 4,
+  "task_total": 49,
+  "planned_runs": 49,
+  "actor_initial_step": 0,
+  "tasks_sha256": "44249cc3f4e9306c99667e56748cae8e4cb09148eb3ab9f70b4ae13af71e51ea",
+  "trusted": {},
+  "arms": {
+    "on": {
+      "state": "prepared",
+      "image": "semserve-serial-unittest-mixed16:20261101",
+      "image_id": "sha256:7bde4872741a300b4a4e9ea4498e581e62f0267019484d448ff18ecca1acc2a5",
+      "container_prefix": "semserve-u59-rest49-v1-",
+      "actor_limits": {
+        "cpus": 4,
+        "memory_bytes": 4294967296,
+        "pids_limit": 256,
+        "timeout_seconds": 3600
+      },
+      "max_concurrency": 4,
+      "task_total": 49,
+      "planned_runs": 49,
+      "actor_initial_step": 0,
+      "tasks_sha256": "44249cc3f4e9306c99667e56748cae8e4cb09148eb3ab9f70b4ae13af71e51ea",
+      "backend": {
+        "schema_version": "semserve.experiment-backend-profile.v1",
+        "profile_id": "deepseek-official-pro",
+        "runtime_profile": "stable-prefix",
+        "executor_base_url": "https://api.deepseek.com/v1",
+        "executor_model": "deepseek-v4-pro",
+        "handshake_model": "deepseek-v4-pro",
+        "reasoning_mode": "off",
+        "credential_source_user_thread": "01a17c75-7994-7ee1-9349-8cbdf2f84bf9",
+        "credential_fingerprint": "b189269c631e",
+        "auxiliary_credential_source_user_thread": "01a12576-49cd-74f3-9249-7cacac59355d",
+        "auxiliary_summary_route": "Keep the existing Qwen3.5-Flash/Ofox summary configuration when C4 is selected; the official DeepSeek key is never sent there.",
+        "predictor_route": "Keep the existing Qwen3-32B SSH tunnel route unchanged.",
+        "historical_runner_policy": "Immutable historical runners retain old defaults only for provenance. New experiments must use run_case_current.py or explicitly load this profile. No silent fallback to Ofox for DeepSeek execution or handshake."
+      },
+      "cache_namespace_sha256": "a49b06e7eafc908f3c5536d61264bb59e81fde7c6c2bde0d7a579730153f3cd3",
+      "runner_sha256": "72638940285a5b19f8c37cf6e6f9f16481e635efbffb31447a2ce5f73b71d358",
+      "reference_plan_sha256": "250b0ac548637796a74978c476d9033dbf9f97b002c06545510303905c07ceff",
+      "mounts": {
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/validation_progress.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\validation_progress.py",
+          "sha256": "286854b704390dec839df1143dd96c90ac35c48ed3b30ca2872638e35e5442ae"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/handshake_speculation.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\handshake_speculation.py",
+          "sha256": "13a720b648ef5f5b2c5e4cc42a0570f1409e7d603b9a10e34f8c21e02e265e4c",
+          "editable_source_sha256": "13a720b648ef5f5b2c5e4cc42a0570f1409e7d603b9a10e34f8c21e02e265e4c",
+          "archived_mount_sha256": "ef9035da8bfca4f65a08212ff140607149aee322c39fad49973f5821995fff3c"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/output_guard_live.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\output_guard_live.py",
+          "sha256": "3ea9b0bfaa9b9839d6fad974dee6a7da933ffb13a7b9f52d829ffa86f97cfd68"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_live.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\visible_contract_check_live.py",
+          "sha256": "d1c1f197edaa065b4ef1dba83e39d2080a5488c5c25f8f3398be210f0165ec18",
+          "editable_source_sha256": "d1c1f197edaa065b4ef1dba83e39d2080a5488c5c25f8f3398be210f0165ec18",
+          "archived_mount_sha256": "2ba8942a9d29f8cc477e77932be9d7fe369371ad3bd29c4093cdaa98a2965417"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\visible_contract_check_sdk.py",
+          "sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+          "editable_source_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+          "archived_mount_sha256": "8d43047707db23531e1ad714c2a19249d5d2c420b473032d88a3c9e76004fc75"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/output_guard.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\output_guard.py",
+          "sha256": "db9279719122c4bcdde73726d121de3c7edf278bbd1f27a5e4f79bfdb07ec3ac"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\runtime.py",
+          "sha256": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+          "editable_source_sha256": "a8563801f83b0126d5add882c0d5c778f3c5e3281fd22d3f4ec485c4b6af1b64",
+          "archived_mount_sha256": "cc823988c4918c91e6ee6aac4ebcbb00040e16d217499046202913e467fd23db"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/branch_test_delivery.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\branch_test_delivery.py",
+          "sha256": "4fa10797d154043c592a77f69551af6a58070a22981df0e2281fc0d67c3ba8af"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/dynamic_frontier.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\dynamic_frontier.py",
+          "sha256": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/classifier_state_memory.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\classifier_state_memory.py",
+          "sha256": "07b9d9f4225e2bfb9d97fc24f9ee408b7e5754bff8cbfd60cc53535a262ab140"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/parallel_runtime_v2.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-module-boundaries-v1\\overlays\\parallel_runtime_v2.py",
+          "sha256": "e21aaff5b691b81101f9cebf2c5b8c52129eee1ffb29a0420d9a9761c19d49f8",
+          "original_sha256": "10022ea1d69103750ae13a10f1c62a611eae43a6b8a279f9c950b3bc179957ec",
+          "live_g1_source_sha256": "64d306adae607ab3f081d1f5f1687b46b9c7dee3482a47c27f924a5edc5aef49"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/handshake_async_memory.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\handshake_async_memory.py",
+          "sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/parallel_control_v2.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\parallel_control_v2.py",
+          "sha256": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/qwen_frontier_predictor.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\qwen_frontier_predictor.py",
+          "sha256": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/g1_discovery.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\g1_discovery.py",
+          "sha256": "b3f9f179b42f7db6b3d17fd1f7b97d03e5d2f1835b5b600ce24d7292cc4b49f2"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/g1_branch_checks.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\g1_branch_checks.py",
+          "sha256": "7e63aad525d6b2ef14f2222b7b1abb3e04485f5d6910773431fef8f6da80012b"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/tools/workspace.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\workspace.py",
+          "sha256": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a",
+          "editable_source_sha256": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a",
+          "archived_mount_sha256": "82177755e1e209703670325b82850192c1c1c7296767a8376881f074ec95bb85"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/run_case_live.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\run_case_live.py",
+          "sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/handshake_h2.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\handshake_h2.py",
+          "sha256": "48cc221ed077594e1fd65eef4c86c95c5dba3ef1184e2b396143838270b7d4f5"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/handshake_h3.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\handshake_h3.py",
+          "sha256": "a0d21d996129e6cc41b6a093db73be498be16e03701a6988abe4c3be64b5f056"
+        },
+        "/opt/e1_docker_entry.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\e1_docker_entry.py",
+          "sha256": "5dec03c395143d1030cc196c7075974e12ad47aa6e300c7f1cbec8b122f12fa6"
+        },
+        "/opt/benchmark_serial_entry.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\benchmark_serial_entry.py",
+          "sha256": "a1dc4f37422662109e33cde687975fd11f9edd94e6b887ef7e8597a4c8234102"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/progress_recovery_e1.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\progress_recovery_e1.py",
+          "sha256": "c71a24a231113472af235f8837827fcef3450a437d998fc0dd9846a3af41b826",
+          "editable_source_sha256": "c71a24a231113472af235f8837827fcef3450a437d998fc0dd9846a3af41b826",
+          "archived_mount_sha256": "6792dcaa5cbeffe4ea09e773cfa26ed0106ba09b6657e791f949f98d95f98c9b"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/medium30_component_entry.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\overlays\\medium30_component_entry.py",
+          "sha256": "e402f89cc4c9aac06629f6bffcd0d9821c6d1a1b711fe28fa8e37cae4e4210ba"
+        },
+        "/opt/parallel20_actor_adapter.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261120-upstream59-rest49-current-v1\\actor_adapter.py",
+          "sha256": "db5fbffbd46a2d86c704b9edbff957868ed23d534969e872480b7c3998b05885"
+        },
+        "/opt/parallel20-cache-namespace-entry.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\cache_namespace_entry.py",
+          "sha256": "5009d3b79c3e10ac5d4c38ae495697563d4d609d602515cc207efe6f91b981e7"
+        },
+        "/opt/warehouse-cold-transport.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-warehouse-step7-cold-ablation-v1\\cold_entry.py",
+          "sha256": "152bbd9aa7d646de0b5bb3a94e86e7f4b5fb124b7b2ee90e3a93be47e1a1521e"
+        },
+        "/opt/parallel20_actor_base_adapter.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-semantic-ab-v1\\actor_adapter.py",
+          "sha256": "e7ca54a7ede13c2154f1a0bf63f1feab7df5ea99c3f546062ea17f2e06af4093"
+        },
+        "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/progress_recovery.py": {
+          "path": "C:\\Users\\yaohua xi\\Desktop\\RAG and KV-cache\\自感知并行\\CurrentV7-Retest18-20261027\\results\\20261116-parallel20-profiles-current-first10-v1\\overlays\\progress_recovery.py",
+          "sha256": "680b8047477f6754291e64f80214519a73411fea72e06fe94f593f23bb527149",
+          "editable_source_sha256": "680b8047477f6754291e64f80214519a73411fea72e06fe94f593f23bb527149",
+          "archived_mount_sha256": null
+        }
+      },
+      "actor_environment": {
+        "SEMSERVE_SELFCHECK_MODE": "serial_p02",
+        "SEMSERVE_CHILD_CONTEXT_MODE": "fork",
+        "SEMSERVE_QWEN_PREDICTOR_OUTPUT": "value_v2",
+        "SEMSERVE_FRONTIER_BRANCH_PROFILES": "1",
+        "SEMSERVE_COMPONENT_ENTRY_PROFILE": "",
+        "SEMSERVE_E1_COMPACT_LOOPS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "h3": {
+        "native": true,
+        "budget_characters": 131072,
+        "restore_effective_batches": 12,
+        "c4_summary_every": 4,
+        "c4_summary_model": "qwen/qwen3.5-flash"
+      },
+      "speculative_generation": true,
+      "max_subtasks": 8,
+      "max_parallelism": 8,
+      "selfcheck_mode": "serial_p02",
+      "selfcheck_budget_seconds": 300,
+      "hidden_verifier_visible_to_actors": false,
+      "hidden_grading": "after the actor stops",
+      "semantic_parallel": "on",
+      "workload": "published Parallel20 with two source interface stubs per task",
+      "comparison": "Descriptive comparison with historical ON. This run includes the current self-check and shadow updates.",
+      "archived_runner_sha256": "e0d5d6793cf6be37bbedc2b91582d1187c750d355e92ab0b6284b131925df072",
+      "archived_parallel20_plan_sha256": "c6e21b67a44dfc76a5938befc03a6ea3e9126a9a32e71839d543c9041276143e",
+      "input_adaptation_receipt_sha256": "0ee9c284fd91027f5db5c58fb235103a173d2f2ddc95a7d75dda5c10de2acfc5",
+      "g1_review": "current read/write evidence projected per already authorized report",
+      "architecture_reference_sha256": "4db790f4b86c43f0b30b82b9e288ddc4f80124b3fe31b1d577797a163b19b25b",
+      "comparison_reference_sha256": "ffb2491a51fb3ce492943e60ca34ac0492c4520f84309c08ef12c4156098f9af",
+      "fixture_manifests": {
+        "C007": "670df140384700f8d3aa8bbf9ee9aa3ebe46e34faaf3de21f71e6d448cd1954a",
+        "C008": "1d7e62e294c5855ae413a5f7a7d936bbc13edd2ec52f3940cba9fee407bf42a6",
+        "C009": "cce97f9e0bc69e2a7ec7dffa25f53713cdbb77e15e9147bd2749bb786726e79b",
+        "C011": "ee9413848c6698421db01e3a8af04337b194a2e0fd8f0aa5b71e9ea1c0140a36",
+        "C017": "522754e8cb0463c1f24da9cb2f495ba837b7a1bd51ffd3d16b9126f833c199cc",
+        "C031": "f8d41a7ad220fb46fc85e86f224b6328f4072d47a008761767efe174d88f9409",
+        "C033": "2a3c8b2b0c9f6c79bd60485062856ed2c92a6556855d454c33a53a648561df4a",
+        "C039": "edef95bdf02adf8cf29fa04bc120fc6fc14e4ca328d8445b24c1af3f4f204a51",
+        "C049": "3af5480f7c90094718df38909020072e7e8eb10998bf382af396e307114b59ac",
+        "C055": "62e3df3ecacc4f405f624028fded8f6ed1c349a366c84bfe6721650a52dadf0e",
+        "C056": "be12214c8aa70bf6685a40c55c10c10cd4912459e96cc1ebd7c06ff59185c624",
+        "C058": "f4fde7a706a8e040c1d76433129406955dbb185cf5489884fbe7808cfc6b1263",
+        "C062": "09395972793bf0c46057fba0ffcf73773266f8dee94cd1bea1e18fe276f74140",
+        "C066": "dfe245e7bda2830db8416627c5be5a2b6b8577b88deaa78bc116ee626e1797f8",
+        "C067": "c7a127e5ac321cf03f513b336010c9d0aed24e6d8b038bd1696b189383968668",
+        "C068": "9447e84d7d0d8b54495b02a8508dea6e4f9cdae69bdb50fca5d3854c9d6306e8",
+        "C069": "620b7f4d60efea5eff26086ef94bf388c92e7b3abe32fdaa4522216cf8d56f4e",
+        "C074": "00fdad6412f10e56b168e8597b54295b7614502c5315711327e6ee9aec8dead2",
+        "C077": "49b97408f0408b1e91215d0ae61117a3df37b7d3a4d7f172af577c84e7fdeee9",
+        "C079": "7ea6ba13cf0c9973a64e5d3eca9371efa4a75a2dcc8138fee62c668b4f4f4e00",
+        "MP02": "d7ba88a0a27d762106500a9ebe052c65f48b046053659aaa42ec5922a5f3c854",
+        "MP04": "01cc17a35fdc5448285931a9ef1ea5dd61d647f0bf6a0791ad08d9fc1aefb0ae",
+        "MP06": "227e46acd9702f59e8d75f2b46758327ba93d3a304e4c3f357c52e71122f7998",
+        "MP07": "1dde4f6acf14adadc3137bac57fec6fa159373ddab3d410f8b40813bea8c4c5d",
+        "MP08": "0bf29b1887bbb33995355027f5cdec7e7c18706a31514a4a2dce32043f7c02aa",
+        "MP09": "c4ef7e50a61dfa2f51d7fa957c66e1dc531417494f92cf75596234c29e941b9c",
+        "MP10": "3f6a390b9f91f73211f7aac28fb7802ea94ca8a930fd71b72af31cc919ba2c71",
+        "MP13": "2b1485b6e8b2c18c0773e8eac0a91b099cc06a39007042545dcdcb06a425ba0a",
+        "MP14": "e5fdb295598b2132f4e9307360043b1cef964cba8abdff165e9a0cf182a14d24",
+        "MP15": "a8c43ee64ce7f3d4842c8c34a53ebda4b3915ebda78de09656abc3fc8e7c0aad",
+        "MP21": "06d4da11ab0a37dc3e7cecf8bbb0a488025df5a05ca16596d52e7c0852314f3f",
+        "MP22": "6e001efd716894bcde38a750635ae8335637cd4ff75383ee5f053aeef960bf16",
+        "MP23": "d3ac330304c9aace700b1c117bd63c1fe165284ee5f46e3a4eccc8519737dbd1",
+        "MP24": "92383c0b29c71b7b96ee581a3d367cf741cdfef8de0897a67e3c828b7718d0bb",
+        "MP25": "53c5bf60a11c0c1534e4809534888ed00e990e014eb9dec4c76817a878970afd",
+        "MS02": "221e019a99b9fea903810facc709232f0996843dd1cc7986591381c91063219c",
+        "MS11": "8716a3c6f252c99b0e71da815c5086c64e88b078cb43d8a74b9d363a2fa7dd4e",
+        "MS12": "dc21529c5bf3792c7522a8bd365aa827ee9dba649e093e175ae5c38609eb9c6f",
+        "MS14": "13d2b1e6208b2d22c461630bce5d693205653b7ff54b0bfb8c60cf4761cee721",
+        "MS23": "c137491039299fc8f0cbd4d5c562ae996390551062cdc68b9a386efb84828b37",
+        "MS28": "1077b077c5e44e21721e66602a8527678eb95a2645638f4226527a52e25940c7",
+        "MS29": "c54ef1a4054c082ede0d8a674e90f69aceea6e524604d8c8397de9858b7aef48",
+        "MS30": "6cb7f4c77029e9cdef9e4dffc77d148f7288607255027bc4e1e62dbcd86f30ef",
+        "MS41": "75b810504fbfced2c0156356c0a13c7c3cdeb51ba2239979f1e1f3482bdda98a",
+        "MS42": "d8aa44221c1607f61e7c72308e18faa53c514e3347bb701b6ca186c593fc06e9",
+        "N11": "11d0a9925e610bd1df662c80c8c84babb1d8a6ebbb90a1d0f97bf66bfbbbfac9",
+        "N17": "d81c8685cd7f8debd932b06d99d537a268af0d1c1b505c42109a3811d3fbbf79",
+        "N22": "7bd167e3277963e03b31db09cfc90714add7b4a519112f5b6fa793651cee2aa2",
+        "N24": "0e1d5db6901510622c1f9bdf3ecf97305c55afc8fcc41cc5b6bc9eab39471824"
+      }
+    }
+  },
+  "fixture_manifests": {
+    "C007": "670df140384700f8d3aa8bbf9ee9aa3ebe46e34faaf3de21f71e6d448cd1954a",
+    "C008": "1d7e62e294c5855ae413a5f7a7d936bbc13edd2ec52f3940cba9fee407bf42a6",
+    "C009": "cce97f9e0bc69e2a7ec7dffa25f53713cdbb77e15e9147bd2749bb786726e79b",
+    "C011": "ee9413848c6698421db01e3a8af04337b194a2e0fd8f0aa5b71e9ea1c0140a36",
+    "C017": "522754e8cb0463c1f24da9cb2f495ba837b7a1bd51ffd3d16b9126f833c199cc",
+    "C031": "f8d41a7ad220fb46fc85e86f224b6328f4072d47a008761767efe174d88f9409",
+    "C033": "2a3c8b2b0c9f6c79bd60485062856ed2c92a6556855d454c33a53a648561df4a",
+    "C039": "edef95bdf02adf8cf29fa04bc120fc6fc14e4ca328d8445b24c1af3f4f204a51",
+    "C049": "3af5480f7c90094718df38909020072e7e8eb10998bf382af396e307114b59ac",
+    "C055": "62e3df3ecacc4f405f624028fded8f6ed1c349a366c84bfe6721650a52dadf0e",
+    "C056": "be12214c8aa70bf6685a40c55c10c10cd4912459e96cc1ebd7c06ff59185c624",
+    "C058": "f4fde7a706a8e040c1d76433129406955dbb185cf5489884fbe7808cfc6b1263",
+    "C062": "09395972793bf0c46057fba0ffcf73773266f8dee94cd1bea1e18fe276f74140",
+    "C066": "dfe245e7bda2830db8416627c5be5a2b6b8577b88deaa78bc116ee626e1797f8",
+    "C067": "c7a127e5ac321cf03f513b336010c9d0aed24e6d8b038bd1696b189383968668",
+    "C068": "9447e84d7d0d8b54495b02a8508dea6e4f9cdae69bdb50fca5d3854c9d6306e8",
+    "C069": "620b7f4d60efea5eff26086ef94bf388c92e7b3abe32fdaa4522216cf8d56f4e",
+    "C074": "00fdad6412f10e56b168e8597b54295b7614502c5315711327e6ee9aec8dead2",
+    "C077": "49b97408f0408b1e91215d0ae61117a3df37b7d3a4d7f172af577c84e7fdeee9",
+    "C079": "7ea6ba13cf0c9973a64e5d3eca9371efa4a75a2dcc8138fee62c668b4f4f4e00",
+    "MP02": "d7ba88a0a27d762106500a9ebe052c65f48b046053659aaa42ec5922a5f3c854",
+    "MP04": "01cc17a35fdc5448285931a9ef1ea5dd61d647f0bf6a0791ad08d9fc1aefb0ae",
+    "MP06": "227e46acd9702f59e8d75f2b46758327ba93d3a304e4c3f357c52e71122f7998",
+    "MP07": "1dde4f6acf14adadc3137bac57fec6fa159373ddab3d410f8b40813bea8c4c5d",
+    "MP08": "0bf29b1887bbb33995355027f5cdec7e7c18706a31514a4a2dce32043f7c02aa",
+    "MP09": "c4ef7e50a61dfa2f51d7fa957c66e1dc531417494f92cf75596234c29e941b9c",
+    "MP10": "3f6a390b9f91f73211f7aac28fb7802ea94ca8a930fd71b72af31cc919ba2c71",
+    "MP13": "2b1485b6e8b2c18c0773e8eac0a91b099cc06a39007042545dcdcb06a425ba0a",
+    "MP14": "e5fdb295598b2132f4e9307360043b1cef964cba8abdff165e9a0cf182a14d24",
+    "MP15": "a8c43ee64ce7f3d4842c8c34a53ebda4b3915ebda78de09656abc3fc8e7c0aad",
+    "MP21": "06d4da11ab0a37dc3e7cecf8bbb0a488025df5a05ca16596d52e7c0852314f3f",
+    "MP22": "6e001efd716894bcde38a750635ae8335637cd4ff75383ee5f053aeef960bf16",
+    "MP23": "d3ac330304c9aace700b1c117bd63c1fe165284ee5f46e3a4eccc8519737dbd1",
+    "MP24": "92383c0b29c71b7b96ee581a3d367cf741cdfef8de0897a67e3c828b7718d0bb",
+    "MP25": "53c5bf60a11c0c1534e4809534888ed00e990e014eb9dec4c76817a878970afd",
+    "MS02": "221e019a99b9fea903810facc709232f0996843dd1cc7986591381c91063219c",
+    "MS11": "8716a3c6f252c99b0e71da815c5086c64e88b078cb43d8a74b9d363a2fa7dd4e",
+    "MS12": "dc21529c5bf3792c7522a8bd365aa827ee9dba649e093e175ae5c38609eb9c6f",
+    "MS14": "13d2b1e6208b2d22c461630bce5d693205653b7ff54b0bfb8c60cf4761cee721",
+    "MS23": "c137491039299fc8f0cbd4d5c562ae996390551062cdc68b9a386efb84828b37",
+    "MS28": "1077b077c5e44e21721e66602a8527678eb95a2645638f4226527a52e25940c7",
+    "MS29": "c54ef1a4054c082ede0d8a674e90f69aceea6e524604d8c8397de9858b7aef48",
+    "MS30": "6cb7f4c77029e9cdef9e4dffc77d148f7288607255027bc4e1e62dbcd86f30ef",
+    "MS41": "75b810504fbfced2c0156356c0a13c7c3cdeb51ba2239979f1e1f3482bdda98a",
+    "MS42": "d8aa44221c1607f61e7c72308e18faa53c514e3347bb701b6ca186c593fc06e9",
+    "N11": "11d0a9925e610bd1df662c80c8c84babb1d8a6ebbb90a1d0f97bf66bfbbbfac9",
+    "N17": "d81c8685cd7f8debd932b06d99d537a268af0d1c1b505c42109a3811d3fbbf79",
+    "N22": "7bd167e3277963e03b31db09cfc90714add7b4a519112f5b6fa793651cee2aa2",
+    "N24": "0e1d5db6901510622c1f9bdf3ecf97305c55afc8fcc41cc5b6bc9eab39471824"
+  },
+  "backend": {
+    "schema_version": "semserve.experiment-backend-profile.v1",
+    "profile_id": "deepseek-official-pro",
+    "runtime_profile": "stable-prefix",
+    "executor_base_url": "https://api.deepseek.com/v1",
+    "executor_model": "deepseek-v4-pro",
+    "handshake_model": "deepseek-v4-pro",
+    "reasoning_mode": "off",
+    "credential_source_user_thread": "01a17c75-7994-7ee1-9349-8cbdf2f84bf9",
+    "credential_fingerprint": "b189269c631e",
+    "auxiliary_credential_source_user_thread": "01a12576-49cd-74f3-9249-7cacac59355d",
+    "auxiliary_summary_route": "Keep the existing Qwen3.5-Flash/Ofox summary configuration when C4 is selected; the official DeepSeek key is never sent there.",
+    "predictor_route": "Keep the existing Qwen3-32B SSH tunnel route unchanged.",
+    "historical_runner_policy": "Immutable historical runners retain old defaults only for provenance. New experiments must use run_case_current.py or explicitly load this profile. No silent fallback to Ofox for DeepSeek execution or handshake."
+  },
+  "runner_sha256": "035d47b734aef539088b9588da20d31b3dc47e61ce06429f9fe0364cffdacbf6",
+  "predictor_access_sha256": "cc02fa7ccd33d03d66a93970f47287aff73aa927ff7fb4f91684b949b8ebae00",
+  "cache_namespace_sha256": "a49b06e7eafc908f3c5536d61264bb59e81fde7c6c2bde0d7a579730153f3cd3",
+  "runtime_profile_sha256": "8b1a98d05f3e7eace139ccf6c4b8f7b5adbd8223426cc73c7cc475d641f79362",
+  "actor_fixture_adapter_sha256": "db5fbffbd46a2d86c704b9edbff957868ed23d534969e872480b7c3998b05885",
+  "source_plans": {
+    "on": "abdac7685e5f183170a9c4466aee58364fe2c3142b5569303d529c3312e1bcfc"
+  },
+  "treatment": {
+    "on": "DeepSeek V4 Pro ordinary inference, semantic ON, Fork, value_v2 predictor"
+  },
+  "selection": "The remaining 49 Upstream59 v2.0.0 tasks after the 2026-11-20 MP10 replay: 15 MP + 20 C + 10 MS + 4 N, sourced byte-identically from the release checkout. Non-MP tasks use the context8 group label for actor result paths only.",
+  "component_interface": "Native legacy render.py interface for the medium26 dataset.",
+  "hidden_verifier_visible_to_actors": false,
+  "hidden_grading": "after all model actors stop"
+}

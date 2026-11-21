@@ -1,0 +1,41 @@
+{
+  "task": "C055",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "trusted_bindings",
+      "implementation": "components/trusted_bindings/work.py",
+      "read_fields": [
+        "sources"
+      ],
+      "input": "components/trusted_bindings/input.json",
+      "public_expected": "components/trusted_bindings/expected.json",
+      "output": "components/trusted_bindings/result.json",
+      "run": "python -B components/trusted_bindings/run.py",
+      "check": "python -B components/trusted_bindings/check.py",
+      "contract": "解析受信任文档的覆盖和文档内锚点。每个有效键输出 [原源序号,声明位置,[值位置,文本,是否密文,来源是否可信]]；位置为 [源名,行,列]。"
+    },
+    {
+      "name": "external_bindings",
+      "implementation": "components/external_bindings/work.py",
+      "read_fields": [
+        "sources"
+      ],
+      "input": "components/external_bindings/input.json",
+      "public_expected": "components/external_bindings/expected.json",
+      "output": "components/external_bindings/result.json",
+      "run": "python -B components/external_bindings/run.py",
+      "check": "python -B components/external_bindings/check.py",
+      "contract": "解析不受信任文档的覆盖和文档内锚点。每个有效键输出 [原源序号,声明位置,[值位置,文本,是否密文,来源是否可信]]；位置为 [源名,行,列]。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/trusted_bindings/result.json",
+      "components/external_bindings/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}

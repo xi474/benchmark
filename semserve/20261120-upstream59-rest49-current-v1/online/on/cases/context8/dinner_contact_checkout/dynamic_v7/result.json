@@ -1,0 +1,479 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "context8",
+  "case": "dinner_contact_checkout",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/context8/dinner_contact_checkout",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "abeb3a96175446427fd7655fe5ba7b76474f89721f5a40efa7c831d732759390",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 382.2346580028534,
+  "background_summary_drain_seconds": 0.00010310300012861262,
+  "background_speculative_drain_seconds": 7.128715515136719e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 6,
+      "committed": 0,
+      "discarded": 6,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 138652,
+        "completion_tokens": 2239,
+        "total_tokens": 140891,
+        "prompt_cache_hit_tokens": 112640,
+        "prompt_cache_miss_tokens": 26012,
+        "input_tokens": 138652,
+        "output_tokens": 2239
+      },
+      "usage_discarded": {
+        "prompt_tokens": 138652,
+        "completion_tokens": 2239,
+        "total_tokens": 140891,
+        "prompt_cache_hit_tokens": 112640,
+        "prompt_cache_miss_tokens": 26012,
+        "input_tokens": 138652,
+        "output_tokens": 2239
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 382.2348323930087,
+  "runtime_error": null,
+  "workspace_progress_observation": [
+    {
+      "seconds": 1.1205234859949087,
+      "scans": 659,
+      "epoch": 26
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": true,
+    "returncode": 0,
+    "stdout": "MODULE_OK dinner\nMODULE_OK shopping\nMODULE_OK contact\nLOCAL_CHECKS_PASSED; external verifier determines official correctness\n",
+    "stderr": ""
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "contact/__init__.py": true,
+    "contact/check_module.py": true,
+    "contact/contract.json": true,
+    "contact/model.py": false,
+    "contact/parser.py": true,
+    "contact/render.py": false,
+    "contact/transform.py": false,
+    "dinner/__init__.py": true,
+    "dinner/check_module.py": true,
+    "dinner/contract.json": true,
+    "dinner/model.py": false,
+    "dinner/parser.py": true,
+    "dinner/render.py": false,
+    "dinner/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true,
+    "shopping/__init__.py": true,
+    "shopping/check_module.py": true,
+    "shopping/contract.json": true,
+    "shopping/model.py": false,
+    "shopping/parser.py": true,
+    "shopping/render.py": false,
+    "shopping/transform.py": false
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 319,
+    "dag_node_transition": 952,
+    "task_started": 5,
+    "execution_state_observed": 123,
+    "parallel_v2_request_boundary": 16,
+    "parallel_v2_frontier_filtered": 7,
+    "fork_only_parent_passthrough": 63,
+    "dag_edge_added": 364,
+    "model_request": 88,
+    "model_response": 88,
+    "tool_result": 120,
+    "validation_progress_guard_cost": 80,
+    "repeated_business_output_observed": 77,
+    "parallel_v2_frontier_handshake_scheduled": 6,
+    "parallel_v2_generic_evidence_boundary": 65,
+    "handshake_speculation_started": 6,
+    "report_authorization_granted": 6,
+    "g1_early_semantic_review_injected": 1,
+    "handshake_speculation_response": 6,
+    "parallel_v2_frontier_validation_feedback": 6,
+    "parallel_v2_frontier_report_committed": 6,
+    "handshake_speculation_discarded": 6,
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_refreshed": 2,
+    "parallel_v2_offer_accepted": 2,
+    "branch_delivery_contract_reconciled": 3,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 4,
+    "branch_context_compiled": 4,
+    "fork_only_child_envelope": 25,
+    "g1_branch_shell_completed": 13,
+    "e1_problem_stalled": 2,
+    "e1_problem_resolved": 1,
+    "verified_tool_artifact_recorded": 4,
+    "task_completed": 5,
+    "branch_completed_from_verified_artifact": 4,
+    "branch_result_bound_to_verified_artifact": 4,
+    "parallel_v2_plan_completed": 2,
+    "root_integration_checkpoint_activated": 1,
+    "parallel_v2_post_join_watch_armed": 1,
+    "output_guard_public_check_started": 3,
+    "output_guard_public_check_finished": 3,
+    "selfcheck_serial_started": 1,
+    "visible_contract_completion_deferred": 2,
+    "visible_contract_instruction_deduplicated": 2,
+    "recovery_state_changed": 2,
+    "progress_recovery_requested": 1,
+    "e1_selfcheck_recovery_requested": 1,
+    "e1_selfcheck_failure_observed": 1,
+    "progress_recovery_resolved": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 4,
+    "parallel_v2_offer_accepted": 2,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 2,
+    "parallel_v2_frontier_handshake_scheduled": 6,
+    "parallel_v2_frontier_report_committed": 6
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-f47eca4a6817",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "outputs/dinner.json"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "dinner-impl",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement dinner model/transform/render and produce outputs/dinner.json"
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "outputs/contact.json"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "contact-impl",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement contact model/transform/render and produce outputs/contact.json"
+          }
+        ]
+      },
+      "reason": "dinner and contact are independent producers with disjoint writes and observed inputs."
+    },
+    {
+      "mode": "parallel",
+      "offer_id": "v2-0643a4390496",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "outputs/shopping.json"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "shopping-impl",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement shopping model/transform/render and produce outputs/shopping.json"
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py",
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "depends_on": [],
+            "id": "run-all-final",
+            "input_refs": [],
+            "inputs": {},
+            "task": "Implement run_all.py and final_report.py orchestration and report generation"
+          }
+        ]
+      },
+      "reason": "shopping and root orchestration are independent with disjoint writes; shopping inputs already materialized."
+    }
+  ],
+  "spawn_call_count": 0,
+  "spawn_subtask_count": 0,
+  "predictor": {
+    "prediction_count": 4,
+    "latency_seconds_sum": 27.531733000000003,
+    "actions": {
+      "parallel_ready": 4
+    },
+    "frontier_safe_widths": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 5363512,
+    "completion_tokens": 35491,
+    "total_tokens": 5399003,
+    "prompt_cache_hit_tokens": 5052672,
+    "prompt_cache_miss_tokens": 310840,
+    "input_tokens": 5363512,
+    "output_tokens": 35491
+  },
+  "model_timing": {
+    "turn_count": 88,
+    "request_seconds_sum": 357.4895796775818,
+    "request_wall_union_seconds": 313.9707520008087
+  },
+  "overlap": {
+    "child_model_turns": 25,
+    "overlap_pair_count": 21,
+    "max_model_request_overlap_seconds": 7.961987257003784,
+    "pairs": [
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "seconds": 7.961987257003784
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 1.6407480239868164
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 2.672067165374756
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 1.5015192031860352
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "seconds": 2.2060811519622803
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 1.4911668300628662
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 1.5477476119995117
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 2.0818402767181396
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "seconds": 1.1351022720336914
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 0.7421252727508545
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "seconds": 4.598290920257568
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 0.007058143615722656
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "seconds": 1.2250897884368896
+      },
+      {
+        "a": "root/plan-002-148fb476/v2-f47eca4a6817-0/attempt-1",
+        "b": "root/plan-002-148fb476/v2-f47eca4a6817-1/attempt-1",
+        "seconds": 0.2838106155395508
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "seconds": 3.308682680130005
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "seconds": 1.7500133514404297
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "seconds": 1.8343193531036377
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "seconds": 2.6998074054718018
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "seconds": 3.360992193222046
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "seconds": 0.07389521598815918
+      },
+      {
+        "a": "root/plan-003-670a9d31/v2-0643a4390496-1/attempt-1",
+        "b": "root/plan-003-670a9d31/v2-0643a4390496-0/attempt-1",
+        "seconds": 1.3964829444885254
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 95,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

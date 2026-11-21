@@ -1,0 +1,56 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795195280.850487,
+  "end": 1795195281.0437527,
+  "seconds": 0.19326567649841309,
+  "workspace_version": "1487bfdc4b6e5cc797de10d2bbc210dd5576ef694c64902bc72ab971967c88f4",
+  "script_sha256": "40acd3f4e99d04f0c9a4dfaa74bfa5b5de3f6720e452190b9b4a754ad0655d69",
+  "spec_sha256": "3590359db747653ece6d773583a4a71227baa65d3ee47215fde257248b7d3bec",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 1,
+  "output": "VISIBLE_CONTRACT_CHECK_JSON:{\"schema_version\": \"semserve.visible-contract-check.v2\", \"test_framework\": \"unittest\", \"status\": \"SCRIPT_ERROR\", \"actual_case_count\": 0, \"passed_cases\": 0, \"failed_cases\": 0, \"cases\": [], \"resolutions\": [], \"promoted\": {}, \"test_ids\": [\"TransformBehaviorTests.test_drop_removes_source_and_yields_null\", \"TransformBehaviorTests.test_input_not_mutated\", \"TransformBehaviorTests.test_output_shape_and_forced_pairs\"], \"error\": \"Traceback (most recent call last):\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 709, in standard_worker\\n    if missing:raise ValueError('Retain existing unittest coverage; missing tests: '+', '.join(sorted(missing)))\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: Retain existing unittest coverage; missing tests: TransformBehaviorTests.test_api_boundary_invalid_payload_type, TransformBehaviorTests.test_api_boundary_nonfinite_unknown_field\\n\", \"error_details\": {\"code\": \"ValueError\", \"message\": \"Retain existing unittest coverage; missing tests: TransformBehaviorTests.test_api_boundary_invalid_payload_type, TransformBehaviorTests.test_api_boundary_nonfinite_unknown_field\", \"field\": \"check.py\"}, \"script_output\": \"\", \"test_output\": \"\", \"check_ok\": false, \"selfcheck_feedback\": {\"kind\": \"script_setup\", \"code\": \"ValueError\", \"scope\": \"check.py\", \"details\": {\"field\": \"check.py\", \"message\": \"Retain existing unittest coverage; missing tests: TransformBehaviorTests.test_api_boundary_invalid_payload_type, TransformBehaviorTests.test_api_boundary_nonfinite_unknown_field\"}, \"next_action\": \"Fix the reported test setup error before changing business code; preserve existing checks and rerun.\"}}\n",
+  "process_ok": false,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 1796,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "SCRIPT_ERROR",
+  "actual_case_count": 0,
+  "passed_cases": 0,
+  "failed_cases": 0,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TransformBehaviorTests.test_drop_removes_source_and_yields_null",
+    "TransformBehaviorTests.test_input_not_mutated",
+    "TransformBehaviorTests.test_output_shape_and_forced_pairs"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 709, in standard_worker\n    if missing:raise ValueError('Retain existing unittest coverage; missing tests: '+', '.join(sorted(missing)))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Retain existing unittest coverage; missing tests: TransformBehaviorTests.test_api_boundary_invalid_payload_type, TransformBehaviorTests.test_api_boundary_nonfinite_unknown_field\n",
+  "error_details": {
+    "code": "ValueError",
+    "message": "Retain existing unittest coverage; missing tests: TransformBehaviorTests.test_api_boundary_invalid_payload_type, TransformBehaviorTests.test_api_boundary_nonfinite_unknown_field",
+    "field": "check.py"
+  },
+  "script_output": "",
+  "test_output": "",
+  "check_ok": false,
+  "selfcheck_feedback": {
+    "kind": "script_setup",
+    "code": "ValueError",
+    "scope": "check.py",
+    "details": {
+      "field": "check.py",
+      "message": "Retain existing unittest coverage; missing tests: TransformBehaviorTests.test_api_boundary_invalid_payload_type, TransformBehaviorTests.test_api_boundary_nonfinite_unknown_field"
+    },
+    "next_action": "Fix the reported test setup error before changing business code; preserve existing checks and rerun."
+  },
+  "failure_stage": "test_setup_or_execution",
+  "executions": 2,
+  "preparation_deferrals": 0,
+  "infra_errors": 2,
+  "mismatch_rounds": 0,
+  "frozen_regressions": 0,
+  "pending_reference_reviews": 0,
+  "pending_cases": {}
+}

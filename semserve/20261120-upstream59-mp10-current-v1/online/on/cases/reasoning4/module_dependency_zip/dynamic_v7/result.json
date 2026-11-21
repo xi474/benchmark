@@ -1,0 +1,691 @@
+{
+  "schema_version": "semserve.current-v8-generic-handshake/v1",
+  "report_authorization_version": "report-request-authorization-v2-scoped-resume",
+  "report_mode_transition": "request_scoped_handshake_and_shared_idempotent_business_resume",
+  "write_preflight_version": "literal-write-preflight-v1",
+  "progress_recovery_version": "verified-progress-recovery-v1",
+  "repeated_output_guard_version": "five-identical-business-turns-v1",
+  "repeated_output_guard_limit": 5,
+  "validation_progress_guard_version": "public-validation-progress-v1",
+  "recovery_coordinator_version": "scope-recovery-coordinator-v1",
+  "validation_progress_repeat_limit": 3,
+  "validation_progress_recovery_business_batches": 6,
+  "validation_progress_recovery_episodes_per_check": 2,
+  "report_schema_policy": "dedicated_root_handshake_only",
+  "report_execution_authorization": "request_scope_generation_and_one_shot_dispatch",
+  "output_guard_version": "agent-output-guard-v3-narration-compression",
+  "narration_compression_version": "small-model-narration-v1",
+  "narration_compression_model": "qwen/qwen3.5-flash",
+  "narration_compression_threshold_chars": 1024,
+  "narration_summary_max_chars": 768,
+  "narration_summary_target": "Chinese advisory note, target 300 chars",
+  "narration_compression_failure_policy": "retain original narration and executable calls",
+  "output_guard_scope": "root and child narration; original child delivery unchanged",
+  "tool_loop_progress": "workspace content epoch; cross-operation repeats; shell always executes",
+  "output_guard_narration_soft_chars": 256,
+  "output_guard_narration_hard_chars": 1024,
+  "root_completion_protocol": "finish_task_public_check_or_report_blocked",
+  "output_guard_request_transport": "non-stream unchanged; no server cancellation",
+  "group": "reasoning4",
+  "case": "module_dependency_zip",
+  "arm": "dynamic_v7",
+  "task_source": "/opt/tasks/reasoning4/module_dependency_zip",
+  "editable_initial_placeholders": [
+    "final_report.py",
+    "run_all.py"
+  ],
+  "task_input_format": "TASK.md+workspace",
+  "task_prompt_sha256": "f2ada6d364c915cabe8b263715a9ce479fefb664ccda9a15597a92e94caa3ea3",
+  "predeclared_dag": false,
+  "audit_only_metadata_consumed": false,
+  "predictor_model": "Qwen3-32B",
+  "predictor_input": "semserve.cumulative-hybrid-knowledge.v4",
+  "predictor_transport": "ssh_tunnel:127.0.0.1:39232",
+  "executor_model": "deepseek-v4-pro",
+  "executor_base_url": "https://api.deepseek.com/v1",
+  "executor_key_fingerprint": "b189269c631e",
+  "executor_reasoning_mode": "off",
+  "executor_max_output_tokens": 32768,
+  "provider_timeout_seconds": 600,
+  "runtime_fix_version": "generic-evidence-frontier-handshake-v8+contract-ownership-fix1+width8",
+  "system_prompt_version": "neutral-v5-fewshot-v1+dynamic-work-unit-v7+task150",
+  "system_prompt_sha256": "97567c82b7fe7dab048f168e3c42966f57de4d14b23a8dade0b0e9e2eb01d700",
+  "max_parallelism": 8,
+  "max_subtasks": 8,
+  "offer_width_admission_policy": "bucket_upper_bound",
+  "max_subtask_depth": 1,
+  "max_expansions": 2,
+  "subtask_task_max_chars": 512,
+  "subtask_task_prompt_max_chars": 150,
+  "handshake_model": "deepseek-v4-pro",
+  "handshake_input": "c4",
+  "handshake_compressor_sha256": "30fbcf26eabdb6833a3f6273135ceb9cd9058e80c30c90557ae3829d708c14bd",
+  "runner_sha256": "99db8d583e4b0ab7a784f7ba8b2b587f5e226c06c00390058e433dc40c8ceac3",
+  "c4_summary_model": "qwen/qwen3.5-flash",
+  "c4_summary_every": 4,
+  "c4_input_max_chars": 65536,
+  "c4_summary_sha256": "88ece7b619e21be13e0959dc2065b8d736af40c53de8644cf8686aecaf21a9ac",
+  "c4_h3_native": true,
+  "c4_h3_input_max_chars": 131072,
+  "c4_restore_effective_batches": 12,
+  "contract_ownership_fix": "explicit_write_union_before_fork_with_conflict_revalidation",
+  "runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "runtime_changed_files_sha256": {
+    "runtime.py": "6179d8467767a81a250ea8a22109c3c802e66c4fae4f7d5206963851b7e7d62f",
+    "delivery_ownership.py": "f177a9be63601334218c41aa1f96e6508a9815e2d4173807a638031b2f038ad2",
+    "dynamic_frontier.py": "0886e84c2baed5ac6363385f0339404b1c3523070c36e3c44828691bc3d31847",
+    "qwen_frontier_predictor.py": "31f9220a9451ac0c37b38f3d7c93efeed62f6056d39c9b6304679483744570b9",
+    "parallel_control_v2.py": "59b35f06c2d084ac71f2118cf150b20f9dd8588d7934c43e2121870e2039fb87",
+    "tools/workspace.py": "84cc64bba3441bfce08102d14c52b9324dca1ab52cf59b80b0ba9b91da0c2e4a"
+  },
+  "stable_context_prefix": true,
+  "stable_prefix_version": "fork-only-parent-envelope-v2",
+  "parent_tool_exposure": "unchanged_legacy_timing",
+  "fork_only_stable_prefix": true,
+  "context_fork": "balanced_parent_history_plus_branch_overlay",
+  "stable_prefix_sha256": "efd90fb53aca5c17639ab552589d33ca13ec9a486b9b11a583731a504ee1870b",
+  "original_runner_sha256": "fea3970ba5604c76a84bf6a73a8b21096ab6d69419bad855083fae83bd430f85",
+  "handshake_speculation": true,
+  "speculation_adapter_sha256": "24f7db9882e3133845481110952c7241a3759dc3bb7078002eb7269978507159",
+  "physical_speculation_usage": "api_events physical requests, never logical commit rows",
+  "live_runtime_source": "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src",
+  "seconds": 365.6574971675873,
+  "background_summary_drain_seconds": 0.000129610000158209,
+  "background_speculative_drain_seconds": 4.839897155761719e-05,
+  "speculative_metrics": [
+    {
+      "submitted": 5,
+      "committed": 0,
+      "discarded": 5,
+      "unfinished": 0,
+      "usage_all_speculative": {
+        "prompt_tokens": 84631,
+        "completion_tokens": 1555,
+        "total_tokens": 86186,
+        "prompt_cache_hit_tokens": 70656,
+        "prompt_cache_miss_tokens": 13975,
+        "input_tokens": 84631,
+        "output_tokens": 1555
+      },
+      "usage_discarded": {
+        "prompt_tokens": 84631,
+        "completion_tokens": 1555,
+        "total_tokens": 86186,
+        "prompt_cache_hit_tokens": 70656,
+        "prompt_cache_miss_tokens": 13975,
+        "input_tokens": 84631,
+        "output_tokens": 1555
+      },
+      "errors": 0,
+      "completed_without_usage": 0
+    }
+  ],
+  "completion_inclusive_seconds": 365.657675176559,
+  "runtime_error": null,
+  "workspace_progress_observation": [
+    {
+      "seconds": 1.0337705180020293,
+      "scans": 779,
+      "epoch": 33
+    }
+  ],
+  "conversation_turns": [],
+  "conversation_stage_audits": [],
+  "final_validation": {
+    "passed": true,
+    "returncode": 0,
+    "stdout": "MODULE_OK payload\nMODULE_OK scanner\nMODULE_OK dependencies\nLOCAL_CHECKS_PASSED; external verifier determines official correctness\n",
+    "stderr": ""
+  },
+  "fixtures_unchanged": {
+    "README.md": true,
+    "check.py": true,
+    "engines/dependencies/check_module.py": true,
+    "engines/dependencies/contract.json": true,
+    "engines/dependencies/model.py": false,
+    "engines/dependencies/render.py": false,
+    "engines/dependencies/transform.py": false,
+    "engines/payload/check_module.py": true,
+    "engines/payload/contract.json": true,
+    "engines/payload/model.py": false,
+    "engines/payload/render.py": false,
+    "engines/payload/transform.py": false,
+    "engines/scanner/check_module.py": true,
+    "engines/scanner/contract.json": true,
+    "engines/scanner/model.py": false,
+    "engines/scanner/render.py": false,
+    "engines/scanner/transform.py": false,
+    "inputs/case.json": true,
+    "integrate.py": true
+  },
+  "generated_protected_fixture_count": 0,
+  "output_check_scope": "root checker authoritative; no external output list provided",
+  "outputs_present": {},
+  "event_counts": {
+    "dag_node_added": 350,
+    "dag_node_transition": 1047,
+    "task_started": 6,
+    "execution_state_observed": 74,
+    "parallel_v2_request_boundary": 20,
+    "parallel_v2_frontier_filtered": 8,
+    "fork_only_parent_passthrough": 38,
+    "dag_edge_added": 382,
+    "model_request": 102,
+    "model_response": 102,
+    "tool_result": 118,
+    "validation_progress_guard_cost": 95,
+    "repeated_business_output_observed": 93,
+    "parallel_v2_frontier_handshake_scheduled": 5,
+    "parallel_v2_generic_evidence_boundary": 83,
+    "handshake_speculation_started": 5,
+    "report_authorization_granted": 5,
+    "g1_early_semantic_review_injected": 1,
+    "handshake_speculation_response": 5,
+    "parallel_v2_frontier_validation_feedback": 5,
+    "parallel_v2_frontier_report_committed": 5,
+    "handshake_speculation_discarded": 5,
+    "parallel_v2_evaluated": 3,
+    "child_history_checkpoint_created": 2,
+    "semantic_placement_decided": 5,
+    "branch_context_compiled": 5,
+    "fork_only_child_envelope": 64,
+    "g1_branch_shell_completed": 34,
+    "verified_tool_artifact_recorded": 5,
+    "task_completed": 6,
+    "branch_completed_from_verified_artifact": 5,
+    "branch_result_bound_to_verified_artifact": 5,
+    "root_integration_checkpoint_activated": 1,
+    "parallel_v2_offer_refreshed": 1,
+    "parallel_v2_offer_accepted": 1,
+    "parallel_v2_plan_completed": 1,
+    "validation_progress_observed": 2,
+    "e1_problem_stalled": 2,
+    "e1_problem_resolved": 1,
+    "output_guard_public_check_started": 2,
+    "output_guard_public_check_finished": 2,
+    "selfcheck_serial_started": 1,
+    "visible_contract_completion_deferred": 1,
+    "visible_contract_instruction_deduplicated": 1,
+    "dag_snapshot_saved": 1
+  },
+  "offer_events": {
+    "parallel_v2_evaluated": 3,
+    "parallel_v2_offer_accepted": 1,
+    "parallel_v2_offer_declined": 0,
+    "parallel_v2_plan_rejected": 0,
+    "parallel_v2_plan_completed": 1,
+    "parallel_v2_frontier_handshake_scheduled": 5,
+    "parallel_v2_frontier_report_committed": 5
+  },
+  "decision_calls": [
+    {
+      "mode": "parallel",
+      "offer_id": "v2-714f91621678",
+      "plan": {
+        "acceptance_policy": {
+          "minimum_score": 0,
+          "operator": "all",
+          "validators": []
+        },
+        "failure_policy": "continue",
+        "join_policy": "all_terminal",
+        "policy_version": "semserve.dag-policy.v1",
+        "subtasks": [
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "run_all.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "run-all-orchestration",
+            "task": "Implement run_all.py to locate workspace and run each component render.py in dependency order, then integrate.py."
+          },
+          {
+            "completion_contract": {
+              "required_artifact_kinds": [
+                "file"
+              ],
+              "required_artifact_paths": [
+                "final_report.py"
+              ],
+              "required_test_targets": []
+            },
+            "id": "final-report",
+            "task": "Implement final_report.py to read core manifest and write final_report.json with title, count, sha256, attention."
+          }
+        ]
+      },
+      "reason": "Two independent root-owned artifacts (run_all.py orchestration and final_report.py) are ready with disjoint writes and concrete observed inputs."
+    }
+  ],
+  "spawn_call_count": 1,
+  "spawn_subtask_count": 3,
+  "predictor": {
+    "prediction_count": 3,
+    "latency_seconds_sum": 14.097228000000001,
+    "actions": {
+      "serial": 1,
+      "parallel_ready": 2
+    },
+    "frontier_safe_widths": [
+      3,
+      2,
+      2
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 3703236,
+    "completion_tokens": 44821,
+    "total_tokens": 3748057,
+    "prompt_cache_hit_tokens": 3477248,
+    "prompt_cache_miss_tokens": 225988,
+    "input_tokens": 3703236,
+    "output_tokens": 44821
+  },
+  "model_timing": {
+    "turn_count": 102,
+    "request_seconds_sum": 460.7735891342163,
+    "request_wall_union_seconds": 317.2532742023468
+  },
+  "overlap": {
+    "child_model_turns": 64,
+    "overlap_pair_count": 77,
+    "max_model_request_overlap_seconds": 6.836867809295654,
+    "pairs": [
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 2.01025390625
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.01025390625
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.744206190109253
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.49960827827453613
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.6505897045135498
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 2.478429079055786
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.5358731746673584
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.9732651710510254
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.4666152000427246
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 6.836867809295654
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 5.849439382553101
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 6.459816932678223
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.5939819812774658
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.7045643329620361
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 0.0949699878692627
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 3.155857563018799
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.155857563018799
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.9945974349975586
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 0.7152926921844482
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.255779504776001
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 0.98634934425354
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.78025484085083
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 3.0523195266723633
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 5.060307502746582
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 2.265265703201294
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 0.40820932388305664
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 2.6871962547302246
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 4.401696443557739
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 4.823874473571777
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 0.678879976272583
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 5.515188217163086
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 1.207871437072754
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 0.1795804500579834
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 0.7720179557800293
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 1.3004117012023926
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 2.1738274097442627
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 1.0158841609954834
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.9557600021362305
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 5.201676845550537
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 4.891234636306763
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 0.547454833984375
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 0.5806488990783691
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.8005030155181885
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 3.123716354370117
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.42733287811279297
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 3.2423818111419678
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "seconds": 1.4852960109710693
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 0.8416886329650879
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 1.5187416076660156
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.27928709983825684
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 1.571842908859253
+      },
+      {
+        "a": "root/plan-001-68cf8a80/dependencies-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 1.571842908859253
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 2.9873595237731934
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 3.5064523220062256
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.752208948135376
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.083359479904175
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 1.5691170692443848
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 6.142749547958374
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.072187900543213
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.9196367263793945
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.3449695110321045
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 1.3455438613891602
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 4.9187071323394775
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 1.1088097095489502
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.6303775310516357
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 0.8240394592285156
+      },
+      {
+        "a": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "seconds": 1.6875801086425781
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 3.9292078018188477
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 1.4593517780303955
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 1.8137681484222412
+      },
+      {
+        "a": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+        "b": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+        "seconds": 2.1790854930877686
+      },
+      {
+        "a": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+        "b": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+        "seconds": 2.6096444129943848
+      },
+      {
+        "a": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+        "b": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+        "seconds": 0.8461081981658936
+      },
+      {
+        "a": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+        "b": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+        "seconds": 3.560364007949829
+      },
+      {
+        "a": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+        "b": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+        "seconds": 1.7041895389556885
+      },
+      {
+        "a": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+        "b": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+        "seconds": 2.212570905685425
+      },
+      {
+        "a": "root/plan-003-3ca4dd8f/v2-714f91621678-1/attempt-1",
+        "b": "root/plan-003-3ca4dd8f/v2-714f91621678-0/attempt-1",
+        "seconds": 1.330798625946045
+      }
+    ]
+  },
+  "reasoning_gate": {
+    "api_calls_with_usage": 111,
+    "reasoning_tokens_sum": 0,
+    "passed": true
+  }
+}

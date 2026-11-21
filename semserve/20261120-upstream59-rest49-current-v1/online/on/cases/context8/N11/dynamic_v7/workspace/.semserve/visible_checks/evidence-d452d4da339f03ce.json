@@ -1,0 +1,239 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795195742.802573,
+  "end": 1795195743.7051485,
+  "seconds": 0.9025754928588867,
+  "workspace_version": "f394c439f635ce743f18002fe84c14a5dc0246fbd02c3983729d513a362cf3a7",
+  "script_sha256": "e686c78f560fff1e4853174203dd040dac2a8a841fe802291cda81c980075b4f",
+  "spec_sha256": "2bc12569d76fc854993dceee6a1e50cda98775cf3813c8a95b4f5887e68466ae",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 0,
+  "output": "VISIBLE_CONTRACT_CHECK_JSON:{\"schema_version\": \"semserve.visible-contract-check.v2\", \"test_framework\": \"unittest\", \"status\": \"PASS_BOUNDED\", \"actual_case_count\": 3, \"passed_cases\": 3, \"failed_cases\": 0, \"cases\": [], \"resolutions\": [], \"promoted\": {}, \"test_ids\": [\"TestBlockLayout.test_row_and_col_sizes\", \"TestCubed.test_cube_consumes_squared\", \"TestSquared.test_square_preserves_zero_block_shape\"], \"test_plan_accepted\": true, \"test_failures\": [], \"skipped_cases\": 0, \"expected_failures\": 0, \"api_boundary_coverage\": {\"required\": {}, \"verified\": {}, \"missing\": {}, \"unreviewed\": {}, \"not_applicable\": [{\"target_path\": \"engines/block_layout/engine.py\", \"rule\": \"nonfinite_unknown_field\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"engines/block_layout/SPEC.md\", \"requirement_quote\": \"matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df\"}, {\"target_path\": \"engines/block_layout/engine.py\", \"rule\": \"invalid_payload_type\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"engines/block_layout/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df\"}, {\"target_path\": \"engines/squared/engine.py\", \"rule\": \"nonfinite_unknown_field\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"engines/squared/SPEC.md\", \"requirement_quote\": \"全零块 data=null，其他块 data为整数二维列表\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add\"}, {\"target_path\": \"engines/squared/engine.py\", \"rule\": \"invalid_payload_type\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"engines/squared/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add\"}, {\"target_path\": \"engines/cubed/engine.py\", \"rule\": \"nonfinite_unknown_field\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"engines/cubed/SPEC.md\", \"requirement_quote\": \"消费 B² 再乘 B，返回 {layout:输入layout,blocks:B³的有形状分块矩阵}\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b\"}, {\"target_path\": \"engines/cubed/engine.py\", \"rule\": \"invalid_payload_type\", \"classification\": \"model_declared_exclusion_not_independently_verified\", \"applicable\": false, \"contract_path\": \"engines/cubed/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b\"}], \"inventoried_targets\": [\"engines/block_layout/engine.py\", \"engines/cubed/engine.py\", \"engines/squared/engine.py\"], \"review_errors\": [], \"declarations\": [{\"target_path\": \"engines/block_layout/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"engines/block_layout/SPEC.md\", \"requirement_quote\": \"matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"engines/block_layout/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df\"}}}, {\"target_path\": \"engines/squared/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"engines/squared/SPEC.md\", \"requirement_quote\": \"全零块 data=null，其他块 data为整数二维列表\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"engines/squared/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add\"}}}, {\"target_path\": \"engines/cubed/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"engines/cubed/SPEC.md\", \"requirement_quote\": \"消费 B² 再乘 B，返回 {layout:输入layout,blocks:B³的有形状分块矩阵}\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"engines/cubed/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b\"}}}]}, \"api_boundary_requirements\": [{\"target_path\": \"engines/block_layout/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"engines/block_layout/SPEC.md\", \"requirement_quote\": \"matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"engines/block_layout/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df\"}}}, {\"target_path\": \"engines/squared/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"engines/squared/SPEC.md\", \"requirement_quote\": \"全零块 data=null，其他块 data为整数二维列表\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"engines/squared/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add\"}}}, {\"target_path\": \"engines/cubed/engine.py\", \"function\": \"transform\", \"rules\": {\"nonfinite_unknown_field\": {\"applicable\": false, \"contract_path\": \"engines/cubed/SPEC.md\", \"requirement_quote\": \"消费 B² 再乘 B，返回 {layout:输入layout,blocks:B³的有形状分块矩阵}\", \"reason\": \"SPEC does not state a ValueError rule for non-finite or unknown fields.\", \"document_sha256\": \"8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b\"}, \"invalid_payload_type\": {\"applicable\": false, \"contract_path\": \"engines/cubed/SPEC.md\", \"requirement_quote\": \"仅考查公开合法输入域与明确业务拒绝分支\", \"reason\": \"SPEC does not document a ValueError for invalid payload types.\", \"document_sha256\": \"8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b\"}}}], \"error\": null, \"script_output\": \"\", \"test_output\": \"test_row_and_col_sizes (_semserve_visible_unittest.TestBlockLayout.test_row_and_col_sizes) ... ok\\ntest_cube_consumes_squared (_semserve_visible_unittest.TestCubed.test_cube_consumes_squared) ... ok\\ntest_square_preserves_zero_block_shape (_semserve_visible_unittest.TestSquared.test_square_preserves_zero_block_shape) ... ok\\n\\n----------------------------------------------------------------------\\nRan 3 tests in 0.711s\\n\\nOK\\n\", \"check_ok\": true}\n",
+  "process_ok": true,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 8204,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "PASS_BOUNDED",
+  "actual_case_count": 3,
+  "passed_cases": 3,
+  "failed_cases": 0,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TestBlockLayout.test_row_and_col_sizes",
+    "TestCubed.test_cube_consumes_squared",
+    "TestSquared.test_square_preserves_zero_block_shape"
+  ],
+  "test_plan_accepted": true,
+  "test_failures": [],
+  "skipped_cases": 0,
+  "expected_failures": 0,
+  "api_boundary_coverage": {
+    "required": {},
+    "verified": {},
+    "missing": {},
+    "unreviewed": {},
+    "not_applicable": [
+      {
+        "target_path": "engines/block_layout/engine.py",
+        "rule": "nonfinite_unknown_field",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "engines/block_layout/SPEC.md",
+        "requirement_quote": "matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}",
+        "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+        "document_sha256": "4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df"
+      },
+      {
+        "target_path": "engines/block_layout/engine.py",
+        "rule": "invalid_payload_type",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "engines/block_layout/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+        "reason": "SPEC does not document a ValueError for invalid payload types.",
+        "document_sha256": "4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df"
+      },
+      {
+        "target_path": "engines/squared/engine.py",
+        "rule": "nonfinite_unknown_field",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "engines/squared/SPEC.md",
+        "requirement_quote": "全零块 data=null，其他块 data为整数二维列表",
+        "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+        "document_sha256": "ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add"
+      },
+      {
+        "target_path": "engines/squared/engine.py",
+        "rule": "invalid_payload_type",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "engines/squared/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+        "reason": "SPEC does not document a ValueError for invalid payload types.",
+        "document_sha256": "ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add"
+      },
+      {
+        "target_path": "engines/cubed/engine.py",
+        "rule": "nonfinite_unknown_field",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "engines/cubed/SPEC.md",
+        "requirement_quote": "消费 B² 再乘 B，返回 {layout:输入layout,blocks:B³的有形状分块矩阵}",
+        "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+        "document_sha256": "8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b"
+      },
+      {
+        "target_path": "engines/cubed/engine.py",
+        "rule": "invalid_payload_type",
+        "classification": "model_declared_exclusion_not_independently_verified",
+        "applicable": false,
+        "contract_path": "engines/cubed/SPEC.md",
+        "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+        "reason": "SPEC does not document a ValueError for invalid payload types.",
+        "document_sha256": "8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b"
+      }
+    ],
+    "inventoried_targets": [
+      "engines/block_layout/engine.py",
+      "engines/cubed/engine.py",
+      "engines/squared/engine.py"
+    ],
+    "review_errors": [],
+    "declarations": [
+      {
+        "target_path": "engines/block_layout/engine.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": false,
+            "contract_path": "engines/block_layout/SPEC.md",
+            "requirement_quote": "matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}",
+            "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+            "document_sha256": "4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df"
+          },
+          "invalid_payload_type": {
+            "applicable": false,
+            "contract_path": "engines/block_layout/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+            "reason": "SPEC does not document a ValueError for invalid payload types.",
+            "document_sha256": "4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df"
+          }
+        }
+      },
+      {
+        "target_path": "engines/squared/engine.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": false,
+            "contract_path": "engines/squared/SPEC.md",
+            "requirement_quote": "全零块 data=null，其他块 data为整数二维列表",
+            "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+            "document_sha256": "ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add"
+          },
+          "invalid_payload_type": {
+            "applicable": false,
+            "contract_path": "engines/squared/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+            "reason": "SPEC does not document a ValueError for invalid payload types.",
+            "document_sha256": "ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add"
+          }
+        }
+      },
+      {
+        "target_path": "engines/cubed/engine.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": false,
+            "contract_path": "engines/cubed/SPEC.md",
+            "requirement_quote": "消费 B² 再乘 B，返回 {layout:输入layout,blocks:B³的有形状分块矩阵}",
+            "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+            "document_sha256": "8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b"
+          },
+          "invalid_payload_type": {
+            "applicable": false,
+            "contract_path": "engines/cubed/SPEC.md",
+            "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+            "reason": "SPEC does not document a ValueError for invalid payload types.",
+            "document_sha256": "8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b"
+          }
+        }
+      }
+    ]
+  },
+  "api_boundary_requirements": [
+    {
+      "target_path": "engines/block_layout/engine.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": false,
+          "contract_path": "engines/block_layout/SPEC.md",
+          "requirement_quote": "matrix是二维块列表，每块 {rows,cols,data:整数二维列表或null}",
+          "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+          "document_sha256": "4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df"
+        },
+        "invalid_payload_type": {
+          "applicable": false,
+          "contract_path": "engines/block_layout/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+          "reason": "SPEC does not document a ValueError for invalid payload types.",
+          "document_sha256": "4dd372741600b529014eda9a3d43deb2d156d34bc469a997be8ecd656f3a89df"
+        }
+      }
+    },
+    {
+      "target_path": "engines/squared/engine.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": false,
+          "contract_path": "engines/squared/SPEC.md",
+          "requirement_quote": "全零块 data=null，其他块 data为整数二维列表",
+          "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+          "document_sha256": "ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add"
+        },
+        "invalid_payload_type": {
+          "applicable": false,
+          "contract_path": "engines/squared/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+          "reason": "SPEC does not document a ValueError for invalid payload types.",
+          "document_sha256": "ebfe637a09c998970212226f6cd46ec20af306816b7eaabf5ce1c6e788137add"
+        }
+      }
+    },
+    {
+      "target_path": "engines/cubed/engine.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": false,
+          "contract_path": "engines/cubed/SPEC.md",
+          "requirement_quote": "消费 B² 再乘 B，返回 {layout:输入layout,blocks:B³的有形状分块矩阵}",
+          "reason": "SPEC does not state a ValueError rule for non-finite or unknown fields.",
+          "document_sha256": "8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b"
+        },
+        "invalid_payload_type": {
+          "applicable": false,
+          "contract_path": "engines/cubed/SPEC.md",
+          "requirement_quote": "仅考查公开合法输入域与明确业务拒绝分支",
+          "reason": "SPEC does not document a ValueError for invalid payload types.",
+          "document_sha256": "8d6db2375be78d965a261462f705d98bd45ee0ec19c68f1110de7f7ce7001e0b"
+        }
+      }
+    }
+  ],
+  "error": null,
+  "script_output": "",
+  "test_output": "test_row_and_col_sizes (_semserve_visible_unittest.TestBlockLayout.test_row_and_col_sizes) ... ok\ntest_cube_consumes_squared (_semserve_visible_unittest.TestCubed.test_cube_consumes_squared) ... ok\ntest_square_preserves_zero_block_shape (_semserve_visible_unittest.TestSquared.test_square_preserves_zero_block_shape) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.711s\n\nOK\n",
+  "check_ok": true,
+  "failure_stage": null,
+  "executions": 1,
+  "frozen_regressions": 0,
+  "reused": false
+}

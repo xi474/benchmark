@@ -1,0 +1,590 @@
+{
+  "version": "semserve.visible-contract-check.v2",
+  "start": 1795194460.1159306,
+  "end": 1795194462.155143,
+  "seconds": 2.039212465286255,
+  "workspace_version": "c23a504710578ceecbd92005b12af8e64c530905382a65cf93dec52d3e7bb314",
+  "script_sha256": "2005ffba55b96712ca346e0d01bbd06467e4f4eae0625ed77175138d3f055b86",
+  "spec_sha256": "fc69cda3c17a20554517f57bb9557ab8a9faa30450ceeb67439d059189f8cd69",
+  "runner_sha256": "91e6ef8165233c3b9cc419a0f7d83b176c346aaf17ee1b967da12ce88c6d1957",
+  "returncode": 1,
+  "output": "='domains/subjects/transform.py', rule='invalid_payload_type') ... ERROR\\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='nonfinite_unknown_field') ... ERROR\\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='invalid_payload_type') ... ERROR\\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='nonfinite_unknown_field') ... ERROR\\ntest_catalog_join (_semserve_visible_unittest.TestCatalogTransform.test_catalog_join) ... ok\\ntest_catalog_mismatch_ids (_semserve_visible_unittest.TestCatalogTransform.test_catalog_mismatch_ids) ... ok\\ntest_languages_bad_length (_semserve_visible_unittest.TestLanguagesTransform.test_languages_bad_length) ... ok\\ntest_languages_gerlat_split (_semserve_visible_unittest.TestLanguagesTransform.test_languages_gerlat_split) ... ok\\ntest_reader_parses_records (_semserve_visible_unittest.TestReaderTransform.test_reader_parses_records) ... ok\\ntest_reader_rejects_doctype (_semserve_visible_unittest.TestReaderTransform.test_reader_rejects_doctype) ... ok\\ntest_subjects_count (_semserve_visible_unittest.TestSubjectsTransform.test_subjects_count) ... ok\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/reader/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/reader/transform.py', rule='nonfinite_unknown_field')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/names/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/names/transform.py', rule='nonfinite_unknown_field')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/languages/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 428, in check_api_boundary\\n    call(target_path, 'transform', args=control)\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/languages/transform.py', rule='nonfinite_unknown_field')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 428, in check_api_boundary\\n    call(target_path, 'transform', args=control)\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 477, in bound_call\\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 301, in call_candidate\\n    raise CandidateCallError(receipt)\\nCandidateCallError: candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='nonfinite_unknown_field')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='invalid_payload_type')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n======================================================================\\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='nonfinite_unknown_field')\\n----------------------------------------------------------------------\\nTraceback (most recent call last):\\n  File \\\"/workspace/.semserve/visible_checks/check.py\\\", line 239, in test_api_boundary_probes\\n    check_api_boundary(target, rule=rule, contract_path=\\\"README.md\\\",\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 480, in bound_boundary\\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\\\", line 422, in check_api_boundary\\n    raise CheckInputError('invalid_boundary_args', 'args',\\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\\n\\n----------------------------------------------------------------------\\nRan 8 tests in 1.819s\\n\\nFAILED (errors=10)\\n\", \"check_ok\": false, \"selfcheck_feedback\": {\"kind\": \"probe_setup\", \"code\": \"invalid_boundary_args\", \"scope\": \"check_api_boundary\", \"target\": \"domains/reader/transform.py\", \"details\": {\"code\": \"invalid_boundary_args\", \"field\": \"args\", \"message\": \"Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\", \"target_path\": \"domains/reader/transform.py\", \"rule\": \"invalid_payload_type\"}, \"next_action\": \"Use a finite seed with the public transform signature and the matching payload path. Preserve its object or batch shape and rerun the same check.\"}}\n",
+  "process_ok": false,
+  "result_transport": "runtime_result_file",
+  "structured_result_chars": 48707,
+  "schema_version": "semserve.visible-contract-check.v2",
+  "test_framework": "unittest",
+  "status": "SCRIPT_ERROR",
+  "actual_case_count": 8,
+  "passed_cases": 7,
+  "failed_cases": 1,
+  "cases": [],
+  "resolutions": [],
+  "promoted": {},
+  "test_ids": [
+    "TestAPIBoundary.test_api_boundary_probes",
+    "TestCatalogTransform.test_catalog_join",
+    "TestCatalogTransform.test_catalog_mismatch_ids",
+    "TestLanguagesTransform.test_languages_bad_length",
+    "TestLanguagesTransform.test_languages_gerlat_split",
+    "TestReaderTransform.test_reader_parses_records",
+    "TestReaderTransform.test_reader_rejects_doctype",
+    "TestSubjectsTransform.test_subjects_count"
+  ],
+  "test_plan_accepted": true,
+  "test_failures": [
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/reader/transform.py', rule='invalid_payload_type')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/reader/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/reader/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/reader/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/names/transform.py', rule='invalid_payload_type')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/names/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/names/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/names/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/languages/transform.py', rule='invalid_payload_type')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "KeyError",
+        "error": "'inputs'",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/domains/languages/transform.py\", line 2, in transform\n    if len(payloads) != len(contract[\"inputs\"]):\n                            ~~~~~~~~^^^^^^^^^^\nKeyError: 'inputs'\n",
+        "target_path": "domains/languages/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/languages/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "candidate_exception",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'\n",
+      "candidate_call": {
+        "ok": false,
+        "error_type": "KeyError",
+        "error": "'inputs'",
+        "stage": "call",
+        "traceback": "Traceback (most recent call last):\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 236, in call_main\n    result=fn(*case['args'],**case['kwargs'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/domains/languages/transform.py\", line 2, in transform\n    if len(payloads) != len(contract[\"inputs\"]):\n                            ~~~~~~~~^^^^^^^^^^\nKeyError: 'inputs'\n",
+        "target_path": "domains/languages/transform.py",
+        "function": "transform",
+        "accepted_signature": "(payloads, contract)",
+        "failure_phase": "candidate_exception",
+        "candidate_output": ""
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/subjects/transform.py', rule='invalid_payload_type')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/subjects/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='domains/subjects/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/subjects/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='views/catalog/transform.py', rule='invalid_payload_type')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "views/catalog/transform.py"
+      }
+    },
+    {
+      "test_id": "TestAPIBoundary.test_api_boundary_probes (target='views/catalog/transform.py', rule='nonfinite_unknown_field')",
+      "kind": "test_error",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "views/catalog/transform.py"
+      }
+    }
+  ],
+  "skipped_cases": 0,
+  "expected_failures": 0,
+  "api_boundary_coverage": {
+    "required": {
+      "domains/languages/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "domains/names/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "domains/reader/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "domains/subjects/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "views/catalog/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "verified": {},
+    "missing": {
+      "domains/languages/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "domains/names/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "domains/reader/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "domains/subjects/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ],
+      "views/catalog/transform.py": [
+        "invalid_payload_type",
+        "nonfinite_unknown_field"
+      ]
+    },
+    "unreviewed": {},
+    "not_applicable": [],
+    "inventoried_targets": [
+      "domains/languages/transform.py",
+      "domains/names/transform.py",
+      "domains/reader/transform.py",
+      "domains/subjects/transform.py",
+      "views/catalog/transform.py"
+    ],
+    "review_errors": [],
+    "declarations": [
+      {
+        "target_path": "domains/reader/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          }
+        }
+      },
+      {
+        "target_path": "domains/names/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          }
+        }
+      },
+      {
+        "target_path": "domains/languages/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          }
+        }
+      },
+      {
+        "target_path": "domains/subjects/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          }
+        }
+      },
+      {
+        "target_path": "views/catalog/transform.py",
+        "function": "transform",
+        "rules": {
+          "nonfinite_unknown_field": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          },
+          "invalid_payload_type": {
+            "applicable": true,
+            "contract_path": "README.md",
+            "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+            "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+          }
+        }
+      }
+    ]
+  },
+  "api_boundary_requirements": [
+    {
+      "target_path": "domains/reader/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        }
+      }
+    },
+    {
+      "target_path": "domains/names/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        }
+      }
+    },
+    {
+      "target_path": "domains/languages/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        }
+      }
+    },
+    {
+      "target_path": "domains/subjects/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        }
+      }
+    },
+    {
+      "target_path": "views/catalog/transform.py",
+      "function": "transform",
+      "rules": {
+        "nonfinite_unknown_field": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        },
+        "invalid_payload_type": {
+          "applicable": true,
+          "contract_path": "README.md",
+          "requirement_quote": "仅对象/数组顶层合法；非法JSON、其他顶层类型和任意嵌套NaN/Infinity抛ValueError。",
+          "document_sha256": "c3608d487445db6117524738c026d83ea4f07805a4cebfae12f6285b54908676"
+        }
+      }
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n",
+  "api_boundary_checks": [
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "domains/reader/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/reader/transform.py"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "domains/reader/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/reader/transform.py"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "domains/names/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/names/transform.py"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "domains/names/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/names/transform.py"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "domains/languages/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "KeyError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "'inputs'"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "domains/languages/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'",
+      "error_details": {
+        "failure_phase": "candidate_exception",
+        "error_type": "KeyError",
+        "accepted_signature": "(payloads, contract)",
+        "error": "'inputs'"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "domains/subjects/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/subjects/transform.py"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "domains/subjects/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "domains/subjects/transform.py"
+      }
+    },
+    {
+      "rule": "invalid_payload_type",
+      "target_path": "views/catalog/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "views/catalog/transform.py"
+      }
+    },
+    {
+      "rule": "nonfinite_unknown_field",
+      "target_path": "views/catalog/transform.py",
+      "function": "transform",
+      "contract_path": "README.md",
+      "requirement_quote": "未知额外字段可忽略，但其中非有限JSON仍非法。",
+      "status": "setup_error",
+      "outcomes": [],
+      "error": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "error_details": {
+        "code": "invalid_boundary_args",
+        "field": "args",
+        "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+        "target_path": "views/catalog/transform.py"
+      }
+    }
+  ],
+  "script_output": "",
+  "test_output": "test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) ... \n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/reader/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/reader/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/names/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/names/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/languages/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/languages/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='nonfinite_unknown_field') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='invalid_payload_type') ... ERROR\n  test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='nonfinite_unknown_field') ... ERROR\ntest_catalog_join (_semserve_visible_unittest.TestCatalogTransform.test_catalog_join) ... ok\ntest_catalog_mismatch_ids (_semserve_visible_unittest.TestCatalogTransform.test_catalog_mismatch_ids) ... ok\ntest_languages_bad_length (_semserve_visible_unittest.TestLanguagesTransform.test_languages_bad_length) ... ok\ntest_languages_gerlat_split (_semserve_visible_unittest.TestLanguagesTransform.test_languages_gerlat_split) ... ok\ntest_reader_parses_records (_semserve_visible_unittest.TestReaderTransform.test_reader_parses_records) ... ok\ntest_reader_rejects_doctype (_semserve_visible_unittest.TestReaderTransform.test_reader_rejects_doctype) ... ok\ntest_subjects_count (_semserve_visible_unittest.TestSubjectsTransform.test_subjects_count) ... ok\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/reader/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/reader/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/names/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/names/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/languages/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/languages/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 428, in check_api_boundary\n    call(target_path, 'transform', args=control)\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 477, in bound_call\n    return call_candidate(root, *args, **kwargs, _probe_receipts=probes, _accepted_seeds=accepted_seeds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 301, in call_candidate\n    raise CandidateCallError(receipt)\nCandidateCallError: candidate_exception in domains/languages/transform.py::transform: KeyError: 'inputs'\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='domains/subjects/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='invalid_payload_type')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n======================================================================\nERROR: test_api_boundary_probes (_semserve_visible_unittest.TestAPIBoundary.test_api_boundary_probes) (target='views/catalog/transform.py', rule='nonfinite_unknown_field')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 239, in test_api_boundary_probes\n    check_api_boundary(target, rule=rule, contract_path=\"README.md\",\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 480, in bound_boundary\n    return check_api_boundary(root, bound_call, boundary_checks, target_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py\", line 422, in check_api_boundary\n    raise CheckInputError('invalid_boundary_args', 'args',\nCheckInputError: Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.\n\n----------------------------------------------------------------------\nRan 8 tests in 1.819s\n\nFAILED (errors=10)\n",
+  "check_ok": false,
+  "selfcheck_feedback": {
+    "kind": "probe_setup",
+    "code": "invalid_boundary_args",
+    "scope": "check_api_boundary",
+    "target": "domains/reader/transform.py",
+    "details": {
+      "code": "invalid_boundary_args",
+      "field": "args",
+      "message": "Use the public transform signature with a finite seed: args=[payload, contract] for a direct object, or args=[payloads, contract] for a batch. Keep the declared payload shape.",
+      "target_path": "domains/reader/transform.py",
+      "rule": "invalid_payload_type"
+    },
+    "next_action": "Use a finite seed with the public transform signature and the matching payload path. Preserve its object or batch shape and rerun the same check."
+  },
+  "failure_stage": "test_setup_or_execution",
+  "executions": 1,
+  "preparation_deferrals": 0,
+  "infra_errors": 1,
+  "mismatch_rounds": 0,
+  "frozen_regressions": 0,
+  "pending_reference_reviews": 0,
+  "pending_cases": {}
+}

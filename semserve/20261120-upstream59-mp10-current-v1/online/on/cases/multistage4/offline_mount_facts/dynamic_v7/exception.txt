@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py", line 793, in _run_loop
+    turn = self._hs_complete(state, tool_schemas, routing_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/handshake_speculation.py", line 351, in _hs_complete
+    return self._hs_primary_complete(state,schemas,routing)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/handshake_speculation.py", line 342, in _hs_primary_complete
+    turn = self.provider.complete(request, schemas, routing)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/run_case_live.py", line 567, in complete
+    turn = super().complete(actual_state, tools, replace(routing_context, requested_model=actual_model))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/narration_compression.py", line 63, in complete
+    turn=super().complete(state,tools,routing_context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/providers/openai_compat.py", line 165, in complete
+    with urlopen(request, timeout=bounded_timeout(self.timeout_seconds)) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/run_case_live.py", line 357, in scoped_wire
+    return official_wire(request, ofox_wire.ORIGINAL, record, getattr(LOCAL, "scope", None),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/warehouse-cold-transport.py", line 94, in scoped
+    return wire(request, original, record_with_isolation, scope, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/deepseek_official_wire.py", line 134, in official_wire
+    raw, headers, status = read_with_review_deadline(response,deadline_api), response.headers, response.status
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/deepseek_official_wire.py", line 102, in read_with_review_deadline
+    if expired.is_set():raise deadline_api.SelfcheckDeadlineExceeded('selfcheck_budget_exhausted: response read interrupted') from None
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+agent_runtime_demo.selfcheck_deadline.SelfcheckDeadlineExceeded: selfcheck_budget_exhausted: response read interrupted
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/run_case_live.py", line 907, in main
+    cli.main()
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/cli.py", line 927, in main
+    final_answer = runtime.run(
+                   ^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py", line 528, in run
+    final = self._run_loop(state)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/runtime.py", line 807, in _run_loop
+    self._guard_check_selfcheck_deadline(state)
+  File "/opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/runtime/src/agent_runtime_demo/output_guard.py", line 220, in _guard_check_selfcheck_deadline
+    raise SelfcheckDeadlineExceeded('selfcheck_budget_exhausted: self-check incomplete; public pass remains separate')
+agent_runtime_demo.selfcheck_deadline.SelfcheckDeadlineExceeded: selfcheck_budget_exhausted: self-check incomplete; public pass remains separate

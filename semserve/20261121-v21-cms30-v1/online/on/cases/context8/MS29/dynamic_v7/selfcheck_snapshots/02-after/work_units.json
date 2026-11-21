@@ -1,0 +1,42 @@
+{
+  "task": "MS29",
+  "sample_tolerance": 0,
+  "units": [
+    {
+      "name": "dish_requirements",
+      "implementation": "components/dish_requirements/work.py",
+      "read_fields": [
+        "dishes",
+        "max_difficulty"
+      ],
+      "input": "components/dish_requirements/input.json",
+      "public_expected": "components/dish_requirements/expected.json",
+      "output": "components/dish_requirements/result.json",
+      "run": "python -B components/dish_requirements/run.py",
+      "check": "python -B components/dish_requirements/check.py",
+      "contract": "返回合格的三类菜品组合及合并需求，格式 [菜品 ID 数组,原料到数量映射]，按菜品字典序枚举。"
+    },
+    {
+      "name": "purchase_baskets",
+      "implementation": "components/purchase_baskets/work.py",
+      "read_fields": [
+        "offers"
+      ],
+      "input": "components/purchase_baskets/input.json",
+      "public_expected": "components/purchase_baskets/expected.json",
+      "output": "components/purchase_baskets/result.json",
+      "run": "python -B components/purchase_baskets/run.py",
+      "check": "python -B components/purchase_baskets/check.py",
+      "contract": "输出所有限量采购篮 [总价,总件数,按排序后 offer 的购买数量向量]；按这三项升序排列。"
+    }
+  ],
+  "integration": {
+    "implementation": "integration.py",
+    "reads": [
+      "components/dish_requirements/result.json",
+      "components/purchase_baskets/result.json"
+    ],
+    "output": "outputs/result.json",
+    "run": "python -B component_runtime.py join"
+  }
+}
