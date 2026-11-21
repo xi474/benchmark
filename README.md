@@ -2,7 +2,20 @@
 
 59 道公开上游改编题，用于比较 agent harness 完成多阶段任务的能力。每题提供 Harbor 工作区、公开检查、独立评测入口、参考解和逐题来源。历史校准使用 Terminus 2 与 DeepSeek V4 Pro 普通模式，每题五轮。按原验收口径，中档 20 题，难档 39 题。
 
-[下载完整题库](https://github.com/xi474/benchmark/raw/refs/heads/release/downloads/capstone-upstream59-v2.0.0.zip) · [下载校验值](https://github.com/xi474/benchmark/blob/release/downloads/SHA256SUMS) · [逐题来源与分母](TASKS.md) · [评分协议](scoring/README.md) · [机器可读目录](catalog.json)
+[下载完整题库](https://github.com/xi474/benchmark/raw/refs/heads/release/downloads/capstone-upstream59-v2.0.0-source-r1.zip) · [下载校验值](https://github.com/xi474/benchmark/blob/release/downloads/SHA256SUMS) · [逐题来源与分母](TASKS.md) · [评分协议](scoring/README.md) · [机器可读目录](catalog.json)
+
+## 题号与来源
+
+| 前缀 | 本地编题批次 | 本版题数 | 本版题目的公开上游 |
+|---|---|---:|---|
+| `C` | 100 道上游候选 | 20 | Terminal-Bench 4.1（5）、Terminal-Bench 2.0（4）、SWE-bench Pro（11） |
+| `MP` | 中等难度与并行机会选题 | 25 | SWE-bench Verified（6）、SWE-bench Pro V2（7）、Terminal-Bench（4）、GAIA2 公开 mini / validation（8） |
+| `MS` | MS-Eval 改编 | 10 | MS-Eval（10） |
+| `N` | 新增 30 道候选 | 4 | SWE-bench Verified（1）、SWE-bench Pro（1）、Terminal-Bench 2.0（2） |
+
+例如，MP17 最初按中等难度与并行机会选入，最终五测定为难档。各题沿用原批次序号，方便对照历史成绩。[前缀命名与例子](provenance/README.md) · [59 题逐题来源](TASKS.md)
+
+当前下载包带有 source-r1 来源注释。早期实验可按[原始 v2.0.0 压缩包](https://github.com/xi474/benchmark/raw/refs/heads/release/downloads/capstone-upstream59-v2.0.0.zip)的校验值复核。
 
 ## 运行
 
