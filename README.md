@@ -28,6 +28,8 @@ python3 validate_release.py
 
 ## 结果
 
+[下载 DSH、Codex、Nanobot 各 59 题的原生 trace](results/upstream59-v21-native-traces-dsh-codex-nanobot-20261123/README.md)。共 177 份逐题归档，可查原生事件、工具记录、监控与网关账本，附 SHA-256 校验清单。
+
 [SemServe 与六套 Harness 的 Upstream59 对照报告](results/upstream59-v21-semserve-vs-six-harnesses-20261123/README.md)。包含 59 题逐题数据、首轮与重放图表、执行耗时与 E2E 口径、模型成本和 trace 分析。
 
 [下载 DeepSeek V4 Pro 普通模式完整评测矩阵（Word）](results/upstream59-v21-deepseek-v4pro-20261121/upstream59-v2.1.0-deepseek-v4-pro-matrix.docx?raw=true)。报告覆盖 59 题 × 6 套 Harness 的 354 格，包含 reward、严格通过、核心 API 检查、逐题 E2E、模型成本估算、委派调用、实际创建子 Agent 和工具执行区间重叠，以及汇总对比图。
