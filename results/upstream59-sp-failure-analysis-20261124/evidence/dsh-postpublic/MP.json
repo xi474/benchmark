@@ -1,0 +1,355 @@
+[
+  {
+    "task": "MP01",
+    "gate": 91,
+    "group": "interface",
+    "test_lines": [
+      100,
+      105
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "另造 NaN、Infinity、标量与损坏 JSON，检验通用 load_payload；复算公开清单哈希并更换工作目录。"
+  },
+  {
+    "task": "MP02",
+    "gate": 115,
+    "group": "new",
+    "test_lines": [
+      124,
+      129
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "以冲突记录测试 first 和 drop_conflicts；首次探针导入错 transform，修正探针后通过。"
+  },
+  {
+    "task": "MP03",
+    "gate": 124,
+    "group": "new",
+    "test_lines": [
+      142,
+      147,
+      152,
+      162
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造 fstab 解析、冲突和非冲突条目及缺字段；首次导入缓存串模块，隔离探针后通过。"
+  },
+  {
+    "task": "MP04",
+    "gate": null,
+    "group": "no_gate",
+    "test_lines": [],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "轨迹止于列目录与规划；找不到整题公开检查的通过输出。"
+  },
+  {
+    "task": "MP05",
+    "gate": 152,
+    "group": "new",
+    "test_lines": [
+      174,
+      184
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "第184行构造非常规联系人年龄。另在156–157行复看公开产物，从日历重复出席者时长发现业务缺陷；161行修复，165–166行原公开数据复验。"
+  },
+  {
+    "task": "MP06",
+    "gate": 151,
+    "group": "interface",
+    "test_lines": [
+      165
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "新造 NaN、无穷和顶层标量，测试通用 load_payload。公开通过前曾有导入路径错误。"
+  },
+  {
+    "task": "MP07",
+    "gate": 120,
+    "group": "new",
+    "test_lines": [
+      139,
+      149
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造回执失败阻止归档的输入及 attention 分支，核验对应动作和标记。"
+  },
+  {
+    "task": "MP08",
+    "gate": 93,
+    "group": "new",
+    "test_lines": [
+      107,
+      117,
+      122,
+      127
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造分类、缺失路径和碰撞用例；一次测试导入名错误，纠正探针后继续。"
+  },
+  {
+    "task": "MP09",
+    "gate": 119,
+    "group": "new",
+    "test_lines": [
+      137,
+      142,
+      147,
+      149,
+      154,
+      159
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "测试忙碌时段、分组不全、库存不可用及提交/循环条件；隔离模块导入后检查完成。"
+  },
+  {
+    "task": "MP10",
+    "gate": 110,
+    "group": "new",
+    "test_lines": [
+      136,
+      141,
+      148,
+      150
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造同一星期几、库存不足及小时格式等边界。"
+  },
+  {
+    "task": "MP12",
+    "gate": 144,
+    "group": "new",
+    "test_lines": [
+      186,
+      190,
+      194,
+      199
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造路径冲突、大小写邮件、非法日期、错误发件人、提交冲突。各次探针当时按预期通过；后续根据规格重新解释空关键词并修改，未见新用例失败后按原例复验。"
+  },
+  {
+    "task": "MP13",
+    "gate": 116,
+    "group": "new",
+    "test_lines": [
+      142
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造重复 ID、词汇及非法浮点时间；另有在其他目录运行时缺前置产物的检查。"
+  },
+  {
+    "task": "MP14",
+    "gate": 105,
+    "group": "new",
+    "test_lines": [
+      116,
+      121,
+      126
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造链式抑制与嵌套帧。116行把接口接受数组打印为 FAIL，随后核对约定并改正预期。"
+  },
+  {
+    "task": "MP15",
+    "gate": 204,
+    "group": "new",
+    "test_lines": [
+      223,
+      228,
+      242,
+      257,
+      277,
+      287
+    ],
+    "bug": true,
+    "same_pass": true,
+    "chain": [
+      228,
+      229,
+      232,
+      238,
+      242,
+      243
+    ],
+    "note": "228–229行用模块 import os、函数内 os=1 并 return os 暴露局部遮蔽误判；238行改动分析器；242–243行复跑相同程序和普通引用，恢复未使用全局导入的预期。"
+  },
+  {
+    "task": "MP16",
+    "gate": 138,
+    "group": "new",
+    "test_lines": [
+      152,
+      162,
+      167,
+      172
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造无法解析的定义、签名、继承和类型限定等业务边界。"
+  },
+  {
+    "task": "MP17",
+    "gate": 115,
+    "group": "replay",
+    "test_lines": [
+      124,
+      129,
+      134
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "核对原 MIME 消息与同一份公开的 0x00–0x7f 载荷的 base64 折行，复跑原组件和整题。"
+  },
+  {
+    "task": "MP18",
+    "gate": 116,
+    "group": "new",
+    "test_lines": [
+      130,
+      135
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造清单冲突、过滤等边界；校正对公开输出长度的手工估计。"
+  },
+  {
+    "task": "MP19",
+    "gate": 127,
+    "group": "new",
+    "test_lines": [
+      150,
+      159
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造两个 from-import 子模块解析场景，再测外部允许列表和别名。"
+  },
+  {
+    "task": "MP20",
+    "gate": 106,
+    "group": "new",
+    "test_lines": [
+      115
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造悬挂分段以及非法 JSON，检查相应解析/校验行为。"
+  },
+  {
+    "task": "MP21",
+    "gate": 107,
+    "group": "new",
+    "test_lines": [
+      116,
+      126
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "另造三首曲目的播放列表，同时验证算出的整数总时长为4及其类型。"
+  },
+  {
+    "task": "MP22",
+    "gate": 181,
+    "group": "new",
+    "test_lines": [
+      213,
+      217,
+      222,
+      226,
+      252,
+      272,
+      277,
+      282
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "新造 MARC XML、880 替代题名、DOCTYPE。孤立导入失败及 payload 维度错误属于探针设置；可证业务错误源于189–190行复看公开 subjects 输出，194行修复，198–199行复验公开样例。"
+  },
+  {
+    "task": "MP23",
+    "gate": 106,
+    "group": "replay",
+    "test_lines": [
+      120,
+      124,
+      129,
+      134,
+      138
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "独立从同一公开 core_manifest 复算 SHA，切换目录回放公开输入和整题，另查看源码硬编码。"
+  },
+  {
+    "task": "MP24",
+    "gate": 150,
+    "group": "interface",
+    "test_lines": [
+      169
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "新造标量、非法常数、无穷与数组测试通用 load_payload，业务输出复用公开数据。"
+  },
+  {
+    "task": "MP25",
+    "gate": 102,
+    "group": "new",
+    "test_lines": [
+      115
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造业务负例与新金额，调用相应 transform 验证。"
+  },
+  {
+    "task": "MP26",
+    "gate": 163,
+    "group": "new",
+    "test_lines": [
+      182,
+      187
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造日期、重复或未知出席人、非法日期，校验日历业务；未构造同日晚八点场景。"
+  }
+]

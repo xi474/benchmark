@@ -1,0 +1,554 @@
+[
+  {
+    "task": "C011",
+    "diagnosis": "排程目标的比较方向出错，已选订单相同后仍把最终排产明细按更大值挑选。另有一层物料分配使用单次贪心，不能遍历竞争替代料的可行分配。首轮控制器达到运行时限，未形成最终自检回执。",
+    "items": [
+      {
+        "checks": [
+          "A/core-01",
+          "A/core-02",
+          "A/core-03",
+          "A/core-04",
+          "A/core-05",
+          "A/core-06",
+          "A/core-07"
+        ],
+        "detail": "前七例排单整体偏晚；如 core-01 的第二张 ERP 订单应走 [3,5)，实际 [4,6)。代码把产量、完成位向量、明细放在一个元组上统一做最大化，题面最后一项要求字典序最小。"
+      },
+      {
+        "checks": [
+          "A/core-08",
+          "A/core-09"
+        ],
+        "detail": "两条线上任务均可安排时，期望 L1，却选 L2；同一最末级排序方向也改变 MES 列表。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "P/public-check"
+        ],
+        "detail": "公开与部分干净构建、CLI 也交付错误方案。真实重放将 A 从 1/10 改善至 6/10，尚错 core-01/03/05/07：例如 core-01 期望 4 条 WMS 预留、实际 3 条，第三条期望数量 1 实际 2；重放公开仍未过，正式合并保留首轮 1/10。"
+      }
+    ],
+    "improvement": "先比较产量和完成向量的最大值，平手时单独比较最小排程/分配明细；在小规模正常域枚举或回溯共享库存，并用同一选定解生成三种视图。",
+    "regression": "固定满足资格的 L1/L2 与相邻两个时间窗，交换输入顺序应仍选 L1 和最早可行时间；再用两个可拆分批次，核对每项 WMS 的批号和数量。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C011/dynamic_v7/workspace/integration.py",
+        "line": 126
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C011/dynamic_v7/workspace/integration.py",
+        "line": 82
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C011/dynamic_v7/u59/raw-checks.json",
+        "line": 1
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C031",
+    "diagnosis": "只有 Ctrl-U 清空当前命令并重绘提示的用例失败。冻结实现对回车进行了不合契约的规范化，同时命中提示符就立即停止读取；两条路径都影响这类有中间提示符的同一输出突发。",
+    "items": [
+      {
+        "checks": [
+          "A/C031-05"
+        ],
+        "detail": "键盘序列为输入 BAD、Ctrl-U、输入 GOOD、回车。正确结果要保留交互重绘文本、GOOD 输出及最终提示；代码把孤立 CR 转成 LF，而参考实现删除孤立 CR，并会继续排空同一突发。公开检查与 5 个有限自测通过。"
+      }
+    ],
+    "improvement": "区分 CRLF 与孤立 CR，命中候选提示符后收齐已经就绪的同次输出，按字节再规范化；保留 Linux 真实 PTY。",
+    "regression": "使用 Ctrl-U 改写一条尚未提交的命令，同时核验 GOOD 的输出、最终提示符、没有额外换行；在输出分多次到达时重复检查。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C031/dynamic_v7/workspace/integration.py",
+        "line": 14
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C031/dynamic_v7/workspace/integration.py",
+        "line": 23
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C031/dynamic_v7/workspace/TASK.md",
+        "line": 9
+      }
+    ],
+    "confidence": "评分与归档源码可确认；CR 和提前终止各贡献多少未经逐项干预确认"
+  },
+  {
+    "task": "C033",
+    "diagnosis": "虚拟机解码能执行部分指令，退出状态与控制流却不符合 MIPS 约定。首轮 14 个程序均发生寄存器 2 最终值错误；跳转和文件 I/O 在部分用例另有差异。首轮达到运行时限，未取得最终自检回执。",
+    "items": [
+      {
+        "checks": [
+          "A/C033-01",
+          "A/C033-02",
+          "A/C033-03",
+          "A/C033-04",
+          "A/C033-05",
+          "A/C033-06",
+          "A/C033-07",
+          "A/C033-08",
+          "A/C033-09",
+          "A/C033-10",
+          "A/C033-11",
+          "A/C033-12",
+          "A/C033-13",
+          "A/C033-14"
+        ],
+        "detail": "exit 调用进入通用系统调用返回路径，把 v0 改为 0，冻结用例要求保留 4001。C033-01 还期望退出码 7 而实际 0。taken 分支直接跳至目标，跳转时也没有按规范安排延迟槽；-09 期望 17 步实际 15，-14 的虚拟文件期望 41424344，实际 4142。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2",
+          "P/public-check"
+        ],
+        "detail": "首轮两个 CLI 和公开也失败。独立重放使 -01 和公开通过，-02 至 -14 仍错。-06 与 -12 分别读取未绑定的 lo 和 hi，-02 的寄存器9期望 7 实际 11，-03/-04/-10/-11/-13 仍有多算步数；重放仍未严格通过。"
+      }
+    ],
+    "improvement": "把“当前 PC、下一条指令、待生效的跳转”写入显式执行状态；拆开终止和普通系统调用返回，共享寄存器与 hi/lo 的读写载体，并独立验证虚拟文件偏移与持久性。",
+    "regression": "逐指令比较跳转前、延迟槽后、转移后和退出后的寄存器与步数，再验证两个追加写入后的虚拟文件长度及十六进制内容。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C033/dynamic_v7/workspace/integration.py",
+        "line": 100
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C033/dynamic_v7/workspace/integration.py",
+        "line": 128
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C033/dynamic_v7/workspace/integration.py",
+        "line": 286
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C033/dynamic_v7/workspace/integration.py",
+        "line": 159
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C039",
+    "diagnosis": "因果图的干预结果将“切掉的边”误作“切边后保留的图”。首轮十个用例的 intervened_edges 都错；运行达到时限。独立重放又引入了搜索分支的变量作用域异常。",
+    "items": [
+      {
+        "checks": [
+          "A/core-01",
+          "A/core-02",
+          "A/core-03",
+          "A/core-04",
+          "A/core-05",
+          "A/core-06",
+          "A/core-07",
+          "A/core-08",
+          "A/core-09",
+          "A/core-10"
+        ],
+        "detail": "首轮仅返回终点为被干预节点的入边，例如 core-01 期望保留两条边，实际恰好返回被切掉的一条；偶数用例期望保留三条，实际仍给一条。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2",
+          "P/public-check"
+        ],
+        "detail": "构建、两项 CLI 和公开同样失败。实际重放中 core-01 保留边数从期望 2 变为实际 3，core-02 至 core-10 在候选图比较时读取未绑定的 best_edges_key；重放 0/10，正式仍采用首轮。"
+      }
+    ],
+    "improvement": "先冻结最优 DAG，将剩余边集合单独定义为原图去掉干预点的入边，再做后干预均值传播。用显式最优候选记录替代递归闭包里的独立易漏状态变量。",
+    "regression": "构造 U→X→Y 与另一条不经过 X 的边，干预 X 后断言只有 U→X 消失；候选同分时也应稳定返回图，不抛异常。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C039/dynamic_v7/workspace/integration.py",
+        "line": 129
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C039/dynamic_v7/workspace/integration.py",
+        "line": 138
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C049",
+    "diagnosis": "梯度端累加了微批内部平均梯度，却只给 loss 除以微批数；调度端的跨阶段传输事件又遗漏所属微批。两个独立组件均能运行，一旦微批数或 stage 数大于一，组合结果就错。",
+    "items": [
+      {
+        "checks": [
+          "A/C049-02",
+          "A/C049-03",
+          "A/C049-04",
+          "A/C049-06",
+          "A/C049-07"
+        ],
+        "detail": "双 stage 用例的 send_activation/send_gradient 缺 microbatch；-02 只有一个微批，仅这类事件字段缺失已足以失败。公开调度描述中 send 的括号只列 source、target，冻结检查还逐项要求微批字段，值得在题面补一句。"
+      },
+      {
+        "checks": [
+          "A/C049-03",
+          "A/C049-04",
+          "A/C049-05",
+          "A/C049-06",
+          "A/C049-07",
+          "A/C049-08"
+        ],
+        "detail": "多微批用例的梯度大了微批数倍。-03 第一层一个梯度期望 0.005718687855、实际约 0.011437375711；-04 约三倍。-05 和 -08 均为单 stage，仍出现梯度错，故传输字段无法解释这一部分。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "第二构建/CLI 输入同样无法生成匹配参考的结果。差异远超 1e-8 容差；12 位展示舍入并非这里的根因。"
+      }
+    ],
+    "improvement": "对各微批的平均梯度再等权平均，把每条跨 stage 消息与微批 m 显式关联；独立比对数值与事件 schema。",
+    "regression": "同一批数据复制为两个相同微批，目标与梯度应保持相同；双 stage 单微批时只有事件检查改变，核对每次激活与梯度传递的 m。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C049/dynamic_v7/workspace/components/batch_gradients/work.py",
+        "line": 146
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C049/dynamic_v7/workspace/components/pipeline_schedule/work.py",
+        "line": 26
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C049/dynamic_v7/workspace/TASK.md",
+        "line": 11
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C055",
+    "diagnosis": "父任务的整合文件给直接导出和模板递归引用各写了一条渲染路径，密文遮蔽只覆盖直接导出。可信与非可信解析子任务各写各自组件；失分发生在父任务整合处。",
+    "items": [
+      {
+        "checks": [
+          "A/sealed-tag"
+        ],
+        "detail": "保留密文标签时，直接读取返回 [sealed]，可信模板插值调用 render_value 却取出原密文 ID。冻结用例中的 value-[sealed] 实际返回 value-T。其余八项核心 API 均过，四项运行中有限自检也通过。"
+      }
+    ],
+    "improvement": "在递归渲染入口统一处理保留密文，顶层和模板共用。序列化 dump 应保留 ID 和原模板，不能一起遮蔽。",
+    "regression": "可信数据 a: !vault SECRET、b: hi-${a}，分别核对 [sealed] 与 hi-[sealed]；另检查 tags=false 有钥匙/无钥匙和 dump 的原文。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C055/dynamic_v7/workspace/integration.py",
+        "line": 58
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C055/dynamic_v7/workspace/integration.py",
+        "line": 88
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C055/dynamic_v7/trace.jsonl",
+        "line": 944
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C058",
+    "diagnosis": "调度器把一轮内各主机的执行明细直接追加到一张扁平列表；块内任务、rescue、always 又预先展平，失败便标整台主机终止。空程序成功，八个有业务动作的用例全部失败。",
+    "items": [
+      {
+        "checks": [
+          "A/C058-02",
+          "A/C058-03",
+          "A/C058-04",
+          "A/C058-05",
+          "A/C058-06",
+          "A/C058-07",
+          "A/C058-08",
+          "A/C058-09"
+        ],
+        "detail": "batches 的每个元素应是一轮的主机明细列表。-02 应有两轮各推进两个主机，实际为四条独立字典；即便 -04 的总数相同，元素类型也不对。"
+      },
+      {
+        "checks": [
+          "A/C058-05",
+          "A/C058-06",
+          "A/C058-09"
+        ],
+        "detail": "失败后应按块语义恢复/执行 always。-05/-06 的 h1 期望最终 ok 实际 failed；-09 期望五轮，实际只剩一次失败动作。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "同一整合错误延伸到第二个干净交付输入。首轮已有五个有限自测通过，无法覆盖非空批次的逐层 schema。"
+      }
+    ],
+    "improvement": "给每个主机维护块栈、正常/救援/收尾位置和待 flush 通知；每次从所有就绪主机选最早位置，在一个新列表内收完本轮动作再追加。",
+    "regression": "两个主机同就绪点必须产生一个包含两个元素的批次；让一台在嵌套块失败、rescue 成功，断言另一台和失败主机各自的后续步骤、通知、最终状态。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C058/dynamic_v7/workspace/integration.py",
+        "line": 31
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C058/dynamic_v7/workspace/integration.py",
+        "line": 148
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C058/dynamic_v7/workspace/integration.py",
+        "line": 169
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C062",
+    "diagnosis": "首次关闭仍有任务的存储时，整合器同时记录了 cancel_sent 和 close_waiting。后者只能在已处于 closing 的存储再次收到 close 时记录。存储最终状态可以对，审计流仍会多一项。",
+    "items": [
+      {
+        "checks": [
+          "A/C062-02",
+          "A/C062-07",
+          "A/C062-08"
+        ],
+        "detail": "-02 期望 5 个事件实际 6 个；多出的第 4 项是 time=2 的 close_waiting，而下一个应为 time=4 的 callback_cancelled。-07 双存储、-08 再次关停均多一项，事件随后整体错位。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "第二构建及 CLI 输出也包含多余等待事件。首轮六项有限自检通过。"
+      }
+    ],
+    "improvement": "把首次 open→closing、重复 closing→closing 和已关闭再次 close 归为三个审计转换；首次只记 cancel_sent，回调到来后记 callback_cancelled、close_returned。",
+    "regression": "有 job 的 store 连发两次 close，再给一次 complete；精确比较每项 time、store、job 和事件次序，并插入另一 store 的独立更新验证互不干涉。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C062/dynamic_v7/workspace/integration.py",
+        "line": 86
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C062/dynamic_v7/workspace/integration.py",
+        "line": 95
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C066",
+    "diagnosis": "事务整合中，旧主键保存在映射的键上，更新却从只含 body/rank 的行值对象里寻找缺省主键；另用字典临时收集新行，两个写相同新键时在碰撞检测前已互相覆盖。首轮达到时限，公开曾通过。",
+    "items": [
+      {
+        "checks": [
+          "A/wal-1",
+          "A/wal-4",
+          "A/wal-8"
+        ],
+        "detail": "没有修改 key 的合法更新被 ABORT。wal-4 写显式 null 并保留其他列，预期 COMMIT、实际 ABORT。wal-1 和 wal-8 涵盖失败事务后重新使用批号或重试更新，也出现预期 COMMIT、实际 ABORT。"
+      },
+      {
+        "checks": [
+          "A/wal-7"
+        ],
+        "detail": "同一语句把 a、b 都改名 c，应整事务回滚，实际 COMMIT，只留下 c。临时字典已经覆盖第一条新记录。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2"
+        ],
+        "detail": "两个干净构建与两个 CLI 的复合输入同样无法交付期望事务表。"
+      }
+    ],
+    "improvement": "更新时显式回退到 old_key，分别表示无该列和显式 null。先收集本语句所有目标身份、检查重复，再从快照移除旧键并一次提交。",
+    "regression": "一条无主键变更更新、一条置空、一组合法 a↔b 交换和一组非法 a,b→c，逐步断言 log 与完整 rows，并追加失败 LSN 的重试。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C066/dynamic_v7/workspace/integration.py",
+        "line": 76
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C066/dynamic_v7/workspace/integration.py",
+        "line": 83
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C066/dynamic_v7/workspace/integration.py",
+        "line": 90
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C068",
+    "diagnosis": "时间循环在 get、advance 之前结算到期请求，遇 cancel 则直接取消等待者。相同时间戳时到期先于取消的优先级没有覆盖所有入口。",
+    "items": [
+      {
+        "checks": [
+          "A/C068-09"
+        ],
+        "detail": "t=0 请求 k，延迟 3，t=3 取消。首个结果应 ok、值 1，实际 cancelled、值 null；缓存/后续请求可以仍正确，无法靠只看最终缓存发现。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "第二构建与 CLI 因同一结果序列不匹配而失败。首轮有限六项自检及公开都通过。"
+      }
+    ],
+    "improvement": "为每个外部事件统一执行完成到期加载的前置步骤；按既定优先级结算后，cancel 只处理仍未返回者。",
+    "regression": "用同一加载分别在 t=2/3/4 取消，应只有 t=2 为 cancelled；另让第二个等待者在同刻到达并验证缓存仅装载一次。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C068/dynamic_v7/workspace/integration.py",
+        "line": 59
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C068/dynamic_v7/workspace/integration.py",
+        "line": 63
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C068/dynamic_v7/workspace/TASK.md",
+        "line": 9
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C069",
+    "diagnosis": "首轮绕过了实作交付，保留下来的接口仍是占位代码。0/9 反映冻结提交调用立即抛 NotImplementedError；没有证据将九次失分分别解释为授权、角色或过期语义的九种错误。",
+    "items": [
+      {
+        "checks": [
+          "A/C069-01",
+          "A/C069-02",
+          "A/C069-03",
+          "A/C069-04",
+          "A/C069-05",
+          "A/C069-06",
+          "A/C069-07",
+          "A/C069-08",
+          "A/C069-09"
+        ],
+        "detail": "所有九个转换输入在组件 work.py 第 3 行就抛 NotImplementedError；整合也留有占位实现。首轮没有实际工作的子分支并达到运行时限。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2",
+          "P/public-check"
+        ],
+        "detail": "构建、CLI、公开全部失败。独立重放另做了实际组件实现和整合，正式 A 9/9、严格通过；这个题位已由重放恢复。"
+      }
+    ],
+    "improvement": "把成果准入绑定到本轮写入且可导入的实现，并在证据中检查至少一次真实 transform 和干净构建；已有输出文件不能单独满足这一步。",
+    "regression": "以最小合法输入和另一个不同输入分别执行 transform 与 build，要求两次输出均来自本次算法；保留首轮占位和重放成功二者对照。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C069/dynamic_v7/workspace/components/grant_catalog/work.py",
+        "line": 3
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C069/dynamic_v7/workspace/integration.py",
+        "line": 1
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C069/dynamic_v7/u59/score.json",
+        "line": 1
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C074",
+    "diagnosis": "同步按条目名是否还可见决定删不删，遗漏了名称仍在、类型已从目录换成文件或从文件换成目录的情况。这样旧文件或旧子树会留在索引，changed 也被连带污染。",
+    "items": [
+      {
+        "checks": [
+          "A/scan-3"
+        ],
+        "detail": "目录 A/d 换成文件 A/d 后，A/d/intro 和 A/d/gone 仍然保留。期望删除旧子树，同时保留 A/mirror 与 B 挂载下的别名。"
+      },
+      {
+        "checks": [
+          "A/scan-4"
+        ],
+        "detail": "原来 A/old 是文件，变为可见子目录后，旧文件 A/old 应删除；实际仍在索引，旧曲目 ID 1 的 changed 项也缺失。四项有限自检及公开均过。"
+      }
+    ],
+    "improvement": "比较旧、新节点的“名称＋类型”。目录变文件先删后代再放新文件，文件变目录先移除原文件；仍可见而未扫描的其他子目录保持。",
+    "regression": "在同一父目录分别做目录→文件、文件→目录；给同一物理节点保留另一个挂载别名，同时断言索引和 changed 的旧新路径集合。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C074/dynamic_v7/workspace/integration.py",
+        "line": 42
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C074/dynamic_v7/workspace/integration.py",
+        "line": 49
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C074/dynamic_v7/workspace/TASK.md",
+        "line": 4
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  },
+  {
+    "task": "C077",
+    "diagnosis": "整合器对每个成功响应累加 items；在修改结束时未检查是否已有网络请求，且只在实际 fetch 发出时更新 loading。三个边界分别暴露了快照替换、请求互斥和 UI 状态派生错误。",
+    "items": [
+      {
+        "checks": [
+          "A/C077-06"
+        ],
+        "detail": "两次响应分别为 first、second；state.items 应只保留 [second]，实际包含 [first,second]，commit 使用 extend。"
+      },
+      {
+        "checks": [
+          "A/C077-07"
+        ],
+        "detail": "fetch-1 尚未完成时最后一个修改在 t=4 结束，代码立刻发 fetch-2。应在 t=5 首个请求先提交后再发；末状态还残留 intermediate。"
+      },
+      {
+        "checks": [
+          "A/C077-09"
+        ],
+        "detail": "修改在途时多次 refresh 留下待刷新义务，应 loading/placeholders 均为 true，实际均为 false。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "第二构建与 CLI 同样暴露这些状态/序列差异。首轮六项有限自检及公开均过。"
+      }
+    ],
+    "improvement": "将 items 替换为最新响应快照；集中一个派发函数，须无活动修改、在途请求和重试计时器才消耗 owed；在每次状态转换后从这些字段推导 loading/placeholders。",
+    "regression": "按顺序执行 refresh→refresh→两次成功响应；另一例令上一请求在修改结束后一拍才回；最后停在“修改未结束但已有 refresh”状态，分别断言审计、快照与显示状态。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C077/dynamic_v7/workspace/integration.py",
+        "line": 32
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C077/dynamic_v7/workspace/integration.py",
+        "line": 68
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/C077/dynamic_v7/workspace/integration.py",
+        "line": 100
+      }
+    ],
+    "confidence": "冻结用例离线复现并与归档实现核对"
+  }
+]

@@ -1,0 +1,395 @@
+[
+  {
+    "task": "MS02",
+    "diagnosis": "回溯求最优时把最低质量、总质量、论文 ID 序列都作降序比较。前两项目标要最大，第三项恰好要取字典序最小。两个子组件可以各自正确，整合比较符仍会选错论文；没有证据表明 parallel-evidence 的失分来自执行时未并行。",
+    "items": [
+      {
+        "checks": [
+          "A/ties"
+        ],
+        "detail": "所有质量打平，SP 选 p3/p2/p0，而登记期望 p0/p2/p3；支持图随分配改变。"
+      },
+      {
+        "checks": [
+          "A/parallel-evidence"
+        ],
+        "detail": "两个方案最低分同为 7、总分同为 23，SP 选 p2/p1/p0（8、8、7），期望 p1/p2/p0（9、7、7）。图边差异由选错解连带造成。"
+      }
+    ],
+    "improvement": "将三层目标的比较方向分别写清；功能分支的公开检查通过后，针对整合器独立构造两个同最低、同总分但 ID 顺序不同的可行解。",
+    "regression": "只在内存中改最后一个同分比较方向，冻结的 9 个 A 用例全部通过；原归档仍为 7/9。trace 第 1072 行还记录自检给单参数 transform 传了过多位置参数，该事件本身不验证平局。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS02/dynamic_v7/workspace/integration.py",
+        "line": 27
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS02/dynamic_v7/trace.jsonl",
+        "line": 1072
+      }
+    ],
+    "confidence": "高：代码、逐例差异与单处内存对照。"
+  },
+  {
+    "task": "MS11",
+    "diagnosis": "首轮有两项独立错误：输出账户向量沿用原输入学生顺序；独立连通块各自先锁死最高最低置信度，可能扔掉满足全局最低门槛、总分更高的解。重放程序改成跨块全局评分，但仍按输入顺序生成向量；重放未采纳。",
+    "items": [
+      {
+        "checks": [
+          "A/external-floor"
+        ],
+        "detail": "首轮总置信度实际 16、应为 19，相关性极值和强制配对也随之错。重放已将组合放在全局比较中，同一题仍因见证向量排序失分。"
+      },
+      {
+        "checks": [
+          "A/indistinguishable-scores",
+          "A/conflicting-registers",
+          "A/component-coupling",
+          "A/all-permutations",
+          "A/sparse-cycle",
+          "A/revision",
+          "A/equal-cost-witness",
+          "A/merge-and-split"
+        ],
+        "detail": "首轮归档离线核对全部场景，这八个输入的错误字段只在 min_buyers / max_buyers。证据冲突、合并拆分等样例名不等于八种独立算法错误。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2",
+          "P/public-check"
+        ],
+        "detail": "公开检查和 CLI／干净构建复算也未过。首轮原生有整合检查点；已有自检观察到了顺序差异，最终归档仍保留旧排序。"
+      }
+    ],
+    "improvement": "见证向量统一用 sorted(students) 排列；先跨块取可行的全局瓶颈阈值，再在每块的合格边上最大化总和。让父任务在有期望与实际差值时改写实际交付文件，并以同一输入复核。",
+    "regression": "内存中只改向量排序，首轮 10 个 A 过 9 个，仅 external-floor 仍错；对独立重放归档做同样改动 10/10。正式两次均 1/10。测试应同时打乱学生输入顺序并加入两个瓶颈不同的连通块。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS11/dynamic_v7/workspace/integration.py",
+        "line": 119
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS11/dynamic_v7/workspace/integration.py",
+        "line": 152
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MS11/dynamic_v7/workspace/integration.py",
+        "line": 89
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MS11/dynamic_v7/workspace/integration.py",
+        "line": 117
+      }
+    ],
+    "confidence": "高：两个归档代码、字段差分及单处内存对照。"
+  },
+  {
+    "task": "MS14",
+    "diagnosis": "按修复集合大小枚举时，在首次找到可行大小后就退出，把“包含极小”收窄成“元素数最少”。七个失败 A 的离线比较均只错 repairs，事故时间段 incidents 与登记期望一致。",
+    "items": [
+      {
+        "checks": [
+          "A/proper-superset"
+        ],
+        "detail": "应同时输出 {a} 和 {b,c}；程序只留下 {a}。两者都没有可行的真子集。"
+      },
+      {
+        "checks": [
+          "A/late-correction",
+          "A/shared-provider",
+          "A/clipped-windows",
+          "A/one-event-two-branches",
+          "A/retrospective"
+        ],
+        "detail": "同一提前退出漏掉更大、但与已发现的小集合无包含关系的修复。比如 late-correction 首个查询还需要 {b,c,d} 与 {b,c,e}；clipped-windows 还需要 {c,d} 与 {c,e}。"
+      },
+      {
+        "checks": [
+          "A/replicated-rings"
+        ],
+        "detail": "仅返回 {gateway}，缺少跨三个域组取域的三元素可行组合。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2"
+        ],
+        "detail": "构建与 CLI 的重算也缺修复集合；运行时公开检查通过过，两套明细记录须区分。"
+      }
+    ],
+    "improvement": "保留包含极小的解构成反链。剪掉已含某个可行修复集的超集，但继续搜索其他分支；对共享阈值和 31 域输入采用面向故障域的生成与剪枝，避免去掉 break 后穷举所有集合。",
+    "regression": "移除提前退出做内存验证：9 个小型 A 全过；31 域压力输入仅核对原输出与冻结期望，未验证此朴素改动的性能。加入单域解与另一组两域解并存的反例。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS14/dynamic_v7/workspace/integration.py",
+        "line": 161
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS14/dynamic_v7/workspace/integration.py",
+        "line": 169
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS14/dynamic_v7/trace.jsonl",
+        "line": 909
+      }
+    ],
+    "confidence": "高：七个 A 的字段差分、代码与九个小例对照。"
+  },
+  {
+    "task": "MS28",
+    "diagnosis": "两个问题可以区分。紧集中“必然共同出现”应取交集，程序却把候选伙伴取并集。另一个规模用例把 34 个作业跨独立块一起穷举，触发超时。",
+    "items": [
+      {
+        "checks": [
+          "A/identical-peaks",
+          "A/hidden-implication",
+          "A/unequal-components"
+        ],
+        "detail": "只有 implies 字段错误。identical-peaks 中 P 应无必然伙伴，算法给出 Q、R；Q 应只蕴含 P，算法还加入 R。peak、count 和 minimal 在这三个输入正确。"
+      },
+      {
+        "checks": [
+          "A/many-independent-calendars"
+        ],
+        "detail": "正式 A 原始检查记录 timeout。全局枚举 34 个作业的非空子集，题面仅保证每个连通块最多 14 个作业。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1",
+          "D/cli-artifact-2"
+        ],
+        "detail": "原始构建一和 CLI 一结果不符，构建二记 timeout、CLI 二记 TimeoutExpired；主表 B/solution 为聚合登记项。"
+      }
+    ],
+    "improvement": "伙伴集合由所有包含该作业的紧集求交；先拆二分连通块，在块内找峰值，只组合达到全局峰值的块。用组合计数替代显式生成所有跨块紧集。",
+    "regression": "只改并集为交集，冻结的 9 个小型 A 全过；34 作业压力例未再执行。用两个可独立成为紧集的作业排查“可能共同出现”和“每次必须共同出现”的混淆。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS28/dynamic_v7/workspace/integration.py",
+        "line": 50
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS28/dynamic_v7/workspace/integration.py",
+        "line": 81
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS28/dynamic_v7/trace.jsonl",
+        "line": 989
+      }
+    ],
+    "confidence": "高：逐例差分、局部内存验证和原评分超时。"
+  },
+  {
+    "task": "MS30",
+    "diagnosis": "唯一失败 A 含 30 名学生、15 个互不耦合的单容量工作坊。归档算法先枚举全校所有合法安排，把完整字典全部存进列表，再筛弱稳定。题目给的是每个连通块的规模界，不能当作全校界。",
+    "items": [
+      {
+        "checks": [
+          "A/independent-workshops"
+        ],
+        "detail": "每场有两名学生争一席并列，允许空置。筛选前有 3^15=14,348,907 个全局组合，算法为每个组合保存全体 30 人的字典；冻结期望为 15 人、32,768 种稳定安排。归档原始状态为 process，未记录具体被操作系统终止的原因。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "原始 B/clean-build-2 同记 process，D/cli-artifact-2 未通过。其余九个小型 A 均通过，不能由此认定稳定性定义本身普遍实现错误。"
+      }
+    ],
+    "improvement": "按学生—可接受场次图切分连通块，块内查弱稳定解，块间卷积分班人数和方案数；最大解的强制配对和见证向量按固定 ID 合并。避免物化全局解列表。",
+    "regression": "用 1、2、15 个“两人一场”独立块检验增长：15 块应有 2^15 个稳定解，最大分班数 15，无强制配对。修复应同时限制峰值内存；未据本次测量判定 OOM。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS30/dynamic_v7/workspace/integration.py",
+        "line": 62
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS30/dynamic_v7/workspace/integration.py",
+        "line": 102
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS30/dynamic_v7/trace.jsonl",
+        "line": 1797
+      }
+    ],
+    "confidence": "高：算法、输入规模和进程异常已证；终止细因未知。"
+  },
+  {
+    "task": "MS41",
+    "diagnosis": "首轮有两个不同层次的概率建模错误。单票组件将非终态边成本计入每种最终答案，没有乘该边终点最终抵达该答案的概率。整合先把不同 profile 的单票分布平均，再模拟投票，相当于允许每票重抽环境；题面规定整场只抽一次。",
+    "items": [
+      {
+        "checks": [
+          "A/abstaining-class",
+          "A/revision-self-loop",
+          "A/cost-follows-answer",
+          "A/two-state-cycle"
+        ],
+        "detail": "离线比较仅 cost_if_correct 不符。例如 abstaining-class 首个方法实际 3，期望 1；cost-follows-answer 首个方法实际 524/11，期望 324/11。"
+      },
+      {
+        "checks": [
+          "A/common-profile",
+          "A/two-profile-mix"
+        ],
+        "detail": "公共版本不能逐票混合。common-profile 出现胜率、期望票数、条件成本差值；two-profile-mix 的这些字段以及未决率均出现差值。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-1"
+        ],
+        "detail": "构建与 CLI 的第一组复算失败。trace 中自写参考遍历在有环图出现递归溢出，未给这些环上条件成本提供可靠独立验证。"
+      }
+    ],
+    "improvement": "先算各 profile 内、各状态到每个答案的吸收概率。成本质量方程中，以后继到目标答案的吸收概率加权当前边成本；在每个 profile 内完成整场投票，再按先验合并胜率、票数、成本联合量，最后除以正确概率。",
+    "regression": "构造会进入永久闭环的昂贵边，验证它不增加“已答对”条件下的成本；再将两个 profile 设成倾向完全相反的答案，检验整场共享版本与逐票重抽的数值差异。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS41/dynamic_v7/workspace/components/answer_absorption/work.py",
+        "line": 104
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS41/dynamic_v7/workspace/integration.py",
+        "line": 53
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS41/dynamic_v7/trace.jsonl",
+        "line": 1403
+      }
+    ],
+    "confidence": "高：代码与六个 A 的原实现离线差分；完整修复未跑。"
+  },
+  {
+    "task": "MS42",
+    "diagnosis": "这是三类独立问题：小数成绩没有按精确分数进入均值；配对只比较两项“是否可比”，丢了先后方向；六乘六候选配对却穷举配对边的所有子集。",
+    "items": [
+      {
+        "checks": [
+          "A/global-mean"
+        ],
+        "detail": "含 88.5、99.25 的成绩加总后得到 float；整合用 Fraction(float, int) 抛 TypeError。期望漂移区间两个端点均为 -2723/80。"
+      },
+      {
+        "checks": [
+          "A/shared-labels-1",
+          "A/shared-labels-2"
+        ],
+        "detail": "把旧图与新图的双向可达分别做 OR 时，先后反转仍被接纳，最优对齐数多报为 12 和 2，期望 8 和 1。只在内存中保留可达方向，两个用例即恢复。"
+      },
+      {
+        "checks": [
+          "A/independent-and-unwitnessed"
+        ],
+        "detail": "每期一门有 6 项，单门可产生 36 条候选配对边。先遍历 2^36 个边子集再排除端点冲突，正式 A 记录 timeout。"
+      },
+      {
+        "checks": [
+          "B/solution",
+          "D/cli-artifact-2"
+        ],
+        "detail": "大规模用例的原始构建二及 CLI 二分别为 timeout 与 TimeoutExpired。运行时公开检查通过；另有一轮可见自检因未验证实际候选函数调用而收到脚本设置错误。"
+      }
+    ],
+    "improvement": "组件将每项成绩和编码成精确分子／分母并在整合中完整还原；保留向前和向后可达关系；按旧考核逐项匹配，及早约束已占新端点、共享字典掩码与顺序，可对独立课程累积计数。",
+    "regression": "用小数原样构造跨课程的合并均值，用一条反向先修边排除错误对齐，并以两门各有 6 个互不可比同标签项目的用例验证 ways=518400。方向单处调整后十个非小数、非超时 A 全过。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7/workspace/components/course_evidence/work.py",
+        "line": 14
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7/workspace/integration.py",
+        "line": 73
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7/workspace/integration.py",
+        "line": 92
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7/workspace/integration.py",
+        "line": 191
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7/trace.jsonl",
+        "line": 1338
+      }
+    ],
+    "confidence": "高：异常、两道方向对照和正式超时均可定位。"
+  },
+  {
+    "task": "N17",
+    "diagnosis": "模板依赖提取器解析完静态方括号字符串后，指针停在右方括号，后续属性访问没有读入，丢失完整选项名。",
+    "items": [
+      {
+        "checks": [
+          "A/template_dependencies/2"
+        ],
+        "detail": "表达式 conf.colors['webpage'].bg 应命中 colors.webpage.bg。实测 dark 的依赖为空；纯文本与其他根对象的两个对照正确。"
+      },
+      {
+        "checks": [
+          "B/template_dependencies",
+          "D/template_dependencies",
+          "D/reverse_index",
+          "D/stylesheet_updates",
+          "D/final_report"
+        ],
+        "detail": "干净构建同一解析组件失败。集成时依赖列表为空，反向索引、受影响样式和总报告均少了 dark。反向索引与样式更新各自在独立正确输入上的 A 检查全部通过。"
+      }
+    ],
+    "improvement": "消耗字符串后的空白与闭合右括号，再继续解析点属性或下一个静态下标；在父任务整合阶段令上游产物真实驱动下游，核对每级输出。",
+    "regression": "内存中仅令扫描游标越过闭合右方括号，组件冻结 3 例全部得到正确返回且输入未变。可额外比较点访问、下标＋点访问、纯文本的三种行为。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N17/dynamic_v7/workspace/engines/template_dependencies/engine.py",
+        "line": 41
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N17/dynamic_v7/trace.jsonl",
+        "line": 1127
+      }
+    ],
+    "confidence": "高：输入、归档实现、故障复现与单点修正对照。"
+  },
+  {
+    "task": "N24",
+    "diagnosis": "结算组件直接持有调用方账户和图书字典，通过索引原地修改余额和所有者。三道 A 单测的返回内容都逐字段正确，实际失分来自输入不可变契约。",
+    "items": [
+      {
+        "checks": [
+          "A/settlement/1",
+          "A/settlement/2",
+          "A/settlement/3"
+        ],
+        "detail": "逐例对照原始向量：三次返回值均与期望完全相等，三次调用后的输入均变化。评分器 A 同时要求 input_unchanged 与结果一致；因此原始记录的 result_mismatch 不能解释为金额或日志算错。独立构建与整条 CLI 通过。"
+      }
+    ],
+    "improvement": "为账户和图书记录创建工作副本再构建索引；在通用自检中同时断言结果、调用前后输入及重复调用的确定性。",
+    "regression": "给同一份输入重复调用，检验原余额、所有者、订单不变。只在内存中复制两组记录后，三个冻结 A 的返回值与输入不可变检查同时通过。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N24/dynamic_v7/workspace/products/settlement/engine.py",
+        "line": 21
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N24/dynamic_v7/workspace/products/settlement/engine.py",
+        "line": 33
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/00d32858637689c0668c71303d4d5b79d00b1093/tasks/N24/tests/dataset/verifier/score.py",
+        "line": 84
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N24/dynamic_v7/trace.jsonl",
+        "line": 1281
+      }
+    ],
+    "confidence": "高：原始向量逐一复现且用最小内存修改验证。"
+  }
+]

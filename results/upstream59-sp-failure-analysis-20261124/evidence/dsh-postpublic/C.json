@@ -1,0 +1,265 @@
+[
+  {
+    "task": "C007",
+    "gate": 87,
+    "group": "replay",
+    "test_lines": [
+      91,
+      100
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "只复跑原组件、公开整题流程，并读取已有输出长度。"
+  },
+  {
+    "task": "C008",
+    "gate": 79,
+    "group": "new",
+    "test_lines": [
+      97
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "改 seed、时间窗和租户，断言指定两条记录 token 相同、另一条不同，98 行通过。正式成绩采用归档提交离线复评分。"
+  },
+  {
+    "task": "C009",
+    "gate": 104,
+    "group": "new",
+    "test_lines": [
+      122,
+      126,
+      131,
+      136,
+      141,
+      146
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造取消、连续工时和字典序样例；127 行断言失败，130–137 行确认测试误把利润 7 写为 10，改期望后通过。"
+  },
+  {
+    "task": "C011",
+    "gate": null,
+    "group": "no_gate",
+    "test_lines": [],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "解题阶段仅浏览任务，原生流 72 行 max-tokens，未运行整题公开检查。"
+  },
+  {
+    "task": "C017",
+    "gate": 77,
+    "group": "new",
+    "test_lines": [
+      86
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "组合新联系人补全、冲突回滚、重复记录。87 行打印结果，90 行核对跨批回滚与晋升。"
+  },
+  {
+    "task": "C031",
+    "gate": null,
+    "group": "no_gate",
+    "test_lines": [],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "106–107 行运行公开检查因真实 PTY 权限失败；173–184 行另造管道测试，但发生时未出现整题公开绿。"
+  },
+  {
+    "task": "C033",
+    "gate": 122,
+    "group": "new",
+    "test_lines": [
+      193,
+      211,
+      239,
+      248,
+      257,
+      266,
+      270
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "公开检查曾暴露寄存器问题，118 行修实现、122 行首次公开绿。此后构造 ELF 指令及 I/O 程序；失败涉及测试头长度、跳转夹具布局和寄存器期望，未观察由这些新测试触发的实现修复。最终试次触及预算终止，正式评分另存。"
+  },
+  {
+    "task": "C039",
+    "gate": null,
+    "group": "no_gate",
+    "test_lines": [],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "只做文件和解释器版本检查；26 行因模型流中的工具参数 JSON 无效而结束。"
+  },
+  {
+    "task": "C049",
+    "gate": 99,
+    "group": "new",
+    "test_lines": [
+      108,
+      113
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "较大网络、多微批与有限差分对照，109 行因测试脚本索引越界，112–114 行调整测试索引后二者吻合。公开绿以前曾修组件。"
+  },
+  {
+    "task": "C055",
+    "gate": 70,
+    "group": "new",
+    "test_lines": [
+      74,
+      79
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造保留/解封标签、别名与模板、锚点快照及覆盖。75、80 行返回自测结果。"
+  },
+  {
+    "task": "C056",
+    "gate": 88,
+    "group": "replay",
+    "test_lines": [
+      92,
+      96
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "复跑公开组件合并和整题，并将已有结果与 public_expected.json 展示比对。正式冻结评分的完整性与解题公开检查独立。"
+  },
+  {
+    "task": "C058",
+    "gate": null,
+    "group": "no_gate",
+    "test_lines": [],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "在分析阶段结束，69 行 turn_end 为 max-tokens；没有整题公开通过事件。"
+  },
+  {
+    "task": "C062",
+    "gate": 82,
+    "group": "new",
+    "test_lines": [
+      91,
+      96,
+      101
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构建刷新合并、在途取消、多存储交错事件，检查各阶段状态。正式冻结评分完整性失败。"
+  },
+  {
+    "task": "C066",
+    "gate": 72,
+    "group": "new",
+    "test_lines": [
+      81
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造同一 LSN 重放、终止后重试、事务等变体，从真实 transform 的结果核验。"
+  },
+  {
+    "task": "C067",
+    "gate": 78,
+    "group": "new",
+    "test_lines": [
+      87,
+      92,
+      97
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造授权失败、找不到服务和路由场景。88、93 行断言失败；91、96 行核对发现测试给错权限预期及查询次数，无业务实现修改。"
+  },
+  {
+    "task": "C068",
+    "gate": 82,
+    "group": "new",
+    "test_lines": [
+      91,
+      96,
+      101
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造取消、错误缓存、同时加载等。92 行 KeyError 源于测试让输入结束时仍有未完成请求，违反题面前提；95–97 行补推进时间事件，修改了输入。"
+  },
+  {
+    "task": "C069",
+    "gate": 112,
+    "group": "new",
+    "test_lines": [
+      125,
+      130,
+      135,
+      140
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构建续签、到期、回退和跨阶段产物等场景；146、151 行的异常是入口测试误用 json.loads 读取文件，154–155 行纠正测试。"
+  },
+  {
+    "task": "C074",
+    "gate": 62,
+    "group": "new",
+    "test_lines": [
+      66,
+      71,
+      76
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造忽略项、文件与目录在两次扫描中互换、嵌套完成等输入，67、72、77 行返回结果。"
+  },
+  {
+    "task": "C077",
+    "gate": 88,
+    "group": "new",
+    "test_lines": [
+      96,
+      101,
+      110
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "自造重叠修改、重试时仍有在途操作、定时器与同一时刻事件的次序。"
+  },
+  {
+    "task": "C079",
+    "gate": 74,
+    "group": "new",
+    "test_lines": [
+      88,
+      92,
+      97,
+      102
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "构造损坏后重试、重试耗尽、缩略图、空文件、非零 nonce 与递增；实际断言通过。"
+  }
+]

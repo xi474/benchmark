@@ -1,0 +1,60 @@
+﻿task,selected_from,first_api_pass,selected_api_pass,api_total,selected_strict,reward,failed_API_ids,dsh_group,dsh_new_scenarios,repair_suggestion
+C007,first,8,8,8,True,3.000000,,replay,0,
+C008,first,8,8,8,True,2.000000,,new,1,
+C009,first,10,10,10,True,3.000000,,new,11,
+C011,first,1,1,10,False,0.214286,A/core-01|A/core-02|A/core-03|A/core-04|A/core-05|A/core-06|A/core-07|A/core-08|A/core-09,no_gate,,先比较产量和完成向量的最大值，平手时单独比较最小排程/分配明细；在小规模正常域枚举或回溯共享库存，并用同一选定解生成三种视图。
+C017,first,8,8,8,True,3.000000,,new,1,
+C031,first,8,8,9,False,0.923077,A/C031-05,no_gate,,区分 CRLF 与孤立 CR，命中候选提示符后收齐已经就绪的同次输出，按字节再规范化；保留 Linux 真实 PTY。
+C033,replay,0,1,14,False,0.166667,A/C033-02|A/C033-03|A/C033-04|A/C033-05|A/C033-06|A/C033-07|A/C033-08|A/C033-09|A/C033-10|A/C033-11|A/C033-12|A/C033-13|A/C033-14,new,16,把“当前 PC、下一条指令、待生效的跳转”写入显式执行状态；拆开终止和普通系统调用返回，共享寄存器与 hi/lo 的读写载体，并独立验证虚拟文件偏移与持久性。
+C039,first,0,0,10,False,0.000000,A/core-01|A/core-02|A/core-03|A/core-04|A/core-05|A/core-06|A/core-07|A/core-08|A/core-09|A/core-10,no_gate,,先冻结最优 DAG，将剩余边集合单独定义为原图去掉干预点的入边，再做后干预均值传播。用显式最优候选记录替代递归闭包里的独立易漏状态变量。
+C049,first,1,1,8,False,0.250000,A/C049-02|A/C049-03|A/C049-04|A/C049-05|A/C049-06|A/C049-07|A/C049-08,new,1,对各微批的平均梯度再等权平均，把每条跨 stage 消息与微批 m 显式关联；独立比对数值与事件 schema。
+C055,first,8,8,9,False,0.923077,A/sealed-tag,new,7,在递归渲染入口统一处理保留密文，顶层和模板共用。序列化 dump 应保留 ID 和原模板，不能一起遮蔽。
+C056,first,9,9,9,True,2.000000,,replay,0,
+C058,first,1,1,9,False,0.346154,A/C058-02|A/C058-03|A/C058-04|A/C058-05|A/C058-06|A/C058-07|A/C058-08|A/C058-09,no_gate,,给每个主机维护块栈、正常/救援/收尾位置和待 flush 通知；每次从所有就绪主机选最早位置，在一个新列表内收完本轮动作再追加。
+C062,first,5,5,8,False,0.583333,A/C062-02|A/C062-07|A/C062-08,new,5,把首次 open→closing、重复 closing→closing 和已关闭再次 close 归为三个审计转换；首次只记 cancel_sent，回调到来后记 callback_cancelled、close_returned。
+C066,first,4,4,8,False,0.416667,A/wal-1|A/wal-4|A/wal-7|A/wal-8,new,10,更新时显式回退到 old_key，分别表示无该列和显式 null。先收集本语句所有目标身份、检查重复，再从快照移除旧键并一次提交。
+C067,first,9,9,9,True,3.000000,,new,3,
+C068,first,8,8,9,False,1.153846,A/C068-09,new,9,为每个外部事件统一执行完成到期加载的前置步骤；按既定优先级结算后，cancel 只处理仍未返回者。
+C069,replay,0,9,9,True,3.000000,,new,4,把成果准入绑定到本轮写入且可导入的实现，并在证据中检查至少一次真实 transform 和干净构建；已有输出文件不能单独满足这一步。
+C074,first,6,6,8,False,0.833333,A/scan-3|A/scan-4,new,4,比较旧、新节点的“名称＋类型”。目录变文件先删后代再放新文件，文件变目录先移除原文件；仍可见而未扫描的其他子目录保持。
+C077,first,6,6,9,False,0.923077,A/C077-06|A/C077-07|A/C077-09,new,8,将 items 替换为最新响应快照；集中一个派发函数，须无活动修改、在途请求和重试计时器才消耗 owed；在每次状态转换后从这些字段推导 loading/placeholders。
+C079,first,9,9,9,True,2.000000,,new,7,
+MP01,replay,9,13,17,False,0.714286,api/hard/heldout-101|api/hard/heldout-202|api/hard/heldout-303|api/hard/boundary,interface,0,SP 在分支交接时分别写清“fit_weight 供训练接口保留”和“预测阶段只用 member.weight”，硬/软共用成员权重访问逻辑；父任务核对真实票数而非只检查类别。
+MP02,first,14,14,16,False,0.880000,api/attributes/heldout-202|api/attributes/boundary,new,3,将“值是否冲突”与“冲突时如何选值”分开计算。first 与 drop_conflicts 共用 JSON 深度比较，分别选择保留首值或删除该键。
+MP03,first,21,21,21,True,2.000000,,new,15,
+MP04,first,25,25,25,True,2.000000,,no_gate,,
+MP05,first,21,21,21,True,2.000000,,new,3,
+MP06,first,8,8,16,False,0.480000,api/calendar/heldout-101|api/calendar/heldout-202|api/calendar/heldout-303|api/calendar/boundary|api/calendar/empty-collection|api/notifications/heldout-101|api/notifications/heldout-202|api/notifications/heldout-303,interface,0,将列表写入公共返回值；若通知组件需要 ID 查找，收到合法事件列表后在内部构建映射。合并测试固定校验字段类型与顺序。
+MP07,first,9,9,13,False,0.636364,api/archive/heldout-101|api/archive/heldout-202|api/archive/heldout-303|api/archive/boundary,new,5,在本地内存副本中先校验冲突，再执行移动和删除，最后按路径导出；发送失败时只执行允许的清理。
+MP08,first,19,19,19,True,2.000000,,new,12,
+MP09,first,28,28,28,True,2.000000,,new,15,
+MP10,first,22,22,22,True,2.000000,,new,11,
+MP12,first,21,21,21,True,2.000000,,new,14,
+MP13,first,21,21,21,True,2.000000,,new,8,
+MP14,replay,9,13,13,True,2.000000,,new,11,沿已有重放保留两项修正：先正确序列化链和关联方向，再以真实依赖调度构建；将帧数据值的测试与文件落盘测试分别记录。
+MP15,first,18,18,21,False,0.781250,api/analysis/heldout-101|api/analysis/heldout-202|api/analysis/heldout-303,new,26,在分析器中分开表示完整导入来源和作用域绑定名：from a import B as C 的来源是 a.B，局部绑定 C。对完整输出做结构断言。
+MP16,first,21,21,21,True,2.000000,,new,7,
+MP17,first,16,16,16,True,2.000000,,replay,0,
+MP18,first,16,16,16,True,2.000000,,new,2,
+MP19,first,12,12,13,False,0.954545,api/scanner/invalid-business-field,new,4,"在 ImportFrom 分支解析候选模块之前，遍历 aliases，遇到 name==""*"" 立即拒绝。"
+MP20,replay,0,14,21,False,0.656250,api/references/heldout-303|api/references/boundary|api/snapshot/heldout-101|api/snapshot/heldout-202|api/snapshot/heldout-303|api/snapshot/boundary|api/snapshot/empty-collection,new,2,沿用重放的独立模块导入；所有组件统一拆开正式上游信封，缺少必需字段时报告契约错误，不以空列表替代。先测独立入口，再验证提交与回滚两条路径。
+MP21,first,12,12,16,False,0.680000,api/query/heldout-101|api/query/heldout-202|api/query/heldout-303|api/query/empty-collection,new,1,为允许的六个操作符设置确定的 SQL 符号映射，继续用占位符传参数；用内存 SQLite 准备和执行生成的查询，并比对规范化文本。
+MP22,first,21,21,21,True,2.000000,,new,3,
+MP23,first,16,16,16,True,2.000000,,replay,0,
+MP24,first,25,25,26,False,0.972973,api/eu/invalid-business-field,interface,0,先验证所有部门 ID 均存在，然后另行计算 any(属于EU)；未知部门统一抛 ValueError。
+MP25,replay,12,16,16,True,2.000000,,new,3,保留重放中独立的 seen_total / seen_amount_due 标志与 Total 优先级；同时校验账单字段和整条文件交付链。
+MP26,first,25,25,26,False,0.974359,api/calendar/invalid-business-field,new,8,为 kind=dinner 且 19:00 开始的事件增加“结束日期同日且不晚于 20:00”校验，保留其他种类可跨日的语义。
+MS02,first,7,7,9,False,1.269231,A/ties|A/parallel-evidence,new,7,将三层目标的比较方向分别写清；功能分支的公开检查通过后，针对整合器独立构造两个同最低、同总分但 ID 顺序不同的可行解。
+MS11,first,1,1,10,False,0.107143,A/external-floor|A/indistinguishable-scores|A/conflicting-registers|A/component-coupling|A/all-permutations|A/sparse-cycle|A/revision|A/equal-cost-witness|A/merge-and-split,new,6,见证向量统一用 sorted(students) 排列；先跨块取可行的全局瓶颈阈值，再在每块的合格边上最大化总和。让父任务在有期望与实际差值时改写实际交付文件，并以同一输入复核。
+MS12,first,10,10,10,True,3.000000,,new,3,
+MS14,first,3,3,10,False,0.428571,A/late-correction|A/shared-provider|A/proper-superset|A/clipped-windows|A/one-event-two-branches|A/retrospective|A/replicated-rings,replay,0,保留包含极小的解构成反链。剪掉已含某个可行修复集的超集，但继续搜索其他分支；对共享阈值和 31 域输入采用面向故障域的生成与剪枝，避免去掉 break 后穷举所有集合。
+MS23,first,10,10,10,True,3.000000,,new,8,
+MS28,first,6,6,10,False,0.750000,A/identical-peaks|A/hidden-implication|A/unequal-components|A/many-independent-calendars,new,10,伙伴集合由所有包含该作业的紧集求交；先拆二分连通块，在块内找峰值，只组合达到全局峰值的块。用组合计数替代显式生成所有跨块紧集。
+MS29,first,9,9,9,True,3.000000,,new,10,
+MS30,first,9,9,10,False,1.178571,A/independent-workshops,new,5,按学生—可接受场次图切分连通块，块内查弱稳定解，块间卷积分班人数和方案数；最大解的强制配对和见证向量按固定 ID 合并。避免物化全局解列表。
+MS41,first,5,5,11,False,0.700000,A/abstaining-class|A/revision-self-loop|A/common-profile|A/two-profile-mix|A/cost-follows-answer|A/two-state-cycle,new,2,先算各 profile 内、各状态到每个答案的吸收概率。成本质量方程中，以后继到目标答案的吸收概率加权当前边成本；在每个 profile 内完成整场投票，再按先验合并胜率、票数、成本联合量，最后除以正确概率。
+MS42,first,8,8,12,False,0.937500,A/global-mean|A/shared-labels-1|A/shared-labels-2|A/independent-and-unwitnessed,no_gate,,组件将每项成绩和编码成精确分子／分母并在整合中完整还原；保留向前和向后可达关系；按旧考核逐项匹配，及早约束已占新端点、共享字典掩码与顺序，可对独立课程累积计数。
+N11,first,9,9,9,True,2.000000,,new,1,
+N17,first,8,8,9,False,0.647059,A/template_dependencies/2,new,4,消耗字符串后的空白与闭合右括号，再继续解析点属性或下一个静态下标；在父任务整合阶段令上游产物真实驱动下游，核对每级输出。
+N22,first,9,9,9,True,2.000000,,new,1,
+N24,first,9,9,12,False,0.880000,A/settlement/1|A/settlement/2|A/settlement/3,new,2,为账户和图书记录创建工作副本再构建索引；在通用自检中同时断言结果、调用前后输入及重复调用的确定性。

@@ -1,0 +1,2545 @@
+{
+  "schema_version": 1,
+  "codex_source_commit": "01938b91a6d1ff62af46e2b5118ad78b2c0c01fe",
+  "summary": {
+    "tasks": 59,
+    "cli_versions": {
+      "0.164.0": 59
+    },
+    "tool_calls": {
+      "apply_patch": 465,
+      "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 11,
+      "exec_command": 1684,
+      "get_goal": 1,
+      "update_plan": 3,
+      "write_stdin": 15
+    },
+    "tool_tasks": {
+      "apply_patch": 59,
+      "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 10,
+      "exec_command": 59,
+      "get_goal": 1,
+      "update_plan": 3,
+      "write_stdin": 5
+    },
+    "exec_output_token_limits": {
+      "2000": 4,
+      "5000": 6,
+      "10000": 60,
+      "20000": 68,
+      "30000": 68,
+      "40000": 4,
+      "50000": 3
+    },
+    "exec_calls_with_output_limit": 213,
+    "tasks_with_exec_output_limit": 9,
+    "yield_time_supplied_calls": 228,
+    "yield_time_supplied_tasks": 14,
+    "running_handle_responses": 16,
+    "exec_processes_returning_handle": 9,
+    "tasks_exec_returned_handle": 6,
+    "distinct_exec_processes_polled": 8,
+    "write_stdin_joined_to_earlier_exec": 15,
+    "explicitly_unsupported_update_plan": 3,
+    "compacted_tasks": 9,
+    "compaction_checkpoints": 10,
+    "compactions_matching_pinned_summary_prefix": 10,
+    "compactions_with_explicit_trigger": 0,
+    "compactions_with_later_exec": 10,
+    "compactions_with_later_patch": 4,
+    "strict_among_compacted_tasks": {
+      "codex": 6,
+      "semserve_first": 4,
+      "semserve_with_replay": 5
+    }
+  },
+  "counting": {
+    "tools": "Selected trajectory, deduplicated by tool_call_id per trial; observation joined by call ID.",
+    "process": "An exec launch requires a running-session response. A poll must refer to the same process within the trial. Child agents are not counted here.",
+    "compactions": "Selected native session records; post-checkpoint calls end at the next checkpoint or end of the same trace. No prompt text or tool output is exported.",
+    "scores": "Strict pass and core API check counts are copied from the existing published trial and replay views. No regrading."
+  },
+  "tasks": [
+    {
+      "task": "C007",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c007",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "ddff58e21d009f1186f0d0a53ef50be08bc8aedc5b8570456bfda044a3b2eaad",
+      "native_rollout_sha256": "a56c9ae283e24cf7674f4d07b47e7cdb9c6471bcc6619accacc9c71cf5337ac2",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 3,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 5,
+        "exec_command": 39
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 1,
+      "processes_returning_handle": [
+        {
+          "start_step": 49,
+          "poll_steps": []
+        }
+      ],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C008",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c008",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "a74e03921e35bf40a2d7cbda1515dafd8a6a3e41e5ad4a721ee0abc8c9a05ab0",
+      "native_rollout_sha256": "7d6b17c04e1201a5200bcc84023b5a14709f1a19251906822f80553e71dc1991",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 5,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 23
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C009",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c009",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "36886f302e6a75e85a3e145f469404f07e2518ec4fab6a0358ca46493e6c247c",
+      "native_rollout_sha256": "26cd4c605a9bdd32001da7e0953c2ced2920c164a0932f1dd903b6105e845513",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 9,
+        "exec_command": 31,
+        "write_stdin": 1
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 1,
+      "running_handle_responses": 1,
+      "processes_returning_handle": [
+        {
+          "start_step": 42,
+          "poll_steps": [
+            43
+          ]
+        }
+      ],
+      "write_stdin_events": [
+        {
+          "step": 43,
+          "launch_step": 42,
+          "input_chars": 6,
+          "reported_running": false,
+          "observed_exit_code": null
+        }
+      ],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C011",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c011",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "fb2338e6ec8d68aa5c5e7a3e28e37b2e3eb7b7ddc4c87bc2011f4d6237ada200",
+      "native_rollout_sha256": "ae95750b45c2d361e46ddccba263eb6f3b64e111296bd060673571cc4f6792dd",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 7,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 7,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 28,
+        "write_stdin": 1
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 1,
+      "running_handle_responses": 1,
+      "processes_returning_handle": [
+        {
+          "start_step": 34,
+          "poll_steps": [
+            35
+          ]
+        }
+      ],
+      "write_stdin_events": [
+        {
+          "step": 35,
+          "launch_step": 34,
+          "input_chars": 6,
+          "reported_running": false,
+          "observed_exit_code": null
+        }
+      ],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C017",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c017",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "15e2610792510e4931a419a0b5c06c1580a2df3eedf6e051e1cc3d0c0b32e8cc",
+      "native_rollout_sha256": "83a7c18fc777bc6698a42a64ccd94b73ca9bdfad105f926ea685da5c587309fe",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 4,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 2,
+        "exec_command": 11
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C031",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c031",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "ee7224647449bb35f9671ef4254942c5fa477960ecc6b406cc095ae9036f7895",
+      "native_rollout_sha256": "e0ddb7f4ef1548ca9b5e5c3467a370ad063cc209905ddb0478409642e5a6b133",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 2,
+        "exec_command": 20
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C033",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c033",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "7567c7d904ea882a048a3032915db763298b6b3d4ba4042d8d1569bf105b9a5f",
+      "native_rollout_sha256": "cc8b9e55a636677f9ba928b8acde1ed573e1442f8f60d99721416c6cc809fab1",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 11,
+          "core_transform_cases_total": 14
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 14
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 14
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 6,
+        "exec_command": 39
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C039",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c039",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "2fa8045294f4f4f41806a0e658a91d2bed8700e03a4b7cc5c36e725379a46a82",
+      "native_rollout_sha256": "21c505e7074616c375dc3b2dc67cf379f5a1d21e67123ccf2be9c7fd0e469884",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 14
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C049",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c049",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "187338c86de70af9ad095220f86887cfbfe5ac625d5769216d1bc9146afdb4a5",
+      "native_rollout_sha256": "636497fba84286a941e89340629647e5e468e2861afeaa5700b267056f8803de",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 3,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 6
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C055",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c055",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "4c305510f5f4298b7887607ee5e47da301b78851a17836e1f27f29087da9adfa",
+      "native_rollout_sha256": "6431259d4822bbd70729fee9fbb0e25f5013bff145d27bb8fc56a61a2503e6c3",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 2,
+        "exec_command": 14
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C056",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c056",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "f75b55aabf33b43b8ad2cdc9b3bdf4a083852a76c751c86044c8861ee8aad9fa",
+      "native_rollout_sha256": "2f471f07b780b8b2eb1cf71b9a4eae29805364b433acaac7f5ce040e1cb58efc",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 8
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C058",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c058",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "33bf798067384aa16f6591d9e887b991839bb83c0a0aac2e29e85a38b23ba676",
+      "native_rollout_sha256": "4f38568038264df1a4ca68f462cee22b1d1775e6b50b4efec5cf4949c7061f43",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 5,
+        "exec_command": 26
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C062",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c062",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "a7efada3a25cbb40164cd75e83b59295950eac1f60693535da716c126e3164a8",
+      "native_rollout_sha256": "35875a6ec9ee7c618f2f2dd248a876ead80251630332533675f49e2f03059695",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 5,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 5,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 13
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C066",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c066",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "f4a6264a88ced6b7e3c2d04c4f7dec8bbd337fbedda280f419c1c28553a6501a",
+      "native_rollout_sha256": "e1b21dc2a292a54dcb8f8e7f230fd6fb9c2268c5fefc368a52281b909fc024aa",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 4,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 4,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 10
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C067",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c067",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "6f6cad92f25bacd505a5de5310531764d921ace51b57363d1d7215ee870abb6b",
+      "native_rollout_sha256": "aa41d89f58d3c7d70a1230c4b9e69e85b0cf0aeb6ba18c3be36db81574319631",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 14
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C068",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c068",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "88e5391a6490793eddaaa36e3086cae0dc8922fb73b7cf4695a3584c9781c615",
+      "native_rollout_sha256": "a0aa9cacfa31f9f12cbe5c48c342f43fc7eb5029d15dcae13f6e857d556a3d70",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 7,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 23
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C069",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c069",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "60c6eb05d46a10ebadfdeb3e9f3fa60256199b8981c5ec1edac8206afa7f6c26",
+      "native_rollout_sha256": "3d7bee8cd9af622a3eba95b1510174f4d5b3bec530ae14128ae947d23d250aba",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 4,
+        "exec_command": 18
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C074",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c074",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "62a53976b6d21ff51d9ee888c46454e8493529c55b03ae6fe5012feb59dda268",
+      "native_rollout_sha256": "f12249a807d2a2c54ca77e35d412fef122cadba66244ce88dbb064ae0aa307c8",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 8
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 8
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 8
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 7
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C077",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c077",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "51b4fadcbc8df270a93964f1ead2d76f9d54df71e18405e91533e22907521a34",
+      "native_rollout_sha256": "18e72d90a0dca53a1f7c2aafb41c32862772bdc1b48b81126780495ad3a4797a",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 35
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "C079",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-c079",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "1add8a37c17d008aefc0c7093897fe890d85c116c340f9837bc1f01cdfe188f1",
+      "native_rollout_sha256": "918dbc576c7f87ef03a2248936b34bd22bb5c953866d0f7ab058cf5da106131a",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 5,
+        "exec_command": 22
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP01",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp01",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "20d1ee1d6e814deeff8cfe5ccbee84cf29aec356c2ab04538d9af5785c6f05e2",
+      "native_rollout_sha256": "93eb272674310dc8d5635a3f65b4e12d69bf4228b6965563f17c57b703f74778",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 17,
+          "core_transform_cases_total": 17
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 17
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 13,
+          "core_transform_cases_total": 17
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 14,
+        "exec_command": 25
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP02",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp02",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "64ad4fd18324cea79bc72de4029329de513df892a462752292068720ea42d58c",
+      "native_rollout_sha256": "8c0c165aafa0a77eef81a5b525d50f923e9771c2bdc1053c900fbcaf6127ebe7",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 14,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 14,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 20,
+        "exec_command": 63
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP03",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp03",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "50d1d5717b33595ceafad24d3d0978cea07576b493c7f30dcdeefe70c9856810",
+      "native_rollout_sha256": "22ff5b342313c66364c9ec74431f7aed921cb7cef28482c0f7a03a4de6ab5b26",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 12,
+        "exec_command": 37
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP04",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp04",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "9f4d8a15afc30949d4faaa4e8f7cc1f5c7db8ebe8a1c1af2f8287e81c413b4cf",
+      "native_rollout_sha256": "fcf13128e68a653673d3a1fdfdf65882a8e8ece694c56f5fabfbf2130cf1db4a",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 25
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 25
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 25
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 15,
+        "exec_command": 56,
+        "update_plan": 1
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [
+        10
+      ],
+      "compactions": [
+        {
+          "line": 275,
+          "summary_chars": 3896,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 28,
+          "subsequent_native_patch_calls": 5
+        }
+      ]
+    },
+    {
+      "task": "MP05",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp05",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "5eac7568f6dc1ae340d675a5bc02f37a5fdf83b409be715aa99c7c5a1b6a9f75",
+      "native_rollout_sha256": "29746429d4823c23d5db814b9a7929ca3789dfbf0f316c6f1bf626b2449b14e6",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 12,
+        "exec_command": 43
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP06",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp06",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "6fd555e8ba500222e01f51306468768d625c684bfb86e5a69c3751aa2ef06c22",
+      "native_rollout_sha256": "4514e5616bbf356cf845deb23997563d35c656a0e93a4dcaeaa78dd9eb002208",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 11,
+        "exec_command": 22
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP07",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp07",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "fcda3e3b619ef78d454948cc4040ec86e866b3936e908b53a6619116b561e7f4",
+      "native_rollout_sha256": "7792cce25cb5c86811a3f62310761bb0fc3fe5e02c7d2ed1d1a78a8e3f8c4c0e",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 13,
+          "core_transform_cases_total": 13
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 13
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 13
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 8,
+        "exec_command": 30
+      },
+      "exec_output_token_limits": {
+        "20000": 1
+      },
+      "yield_time_supplied_calls": 1,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 268,
+          "summary_chars": 3200,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 1,
+          "subsequent_native_patch_calls": 0
+        }
+      ]
+    },
+    {
+      "task": "MP08",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp08",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "11da690fea569979f0c3682ae506bc63d3280dcc541f21aa533ab68800b4b57e",
+      "native_rollout_sha256": "8a3d36a1ccd224ae790c67f2fa0635ce567b56ae78660e47b6f6b08f4e26a597",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 19,
+          "core_transform_cases_total": 19
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 19,
+          "core_transform_cases_total": 19
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 19,
+          "core_transform_cases_total": 19
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 9,
+        "exec_command": 27
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP09",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp09",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "43a3e87468eeb8e05e545e721480dc3009b9f31703d85d3e1556f0d4733be429",
+      "native_rollout_sha256": "9200c323f2c9bbd1a1c80bd40b934f3adab9db318dbbcc761693af4a35f5a8b2",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 28,
+          "core_transform_cases_total": 28
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 28,
+          "core_transform_cases_total": 28
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 28,
+          "core_transform_cases_total": 28
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 9,
+        "exec_command": 22
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP10",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp10",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "02c0cbf0a4c72e4fdf86887462038ced92f71f20b4b14acadcc8b2b0fa4f2ddc",
+      "native_rollout_sha256": "ba8c683c9b74f0300f7daff90772c7176a44949e4cf74a21c5d0a6ebaab70c41",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 22,
+          "core_transform_cases_total": 22
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 22,
+          "core_transform_cases_total": 22
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 22,
+          "core_transform_cases_total": 22
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 9,
+        "exec_command": 29
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP12",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp12",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "4af902b154023cee3a844ba7efa36100823ca4a6fb0b209bd6fd5021f4ee0a2d",
+      "native_rollout_sha256": "648e834c0a14e57e988916f3c1baf08df34893e4b34989792ec7ed29bfefb611",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 5,
+        "exec_command": 28
+      },
+      "exec_output_token_limits": {
+        "10000": 4,
+        "20000": 9,
+        "30000": 15
+      },
+      "yield_time_supplied_calls": 28,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP13",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp13",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "94783025f68d254ee8adfd1954581b33c87a0d91a76e250c5c0dd5b8b5c9ebbb",
+      "native_rollout_sha256": "b91c9c6fd13daf9fe864bacc488fc873bdaeca1e95fe99a1f6a0a86ec7a633d5",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 9,
+        "exec_command": 28
+      },
+      "exec_output_token_limits": {
+        "10000": 8,
+        "20000": 8,
+        "30000": 12
+      },
+      "yield_time_supplied_calls": 28,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP14",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp14",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "8bb445a1f27f11f3f445fee2dbb604b2b8171c5a66ca9cfdd2804aecd6b43845",
+      "native_rollout_sha256": "5d66b960bad6cfad9b51034ce12dc05193730d3179bc4c6c5221e1a07cdf959b",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 13
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 13
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 13,
+          "core_transform_cases_total": 13
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 17,
+        "exec_command": 75
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 393,
+          "summary_chars": 3471,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 34,
+          "subsequent_native_patch_calls": 3
+        }
+      ]
+    },
+    {
+      "task": "MP15",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp15",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "0f743b5c5accffdb0925d7d88da29a2ce735a0c26005669a1d14249577e8f396",
+      "native_rollout_sha256": "e5f0b209c59d014e5b8e363e9d3661558930bd5b74b09bdc7e1eea57486154d2",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 18,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 18,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 18,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 19,
+        "exec_command": 52
+      },
+      "exec_output_token_limits": {
+        "20000": 4
+      },
+      "yield_time_supplied_calls": 4,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 509,
+          "summary_chars": 3265,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 4,
+          "subsequent_native_patch_calls": 0
+        }
+      ]
+    },
+    {
+      "task": "MP16",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp16",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "900dd7d3fd7c81ec2bb001fd92fab74de34c300d685935fdc00d3eddd642ab5e",
+      "native_rollout_sha256": "a57ce4c832f3fabf63ca9b8e7c597970c46cbfc8c52a724f429dfc248ae5a6c0",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 24,
+        "exec_command": 84
+      },
+      "exec_output_token_limits": {
+        "5000": 1,
+        "10000": 25,
+        "20000": 16,
+        "30000": 8,
+        "40000": 1,
+        "50000": 1
+      },
+      "yield_time_supplied_calls": 52,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 344,
+          "summary_chars": 5319,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 48,
+          "subsequent_native_patch_calls": 10
+        },
+        {
+          "line": 745,
+          "summary_chars": 3867,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 4,
+          "subsequent_native_patch_calls": 0
+        }
+      ]
+    },
+    {
+      "task": "MP17",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp17",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "9b8a3539c40704608d64d86933d91c7f90d9be1cc6a367cd33a3ecc36a29bda1",
+      "native_rollout_sha256": "be44aa3b8666bcb6b43180e14dceb4cd212be172f7ca033724dc41c0589133c7",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 15,
+        "exec_command": 34,
+        "update_plan": 1
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [
+        11
+      ],
+      "compactions": []
+    },
+    {
+      "task": "MP18",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp18",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "cf46981e6b177a513fd6543e7aa17fb3f71188cd8d7319e101d4ee692188e8a7",
+      "native_rollout_sha256": "197f9e339bd27e3f381d4a388bdd1ccbe8ba0206fd56d785199b3b6eece7664a",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 10,
+        "exec_command": 35
+      },
+      "exec_output_token_limits": {
+        "10000": 10,
+        "20000": 13,
+        "30000": 12
+      },
+      "yield_time_supplied_calls": 35,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP19",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp19",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "c61b7c66c74d2f66d90aab4078e32f7314913da6b13cdef7694251c2de44b06c",
+      "native_rollout_sha256": "10524418b213c7de34206c9ca5b077f9b715f5ed308868c6814bd9c5c8aaafcc",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 13,
+          "core_transform_cases_total": 13
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 13
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 13
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 6,
+        "exec_command": 36
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP20",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp20",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "8f0a1bb542f7956b462af90233a529f46450a1511a6ecc2c088ff6bbd900633b",
+      "native_rollout_sha256": "a6ccf80e215baad9e356da55256aec841a3f12c39070c7005db951093ff086cf",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 14,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 4,
+        "exec_command": 32
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP21",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp21",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "c631d728d4d2cefe294741755d72c1baa4874111d10e859118ca16a905cc6b19",
+      "native_rollout_sha256": "c5cacdd8163775ffcb24f70cd7a2ab2be5dbb94a53df89198c234ed388cfe083",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 18,
+        "exec_command": 73
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 480,
+          "summary_chars": 4187,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 25,
+          "subsequent_native_patch_calls": 0
+        }
+      ]
+    },
+    {
+      "task": "MP22",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp22",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "fc5e46d5579480ead863821ab3dc94a039c2ea3c23dfd90fdce928c437302346",
+      "native_rollout_sha256": "e31c652b16630d723627594b4f492b90328a9c4603340c6e8ff33fcd5357bef6",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 21,
+          "core_transform_cases_total": 21
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 20,
+        "exec_command": 37,
+        "update_plan": 1
+      },
+      "exec_output_token_limits": {
+        "10000": 12,
+        "20000": 7,
+        "30000": 14,
+        "40000": 2,
+        "50000": 2
+      },
+      "yield_time_supplied_calls": 37,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [
+        13
+      ],
+      "compactions": [
+        {
+          "line": 405,
+          "summary_chars": 5369,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 3,
+          "subsequent_native_patch_calls": 0
+        }
+      ]
+    },
+    {
+      "task": "MP23",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp23",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "cf3909b4d6c75c1b29111c794c99e6b6f82cdc70da161fb74d3e650d417e51fa",
+      "native_rollout_sha256": "cbc1ed793c1e6d1a430a2afa8bd9fefd69e24d24fbdbe872e5e4d59be72d924f",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 15,
+        "exec_command": 33
+      },
+      "exec_output_token_limits": {
+        "20000": 2
+      },
+      "yield_time_supplied_calls": 2,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 373,
+          "summary_chars": 3193,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 2,
+          "subsequent_native_patch_calls": 0
+        }
+      ]
+    },
+    {
+      "task": "MP24",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp24",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "02fcef7c7cdebec8bddf9aefdcec5ee7f586425ddb57dd2229211b4fab8ebb0c",
+      "native_rollout_sha256": "1bbcd936e39e9821f90919f58fd2404e5b5d4710609b2d322be77fd15ad3b001",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 26,
+          "core_transform_cases_total": 26
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 26
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 26
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 15,
+        "exec_command": 40
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP25",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp25",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "1e8fe0f81caaa1db1e6cead654cebfc271eba82211ba6126f9500f26186d6a58",
+      "native_rollout_sha256": "3f8702bb42e58536deacee64f1997440138af11d2c68e9c7c2c0a1c85e52df8f",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 16
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 16,
+          "core_transform_cases_total": 16
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 26
+      },
+      "exec_output_token_limits": {
+        "2000": 4,
+        "5000": 5,
+        "10000": 1,
+        "20000": 8,
+        "30000": 7,
+        "40000": 1
+      },
+      "yield_time_supplied_calls": 26,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MP26",
+      "cohort": "historical-MP-offline-regraded",
+      "attempt": "u59-v4pro-r1-codex-mp26",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "04fb8e8cdee8e0209ffa225b2b68221243585e3565031e4e0ff1288da262f381",
+      "native_rollout_sha256": "6b0b2dcd5329888152d57568692a1f254d4e2dcae915492ebf29f10a78c520dc",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 26,
+          "core_transform_cases_total": 26
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 26
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 25,
+          "core_transform_cases_total": 26
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 17,
+        "exec_command": 72
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": [
+        {
+          "line": 353,
+          "summary_chars": 4708,
+          "matches_pinned_summary_prefix": true,
+          "has_response_id": true,
+          "replacement_history_items": 6,
+          "direct_trigger_field": null,
+          "direct_reason_field": null,
+          "subsequent_native_exec_calls": 35,
+          "subsequent_native_patch_calls": 3
+        }
+      ]
+    },
+    {
+      "task": "MS02",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms02",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "2d10d90cbf61c1b1582d6a2a83cdea52ad02e5b84e7ed632b341a02a479e1e4c",
+      "native_rollout_sha256": "15f7f06a4f317de2296f0868ce76462a0e4c80d1faa7e8d32e2d0884520f6880",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 7,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 7,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 4,
+        "exec_command": 11
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS11",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms11",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "a2d20afb69c9ed5a1b61f25a280a636ca7b405238bfcf691c517476be65488a9",
+      "native_rollout_sha256": "43c80d6f653e12fe2983b23ce9f29f83ef5ddaa77e37a14222f00d8d8951ae24",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 1,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 8,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 16
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS12",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms12",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "ba3af1ca61d5db95cfa287215853c27c169f7d3d5a0c444dec1f8e4dfb9ff4b6",
+      "native_rollout_sha256": "db831ae69297b80d181edeff72ee0067318f7d6a48f9407b4ef1545ef3fd3770",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 7
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS14",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms14",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "f7e55c1c8b43aaaaea19da058edcd4523d93b0f3ad11ca3f88f96c43f537e2d4",
+      "native_rollout_sha256": "4cdb94eaa3738be3fac11711bcbeeec3ef25781eac63e8d177eff418d9ca7cbb",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 3,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 3,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 4,
+        "exec_command": 19
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS23",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms23",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "c31f02e21ecb75021a952e62136022aacf6b81adab0c3a657d43a0b8c60fccae",
+      "native_rollout_sha256": "673cb03b0adff025a7f97df2b17fdd085223e9121a538cb69109accdf492dadc",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 10,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 6,
+        "exec_command": 27,
+        "write_stdin": 5
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 5,
+      "running_handle_responses": 5,
+      "processes_returning_handle": [
+        {
+          "start_step": 17,
+          "poll_steps": [
+            18
+          ]
+        },
+        {
+          "start_step": 28,
+          "poll_steps": [
+            29
+          ]
+        },
+        {
+          "start_step": 40,
+          "poll_steps": [
+            41,
+            42,
+            43
+          ]
+        }
+      ],
+      "write_stdin_events": [
+        {
+          "step": 18,
+          "launch_step": 17,
+          "input_chars": 0,
+          "reported_running": false,
+          "observed_exit_code": 0
+        },
+        {
+          "step": 29,
+          "launch_step": 28,
+          "input_chars": 0,
+          "reported_running": false,
+          "observed_exit_code": 0
+        },
+        {
+          "step": 41,
+          "launch_step": 40,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 42,
+          "launch_step": 40,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 43,
+          "launch_step": 40,
+          "input_chars": 0,
+          "reported_running": false,
+          "observed_exit_code": 0
+        }
+      ],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS28",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms28",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "02e160cfad8766cec03678c17731b6bde3fdda3512a3e78fbba147003576a2c4",
+      "native_rollout_sha256": "633d4452835712ce5f41099d10f7710c834b974fb5ab2e75c43e666bd35c0a81",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 6,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 12
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS29",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms29",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "54ad4c5a71ec1926bdd03e0a4c7f6f4b09947ec231139777d4446149377a0ceb",
+      "native_rollout_sha256": "197d538378a81400af710d2458fe4067c1662d4bc459d129f6284bde8dbf276b",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 10,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 26,
+        "write_stdin": 3
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 3,
+      "running_handle_responses": 3,
+      "processes_returning_handle": [
+        {
+          "start_step": 36,
+          "poll_steps": [
+            37,
+            38,
+            39
+          ]
+        }
+      ],
+      "write_stdin_events": [
+        {
+          "step": 37,
+          "launch_step": 36,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 38,
+          "launch_step": 36,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 39,
+          "launch_step": 36,
+          "input_chars": 6,
+          "reported_running": false,
+          "observed_exit_code": null
+        }
+      ],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS30",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms30",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "8b0aeb64753ca0a62f9e31698176ef44fa327b2f96a9493673fc9a4e895b42ca",
+      "native_rollout_sha256": "bb744c7820d077f5924d1052ffdcd69b2c19f9ad13028e687074283f08708f54",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 10
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 10
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 10
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 6,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "exec_command": 18
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS41",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms41",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "7f40888b1be198be1596a59fdd29476d536a8322911289dde793409e524dbe03",
+      "native_rollout_sha256": "6b1e999e7fabd598775dc216b980602eaea844cee25506357f136b9f9fb571ec",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 11,
+          "core_transform_cases_total": 11
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 5,
+          "core_transform_cases_total": 11
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 5,
+          "core_transform_cases_total": 11
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 4,
+        "exec_command": 20,
+        "write_stdin": 5
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 5,
+      "running_handle_responses": 5,
+      "processes_returning_handle": [
+        {
+          "start_step": 20,
+          "poll_steps": [
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "start_step": 26,
+          "poll_steps": [
+            27
+          ]
+        }
+      ],
+      "write_stdin_events": [
+        {
+          "step": 21,
+          "launch_step": 20,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 22,
+          "launch_step": 20,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 23,
+          "launch_step": 20,
+          "input_chars": 0,
+          "reported_running": true,
+          "observed_exit_code": null
+        },
+        {
+          "step": 24,
+          "launch_step": 20,
+          "input_chars": 6,
+          "reported_running": false,
+          "observed_exit_code": null
+        },
+        {
+          "step": 27,
+          "launch_step": 26,
+          "input_chars": 0,
+          "reported_running": false,
+          "observed_exit_code": 0
+        }
+      ],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "MS42",
+      "cohort": "v2.1-fresh",
+      "attempt": "u59-v21-v4pro-codex-ms42",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "cc813773b9ecb653a3b1b4dc89b247c6563c10ad573b7aef49bdc043434ad3f8",
+      "native_rollout_sha256": "08505c3af5e54646f84248ddba0456b78e910332285de158241bd94205b606e0",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 0,
+          "core_transform_cases_total": 12
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 12
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 12
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 4,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 2,
+        "exec_command": 20,
+        "get_goal": 1
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "N11",
+      "cohort": "v2.0-retained-N",
+      "attempt": "u59-v4pro-r5-codex-n11",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "c6c6e02d6162112bf18fe3f7629f685393650bb5ed92bde6c9e9e3c57effc7b3",
+      "native_rollout_sha256": "07e33444fd4758b554a713d2feb64826484177eeb571d8beae6480ed0a904f8a",
+      "scores": {
+        "codex": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 3,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 14
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "N17",
+      "cohort": "v2.0-retained-N",
+      "attempt": "u59-v4pro-r5-codex-n17",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "2141e92f04604c9b2f206defd20c4a581485483d513b20335c1306bc8e71f9fd",
+      "native_rollout_sha256": "11dd8fed88dc350620bf8124ef326e21fba47b38c0d429afe7ab9d03c5e8491d",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 8,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 2,
+        "exec_command": 12
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "N22",
+      "cohort": "v2.0-retained-N",
+      "attempt": "u59-v4pro-r5-codex-n22",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "3b5e4482e399b23c6140efcb133fdb80bb829a35e3bbf49295d48c259c00f065",
+      "native_rollout_sha256": "f20b43e6c6f0d61997d85db33de920a2aa9cf5496467b548491802f95c1cca8d",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_first": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        },
+        "semserve_with_replay": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 9
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 6,
+        "exec_command": 28
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    },
+    {
+      "task": "N24",
+      "cohort": "v2.0-retained-N",
+      "attempt": "u59-v4pro-r5-codex-n24",
+      "native_cli_version": "0.164.0",
+      "trajectory_sha256": "2d03c3da1d5bce8912020f8e41d9f7aaba84baccd13125f1b3bce3b7d1059d46",
+      "native_rollout_sha256": "06059fa394d754c64dc614f6ac7702673874d248e00b6d081eb664135da18143",
+      "scores": {
+        "codex": {
+          "strict_pass": true,
+          "core_transform_cases_passed": 12,
+          "core_transform_cases_total": 12
+        },
+        "semserve_first": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 12
+        },
+        "semserve_with_replay": {
+          "strict_pass": false,
+          "core_transform_cases_passed": 9,
+          "core_transform_cases_total": 12
+        }
+      },
+      "tool_calls": {
+        "apply_patch": 3,
+        "exec_command": 14
+      },
+      "exec_output_token_limits": {},
+      "yield_time_supplied_calls": 0,
+      "running_handle_responses": 0,
+      "processes_returning_handle": [],
+      "write_stdin_events": [],
+      "update_plan_unsupported_steps": [],
+      "compactions": []
+    }
+  ]
+}

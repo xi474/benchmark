@@ -1,0 +1,27 @@
+[
+  {
+    "task": "MP03",
+    "diagnosis": "正式严格通过。fstab、AIX、mount 三个解析器都能读正常挂载数据；向无关字段插入非有限浮点数时，三个冻结探针均实际返回正常业务值，预期为 ValueError。",
+    "improvement": "在解析文本之前递归验证整个输入 JSON 树的数值有限性，包括未知字段；普通有限扩展字段仍按契约忽略。"
+  },
+  {
+    "task": "MP04",
+    "diagnosis": "正式严格通过。三个来源解析器与目录合并器共 4 个接口，对扩展字段里的 NaN、正无穷、负无穷均未拒绝；直接插入和嵌套插入的 24 个失败项离线复跑均返回正常值。",
+    "improvement": "在统一入口对字典和数组做递归有限数校验，再解析 JSON/CSV/JSONL 或合并；对三种非有限值同时保留“顶层扩展”和“嵌套扩展”用例，并以普通有限扩展作正控。"
+  },
+  {
+    "task": "MP09",
+    "diagnosis": "正式严格通过。calendar、invitees、supplies、commit 能处理正常安排与采购；它们只验证业务路径上的字段。直接或嵌入扩展字段的三种非有限数穿过全部四个入口，24 个失败探针均返回正常值。",
+    "improvement": "在四个独立 API 的公共输入边界执行递归有限数检查，再启动计划和提交计算；测试中验证普通有限扩展仍能正常运行。"
+  },
+  {
+    "task": "MP17",
+    "diagnosis": "正式严格通过。parts、body 对未读取字段中的非有限数返回正常值，encoding 对带额外字段的上游对象泄出 KeyError；把顶层输入改为 null，encoding 报 TypeError，body 报 AttributeError。冻结探针要求这三类输入均以 ValueError 拒绝。",
+    "improvement": "从读取消息部分、编码到组装 body，共用显式类型与递归有限数校验；先校验包装对象再取字段，避免直接下标、.get 或随意吞异常。"
+  },
+  {
+    "task": "MP22",
+    "diagnosis": "正式严格通过。对 null 输入，names、languages、subjects 和 catalog 泄出 TypeError。对扩展字段中嵌入的非有限数，reader 和 languages 返回正常值，names、subjects、catalog 在继续读取时抛 KeyError。9 个失败项均要求 ValueError。",
+    "improvement": "在各级 MARC 组件入口验证对象、上游包装和整棵 JSON 的数值有限性，再解析 XML、记录与索引；同时覆盖包装带额外字段与直接 null。"
+  }
+]

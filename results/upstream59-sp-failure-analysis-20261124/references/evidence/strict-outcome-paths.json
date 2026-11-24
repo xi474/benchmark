@@ -1,0 +1,2189 @@
+{
+  "scope": "Frozen first attempts; A = core transformation checks. Published integrity zeros retain their formal scores.",
+  "task_count": 59,
+  "api_completion": {
+    "semserve_first": {
+      "all": 25,
+      "partial": 30,
+      "zero_published": 4,
+      "strict": 25
+    },
+    "codex": {
+      "all": 39,
+      "partial": 14,
+      "zero_published": 6,
+      "strict": 38
+    },
+    "dsh": {
+      "all": 37,
+      "partial": 12,
+      "zero_published": 10,
+      "strict": 36
+    }
+  },
+  "sp_final_guard": {
+    "bounded_pass_same_version": {
+      "tasks": 37,
+      "strict": 18,
+      "non_strict": 19,
+      "non_strict_and_one_or_both_baselines_strict": 12
+    },
+    "no_receipt": {
+      "tasks": 9,
+      "strict": 0,
+      "non_strict": 9,
+      "non_strict_and_one_or_both_baselines_strict": 8
+    },
+    "public_pass_without_final_receipt": {
+      "tasks": 13,
+      "strict": 7,
+      "non_strict": 6,
+      "non_strict_and_one_or_both_baselines_strict": 6
+    }
+  },
+  "sp_worked_branches": 166,
+  "sp_tasks_with_http_overlap": 55,
+  "sp_trace_event_totals": {
+    "handshake_speculation_started": 676,
+    "handshake_speculation_committed": 269,
+    "handshake_speculation_discarded": 407,
+    "branch_context_compiled": 166,
+    "branch_completed_from_verified_artifact": 166,
+    "root_integration_checkpoint_activated": 55
+  },
+  "baseline_published_child_counts": {
+    "codex": {
+      "None": 25,
+      "0": 34
+    },
+    "dsh": {
+      "None": 25,
+      "0": 34
+    }
+  },
+  "sp_terminal_error_counts": {
+    "RuntimeLimitExceeded": 14,
+    "SelfcheckDeadlineExceeded": 7,
+    "none": 37,
+    "OutputGuardFailure": 1
+  },
+  "integrity_sensitivity": {
+    "codex": {
+      "tasks": 53,
+      "api_denominator_per_system": 744,
+      "sp_api": 582,
+      "other_api": 683,
+      "sp_strict": 22,
+      "other_strict": 38
+    },
+    "dsh": {
+      "tasks": 52,
+      "api_denominator_per_system": 734,
+      "sp_api": 581,
+      "other_api": 633,
+      "sp_strict": 22,
+      "other_strict": 36
+    }
+  },
+  "baseline_check_edit_check_on_strict_disagreements": {
+    "codex": {
+      "strict_against_non_strict_sp": 19,
+      "observed_check_edit_check": [
+        "MP02",
+        "MP19",
+        "C068",
+        "MS11",
+        "N17"
+      ]
+    },
+    "dsh": {
+      "strict_against_non_strict_sp": 21,
+      "observed_check_edit_check": [
+        "MP15",
+        "MS11",
+        "MS41"
+      ]
+    }
+  },
+  "all_three_integrity_ok": {
+    "tasks": 52,
+    "strict": {
+      "semserve_first": 22,
+      "codex": 38,
+      "dsh": 36
+    }
+  },
+  "sp_non_strict_with_a_strict_comparator": {
+    "tasks": 26,
+    "public_pass": 18,
+    "public_fail_with_some_api": 4,
+    "public_fail_with_zero_api": 4
+  },
+  "tasks": [
+    {
+      "task": "MP01",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 17,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 16
+        },
+        "codex": {
+          "api_passed": 17,
+          "api_total": 17,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "dsh": {
+          "api_passed": 17,
+          "api_total": 17,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 6,
+      "sp_branch_http_overlap_seconds": 51.93364071846008,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/weighted_voting/dynamic_v7"
+    },
+    {
+      "task": "MP02",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 14,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        },
+        "codex": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 36.979406118392944,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/single_axis_concat/dynamic_v7"
+    },
+    {
+      "task": "MP03",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 10,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 20
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 6,
+      "sp_branch_http_overlap_seconds": 57.11626935005188,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/offline_mount_facts/dynamic_v7"
+    },
+    {
+      "task": "MP04",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 25,
+          "api_total": 25,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 25,
+          "api_total": 25,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 25,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 36
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 5,
+      "sp_branch_http_overlap_seconds": 47.29448437690735,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/multiformat_user_merge/dynamic_v7"
+    },
+    {
+      "task": "MP05",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 20,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 5,
+      "sp_branch_http_overlap_seconds": 36.22290301322937,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/cross_app_contact_ranking/dynamic_v7"
+    },
+    {
+      "task": "MP06",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 13
+        },
+        "codex": {
+          "api_passed": 6,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 15
+        },
+        "dsh": {
+          "api_passed": 6,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 15
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 8,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 19.25530171394348,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/calendar_cancel_notify/dynamic_v7"
+    },
+    {
+      "task": "MP07",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 13,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 8
+        },
+        "codex": {
+          "api_passed": 13,
+          "api_total": 13,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 13,
+          "api_total": 13,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 8,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 49.61065888404846,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/send_archive_cleanup/dynamic_v7"
+    },
+    {
+      "task": "MP08",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 19,
+          "api_total": 19,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 19,
+          "api_total": 19,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 19,
+          "api_total": 19,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 8,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 34.9761106967926,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/holiday_photo_migration/dynamic_v7"
+    },
+    {
+      "task": "MP09",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 28,
+          "api_total": 28,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 28,
+          "api_total": 28,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 28,
+          "api_total": 28,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 50.43579959869385,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/panel_events_procurement/dynamic_v7"
+    },
+    {
+      "task": "MP10",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 22,
+          "api_total": 22,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 22,
+          "api_total": 22,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 22,
+          "api_total": 22,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 8,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 4,
+      "sp_branch_http_overlap_seconds": 43.38882851600647,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/dinner_contact_checkout/dynamic_v7"
+    },
+    {
+      "task": "MP12",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 6,
+      "sp_branch_http_overlap_seconds": 34.132347106933594,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/linux2/files_mail_workspace/dynamic_v7"
+    },
+    {
+      "task": "MP13",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 8,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 6,
+      "sp_branch_http_overlap_seconds": 61.232173442840576,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/grouped_feature_union/dynamic_v7"
+    },
+    {
+      "task": "MP14",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 13,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 11
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 13,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 8
+        },
+        "dsh": {
+          "api_passed": 13,
+          "api_total": 13,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 50.83518600463867,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/portable_exception_report/dynamic_v7"
+    },
+    {
+      "task": "MP15",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 18,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 7
+        },
+        "codex": {
+          "api_passed": 18,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 7
+        },
+        "dsh": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 6,
+      "sp_branch_http_overlap_seconds": 75.07323741912842,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/python_import_usage/dynamic_v7"
+    },
+    {
+      "task": "MP16",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 10,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 5,
+      "sp_branch_http_overlap_seconds": 55.217506647109985,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/context8/api_documentation_merge/dynamic_v7"
+    },
+    {
+      "task": "MP17",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 27.194114446640015,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/context8/multipart_encoding/dynamic_v7"
+    },
+    {
+      "task": "MP18",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 10,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 0,
+      "sp_branch_http_overlap_seconds": 0.0,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/linux2/collection_manifest/dynamic_v7"
+    },
+    {
+      "task": "MP19",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 12,
+          "api_total": 13,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "codex": {
+          "api_passed": 13,
+          "api_total": 13,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 13,
+          "api_total": 13,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 4,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 5,
+      "sp_branch_http_overlap_seconds": 100.0183470249176,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/module_dependency_zip/dynamic_v7"
+    },
+    {
+      "task": "MP20",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 0,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 27
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 159.7257936000824,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/feature_config_snapshot/dynamic_v7"
+    },
+    {
+      "task": "MP21",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 12,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 8
+        },
+        "codex": {
+          "api_passed": 12,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 8
+        },
+        "dsh": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 5,
+      "sp_branch_http_overlap_seconds": 44.64468431472778,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/playlist_query_export/dynamic_v7"
+    },
+    {
+      "task": "MP22",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 21,
+          "api_total": 21,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 13,
+          "api_total": 21,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 15
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 37.46844720840454,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/marc_catalog_import/dynamic_v7"
+    },
+    {
+      "task": "MP23",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 10,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 4,
+      "sp_branch_http_overlap_seconds": 18.397541284561157,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/reversible_file_resharding/dynamic_v7"
+    },
+    {
+      "task": "MP24",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 25,
+          "api_total": 26,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "codex": {
+          "api_passed": 26,
+          "api_total": 26,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 20,
+          "api_total": 26,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 6
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 2,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 17.392271757125854,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/university_relation_query/dynamic_v7"
+    },
+    {
+      "task": "MP25",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 12,
+          "api_total": 16,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 11
+        },
+        "codex": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 16,
+          "api_total": 16,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 0,
+      "sp_branch_http_overlap_seconds": 0.0,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7"
+    },
+    {
+      "task": "MP26",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 25,
+          "api_total": 26,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "codex": {
+          "api_passed": 26,
+          "api_total": 26,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 25,
+          "api_total": 26,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "SelfcheckDeadlineExceeded",
+      "sp_worked_branches": 6,
+      "sp_branch_http_overlap_seconds": 68.5614550113678,
+      "sp_trace_directory": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/recurring_dinner_calendar/dynamic_v7"
+    },
+    {
+      "task": "C007",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 3,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 7
+        },
+        "dsh": {
+          "api_passed": 1,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 9
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 4,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 15.939899206161499,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C007/dynamic_v7"
+    },
+    {
+      "task": "C008",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 8,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 8.993925094604492,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C008/dynamic_v7"
+    },
+    {
+      "task": "C009",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 4,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 8.138565063476562,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C009/dynamic_v7"
+    },
+    {
+      "task": "C011",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 1,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 12
+        },
+        "codex": {
+          "api_passed": 7,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 16.961077213287354,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C011/dynamic_v7"
+    },
+    {
+      "task": "C017",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 4,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 6
+        },
+        "dsh": {
+          "api_passed": 4,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 6
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 16.7782564163208,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C017/dynamic_v7"
+    },
+    {
+      "task": "C031",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "codex": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "dsh": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 21.164867162704468,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C031/dynamic_v7"
+    },
+    {
+      "task": "C033",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 0,
+          "api_total": 14,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 18
+        },
+        "codex": {
+          "api_passed": 11,
+          "api_total": 14,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        },
+        "dsh": {
+          "api_passed": 14,
+          "api_total": 14,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 12.030473470687866,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C033/dynamic_v7"
+    },
+    {
+      "task": "C039",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        },
+        "codex": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 9.85619068145752,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C039/dynamic_v7"
+    },
+    {
+      "task": "C049",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 1,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 9
+        },
+        "codex": {
+          "api_passed": 3,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 5
+        },
+        "dsh": {
+          "api_passed": 3,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 5
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 44.03436040878296,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C049/dynamic_v7"
+    },
+    {
+      "task": "C055",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 4,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 33.365272998809814,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C055/dynamic_v7"
+    },
+    {
+      "task": "C056",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 0,
+          "api_total": 9,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 13
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 9,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 13
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 11.546807289123535,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C056/dynamic_v7"
+    },
+    {
+      "task": "C058",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 1,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 10
+        },
+        "codex": {
+          "api_passed": 1,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 10
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 13
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 26.91231918334961,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C058/dynamic_v7"
+    },
+    {
+      "task": "C062",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 5,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 5
+        },
+        "codex": {
+          "api_passed": 0,
+          "api_total": 8,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 12
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 8,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 12
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 20.4430992603302,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C062/dynamic_v7"
+    },
+    {
+      "task": "C066",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 4,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 7
+        },
+        "codex": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 11.991668462753296,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C066/dynamic_v7"
+    },
+    {
+      "task": "C067",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 7,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 15.69214677810669,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C067/dynamic_v7"
+    },
+    {
+      "task": "C068",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 27.609898567199707,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C068/dynamic_v7"
+    },
+    {
+      "task": "C069",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 0,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 13
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 0,
+      "sp_branch_http_overlap_seconds": 0.0,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C069/dynamic_v7"
+    },
+    {
+      "task": "C074",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 6,
+          "api_total": 8,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 2
+        },
+        "codex": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 8,
+          "api_total": 8,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 4,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 21.98309826850891,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C074/dynamic_v7"
+    },
+    {
+      "task": "C077",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 6,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 5
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 7,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 2
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 24.28774905204773,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C077/dynamic_v7"
+    },
+    {
+      "task": "C079",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 0,
+      "sp_branch_http_overlap_seconds": 0.0,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C079/dynamic_v7"
+    },
+    {
+      "task": "MS02",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 7,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 2
+        },
+        "codex": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 1
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 16.537145614624023,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS02/dynamic_v7"
+    },
+    {
+      "task": "MS11",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 1,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": false,
+          "registered_checks_missing": 13
+        },
+        "codex": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "no_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "RuntimeLimitExceeded",
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 12.18984580039978,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS11/dynamic_v7"
+    },
+    {
+      "task": "MS12",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 6,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 11.831325054168701,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS12/dynamic_v7"
+    },
+    {
+      "task": "MS14",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 3,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 10
+        },
+        "codex": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 16.394352912902832,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS14/dynamic_v7"
+    },
+    {
+      "task": "MS23",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 3,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 17.905359268188477,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS23/dynamic_v7"
+    },
+    {
+      "task": "MS28",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 6,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 7
+        },
+        "codex": {
+          "api_passed": 6,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 7
+        },
+        "dsh": {
+          "api_passed": 10,
+          "api_total": 10,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 14.547495603561401,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS28/dynamic_v7"
+    },
+    {
+      "task": "MS29",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 4,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 13.74341106414795,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS29/dynamic_v7"
+    },
+    {
+      "task": "MS30",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 10,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        },
+        "codex": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 10,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 14
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 11.216027021408081,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS30/dynamic_v7"
+    },
+    {
+      "task": "MS41",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 5,
+          "api_total": 11,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 8
+        },
+        "codex": {
+          "api_passed": 11,
+          "api_total": 11,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 11,
+          "api_total": 11,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 95.02352666854858,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS41/dynamic_v7"
+    },
+    {
+      "task": "MS42",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 12,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 6
+        },
+        "codex": {
+          "api_passed": 0,
+          "api_total": 12,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 16
+        },
+        "dsh": {
+          "api_passed": 0,
+          "api_total": 12,
+          "strict": false,
+          "integrity": false,
+          "public_pass": false,
+          "registered_checks_missing": 16
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 2,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 2,
+      "sp_branch_http_overlap_seconds": 17.508530616760254,
+      "sp_trace_directory": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7"
+    },
+    {
+      "task": "N11",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 3,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 9
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 3,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 13.193031072616577,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N11/dynamic_v7"
+    },
+    {
+      "task": "N17",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 8,
+          "api_total": 9,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 6
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 12.355466365814209,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N17/dynamic_v7"
+    },
+    {
+      "task": "N22",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "codex": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 9,
+          "api_total": 9,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "public_pass_without_final_receipt",
+      "bounded_cases": null,
+      "sp_terminal_error": "OutputGuardFailure",
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 37.577770471572876,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N22/dynamic_v7"
+    },
+    {
+      "task": "N24",
+      "scores": {
+        "semserve_first": {
+          "api_passed": 9,
+          "api_total": 12,
+          "strict": false,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 3
+        },
+        "codex": {
+          "api_passed": 12,
+          "api_total": 12,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        },
+        "dsh": {
+          "api_passed": 12,
+          "api_total": 12,
+          "strict": true,
+          "integrity": true,
+          "public_pass": true,
+          "registered_checks_missing": 0
+        }
+      },
+      "last_sp_guard": "bounded_pass_same_version",
+      "bounded_cases": 5,
+      "sp_terminal_error": null,
+      "sp_worked_branches": 3,
+      "sp_branch_http_overlap_seconds": 9.906580924987793,
+      "sp_trace_directory": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N24/dynamic_v7"
+    }
+  ]
+}

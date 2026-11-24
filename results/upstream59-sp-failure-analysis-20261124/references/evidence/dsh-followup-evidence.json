@@ -1,0 +1,3105 @@
+{
+  "source": "Selected DSH attempts, Upstream59 V4 Pro normal, local dsh-stream.jsonl",
+  "line_unit": "1-based nonempty stream event; tool calls deduplicated per trial by callId",
+  "pairing": "For each policy rejection, first later completed read of normalized path, then first later completed native edit/write of that path. Distinct rejections can share a subsequent event.",
+  "payload_equality": "Exact tool name and content/old_string/new_string/replace_all keys and values; ignores unrelated tool metadata.",
+  "todo_completion": "Self-reported progress. Association across self-selected cohorts is descriptive.",
+  "summary": {
+    "tasks": 59,
+    "tool_calls": 2373,
+    "tool_errors": 93,
+    "rejections_by_reason": {
+      "unobserved": 91,
+      "stale_version": 1
+    },
+    "tasks_with_observation_rejection": 41,
+    "successful_reread_then_mutation": 88,
+    "tasks_with_reread_then_mutation": 40,
+    "same_mutation_payload": 79,
+    "different_mutation_payload": 9,
+    "tasks_with_different_mutation_payload": 8,
+    "todo_calls": 88,
+    "tasks_with_multiple_todo_calls": 31,
+    "tasks_with_todo_check_word": 33,
+    "todo_open_then_closed": 27,
+    "todo_open_then_closed_strict": 17,
+    "todo_cohorts": {
+      "used": {
+        "tasks": 33,
+        "strict": 22,
+        "api_passed": 462,
+        "api_total": 503,
+        "e2e_median_seconds": 563.833775,
+        "tokens_median": 843590
+      },
+      "unused": {
+        "tasks": 26,
+        "strict": 14,
+        "api_passed": 171,
+        "api_total": 300,
+        "e2e_median_seconds": 294.1864405,
+        "tokens_median": 319589.0
+      }
+    },
+    "todo_cohorts_by_family": {
+      "C": {
+        "used": {
+          "tasks": 7,
+          "strict": 3,
+          "api_passed": 53,
+          "api_total": 67,
+          "e2e_median_seconds": 365.933135,
+          "tokens_median": 746065
+        },
+        "unused": {
+          "tasks": 13,
+          "strict": 7,
+          "api_passed": 63,
+          "api_total": 114,
+          "e2e_median_seconds": 241.241902,
+          "tokens_median": 269595
+        }
+      },
+      "MP": {
+        "used": {
+          "tasks": 21,
+          "strict": 15,
+          "api_passed": 361,
+          "api_total": 387,
+          "e2e_median_seconds": 636.144961,
+          "tokens_median": 848440
+        },
+        "unused": {
+          "tasks": 4,
+          "strict": 2,
+          "api_passed": 59,
+          "api_total": 95,
+          "e2e_median_seconds": 611.0063130000001,
+          "tokens_median": 830597.5
+        }
+      },
+      "MS": {
+        "used": {
+          "tasks": 3,
+          "strict": 2,
+          "api_passed": 30,
+          "api_total": 31,
+          "e2e_median_seconds": 918.122187,
+          "tokens_median": 934640
+        },
+        "unused": {
+          "tasks": 7,
+          "strict": 3,
+          "api_passed": 28,
+          "api_total": 70,
+          "e2e_median_seconds": 352.310206,
+          "tokens_median": 551495
+        }
+      },
+      "N": {
+        "used": {
+          "tasks": 2,
+          "strict": 2,
+          "api_passed": 18,
+          "api_total": 18,
+          "e2e_median_seconds": 363.9006965,
+          "tokens_median": 1177690.0
+        },
+        "unused": {
+          "tasks": 2,
+          "strict": 2,
+          "api_passed": 21,
+          "api_total": 21,
+          "e2e_median_seconds": 235.799467,
+          "tokens_median": 260447.5
+        }
+      }
+    }
+  },
+  "tasks": [
+    {
+      "task": "C007",
+      "family": "C",
+      "stream_sha256": "68b6b9421f2855fdd6b01f8df4d4938c06879a715a91472bc76e0ff5f84bc246",
+      "tool_counts": {
+        "bash": 5,
+        "read": 25,
+        "todo_write": 2,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 35
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [
+        {
+          "line": 65,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 104,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 1,
+      "api_total": 8,
+      "e2e_seconds": 458.672285,
+      "tokens": 683140
+    },
+    {
+      "task": "C008",
+      "family": "C",
+      "stream_sha256": "426db8d585836325f0f93e4dcaad56b353a4ce48d25d19e55a19cb5a00212cd0",
+      "tool_counts": {
+        "bash": 7,
+        "read": 25,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 35
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 8,
+      "api_total": 8,
+      "e2e_seconds": 81.872373,
+      "tokens": 191608
+    },
+    {
+      "task": "C009",
+      "family": "C",
+      "stream_sha256": "156030795a5c6f786d07ea2a966ef428080b4203f2a3c9ad1a0fb1ba2f0a2319",
+      "tool_counts": {
+        "bash": 17,
+        "list_agents": 1,
+        "read": 26,
+        "todo_write": 3,
+        "write": 4
+      },
+      "result_status_counts": {
+        "completed": 51
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [
+        {
+          "line": 80,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 4
+          },
+          "check_word": true
+        },
+        {
+          "line": 97,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 164,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 10,
+      "api_total": 10,
+      "e2e_seconds": 417.970912,
+      "tokens": 903358
+    },
+    {
+      "task": "C011",
+      "family": "C",
+      "stream_sha256": "6a5cd62d70c2ccda8ac38564d04b23e267be96ffd2b2dbab1a0af07ee25d8be3",
+      "tool_counts": {
+        "bash": 1,
+        "read": 26
+      },
+      "result_status_counts": {
+        "completed": 27
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 10,
+      "e2e_seconds": 518.571554,
+      "tokens": 116569
+    },
+    {
+      "task": "C017",
+      "family": "C",
+      "stream_sha256": "8e612b95b24a5c55ee4846f6eebf9f845aa934efadcff72a03e52d29f1029e2a",
+      "tool_counts": {
+        "bash": 7,
+        "list_agents": 1,
+        "read": 14,
+        "todo_write": 3,
+        "write": 5
+      },
+      "result_status_counts": {
+        "completed": 28,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 47,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "0a8f47150e62b55697cfa7b702031021bcf26b849f9ad4d804fd05deb3a331e4",
+          "subsequent_read_line": 54,
+          "subsequent_mutation_line": 62,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 49,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "0f20b6ba9e20ffe7f4383e15214ffa967142beab529c861a374afb405e985444",
+          "subsequent_read_line": 55,
+          "subsequent_mutation_line": 64,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 43,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 72,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 3,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 95,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 4,
+      "api_total": 8,
+      "e2e_seconds": 249.75776,
+      "tokens": 318929
+    },
+    {
+      "task": "C031",
+      "family": "C",
+      "stream_sha256": "4c1602666bb9e6c83b25482f46fdaecf44943f1c57973e193308b88b92f46ea0",
+      "tool_counts": {
+        "bash": 23,
+        "list_agents": 1,
+        "read": 28,
+        "todo_write": 2,
+        "write": 3,
+        "edit": 1
+      },
+      "result_status_counts": {
+        "completed": 57,
+        "error": 1
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [
+        {
+          "line": 85,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 202,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 8,
+      "api_total": 9,
+      "e2e_seconds": 365.933135,
+      "tokens": 843590
+    },
+    {
+      "task": "C033",
+      "family": "C",
+      "stream_sha256": "adbc8a1b3cb97f8f89365c67db05ca9655ab2e8689190598c59a3393cab3f1a0",
+      "tool_counts": {
+        "bash": 26,
+        "list_agents": 1,
+        "read": 21,
+        "todo_write": 1,
+        "write": 8,
+        "edit": 14
+      },
+      "result_status_counts": {
+        "completed": 68,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 58,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "2517bc41ff8778fcc5a7903a17344b01dc3ad928898047d77e0c4d6b98ca051a",
+          "subsequent_read_line": 65,
+          "subsequent_mutation_line": 73,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 60,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "8c1909f723aa8276787a0578c876dcc3adc31486870a08a0319d1a5d5221f2c4",
+          "subsequent_read_line": 66,
+          "subsequent_mutation_line": 75,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 275,
+          "tool": "edit",
+          "reason": "stale_version",
+          "normalized_path_sha256": "286cef184273582e51af074406858a1bb5364eccd4dea7014afdb8e93e194074",
+          "subsequent_read_line": 279,
+          "subsequent_mutation_line": 283,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 54,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 14,
+      "api_total": 14,
+      "e2e_seconds": 538.807915,
+      "tokens": 2050269
+    },
+    {
+      "task": "C039",
+      "family": "C",
+      "stream_sha256": "a962b3d50d98292698a47c01f27d88809624641b057ff7458139882c70f74bd4",
+      "tool_counts": {
+        "bash": 5
+      },
+      "result_status_counts": {
+        "completed": 5
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 10,
+      "e2e_seconds": 117.471216,
+      "tokens": 76782
+    },
+    {
+      "task": "C049",
+      "family": "C",
+      "stream_sha256": "7b84d10cb07767e1bcb5cfdf08a59cc838d29d41ba40abca669c9166681de6e2",
+      "tool_counts": {
+        "bash": 21,
+        "list_agents": 1,
+        "write": 5,
+        "edit": 2,
+        "read": 5
+      },
+      "result_status_counts": {
+        "completed": 33,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 58,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "a44c83c01055205361f03f0b93822b01455da7623238f72628685e3b5051e5d6",
+          "subsequent_read_line": 63,
+          "subsequent_mutation_line": 71,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 3,
+      "api_total": 8,
+      "e2e_seconds": 272.466807,
+      "tokens": 709878
+    },
+    {
+      "task": "C055",
+      "family": "C",
+      "stream_sha256": "c76b2c632a386ea8bacdae631a3267084d3643098096303100580a6f9671a30b",
+      "tool_counts": {
+        "bash": 7,
+        "list_agents": 1,
+        "read": 13,
+        "write": 6
+      },
+      "result_status_counts": {
+        "completed": 25,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 46,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "905d56a278053fb98fc811589b1e8c22925b3a90feed3c79bd24942513db3457",
+          "subsequent_read_line": 53,
+          "subsequent_mutation_line": 61,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 48,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "392246f1f6129373e49f7b9cc8e2bb205f545d05e46f5c578a43973cb0a3a6f9",
+          "subsequent_read_line": 54,
+          "subsequent_mutation_line": 63,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 266.191875,
+      "tokens": 299802
+    },
+    {
+      "task": "C056",
+      "family": "C",
+      "stream_sha256": "4270b80ddef749e2e80a0410cb028b39fdf406b636c26b6d8ac75e26e2ec641c",
+      "tool_counts": {
+        "list_agents": 1,
+        "bash": 4,
+        "read": 23,
+        "write": 3,
+        "edit": 1
+      },
+      "result_status_counts": {
+        "completed": 32
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 9,
+      "e2e_seconds": 144.702319,
+      "tokens": 217080
+    },
+    {
+      "task": "C058",
+      "family": "C",
+      "stream_sha256": "ae4d7a032698ac8826924bbef429e67c50c9c571f4cd682014577113732723ac",
+      "tool_counts": {
+        "bash": 1,
+        "read": 27
+      },
+      "result_status_counts": {
+        "completed": 28
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 9,
+      "e2e_seconds": 403.597375,
+      "tokens": 76823
+    },
+    {
+      "task": "C062",
+      "family": "C",
+      "stream_sha256": "2f1b4fc2e477a5c4a3e381109b840c7bd06c52a0d105f310b3f8709ad3c0b16f",
+      "tool_counts": {
+        "bash": 8,
+        "list_agents": 1,
+        "read": 27,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 39
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 8,
+      "e2e_seconds": 241.241902,
+      "tokens": 269595
+    },
+    {
+      "task": "C066",
+      "family": "C",
+      "stream_sha256": "2ab0c53c8a0d02e1c00b80062f2b1b9addf5a06fafd37b0e95ff321fd7e1677e",
+      "tool_counts": {
+        "bash": 6,
+        "read": 19,
+        "list_agents": 1,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 29
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 8,
+      "api_total": 8,
+      "e2e_seconds": 235.692643,
+      "tokens": 286407
+    },
+    {
+      "task": "C067",
+      "family": "C",
+      "stream_sha256": "b0e28d362b0b3304ff0ad3158a2d7f913384d1b55080e49c6577250ceb36995a",
+      "tool_counts": {
+        "bash": 7,
+        "list_agents": 1,
+        "read": 25,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 36
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 202.961905,
+      "tokens": 267806
+    },
+    {
+      "task": "C068",
+      "family": "C",
+      "stream_sha256": "2ad3ec999ae4f66cc5f57adeb0f34aefd4296721e9ff264c737ba821666181cc",
+      "tool_counts": {
+        "bash": 8,
+        "list_agents": 1,
+        "read": 25,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 37
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 334.001533,
+      "tokens": 392599
+    },
+    {
+      "task": "C069",
+      "family": "C",
+      "stream_sha256": "4e9f5b5e9a759a75107cdd584ad415337c80f84fa1a76536e46834687de6cf33",
+      "tool_counts": {
+        "bash": 18,
+        "list_agents": 1,
+        "read": 23,
+        "todo_write": 3,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 48
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [
+        {
+          "line": 86,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 103,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 2,
+            "in_progress": 1,
+            "pending": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 174,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 279.218152,
+      "tokens": 746065
+    },
+    {
+      "task": "C074",
+      "family": "C",
+      "stream_sha256": "0a51ce47ecea77fc14199f3697860260cf0dc6605a3c5462860297ee5752958d",
+      "tool_counts": {
+        "bash": 8,
+        "list_agents": 1,
+        "read": 13,
+        "write": 5
+      },
+      "result_status_counts": {
+        "completed": 25,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 38,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "392841506e043e858fbd631649a6bc0e879ab1773cd0112abb658e584c07d02e",
+          "subsequent_read_line": 45,
+          "subsequent_mutation_line": 53,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 40,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "7b89d416855739a0aa117f422eb536d47df97c6f24a1c5a20ab5d7f92e0eef5a",
+          "subsequent_read_line": 46,
+          "subsequent_mutation_line": 55,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 8,
+      "api_total": 8,
+      "e2e_seconds": 292.943407,
+      "tokens": 349068
+    },
+    {
+      "task": "C077",
+      "family": "C",
+      "stream_sha256": "105d3ab18001c571f01b053caa09b88a92194575fbae11f989389bb627529edd",
+      "tool_counts": {
+        "bash": 9,
+        "list_agents": 1,
+        "read": 27,
+        "todo_write": 2,
+        "write": 3
+      },
+      "result_status_counts": {
+        "completed": 42
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [
+        {
+          "line": 72,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 4
+          },
+          "check_word": true
+        },
+        {
+          "line": 125,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 7,
+      "api_total": 9,
+      "e2e_seconds": 308.664811,
+      "tokens": 529242
+    },
+    {
+      "task": "C079",
+      "family": "C",
+      "stream_sha256": "ea06839a325b9cab362464edb5aa2a9589f18e16cb00f5cc7b745aff2b3aba15",
+      "tool_counts": {
+        "bash": 12,
+        "list_agents": 1,
+        "read": 15,
+        "write": 5
+      },
+      "result_status_counts": {
+        "completed": 31,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 46,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "0a87ec2689e22f103c0486ae4c550f2a5f65d374f0ea6e396f30c846a71d6ec5",
+          "subsequent_read_line": 53,
+          "subsequent_mutation_line": 61,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 48,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "634ac742d15b8c64a1e225e0fa33cf60c2bf830ff26d2b6c8066fa45110a2ba0",
+          "subsequent_read_line": 54,
+          "subsequent_mutation_line": 63,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 133.472056,
+      "tokens": 339376
+    },
+    {
+      "task": "MP01",
+      "family": "MP",
+      "stream_sha256": "5803edb8a8f4ae3119b99c9e2352bd1344226b625e8c93001ee26df6a58958fd",
+      "tool_counts": {
+        "bash": 12,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 12,
+        "read": 6
+      },
+      "result_status_counts": {
+        "completed": 28,
+        "error": 6
+      },
+      "observation_rejections": [
+        {
+          "line": 44,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "560160c18256cacc9d7fd82e0c91a0d6885e08928756b90249d76946b76bbee6",
+          "subsequent_read_line": 59,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 46,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e728178880281cbc9c16b687f92823325916e9a55552ac52589afbeaa371ed98",
+          "subsequent_read_line": 60,
+          "subsequent_mutation_line": 76,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 48,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "4625be12e644eb8424088706fcc64d2caf0947cbe3b7c2ab23eab83ff66d8bd7",
+          "subsequent_read_line": 61,
+          "subsequent_mutation_line": 78,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 50,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "2ef12679594ee24c72f74a0efd992a4fb39c416663a86703627a6aceb4b3d167",
+          "subsequent_read_line": 62,
+          "subsequent_mutation_line": 80,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 52,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e5c2673951fdb1fe6763cc745f1312b2989d1c4be5db1610bf5f9acd320db211",
+          "subsequent_read_line": 63,
+          "subsequent_mutation_line": 82,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 54,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "378a89987cbc5df98b453f8be2c4d92602c1f35475b80c28e84f7176a49390cd",
+          "subsequent_read_line": 64,
+          "subsequent_mutation_line": 84,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 35,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 88,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 3,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 109,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 17,
+      "api_total": 17,
+      "e2e_seconds": 500.858618,
+      "tokens": 596333
+    },
+    {
+      "task": "MP02",
+      "family": "MP",
+      "stream_sha256": "1b20aef3806ff9cd53d2ee3458321a8f5fa4a11118d4f98747aed5a021c7edc3",
+      "tool_counts": {
+        "bash": 12,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 14,
+        "read": 11
+      },
+      "result_status_counts": {
+        "completed": 38,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 40,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "3bc1648c13ae82cb3536ec2626fb3c958af36ea124d30bb7216e596f73b04483",
+          "subsequent_read_line": 49,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 42,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "22c92d42ee20c31f4ce175f5e5a2d26d913d79fe5e3b2bcab1d6357c95f0903b",
+          "subsequent_read_line": 52,
+          "subsequent_mutation_line": 76,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 44,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "f50d3f4f8f1ce2bc45bdbacb44ea195ad94ccfa99b35e335d6d8e97afa4690fa",
+          "subsequent_read_line": 55,
+          "subsequent_mutation_line": 78,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 36,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 7
+          },
+          "check_word": true
+        },
+        {
+          "line": 110,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 7,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 139,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 8
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 16,
+      "api_total": 16,
+      "e2e_seconds": 369.766984,
+      "tokens": 677700
+    },
+    {
+      "task": "MP03",
+      "family": "MP",
+      "stream_sha256": "a7b7b23c08d8472dc3f9948d1beb9d3ec2a1d98a80c5445f32e51fa60ee64de9",
+      "tool_counts": {
+        "bash": 20,
+        "list_agents": 1,
+        "write": 9,
+        "read": 14
+      },
+      "result_status_counts": {
+        "completed": 43,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 40,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "3fbc474bd673696a8bff9992c92bdfe9f017e81b79153203cd69440d34d58dcc",
+          "subsequent_read_line": 45,
+          "subsequent_mutation_line": 78,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 10,
+      "api_total": 21,
+      "e2e_seconds": 561.057798,
+      "tokens": 1302963
+    },
+    {
+      "task": "MP04",
+      "family": "MP",
+      "stream_sha256": "b3b3d5eb1ff85fb3f09da0c36763affe01876edfe4fb5fc459fce96a701a5b60",
+      "tool_counts": {
+        "bash": 2,
+        "read": 26
+      },
+      "result_status_counts": {
+        "completed": 28
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 25,
+      "e2e_seconds": 660.954828,
+      "tokens": 111960
+    },
+    {
+      "task": "MP05",
+      "family": "MP",
+      "stream_sha256": "88fe0a8cc189c57d678cbc79fafe27e1c34b53ec124073745a6f65e732d86a06",
+      "tool_counts": {
+        "bash": 17,
+        "read": 19,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 18,
+        "edit": 1
+      },
+      "result_status_counts": {
+        "completed": 55,
+        "error": 4
+      },
+      "observation_rejections": [
+        {
+          "line": 60,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "43f16d7d8bb0e2fc7dc19dc7e706f41f6ef57bf9460edc00ecb57ed0cb407be8",
+          "subsequent_read_line": 71,
+          "subsequent_mutation_line": 102,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 62,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "3e863b51af51dc4506e28be81a19b7fd492827b67a3fce7c52526917eba765bd",
+          "subsequent_read_line": 72,
+          "subsequent_mutation_line": 104,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 64,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "cdc232e83fb9c3a76f51c3f6a0810b234fe0138ebc5661fbe08003a2cdd4b7f2",
+          "subsequent_read_line": 73,
+          "subsequent_mutation_line": 106,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 66,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "08b971fb0fa63f3f7277bbb929d0ae0162e4be45253677940edf9bf1fca8a80d",
+          "subsequent_read_line": 74,
+          "subsequent_mutation_line": 108,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 55,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 147,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 198,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 20,
+      "api_total": 21,
+      "e2e_seconds": 406.75322,
+      "tokens": 1097997
+    },
+    {
+      "task": "MP06",
+      "family": "MP",
+      "stream_sha256": "8eda7b25e240504ef61771910faa7093841c50e75deecb2968896e30d021852c",
+      "tool_counts": {
+        "bash": 16,
+        "list_agents": 1,
+        "read": 16,
+        "todo_write": 3,
+        "write": 12,
+        "edit": 2
+      },
+      "result_status_counts": {
+        "completed": 49,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 60,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "cdc232e83fb9c3a76f51c3f6a0810b234fe0138ebc5661fbe08003a2cdd4b7f2",
+          "subsequent_read_line": 65,
+          "subsequent_mutation_line": 90,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 56,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 137,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 180,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 6,
+      "api_total": 16,
+      "e2e_seconds": 301.035271,
+      "tokens": 680061
+    },
+    {
+      "task": "MP07",
+      "family": "MP",
+      "stream_sha256": "579892868d73d36786d49674e6d9b5d075acf47630c8112cf35db0834d5bfac6",
+      "tool_counts": {
+        "bash": 17,
+        "list_agents": 1,
+        "read": 12,
+        "todo_write": 3,
+        "write": 12
+      },
+      "result_status_counts": {
+        "completed": 44,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 56,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d822b140584ee54155b23708749c732fbc5502f2fbfcc7edaaed2246340fbdd2",
+          "subsequent_read_line": 61,
+          "subsequent_mutation_line": 82,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 52,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 108,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 3,
+            "in_progress": 1,
+            "pending": 2
+          },
+          "check_word": true
+        },
+        {
+          "line": 163,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 13,
+      "api_total": 13,
+      "e2e_seconds": 602.465834,
+      "tokens": 1396976
+    },
+    {
+      "task": "MP08",
+      "family": "MP",
+      "stream_sha256": "d74c005903a1d6b8631acc737bf01bfbdb2e6c7783fdf8b847edbe831eacd3bb",
+      "tool_counts": {
+        "bash": 14,
+        "todo_write": 3,
+        "write": 12,
+        "read": 9
+      },
+      "result_status_counts": {
+        "completed": 37,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 30,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "fff958bd6edd2d8ee5c9a079387151114999b3505bbeb50095c4759f060787b3",
+          "subsequent_read_line": 35,
+          "subsequent_mutation_line": 56,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 26,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 2
+          },
+          "check_word": true
+        },
+        {
+          "line": 88,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 2,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 136,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 3
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 19,
+      "api_total": 19,
+      "e2e_seconds": 476.928439,
+      "tokens": 848440
+    },
+    {
+      "task": "MP09",
+      "family": "MP",
+      "stream_sha256": "2194aaa245e621b64b92de1364a757f37df37222d9b59fc36b8e0c1ede67e9fb",
+      "tool_counts": {
+        "bash": 20,
+        "list_agents": 1,
+        "write": 15,
+        "read": 14
+      },
+      "result_status_counts": {
+        "completed": 49,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 38,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "bbc9c2bb2abbc2255cd9adcb04b75bca40356d57de487e2e5fa25c5bce4cc1da",
+          "subsequent_read_line": 43,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 28,
+      "api_total": 28,
+      "e2e_seconds": 475.592884,
+      "tokens": 838604
+    },
+    {
+      "task": "MP10",
+      "family": "MP",
+      "stream_sha256": "4717960f8b7de70a842e586317e91b9fbb0d5ed56af644baedbb0b07ced16a03",
+      "tool_counts": {
+        "bash": 17,
+        "list_agents": 1,
+        "read": 14,
+        "todo_write": 3,
+        "write": 14
+      },
+      "result_status_counts": {
+        "completed": 46,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 39,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "bc14fb7c134a639efd0b7ae314a999f03b2d753bb3b078a18e77dfc23c22e7f1",
+          "subsequent_read_line": 48,
+          "subsequent_mutation_line": 69,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 41,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "0dc41988f4ca63fa8ec1d755855ae92bef7c92a3c114e134eeaa74d05e08a9de",
+          "subsequent_read_line": 49,
+          "subsequent_mutation_line": 71,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 43,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "b82211f278eb2f394f2f8005419915399dd9f5a1f1e6334ccdb3ebbb6ce7dcf0",
+          "subsequent_read_line": 50,
+          "subsequent_mutation_line": 73,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 35,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 95,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 3,
+            "in_progress": 1,
+            "pending": 2
+          },
+          "check_word": true
+        },
+        {
+          "line": 105,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 22,
+      "api_total": 22,
+      "e2e_seconds": 692.219354,
+      "tokens": 778347
+    },
+    {
+      "task": "MP12",
+      "family": "MP",
+      "stream_sha256": "6881a87b30624c04200d3353c311e7565cf458c815e211810cfc44aa9d8cf3a9",
+      "tool_counts": {
+        "bash": 27,
+        "todo_write": 3,
+        "write": 14,
+        "read": 10,
+        "edit": 4
+      },
+      "result_status_counts": {
+        "completed": 55,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 32,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e04f824fcf05934fb111257e22a57ad49300d6d087f03cbcc1c473b99cdf9d2d",
+          "subsequent_read_line": 36,
+          "subsequent_mutation_line": 40,
+          "same_mutation_payload": false
+        },
+        {
+          "line": 59,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "02ccd0e7117e8686ba1e04a5dd0915143dc55de27e1fd53cb39e32cc29d3e75e",
+          "subsequent_read_line": 73,
+          "subsequent_mutation_line": 77,
+          "same_mutation_payload": false
+        },
+        {
+          "line": 68,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "02ccd0e7117e8686ba1e04a5dd0915143dc55de27e1fd53cb39e32cc29d3e75e",
+          "subsequent_read_line": 73,
+          "subsequent_mutation_line": 77,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 22,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 4
+          },
+          "check_word": true
+        },
+        {
+          "line": 139,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 268,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 21,
+      "api_total": 21,
+      "e2e_seconds": 912.481941,
+      "tokens": 2083991
+    },
+    {
+      "task": "MP13",
+      "family": "MP",
+      "stream_sha256": "02aa3e97c758b0963c21fd309f842ebbe6475371f5d9581ac16c357b38da397a",
+      "tool_counts": {
+        "bash": 13,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 18,
+        "read": 14
+      },
+      "result_status_counts": {
+        "completed": 45,
+        "error": 4
+      },
+      "observation_rejections": [
+        {
+          "line": 32,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "7ce8a9a1584b0e9857aff9e2772dc0332b4a51dff0a3518f02ade9ac953cc368",
+          "subsequent_read_line": 43,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 34,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "912a556ec43f28718fbb54f47a121cd4eccf156d2dd2529da675552e6f15f62a",
+          "subsequent_read_line": 44,
+          "subsequent_mutation_line": 76,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 36,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e29f8b320f52b7f1bd05919c14a034201499521e35d2ab73a08c52ab7b888916",
+          "subsequent_read_line": 45,
+          "subsequent_mutation_line": 78,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 38,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "00faa17905ada2f73c4b63b32c906e378f3eb2264a36d93dfc9f148b53aa0816",
+          "subsequent_read_line": 46,
+          "subsequent_mutation_line": 80,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 28,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 113,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 151,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 21,
+      "api_total": 21,
+      "e2e_seconds": 633.385709,
+      "tokens": 752405
+    },
+    {
+      "task": "MP14",
+      "family": "MP",
+      "stream_sha256": "4aa4901cbb45fc4163d787ad06ec7c147f0065ecf3d8f678607238881b5f42cf",
+      "tool_counts": {
+        "bash": 12,
+        "list_agents": 1,
+        "read": 14,
+        "todo_write": 2,
+        "write": 14
+      },
+      "result_status_counts": {
+        "completed": 40,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 40,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "a8b61419cb649d4a1ef12f3b8f21b9436a4057a38247fd9f6803d0b63f981bcb",
+          "subsequent_read_line": 49,
+          "subsequent_mutation_line": 70,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 42,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "4a03e0424cc189ad6db806d18bfe6c94b44483bffaed6543b881e7a3a49acd78",
+          "subsequent_read_line": 50,
+          "subsequent_mutation_line": 72,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 44,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "47f0efce8cee714d367a9a749a6c3919989e12647204f875ff6c70a34342c0e8",
+          "subsequent_read_line": 51,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 36,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 102,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 13,
+      "api_total": 13,
+      "e2e_seconds": 652.457232,
+      "tokens": 644807
+    },
+    {
+      "task": "MP15",
+      "family": "MP",
+      "stream_sha256": "99b2128704936d8d9a8cd1d9e3ff1ccf6940726724c920b34184add9b40503be",
+      "tool_counts": {
+        "bash": 40,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 11,
+        "read": 11,
+        "edit": 9
+      },
+      "result_status_counts": {
+        "completed": 73,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 73,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "8dc608bfe063317a43b57b0a5b8042b63ba60d0a12fbf28c2601255fc5edebe5",
+          "subsequent_read_line": 77,
+          "subsequent_mutation_line": 81,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 121,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d14e1a0d5cfa4a60946c0348bf09a86c66aca2285e386aadedf379777ffcd483",
+          "subsequent_read_line": 125,
+          "subsequent_mutation_line": 129,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 28,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 7
+          },
+          "check_word": true
+        },
+        {
+          "line": 63,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 7
+          },
+          "check_word": true
+        },
+        {
+          "line": 332,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 8
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 21,
+      "api_total": 21,
+      "e2e_seconds": 1450.627057,
+      "tokens": 3557308
+    },
+    {
+      "task": "MP16",
+      "family": "MP",
+      "stream_sha256": "57bfc924e316738a12304fcab156f4a993eca9fca7709de85f652eb0478a0555",
+      "tool_counts": {
+        "bash": 18,
+        "list_agents": 1,
+        "read": 15,
+        "todo_write": 3,
+        "write": 13
+      },
+      "result_status_counts": {
+        "completed": 49,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 43,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "91e238f7e0921d78356b4ad25f097a22b82d2f34e78bebd7feccb89e533b6bae",
+          "subsequent_read_line": 48,
+          "subsequent_mutation_line": 79,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 33,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 8
+          },
+          "check_word": true
+        },
+        {
+          "line": 133,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 8,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 192,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 9
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 21,
+      "api_total": 21,
+      "e2e_seconds": 700.691688,
+      "tokens": 908537
+    },
+    {
+      "task": "MP17",
+      "family": "MP",
+      "stream_sha256": "3a8e5a131439fba652f6c9699b6a97b845fe8342301e5384fad7de4e5c7ec6b8",
+      "tool_counts": {
+        "bash": 11,
+        "todo_write": 3,
+        "write": 12,
+        "read": 11
+      },
+      "result_status_counts": {
+        "completed": 36,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 34,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "860735868baa6416b4f78f5888de050919fcfeb54bb271351c34fe7be8ac777c",
+          "subsequent_read_line": 39,
+          "subsequent_mutation_line": 64,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 30,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 110,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 138,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 16,
+      "api_total": 16,
+      "e2e_seconds": 640.27184,
+      "tokens": 927633
+    },
+    {
+      "task": "MP18",
+      "family": "MP",
+      "stream_sha256": "3b56bad38efeb873d92118a51277e171b97e0f99a355001e4aa1525969e7a3c7",
+      "tool_counts": {
+        "bash": 10,
+        "list_agents": 1,
+        "read": 13,
+        "todo_write": 3,
+        "write": 14
+      },
+      "result_status_counts": {
+        "completed": 38,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 42,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d5bc11b7d824af4d4cc4d2d384c088ca5199a229d98809db68067ebf05b8d732",
+          "subsequent_read_line": 51,
+          "subsequent_mutation_line": 72,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 44,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "6dec518ca63835227da2b653d450e049352d54773eb1adb070419593bd085648",
+          "subsequent_read_line": 52,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 46,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e01d5a6eeac5cd301a0d36825c969b48bd0a52a23bf3da5e36da30a8c376d64c",
+          "subsequent_read_line": 53,
+          "subsequent_mutation_line": 76,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 38,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 4
+          },
+          "check_word": true
+        },
+        {
+          "line": 111,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 144,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 16,
+      "api_total": 16,
+      "e2e_seconds": 563.833775,
+      "tokens": 730601
+    },
+    {
+      "task": "MP19",
+      "family": "MP",
+      "stream_sha256": "245b785c52286381d101256cb8c09af6121bb254d1e39f891078984e80c89dd2",
+      "tool_counts": {
+        "bash": 16,
+        "list_agents": 1,
+        "read": 17,
+        "todo_write": 2,
+        "write": 15
+      },
+      "result_status_counts": {
+        "completed": 48,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 55,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "a8cc426d08a389bc3e602cb6ad7f8ea9d70368f5e1bd1b45d6fc5a1842cc51a5",
+          "subsequent_read_line": 64,
+          "subsequent_mutation_line": 89,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 57,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d2d5a00419cd2f13c6fa2ff62f6e16f141c2205abaac0c7d0f2069db194cb8de",
+          "subsequent_read_line": 65,
+          "subsequent_mutation_line": 91,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 59,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "ec05835867161be156da4e82f5901fd0afae1f0d641cbf2a34ab75fcba17351e",
+          "subsequent_read_line": 66,
+          "subsequent_mutation_line": 93,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 46,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 122,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 13,
+      "api_total": 13,
+      "e2e_seconds": 951.743879,
+      "tokens": 1161836
+    },
+    {
+      "task": "MP20",
+      "family": "MP",
+      "stream_sha256": "20458c41056b82e0d0c71f81a086647d5f3d2157d8cdcd4ea3a05df188086374",
+      "tool_counts": {
+        "bash": 24,
+        "read": 5,
+        "list_agents": 1,
+        "write": 4
+      },
+      "result_status_counts": {
+        "completed": 30,
+        "error": 4
+      },
+      "observation_rejections": [
+        {
+          "line": 52,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "a1b1a2696e3861d940b94ca05776aa392769fde91e9c197af16baf3fabc1dd6f",
+          "subsequent_read_line": null,
+          "subsequent_mutation_line": null,
+          "same_mutation_payload": null
+        },
+        {
+          "line": 54,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "f785acece5784e7ba27b7bcad46752f744b74cba694d976beb9b047e7e07db0f",
+          "subsequent_read_line": null,
+          "subsequent_mutation_line": null,
+          "same_mutation_payload": null
+        },
+        {
+          "line": 56,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "401378d810592656e9e3834a0f338f4435df9ad32eefa315d7a31548523f9ce6",
+          "subsequent_read_line": null,
+          "subsequent_mutation_line": null,
+          "same_mutation_payload": null
+        },
+        {
+          "line": 58,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "9c0eed9a6d3cf3106ad650bf98ba56e252311918ced77fdc795a255e681fda1c",
+          "subsequent_read_line": null,
+          "subsequent_mutation_line": null,
+          "same_mutation_payload": null
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 21,
+      "api_total": 21,
+      "e2e_seconds": 690.849996,
+      "tokens": 822591
+    },
+    {
+      "task": "MP21",
+      "family": "MP",
+      "stream_sha256": "8534123d9508efbe500af81ab7fc8a3108ad835cc03656793cbf21801c93ea2d",
+      "tool_counts": {
+        "bash": 13,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 14,
+        "read": 11
+      },
+      "result_status_counts": {
+        "completed": 39,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 38,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d8ce213a1c2c93389d38a221d5c7c43249bf274e47c4ed513c9159ec630aecf1",
+          "subsequent_read_line": 47,
+          "subsequent_mutation_line": 72,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 40,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "c4809cb3357f5619f9d24cd040ce36f935bc7ac4191da4e165ecf5d37df79a7f",
+          "subsequent_read_line": 48,
+          "subsequent_mutation_line": 74,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 42,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "337d684d7d64a3eaf7e9d44b4874e841bef5d5fad3caadf9e19552c87534a477",
+          "subsequent_read_line": 49,
+          "subsequent_mutation_line": 76,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 34,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 102,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 135,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 16,
+      "api_total": 16,
+      "e2e_seconds": 636.144961,
+      "tokens": 749522
+    },
+    {
+      "task": "MP22",
+      "family": "MP",
+      "stream_sha256": "b2ec011c96dd659055fff96873a707d07cd6ade4ab4bb825f305a635a5fc3367",
+      "tool_counts": {
+        "bash": 29,
+        "list_agents": 1,
+        "read": 22,
+        "todo_write": 4,
+        "write": 15,
+        "edit": 8
+      },
+      "result_status_counts": {
+        "completed": 78,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 57,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "82c57c7eecddbbbd69c751ebf1b5b0a6396ee35e45a134823178fe741449bbc3",
+          "subsequent_read_line": 62,
+          "subsequent_mutation_line": 97,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 52,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 9
+          },
+          "check_word": true
+        },
+        {
+          "line": 163,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 7,
+            "in_progress": 1,
+            "pending": 2
+          },
+          "check_word": true
+        },
+        {
+          "line": 176,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 9,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 296,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 10
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 13,
+      "api_total": 21,
+      "e2e_seconds": 1116.036668,
+      "tokens": 2018665
+    },
+    {
+      "task": "MP23",
+      "family": "MP",
+      "stream_sha256": "493e8eee3da1ba6de87884ed0b2f04fa205333797fc175a72a88251484e3ad29",
+      "tool_counts": {
+        "bash": 14,
+        "todo_write": 3,
+        "write": 12,
+        "read": 9
+      },
+      "result_status_counts": {
+        "completed": 37,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 36,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "2058748fbf3590e34ba4b7df17c6b3707cec6c890d929703bd85a44c7ef759a8",
+          "subsequent_read_line": 41,
+          "subsequent_mutation_line": 62,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 31,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 7
+          },
+          "check_word": true
+        },
+        {
+          "line": 101,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 7,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 142,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 8
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 16,
+      "api_total": 16,
+      "e2e_seconds": 736.695887,
+      "tokens": 1057048
+    },
+    {
+      "task": "MP24",
+      "family": "MP",
+      "stream_sha256": "4f1624be21d4af01b3c29407b0ee5f3abdaeb5a06684264ea450b8fb34f53ad3",
+      "tool_counts": {
+        "bash": 15,
+        "list_agents": 1,
+        "todo_write": 2,
+        "write": 17,
+        "read": 14
+      },
+      "result_status_counts": {
+        "completed": 47,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 47,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d18d004182db9eb1d6363a5fcb7b8a30e62b19bd4fd0108604ef1748ac4919c0",
+          "subsequent_read_line": 52,
+          "subsequent_mutation_line": 81,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 126,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e5c2673951fdb1fe6763cc745f1312b2989d1c4be5db1610bf5f9acd320db211",
+          "subsequent_read_line": 130,
+          "subsequent_mutation_line": 136,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 42,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 8
+          },
+          "check_word": true
+        },
+        {
+          "line": 145,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 8,
+            "in_progress": 1
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 20,
+      "api_total": 26,
+      "e2e_seconds": 255.068373,
+      "tokens": 643327
+    },
+    {
+      "task": "MP25",
+      "family": "MP",
+      "stream_sha256": "f703a611a77cd2abc981fb620e400a83ac7165abbc8d9cfb909fce94701c5253",
+      "tool_counts": {
+        "bash": 11,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 14,
+        "read": 11
+      },
+      "result_status_counts": {
+        "completed": 37,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 34,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "61d5685f1c6cd1f7ce86dd3997c8651503ab5301ddb0f9cea5425d8ee59dee06",
+          "subsequent_read_line": 43,
+          "subsequent_mutation_line": 68,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 36,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "675146001a984bb9d59f4f01f84916eb1f794642f6138b8f62e6020830475fd7",
+          "subsequent_read_line": 44,
+          "subsequent_mutation_line": 70,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 38,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "80871ad775564a6728499711054bf4c0c2435547cd56386cb77a7b76ac5c5fcb",
+          "subsequent_read_line": 45,
+          "subsequent_mutation_line": 72,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 30,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 99,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 129,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 16,
+      "api_total": 16,
+      "e2e_seconds": 694.866095,
+      "tokens": 751150
+    },
+    {
+      "task": "MP26",
+      "family": "MP",
+      "stream_sha256": "c0f23f8214820ffa28bd93842712a8181d0da5984d05e825a75eae5f49c11629",
+      "tool_counts": {
+        "working_directory": 1,
+        "bash": 20,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 19,
+        "read": 17
+      },
+      "result_status_counts": {
+        "completed": 60,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 57,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "284c17616af6ef4630f7a569d1c25be8e8da8089a77bdea34b7f2a3671347089",
+          "subsequent_read_line": 62,
+          "subsequent_mutation_line": 111,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 52,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 158,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 212,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 25,
+      "api_total": 26,
+      "e2e_seconds": 622.551994,
+      "tokens": 1276408
+    },
+    {
+      "task": "MS02",
+      "family": "MS",
+      "stream_sha256": "4fed0ccdd9ba44119f473acb4986574491db406ce1283a86e358151363b6354c",
+      "tool_counts": {
+        "bash": 10,
+        "read": 24,
+        "list_agents": 1,
+        "write": 3,
+        "edit": 3
+      },
+      "result_status_counts": {
+        "completed": 41
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 192.499255,
+      "tokens": 491263
+    },
+    {
+      "task": "MS11",
+      "family": "MS",
+      "stream_sha256": "b3b0aba225b6ac8a8843bd206acced4f0e1a5ab50d0cc743cfbb7790be53682d",
+      "tool_counts": {
+        "bash": 30,
+        "list_agents": 1,
+        "read": 12,
+        "todo_write": 1,
+        "write": 5,
+        "edit": 5
+      },
+      "result_status_counts": {
+        "completed": 52,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 50,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "3d5043da38aff39a8f6b1ee93c1a17c2ec71d88a326200940db713d835bfb616",
+          "subsequent_read_line": 57,
+          "subsequent_mutation_line": 63,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 52,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "820ba4a5c54b46198762c464e89b96dbe2323f3d5b7b4dd4b5c4bb5f4aca1c5a",
+          "subsequent_read_line": 58,
+          "subsequent_mutation_line": 65,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 46,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 10,
+      "api_total": 10,
+      "e2e_seconds": 918.122187,
+      "tokens": 2012647
+    },
+    {
+      "task": "MS12",
+      "family": "MS",
+      "stream_sha256": "a001cb4eccb5db4ea1d47fd4d839a5258b449302baa592d0572329b257a650bf",
+      "tool_counts": {
+        "bash": 15,
+        "list_agents": 1,
+        "read": 14,
+        "write": 5,
+        "edit": 2
+      },
+      "result_status_counts": {
+        "completed": 35,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 42,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "c25faf409ea1b7e41faaf0936c200a12df19bea71a3cd10adc551d7ce87f9c7e",
+          "subsequent_read_line": 49,
+          "subsequent_mutation_line": 55,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 44,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "fb0666abcca6dbb3368fd42fd401d31d195d79572743a27be683b104a773c0fd",
+          "subsequent_read_line": 50,
+          "subsequent_mutation_line": 57,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 10,
+      "e2e_seconds": 582.913711,
+      "tokens": 953107
+    },
+    {
+      "task": "MS14",
+      "family": "MS",
+      "stream_sha256": "3fd65031ce8ee933202d7fbc46af3b070a3c1b203be07e3a1b45c024fbb2668b",
+      "tool_counts": {
+        "bash": 7,
+        "list_agents": 1,
+        "read": 13,
+        "todo_write": 2,
+        "write": 5
+      },
+      "result_status_counts": {
+        "completed": 26,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 46,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "04263545d826ab954f76829a78a98c43d5330425c1430bdddf5b55c52fa439b6",
+          "subsequent_read_line": 53,
+          "subsequent_mutation_line": 61,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 48,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "6e545e28cb666737ccad2164da92ce39ae094f9cb2ad5f3cd26c364b708fb2c3",
+          "subsequent_read_line": 54,
+          "subsequent_mutation_line": 63,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 42,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 91,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": false,
+      "api_passed": 9,
+      "api_total": 10,
+      "e2e_seconds": 955.209453,
+      "tokens": 522982
+    },
+    {
+      "task": "MS23",
+      "family": "MS",
+      "stream_sha256": "ff2c3fa591502d63dea879bfc25dddea7b439957ba05c31683b81b839dbdc498",
+      "tool_counts": {
+        "bash": 24,
+        "list_agents": 1,
+        "read": 15,
+        "write": 3,
+        "edit": 2,
+        "job_output": 1,
+        "job_kill": 1
+      },
+      "result_status_counts": {
+        "completed": 47
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 10,
+      "e2e_seconds": 667.074054,
+      "tokens": 1654793
+    },
+    {
+      "task": "MS28",
+      "family": "MS",
+      "stream_sha256": "78237bf935d138c217c945659917b11cf023dac57d5ec7637cf0fc81020b944d",
+      "tool_counts": {
+        "bash": 19,
+        "write": 4,
+        "read": 4
+      },
+      "result_status_counts": {
+        "completed": 26,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 31,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "60f10729e607f36babfffef9b82e38d0d1b58f4adcf4b924ed82ac9306e193bb",
+          "subsequent_read_line": 36,
+          "subsequent_mutation_line": 42,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 10,
+      "api_total": 10,
+      "e2e_seconds": 295.429474,
+      "tokens": 551495
+    },
+    {
+      "task": "MS29",
+      "family": "MS",
+      "stream_sha256": "bfdb377018962aa42dac26144ed1685cf0a1ee6679bc47363d23b72d245004ad",
+      "tool_counts": {
+        "bash": 13,
+        "read": 5,
+        "write": 5
+      },
+      "result_status_counts": {
+        "completed": 21,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 31,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "bdee2340e1ab55e6b4dee863f699cb2886febc2e07c896f9c0591add903d34fd",
+          "subsequent_read_line": 38,
+          "subsequent_mutation_line": 46,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 33,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "5a2bfda030ae8cdead35763cdc69e486c379fe47ce0441ec9d4888fd3b42952e",
+          "subsequent_read_line": 39,
+          "subsequent_mutation_line": 48,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 344.10825,
+      "tokens": 541906
+    },
+    {
+      "task": "MS30",
+      "family": "MS",
+      "stream_sha256": "6e1bda8b301e7042ca2f89c03376a7ae73b99e5985a2fe6faa24ec8b82732167",
+      "tool_counts": {
+        "bash": 17,
+        "list_agents": 1,
+        "write": 5,
+        "read": 4
+      },
+      "result_status_counts": {
+        "completed": 25,
+        "error": 2
+      },
+      "observation_rejections": [
+        {
+          "line": 29,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d7b07dc83b1462360368bdf75faf13f020ed84c5ae888240bfc3782641823e7a",
+          "subsequent_read_line": 36,
+          "subsequent_mutation_line": 44,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 31,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "591b67d8cc95a50a7c463634c2dc9bbc80b30eda0ab02a9c3ca5c2ddc25f36c7",
+          "subsequent_read_line": 37,
+          "subsequent_mutation_line": 46,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 10,
+      "e2e_seconds": 352.310206,
+      "tokens": 660643
+    },
+    {
+      "task": "MS41",
+      "family": "MS",
+      "stream_sha256": "f26b88dcb1e6f8bb7b574ae0e64f7e51d839a0915966ea62b25ee09ecc04cba4",
+      "tool_counts": {
+        "bash": 14,
+        "todo_write": 2,
+        "write": 4,
+        "read": 3
+      },
+      "result_status_counts": {
+        "completed": 22,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 25,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "c73243fd295a9374d4c4d161f97b3f0aa546239e3db585df5ab766634d7a3226",
+          "subsequent_read_line": 29,
+          "subsequent_mutation_line": 33,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 21,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 3
+          },
+          "check_word": true
+        },
+        {
+          "line": 98,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 4
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 11,
+      "api_total": 11,
+      "e2e_seconds": 551.704171,
+      "tokens": 934640
+    },
+    {
+      "task": "MS42",
+      "family": "MS",
+      "stream_sha256": "d905f041fdb933acc7e303659f20c3eb3445bbc127ad11c179449fc2a1fe8c03",
+      "tool_counts": {
+        "bash": 1,
+        "list_agents": 1,
+        "read": 23
+      },
+      "result_status_counts": {
+        "completed": 25
+      },
+      "observation_rejections": [],
+      "todo_snapshots": [],
+      "strict": false,
+      "api_passed": 0,
+      "api_total": 12,
+      "e2e_seconds": 448.964761,
+      "tokens": 91025
+    },
+    {
+      "task": "N11",
+      "family": "N",
+      "stream_sha256": "79c0b81c4682284a45d1f17bc62ed2c1de0fae857458b71a74721dd896a1048c",
+      "tool_counts": {
+        "bash": 9,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 8,
+        "read": 4,
+        "edit": 1
+      },
+      "result_status_counts": {
+        "completed": 23,
+        "error": 3
+      },
+      "observation_rejections": [
+        {
+          "line": 28,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "b69411a37fee9aecb6c7fabea1e041ed3a278091b0aadab52f68f28d30601e91",
+          "subsequent_read_line": 37,
+          "subsequent_mutation_line": 47,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 30,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "6ab69fb5952f6bf9ec8000fb734ef5d90e2b035bc6a7978c313b26679458c397",
+          "subsequent_read_line": 38,
+          "subsequent_mutation_line": 49,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 32,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "b9d12a32b1fd5071babb206f29f280ab46988704d17d6f96dbe69ea529adad19",
+          "subsequent_read_line": 39,
+          "subsequent_mutation_line": 51,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 20,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 57,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 95,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 195.06403,
+      "tokens": 300855
+    },
+    {
+      "task": "N17",
+      "family": "N",
+      "stream_sha256": "736495a20bae681ac103b66b9eb98900a4be2baf8a2e29fbae11ef2ffb8c89a8",
+      "tool_counts": {
+        "bash": 10,
+        "list_agents": 1,
+        "write": 8,
+        "read": 4
+      },
+      "result_status_counts": {
+        "completed": 19,
+        "error": 4
+      },
+      "observation_rejections": [
+        {
+          "line": 29,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "d38b92842b4e0bb90bece70250cb13ed9cc88bc8324aa2a155b0e68da1386f1e",
+          "subsequent_read_line": 40,
+          "subsequent_mutation_line": 51,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 31,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "57993a13abfb82bb0d1ff05c9cba7989a6ee8d4e6591c9b2c3df7e5738258c56",
+          "subsequent_read_line": 41,
+          "subsequent_mutation_line": 53,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 33,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "cb6b95f68acfd9d796b92d9180dbbf1e4c68c50e2690d70ed27aaac992f28c2d",
+          "subsequent_read_line": 42,
+          "subsequent_mutation_line": 55,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 35,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "e5c2673951fdb1fe6763cc745f1312b2989d1c4be5db1610bf5f9acd320db211",
+          "subsequent_read_line": 43,
+          "subsequent_mutation_line": 57,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 247.960187,
+      "tokens": 281242
+    },
+    {
+      "task": "N22",
+      "family": "N",
+      "stream_sha256": "7200893f95074c278dad0371871824a2b1ac85b75e5e1c981a90bcd22d383f5d",
+      "tool_counts": {
+        "bash": 31,
+        "list_agents": 1,
+        "todo_write": 3,
+        "write": 6,
+        "read": 7,
+        "edit": 5
+      },
+      "result_status_counts": {
+        "completed": 52,
+        "error": 1
+      },
+      "observation_rejections": [
+        {
+          "line": 95,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "171c9f83a594ddf41bddd9fb94ddd2868c91e0ac1adfde08c36f65d16e37f5e3",
+          "subsequent_read_line": 100,
+          "subsequent_mutation_line": 111,
+          "same_mutation_payload": false
+        }
+      ],
+      "todo_snapshots": [
+        {
+          "line": 87,
+          "result_status": "completed",
+          "status_counts": {
+            "in_progress": 1,
+            "pending": 5
+          },
+          "check_word": true
+        },
+        {
+          "line": 124,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 5,
+            "in_progress": 1
+          },
+          "check_word": true
+        },
+        {
+          "line": 229,
+          "result_status": "completed",
+          "status_counts": {
+            "completed": 6
+          },
+          "check_word": true
+        }
+      ],
+      "strict": true,
+      "api_passed": 9,
+      "api_total": 9,
+      "e2e_seconds": 532.737363,
+      "tokens": 2054525
+    },
+    {
+      "task": "N24",
+      "family": "N",
+      "stream_sha256": "718c3cc0d9d4bbb5c0e75cf5b41e5b17c06dac67b8715ed89179ed1118d50cd3",
+      "tool_counts": {
+        "bash": 8,
+        "list_agents": 1,
+        "read": 12,
+        "write": 9
+      },
+      "result_status_counts": {
+        "completed": 26,
+        "error": 4
+      },
+      "observation_rejections": [
+        {
+          "line": 38,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "30a34c36c4c72532f024c093482f993de418f0ff41408ec962b32f52e2f2b487",
+          "subsequent_read_line": 49,
+          "subsequent_mutation_line": 62,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 40,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "70c252e3decb598082451b6a79d7d789a4a890bde95d8160151f28acaf0ee6a7",
+          "subsequent_read_line": 50,
+          "subsequent_mutation_line": 64,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 42,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "40249c72b70f540a09ab753010a48d016355b2f336fbe34bdb0f7f6b34d80338",
+          "subsequent_read_line": 51,
+          "subsequent_mutation_line": 66,
+          "same_mutation_payload": true
+        },
+        {
+          "line": 44,
+          "tool": "write",
+          "reason": "unobserved",
+          "normalized_path_sha256": "59a7402fbdf163fa4b87de6d8bed0ec1415c8bf282b72185b01359bb8a30493c",
+          "subsequent_read_line": 52,
+          "subsequent_mutation_line": 68,
+          "same_mutation_payload": true
+        }
+      ],
+      "todo_snapshots": [],
+      "strict": true,
+      "api_passed": 12,
+      "api_total": 12,
+      "e2e_seconds": 223.638747,
+      "tokens": 239653
+    }
+  ]
+}

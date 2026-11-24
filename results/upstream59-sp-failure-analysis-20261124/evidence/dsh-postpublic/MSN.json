@@ -1,0 +1,206 @@
+[
+  {
+    "task": "MS02",
+    "gate": 80,
+    "group": "new",
+    "test_lines": [
+      89,
+      98,
+      103,
+      108
+    ],
+    "bug": true,
+    "same_pass": true,
+    "chain": [
+      89,
+      90,
+      94,
+      98,
+      99
+    ],
+    "note": "L89 构造两主题争用一篇论文，预期无解，实际解包 None 抛 TypeError；L94 改 integration.py 的递归，L98–99 同输入返回 None。随后另测字典序和无效章节。"
+  },
+  {
+    "task": "MS11",
+    "gate": 80,
+    "group": "new",
+    "test_lines": [
+      89,
+      94,
+      104,
+      182,
+      196
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L89 起随机业务差分、平局和多块配对。L94 对拍的 list/tuple 差异及 L182 的 NameError 是测试程序问题。优化后新引入的业务回归先由原公开检查 L133–134 揭露，L155–164 缩小定位、L168 修复、L172–173 复验，未算新反例首发。"
+  },
+  {
+    "task": "MS12",
+    "gate": 104,
+    "group": "new",
+    "test_lines": [
+      113,
+      117,
+      127
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L113 缩小公开样本预算检验无解；L117 构造对称菜单、L127 构造偏好冲突检验最差组优先，通过后无业务修复。接合结果格式修复在首绿前。"
+  },
+  {
+    "task": "MS14",
+    "gate": 77,
+    "group": "replay",
+    "test_lines": [
+      81,
+      86
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L81–82 重跑给定组件与合并流程。L86–87 用同一 public_input.json 调用 transform 和换路径的 build_component，将两次结果与公开期望比对。"
+  },
+  {
+    "task": "MS23",
+    "gate": 79,
+    "group": "new",
+    "test_lines": [
+      88,
+      98,
+      103,
+      152,
+      157,
+      181
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L88–94 新随机枚举对拍产生不一致，核对后修独立穷举器的重复计数。L103 测冲突约束，L181 再做随机对拍。首个公开通过前 L74 修过业务实现。本行门槛据原生执行，非事后离线分数。"
+  },
+  {
+    "task": "MS28",
+    "gate": 62,
+    "group": "new",
+    "test_lines": [
+      71,
+      76,
+      81,
+      86,
+      91,
+      106
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L71–91 构造单项、并列峰值、互不相交组件及其最大比；L76 后的手算疑点用子集枚举复核，未改业务实现。L106 构造 14 项规模验证。"
+  },
+  {
+    "task": "MS29",
+    "gate": 62,
+    "group": "new",
+    "test_lines": [
+      70,
+      75,
+      80
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L70 构造库存覆盖、无可行计划、空需求和多菜品；L75 构造生产循环与链条；随后核对最短步骤的字典序，过界后未修改业务实现。"
+  },
+  {
+    "task": "MS30",
+    "gate": 60,
+    "group": "new",
+    "test_lines": [
+      69,
+      74,
+      79,
+      84,
+      89
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L69–90 分别验证强制配对、严格偏好阻塞、同档平局、独立组件合并与有限容量，均有具体预期，未触发实现修复。"
+  },
+  {
+    "task": "MS41",
+    "gate": 58,
+    "group": "new",
+    "test_lines": [
+      66,
+      71,
+      76,
+      81,
+      85
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L66 在工作区成功运行环状合成例；L71–86 对拍与手算。初始导入路径、参考程序成本公式和随机生成器空集报错属于自测代码。业务实现未改。"
+  },
+  {
+    "task": "MS42",
+    "gate": null,
+    "group": "no_gate",
+    "test_lines": [],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "读取公开检查器源码 L25，未执行整题检查；L68 结束，原终态 NonZeroAgentExitCodeError。单独保留。"
+  },
+  {
+    "task": "N11",
+    "gate": 71,
+    "group": "new",
+    "test_lines": [
+      80
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L80–81 自造分块的 3×3 稠密矩阵，用单独实现的稠密乘法对比分块立方并 assert。L61–66 公开样例相关修复在首绿前。"
+  },
+  {
+    "task": "N17",
+    "gate": 62,
+    "group": "new",
+    "test_lines": [
+      71
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L71 第一套模板是公开输入，第二套新造乘法、多个属性前缀、条件表达式、嵌套下标，L72 实际返回依赖列表。L76 另换路径跑公开样例。"
+  },
+  {
+    "task": "N22",
+    "gate": 143,
+    "group": "new",
+    "test_lines": [
+      210,
+      214
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L210 新建含嵌套目录的替代仓库，L214–215 对包装层、定位和恢复运行新样例。此前增强二进制处理、路径兼容源于读代码和预判，无新例先失败证据。"
+  },
+  {
+    "task": "N24",
+    "gate": 76,
+    "group": "new",
+    "test_lines": [
+      85,
+      90
+    ],
+    "bug": false,
+    "same_pass": false,
+    "chain": [],
+    "note": "L85 构造卖方非所有者应拒绝及真正所有者应接受。L86 报错因自写断言少算空格，L89–91 改测试预期，未改业务实现。"
+  }
+]

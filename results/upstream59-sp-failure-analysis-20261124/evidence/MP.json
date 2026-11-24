@@ -1,0 +1,551 @@
+[
+  {
+    "task": "MP01",
+    "diagnosis": "首轮把训练样本权重 fit_weight[s] 当作成员的投票权重 weight：硬投票计数偏差，软投票遇零权重样本直接退出；父任务最后因重复工具循环停止。重放补齐软投票与公开交付，硬投票仍沿用错误权重。",
+    "items": [
+      {
+        "checks": [
+          "api/hard/heldout-101",
+          "api/hard/heldout-202",
+          "api/hard/heldout-303",
+          "api/hard/boundary",
+          "io/hard",
+          "output/hard"
+        ],
+        "detail": "两轮的硬投票都在同一个样本把蓝类的原始票数 8 算成 3；边界样本据此把 red 选成 blue。"
+      },
+      {
+        "checks": [
+          "api/soft/heldout-101",
+          "api/soft/heldout-202",
+          "api/soft/heldout-303",
+          "api/soft/boundary",
+          "io/soft",
+          "output/soft"
+        ],
+        "detail": "首轮软投票按样本累计权重，样本权重为零时抛出 weight sum must be positive；重放这些项通过。"
+      },
+      {
+        "checks": [
+          "output/comparison",
+          "output/core_manifest",
+          "output/final_report",
+          "P/public-check"
+        ],
+        "detail": "首轮调用链中止使 comparison、总清单和报告缺失；重放公开检查通过，但 hard.scores 仍污染总清单及其摘要。"
+      }
+    ],
+    "improvement": "SP 在分支交接时分别写清“fit_weight 供训练接口保留”和“预测阶段只用 member.weight”，硬/软共用成员权重访问逻辑；父任务核对真实票数而非只检查类别。",
+    "regression": "三名活动成员权重 1、3、4 均投蓝，样本权重设 0：原始蓝票必须为 8，软投票仍能返回概率；另测权重不同且票向相反。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/weighted_voting/dynamic_v7/workspace/views/hard/transform.py",
+        "line": 55
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/weighted_voting/dynamic_v7/workspace/views/soft/transform.py",
+        "line": 52
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP01/dynamic_v7/workspace/views/hard/transform.py",
+        "line": 45
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP01/dynamic_v7/trace.jsonl",
+        "line": 4232
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP02",
+    "diagnosis": "first 策略保留了第一次出现的属性值，却也跳过了独立的冲突登记。公开冒烟通过，正式探针只在属性合并这一组件失分。",
+    "items": [
+      {
+        "checks": [
+          "api/attributes/heldout-202",
+          "api/attributes/boundary",
+          "io/attributes"
+        ],
+        "detail": "heldout-202 仍应保留首个 site，但 conflicts 应含 site，实际为空；boundary 与读写入口产生同类差异。"
+      }
+    ],
+    "improvement": "将“值是否冲突”与“冲突时如何选值”分开计算。first 与 drop_conflicts 共用 JSON 深度比较，分别选择保留首值或删除该键。",
+    "regression": "两个片段均有 site，值分别 X、Y；first 期望 attrs.site=X 且 conflicts=[site]。补测只有一片含 site 的反例，应无冲突。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/single_axis_concat/dynamic_v7/workspace/domains/attributes/transform.py",
+        "line": 38
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/single_axis_concat/dynamic_v7/workspace/README.md",
+        "line": 47
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/single_axis_concat/dynamic_v7/trace.jsonl",
+        "line": 1208
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP06",
+    "diagnosis": "两个分支彼此配合了同一种私有格式，却不符合正式模块接口。calendar 给 snapshots 和 remaining 返回按 ID 索引的对象，notifications 也假设拿到对象，整题公开路径能跑通。公开规格使用“原记录按 id”的表述；建议题面另给列表（含空列表）的 JSON 示例。",
+    "items": [
+      {
+        "checks": [
+          "api/calendar/heldout-101",
+          "api/calendar/heldout-202",
+          "api/calendar/heldout-303",
+          "api/calendar/boundary",
+          "api/calendar/empty-collection",
+          "io/calendar",
+          "output/calendar"
+        ],
+        "detail": "冻结检查期望有序事件列表；典型的空情形要求 []，返回 {}。三个种子、边界、空集合、I/O 与产物均受影响。"
+      },
+      {
+        "checks": [
+          "api/notifications/heldout-101",
+          "api/notifications/heldout-202",
+          "api/notifications/heldout-303",
+          "io/notifications"
+        ],
+        "detail": "单独把符合契约的 snapshots 列表送给通知组件，snapshots[eid] 用字符串索引列表，抛出 TypeError。"
+      },
+      {
+        "checks": [
+          "output/core_manifest",
+          "output/final_report"
+        ],
+        "detail": "总清单实际包含错误形状的 calendar 数据，报告摘要随之改变。"
+      }
+    ],
+    "improvement": "将列表写入公共返回值；若通知组件需要 ID 查找，收到合法事件列表后在内部构建映射。合并测试固定校验字段类型与顺序。",
+    "regression": "① 零事件输出 snapshots=[]、remaining=[]；② 单独用有效列表驱动 notifications；③ 接真实 calendar 再验证同一个结果。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/calendar_cancel_notify/dynamic_v7/workspace/domains/calendar/transform.py",
+        "line": 55
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/calendar_cancel_notify/dynamic_v7/workspace/domains/calendar/transform.py",
+        "line": 104
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/calendar_cancel_notify/dynamic_v7/workspace/views/notifications/transform.py",
+        "line": 48
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/calendar_cancel_notify/dynamic_v7/trace.jsonl",
+        "line": 2183
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP07",
+    "diagnosis": "归档分支正确描述 moves 与 deleted，却没有把这些变化落实到返回的文件快照。公开检查通过；正式失败集中在 archive 的最终状态。",
+    "items": [
+      {
+        "checks": [
+          "api/archive/heldout-101",
+          "api/archive/heldout-202",
+          "api/archive/heldout-303",
+          "api/archive/boundary",
+          "io/archive",
+          "output/archive"
+        ],
+        "detail": "代码从原 file_map 直接生成 files。heldout-101 期望 4 个文件、路径 archive/downloads/data.csv，实际 5 个文件且原 downloads/data.csv 仍在；边界期望 4 个、实际 6 个。"
+      },
+      {
+        "checks": [
+          "output/core_manifest",
+          "output/final_report"
+        ],
+        "detail": "上游旧快照被总清单照录，摘要随内容改变。"
+      }
+    ],
+    "improvement": "在本地内存副本中先校验冲突，再执行移动和删除，最后按路径导出；发送失败时只执行允许的清理。",
+    "regression": "对一份附件和一个可清理临时文件跑全部收件成功／一人失败两路，同时校验 moves、deleted、files 三者和原始字节。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/send_archive_cleanup/dynamic_v7/workspace/products/archive/transform.py",
+        "line": 118
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/send_archive_cleanup/dynamic_v7/workspace/products/archive/transform.py",
+        "line": 128
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/send_archive_cleanup/dynamic_v7/workspace/README.md",
+        "line": 55
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/send_archive_cleanup/dynamic_v7/trace.jsonl",
+        "line": 1894
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP14",
+    "diagnosis": "首轮从外层异常沿 cause/context 遍历后直接输出，正式协议要求从最内层到外层，第一项 link=null。report 消费者仍坚持该约定，父任务最后陷于重复工具循环。重放显式反转并按依赖顺序构建，整题严格通过。",
+    "items": [
+      {
+        "checks": [
+          "api/chain/heldout-101",
+          "api/chain/heldout-202",
+          "api/chain/heldout-303",
+          "api/chain/boundary",
+          "io/chain",
+          "output/chain"
+        ],
+        "detail": "heldout-101 首项应是 inner/KeyError/link=null，实际 outer/RuntimeError/link=cause；上下文链和边界样例亦反序。"
+      },
+      {
+        "checks": [
+          "output/frames",
+          "output/report",
+          "output/core_manifest",
+          "output/final_report",
+          "P/public-check"
+        ],
+        "detail": "首轮原始 trace 第 1655、1769 行显示父任务运行 check.py 时 report 提前读取尚未生成的 /workspace/outputs/frames.json，报 FileNotFoundError。run_all 仅按目录深度排序，未保证生产者先于消费者。官方 output/frames、report 及后续产物失败；本机临时副本碰巧先生成了正确 frames，但 report 和后续仍缺失。"
+      }
+    ],
+    "improvement": "沿已有重放保留两项修正：先正确序列化链和关联方向，再以真实依赖调度构建；将帧数据值的测试与文件落盘测试分别记录。",
+    "regression": "覆盖 cause 优先、未抑制 context、抑制 context；断言顺序和每项 link；从空 outputs 连续重建，确认 chain、frames、report 均可读。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/portable_exception_report/dynamic_v7/workspace/chain/transform.py",
+        "line": 123
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/portable_exception_report/dynamic_v7/workspace/run_all.py",
+        "line": 16
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/portable_exception_report/dynamic_v7/workspace/report/transform.py",
+        "line": 28
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/portable_exception_report/dynamic_v7/workspace/chain/transform.py",
+        "line": 98
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/portable_exception_report/dynamic_v7/workspace/run_all.py",
+        "line": 18
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/portable_exception_report/dynamic_v7/trace.jsonl",
+        "line": 1769
+      }
+    ],
+    "confidence": "高。异常链反序由冻结探针复现，源运行的文件依赖顺序错误有 Linux 父进程错误输出；本机枚举次序不同，不用于重判正式 output/frames。"
+  },
+  {
+    "task": "MP15",
+    "diagnosis": "from 导入被分析器截成父模块名。三个用途提取组件可以通过，汇总 imports 记录中 module 字段仍错。公开说明列出了 module 字段和名字绑定规则，但没有给出 from 导入的字段值示例；这里对失分的判断以冻结期望 typing.List 为据。",
+    "items": [
+      {
+        "checks": [
+          "api/analysis/heldout-101",
+          "api/analysis/heldout-202",
+          "api/analysis/heldout-303",
+          "io/analysis",
+          "output/analysis"
+        ],
+        "detail": "三个 heldout 的同一字段均期望 typing.List，实际是 typing。代码对 ImportFrom 只存 node.module，漏掉 alias.name。"
+      },
+      {
+        "checks": [
+          "output/core_manifest",
+          "output/final_report"
+        ],
+        "detail": "错误字段随 analysis 进入总清单，文件哈希改变。"
+      }
+    ],
+    "improvement": "在分析器中分开表示完整导入来源和作用域绑定名：from a import B as C 的来源是 a.B，局部绑定 C。对完整输出做结构断言。",
+    "regression": "分别测试 import typing、from typing import List、from typing import List as L；断言 module、name、used_by 三个字段，避免只看 unused 数量。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/python_import_usage/dynamic_v7/workspace/engines/analysis/transform.py",
+        "line": 58
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/python_import_usage/dynamic_v7/workspace/engines/analysis/transform.py",
+        "line": 67
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/python_import_usage/dynamic_v7/trace.jsonl",
+        "line": 2757
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP19",
+    "diagnosis": "扫描器完成了合法输入的依赖解析，但对题面明文禁止的通配导入继续返回成功。正式仅这一条 API 失败。",
+    "items": [
+      {
+        "checks": [
+          "api/scanner/invalid-business-field"
+        ],
+        "detail": "将 main.py 的导入换成 from pkg import *，应抛 ValueError；实际返回普通 imports/module_paths，并把 main.py 的依赖记作 pkg。"
+      }
+    ],
+    "improvement": "在 ImportFrom 分支解析候选模块之前，遍历 aliases，遇到 name==\"*\" 立即拒绝。",
+    "regression": "保留同一文件结构，分别运行 from pkg import a 和 from pkg import *；前者得到依赖，后者必须 ValueError。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/module_dependency_zip/dynamic_v7/workspace/engines/scanner/transform.py",
+        "line": 82
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/module_dependency_zip/dynamic_v7/workspace/README.md",
+        "line": 39
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/module_dependency_zip/dynamic_v7/trace.jsonl",
+        "line": 2697
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP20",
+    "diagnosis": "首轮多个组件使用与自身同名的根 transform/model 模块，独立入口会重新导入尚未初始化的自己。重放用独立模块名打通入口；references 和 snapshot 却从上游 {name,result} 的外层直接取业务字段。是先后两种不同的错误。",
+    "items": [
+      {
+        "checks": [
+          "api/schema/heldout-101",
+          "api/schema/heldout-202",
+          "api/schema/heldout-303",
+          "api/schema/boundary",
+          "api/schema/empty-collection",
+          "api/schema/invalid-business-field",
+          "io/schema",
+          "api/attachments/heldout-101",
+          "api/attachments/heldout-202",
+          "api/attachments/heldout-303",
+          "api/attachments/boundary",
+          "api/attachments/empty-collection",
+          "io/attachments",
+          "api/references/heldout-101",
+          "api/references/heldout-202",
+          "api/references/heldout-303",
+          "api/references/boundary",
+          "api/references/empty-collection",
+          "io/references",
+          "api/snapshot/heldout-101",
+          "api/snapshot/heldout-202",
+          "api/snapshot/heldout-303",
+          "api/snapshot/boundary",
+          "api/snapshot/empty-collection",
+          "io/snapshot",
+          "output/final_report",
+          "P/public-check"
+        ],
+        "detail": "首轮独立入口复现 partially initialized module 的 ImportError；冻结核心 0 次通过，公开检查也中止。整合、报告重试无法代替独立模块导入测试。"
+      },
+      {
+        "checks": [
+          "api/references/heldout-303",
+          "api/references/boundary"
+        ],
+        "detail": "重放从包装对象直接读 flags/segments，缺失时默认为 []。missing 与 missing-segment 两个不存在的引用均被错误接受为 ok=true。"
+      },
+      {
+        "checks": [
+          "api/snapshot/heldout-101",
+          "api/snapshot/heldout-202",
+          "api/snapshot/heldout-303",
+          "api/snapshot/boundary",
+          "api/snapshot/empty-collection",
+          "io/snapshot",
+          "output/snapshot",
+          "output/core_manifest",
+          "output/final_report"
+        ],
+        "detail": "重放从包装对象读 references.ok，正常输入也回滚到旧版本，或真实失败时丢失 error 字段；snapshot 及下游清单、最终报告错误。"
+      }
+    ],
+    "improvement": "沿用重放的独立模块导入；所有组件统一拆开正式上游信封，缺少必需字段时报告契约错误，不以空列表替代。先测独立入口，再验证提交与回滚两条路径。",
+    "regression": "给 references 输入 {name:\"schema\",result:{…缺失 segment…}} 应返回精确目标及规则 ID。有效引用送 snapshot 应 committed=true；无效引用应回滚且保留同一 error。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/feature_config_snapshot/dynamic_v7/workspace/domains/schema/transform.py",
+        "line": 6
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP20/dynamic_v7/workspace/views/references/transform.py",
+        "line": 5
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP20/dynamic_v7/workspace/transform.py",
+        "line": 136
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP20/dynamic_v7/workspace/transform.py",
+        "line": 192
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP20/dynamic_v7/trace.jsonl",
+        "line": 3264
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP21",
+    "diagnosis": "生成 SQL 时将内部操作符名称直接大写拼接，导致公开检查能过、标准查询文本却错误。",
+    "items": [
+      {
+        "checks": [
+          "api/query/heldout-101",
+          "api/query/heldout-202",
+          "api/query/heldout-303",
+          "api/query/empty-collection",
+          "io/query",
+          "output/query"
+        ],
+        "detail": "正式返回值要求 track_count >= ? AND name != ?，实际生成 track_count GE ? AND name NE ?。三个 heldout、empty-collection、模块 I/O 和 query 产物均失败；empty-collection 的查询条件仍非空。"
+      },
+      {
+        "checks": [
+          "output/core_manifest",
+          "output/final_report"
+        ],
+        "detail": "错误的 SQL 被封入总清单，摘要随之改变。"
+      }
+    ],
+    "improvement": "为允许的六个操作符设置确定的 SQL 符号映射，继续用占位符传参数；用内存 SQLite 准备和执行生成的查询，并比对规范化文本。",
+    "regression": "用 ge(2)、ne(\"O'Reilly\") 两条件及 limit=10 核对 SQL 片段和参数顺序；另测空 filters 确认不产生 WHERE。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/playlist_query_export/dynamic_v7/workspace/query/transform.py",
+        "line": 42
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/playlist_query_export/dynamic_v7/workspace/query/transform.py",
+        "line": 65
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/playlist_query_export/dynamic_v7/trace.jsonl",
+        "line": 2685
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP24",
+    "diagnosis": "EU 资格计算一旦找到一个合格部门就 break，后面的无效部门引用因此逃过校验。此题正式失分与职称筛选无关。",
+    "items": [
+      {
+        "checks": [
+          "api/eu/invalid-business-field"
+        ],
+        "detail": "将教授的部门从 [a,b] 改成 [a,b,unknown]；合法 EU 部门 a 在前，程序立即判定合格并返回正常 ids，正式要求未知引用触发 ValueError。"
+      }
+    ],
+    "improvement": "先验证所有部门 ID 均存在，然后另行计算 any(属于EU)；未知部门统一抛 ValueError。",
+    "regression": "把 unknown 放在 EU 部门之前和之后，两种顺序都必须抛 ValueError；重复合法部门按集合处理。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/university_relation_query/dynamic_v7/workspace/engines/eu/transform.py",
+        "line": 37
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/university_relation_query/dynamic_v7/workspace/README.md",
+        "line": 39
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/university_relation_query/dynamic_v7/trace.jsonl",
+        "line": 1539
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP25",
+    "diagnosis": "首轮把 Total 与 Amount Due 两种标签共用一个“已设置金额”。合法发票同时给出两者会被当作重复 total。首轮未完成整题交付；重放按标签分别判重并执行 Total 优先，所有正式项通过。",
+    "items": [
+      {
+        "checks": [
+          "api/amounts/heldout-101",
+          "api/amounts/heldout-202",
+          "api/amounts/heldout-303",
+          "api/amounts/boundary",
+          "io/amounts",
+          "output/amounts"
+        ],
+        "detail": "边界文档先给 Amount Due: 22.00 再给 Total: 0.10，正确 total 为 0.10；首轮直接 ValueError（duplicate total）。三个 heldout、boundary 及 I/O 均触发。"
+      },
+      {
+        "checks": [
+          "output/classification",
+          "output/archive",
+          "output/core_manifest",
+          "output/final_report",
+          "P/public-check"
+        ],
+        "detail": "从干净目录重建，业务程序在 amounts 步骤失败，后续应交的文件未齐。classification 的 API 已过，output/classification 失败不能据此认定分类器算法错误。"
+      }
+    ],
+    "improvement": "保留重放中独立的 seen_total / seen_amount_due 标志与 Total 优先级；同时校验账单字段和整条文件交付链。",
+    "regression": "同一文档分别用 Total→Amount Due、Amount Due→Total 测均取 Total；相同标签重复才拒绝；空目录构建总表和摘要。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7/workspace/domains/amounts/transform.py",
+        "line": 47
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7/workspace/README.md",
+        "line": 47
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7/workspace/domains/amounts/transform.py",
+        "line": 49
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261121-pubfail9-rerun-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7/trace.jsonl",
+        "line": 1817
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  },
+  {
+    "task": "MP26",
+    "diagnosis": "校验了结束时间晚于开始时间，却漏检题面专门限制的晚餐时窗。其余合法日历行为不能覆盖这条规则。",
+    "items": [
+      {
+        "checks": [
+          "api/calendar/invalid-business-field"
+        ],
+        "detail": "将 19:00 开始的 dinner 从当天 19:10 结束改成次日 20:00。代码仍正常返回 calendar，正式要求 ValueError；其他类别事件允许跨日。"
+      }
+    ],
+    "improvement": "为 kind=dinner 且 19:00 开始的事件增加“结束日期同日且不晚于 20:00”校验，保留其他种类可跨日的语义。",
+    "regression": "同一 19:00 晚餐测试当天 20:00、当天 20:01、次日 20:00，分别应为通过、拒绝、拒绝；把跨日事件改成 other 应允许。",
+    "evidence": [
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/recurring_dinner_calendar/dynamic_v7/workspace/engines/calendar/transform.py",
+        "line": 60
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/recurring_dinner_calendar/dynamic_v7/workspace/engines/calendar/transform.py",
+        "line": 80
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/recurring_dinner_calendar/dynamic_v7/workspace/README.md",
+        "line": 47
+      },
+      {
+        "path": "https://github.com/xi474/benchmark/blob/39ffdc9f498e9150b30a07401d30276d8d6c25df/semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/recurring_dinner_calendar/dynamic_v7/trace.jsonl",
+        "line": 2809
+      }
+    ],
+    "confidence": "高；冻结 API 探针离线复现，并与归档提交及原分项交叉核验。"
+  }
+]
