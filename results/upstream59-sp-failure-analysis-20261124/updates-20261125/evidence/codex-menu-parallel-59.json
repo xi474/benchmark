@@ -1,0 +1,2159 @@
+{
+  "archive_directory": "upstream59-v21-native-traces-20261123/publication/codex",
+  "entry_paths": {
+    "trajectory": "agent/trajectory.json",
+    "topology": "agent/monitoring/native-telemetry/workflow/agent-topology.json",
+    "concurrency": "agent/monitoring/native-telemetry/tool-concurrency-trace.json",
+    "client": "agent/monitoring/runtime-snapshots/*.json",
+    "gateway": "gateway/requests.jsonl",
+    "upstream": "gateway/request-snapshots/*.json",
+    "score": "case.json"
+  },
+  "boundary": "Client menus include actual-client-request only; upstream snapshots cover a subset. Bundles and parallel flags do not prove wall-clock overlap. Null overlap means no comparable spans.",
+  "menus": {
+    "menu1": [
+      "apply_patch",
+      "collaboration.followup_task",
+      "collaboration.interrupt_agent",
+      "collaboration.list_agents",
+      "collaboration.send_message",
+      "collaboration.spawn_agent",
+      "collaboration.wait_agent",
+      "create_goal",
+      "exec_command",
+      "get_goal",
+      "request_user_input",
+      "update_goal",
+      "view_image",
+      "write_stdin"
+    ],
+    "menu2": [
+      "apply_patch",
+      "collaboration",
+      "create_goal",
+      "exec_command",
+      "get_goal",
+      "request_user_input",
+      "update_goal",
+      "view_image",
+      "write_stdin"
+    ],
+    "menu0": []
+  },
+  "totals": {
+    "client": {
+      "menu1": 2132,
+      "menu0": 10
+    },
+    "gateway": {
+      "menu1": 1057,
+      "menu2": 1070,
+      "menu0": 10
+    },
+    "upstream": {
+      "menu1": 832
+    },
+    "adapter": {
+      "deepseek-codex-chat-normal/1.0.5": 746,
+      "deepseek-codex-chat-normal/1.0.4": 86
+    },
+    "excluded_snapshots": {
+      "configured-intent": 118
+    },
+    "request_parallel_flag": {
+      "true": 2132,
+      "false": 10
+    },
+    "invoked": {
+      "exec_command": 1684,
+      "apply_patch": 465,
+      "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 11,
+      "write_stdin": 15,
+      "update_plan": 3,
+      "get_goal": 1
+    },
+    "tasks": 59,
+    "tasks_with_bundles": 25,
+    "bundled_steps": 82,
+    "tasks_with_children": 0,
+    "known_overlap": 0
+  },
+  "tasks": {
+    "C007": {
+      "client": {
+        "menu1": 45
+      },
+      "gateway": {
+        "menu1": 44
+      },
+      "upstream": {
+        "menu1": 44
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 44
+      },
+      "versions": {
+        "0.164.0": 45
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 45
+      },
+      "invoked": {
+        "exec_command": 39,
+        "apply_patch": 5
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C008": {
+      "client": {
+        "menu1": 24
+      },
+      "gateway": {
+        "menu1": 24
+      },
+      "upstream": {
+        "menu1": 24
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 24
+      },
+      "versions": {
+        "0.164.0": 24
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 24
+      },
+      "invoked": {
+        "exec_command": 23,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 5
+      },
+      "bundled_steps": {
+        "7": 2,
+        "8": 3,
+        "9": 3,
+        "13": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C009": {
+      "client": {
+        "menu1": 42
+      },
+      "gateway": {
+        "menu1": 41
+      },
+      "upstream": {
+        "menu1": 41
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 41
+      },
+      "versions": {
+        "0.164.0": 42
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 42
+      },
+      "invoked": {
+        "exec_command": 31,
+        "apply_patch": 9,
+        "write_stdin": 1
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C011": {
+      "client": {
+        "menu1": 39
+      },
+      "gateway": {
+        "menu1": 38
+      },
+      "upstream": {
+        "menu1": 38
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 38
+      },
+      "versions": {
+        "0.164.0": 39
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 39
+      },
+      "invoked": {
+        "exec_command": 28,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 7,
+        "write_stdin": 1
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C017": {
+      "client": {
+        "menu1": 14
+      },
+      "gateway": {
+        "menu1": 14
+      },
+      "upstream": {
+        "menu1": 14
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 14
+      },
+      "versions": {
+        "0.164.0": 14
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 14
+      },
+      "invoked": {
+        "exec_command": 11,
+        "apply_patch": 2
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C031": {
+      "client": {
+        "menu1": 23
+      },
+      "gateway": {
+        "menu1": 23
+      },
+      "upstream": {
+        "menu1": 23
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 23
+      },
+      "versions": {
+        "0.164.0": 23
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 23
+      },
+      "invoked": {
+        "exec_command": 20,
+        "apply_patch": 2
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C033": {
+      "client": {
+        "menu1": 46
+      },
+      "gateway": {
+        "menu1": 45
+      },
+      "upstream": {
+        "menu1": 45
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 45
+      },
+      "versions": {
+        "0.164.0": 46
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 46
+      },
+      "invoked": {
+        "exec_command": 39,
+        "apply_patch": 6
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C039": {
+      "client": {
+        "menu1": 18
+      },
+      "gateway": {
+        "menu1": 18
+      },
+      "upstream": {
+        "menu1": 18
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 18
+      },
+      "versions": {
+        "0.164.0": 18
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 18
+      },
+      "invoked": {
+        "exec_command": 14,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C049": {
+      "client": {
+        "menu1": 10
+      },
+      "gateway": {
+        "menu1": 10
+      },
+      "upstream": {
+        "menu1": 10
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 10
+      },
+      "versions": {
+        "0.164.0": 10
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 10
+      },
+      "invoked": {
+        "exec_command": 6,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C055": {
+      "client": {
+        "menu1": 15
+      },
+      "gateway": {
+        "menu1": 15
+      },
+      "upstream": {
+        "menu1": 15
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 15
+      },
+      "versions": {
+        "0.164.0": 15
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 15
+      },
+      "invoked": {
+        "exec_command": 14,
+        "apply_patch": 2
+      },
+      "bundled_steps": {
+        "7": 3
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C056": {
+      "client": {
+        "menu1": 13
+      },
+      "gateway": {
+        "menu1": 13
+      },
+      "upstream": {
+        "menu1": 13
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 13
+      },
+      "versions": {
+        "0.164.0": 13
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 13
+      },
+      "invoked": {
+        "exec_command": 8,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C058": {
+      "client": {
+        "menu1": 33
+      },
+      "gateway": {
+        "menu1": 33
+      },
+      "upstream": {
+        "menu1": 33
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 33
+      },
+      "versions": {
+        "0.164.0": 33
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 33
+      },
+      "invoked": {
+        "exec_command": 26,
+        "apply_patch": 5
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C062": {
+      "client": {
+        "menu1": 13
+      },
+      "gateway": {
+        "menu1": 13
+      },
+      "upstream": {
+        "menu1": 13
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 13
+      },
+      "versions": {
+        "0.164.0": 13
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 13
+      },
+      "invoked": {
+        "exec_command": 13,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 3
+      },
+      "bundled_steps": {
+        "7": 2,
+        "8": 2,
+        "9": 2,
+        "10": 2,
+        "12": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C066": {
+      "client": {
+        "menu1": 8
+      },
+      "gateway": {
+        "menu1": 8
+      },
+      "upstream": {
+        "menu1": 8
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 8
+      },
+      "versions": {
+        "0.164.0": 8
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 8
+      },
+      "invoked": {
+        "exec_command": 10,
+        "apply_patch": 3
+      },
+      "bundled_steps": {
+        "6": 2,
+        "7": 2,
+        "8": 3,
+        "9": 3
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C067": {
+      "client": {
+        "menu1": 19
+      },
+      "gateway": {
+        "menu1": 19
+      },
+      "upstream": {
+        "menu1": 19
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 19
+      },
+      "versions": {
+        "0.164.0": 19
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 19
+      },
+      "invoked": {
+        "exec_command": 14,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C068": {
+      "client": {
+        "menu1": 31
+      },
+      "gateway": {
+        "menu1": 31
+      },
+      "upstream": {
+        "menu1": 31
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 31
+      },
+      "versions": {
+        "0.164.0": 31
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 31
+      },
+      "invoked": {
+        "exec_command": 23,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 7
+      },
+      "bundled_steps": {
+        "7": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C069": {
+      "client": {
+        "menu1": 23
+      },
+      "gateway": {
+        "menu1": 23
+      },
+      "upstream": {
+        "menu1": 23
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 23
+      },
+      "versions": {
+        "0.164.0": 23
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 23
+      },
+      "invoked": {
+        "exec_command": 18,
+        "apply_patch": 4
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C074": {
+      "client": {
+        "menu1": 11
+      },
+      "gateway": {
+        "menu1": 11
+      },
+      "upstream": {
+        "menu1": 11
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 11
+      },
+      "versions": {
+        "0.164.0": 11
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 11
+      },
+      "invoked": {
+        "exec_command": 7,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C077": {
+      "client": {
+        "menu1": 30
+      },
+      "gateway": {
+        "menu1": 30
+      },
+      "upstream": {
+        "menu1": 30
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 30
+      },
+      "versions": {
+        "0.164.0": 30
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 30
+      },
+      "invoked": {
+        "exec_command": 35,
+        "apply_patch": 3
+      },
+      "bundled_steps": {
+        "7": 2,
+        "8": 3,
+        "9": 2,
+        "10": 2,
+        "11": 2,
+        "12": 2,
+        "15": 2,
+        "21": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "C079": {
+      "client": {
+        "menu1": 28
+      },
+      "gateway": {
+        "menu1": 28
+      },
+      "upstream": {
+        "menu1": 28
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 28
+      },
+      "versions": {
+        "0.164.0": 28
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 28
+      },
+      "invoked": {
+        "exec_command": 22,
+        "apply_patch": 5
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP01": {
+      "client": {
+        "menu1": 40
+      },
+      "gateway": {
+        "menu2": 40
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 40
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 40
+      },
+      "invoked": {
+        "exec_command": 25,
+        "apply_patch": 14
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP02": {
+      "client": {
+        "menu1": 79
+      },
+      "gateway": {
+        "menu2": 79
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 79
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 79
+      },
+      "invoked": {
+        "exec_command": 63,
+        "apply_patch": 20
+      },
+      "bundled_steps": {
+        "7": 3,
+        "8": 4
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP03": {
+      "client": {
+        "menu1": 46
+      },
+      "gateway": {
+        "menu2": 46
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 46
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 46
+      },
+      "invoked": {
+        "exec_command": 37,
+        "apply_patch": 12
+      },
+      "bundled_steps": {
+        "7": 3,
+        "8": 3
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP04": {
+      "client": {
+        "menu1": 63,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu1": 63,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 64
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 63,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 56,
+        "update_plan": 1,
+        "apply_patch": 15
+      },
+      "bundled_steps": {
+        "7": 3,
+        "8": 2,
+        "9": 2,
+        "42": 2,
+        "43": 4,
+        "46": 2,
+        "50": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP05": {
+      "client": {
+        "menu1": 53
+      },
+      "gateway": {
+        "menu2": 53
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 53
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 53
+      },
+      "invoked": {
+        "exec_command": 43,
+        "apply_patch": 12
+      },
+      "bundled_steps": {
+        "7": 4
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP06": {
+      "client": {
+        "menu1": 31
+      },
+      "gateway": {
+        "menu2": 31
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 31
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 31
+      },
+      "invoked": {
+        "exec_command": 22,
+        "apply_patch": 11
+      },
+      "bundled_steps": {
+        "7": 2,
+        "8": 3
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP07": {
+      "client": {
+        "menu1": 36,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 36,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 37
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 36,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 30,
+        "apply_patch": 8
+      },
+      "bundled_steps": {
+        "7": 4
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP08": {
+      "client": {
+        "menu1": 35
+      },
+      "gateway": {
+        "menu1": 35
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 35
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 35
+      },
+      "invoked": {
+        "exec_command": 27,
+        "apply_patch": 9
+      },
+      "bundled_steps": {
+        "6": 2,
+        "9": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP09": {
+      "client": {
+        "menu1": 32
+      },
+      "gateway": {
+        "menu1": 32
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 32
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 32
+      },
+      "invoked": {
+        "exec_command": 22,
+        "apply_patch": 9
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP10": {
+      "client": {
+        "menu1": 39
+      },
+      "gateway": {
+        "menu1": 39
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 39
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 39
+      },
+      "invoked": {
+        "exec_command": 29,
+        "apply_patch": 9
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP12": {
+      "client": {
+        "menu1": 34
+      },
+      "gateway": {
+        "menu2": 34
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 34
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 34
+      },
+      "invoked": {
+        "exec_command": 28,
+        "apply_patch": 5
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP13": {
+      "client": {
+        "menu1": 31
+      },
+      "gateway": {
+        "menu2": 31
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 31
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 31
+      },
+      "invoked": {
+        "exec_command": 28,
+        "apply_patch": 9
+      },
+      "bundled_steps": {
+        "7": 2,
+        "8": 4,
+        "9": 3,
+        "33": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP14": {
+      "client": {
+        "menu1": 87,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 87,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 88
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 87,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 75,
+        "apply_patch": 17
+      },
+      "bundled_steps": {
+        "7": 3,
+        "60": 2,
+        "61": 3,
+        "65": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP15": {
+      "client": {
+        "menu1": 66,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 66,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 67
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 66,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 52,
+        "apply_patch": 19
+      },
+      "bundled_steps": {
+        "6": 2,
+        "7": 3,
+        "8": 2,
+        "9": 2,
+        "10": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP16": {
+      "client": {
+        "menu1": 105,
+        "menu0": 2
+      },
+      "gateway": {
+        "menu2": 105,
+        "menu0": 2
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 107
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 105,
+        "false": 2
+      },
+      "invoked": {
+        "exec_command": 84,
+        "apply_patch": 24
+      },
+      "bundled_steps": {
+        "54": 3,
+        "55": 3
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP17": {
+      "client": {
+        "menu1": 51
+      },
+      "gateway": {
+        "menu2": 51
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 51
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 51
+      },
+      "invoked": {
+        "exec_command": 34,
+        "update_plan": 1,
+        "apply_patch": 15
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP18": {
+      "client": {
+        "menu1": 46
+      },
+      "gateway": {
+        "menu2": 46
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 46
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 46
+      },
+      "invoked": {
+        "exec_command": 35,
+        "apply_patch": 10
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP19": {
+      "client": {
+        "menu1": 40
+      },
+      "gateway": {
+        "menu2": 40
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 40
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 40
+      },
+      "invoked": {
+        "exec_command": 36,
+        "apply_patch": 6
+      },
+      "bundled_steps": {
+        "7": 4
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP20": {
+      "client": {
+        "menu1": 29
+      },
+      "gateway": {
+        "menu2": 29
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 29
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 29
+      },
+      "invoked": {
+        "exec_command": 32,
+        "apply_patch": 4
+      },
+      "bundled_steps": {
+        "6": 2,
+        "7": 2,
+        "8": 2,
+        "9": 2,
+        "15": 2,
+        "16": 3,
+        "24": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP21": {
+      "client": {
+        "menu1": 85,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 85,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 86
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 85,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 73,
+        "apply_patch": 18
+      },
+      "bundled_steps": {
+        "73": 2,
+        "74": 3,
+        "75": 3,
+        "77": 2,
+        "78": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP22": {
+      "client": {
+        "menu1": 59,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 59,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 60
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 59,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 37,
+        "update_plan": 1,
+        "apply_patch": 20
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP23": {
+      "client": {
+        "menu1": 48,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 48,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 49
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 48,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 33,
+        "apply_patch": 15
+      },
+      "bundled_steps": {
+        "7": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP24": {
+      "client": {
+        "menu1": 56
+      },
+      "gateway": {
+        "menu1": 56
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 56
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 56
+      },
+      "invoked": {
+        "exec_command": 40,
+        "apply_patch": 15
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null,
+      "repair_evidence": [
+        {
+          "step": 34,
+          "call_id": "call_00_v0XhjIBQywnjDbE0Ru8B9880",
+          "tool": "exec_command",
+          "command": "cd /app && python3 -m engines.eu.render; echo exit:$?",
+          "receipt_contains": [
+            "Process exited with code 0",
+            "ModuleNotFoundError",
+            "exit:1"
+          ]
+        },
+        {
+          "step": 35,
+          "call_id": "call_00_G5YnTgswU3X0tpQtePDY6996",
+          "tool": "apply_patch",
+          "command": null,
+          "receipt_contains": [
+            "engines/eu/render.py",
+            "engines/students/render.py",
+            "engines/countries/render.py",
+            "engines/query/render.py"
+          ]
+        },
+        {
+          "step": 36,
+          "call_id": "call_00_ET_VoM5xIBLgVIhWwLdesTP3542",
+          "tool": "exec_command",
+          "command": "cd /app && python3 -m engines.eu.render; echo exit:$?; python3 engines/eu/render.py; echo exit2:$?; cd /tmp && python3 /app/engines/query/render.py; echo exit3:$?",
+          "receipt_contains": [
+            "exit:0",
+            "exit2:0",
+            "exit3:0"
+          ]
+        },
+        {
+          "step": 37,
+          "call_id": "call_00_bs8IRCTKot8k0yfQ5tEO4644",
+          "tool": "exec_command",
+          "command": "python3 check.py",
+          "receipt_contains": [
+            "LOCAL_CHECKS_PASSED"
+          ]
+        },
+        {
+          "step": 39,
+          "call_id": "call_00_xIrjnDMqRJbPM5b8IiDq3563",
+          "tool": "exec_command",
+          "command": "cd /tmp && python3 /app/run_all.py && echo runall_ok && python3 /app/check.py && echo check_ok",
+          "receipt_contains": [
+            "runall_ok",
+            "LOCAL_CHECKS_PASSED",
+            "check_ok"
+          ]
+        }
+      ],
+      "score": {
+        "task": "MP24",
+        "benchmark_version": "2.0.0",
+        "scoring_revision": "delivery-bonus-50-v1",
+        "reward_difficulty": "M",
+        "empirical_difficulty": "H",
+        "max_reward": 2,
+        "total_verifiers": 37,
+        "integrity_ok": true,
+        "public_pass": true,
+        "strict_pass": true,
+        "passed_verifiers": 37,
+        "core_transform_cases_total": 26,
+        "core_transform_cases_passed": 26,
+        "core_transform_case_pass_rate": 1.0,
+        "reward": "2.000000",
+        "robustness_all_passed": false,
+        "full_spec_pass": false,
+        "status": "scored"
+      }
+    },
+    "MP25": {
+      "client": {
+        "menu1": 23
+      },
+      "gateway": {
+        "menu2": 23
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 23
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 23
+      },
+      "invoked": {
+        "exec_command": 26,
+        "apply_patch": 3
+      },
+      "bundled_steps": {
+        "7": 5,
+        "12": 2,
+        "15": 2,
+        "24": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MP26": {
+      "client": {
+        "menu1": 81,
+        "menu0": 1
+      },
+      "gateway": {
+        "menu2": 81,
+        "menu0": 1
+      },
+      "upstream": {},
+      "adapter": {},
+      "versions": {
+        "0.164.0": 82
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 81,
+        "false": 1
+      },
+      "invoked": {
+        "exec_command": 72,
+        "apply_patch": 17
+      },
+      "bundled_steps": {
+        "7": 4,
+        "8": 2,
+        "9": 2,
+        "54": 2,
+        "55": 2,
+        "56": 2,
+        "58": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS02": {
+      "client": {
+        "menu1": 16
+      },
+      "gateway": {
+        "menu1": 16
+      },
+      "upstream": {
+        "menu1": 16
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 16
+      },
+      "versions": {
+        "0.164.0": 16
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 16
+      },
+      "invoked": {
+        "exec_command": 11,
+        "apply_patch": 4
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS11": {
+      "client": {
+        "menu1": 30
+      },
+      "gateway": {
+        "menu1": 30
+      },
+      "upstream": {
+        "menu1": 30
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 30
+      },
+      "versions": {
+        "0.164.0": 30
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 30
+      },
+      "invoked": {
+        "exec_command": 16,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 8
+      },
+      "bundled_steps": {
+        "13": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS12": {
+      "client": {
+        "menu1": 11
+      },
+      "gateway": {
+        "menu1": 11
+      },
+      "upstream": {
+        "menu1": 11
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 11
+      },
+      "versions": {
+        "0.164.0": 11
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 11
+      },
+      "invoked": {
+        "exec_command": 7,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS14": {
+      "client": {
+        "menu1": 25
+      },
+      "gateway": {
+        "menu1": 25
+      },
+      "upstream": {
+        "menu1": 25
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 25
+      },
+      "versions": {
+        "0.164.0": 25
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 25
+      },
+      "invoked": {
+        "exec_command": 19,
+        "apply_patch": 4
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS23": {
+      "client": {
+        "menu1": 40
+      },
+      "gateway": {
+        "menu1": 39
+      },
+      "upstream": {
+        "menu1": 39
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 39
+      },
+      "versions": {
+        "0.164.0": 40
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 40
+      },
+      "invoked": {
+        "exec_command": 27,
+        "apply_patch": 6,
+        "write_stdin": 5
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS28": {
+      "client": {
+        "menu1": 16
+      },
+      "gateway": {
+        "menu1": 16
+      },
+      "upstream": {
+        "menu1": 16
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 16
+      },
+      "versions": {
+        "0.164.0": 16
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 16
+      },
+      "invoked": {
+        "exec_command": 12,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS29": {
+      "client": {
+        "menu1": 41
+      },
+      "gateway": {
+        "menu1": 41
+      },
+      "upstream": {
+        "menu1": 41
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 41
+      },
+      "versions": {
+        "0.164.0": 41
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 41
+      },
+      "invoked": {
+        "exec_command": 26,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 10,
+        "write_stdin": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS30": {
+      "client": {
+        "menu1": 25
+      },
+      "gateway": {
+        "menu1": 25
+      },
+      "upstream": {
+        "menu1": 25
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 25
+      },
+      "versions": {
+        "0.164.0": 25
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 25
+      },
+      "invoked": {
+        "exec_command": 18,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 1,
+        "apply_patch": 6
+      },
+      "bundled_steps": {
+        "17": 2
+      },
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS41": {
+      "client": {
+        "menu1": 30
+      },
+      "gateway": {
+        "menu1": 30
+      },
+      "upstream": {
+        "menu1": 30
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 30
+      },
+      "versions": {
+        "0.164.0": 30
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 30
+      },
+      "invoked": {
+        "exec_command": 20,
+        "apply_patch": 4,
+        "write_stdin": 5
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "MS42": {
+      "client": {
+        "menu1": 32
+      },
+      "gateway": {
+        "menu1": 32
+      },
+      "upstream": {
+        "menu1": 32
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.5": 32
+      },
+      "versions": {
+        "0.164.0": 32
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 32
+      },
+      "invoked": {
+        "exec_command": 20,
+        "get_goal": 1,
+        "bridge_denied_unoffered_466bb3ca51dacd533854dd2f": 2,
+        "apply_patch": 4
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "N11": {
+      "client": {
+        "menu1": 18
+      },
+      "gateway": {
+        "menu1": 18
+      },
+      "upstream": {
+        "menu1": 18
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.4": 18
+      },
+      "versions": {
+        "0.164.0": 18
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 18
+      },
+      "invoked": {
+        "exec_command": 14,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "N17": {
+      "client": {
+        "menu1": 15
+      },
+      "gateway": {
+        "menu1": 15
+      },
+      "upstream": {
+        "menu1": 15
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.4": 15
+      },
+      "versions": {
+        "0.164.0": 15
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 15
+      },
+      "invoked": {
+        "exec_command": 12,
+        "apply_patch": 2
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "N22": {
+      "client": {
+        "menu1": 35
+      },
+      "gateway": {
+        "menu1": 35
+      },
+      "upstream": {
+        "menu1": 35
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.4": 35
+      },
+      "versions": {
+        "0.164.0": 35
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 35
+      },
+      "invoked": {
+        "exec_command": 28,
+        "apply_patch": 6
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    },
+    "N24": {
+      "client": {
+        "menu1": 18
+      },
+      "gateway": {
+        "menu1": 18
+      },
+      "upstream": {
+        "menu1": 18
+      },
+      "adapter": {
+        "deepseek-codex-chat-normal/1.0.4": 18
+      },
+      "versions": {
+        "0.164.0": 18
+      },
+      "excluded_snapshots": {
+        "configured-intent": 2
+      },
+      "request_parallel_flag": {
+        "true": 18
+      },
+      "invoked": {
+        "exec_command": 14,
+        "apply_patch": 3
+      },
+      "bundled_steps": {},
+      "topology_status": "observed",
+      "agents": 1,
+      "children": 0,
+      "complete_tool_spans": 0,
+      "overlap": null
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "cohort": "59 selected original paid Codex trajectories; historical unpatched comparator; first tool result per call matched by source_call_id.",
+  "archive_directory": "results/upstream59-v21-native-traces-dsh-codex-nanobot-20261123/codex (GitHub xi474/benchmark, 00d32858637689c0668c71303d4d5b79d00b1093)",
+  "counts": {
+    "tasks": 59,
+    "tasks_with_patch": 59,
+    "patch_calls": 465,
+    "patch_errors": 14,
+    "tasks_with_patch_errors": 12,
+    "tasks_with_multiple_file_headers": 33,
+    "by_header_and_success": {
+      "at_most_one_file_header__ok": 269,
+      "at_most_one_file_header__error": 6,
+      "multiple_file_headers__ok": 182,
+      "multiple_file_headers__error": 8
+    },
+    "by_error": {
+      "file_not_readable": 1,
+      "expected_context_not_found": 5,
+      "invalid_hunk": 1,
+      "duplicate_target": 7
+    },
+    "multiple_distinct_paths": {
+      "tasks": 32,
+      "ok": 182,
+      "error": 7
+    }
+  },
+  "multiple_file_definition": "Count Add File, Delete File and Update File directives; the same target may appear more than once. Rejections do not prove that multiple distinct files were written.",
+  "patch_errors": [
+    {
+      "task": "C007",
+      "step": 20,
+      "source_call_id": "call_00_9wMRFhfEJ2xEtESiXwzQ1387",
+      "category": "file_not_readable",
+      "first_error_line": "apply_patch verification failed: Failed to read file to update /app/integration.py: No such file or directory (os error 2)"
+    },
+    {
+      "task": "C068",
+      "step": 17,
+      "source_call_id": "call_00_pu8ZAuyJmPcWdUcUNBGd6326",
+      "category": "expected_context_not_found",
+      "first_error_line": "apply_patch verification failed: Failed to find expected lines in /app/components/load_proposals/work.py:"
+    },
+    {
+      "task": "C079",
+      "step": 30,
+      "source_call_id": "call_00_W0HoLgNq7Uwtw4OubkiE1712",
+      "category": "invalid_hunk",
+      "first_error_line": "apply_patch verification failed: invalid hunk at line 3, '@@' is not a valid hunk header. Valid hunk headers: '*** Add File: {path}', '*** Delete File: {path}', '*** Update File: {path}'"
+    },
+    {
+      "task": "MP02",
+      "step": 15,
+      "source_call_id": "call_00_sIdagq5L2vyVprX6rqSs0380",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/run_all.py"
+    },
+    {
+      "task": "MP13",
+      "step": 14,
+      "source_call_id": "call_00_if2crBZMnp1juEYyCeSw3968",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/run_all.py"
+    },
+    {
+      "task": "MP14",
+      "step": 39,
+      "source_call_id": "call_00_uTrDsLRW1eHtwtUVtfPo5520",
+      "category": "expected_context_not_found",
+      "first_error_line": "apply_patch verification failed: Failed to find expected lines in /app/run_all.py:"
+    },
+    {
+      "task": "MP15",
+      "step": 19,
+      "source_call_id": "call_00_FVYvlSpe6VYbEn9yuZ2e0348",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/run_all.py"
+    },
+    {
+      "task": "MP16",
+      "step": 13,
+      "source_call_id": "call_00_xcfq9kE4ojnutzDHimDZ5639",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/signatures/model.py"
+    },
+    {
+      "task": "MP16",
+      "step": 20,
+      "source_call_id": "call_00_KNAPoCZ6AEVOTQUGrE7u3568",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/run_all.py"
+    },
+    {
+      "task": "MP22",
+      "step": 20,
+      "source_call_id": "call_00_CTk26Yuf1YZKK75qs63T7977",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/run_all.py"
+    },
+    {
+      "task": "MS11",
+      "step": 25,
+      "source_call_id": "call_00_qAerQTRjClzsAQQW1kH24837",
+      "category": "expected_context_not_found",
+      "first_error_line": "apply_patch verification failed: Failed to find expected lines in /app/integration.py:"
+    },
+    {
+      "task": "MS42",
+      "step": 14,
+      "source_call_id": "call_00_MVWVFNbmICJw3jkjgKDC8191",
+      "category": "duplicate_target",
+      "first_error_line": "apply_patch verification failed: invalid patch: multiple operations target /app/components/rubric_mappings/work.py"
+    },
+    {
+      "task": "MS42",
+      "step": 15,
+      "source_call_id": "call_00_wycEOipII0DXFf6sRtIP5669",
+      "category": "expected_context_not_found",
+      "first_error_line": "apply_patch verification failed: Failed to find expected lines in /app/components/rubric_mappings/work.py:"
+    },
+    {
+      "task": "N11",
+      "step": 10,
+      "source_call_id": "call_00_y4b0KJFhps2WH2UfgYlA3350",
+      "category": "expected_context_not_found",
+      "first_error_line": "apply_patch verification failed: Failed to find expected lines in /app/engines/cubed/engine.py:"
+    }
+  ],
+  "visible_contract_id_scan": {
+    "method": "First tool result containing contiguous JSON version 1.0.0, task ID, protected (only these fields/layouts). Five discordant cases were manually checked against the tool command and contract output header. Lack of a match is unknown.",
+    "visible": [
+      {
+        "task": "C055",
+        "step": 7,
+        "first_visible_contract_task": "C055",
+        "call_id": "call_00_x1AAilCOoDNht4zFtVs63289"
+      },
+      {
+        "task": "C056",
+        "step": 7,
+        "first_visible_contract_task": "C055",
+        "call_id": "call_00_mjgYTk1us8sL02jZ63A64935",
+        "release_path": "tasks/C056/environment/workspace/contract.json",
+        "release_and_registry_sha256": "6ff7a776035ccdba6ab7b6a4bdb6bec3f77f816517bcad4e62c53260eeabe5b9",
+        "preceding_tool_calls": [
+          {
+            "step": 6,
+            "tool": "exec_command"
+          }
+        ],
+        "read_request_mentions_contract": true
+      },
+      {
+        "task": "C066",
+        "step": 6,
+        "first_visible_contract_task": "C066",
+        "call_id": "call_00_hyBplOoOfWQjlMytttuK8015"
+      },
+      {
+        "task": "C074",
+        "step": 7,
+        "first_visible_contract_task": "C074",
+        "call_id": "call_00_fYlxKOhDVpeneq77t0kb8368"
+      },
+      {
+        "task": "MS02",
+        "step": 7,
+        "first_visible_contract_task": "MS02",
+        "call_id": "call_00_5PjoEnU5tQPEZWNjbzNn4291"
+      },
+      {
+        "task": "MS11",
+        "step": 7,
+        "first_visible_contract_task": "MS11",
+        "call_id": "call_00_bL84ihGajjFlcv5ZBPJQ7391"
+      },
+      {
+        "task": "MS12",
+        "step": 7,
+        "first_visible_contract_task": "MS11",
+        "call_id": "call_00_vMPXXmZGKzOVqkCs5WR68264",
+        "release_path": "tasks/MS12/environment/workspace/contract.json",
+        "release_and_registry_sha256": "94ddbf55d1b3d90bbe0c58970bb61a0853053696fa2230558b38167598fb78f5",
+        "preceding_tool_calls": [
+          {
+            "step": 6,
+            "tool": "exec_command"
+          }
+        ],
+        "read_request_mentions_contract": true
+      },
+      {
+        "task": "MS14",
+        "step": 6,
+        "first_visible_contract_task": "MS14",
+        "call_id": "call_00_Xn3LkwYkLaXQLdaIx4h47160"
+      },
+      {
+        "task": "MS23",
+        "step": 7,
+        "first_visible_contract_task": "MS14",
+        "call_id": "call_00_DzyUYnAUiD2SXXNfVAqK5213",
+        "release_path": "tasks/MS23/environment/workspace/contract.json",
+        "release_and_registry_sha256": "ee859caee9e2c2d6ede25b0964065a6b72dd048e5a2ca8add20e2aa70b9a34b5",
+        "preceding_tool_calls": [
+          {
+            "step": 6,
+            "tool": "exec_command"
+          }
+        ],
+        "read_request_mentions_contract": true
+      },
+      {
+        "task": "MS28",
+        "step": 7,
+        "first_visible_contract_task": "MS28",
+        "call_id": "call_00_GlleNtk4LWg7V3RNtPob1754"
+      },
+      {
+        "task": "MS29",
+        "step": 7,
+        "first_visible_contract_task": "MS29",
+        "call_id": "call_00_dNVFdfXGaOQ8aFRFjqPL5908"
+      },
+      {
+        "task": "MS30",
+        "step": 7,
+        "first_visible_contract_task": "MS29",
+        "call_id": "call_00_y4WkZuRoHA1Ykdrk6tOK6199",
+        "release_path": "tasks/MS30/environment/workspace/contract.json",
+        "release_and_registry_sha256": "f2d4568ea9587afac444cc3035921c6af0b73fe6c722940f8f2c0891f4a0f591",
+        "preceding_tool_calls": [
+          {
+            "step": 6,
+            "tool": "exec_command"
+          }
+        ],
+        "read_request_mentions_contract": true
+      },
+      {
+        "task": "MS41",
+        "step": 7,
+        "first_visible_contract_task": "MS41",
+        "call_id": "call_00_Rf4QADIin74cXcZsZLrH0887"
+      },
+      {
+        "task": "MS42",
+        "step": 7,
+        "first_visible_contract_task": "MS41",
+        "call_id": "call_00_KEeOhJS99hdqh8oUc1En6659",
+        "release_path": "tasks/MS42/environment/workspace/contract.json",
+        "release_and_registry_sha256": "4e6ef50f72c9f57906d1a29b9bcf935363a92d5f003facc14a9080e77850d95d",
+        "preceding_tool_calls": [
+          {
+            "step": 6,
+            "tool": "exec_command"
+          }
+        ],
+        "read_request_mentions_contract": true
+      }
+    ],
+    "without_match": 45,
+    "discordant_cases": 5
+  },
+  "original_raw_integrity_receipts": {
+    "C056": {
+      "raw_receipt": "upstream59-v21-v4pro-20261121-r1/jobs/u59-v21-v4pro-codex-c056/C056__qTTTxDj/verifier/raw-checks.json",
+      "native_receipt_task": "C056",
+      "schema": "upstream59.integrity.v1",
+      "integrity_ok": false,
+      "protected_violations": [
+        "TASK.md",
+        "public_expected.json",
+        "public_input.json"
+      ],
+      "number_of_native_checks": 0
+    },
+    "C062": {
+      "raw_receipt": "upstream59-v21-v4pro-20261121-r1/jobs/u59-v21-v4pro-codex-c062/C062__dEYb8wL/verifier/raw-checks.json",
+      "native_receipt_task": "C062",
+      "schema": "upstream59.integrity.v1",
+      "integrity_ok": false,
+      "protected_violations": [
+        "TASK.md",
+        "public_expected.json",
+        "public_input.json"
+      ],
+      "number_of_native_checks": 0
+    },
+    "MS12": {
+      "raw_receipt": "upstream59-v21-v4pro-20261121-r1/jobs/u59-v21-v4pro-codex-ms12/MS12__KihrQtw/verifier/raw-checks.json",
+      "native_receipt_task": "MS12",
+      "schema": "upstream59.integrity.v1",
+      "integrity_ok": false,
+      "protected_violations": [
+        "TASK.md",
+        "public_expected.json",
+        "public_input.json"
+      ],
+      "number_of_native_checks": 0
+    },
+    "MS23": {
+      "raw_receipt": "upstream59-v21-v4pro-20261121-r1/jobs/u59-v21-v4pro-codex-ms23/MS23__jszzcBZ/verifier/raw-checks.json",
+      "native_receipt_task": "MS23",
+      "schema": "upstream59.integrity.v1",
+      "integrity_ok": false,
+      "protected_violations": [
+        "contract.json"
+      ],
+      "number_of_native_checks": 0
+    },
+    "MS30": {
+      "raw_receipt": "upstream59-v21-v4pro-20261121-r1/jobs/u59-v21-v4pro-codex-ms30/MS30__yXvQ4tw/verifier/raw-checks.json",
+      "native_receipt_task": "MS30",
+      "schema": "upstream59.integrity.v1",
+      "integrity_ok": false,
+      "protected_violations": [
+        "TASK.md",
+        "public_expected.json",
+        "public_input.json"
+      ],
+      "number_of_native_checks": 0
+    },
+    "MS42": {
+      "raw_receipt": "upstream59-v21-v4pro-20261121-r1/jobs/u59-v21-v4pro-codex-ms42/MS42__iop7PWa/verifier/raw-checks.json",
+      "native_receipt_task": "MS42",
+      "schema": "upstream59.integrity.v1",
+      "integrity_ok": false,
+      "protected_violations": [
+        "contract.json"
+      ],
+      "number_of_native_checks": 0
+    }
+  },
+  "examples": {
+    "MS14": {
+      "steps": [
+        19,
+        24,
+        25
+      ],
+      "cases_in_differential_loops": [
+        200,
+        300
+      ],
+      "result": [
+        "all ok",
+        "all ok"
+      ],
+      "core_api_codex": [
+        10,
+        10
+      ],
+      "core_api_sp_first": [
+        3,
+        10
+      ]
+    },
+    "MS42": {
+      "steps": [
+        7,
+        22,
+        23,
+        24,
+        25,
+        26,
+        31,
+        32
+      ],
+      "component_level_differential_test_counts": [
+        3000,
+        4000
+      ],
+      "public_probe_in_last_tool_step": "passed",
+      "formal_score": "integrity_ok=false; original raw checks empty, standardized A 0/12",
+      "first_observed_contract_task": "MS41",
+      "expected_contract_task": "MS42",
+      "source_of_environment_mismatch": "not established from this trace"
+    },
+    "MP02": {
+      "refused_duplicate_target_step": 15,
+      "successful_patch_step": 16,
+      "public_check_command_step": 17,
+      "official_strict": true
+    },
+    "MP15": {
+      "refused_duplicate_target_step": 19,
+      "successful_patch_step": 20,
+      "public_check_command_step": 21,
+      "official_strict": false
+    }
+  },
+  "paired_integrity_sensitivity": {
+    "codex": {
+      "paired_n": 53,
+      "scores": {
+        "codex": {
+          "strict_passed": 38,
+          "api_passed": 683,
+          "api_total": 744
+        },
+        "semserve_first": {
+          "strict_passed": 22,
+          "api_passed": 582,
+          "api_total": 744
+        },
+        "semserve_with_replay": {
+          "strict_passed": 25,
+          "api_passed": 618,
+          "api_total": 744
+        }
+      }
+    },
+    "dsh": {
+      "paired_n": 52,
+      "scores": {
+        "dsh": {
+          "strict_passed": 36,
+          "api_passed": 633,
+          "api_total": 734
+        },
+        "semserve_first": {
+          "strict_passed": 22,
+          "api_passed": 581,
+          "api_total": 734
+        },
+        "semserve_with_replay": {
+          "strict_passed": 25,
+          "api_passed": 617,
+          "api_total": 734
+        }
+      }
+    }
+  }
+}

@@ -6,6 +6,8 @@ Upstream59 · DeepSeek V4 Pro 普通模式 · 2026 年 11 月 24 日
 
 ## 阅读与下载
 
+11 月 25 日增补两份报告，分别给出 [SP 改进实施手册](updates-20261125/SP严格通过率改进实施手册-20261125.md)和 [Nanobot 工具链专项建议](updates-20261125/Nanobot工具链分析与SP改进建议.md)。[查看同题配对、编辑记录与离线复核入口](updates-20261125/README.md)。
+
 | 想看什么 | 材料 |
 |---|---|
 | 给同事组会汇报 | [下载 16 页 PPT，含逐页讲者备注](slides/sp-codex-dsh-strict-pass.pptx?raw=true) · [PPT 页码与实施方案对照](SP工具与验证机制适配报告.md#ppt-map) |

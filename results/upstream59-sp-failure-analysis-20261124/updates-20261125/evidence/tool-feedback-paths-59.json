@@ -1,0 +1,2138 @@
+{
+  "scope": "59 historical SP initial runs and 59 DSH native streams. No colleague patch trials are included.",
+  "sp_method": "Screen for zero outer exit, raw multiline Python traceback and Python piped to head/tail on one of the final two command lines. Screening is not proof of a false formal acceptance.",
+  "dsh_method": "Match tool calls to results by ID. Mutation recovery counts later successful exact-path native read followed by exact-path native mutation; separate shell writes require case inspection.",
+  "summary": {
+    "tasks": 59,
+    "dsh_bash_result_status": {
+      "completed": 827,
+      "error": 1
+    },
+    "dsh_nonzero_markers": 46,
+    "dsh_tasks_with_nonzero_marker": 24,
+    "dsh_denied_write_before_read": 91,
+    "dsh_tasks_with_denied_write_before_read": 41,
+    "dsh_denied_writes_with_later_native_read_then_native_mutation": 87,
+    "dsh_stale_edit_errors": 1,
+    "sp_first_shell_results": 1819,
+    "sp_first_outer_exit_zero": 1434,
+    "sp_first_python_pipe_tracebacks": 35,
+    "sp_first_tasks_with_python_pipe_tracebacks": 11
+  },
+  "tasks": {
+    "MP01": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 12
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 45,
+            "action": "write",
+            "path": "/app/domains/fit/transform.py",
+            "error": "Error: cannot modify \"/app/domains/fit/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 65,
+            "next_same_path_native_write_or_edit": 75
+          },
+          {
+            "line": 47,
+            "action": "write",
+            "path": "/app/views/hard/transform.py",
+            "error": "Error: cannot modify \"/app/views/hard/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 66,
+            "next_same_path_native_write_or_edit": 77
+          },
+          {
+            "line": 49,
+            "action": "write",
+            "path": "/app/views/soft/transform.py",
+            "error": "Error: cannot modify \"/app/views/soft/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 67,
+            "next_same_path_native_write_or_edit": 79
+          },
+          {
+            "line": 51,
+            "action": "write",
+            "path": "/app/views/comparison/transform.py",
+            "error": "Error: cannot modify \"/app/views/comparison/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 68,
+            "next_same_path_native_write_or_edit": 81
+          },
+          {
+            "line": 53,
+            "action": "write",
+            "path": "/app/run_all.py",
+            "error": "Error: cannot modify \"/app/run_all.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 69,
+            "next_same_path_native_write_or_edit": 83
+          },
+          {
+            "line": 55,
+            "action": "write",
+            "path": "/app/final_report.py",
+            "error": "Error: cannot modify \"/app/final_report.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 70,
+            "next_same_path_native_write_or_edit": 85
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 24,
+        "outer_exit_zero": 18,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP02": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 12
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 41,
+            "action": "write",
+            "path": "/app/domains/index/model.py",
+            "error": "Error: cannot modify \"/app/domains/index/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 59,
+            "next_same_path_native_write_or_edit": 75
+          },
+          {
+            "line": 43,
+            "action": "write",
+            "path": "/app/domains/attributes/model.py",
+            "error": "Error: cannot modify \"/app/domains/attributes/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 63,
+            "next_same_path_native_write_or_edit": 77
+          },
+          {
+            "line": 45,
+            "action": "write",
+            "path": "/app/views/table/model.py",
+            "error": "Error: cannot modify \"/app/views/table/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 66,
+            "next_same_path_native_write_or_edit": 79
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 60,
+        "outer_exit_zero": 52,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP03": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 20
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 13,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 41,
+            "action": "write",
+            "path": "/app/domains/fstab/model.py",
+            "error": "Error: cannot modify \"/app/domains/fstab/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 50,
+            "next_same_path_native_write_or_edit": 79
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 117,
+        "outer_exit_zero": 102,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP04": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 2
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 61,
+        "outer_exit_zero": 53,
+        "python_pipe_tracebacks": [
+          {
+            "line": 763,
+            "tool_ok": true,
+            "scope": "root/plan-002-97e6164c/v2-628b17d80583-1/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -30",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          },
+          {
+            "line": 845,
+            "tool_ok": true,
+            "scope": "root/plan-002-97e6164c/v2-628b17d80583-1/attempt-1",
+            "command_tail": "cd /tmp/semserve-g1-branch-tk1qm77o 2>/dev/null || cd .; python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -30",
+            "output_tail": ":\n  File \"/tmp/semserve-g1-branch-tk1qm77o/.semserve/g1_checks/test_branch.py\", line 9, in <module>\n    from model import load_payload\nModuleNotFoundError: No module named 'model'\n"
+          },
+          {
+            "line": 949,
+            "tool_ok": true,
+            "scope": "root/plan-002-97e6164c/v2-628b17d80583-1/attempt-1",
+            "command_tail": "python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -30",
+            "output_tail": ":\n  File \"/tmp/semserve-g1-branch-tk1qm77o/.semserve/g1_checks/test_branch.py\", line 9, in <module>\n    from model import load_payload\nModuleNotFoundError: No module named 'model'\n"
+          },
+          {
+            "line": 1018,
+            "tool_ok": true,
+            "scope": "root/plan-002-97e6164c/v2-628b17d80583-1/attempt-1",
+            "command_tail": "cd /tmp/semserve-g1-branch-tk1qm77o && python3 domains/csv_users/check_module.py 2>&1 | tail -20",
+            "output_tail": "        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/semserve-g1-branch-tk1qm77o/outputs/csv_users.json'\n"
+          }
+        ]
+      }
+    },
+    "MP05": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 17
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 61,
+            "action": "write",
+            "path": "/app/domains/groups/model.py",
+            "error": "Error: cannot modify \"/app/domains/groups/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 81,
+            "next_same_path_native_write_or_edit": 103
+          },
+          {
+            "line": 63,
+            "action": "write",
+            "path": "/app/domains/mail/model.py",
+            "error": "Error: cannot modify \"/app/domains/mail/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 83,
+            "next_same_path_native_write_or_edit": 105
+          },
+          {
+            "line": 65,
+            "action": "write",
+            "path": "/app/domains/calendar/model.py",
+            "error": "Error: cannot modify \"/app/domains/calendar/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 85,
+            "next_same_path_native_write_or_edit": 107
+          },
+          {
+            "line": 67,
+            "action": "write",
+            "path": "/app/views/ranking/model.py",
+            "error": "Error: cannot modify \"/app/views/ranking/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 87,
+            "next_same_path_native_write_or_edit": 109
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 23,
+        "outer_exit_zero": 15,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP06": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 16
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 142,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 61,
+            "action": "write",
+            "path": "/app/domains/calendar/model.py",
+            "error": "Error: cannot modify \"/app/domains/calendar/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 75,
+            "next_same_path_native_write_or_edit": 91
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 40,
+        "outer_exit_zero": 35,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP07": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 17
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 57,
+            "action": "write",
+            "path": "/app/products/receipts/model.py",
+            "error": "Error: cannot modify \"/app/products/receipts/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 70,
+            "next_same_path_native_write_or_edit": 83
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 28,
+        "outer_exit_zero": 20,
+        "python_pipe_tracebacks": [
+          {
+            "line": 636,
+            "tool_ok": true,
+            "scope": "root/plan-001-27a8b1c9/cleanup-component/attempt-1",
+            "command_tail": "python3 .semserve/g1_checks/test_branch.py 2>&1 | tail -5",
+            "output_tail": ":\n  File \"/tmp/semserve-g1-branch-mguq0in4/.semserve/g1_checks/test_branch.py\", line 5, in <module>\n    from model import load_payload\nModuleNotFoundError: No module named 'model'\n"
+          },
+          {
+            "line": 702,
+            "tool_ok": true,
+            "scope": "root/plan-001-27a8b1c9/cleanup-component/attempt-1",
+            "command_tail": "python3 .semserve/g1_checks/test_branch.py 2>&1 | tail -8",
+            "output_tail": ":\n  File \"/tmp/semserve-g1-branch-mguq0in4/.semserve/g1_checks/test_branch.py\", line 6, in <module>\n    from model import load_payload\nModuleNotFoundError: No module named 'model'\n"
+          }
+        ]
+      }
+    },
+    "MP08": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 14
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 31,
+            "action": "write",
+            "path": "/app/products/classify/model.py",
+            "error": "Error: cannot modify \"/app/products/classify/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 44,
+            "next_same_path_native_write_or_edit": 57
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 16,
+        "outer_exit_zero": 11,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP09": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 20
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 143,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 39,
+            "action": "write",
+            "path": "/app/engines/calendar/model.py",
+            "error": "Error: cannot modify \"/app/engines/calendar/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 53,
+            "next_same_path_native_write_or_edit": 75
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 115,
+        "outer_exit_zero": 101,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP10": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 17
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 31,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 40,
+            "action": "write",
+            "path": "/app/dinner/model.py",
+            "error": "Error: cannot modify \"/app/dinner/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 70
+          },
+          {
+            "line": 42,
+            "action": "write",
+            "path": "/app/contact/model.py",
+            "error": "Error: cannot modify \"/app/contact/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 58,
+            "next_same_path_native_write_or_edit": 72
+          },
+          {
+            "line": 44,
+            "action": "write",
+            "path": "/app/shopping/model.py",
+            "error": "Error: cannot modify \"/app/shopping/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 59,
+            "next_same_path_native_write_or_edit": 74
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 56,
+        "outer_exit_zero": 52,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP12": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 27
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 33,
+            "action": "write",
+            "path": "/app/products/files/model.py",
+            "error": "Error: cannot modify \"/app/products/files/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 37,
+            "next_same_path_native_write_or_edit": 41
+          },
+          {
+            "line": 60,
+            "action": "write",
+            "path": "/app/products/files/transform.py",
+            "error": "Error: cannot modify \"/app/products/files/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 74,
+            "next_same_path_native_write_or_edit": 78
+          },
+          {
+            "line": 69,
+            "action": "write",
+            "path": "/app/products/files/transform.py",
+            "error": "Error: cannot modify \"/app/products/files/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 74,
+            "next_same_path_native_write_or_edit": 78
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 48,
+        "outer_exit_zero": 41,
+        "python_pipe_tracebacks": [
+          {
+            "line": 492,
+            "tool_ok": true,
+            "scope": "root/plan-002-a83f1934/v2-b8a5527988c4-0/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -20",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          }
+        ]
+      }
+    },
+    "MP13": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 13
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 133,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 33,
+            "action": "write",
+            "path": "/app/engines/numeric/model.py",
+            "error": "Error: cannot modify \"/app/engines/numeric/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 53,
+            "next_same_path_native_write_or_edit": 75
+          },
+          {
+            "line": 35,
+            "action": "write",
+            "path": "/app/engines/category/model.py",
+            "error": "Error: cannot modify \"/app/engines/category/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 55,
+            "next_same_path_native_write_or_edit": 77
+          },
+          {
+            "line": 37,
+            "action": "write",
+            "path": "/app/engines/time/model.py",
+            "error": "Error: cannot modify \"/app/engines/time/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 79
+          },
+          {
+            "line": 39,
+            "action": "write",
+            "path": "/app/engines/union/model.py",
+            "error": "Error: cannot modify \"/app/engines/union/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 59,
+            "next_same_path_native_write_or_edit": 81
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 43,
+        "outer_exit_zero": 28,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP14": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 12
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 41,
+            "action": "write",
+            "path": "/app/chain/model.py",
+            "error": "Error: cannot modify \"/app/chain/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 58,
+            "next_same_path_native_write_or_edit": 71
+          },
+          {
+            "line": 43,
+            "action": "write",
+            "path": "/app/frames/model.py",
+            "error": "Error: cannot modify \"/app/frames/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 59,
+            "next_same_path_native_write_or_edit": 73
+          },
+          {
+            "line": 45,
+            "action": "write",
+            "path": "/app/report/model.py",
+            "error": "Error: cannot modify \"/app/report/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 60,
+            "next_same_path_native_write_or_edit": 75
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 22,
+        "outer_exit_zero": 9,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP15": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 40
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 154,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 168,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 186,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 195,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 74,
+            "action": "write",
+            "path": "/app/engines/ordinary/transform.py",
+            "error": "Error: cannot modify \"/app/engines/ordinary/transform.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 78,
+            "next_same_path_native_write_or_edit": 82
+          },
+          {
+            "line": 122,
+            "action": "write",
+            "path": "/app/engines/ordinary/render.py",
+            "error": "Error: cannot modify \"/app/engines/ordinary/render.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 126,
+            "next_same_path_native_write_or_edit": 130
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 42,
+        "outer_exit_zero": 25,
+        "python_pipe_tracebacks": [
+          {
+            "line": 1788,
+            "tool_ok": true,
+            "scope": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -20",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          },
+          {
+            "line": 1811,
+            "tool_ok": true,
+            "scope": "root/plan-003-c1ae3ede/v2-d66ba95a5cef-1/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "ent call last):\n  File \"/tmp/semserve-g1-branch-6_sfna1j/.semserve/g1_checks/test_branch.py\", line 2, in <module>\n    import run_all\nModuleNotFoundError: No module named 'run_all'\n"
+          }
+        ]
+      }
+    },
+    "MP16": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 18
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 44,
+            "action": "write",
+            "path": "/app/signatures/model.py",
+            "error": "Error: cannot modify \"/app/signatures/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 58,
+            "next_same_path_native_write_or_edit": 80
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 32,
+        "outer_exit_zero": 20,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP17": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 11
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 35,
+            "action": "write",
+            "path": "/app/parts/model.py",
+            "error": "Error: cannot modify \"/app/parts/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 49,
+            "next_same_path_native_write_or_edit": 65
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 28,
+        "outer_exit_zero": 25,
+        "python_pipe_tracebacks": [
+          {
+            "line": 776,
+            "tool_ok": true,
+            "scope": "root/plan-002-419b33bc/v2-765adede4d63-0/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -30",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          }
+        ]
+      }
+    },
+    "MP18": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 10
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 29,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 43,
+            "action": "write",
+            "path": "/app/products/inventory/model.py",
+            "error": "Error: cannot modify \"/app/products/inventory/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 60,
+            "next_same_path_native_write_or_edit": 73
+          },
+          {
+            "line": 45,
+            "action": "write",
+            "path": "/app/products/selection/model.py",
+            "error": "Error: cannot modify \"/app/products/selection/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 61,
+            "next_same_path_native_write_or_edit": 75
+          },
+          {
+            "line": 47,
+            "action": "write",
+            "path": "/app/products/archive/model.py",
+            "error": "Error: cannot modify \"/app/products/archive/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 62,
+            "next_same_path_native_write_or_edit": 77
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 11,
+        "outer_exit_zero": 7,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP19": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 16
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 38,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 56,
+            "action": "write",
+            "path": "/app/engines/scanner/model.py",
+            "error": "Error: cannot modify \"/app/engines/scanner/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 74,
+            "next_same_path_native_write_or_edit": 90
+          },
+          {
+            "line": 58,
+            "action": "write",
+            "path": "/app/engines/dependencies/model.py",
+            "error": "Error: cannot modify \"/app/engines/dependencies/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 76,
+            "next_same_path_native_write_or_edit": 92
+          },
+          {
+            "line": 60,
+            "action": "write",
+            "path": "/app/engines/payload/model.py",
+            "error": "Error: cannot modify \"/app/engines/payload/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 77,
+            "next_same_path_native_write_or_edit": 94
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 46,
+        "outer_exit_zero": 40,
+        "python_pipe_tracebacks": [
+          {
+            "line": 725,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -20",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          },
+          {
+            "line": 770,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": ":\n  File \"/tmp/semserve-g1-branch-49n6sfs0/.semserve/g1_checks/test_branch.py\", line 9, in <module>\n    from model import load_payload\nModuleNotFoundError: No module named 'model'\n"
+          },
+          {
+            "line": 793,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+            "command_tail": "python3 .semserve/g1_checks/test_branch.py 2>&1 | tail -20",
+            "output_tail": "serve-g1-branch-baanc6wz/engines/payload/transform.py\", line 5, in <module>\n    from .model import load_payload\nImportError: attempted relative import with no known parent package\n"
+          },
+          {
+            "line": 884,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "\n  File \"/tmp/semserve-g1-branch-49n6sfs0/.semserve/g1_checks/test_branch.py\", line 10, in <module>\n    from model import load_payload\nModuleNotFoundError: No module named 'model'\n"
+          },
+          {
+            "line": 952,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py 2>&1 | tail -20",
+            "output_tail": "   raise ValueError(\"missing modules\")\nValueError: missing modules\n\n----------------------------------------------------------------------\nRan 5 tests in 0.006s\n\nFAILED (errors=2)\n"
+          },
+          {
+            "line": 1056,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "cd /workspace && sed -i 's/ROOT = HERE.parents\\[2\\]/ROOT = HERE.parents[1]/' .semserve/g1_checks/test_branch.py && python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "ering element 0:\n'pkg'\n'pkg.b'\n\n- ['pkg']\n+ ['pkg.b']\n?      ++\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.007s\n\nFAILED (failures=1)\n"
+          },
+          {
+            "line": 1238,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/payload-impl/attempt-1",
+            "command_tail": "python3 engines/payload/check_module.py 2>&1 | tail -20",
+            "output_tail": "          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/semserve-g1-branch-baanc6wz/outputs/payload.json'\n"
+          },
+          {
+            "line": 1261,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": ".urllib.parse']\n+ ['pkg.b', 'six.moves.urllib.parse']\n?      ++\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.006s\n\nFAILED (failures=1)\n"
+          },
+          {
+            "line": 1373,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "b']\n\nFirst differing element 0:\n'b'\n'pkg.b'\n\n- ['b']\n+ ['pkg.b']\n\n----------------------------------------------------------------------\nRan 2 tests in 0.007s\n\nFAILED (failures=1)\n"
+          },
+          {
+            "line": 1567,
+            "tool_ok": true,
+            "scope": "root/plan-001-68cf8a80/scanner-impl/attempt-1",
+            "command_tail": "cd /workspace && python3 engines/scanner/check_module.py 2>&1 | tail -20",
+            "output_tail": "          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/semserve-g1-branch-49n6sfs0/outputs/scanner.json'\n"
+          }
+        ]
+      }
+    },
+    "MP20": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 24
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 53,
+            "action": "write",
+            "path": "/app/domains/schema/model.py",
+            "error": "Error: cannot modify \"/app/domains/schema/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": null,
+            "next_same_path_native_write_or_edit": null
+          },
+          {
+            "line": 55,
+            "action": "write",
+            "path": "/app/domains/attachments/model.py",
+            "error": "Error: cannot modify \"/app/domains/attachments/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": null,
+            "next_same_path_native_write_or_edit": null
+          },
+          {
+            "line": 57,
+            "action": "write",
+            "path": "/app/views/references/model.py",
+            "error": "Error: cannot modify \"/app/views/references/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": null,
+            "next_same_path_native_write_or_edit": null
+          },
+          {
+            "line": 59,
+            "action": "write",
+            "path": "/app/views/snapshot/model.py",
+            "error": "Error: cannot modify \"/app/views/snapshot/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": null,
+            "next_same_path_native_write_or_edit": null
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 41,
+        "outer_exit_zero": 33,
+        "python_pipe_tracebacks": [
+          {
+            "line": 435,
+            "tool_ok": true,
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-0/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -30",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          },
+          {
+            "line": 458,
+            "tool_ok": true,
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-0/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py 2>&1 | tail -30",
+            "output_tail": " recent call last):\n  File \"/tmp/semserve-g1-branch-6wnygy8x/.semserve/g1_checks/test_branch.py\", line 3, in <module>\n    import model\nModuleNotFoundError: No module named 'model'\n"
+          },
+          {
+            "line": 652,
+            "tool_ok": true,
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-2/attempt-1",
+            "command_tail": "python3 -m unittest .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          },
+          {
+            "line": 721,
+            "tool_ok": true,
+            "scope": "root/plan-002-ff1bb511/v2-4ae8129a6209-2/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py 2>&1 | head -40",
+            "output_tail": "/semserve-g1-branch-kw93c4i9/.semserve/g1_checks/inputs/case.json'\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nFAILED (errors=1)\n"
+          },
+          {
+            "line": 2097,
+            "tool_ok": true,
+            "scope": "root",
+            "command_tail": "cd /workspace && python3 -c \"import sys; sys.path.insert(0,'domains/attachments'); import model; print(model.__file__)\" 2>&1 | head -3; echo \"===\"; cat domains/attachments/model.py",
+            "output_tail": "from pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[2]))\n\nfrom model import load_payload as _load_payload  # noqa: E402\n\nload_payload = _load_payload\n"
+          },
+          {
+            "line": 2156,
+            "tool_ok": true,
+            "scope": "root",
+            "command_tail": "cd /workspace && python3 -c \"import sys; sys.path.insert(0,'domains/attachments'); import model; print(model.__file__)\" 2>&1 | head -3; echo \"===\"; cat domains/attachments/model.py",
+            "output_tail": "from pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[2]))\n\nfrom model import load_payload as _load_payload  # noqa: E402\n\nload_payload = _load_payload\n"
+          }
+        ]
+      }
+    },
+    "MP21": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 13
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 39,
+            "action": "write",
+            "path": "/app/playlist/model.py",
+            "error": "Error: cannot modify \"/app/playlist/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 73
+          },
+          {
+            "line": 41,
+            "action": "write",
+            "path": "/app/query/model.py",
+            "error": "Error: cannot modify \"/app/query/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 59,
+            "next_same_path_native_write_or_edit": 75
+          },
+          {
+            "line": 43,
+            "action": "write",
+            "path": "/app/export/model.py",
+            "error": "Error: cannot modify \"/app/export/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 60,
+            "next_same_path_native_write_or_edit": 77
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 51,
+        "outer_exit_zero": 40,
+        "python_pipe_tracebacks": [
+          {
+            "line": 755,
+            "tool_ok": true,
+            "scope": "root/plan-002-7d9320db/v2-6b6ee5666791-0/attempt-1",
+            "command_tail": "cd /workspace && python3 playlist/check_module.py 2>&1 | tail -20",
+            "output_tail": " \"/tmp/semserve-g1-branch-ezj_v7s3/playlist/render.py\", line 5, in <module>\n    from .model import load_payload\nImportError: attempted relative import with no known parent package\n"
+          },
+          {
+            "line": 828,
+            "tool_ok": true,
+            "scope": "root/plan-002-7d9320db/v2-6b6ee5666791-0/attempt-1",
+            "command_tail": "cd /workspace && python3 playlist/check_module.py 2>&1 | tail -20",
+            "output_tail": "         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/semserve-g1-branch-ezj_v7s3/outputs/playlist.json'\n"
+          },
+          {
+            "line": 1507,
+            "tool_ok": true,
+            "scope": "root/plan-003-ab90c99b/v2-4aaef9920fde-0/attempt-1",
+            "command_tail": "cd /workspace && rm -rf outputs && PYTHONPATH=. python3 -m playlist.render . playlist/contract.json 2>&1 | head -5; echo \"exit=$?\"",
+            "output_tail": "_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/semserve-g1-branch-k63zvhvl/playlist/render.py\", line 5, in <module>\n    from model import load_payload\nexit=0\n"
+          },
+          {
+            "line": 1598,
+            "tool_ok": true,
+            "scope": "root/plan-003-ab90c99b/v2-4aaef9920fde-0/attempt-1",
+            "command_tail": "cd /workspace && python3 check.py 2>&1 | tail -20",
+            "output_tail": "tcode, process.args,\nsubprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/tmp/semserve-g1-branch-k63zvhvl/query/check_module.py']' returned non-zero exit status 1.\n"
+          }
+        ]
+      }
+    },
+    "MP22": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 29
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 214,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 218,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 227,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 273,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 278,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 58,
+            "action": "write",
+            "path": "/app/domains/reader/model.py",
+            "error": "Error: cannot modify \"/app/domains/reader/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 65,
+            "next_same_path_native_write_or_edit": 98
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 103,
+        "outer_exit_zero": 96,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP23": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 14
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 37,
+            "action": "write",
+            "path": "/app/products/chunks/model.py",
+            "error": "Error: cannot modify \"/app/products/chunks/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 50,
+            "next_same_path_native_write_or_edit": 63
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 43,
+        "outer_exit_zero": 29,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP24": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 15
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 48,
+            "action": "write",
+            "path": "/app/engines/eu/model.py",
+            "error": "Error: cannot modify \"/app/engines/eu/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 55,
+            "next_same_path_native_write_or_edit": 82
+          },
+          {
+            "line": 127,
+            "action": "write",
+            "path": "/app/run_all.py",
+            "error": "Error: cannot modify \"/app/run_all.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 132,
+            "next_same_path_native_write_or_edit": 137
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 16,
+        "outer_exit_zero": 10,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP25": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 11
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 35,
+            "action": "write",
+            "path": "/app/domains/classification/model.py",
+            "error": "Error: cannot modify \"/app/domains/classification/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 53,
+            "next_same_path_native_write_or_edit": 69
+          },
+          {
+            "line": 37,
+            "action": "write",
+            "path": "/app/domains/amounts/model.py",
+            "error": "Error: cannot modify \"/app/domains/amounts/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 55,
+            "next_same_path_native_write_or_edit": 71
+          },
+          {
+            "line": 39,
+            "action": "write",
+            "path": "/app/views/archive/model.py",
+            "error": "Error: cannot modify \"/app/views/archive/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 56,
+            "next_same_path_native_write_or_edit": 73
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 4,
+        "outer_exit_zero": 3,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MP26": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 20
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 58,
+            "action": "write",
+            "path": "/app/engines/dates/model.py",
+            "error": "Error: cannot modify \"/app/engines/dates/model.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 63,
+            "next_same_path_native_write_or_edit": 112
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 70,
+        "outer_exit_zero": 62,
+        "python_pipe_tracebacks": [
+          {
+            "line": 2902,
+            "tool_ok": true,
+            "scope": "root",
+            "command_tail": "1s 20s python3 -B /opt/semserve/CurrentV7-Retest18-20261027/experiments/handshake_speculation_v1_report_gate_v1/visible_contract_check_sdk.py --unittest 2>&1 | grep -A 20 \"test_dates_range\" | head -40",
+            "output_tail": "--------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/.semserve/visible_checks/check.py\", line 244, in test_outbox_grouped\n"
+          }
+        ]
+      }
+    },
+    "C007": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 5
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 37,
+        "outer_exit_zero": 26,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C008": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 7
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 8,
+        "outer_exit_zero": 6,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C009": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 17
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 127,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 7,
+        "outer_exit_zero": 7,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C011": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 1
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 48,
+        "outer_exit_zero": 43,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C017": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 7
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 48,
+            "action": "write",
+            "path": "/app/components/contact_keys/work.py",
+            "error": "Error: cannot modify \"/app/components/contact_keys/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 63
+          },
+          {
+            "line": 50,
+            "action": "write",
+            "path": "/app/components/contact_profiles/work.py",
+            "error": "Error: cannot modify \"/app/components/contact_profiles/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 58,
+            "next_same_path_native_write_or_edit": 65
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 15,
+        "outer_exit_zero": 8,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C031": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 22,
+          "error": 1
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 77,
+            "tool_status": "completed",
+            "process_exit": 127
+          },
+          {
+            "line": 107,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 112,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 19,
+        "outer_exit_zero": 11,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C033": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 26
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 194,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 199,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 212,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 249,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 267,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 271,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 59,
+            "action": "write",
+            "path": "/app/components/elf_segments/work.py",
+            "error": "Error: cannot modify \"/app/components/elf_segments/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 68,
+            "next_same_path_native_write_or_edit": 74
+          },
+          {
+            "line": 61,
+            "action": "write",
+            "path": "/app/components/io_buffers/work.py",
+            "error": "Error: cannot modify \"/app/components/io_buffers/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 69,
+            "next_same_path_native_write_or_edit": 76
+          },
+          {
+            "line": 276,
+            "action": "edit",
+            "path": "/app/_test_files.py",
+            "error": "Error: cannot edit \"/app/_test_files.py\": file changed since it was read — re-read the file, then retry",
+            "next_same_path_native_read": 280,
+            "next_same_path_native_write_or_edit": 284
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 28,
+        "outer_exit_zero": 23,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C039": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 5
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 111,
+        "outer_exit_zero": 104,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C049": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 21
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 81,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 109,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 59,
+            "action": "write",
+            "path": "/app/components/batch_gradients/work.py",
+            "error": "Error: cannot modify \"/app/components/batch_gradients/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 66,
+            "next_same_path_native_write_or_edit": 72
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 17,
+        "outer_exit_zero": 11,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C055": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 7
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 47,
+            "action": "write",
+            "path": "/app/components/trusted_bindings/work.py",
+            "error": "Error: cannot modify \"/app/components/trusted_bindings/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 56,
+            "next_same_path_native_write_or_edit": 62
+          },
+          {
+            "line": 49,
+            "action": "write",
+            "path": "/app/components/external_bindings/work.py",
+            "error": "Error: cannot modify \"/app/components/external_bindings/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 64
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 18,
+        "outer_exit_zero": 11,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C056": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 4
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 17,
+        "outer_exit_zero": 12,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C058": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 1
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 13,
+        "outer_exit_zero": 10,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C062": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 8
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 18,
+        "outer_exit_zero": 10,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C066": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 6
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 18,
+        "outer_exit_zero": 13,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C067": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 7
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 88,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 93,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 12,
+        "outer_exit_zero": 9,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C068": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 8
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 92,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 17,
+        "outer_exit_zero": 12,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C069": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 18
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 146,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 151,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 0,
+        "outer_exit_zero": 0,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C074": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 8
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 39,
+            "action": "write",
+            "path": "/app/components/scan_precedence/work.py",
+            "error": "Error: cannot modify \"/app/components/scan_precedence/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 48,
+            "next_same_path_native_write_or_edit": 54
+          },
+          {
+            "line": 41,
+            "action": "write",
+            "path": "/app/components/directory_snapshots/work.py",
+            "error": "Error: cannot modify \"/app/components/directory_snapshots/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 49,
+            "next_same_path_native_write_or_edit": 56
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 12,
+        "outer_exit_zero": 8,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C077": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 9
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 16,
+        "outer_exit_zero": 8,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "C079": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 12
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 47,
+            "action": "write",
+            "path": "/app/components/block_manifest/work.py",
+            "error": "Error: cannot modify \"/app/components/block_manifest/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 56,
+            "next_same_path_native_write_or_edit": 62
+          },
+          {
+            "line": 49,
+            "action": "write",
+            "path": "/app/components/retry_faults/work.py",
+            "error": "Error: cannot modify \"/app/components/retry_faults/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 64
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 9,
+        "outer_exit_zero": 8,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS02": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 10
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 90,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 19,
+        "outer_exit_zero": 11,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS11": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 30
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 95,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 134,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 147,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 183,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 51,
+            "action": "write",
+            "path": "/app/components/student_scores/work.py",
+            "error": "Error: cannot modify \"/app/components/student_scores/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 59,
+            "next_same_path_native_write_or_edit": 64
+          },
+          {
+            "line": 53,
+            "action": "write",
+            "path": "/app/components/buyer_totals/work.py",
+            "error": "Error: cannot modify \"/app/components/buyer_totals/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 60,
+            "next_same_path_native_write_or_edit": 66
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 18,
+        "outer_exit_zero": 16,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS12": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 15
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 71,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 80,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 43,
+            "action": "write",
+            "path": "/app/components/scenario_prefixes/work.py",
+            "error": "Error: cannot modify \"/app/components/scenario_prefixes/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 51,
+            "next_same_path_native_write_or_edit": 56
+          },
+          {
+            "line": 45,
+            "action": "write",
+            "path": "/app/components/menu_eligibility/work.py",
+            "error": "Error: cannot modify \"/app/components/menu_eligibility/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 52,
+            "next_same_path_native_write_or_edit": 58
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 21,
+        "outer_exit_zero": 15,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS14": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 7
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 47,
+            "action": "write",
+            "path": "/app/components/observed_outages/work.py",
+            "error": "Error: cannot modify \"/app/components/observed_outages/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 56,
+            "next_same_path_native_write_or_edit": 62
+          },
+          {
+            "line": 49,
+            "action": "write",
+            "path": "/app/components/service_quorums/work.py",
+            "error": "Error: cannot modify \"/app/components/service_quorums/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 64
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 14,
+        "outer_exit_zero": 8,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS23": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 24
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 66,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 13,
+        "outer_exit_zero": 9,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS28": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 19
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 32,
+            "action": "write",
+            "path": "/app/components/deadline_windows/work.py",
+            "error": "Error: cannot modify \"/app/components/deadline_windows/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 38,
+            "next_same_path_native_write_or_edit": 43
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 14,
+        "outer_exit_zero": 10,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS29": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 13
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 32,
+            "action": "write",
+            "path": "/app/components/dish_requirements/work.py",
+            "error": "Error: cannot modify \"/app/components/dish_requirements/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 41,
+            "next_same_path_native_write_or_edit": 47
+          },
+          {
+            "line": 34,
+            "action": "write",
+            "path": "/app/components/purchase_baskets/work.py",
+            "error": "Error: cannot modify \"/app/components/purchase_baskets/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 42,
+            "next_same_path_native_write_or_edit": 49
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 14,
+        "outer_exit_zero": 8,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS30": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 17
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 30,
+            "action": "write",
+            "path": "/app/components/student_tiers/work.py",
+            "error": "Error: cannot modify \"/app/components/student_tiers/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 39,
+            "next_same_path_native_write_or_edit": 45
+          },
+          {
+            "line": 32,
+            "action": "write",
+            "path": "/app/components/market_ranking/work.py",
+            "error": "Error: cannot modify \"/app/components/market_ranking/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 40,
+            "next_same_path_native_write_or_edit": 47
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 25,
+        "outer_exit_zero": 18,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS41": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 14
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 63,
+            "tool_status": "completed",
+            "process_exit": 1
+          },
+          {
+            "line": 82,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 26,
+            "action": "write",
+            "path": "/app/components/ballot_rules/work.py",
+            "error": "Error: cannot modify \"/app/components/ballot_rules/work.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 30,
+            "next_same_path_native_write_or_edit": 34
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 19,
+        "outer_exit_zero": 12,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "MS42": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 1
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": []
+      },
+      "sp_first": {
+        "all_shell": 15,
+        "outer_exit_zero": 10,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "N11": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 9
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 62,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 29,
+            "action": "write",
+            "path": "/app/engines/block_layout/engine.py",
+            "error": "Error: cannot modify \"/app/engines/block_layout/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 41,
+            "next_same_path_native_write_or_edit": 48
+          },
+          {
+            "line": 31,
+            "action": "write",
+            "path": "/app/engines/squared/engine.py",
+            "error": "Error: cannot modify \"/app/engines/squared/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 42,
+            "next_same_path_native_write_or_edit": 50
+          },
+          {
+            "line": 33,
+            "action": "write",
+            "path": "/app/engines/cubed/engine.py",
+            "error": "Error: cannot modify \"/app/engines/cubed/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 43,
+            "next_same_path_native_write_or_edit": 52
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 10,
+        "outer_exit_zero": 5,
+        "python_pipe_tracebacks": []
+      }
+    },
+    "N17": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 10
+        },
+        "nonzero_exit_markers": [],
+        "mutation_errors": [
+          {
+            "line": 30,
+            "action": "write",
+            "path": "/app/engines/template_dependencies/engine.py",
+            "error": "Error: cannot modify \"/app/engines/template_dependencies/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 44,
+            "next_same_path_native_write_or_edit": 52
+          },
+          {
+            "line": 32,
+            "action": "write",
+            "path": "/app/engines/reverse_index/engine.py",
+            "error": "Error: cannot modify \"/app/engines/reverse_index/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 45,
+            "next_same_path_native_write_or_edit": 54
+          },
+          {
+            "line": 34,
+            "action": "write",
+            "path": "/app/engines/stylesheet_updates/engine.py",
+            "error": "Error: cannot modify \"/app/engines/stylesheet_updates/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 46,
+            "next_same_path_native_write_or_edit": 56
+          },
+          {
+            "line": 36,
+            "action": "write",
+            "path": "/app/run_all.py",
+            "error": "Error: cannot modify \"/app/run_all.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 47,
+            "next_same_path_native_write_or_edit": 58
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 16,
+        "outer_exit_zero": 10,
+        "python_pipe_tracebacks": [
+          {
+            "line": 546,
+            "tool_ok": true,
+            "scope": "root/plan-002-bbdc1913/v2-3b54c4c41a65-1/attempt-1",
+            "command_tail": "cd /tmp/semserve-g1-branch-xrhpy4va && python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -20",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          }
+        ]
+      }
+    },
+    "N22": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 31
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 129,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 96,
+            "action": "write",
+            "path": "/app/products/object_scan/engine.py",
+            "error": "Error: cannot modify \"/app/products/object_scan/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 104,
+            "next_same_path_native_write_or_edit": 112
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 32,
+        "outer_exit_zero": 30,
+        "python_pipe_tracebacks": [
+          {
+            "line": 715,
+            "tool_ok": true,
+            "scope": "root/plan-002-8db7a0a1/v2-a244c4b589e5-0/attempt-1",
+            "command_tail": "python3 -m unittest .semserve.g1_checks.test_branch -v 2>&1 | tail -20",
+            "output_tail": "sr/local/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Empty module name\n"
+          },
+          {
+            "line": 738,
+            "tool_ok": true,
+            "scope": "root/plan-002-8db7a0a1/v2-a244c4b589e5-0/attempt-1",
+            "command_tail": "cd /workspace && python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "):\n  File \"/tmp/semserve-g1-branch-c2mc6n_c/.semserve/g1_checks/test_branch.py\", line 12, in <module>\n    from runtime import module\nModuleNotFoundError: No module named 'runtime'\n"
+          },
+          {
+            "line": 807,
+            "tool_ok": true,
+            "scope": "root/plan-002-8db7a0a1/v2-a244c4b589e5-0/attempt-1",
+            "command_tail": "python3 .semserve/g1_checks/test_branch.py -v 2>&1 | tail -20",
+            "output_tail": "):\n  File \"/tmp/semserve-g1-branch-c2mc6n_c/.semserve/g1_checks/test_branch.py\", line 13, in <module>\n    from runtime import module\nModuleNotFoundError: No module named 'runtime'\n"
+          }
+        ]
+      }
+    },
+    "N24": {
+      "dsh": {
+        "bash_result_status": {
+          "completed": 8
+        },
+        "nonzero_exit_markers": [
+          {
+            "line": 86,
+            "tool_status": "completed",
+            "process_exit": 1
+          }
+        ],
+        "mutation_errors": [
+          {
+            "line": 39,
+            "action": "write",
+            "path": "/app/products/accounts/engine.py",
+            "error": "Error: cannot modify \"/app/products/accounts/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 54,
+            "next_same_path_native_write_or_edit": 63
+          },
+          {
+            "line": 41,
+            "action": "write",
+            "path": "/app/products/books/engine.py",
+            "error": "Error: cannot modify \"/app/products/books/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 55,
+            "next_same_path_native_write_or_edit": 65
+          },
+          {
+            "line": 43,
+            "action": "write",
+            "path": "/app/products/orders/engine.py",
+            "error": "Error: cannot modify \"/app/products/orders/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 56,
+            "next_same_path_native_write_or_edit": 67
+          },
+          {
+            "line": 45,
+            "action": "write",
+            "path": "/app/products/settlement/engine.py",
+            "error": "Error: cannot modify \"/app/products/settlement/engine.py\": file has not been read — read the file, then retry",
+            "next_same_path_native_read": 57,
+            "next_same_path_native_write_or_edit": 69
+          }
+        ]
+      },
+      "sp_first": {
+        "all_shell": 9,
+        "outer_exit_zero": 5,
+        "python_pipe_tracebacks": []
+      }
+    }
+  }
+}
