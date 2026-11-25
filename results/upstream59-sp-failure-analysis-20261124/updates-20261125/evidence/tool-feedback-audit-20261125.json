@@ -1,0 +1,1794 @@
+{
+  "policy": "delivery-bonus-50-v1",
+  "first": {
+    "tasks": 59,
+    "last_selfcheck_counts": {
+      "PASS_BOUNDED": 37,
+      "no_receipt": 9,
+      "PREPARE_REQUIRED": 4,
+      "BUDGET_EXHAUSTED": 8,
+      "SCRIPT_ERROR": 1
+    },
+    "bounded_passes": 37,
+    "bounded_and_strict": 18,
+    "bounded_and_not_strict": [
+      "C031",
+      "C049",
+      "C055",
+      "C058",
+      "C062",
+      "C068",
+      "C074",
+      "C077",
+      "MP06",
+      "MP07",
+      "MP19",
+      "MP24",
+      "MS14",
+      "MS28",
+      "MS30",
+      "MS41",
+      "MS42",
+      "N17",
+      "N24"
+    ],
+    "bounded_ge4": 33,
+    "bounded_ge4_not_strict": 17
+  },
+  "replay_only": {
+    "tasks": 9,
+    "last_selfcheck_counts": {
+      "no_receipt": 3,
+      "PASS_BOUNDED": 5,
+      "BUDGET_EXHAUSTED": 1
+    },
+    "bounded_passes": 5,
+    "bounded_and_strict": 3,
+    "bounded_and_not_strict": [
+      "C033",
+      "MP20"
+    ],
+    "bounded_ge4": 4,
+    "bounded_ge4_not_strict": 1
+  },
+  "strategy_selected": {
+    "tasks": 59,
+    "last_selfcheck_counts": {
+      "PASS_BOUNDED": 42,
+      "no_receipt": 3,
+      "PREPARE_REQUIRED": 4,
+      "BUDGET_EXHAUSTED": 9,
+      "SCRIPT_ERROR": 1
+    },
+    "bounded_passes": 42,
+    "bounded_and_strict": 21,
+    "bounded_and_not_strict": [
+      "C031",
+      "C033",
+      "C049",
+      "C055",
+      "C058",
+      "C062",
+      "C068",
+      "C074",
+      "C077",
+      "MP06",
+      "MP07",
+      "MP19",
+      "MP20",
+      "MP24",
+      "MS14",
+      "MS28",
+      "MS30",
+      "MS41",
+      "MS42",
+      "N17",
+      "N24"
+    ],
+    "bounded_ge4": 37,
+    "bounded_ge4_not_strict": 18
+  },
+  "strict_pairs": {
+    "codex": {
+      "SP_1_codex_0": 7,
+      "SP_1_codex_1": 21,
+      "SP_0_codex_0": 14,
+      "SP_0_codex_1": 17
+    },
+    "dsh": {
+      "SP_1_dsh_0": 10,
+      "SP_1_dsh_1": 18,
+      "SP_0_dsh_0": 13,
+      "SP_0_dsh_1": 18
+    }
+  },
+  "peers_for_selected_bounded_pass_strict_fail": {
+    "neither": [
+      "C031",
+      "C049",
+      "C058",
+      "C062",
+      "MP06",
+      "MS30",
+      "MS42"
+    ],
+    "dsh": [
+      "C033",
+      "MS28"
+    ],
+    "codex+dsh": [
+      "C055",
+      "C068",
+      "C074",
+      "MP07",
+      "MP19",
+      "MP20",
+      "MS41",
+      "N17",
+      "N24"
+    ],
+    "codex": [
+      "C077",
+      "MP24",
+      "MS14"
+    ]
+  },
+  "synthetic_probe": {
+    "pure": {
+      "result": 7,
+      "parent_input": {
+        "items": [
+          1
+        ]
+      },
+      "parent_unchanged": true,
+      "child_input_after": {
+        "items": [
+          1
+        ]
+      }
+    },
+    "impure": {
+      "result": 7,
+      "parent_input": {
+        "items": [
+          1
+        ]
+      },
+      "parent_unchanged": true,
+      "child_input_after": {
+        "items": [
+          1,
+          99
+        ]
+      }
+    },
+    "suite_controls": {
+      "only_local": {
+        "status": "SCRIPT_ERROR",
+        "count": 1,
+        "returncode": 1
+      },
+      "one_live_one_local": {
+        "status": "PASS_BOUNDED",
+        "count": 2,
+        "returncode": 0
+      }
+    }
+  },
+  "attempts": [
+    {
+      "task": "C007",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C007/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        12,
+        12
+      ],
+      "api": [
+        8,
+        8
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 4,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C008",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C008/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        12,
+        12
+      ],
+      "api": [
+        8,
+        8
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C009",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C009/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        14,
+        14
+      ],
+      "api": [
+        10,
+        10
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 4,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C011",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C011/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        2,
+        14
+      ],
+      "api": [
+        1,
+        10
+      ],
+      "reward": "0.214286",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "C017",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C017/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        12,
+        12
+      ],
+      "api": [
+        8,
+        8
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C031",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C031/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        12,
+        13
+      ],
+      "api": [
+        8,
+        9
+      ],
+      "reward": "0.923077",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C033",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C033/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        0,
+        18
+      ],
+      "api": [
+        0,
+        14
+      ],
+      "reward": "0.000000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "C039",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C039/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        0,
+        14
+      ],
+      "api": [
+        0,
+        10
+      ],
+      "reward": "0.000000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "C049",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C049/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        3,
+        12
+      ],
+      "api": [
+        1,
+        8
+      ],
+      "reward": "0.250000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C055",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C055/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        12,
+        13
+      ],
+      "api": [
+        8,
+        9
+      ],
+      "reward": "0.923077",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 4,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C056",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C056/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        13,
+        13
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C058",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C058/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        3,
+        13
+      ],
+      "api": [
+        1,
+        9
+      ],
+      "reward": "0.346154",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C062",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C062/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        7,
+        12
+      ],
+      "api": [
+        5,
+        8
+      ],
+      "reward": "0.583333",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C066",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C066/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        5,
+        12
+      ],
+      "api": [
+        4,
+        8
+      ],
+      "reward": "0.416667",
+      "last_selfcheck": "PREPARE_REQUIRED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED"
+      ]
+    },
+    {
+      "task": "C067",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C067/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        13,
+        13
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 7,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C068",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C068/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        10,
+        13
+      ],
+      "api": [
+        8,
+        9
+      ],
+      "reward": "1.153846",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C069",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C069/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        0,
+        13
+      ],
+      "api": [
+        0,
+        9
+      ],
+      "reward": "0.000000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "C074",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C074/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        10,
+        12
+      ],
+      "api": [
+        6,
+        8
+      ],
+      "reward": "0.833333",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 4,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C077",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C077/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        8,
+        13
+      ],
+      "api": [
+        6,
+        9
+      ],
+      "reward": "0.923077",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C079",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/C079/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        13,
+        13
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP01",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/weighted_voting/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        12,
+        28
+      ],
+      "api": [
+        9,
+        17
+      ],
+      "reward": "0.428571",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "MP02",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/single_axis_concat/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        22,
+        25
+      ],
+      "api": [
+        14,
+        16
+      ],
+      "reward": "0.880000",
+      "last_selfcheck": "PREPARE_REQUIRED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED"
+      ]
+    },
+    {
+      "task": "MP03",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/offline_mount_facts/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        32,
+        32
+      ],
+      "api": [
+        21,
+        21
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP04",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/multiformat_user_merge/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        36,
+        36
+      ],
+      "api": [
+        25,
+        25
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PREPARE_REQUIRED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED"
+      ]
+    },
+    {
+      "task": "MP05",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/cross_app_contact_ranking/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        32,
+        32
+      ],
+      "api": [
+        21,
+        21
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP06",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/calendar_cancel_notify/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        12,
+        25
+      ],
+      "api": [
+        8,
+        16
+      ],
+      "reward": "0.480000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP07",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/send_archive_cleanup/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        14,
+        22
+      ],
+      "api": [
+        9,
+        13
+      ],
+      "reward": "0.636364",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP08",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/holiday_photo_migration/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        28,
+        28
+      ],
+      "api": [
+        19,
+        19
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP09",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/panel_events_procurement/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        39,
+        39
+      ],
+      "api": [
+        28,
+        28
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP10",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/dinner_contact_checkout/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        31,
+        31
+      ],
+      "api": [
+        22,
+        22
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP12",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/linux2/files_mail_workspace/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        32,
+        32
+      ],
+      "api": [
+        21,
+        21
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP13",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/grouped_feature_union/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        32,
+        32
+      ],
+      "api": [
+        21,
+        21
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP14",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/portable_exception_report/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        11,
+        22
+      ],
+      "api": [
+        9,
+        13
+      ],
+      "reward": "0.500000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "MP15",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/python_import_usage/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        25,
+        32
+      ],
+      "api": [
+        18,
+        21
+      ],
+      "reward": "0.781250",
+      "last_selfcheck": "SCRIPT_ERROR",
+      "cases": 8,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR"
+      ]
+    },
+    {
+      "task": "MP16",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/context8/api_documentation_merge/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        32,
+        32
+      ],
+      "api": [
+        21,
+        21
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 10,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP17",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/context8/multipart_encoding/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        25,
+        25
+      ],
+      "api": [
+        16,
+        16
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP18",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/linux2/collection_manifest/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        25,
+        25
+      ],
+      "api": [
+        16,
+        16
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 10,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP19",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/module_dependency_zip/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        21,
+        22
+      ],
+      "api": [
+        12,
+        13
+      ],
+      "reward": "0.954545",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 4,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP20",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/multistage4/feature_config_snapshot/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        5,
+        32
+      ],
+      "api": [
+        0,
+        21
+      ],
+      "reward": "0.156250",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "MP21",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/playlist_query_export/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        17,
+        25
+      ],
+      "api": [
+        12,
+        16
+      ],
+      "reward": "0.680000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP22",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/marc_catalog_import/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        34,
+        34
+      ],
+      "api": [
+        21,
+        21
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP23",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/linux2/reversible_file_resharding/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        25,
+        25
+      ],
+      "api": [
+        16,
+        16
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 10,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP24",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/reasoning4/university_relation_query/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        36,
+        37
+      ],
+      "api": [
+        25,
+        26
+      ],
+      "reward": "0.972973",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 2,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP25",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        14,
+        25
+      ],
+      "api": [
+        12,
+        16
+      ],
+      "reward": "0.560000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "MP26",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-mp10-current-v1/online/on/cases/reasoning4/recurring_dinner_calendar/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        38,
+        39
+      ],
+      "api": [
+        25,
+        26
+      ],
+      "reward": "0.974359",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "SCRIPT_ERROR",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MS02",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS02/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        11,
+        13
+      ],
+      "api": [
+        7,
+        9
+      ],
+      "reward": "1.269231",
+      "last_selfcheck": "PREPARE_REQUIRED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED"
+      ]
+    },
+    {
+      "task": "MS11",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS11/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        1,
+        14
+      ],
+      "api": [
+        1,
+        10
+      ],
+      "reward": "0.107143",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "MS12",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS12/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        14,
+        14
+      ],
+      "api": [
+        10,
+        10
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS14",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS14/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        4,
+        14
+      ],
+      "api": [
+        3,
+        10
+      ],
+      "reward": "0.428571",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS23",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS23/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        14,
+        14
+      ],
+      "api": [
+        10,
+        10
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 3,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS28",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS28/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        7,
+        14
+      ],
+      "api": [
+        6,
+        10
+      ],
+      "reward": "0.750000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS29",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS29/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        13,
+        13
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 4,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS30",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS30/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        11,
+        14
+      ],
+      "api": [
+        9,
+        10
+      ],
+      "reward": "1.178571",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS41",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS41/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        7,
+        15
+      ],
+      "api": [
+        5,
+        11
+      ],
+      "reward": "0.700000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS42",
+      "stage": "first",
+      "path": "semserve/20261121-v21-cms30-v1/online/on/cases/context8/MS42/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        10,
+        16
+      ],
+      "api": [
+        8,
+        12
+      ],
+      "reward": "0.937500",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 2,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "N11",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N11/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        17,
+        17
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 3,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "N17",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N17/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        11,
+        17
+      ],
+      "api": [
+        8,
+        9
+      ],
+      "reward": "0.647059",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "N22",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N22/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        19,
+        19
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED",
+        "FINAL_VALIDATION_FAILED",
+        "PASS_BOUNDED",
+        "FINAL_VALIDATION_FAILED",
+        "PASS_BOUNDED",
+        "FINAL_VALIDATION_FAILED",
+        "PASS_BOUNDED",
+        "FINAL_VALIDATION_FAILED",
+        "PASS_BOUNDED",
+        "FINAL_VALIDATION_FAILED",
+        "PASS_BOUNDED",
+        "FINAL_VALIDATION_FAILED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "N24",
+      "stage": "first",
+      "path": "semserve/20261120-upstream59-rest49-current-v1/online/on/cases/context8/N24/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        22,
+        25
+      ],
+      "api": [
+        9,
+        12
+      ],
+      "reward": "0.880000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C011",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C011/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        7,
+        14
+      ],
+      "api": [
+        6,
+        10
+      ],
+      "reward": "0.750000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "C033",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C033/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        3,
+        18
+      ],
+      "api": [
+        1,
+        14
+      ],
+      "reward": "0.166667",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 3,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "C039",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C039/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        0,
+        14
+      ],
+      "api": [
+        0,
+        10
+      ],
+      "reward": "0.000000",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    },
+    {
+      "task": "C069",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/C069/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        13,
+        13
+      ],
+      "api": [
+        9,
+        9
+      ],
+      "reward": "3.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 6,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP01",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP01/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        20,
+        28
+      ],
+      "api": [
+        13,
+        17
+      ],
+      "reward": "0.714286",
+      "last_selfcheck": "BUDGET_EXHAUSTED",
+      "cases": null,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "SCRIPT_ERROR",
+        "SCRIPT_ERROR",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "task": "MP14",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/portable_exception_report/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        22,
+        22
+      ],
+      "api": [
+        13,
+        13
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 5,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP20",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MP20/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": false,
+      "public": true,
+      "core": [
+        21,
+        32
+      ],
+      "api": [
+        14,
+        21
+      ],
+      "reward": "0.656250",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 7,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MP25",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/multistage4/text_invoice_archive/dynamic_v7",
+      "difficulty": "M",
+      "integrity": true,
+      "strict": true,
+      "public": true,
+      "core": [
+        25,
+        25
+      ],
+      "api": [
+        16,
+        16
+      ],
+      "reward": "2.000000",
+      "last_selfcheck": "PASS_BOUNDED",
+      "cases": 10,
+      "selfcheck_history": [
+        "PREPARE_REQUIRED",
+        "PASS_BOUNDED"
+      ]
+    },
+    {
+      "task": "MS11",
+      "stage": "replay",
+      "path": "semserve/20261121-pubfail9-rerun-v1/online/on/cases/context8/MS11/dynamic_v7",
+      "difficulty": "H",
+      "integrity": true,
+      "strict": false,
+      "public": false,
+      "core": [
+        1,
+        14
+      ],
+      "api": [
+        1,
+        10
+      ],
+      "reward": "0.107143",
+      "last_selfcheck": null,
+      "cases": null,
+      "selfcheck_history": []
+    }
+  ]
+}
