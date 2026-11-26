@@ -28,6 +28,8 @@ python3 validate_release.py
 
 ## 结果
 
+[Qwen3.8-Max 关闭推理：六套 Harness × 59 题完整报告与全部 trace](results/upstream59-v21-qwen38-max-off-20261126/README.md)。覆盖354个选定题位及全部394条attempt记录（387次实际模型运行、7条零发送隔离）；含ACC、API、新版reward、完整E2E、tokens、缓存、目录价和全部旧异常。每题trace独立下载，附原文件与发布副本SHA-256。
+
 11 月 25 日更新 · [SP 严格通过率改进实施手册](results/upstream59-sp-failure-analysis-20261124/updates-20261125/SP严格通过率改进实施手册-20261125.md) · [Nanobot 工具链分析与 SP 改进建议](results/upstream59-sp-failure-analysis-20261124/updates-20261125/Nanobot工具链分析与SP改进建议.md) · [配套证据与离线复核](results/upstream59-sp-failure-analysis-20261124/updates-20261125/README.md)
 
 [SP、Codex 与 DSH 的严格通过率分析和 SP 改进方案](results/upstream59-sp-failure-analysis-20261124/README.md)。收录 SP 的 59 题索引、134 个未通过的核心 API 检查、Codex 与 DSH 的主动补测轨迹、16 页汇报 PPT、证据数据及离线复核工具。历史实测成绩与改进方案的预期收益分别列出。
