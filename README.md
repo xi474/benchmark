@@ -28,6 +28,8 @@ python3 validate_release.py
 
 ## 结果
 
+[GLM-5.3 low 完整对比报告与 trace](results/upstream59-v21-glm53-low-20261127/README.md)。包含原矩阵 354 格、LATTE 5/20 轮同题配对、9 张图和 413 份逐题归档。C031 为补跑前记录。
+
 [Qwen3.8-Max 关闭推理：六套 Harness × 59 题完整报告与全部 trace](results/upstream59-v21-qwen38-max-off-20261126/README.md)。覆盖354个选定题位及全部394条attempt记录（387次实际模型运行、7条零发送隔离）；含ACC、API、新版reward、完整E2E、tokens、缓存、目录价和全部旧异常。每题trace独立下载，附原文件与发布副本SHA-256。
 
 11 月 25 日更新 · [SP 严格通过率改进实施手册](results/upstream59-sp-failure-analysis-20261124/updates-20261125/SP严格通过率改进实施手册-20261125.md) · [Nanobot 工具链分析与 SP 改进建议](results/upstream59-sp-failure-analysis-20261124/updates-20261125/Nanobot工具链分析与SP改进建议.md) · [配套证据与离线复核](results/upstream59-sp-failure-analysis-20261124/updates-20261125/README.md)
