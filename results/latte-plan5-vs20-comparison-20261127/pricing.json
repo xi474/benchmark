@@ -1,0 +1,23 @@
+{
+  "fee_is_invoice": false,
+  "description": "Frozen comparison rates used in this report, not a current-price lookup or actual Token Plan settlement.",
+  "deepseek": {
+    "currency": "USD",
+    "per_million_uncached_input": 1.32,
+    "per_million_cached_input": 0.044,
+    "per_million_output": 3.96,
+    "formula": "((input_tokens-cache_tokens)*1.32 + cache_tokens*0.044 + output_tokens*3.96)/1000000",
+    "both_arms_repriced_at_same_peak_basis": true,
+    "historical_five_turn_offpeak_cost_not_directly_compared": true
+  },
+  "qwen": {
+    "currency": "CNY",
+    "per_million_input": 12,
+    "per_million_output": 36,
+    "cache_discount_applied": false,
+    "formula": "(input_tokens*12 + output_tokens*36)/1000000",
+    "not_token_plan_actual_debit": true
+  },
+  "unknown_usage": "Preserved as unknown; unknown costs excluded, never treated as zero. Selected-arm costs exclude old unsuccessful/interrupted attempts.",
+  "currency_aggregation": "Do not add USD and CNY or use their ratio across models."
+}

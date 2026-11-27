@@ -1,0 +1,963 @@
+{
+  "fee_is_invoice": false,
+  "unknown_cost_excluded_and_preserved": true,
+  "providers": {
+    "deepseek": {
+      "sent": 6552,
+      "settled": 6550,
+      "unknown": 2,
+      "known_usage_cost_estimate": 27.073265208000002,
+      "currency": "USD",
+      "input_tokens_known": 33288829,
+      "output_tokens_known": 930154
+    },
+    "qwen": {
+      "sent": 5762,
+      "settled": 5762,
+      "unknown": 0,
+      "known_usage_cost_estimate": 315.30722399999996,
+      "currency": "CNY",
+      "input_tokens_known": 25402617,
+      "output_tokens_known": 290995
+    }
+  },
+  "old_interrupted_attempts": [
+    {
+      "cell_id": "latte20-deepseek-mp19-20261126-r1",
+      "trial_id": "latte20-deepseek-mp19-20261126-r1-segment-02",
+      "task_id": "MP19",
+      "harness": "latte-planning-adapted",
+      "stage": 2,
+      "instruction_sha256": "f2ada6d364c915cabe8b263715a9ce479fefb664ccda9a15597a92e94caa3ea3",
+      "registry_sha256": "98f8688f7e186eb28f414b90e20db8d854b5d90014170a07263f2feed5c5d358",
+      "max_reward": 2,
+      "workspace_layout": "legacy",
+      "comparison_parent_cell_id": "u59-v21-qwen38-max-off-latte-planning-adapted-mp19",
+      "returncode": 0,
+      "score": null,
+      "technical_passed": false,
+      "requests_sent": 0,
+      "requests_settled": 0,
+      "requests_unknown": 0,
+      "cost_estimate": 0,
+      "cost_currency": "USD",
+      "fee_is_invoice": false,
+      "stop_reason": "Request stopped while waiting; no reservation or upstream send",
+      "result_file": "<run-root>/latte-plan20-deepseek-20261126-r1/runs/segment-02/jobs/latte20-deepseek-mp19-20261126-r1-segment-02/MP19__5n76dFV/result.json",
+      "terminal": "NonZeroAgentExitCodeError",
+      "actual_mode_verified": false,
+      "request_tools_and_prompt_observed": false,
+      "native": {
+        "root_known": true,
+        "child_count": null
+      },
+      "resources_observed": true,
+      "planning20_verified": false,
+      "workspace_interface_verified": true,
+      "terminal_classification": "runtime_failure_requires_audit",
+      "planning_turns_used": 0,
+      "planning_tasks_discovered": null
+    },
+    {
+      "cell_id": "latte20-deepseek-mp16-20261126-r1",
+      "trial_id": "latte20-deepseek-mp16-20261126-r1-segment-02",
+      "task_id": "MP16",
+      "harness": "latte-planning-adapted",
+      "stage": 2,
+      "instruction_sha256": "7af71a3f74793fa51eca0228d355d4f78e3830b864fb0fc3e33b535abaf4eccb",
+      "registry_sha256": "74ff28ad7a5b8799cc73a5708965a26681b63fe592f1484ad100c7e7da876f7b",
+      "max_reward": 2,
+      "workspace_layout": "legacy",
+      "comparison_parent_cell_id": "u59-v21-qwen38-max-off-latte-planning-adapted-mp16",
+      "returncode": 0,
+      "score": {
+        "task": "MP16",
+        "benchmark_version": "2.0.0",
+        "scoring_revision": "delivery-bonus-50-v1",
+        "reward_difficulty": "M",
+        "empirical_difficulty": "H",
+        "max_reward": 2,
+        "total_verifiers": 32,
+        "integrity_ok": true,
+        "public_pass": false,
+        "strict_pass": false,
+        "passed_verifiers": 6,
+        "core_transform_cases_total": 21,
+        "core_transform_cases_passed": 5,
+        "core_transform_case_pass_rate": 0.23809523809523808,
+        "reward": "0.187500",
+        "robustness_all_passed": false,
+        "full_spec_pass": false,
+        "checks": [
+          {
+            "id": "api/signatures/heldout-101",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/signatures/heldout-202",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/signatures/heldout-303",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/signatures/boundary",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/signatures/empty-collection",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "io/signatures",
+            "category": "B",
+            "passed": true
+          },
+          {
+            "id": "output/signatures",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/parameters/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parameters/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parameters/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parameters/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parameters/empty-collection",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parameters/invalid-business-field",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/parameters",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/parameters",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/inheritance/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/inheritance/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/inheritance/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/inheritance/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/inheritance/empty-collection",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/inheritance",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/inheritance",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/document/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/document/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/document/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/document/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/document/empty-collection",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/document",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/document",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/core_manifest",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/final_report",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "P/public-check",
+            "category": "P",
+            "passed": false
+          }
+        ],
+        "status": "scored"
+      },
+      "technical_passed": false,
+      "requests_sent": 55,
+      "requests_settled": 55,
+      "requests_unknown": 0,
+      "cost_estimate": 0.13548559200000002,
+      "cost_currency": "USD",
+      "fee_is_invoice": false,
+      "stop_reason": "Request stopped while waiting; no reservation or upstream send",
+      "result_file": "<run-root>/latte-plan20-deepseek-20261126-r1/runs/segment-02/jobs/latte20-deepseek-mp16-20261126-r1-segment-02/MP16__FzSZ4ne/result.json",
+      "terminal": "NonZeroAgentExitCodeError",
+      "actual_mode_verified": true,
+      "request_tools_and_prompt_observed": true,
+      "native": {
+        "root_known": true,
+        "child_count": null
+      },
+      "resources_observed": true,
+      "planning20_verified": true,
+      "workspace_interface_verified": true,
+      "terminal_classification": "runtime_failure_requires_audit",
+      "planning_turns_used": 20,
+      "planning_tasks_discovered": 5,
+      "offline_score_status": "scored",
+      "harbor_receipt_task": "MP16",
+      "score_sha256": "6cecfb3c0f00e7d7a53277084d29679d49520b7bc13c1b1558176d79beae1fbc"
+    },
+    {
+      "cell_id": "latte20-deepseek-mp17-20261126-r1",
+      "trial_id": "latte20-deepseek-mp17-20261126-r1-segment-02",
+      "task_id": "MP17",
+      "harness": "latte-planning-adapted",
+      "stage": 2,
+      "instruction_sha256": "7d9c670f65cd47a962ee90d26ce124ba478e3c0d177a933bcdc0dafe9dcef773",
+      "registry_sha256": "2b641e2fb540cd8a08536ee4643439a1627ec5b5c622504ef06af533a4b984b8",
+      "max_reward": 2,
+      "workspace_layout": "legacy",
+      "comparison_parent_cell_id": "u59-v21-qwen38-max-off-latte-planning-adapted-mp17",
+      "returncode": 0,
+      "score": {
+        "task": "MP17",
+        "benchmark_version": "2.0.0",
+        "scoring_revision": "delivery-bonus-50-v1",
+        "reward_difficulty": "M",
+        "empirical_difficulty": "H",
+        "max_reward": 2,
+        "total_verifiers": 25,
+        "integrity_ok": true,
+        "public_pass": false,
+        "strict_pass": false,
+        "passed_verifiers": 2,
+        "core_transform_cases_total": 16,
+        "core_transform_cases_passed": 2,
+        "core_transform_case_pass_rate": 0.125,
+        "reward": "0.080000",
+        "robustness_all_passed": false,
+        "full_spec_pass": false,
+        "checks": [
+          {
+            "id": "api/parts/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parts/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parts/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parts/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/parts/empty-parts",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/parts/invalid-business-field",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "io/parts",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/parts",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/encoding/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/encoding/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/encoding/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/encoding/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/encoding/empty-parts",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/encoding",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/encoding",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/body/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/body/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/body/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/body/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/body/empty-parts",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/body",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/body",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/core_manifest",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/final_report",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "P/public-check",
+            "category": "P",
+            "passed": false
+          }
+        ],
+        "status": "scored"
+      },
+      "technical_passed": false,
+      "requests_sent": 11,
+      "requests_settled": 10,
+      "requests_unknown": 1,
+      "cost_estimate": 0.064509632,
+      "cost_currency": "USD",
+      "fee_is_invoice": false,
+      "stop_reason": "Request stopped while waiting; no reservation or upstream send",
+      "result_file": "<run-root>/latte-plan20-deepseek-20261126-r1/runs/segment-02/jobs/latte20-deepseek-mp17-20261126-r1-segment-02/MP17__wFutJXe/result.json",
+      "terminal": "NonZeroAgentExitCodeError",
+      "actual_mode_verified": true,
+      "request_tools_and_prompt_observed": true,
+      "native": {
+        "root_known": true,
+        "child_count": null
+      },
+      "resources_observed": true,
+      "planning20_verified": true,
+      "workspace_interface_verified": true,
+      "terminal_classification": "runtime_failure_requires_audit",
+      "planning_turns_used": 1,
+      "planning_tasks_discovered": 4,
+      "offline_score_status": "scored",
+      "harbor_receipt_task": "MP17",
+      "score_sha256": "ed9210e0bb36aceb6b431bf49a248cff5c744fe76130280ccbd63ed98a12bdee"
+    },
+    {
+      "cell_id": "latte20-deepseek-mp18-20261126-r1",
+      "trial_id": "latte20-deepseek-mp18-20261126-r1-segment-02",
+      "task_id": "MP18",
+      "harness": "latte-planning-adapted",
+      "stage": 2,
+      "instruction_sha256": "ca1e2ea83776ab489a55e4374d0810343c226322621e88c63b1c854f30c27cab",
+      "registry_sha256": "6b5bab6d45bfc9a146c4694098b40b2daa3488ec17529ae57865308caaee0e5e",
+      "max_reward": 2,
+      "workspace_layout": "legacy",
+      "comparison_parent_cell_id": "u59-v21-qwen38-max-off-latte-planning-adapted-mp18",
+      "returncode": 0,
+      "score": null,
+      "technical_passed": false,
+      "requests_sent": 1,
+      "requests_settled": 0,
+      "requests_unknown": 1,
+      "cost_estimate": 0,
+      "cost_currency": "USD",
+      "fee_is_invoice": false,
+      "stop_reason": "Request stopped while waiting; no reservation or upstream send",
+      "result_file": "<run-root>/latte-plan20-deepseek-20261126-r1/runs/segment-02/jobs/latte20-deepseek-mp18-20261126-r1-segment-02/MP18__oBZvhRz/result.json",
+      "terminal": "NonZeroAgentExitCodeError",
+      "actual_mode_verified": true,
+      "request_tools_and_prompt_observed": true,
+      "native": {
+        "root_known": true,
+        "child_count": null
+      },
+      "resources_observed": true,
+      "planning20_verified": false,
+      "workspace_interface_verified": true,
+      "terminal_classification": "runtime_failure_requires_audit",
+      "planning_turns_used": 0,
+      "planning_tasks_discovered": null
+    },
+    {
+      "cell_id": "latte20-deepseek-mp04-20261126-r1",
+      "trial_id": "latte20-deepseek-mp04-20261126-r1-segment-02",
+      "task_id": "MP04",
+      "harness": "latte-planning-adapted",
+      "stage": 2,
+      "instruction_sha256": "dde3aa863faeddeb19681bd966eec32c03397070e01eda32fcd926db29a1861f",
+      "registry_sha256": "8baf3548d324d68a235d8dd769295fb0cf61cc2e6bc345ee1b98817fc7600dbc",
+      "max_reward": 2,
+      "workspace_layout": "legacy",
+      "comparison_parent_cell_id": "u59-v21-qwen38-max-off-latte-planning-adapted-mp04",
+      "returncode": 0,
+      "score": {
+        "task": "MP04",
+        "benchmark_version": "2.0.0",
+        "scoring_revision": "delivery-bonus-50-v1",
+        "reward_difficulty": "M",
+        "empirical_difficulty": "H",
+        "max_reward": 2,
+        "total_verifiers": 36,
+        "integrity_ok": true,
+        "public_pass": false,
+        "strict_pass": false,
+        "passed_verifiers": 15,
+        "core_transform_cases_total": 25,
+        "core_transform_cases_passed": 13,
+        "core_transform_case_pass_rate": 0.52,
+        "reward": "0.416667",
+        "robustness_all_passed": false,
+        "full_spec_pass": false,
+        "checks": [
+          {
+            "id": "api/json_users/heldout-101",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/json_users/heldout-202",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/json_users/heldout-303",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/json_users/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/json_users/empty-inputs",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/json_users/invalid-top-level",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/json_users/invalid-business-field",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "io/json_users",
+            "category": "B",
+            "passed": true
+          },
+          {
+            "id": "output/json_users",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/csv_users/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/csv_users/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/csv_users/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/csv_users/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/csv_users/empty-inputs",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/csv_users/invalid-top-level",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "io/csv_users",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/csv_users",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/jsonl_users/heldout-101",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/jsonl_users/heldout-202",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/jsonl_users/heldout-303",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/jsonl_users/boundary",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/jsonl_users/empty-inputs",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "api/jsonl_users/invalid-top-level",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/jsonl_users",
+            "category": "B",
+            "passed": true
+          },
+          {
+            "id": "output/jsonl_users",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/directory/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/directory/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/directory/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/directory/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/directory/empty-inputs",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/directory/invalid-top-level",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "io/directory",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/directory",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/core_manifest",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/final_report",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "P/public-check",
+            "category": "P",
+            "passed": false
+          }
+        ],
+        "status": "scored"
+      },
+      "technical_passed": false,
+      "requests_sent": 133,
+      "requests_settled": 133,
+      "requests_unknown": 0,
+      "cost_estimate": 1.453906168,
+      "cost_currency": "USD",
+      "fee_is_invoice": false,
+      "stop_reason": "Request stopped while waiting; no reservation or upstream send",
+      "result_file": "<run-root>/latte-plan20-deepseek-20261126-r1/runs/segment-02/jobs/latte20-deepseek-mp04-20261126-r1-segment-02/MP04__8FKberB/result.json",
+      "terminal": "NonZeroAgentExitCodeError",
+      "actual_mode_verified": true,
+      "request_tools_and_prompt_observed": true,
+      "native": {
+        "root_known": true,
+        "child_count": null
+      },
+      "resources_observed": true,
+      "planning20_verified": true,
+      "workspace_interface_verified": true,
+      "terminal_classification": "runtime_failure_requires_audit",
+      "planning_turns_used": 20,
+      "planning_tasks_discovered": 5,
+      "offline_score_status": "scored",
+      "harbor_receipt_task": "MP04",
+      "score_sha256": "0c92011b1c2e49689c4b46ebf6a86a54cfb5b57a1118f67364a613e2a357e309"
+    },
+    {
+      "cell_id": "latte20-deepseek-mp15-20261126-r1",
+      "trial_id": "latte20-deepseek-mp15-20261126-r1-segment-02",
+      "task_id": "MP15",
+      "harness": "latte-planning-adapted",
+      "stage": 2,
+      "instruction_sha256": "7ecd5bf9721269ddebf923aa1bc70c0248e1b16446d426dae759ae06e6dd2b0b",
+      "registry_sha256": "2606143d78476372949f1da0ca0fd146ddbc82864c5c1125d3ed9ef7d0dbf4b1",
+      "max_reward": 2,
+      "workspace_layout": "legacy",
+      "comparison_parent_cell_id": "u59-v21-qwen38-max-off-latte-planning-adapted-mp15",
+      "returncode": 0,
+      "score": {
+        "task": "MP15",
+        "benchmark_version": "2.0.0",
+        "scoring_revision": "delivery-bonus-50-v1",
+        "reward_difficulty": "M",
+        "empirical_difficulty": "H",
+        "max_reward": 2,
+        "total_verifiers": 32,
+        "integrity_ok": true,
+        "public_pass": false,
+        "strict_pass": false,
+        "passed_verifiers": 1,
+        "core_transform_cases_total": 21,
+        "core_transform_cases_passed": 1,
+        "core_transform_case_pass_rate": 0.047619047619047616,
+        "reward": "0.031250",
+        "robustness_all_passed": false,
+        "full_spec_pass": false,
+        "checks": [
+          {
+            "id": "api/ordinary/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/ordinary/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/ordinary/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/ordinary/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/ordinary/signature-scope",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/ordinary",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/ordinary",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/annotations/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/annotations/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/annotations/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/annotations/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/annotations/signature-scope",
+            "category": "A",
+            "passed": true
+          },
+          {
+            "id": "io/annotations",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/annotations",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/comments/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/comments/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/comments/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/comments/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/comments/signature-scope",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/comments",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/comments",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "api/analysis/heldout-101",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/analysis/heldout-202",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/analysis/heldout-303",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/analysis/boundary",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/analysis/signature-scope",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "api/analysis/invalid-business-field",
+            "category": "A",
+            "passed": false
+          },
+          {
+            "id": "io/analysis",
+            "category": "B",
+            "passed": false
+          },
+          {
+            "id": "output/analysis",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/core_manifest",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "output/final_report",
+            "category": "D",
+            "passed": false
+          },
+          {
+            "id": "P/public-check",
+            "category": "P",
+            "passed": false
+          }
+        ],
+        "status": "scored"
+      },
+      "technical_passed": false,
+      "requests_sent": 49,
+      "requests_settled": 49,
+      "requests_unknown": 0,
+      "cost_estimate": 0.15116648800000002,
+      "cost_currency": "USD",
+      "fee_is_invoice": false,
+      "stop_reason": "Request stopped while waiting; no reservation or upstream send",
+      "result_file": "<run-root>/latte-plan20-deepseek-20261126-r1/runs/segment-02/jobs/latte20-deepseek-mp15-20261126-r1-segment-02/MP15__AwcrRdp/result.json",
+      "terminal": "NonZeroAgentExitCodeError",
+      "actual_mode_verified": true,
+      "request_tools_and_prompt_observed": true,
+      "native": {
+        "root_known": true,
+        "child_count": null
+      },
+      "resources_observed": true,
+      "planning20_verified": true,
+      "workspace_interface_verified": true,
+      "terminal_classification": "runtime_failure_requires_audit",
+      "planning_turns_used": 20,
+      "planning_tasks_discovered": 7,
+      "offline_score_status": "scored",
+      "harbor_receipt_task": "MP15",
+      "score_sha256": "8ec8edb8ccd9c25f911c4401f7a36f1dbc983e95e43a8dfc95f4851db332c04e"
+    }
+  ]
+}
