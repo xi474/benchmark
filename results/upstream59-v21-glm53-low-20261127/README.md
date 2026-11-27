@@ -4,6 +4,13 @@
 
 本页的结果对比并列展示 LATTE 5 轮和 20 轮，也提供 354 格原矩阵和 LATTE 配对图。逐题运行证据见[已脱敏的 trace 目录](TRACE.md)。
 
+
+## 含Codex CLI＋SP的完整总账
+
+[七套Harness完整总账，按Reward排序](WITH-CODEX-SP.md) · [Codex CLI＋SP完整59题结果](CODEX-SP.md)
+
+新增Codex CLI＋SP：Reward **97.361365/138**，公开 **58/59**，严格 **34/59**，API **706/803（87.92%）**，平均完整E2E **359.56秒**，冻结费率估算费用 **¥178.740416**。在八种配置中Reward第2、API acc第1、严格通过数第4。以下保留原始六套Harness及LATTE对照。
+
 ## 结论
 
 - 原矩阵 **354/354 格通过技术验收**。合计 reward **465.373088/828**，严格通过 **179/354**，核心 API 微平均 **3213/4818（66.69%）**。DSH 的 reward、严格通过数和 API 微平均在六套中最高。
@@ -113,3 +120,4 @@
 - [354 格完整矩阵 CSV](matrix-354.csv) · [矩阵 JSON](matrix-354.json)
 - [LATTE 59 对 CSV](latte-59-paired.csv) · [配对 JSON](latte-59-paired.json)
 - [逐 Harness 汇总、敏感性分析与 C031 证据 JSON](summary-audit.json)
+
