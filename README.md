@@ -28,6 +28,8 @@ python3 validate_release.py
 
 ## 结果
 
+[DeepSeek V4 Pro 普通模式 · 官方 LangGraph Supervisor 与原六套 Harness 的补跑后对照](results/upstream59-v4pro-supervisor-codex-dsh-rerun-20261128/README.md)。含[59 题矩阵](results/upstream59-v4pro-supervisor-codex-dsh-rerun-20261128/seven-configuration-matrix.json)、Codex 与 DSH 的 13 个补跑 trace、[补跑前报告](results/upstream59-v4pro-supervisor-codex-dsh-rerun-20261128/history/补跑前对照.md)以及旧 attempt 的索引。
+
 [LATTE规划5轮与20轮对比：DeepSeek／Qwen各59题](results/latte-plan5-vs20-comparison-20261127/README.md)。含236条记录、118组配对、PNG/SVG及交互图表；明确历史运行条件差异、新版reward和同费率成本估算，旧结果保留。
 
 [GLM-5.3 low 对比报告 · C031 补跑后](results/upstream59-v21-glm53-low-20261127-c031-rerun/README.md)。含 9 张图、59 题配对数据与[C031 补跑 trace](results/upstream59-v21-glm53-low-20261127-c031-rerun/TRACE.md)。
