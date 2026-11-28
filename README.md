@@ -28,7 +28,7 @@ python3 validate_release.py
 
 ## 结果
 
-[DeepSeek V4 Pro 普通模式 · 官方 LangGraph Supervisor 与原六套 Harness 的最新对照](results/upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/README.md)。含[59 题矩阵](results/upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/seven-configuration-matrix.json)、[Nanobot 和 OpenCode 的 14 格补跑 trace](results/upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/README.md#14-格-trace)及旧 attempt 与异常终态。
+[DeepSeek V4 Pro 普通模式 · 六套 Harness 对照（更新 LATTE 修复交接 v2）](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/README.md)。含[59 题矩阵](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/seven-configuration-matrix.json)、五项指标图、耗时 trace 分解和中断前后评分。[更新前的对照与旧 LATTE](results/upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/README.md)。
 
 [上一版对照及 Codex、DSH 的 13 格补跑](results/upstream59-v4pro-supervisor-codex-dsh-rerun-20261128/README.md)保留补跑前报告、矩阵和归档。
 

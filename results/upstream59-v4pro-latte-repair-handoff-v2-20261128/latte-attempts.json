@@ -1,0 +1,5634 @@
+{
+  "selected_matrix_metrics": {
+    "tasks": 59,
+    "reward": "62.584043",
+    "reward_max": 138,
+    "strict": 17,
+    "public": 40,
+    "integrity": 55,
+    "api_passed": 452,
+    "api_total": 803,
+    "e2e_mean": 1293.9873814576272,
+    "e2e_median": 1060.820089,
+    "input": 47958424,
+    "output": 1230034,
+    "total": 49188458,
+    "billing_cache_hit": 22430080,
+    "settled": 9812,
+    "unknown_usage": 0,
+    "peak_usd": "39.555272240",
+    "child_trace_covered": 59,
+    "child_tasks": 59,
+    "active_workers": 167,
+    "terminal_counts": {
+      "all_tasks_done": 22,
+      "max_rounds": 20,
+      "public_check_passed": 13,
+      "latte_xml_protocol_stall": 3,
+      "observed_token_protection": 1
+    }
+  },
+  "lifecycle_ledger": {
+    "initial59": {
+      "sent": 9180,
+      "settled": 9179,
+      "unknown": 1,
+      "inflight": 0,
+      "estimated_cost": 36.191991792,
+      "tokens": {
+        "input_tokens": 44490889,
+        "output_tokens": 1135711
+      }
+    },
+    "balance_replay": {
+      "sent": 861,
+      "settled": 861,
+      "unknown": 0,
+      "inflight": 0,
+      "estimated_cost": 4.3060738160000005,
+      "tokens": {
+        "input_tokens": 4927712,
+        "output_tokens": 125685
+      }
+    }
+  },
+  "tasks": {
+    "C007": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c007-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c007-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "shared_balance_interruption",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 149.24423,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 3,
+          "core_passed": 0,
+          "core_total": 12,
+          "api_passed": 0,
+          "api_total": 8,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 64592,
+          "output": 1287,
+          "total": 65879,
+          "billing_cache_hit": 55424,
+          "cache_unknown_requests": 0,
+          "sent": 9,
+          "settled": 9,
+          "unknown_usage": 0,
+          "peak_usd": "0.019636936",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 2,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 18,
+          "writes": 0,
+          "tests": 1,
+          "active_workers": []
+        },
+        "timing": {
+          "e2e_s": 149.24423003196716,
+          "agent_s": 110.47996592521667,
+          "verifier_s": 22.703758001327515,
+          "non_agent_other_s": 16.060506105422974,
+          "planning_s": 72.29863166809082,
+          "execution_s": 34.22473621368408,
+          "agent_other_s": 3.9565980434417725,
+          "gateway_wait_only_s": 82.21127128601074,
+          "gateway_wait_union_s": 83.63498973846436,
+          "slot_queue_union_s": 62.734336376190186,
+          "upstream_wall_s": 19.89831280708313,
+          "unattributed_agent_s": 8.370381832122803,
+          "gateway_matched_wait_count": 9,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "f33ba266122e9dbce06b51a3c0da3acc03e2b389439a0dfcc8f4086879a519e1",
+          "score_sha256": "80aeb1ea14a5f1630cc7289fb9a4070db0ab74e9d3bc0a3c6c2e22ae0fe9be23",
+          "native_events_sha256": "f5a15d2309184c4962e3fab8ffb09433b7a9751515f9ed904b2f8f70a04198e2"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-balance5-c007-r1",
+      "balance_replay": {
+        "attempt": "latte-handoff-v2-balance5-c007-r1",
+        "paid_attempt": "latte-handoff-v2-balance5-c007-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 772.125501,
+        "score": {
+          "reward": "0.375000",
+          "reward_max": 3,
+          "core_passed": 3,
+          "core_total": 12,
+          "api_passed": 1,
+          "api_total": 8,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1627372,
+          "output": 26803,
+          "total": 1654175,
+          "billing_cache_hit": 577536,
+          "cache_unknown_requests": 0,
+          "sent": 210,
+          "settled": 210,
+          "unknown_usage": 0,
+          "peak_usd": "1.517334984",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 95,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 175,
+          "writes": 33,
+          "tests": 11,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 772.1255009174347,
+          "agent_s": 733.6287949085236,
+          "verifier_s": 15.16425609588623,
+          "non_agent_other_s": 23.332449913024902,
+          "planning_s": 23.62291145324707,
+          "execution_s": 703.8281326293945,
+          "agent_other_s": 6.177750825881958,
+          "gateway_wait_only_s": 291.38676714897156,
+          "gateway_wait_union_s": 441.46071887016296,
+          "slot_queue_union_s": 178.0833225250244,
+          "upstream_wall_s": 430.76476979255676,
+          "unattributed_agent_s": 11.47725796699524,
+          "gateway_matched_wait_count": 210,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "24e5612f05a4dd56c3744ba5cdc99830c43db56d03c66671c72addc2a90ace1c",
+          "score_sha256": "ea5cf78e351a7c50ad662407d504109eb1cd7a192c7b2e6b22d25cebd0528eea",
+          "native_events_sha256": "4ba5474c3cba5a013a3855f00c11c1a364ff3170b2fc5710c0c2443bde066613"
+        }
+      }
+    },
+    "C008": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c008-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c008-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 229.713675,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 12,
+          "core_total": 12,
+          "api_passed": 8,
+          "api_total": 8,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 277259,
+          "output": 5799,
+          "total": 283058,
+          "billing_cache_hit": 170880,
+          "cache_unknown_requests": 0,
+          "sent": 58,
+          "settled": 58,
+          "unknown_usage": 0,
+          "peak_usd": "0.170903040",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 26,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 48,
+          "writes": 9,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 229.71367502212524,
+          "agent_s": 202.73095893859863,
+          "verifier_s": 12.93664002418518,
+          "non_agent_other_s": 14.04607605934143,
+          "planning_s": 17.451037406921387,
+          "execution_s": 179.5674991607666,
+          "agent_other_s": 5.7124223709106445,
+          "gateway_wait_only_s": 9.283717393875122,
+          "gateway_wait_union_s": 25.86903738975525,
+          "slot_queue_union_s": 0.005692720413208008,
+          "upstream_wall_s": 143.42215156555176,
+          "unattributed_agent_s": 50.02508997917175,
+          "gateway_matched_wait_count": 58,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "daadaab3ebfacfc393c2a83d3c2c41b2381b80ab20c7d31cf3dacc4248d582d7",
+          "score_sha256": "ad77d19621ddac0a49d022b8f2f7951ace55810d2043bd3b97ada9b02811ca6f",
+          "native_events_sha256": "73036d3e18287cab67b9fc4418e00b4c86db0f64df1a9bb7cedc487d55d29923"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c008-r1"
+    },
+    "C009": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c009-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c009-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2221.372418,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 3,
+          "core_passed": 0,
+          "core_total": 14,
+          "api_passed": 0,
+          "api_total": 10,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1061439,
+          "output": 22791,
+          "total": 1084230,
+          "billing_cache_hit": 434432,
+          "cache_unknown_requests": 0,
+          "sent": 218,
+          "settled": 218,
+          "unknown_usage": 0,
+          "peak_usd": "0.937016608",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 93,
+          "writes": 68,
+          "tests": 8,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2221.3724179267883,
+          "agent_s": 2190.6538450717926,
+          "verifier_s": 15.731220006942749,
+          "non_agent_other_s": 14.987352848052979,
+          "planning_s": 82.78129577636719,
+          "execution_s": 2101.9104249477386,
+          "agent_other_s": 5.962124347686768,
+          "gateway_wait_only_s": 1772.7674014568329,
+          "gateway_wait_union_s": 1870.5018525123596,
+          "slot_queue_union_s": 1505.127161026001,
+          "upstream_wall_s": 372.1067888736725,
+          "unattributed_agent_s": 45.77965474128723,
+          "gateway_matched_wait_count": 218,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "97d8454f036b619b1e785413504c3adb542f5c35c65d5333bc99ebbd52f5852d",
+          "score_sha256": "7cddb0fe70b08765bec626dd462ab0448f46f16c2cf6270a4511b728266034a1",
+          "native_events_sha256": "396c45100b565a0bbd6efe56b14391d8b7f43f7bf5bc3d9b68a212dc572418ed"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c009-six-r2"
+    },
+    "C011": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c011-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c011-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2694.177114,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 14,
+          "core_total": 14,
+          "api_passed": 10,
+          "api_total": 10,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1525600,
+          "output": 37805,
+          "total": 1563405,
+          "billing_cache_hit": 526208,
+          "cache_unknown_requests": 0,
+          "sent": 253,
+          "settled": 253,
+          "unknown_usage": 0,
+          "peak_usd": "1.492058392",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 3,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 235,
+          "writes": 35,
+          "tests": 13,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2694.177114009857,
+          "agent_s": 2665.514858007431,
+          "verifier_s": 12.592087030410767,
+          "non_agent_other_s": 16.07016897201538,
+          "planning_s": 44.69067597389221,
+          "execution_s": 2614.7809445858,
+          "agent_other_s": 6.0432374477386475,
+          "gateway_wait_only_s": 2109.6173326969147,
+          "gateway_wait_union_s": 2260.9534554481506,
+          "slot_queue_union_s": 1901.9766221046448,
+          "upstream_wall_s": 543.9485232830048,
+          "unattributed_agent_s": 11.949002027511597,
+          "gateway_matched_wait_count": 253,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "3bbe9f60fa48aa7ef98edfbb889da66adc82d3fcf9e843848e052bf2c39df7c1",
+          "score_sha256": "473dec878218033c27123c5ba858329a34f30f69712c0eef2b1f7d91ae3af734",
+          "native_events_sha256": "356431c39c2d72bd48dc4d30c4bb6f466dba00868b0c4495e9b6a0a28923783c"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c011-six-r2"
+    },
+    "C017": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c017-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c017-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 435.883906,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 12,
+          "core_total": 12,
+          "api_passed": 8,
+          "api_total": 8,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 642569,
+          "output": 18410,
+          "total": 660979,
+          "billing_cache_hit": 308352,
+          "cache_unknown_requests": 0,
+          "sent": 138,
+          "settled": 138,
+          "unknown_usage": 0,
+          "peak_usd": "0.527637528",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 43,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 94,
+          "writes": 14,
+          "tests": 9,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 435.88390588760376,
+          "agent_s": 412.63502311706543,
+          "verifier_s": 11.327317953109741,
+          "non_agent_other_s": 11.921564817428589,
+          "planning_s": 32.195027112960815,
+          "execution_s": 376.1146094799042,
+          "agent_other_s": 4.3253865242004395,
+          "gateway_wait_only_s": 126.30130624771118,
+          "gateway_wait_union_s": 226.46213722229004,
+          "slot_queue_union_s": 85.70890617370605,
+          "upstream_wall_s": 274.69516015052795,
+          "unattributed_agent_s": 11.638556718826294,
+          "gateway_matched_wait_count": 138,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "63994a2cfa362652671ce2e8f0c08d19a5ae134051e7ee1651847ccc6e8ba43d",
+          "score_sha256": "9acd90f5e4082cb90d869e26c95e3176b085f353505ca0415562b20648a927bd",
+          "native_events_sha256": "81c472628009148a12978ac100adec76424ec4b1c576de43c127ae8c5d3903c9"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c017-r1"
+    },
+    "C031": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c031-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c031-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 994.012559,
+        "score": {
+          "reward": "0.846154",
+          "reward_max": 2,
+          "core_passed": 11,
+          "core_total": 13,
+          "api_passed": 7,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 321057,
+          "output": 7116,
+          "total": 328173,
+          "billing_cache_hit": 206592,
+          "cache_unknown_requests": 0,
+          "sent": 70,
+          "settled": 70,
+          "unknown_usage": 0,
+          "peak_usd": "0.188363208",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 37,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 65,
+          "writes": 12,
+          "tests": 9,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 994.0125589370728,
+          "agent_s": 950.2667911052704,
+          "verifier_s": 26.547515869140625,
+          "non_agent_other_s": 17.198251962661743,
+          "planning_s": 78.74818992614746,
+          "execution_s": 866.2347452640533,
+          "agent_other_s": 5.28385591506958,
+          "gateway_wait_only_s": 819.8562703132629,
+          "gateway_wait_union_s": 835.3038265705109,
+          "slot_queue_union_s": 682.0583574771881,
+          "upstream_wall_s": 120.76200723648071,
+          "unattributed_agent_s": 9.648513555526733,
+          "gateway_matched_wait_count": 70,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "5998a6898e8750a86dd7f5632deeabf0b9478eff56d32149688aa00ae79358a4",
+          "score_sha256": "3f8a93ebeb39af97ef134273741fd0254c703c534ee19d3908733e88286f7480",
+          "native_events_sha256": "0d82d833c850824055845ef0279d255e4a79749a094c7bc2f6b791f87e536acd"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c031-six-r2"
+    },
+    "C033": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c033-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c033-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "shared_balance_interruption",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 524.149774,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 18,
+          "api_passed": 0,
+          "api_total": 14,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 505703,
+          "output": 14578,
+          "total": 520281,
+          "billing_cache_hit": 303872,
+          "cache_unknown_requests": 0,
+          "sent": 79,
+          "settled": 79,
+          "unknown_usage": 0,
+          "peak_usd": "0.337516168",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 19,
+          "execution_rounds": 34,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 89,
+          "writes": 12,
+          "tests": 5,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 524.1497740745544,
+          "agent_s": 479.2446460723877,
+          "verifier_s": 19.65537405014038,
+          "non_agent_other_s": 25.249753952026367,
+          "planning_s": 76.5811128616333,
+          "execution_s": 395.55944323539734,
+          "agent_other_s": 7.104089975357056,
+          "gateway_wait_only_s": 289.9808042049408,
+          "gateway_wait_union_s": 315.41806530952454,
+          "slot_queue_union_s": 189.9432430267334,
+          "upstream_wall_s": 172.89118552207947,
+          "unattributed_agent_s": 16.37265634536743,
+          "gateway_matched_wait_count": 79,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "94a5b43a90006a68953ff0e69491c08fd45cf997cc4a718ff3534c71eb0897d3",
+          "score_sha256": "fe61a6f4726bd5743023597d216635fbdc6da9ff8ce5661cb2fb01fb777ebc5b",
+          "native_events_sha256": "78e885c4d5e16f1fa8495dedeee5f9d141039e86f3175d334ab28b25c197c2a8"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-balance5-c033-r1",
+      "balance_replay": {
+        "attempt": "latte-handoff-v2-balance5-c033-r1",
+        "paid_attempt": "latte-handoff-v2-balance5-c033-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 750.39708,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 18,
+          "api_passed": 0,
+          "api_total": 14,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 790218,
+          "output": 33621,
+          "total": 823839,
+          "billing_cache_hit": 387072,
+          "cache_unknown_requests": 0,
+          "sent": 136,
+          "settled": 136,
+          "unknown_usage": 0,
+          "peak_usd": "0.682323048",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 7,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 111,
+          "writes": 12,
+          "tests": 4,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 750.3970801830292,
+          "agent_s": 715.0106918811798,
+          "verifier_s": 13.786264181137085,
+          "non_agent_other_s": 21.60012412071228,
+          "planning_s": 26.007973194122314,
+          "execution_s": 682.6993708610535,
+          "agent_other_s": 6.303347826004028,
+          "gateway_wait_only_s": 319.0594952106476,
+          "gateway_wait_union_s": 330.32724475860596,
+          "slot_queue_union_s": 103.94452548027039,
+          "upstream_wall_s": 386.0353400707245,
+          "unattributed_agent_s": 9.91585659980774,
+          "gateway_matched_wait_count": 136,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "2edff6c3bb572773c914a1f18655fa9b3e7755e2379985a8a3b8d0871af3553b",
+          "score_sha256": "fe61a6f4726bd5743023597d216635fbdc6da9ff8ce5661cb2fb01fb777ebc5b",
+          "native_events_sha256": "2366c89ede8c438c17eca9b0928492b6c17590e96e4fb47462dacde1d93b3158"
+        }
+      }
+    },
+    "C039": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c039-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c039-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1711.655369,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 3,
+          "core_passed": 0,
+          "core_total": 14,
+          "api_passed": 0,
+          "api_total": 10,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1041533,
+          "output": 15316,
+          "total": 1056849,
+          "billing_cache_hit": 394112,
+          "cache_unknown_requests": 0,
+          "sent": 164,
+          "settled": 164,
+          "unknown_usage": 0,
+          "peak_usd": "0.932588008",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 165,
+          "writes": 39,
+          "tests": 9,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1711.6553690433502,
+          "agent_s": 1687.7508540153503,
+          "verifier_s": 11.556749105453491,
+          "non_agent_other_s": 12.347765922546387,
+          "planning_s": 434.6182396411896,
+          "execution_s": 1249.023690700531,
+          "agent_other_s": 4.108923673629761,
+          "gateway_wait_only_s": 1383.362372636795,
+          "gateway_wait_union_s": 1383.362372636795,
+          "slot_queue_union_s": 1017.281195640564,
+          "upstream_wall_s": 294.8336126804352,
+          "unattributed_agent_s": 9.554868698120117,
+          "gateway_matched_wait_count": 164,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "c7b95b753af67e49d5403e0c749ecb816611353a04657d393a40baf24e11e88d",
+          "score_sha256": "958f381c038febcceb58c497ff0dc396f4e3dab732191e83382d2c9e8b76579b",
+          "native_events_sha256": "c9704c4ee778317b5878f68e1c1c680f6436479ba22468fc1487da928d97d402"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c039-six-r2"
+    },
+    "C049": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c049-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c049-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 1060.820089,
+        "score": {
+          "reward": "0.416667",
+          "reward_max": 2,
+          "core_passed": 5,
+          "core_total": 12,
+          "api_passed": 3,
+          "api_total": 8,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 599657,
+          "output": 5586,
+          "total": 605243,
+          "billing_cache_hit": 298240,
+          "cache_unknown_requests": 0,
+          "sent": 97,
+          "settled": 97,
+          "unknown_usage": 0,
+          "peak_usd": "0.433113560",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 27,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 171,
+          "writes": 8,
+          "tests": 6,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1060.8200891017914,
+          "agent_s": 1030.3027849197388,
+          "verifier_s": 11.56571102142334,
+          "non_agent_other_s": 18.951593160629272,
+          "planning_s": 346.3713524341583,
+          "execution_s": 676.8563413619995,
+          "agent_other_s": 7.075091123580933,
+          "gateway_wait_only_s": 879.0840291976929,
+          "gateway_wait_union_s": 909.9114046096802,
+          "slot_queue_union_s": 704.1084609031677,
+          "upstream_wall_s": 141.37503385543823,
+          "unattributed_agent_s": 9.843721866607666,
+          "gateway_matched_wait_count": 97,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "9e41e7ba40176bf75a6c98df43b0c65772bdf1f0f4563e8f38b797a5d4a7c994",
+          "score_sha256": "70156a0892a1b2849adcca66e9827a0120796be23a80e42571bd853ee8738c75",
+          "native_events_sha256": "463bbfef4c007bc3146dc6175c6dd80ad970bbbe9a14acd57c59e20149a341f2"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c049-six-r2"
+    },
+    "C055": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c055-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c055-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "shared_balance_interruption",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 524.750215,
+        "score": {
+          "reward": "0.076923",
+          "reward_max": 2,
+          "core_passed": 1,
+          "core_total": 13,
+          "api_passed": 1,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 479848,
+          "output": 6555,
+          "total": 486403,
+          "billing_cache_hit": 266752,
+          "cache_unknown_requests": 0,
+          "sent": 79,
+          "settled": 79,
+          "unknown_usage": 0,
+          "peak_usd": "0.318981608",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 18,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 99,
+          "writes": 5,
+          "tests": 5,
+          "active_workers": [
+            "Dev1",
+            "Dev2"
+          ]
+        },
+        "timing": {
+          "e2e_s": 524.7502148151398,
+          "agent_s": 480.0047960281372,
+          "verifier_s": 21.211899042129517,
+          "non_agent_other_s": 23.533519744873047,
+          "planning_s": 133.12194514274597,
+          "execution_s": 339.9206020832062,
+          "agent_other_s": 6.962248802185059,
+          "gateway_wait_only_s": 341.59017753601074,
+          "gateway_wait_union_s": 367.196382522583,
+          "slot_queue_union_s": 220.5685522556305,
+          "upstream_wall_s": 126.58164381980896,
+          "unattributed_agent_s": 11.832974672317505,
+          "gateway_matched_wait_count": 79,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "e0ab62a2f79730fa8a4203dc4b513a4435952c643722caf1cc46586b9cde5c85",
+          "score_sha256": "664e482f2dacdbf2a4eaf471a443faf7f465a0ffc364c582f797ecba2f93e9c5",
+          "native_events_sha256": "86272d222ee4fba1f18e09ef5c406f4c9fe8e1753cf2cfde58a3e8b52c02c035"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-balance5-c055-r1",
+      "balance_replay": {
+        "attempt": "latte-handoff-v2-balance5-c055-r1",
+        "paid_attempt": "latte-handoff-v2-balance5-c055-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 632.868963,
+        "score": {
+          "reward": "0.769231",
+          "reward_max": 2,
+          "core_passed": 10,
+          "core_total": 13,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 857053,
+          "output": 16045,
+          "total": 873098,
+          "billing_cache_hit": 357888,
+          "cache_unknown_requests": 0,
+          "sent": 171,
+          "settled": 171,
+          "unknown_usage": 0,
+          "peak_usd": "0.738183072",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 143,
+          "writes": 34,
+          "tests": 8,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 632.8689630031586,
+          "agent_s": 602.8960280418396,
+          "verifier_s": 12.733238935470581,
+          "non_agent_other_s": 17.23969602584839,
+          "planning_s": 22.41262674331665,
+          "execution_s": 574.8757305145264,
+          "agent_other_s": 5.607670783996582,
+          "gateway_wait_only_s": 301.30561804771423,
+          "gateway_wait_union_s": 371.525030374527,
+          "slot_queue_union_s": 116.05977749824524,
+          "upstream_wall_s": 292.21819138526917,
+          "unattributed_agent_s": 9.372218608856201,
+          "gateway_matched_wait_count": 171,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "09b3ca3e8e33bba20d529b31999fdf7d96e172e03987ecffb850efe320f54ea2",
+          "score_sha256": "d5e2b34780d8481a10c5d3335ff072f641327b7c548a2b1c4700b7e4d47c8055",
+          "native_events_sha256": "2ad9639ccbf24675e8cb78fec06fade98ff2136424dc96c3807172428f4b2836"
+        }
+      }
+    },
+    "C056": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c056-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c056-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 1427.573391,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 13,
+          "core_total": 13,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 556406,
+          "output": 12166,
+          "total": 568572,
+          "billing_cache_hit": 306688,
+          "cache_unknown_requests": 0,
+          "sent": 140,
+          "settled": 140,
+          "unknown_usage": 0,
+          "peak_usd": "0.391299392",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 3,
+          "execution_rounds": 61,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 98,
+          "writes": 21,
+          "tests": 8,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1427.5733909606934,
+          "agent_s": 1399.2398121356964,
+          "verifier_s": 14.253177881240845,
+          "non_agent_other_s": 14.080400943756104,
+          "planning_s": 40.530821561813354,
+          "execution_s": 1354.2074701786041,
+          "agent_other_s": 4.501520395278931,
+          "gateway_wait_only_s": 1159.0496218204498,
+          "gateway_wait_union_s": 1228.4818007946014,
+          "slot_queue_union_s": 1035.4473519325256,
+          "upstream_wall_s": 232.37432622909546,
+          "unattributed_agent_s": 7.815864086151123,
+          "gateway_matched_wait_count": 140,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "65c1baa97eb14a50c469a39d109eb171a22ce1f2f8cc5b53ee32ca5219d91e42",
+          "score_sha256": "e901b11d084598e818e4651a577cd77a1756d109b18a8260f131c15e130ee0ec",
+          "native_events_sha256": "908030b6fbe0cadef0773135903f76d3270c9982268bacb5202dcbb9f3775d32"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c056-six-r2"
+    },
+    "C058": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c058-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c058-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 909.92925,
+        "score": {
+          "reward": "0.346154",
+          "reward_max": 3,
+          "core_passed": 3,
+          "core_total": 13,
+          "api_passed": 1,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 487485,
+          "output": 16503,
+          "total": 503988,
+          "billing_cache_hit": 296064,
+          "cache_unknown_requests": 0,
+          "sent": 109,
+          "settled": 109,
+          "unknown_usage": 0,
+          "peak_usd": "0.331054416",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 50,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 95,
+          "writes": 20,
+          "tests": 10,
+          "active_workers": [
+            "Dev1",
+            "Dev2"
+          ]
+        },
+        "timing": {
+          "e2e_s": 909.9292500019073,
+          "agent_s": 883.1798160076141,
+          "verifier_s": 11.195451021194458,
+          "non_agent_other_s": 15.553982973098755,
+          "planning_s": 48.281699657440186,
+          "execution_s": 829.330894947052,
+          "agent_other_s": 5.567221403121948,
+          "gateway_wait_only_s": 637.1054792404175,
+          "gateway_wait_union_s": 697.1306042671204,
+          "slot_queue_union_s": 514.7242050170898,
+          "upstream_wall_s": 236.03777265548706,
+          "unattributed_agent_s": 10.036564111709595,
+          "gateway_matched_wait_count": 109,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "e29658133749821fc95f13bd0ce1f2bc40ce9501fee8e6faa8cac5e3014f45b3",
+          "score_sha256": "767e6b621c45d042bd1d04db6f4c715951e3007dcd05701c077a8fee9a5ba27e",
+          "native_events_sha256": "0f52a359f84291da9a95d430f0ea17c405a807eff842b7a1a40e41a6e22d00e8"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c058-six-r1"
+    },
+    "C062": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c062-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c062-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 476.647159,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 12,
+          "core_total": 12,
+          "api_passed": 8,
+          "api_total": 8,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 438815,
+          "output": 8927,
+          "total": 447742,
+          "billing_cache_hit": 264960,
+          "cache_unknown_requests": 0,
+          "sent": 104,
+          "settled": 104,
+          "unknown_usage": 0,
+          "peak_usd": "0.276497760",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 61,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 102,
+          "writes": 16,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 476.64715909957886,
+          "agent_s": 439.79215908050537,
+          "verifier_s": 17.626796007156372,
+          "non_agent_other_s": 19.228204011917114,
+          "planning_s": 32.198264360427856,
+          "execution_s": 401.89101338386536,
+          "agent_other_s": 5.702881336212158,
+          "gateway_wait_only_s": 247.52386283874512,
+          "gateway_wait_union_s": 281.5747661590576,
+          "slot_queue_union_s": 100.97862243652344,
+          "upstream_wall_s": 181.79019904136658,
+          "unattributed_agent_s": 10.478097200393677,
+          "gateway_matched_wait_count": 104,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "350ae2a4bed889292517d17719dabae6d35e33311cbc9f334bcaef5d45ba368a",
+          "score_sha256": "e6b941a6eacca5aa6fafecf27b507d7425dd2c1391cf3cb39067908f1f10dea3",
+          "native_events_sha256": "8452d73bfca58d18deab33673d80cab79280f3c870e5509d01779b27cad2ead7"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c062-six-r1"
+    },
+    "C066": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c066-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c066-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 2064.012043,
+        "score": {
+          "reward": "0.416667",
+          "reward_max": 2,
+          "core_passed": 5,
+          "core_total": 12,
+          "api_passed": 4,
+          "api_total": 8,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 834248,
+          "output": 12356,
+          "total": 846604,
+          "billing_cache_hit": 363904,
+          "cache_unknown_requests": 0,
+          "sent": 148,
+          "settled": 148,
+          "unknown_usage": 0,
+          "peak_usd": "0.685795616",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 95,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 193,
+          "writes": 14,
+          "tests": 11,
+          "active_workers": [
+            "Dev1",
+            "Dev2"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2064.0120429992676,
+          "agent_s": 2015.5343689918518,
+          "verifier_s": 20.211588859558105,
+          "non_agent_other_s": 28.266085147857666,
+          "planning_s": 333.6773600578308,
+          "execution_s": 1674.1259591579437,
+          "agent_other_s": 7.7310497760772705,
+          "gateway_wait_only_s": 1751.756647348404,
+          "gateway_wait_union_s": 1751.756647348404,
+          "slot_queue_union_s": 1438.3259921073914,
+          "upstream_wall_s": 248.97964239120483,
+          "unattributed_agent_s": 14.798079252243042,
+          "gateway_matched_wait_count": 148,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "5a2d9ac5b10850c0c49a7675874136b0ad11a0488d17fbfc80ada30228589622",
+          "score_sha256": "f3ae9d2e69d60c056f137e9c2cb67996a6d19b7f13137859c90ad695c967cac3",
+          "native_events_sha256": "92a3b6688ad017ec9323939fccc54f4245f74a6900096008e13ef508d4bbaab0"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c066-six-r2"
+    },
+    "C067": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c067-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c067-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 675.09542,
+        "score": {
+          "reward": "1.269231",
+          "reward_max": 3,
+          "core_passed": 11,
+          "core_total": 13,
+          "api_passed": 7,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 247888,
+          "output": 4697,
+          "total": 252585,
+          "billing_cache_hit": 161920,
+          "cache_unknown_requests": 0,
+          "sent": 48,
+          "settled": 48,
+          "unknown_usage": 0,
+          "peak_usd": "0.139202360",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 24,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 46,
+          "writes": 7,
+          "tests": 6,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 675.095419883728,
+          "agent_s": 648.6080968379974,
+          "verifier_s": 11.631956815719604,
+          "non_agent_other_s": 14.855366230010986,
+          "planning_s": 89.80940866470337,
+          "execution_s": 554.3826253414154,
+          "agent_other_s": 4.416062831878662,
+          "gateway_wait_only_s": 562.0001146793365,
+          "gateway_wait_union_s": 576.0956428050995,
+          "slot_queue_union_s": 506.34984612464905,
+          "upstream_wall_s": 79.40897178649902,
+          "unattributed_agent_s": 7.199010372161865,
+          "gateway_matched_wait_count": 48,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "950604d35105362884eb2f1e73aba7c06883e315732c38b9e2990e443dfd05cf",
+          "score_sha256": "34abdbd383aa9ce76869fa281d5c5c9e9bdf2fd0e277c33a608cc6d8b8e6e5dd",
+          "native_events_sha256": "2574290947d454c69af31354613039a6ee986f290dca905b87071125c31f88e0"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c067-six-r2"
+    },
+    "C068": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c068-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c068-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 471.57126,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 13,
+          "core_total": 13,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 488407,
+          "output": 13773,
+          "total": 502180,
+          "billing_cache_hit": 206976,
+          "cache_unknown_requests": 0,
+          "sent": 92,
+          "settled": 92,
+          "unknown_usage": 0,
+          "peak_usd": "0.435136944",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 59,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 84,
+          "writes": 13,
+          "tests": 9,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 471.57125997543335,
+          "agent_s": 447.5185971260071,
+          "verifier_s": 12.265901803970337,
+          "non_agent_other_s": 11.786761045455933,
+          "planning_s": 22.792583227157593,
+          "execution_s": 420.6236925125122,
+          "agent_other_s": 4.10232138633728,
+          "gateway_wait_only_s": 212.03279519081116,
+          "gateway_wait_union_s": 226.63581776618958,
+          "slot_queue_union_s": 59.739240407943726,
+          "upstream_wall_s": 227.42042207717896,
+          "unattributed_agent_s": 8.065379858016968,
+          "gateway_matched_wait_count": 92,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "bb4fe3a104f81e212f0d30d6eb7fe6b79c0da2f540fb922c4e14d1803a600c09",
+          "score_sha256": "9fc2980680dc512901c1620fe287da8e250486196fb9c4f2163f48eac71935b8",
+          "native_events_sha256": "800ddb1c4b2138eb704b239d5a0df8cf2db0898e19789de7a728d2b94a420386"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c068-r1"
+    },
+    "C069": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c069-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c069-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 881.045748,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 13,
+          "core_total": 13,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 513155,
+          "output": 5519,
+          "total": 518674,
+          "billing_cache_hit": 258176,
+          "cache_unknown_requests": 0,
+          "sent": 81,
+          "settled": 81,
+          "unknown_usage": 0,
+          "peak_usd": "0.369787264",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 36,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 119,
+          "writes": 6,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2"
+          ]
+        },
+        "timing": {
+          "e2e_s": 881.0457479953766,
+          "agent_s": 854.7974028587341,
+          "verifier_s": 12.426645040512085,
+          "non_agent_other_s": 13.821700096130371,
+          "planning_s": 231.48964548110962,
+          "execution_s": 617.9897933006287,
+          "agent_other_s": 5.31796407699585,
+          "gateway_wait_only_s": 720.4042444229126,
+          "gateway_wait_union_s": 720.4042444229126,
+          "slot_queue_union_s": 539.9320895671844,
+          "upstream_wall_s": 125.38911890983582,
+          "unattributed_agent_s": 9.004039525985718,
+          "gateway_matched_wait_count": 81,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "39e22b14b848bc0a9c238410617a2b9aa7d9e3fe53ada80b2c067460310c3f39",
+          "score_sha256": "ac9423c83127f3fa55474c6ce2db6e9948b114ef267db5c91f31d832b6ab2f1a",
+          "native_events_sha256": "10b978ec831f7df7477b4a92bec7fc658bea5909eb6b091bc801ebd0d04d8a5e"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c069-six-r2"
+    },
+    "C074": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c074-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c074-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 307.109798,
+        "score": {
+          "reward": "0.666667",
+          "reward_max": 2,
+          "core_passed": 8,
+          "core_total": 12,
+          "api_passed": 4,
+          "api_total": 8,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 362134,
+          "output": 8395,
+          "total": 370529,
+          "billing_cache_hit": 215680,
+          "cache_unknown_requests": 0,
+          "sent": 85,
+          "settled": 85,
+          "unknown_usage": 0,
+          "peak_usd": "0.236053400",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 52,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 82,
+          "writes": 11,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 307.1097979545593,
+          "agent_s": 281.55980801582336,
+          "verifier_s": 13.235130071640015,
+          "non_agent_other_s": 12.314859867095947,
+          "planning_s": 21.28729224205017,
+          "execution_s": 256.0907156467438,
+          "agent_other_s": 4.181800127029419,
+          "gateway_wait_only_s": 114.04669952392578,
+          "gateway_wait_union_s": 135.06073379516602,
+          "slot_queue_union_s": 34.14328908920288,
+          "upstream_wall_s": 159.8562204837799,
+          "unattributed_agent_s": 7.656888008117676,
+          "gateway_matched_wait_count": 85,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "4a41a106e7eea8a279f2e6eaf7d1000b727ae610bed7628321932a45456363ca",
+          "score_sha256": "1cdd08597ebbb70b14b553f1ff6f8bf413e6370cc83562e8789407bd26a472f4",
+          "native_events_sha256": "fc6d73cc3b1f0811b15d5b7d8f0626b5a295706c790714fd3e93507821dd0d45"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c074-r1"
+    },
+    "C077": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c077-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-c077-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 865.608747,
+        "score": {
+          "reward": "1.153846",
+          "reward_max": 3,
+          "core_passed": 10,
+          "core_total": 13,
+          "api_passed": 8,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 369543,
+          "output": 5361,
+          "total": 374904,
+          "billing_cache_hit": 213248,
+          "cache_unknown_requests": 0,
+          "sent": 63,
+          "settled": 63,
+          "unknown_usage": 0,
+          "peak_usd": "0.236921872",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 26,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 111,
+          "writes": 5,
+          "tests": 6,
+          "active_workers": [
+            "Dev1"
+          ]
+        },
+        "timing": {
+          "e2e_s": 865.6087467670441,
+          "agent_s": 830.6166958808899,
+          "verifier_s": 14.383522987365723,
+          "non_agent_other_s": 20.608527898788452,
+          "planning_s": 353.3475179672241,
+          "execution_s": 470.0760917663574,
+          "agent_other_s": 7.19308614730835,
+          "gateway_wait_only_s": 715.8143451213837,
+          "gateway_wait_union_s": 715.8143451213837,
+          "slot_queue_union_s": 561.4414210319519,
+          "upstream_wall_s": 104.90928888320923,
+          "unattributed_agent_s": 9.893061876296997,
+          "gateway_matched_wait_count": 63,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "32d2560f482d0817f0175e205f618a8f7e540c08f9719726335d613ac7ed578f",
+          "score_sha256": "92ad537762856bb1c0b718cf74d789bc1387b5d1159299e01a57ea67abc49fdd",
+          "native_events_sha256": "6c4b0cb96d373604429919ae21f9bd41e68abe88d81ff480f8ca318065d33461"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c077-six-r2"
+    },
+    "C079": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-c079-r1",
+        "paid_attempt": "latte-handoff-v2-u59-c079-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 416.86323,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 13,
+          "core_total": 13,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 373590,
+          "output": 15782,
+          "total": 389372,
+          "billing_cache_hit": 231424,
+          "cache_unknown_requests": 0,
+          "sent": 77,
+          "settled": 77,
+          "unknown_usage": 0,
+          "peak_usd": "0.260338496",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 44,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 56,
+          "writes": 14,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 416.8632299900055,
+          "agent_s": 390.43035912513733,
+          "verifier_s": 13.615146160125732,
+          "non_agent_other_s": 12.817724704742432,
+          "planning_s": 22.979795694351196,
+          "execution_s": 362.79638934135437,
+          "agent_other_s": 4.654174089431763,
+          "gateway_wait_only_s": 156.021146774292,
+          "gateway_wait_union_s": 166.92813563346863,
+          "slot_queue_union_s": 56.3670756816864,
+          "upstream_wall_s": 226.28229188919067,
+          "unattributed_agent_s": 8.126920461654663,
+          "gateway_matched_wait_count": 77,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "4f1c2cf93ad59d3d1addf9fd896a900f07e524e47564245ae296182e6786b559",
+          "score_sha256": "26e9b1b4e75fb773bc9cfe2394afcedb90852b0a5e92c4a3fea4da24750b661f",
+          "native_events_sha256": "496eef8a021e8e02fe5fc26dc22b1efe7f68ca4b2dd90736dba6a4685096e6ae"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-c079-r1"
+    },
+    "MP01": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp01-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp01-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "shared_balance_interruption",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 270.105241,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 28,
+          "api_passed": 0,
+          "api_total": 17,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 135395,
+          "output": 407,
+          "total": 135802,
+          "billing_cache_hit": 88448,
+          "cache_unknown_requests": 0,
+          "sent": 21,
+          "settled": 20,
+          "unknown_usage": 1,
+          "peak_usd": "0.067473472",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 20,
+          "execution_rounds": 0,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 25,
+          "writes": 0,
+          "tests": 1,
+          "active_workers": []
+        },
+        "timing": {
+          "e2e_s": 270.10524106025696,
+          "agent_s": 229.88099098205566,
+          "verifier_s": 22.05053210258484,
+          "non_agent_other_s": 18.173717975616455,
+          "planning_s": 225.31110167503357,
+          "execution_s": 0.0,
+          "agent_other_s": 4.569889307022095,
+          "gateway_wait_only_s": 186.92320609092712,
+          "gateway_wait_union_s": 186.92320609092712,
+          "slot_queue_union_s": 147.55711102485657,
+          "upstream_wall_s": 24.107505321502686,
+          "unattributed_agent_s": 18.850279569625854,
+          "gateway_matched_wait_count": 20,
+          "run_started": false
+        },
+        "evidence_digest": {
+          "result_sha256": "2060e239ccbd584583a998c99d406d09dfdcc0b079166ef529ba0616a08c4783",
+          "score_sha256": "ced049cf00587f37e54c8429dc43388a055ead90283ee63dd706e93cd4f097c7",
+          "native_events_sha256": "7a6c50452c120e0ee4175d380657e29c6e60086cdfa257086afd72bb717d9325"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-balance5-mp01-r1",
+      "balance_replay": {
+        "attempt": "latte-handoff-v2-balance5-mp01-r1",
+        "paid_attempt": "latte-handoff-v2-balance5-mp01-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 482.002234,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 28,
+          "core_total": 28,
+          "api_passed": 17,
+          "api_total": 17,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 734934,
+          "output": 22281,
+          "total": 757215,
+          "billing_cache_hit": 419456,
+          "cache_unknown_requests": 0,
+          "sent": 183,
+          "settled": 183,
+          "unknown_usage": 0,
+          "peak_usd": "0.523119784",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 59,
+          "fallback": true,
+          "handoffs": 15,
+          "worker_changes": 15,
+          "source_changes": 1,
+          "reads": 326,
+          "writes": 34,
+          "tests": 20,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 482.0022339820862,
+          "agent_s": 442.18956995010376,
+          "verifier_s": 23.01029109954834,
+          "non_agent_other_s": 16.802372932434082,
+          "planning_s": 59.84742259979248,
+          "execution_s": 373.2311487197876,
+          "agent_other_s": 9.110998630523682,
+          "gateway_wait_only_s": 89.55852103233337,
+          "gateway_wait_union_s": 177.04865646362305,
+          "slot_queue_union_s": 12.733191967010498,
+          "upstream_wall_s": 338.4640851020813,
+          "unattributed_agent_s": 14.166963815689087,
+          "gateway_matched_wait_count": 183,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "aabcf4b09d29e5dfe56b81deac0fad120b8bde1e8d2888e07ada36b716dd6373",
+          "score_sha256": "7bd60a2eb3e9777938a6d329ed4b897b8c37a6174ff54ffce7036188af78a397",
+          "native_events_sha256": "3e53ad06559a79c3f149ff4882d43c5befe7057ebc733600fa00e2ec58d518a3"
+        }
+      }
+    },
+    "MP02": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp02-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp02-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 206.264401,
+        "score": {
+          "reward": "0.880000",
+          "reward_max": 2,
+          "core_passed": 22,
+          "core_total": 25,
+          "api_passed": 14,
+          "api_total": 16,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 310798,
+          "output": 7916,
+          "total": 318714,
+          "billing_cache_hit": 206080,
+          "cache_unknown_requests": 0,
+          "sent": 51,
+          "settled": 51,
+          "unknown_usage": 0,
+          "peak_usd": "0.178642640",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 15,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 143,
+          "writes": 14,
+          "tests": 3,
+          "active_workers": [
+            "Dev1"
+          ]
+        },
+        "timing": {
+          "e2e_s": 206.2644009590149,
+          "agent_s": 178.67381978034973,
+          "verifier_s": 14.477644920349121,
+          "non_agent_other_s": 13.11293625831604,
+          "planning_s": 59.82707595825195,
+          "execution_s": 113.15549921989441,
+          "agent_other_s": 5.691244602203369,
+          "gateway_wait_only_s": 67.788654088974,
+          "gateway_wait_union_s": 67.788654088974,
+          "slot_queue_union_s": 0.005063056945800781,
+          "upstream_wall_s": 103.4999577999115,
+          "unattributed_agent_s": 7.385207891464233,
+          "gateway_matched_wait_count": 51,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "8edbca1cc431730b3463a71d519eb0bdf608d4a0d6e3dae5ab27542486074ef7",
+          "score_sha256": "93c274c84ba44895b6fb2a2fc0f73f30ed1531b528fd0d8e45b1fa8909eac3a5",
+          "native_events_sha256": "821852a2844a84d8e7fcd61fb348f1d550ddeae7ceb1593e490d456e91f88db8"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp02-six-r2"
+    },
+    "MP03": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp03-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp03-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1568.918673,
+        "score": {
+          "reward": "0.156250",
+          "reward_max": 2,
+          "core_passed": 5,
+          "core_total": 32,
+          "api_passed": 5,
+          "api_total": 21,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1040447,
+          "output": 29421,
+          "total": 1069868,
+          "billing_cache_hit": 547584,
+          "cache_unknown_requests": 0,
+          "sent": 274,
+          "settled": 274,
+          "unknown_usage": 0,
+          "peak_usd": "0.791180016",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 23,
+          "worker_changes": 22,
+          "source_changes": 3,
+          "reads": 332,
+          "writes": 59,
+          "tests": 34,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1568.9186730384827,
+          "agent_s": 1535.8898739814758,
+          "verifier_s": 14.653389930725098,
+          "non_agent_other_s": 18.37540912628174,
+          "planning_s": 282.4097652435303,
+          "execution_s": 1248.6091647148132,
+          "agent_other_s": 4.870944023132324,
+          "gateway_wait_only_s": 1024.1787133216858,
+          "gateway_wait_union_s": 1166.421837568283,
+          "slot_queue_union_s": 770.0466547012329,
+          "upstream_wall_s": 499.259325504303,
+          "unattributed_agent_s": 12.45183515548706,
+          "gateway_matched_wait_count": 274,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "08947c21a76bbeb22db53a5c61d5d1bee4da81bd81f2836e3159d3f79b44e20e",
+          "score_sha256": "d2df357982d82f851a54ecb25eb433ff3ec5b567f8ee134c9560c11c71b7bb53",
+          "native_events_sha256": "209da62dbfa66902244d908bc5e5ee5b69680a7c893a0bca76578878f49bc441"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp03-six-r1"
+    },
+    "MP04": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp04-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp04-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 3211.990534,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 36,
+          "api_passed": 0,
+          "api_total": 25,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1089041,
+          "output": 21411,
+          "total": 1110452,
+          "billing_cache_hit": 590592,
+          "cache_unknown_requests": 0,
+          "sent": 251,
+          "settled": 251,
+          "unknown_usage": 0,
+          "peak_usd": "0.768726288",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": true,
+          "handoffs": 18,
+          "worker_changes": 18,
+          "source_changes": 3,
+          "reads": 357,
+          "writes": 27,
+          "tests": 34,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 3211.9905338287354,
+          "agent_s": 3184.1759700775146,
+          "verifier_s": 14.321346998214722,
+          "non_agent_other_s": 13.493216753005981,
+          "planning_s": 341.42045879364014,
+          "execution_s": 2836.310930967331,
+          "agent_other_s": 6.444580316543579,
+          "gateway_wait_only_s": 2734.942703962326,
+          "gateway_wait_union_s": 2829.5360717773438,
+          "slot_queue_union_s": 2381.533247947693,
+          "upstream_wall_s": 434.896244764328,
+          "unattributed_agent_s": 14.337021350860596,
+          "gateway_matched_wait_count": 251,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "68d2e2bcb1291b6598acf7c715f64ad46a75277d75ccbae8fd2ad0cb008d4dd8",
+          "score_sha256": "afda0467a93e6ddd35579986ff3f829551ea9cfe3e62bba673aa43870c093871",
+          "native_events_sha256": "9e26e59b63e05827f8fa62b734817b46979454c3d5c04ff9f3f6900fc6de2873"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp04-six-r2"
+    },
+    "MP05": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp05-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp05-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1811.431669,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 32,
+          "api_passed": 0,
+          "api_total": 21,
+          "integrity": false,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 819205,
+          "output": 28398,
+          "total": 847603,
+          "billing_cache_hit": 334208,
+          "cache_unknown_requests": 0,
+          "sent": 191,
+          "settled": 191,
+          "unknown_usage": 0,
+          "peak_usd": "0.767357272",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 3,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 13,
+          "worker_changes": 13,
+          "source_changes": 4,
+          "reads": 263,
+          "writes": 49,
+          "tests": 23,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1811.431668996811,
+          "agent_s": 1777.0504899024963,
+          "verifier_s": 16.440081119537354,
+          "non_agent_other_s": 17.94109797477722,
+          "planning_s": 22.835813760757446,
+          "execution_s": 1749.3856868743896,
+          "agent_other_s": 4.828989267349243,
+          "gateway_wait_only_s": 1374.0816946029663,
+          "gateway_wait_union_s": 1448.1343250274658,
+          "slot_queue_union_s": 1108.1356790065765,
+          "upstream_wall_s": 389.73129177093506,
+          "unattributed_agent_s": 13.23750352859497,
+          "gateway_matched_wait_count": 191,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "468f9bb16e0d3e2ce2f9427bc9b8b1e249b0fda8bdbf338c9fe0b0a9102cb86d",
+          "score_sha256": "45e14e6a6c1ffff3ba59476b2731e77f8ae7c8ac3dfb01258c656c67fac37643",
+          "native_events_sha256": "137b09a07a11c5666de29b64259863112ac1510165291166cd815a93fc739264"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp05-six-r2"
+    },
+    "MP06": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp06-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp06-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 596.939092,
+        "score": {
+          "reward": "0.400000",
+          "reward_max": 2,
+          "core_passed": 10,
+          "core_total": 25,
+          "api_passed": 6,
+          "api_total": 16,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 719750,
+          "output": 15665,
+          "total": 735415,
+          "billing_cache_hit": 418176,
+          "cache_unknown_requests": 0,
+          "sent": 142,
+          "settled": 142,
+          "unknown_usage": 0,
+          "peak_usd": "0.478510824",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 51,
+          "fallback": true,
+          "handoffs": 9,
+          "worker_changes": 9,
+          "source_changes": 1,
+          "reads": 184,
+          "writes": 29,
+          "tests": 13,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 596.9390919208527,
+          "agent_s": 566.5997960567474,
+          "verifier_s": 16.134829998016357,
+          "non_agent_other_s": 14.204465866088867,
+          "planning_s": 98.50884008407593,
+          "execution_s": 463.722238779068,
+          "agent_other_s": 4.368717193603516,
+          "gateway_wait_only_s": 313.87890362739563,
+          "gateway_wait_union_s": 354.0683832168579,
+          "slot_queue_union_s": 165.3495056629181,
+          "upstream_wall_s": 244.51625895500183,
+          "unattributed_agent_s": 8.204633474349976,
+          "gateway_matched_wait_count": 142,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "0baea204365a44e76ddc43ac55ef7943ffbe8742f4a05e061ca372d6be79fd68",
+          "score_sha256": "05e7e91a9b1e45d373448fbaaab6b650937c7684612f4774b9e3b8cd6814812b",
+          "native_events_sha256": "d865a001d0de67a427736841c04e42eaddf7282dc3e177621bd391a3f801a4bb"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp06-six-r2"
+    },
+    "MP07": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp07-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp07-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2805.465764,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 22,
+          "api_passed": 0,
+          "api_total": 13,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1231930,
+          "output": 44651,
+          "total": 1276581,
+          "billing_cache_hit": 508800,
+          "cache_unknown_requests": 0,
+          "sent": 294,
+          "settled": 294,
+          "unknown_usage": 0,
+          "peak_usd": "1.153736760",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 10,
+          "worker_changes": 2,
+          "source_changes": 0,
+          "reads": 157,
+          "writes": 88,
+          "tests": 16,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2805.4657640457153,
+          "agent_s": 2779.457759141922,
+          "verifier_s": 12.149908065795898,
+          "non_agent_other_s": 13.858096837997437,
+          "planning_s": 94.56195735931396,
+          "execution_s": 2680.6747875213623,
+          "agent_other_s": 4.2210142612457275,
+          "gateway_wait_only_s": 2172.6529405117035,
+          "gateway_wait_union_s": 2384.870239496231,
+          "slot_queue_union_s": 1993.7339754104614,
+          "upstream_wall_s": 596.7042572498322,
+          "unattributed_agent_s": 10.100561380386353,
+          "gateway_matched_wait_count": 294,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "a2eebc024c55d59a98d64babdcd7a9a36f93cf4a4fa652194c6cad08b64cd19b",
+          "score_sha256": "525ad5823b31d3288556c965170f326d8de9a7887907e660f67642deeacd3015",
+          "native_events_sha256": "0699dfe224b53b1a641eec430d30bd7dd9d743b765fbbd1b20a49e1a26484aa9"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp07-six-r2"
+    },
+    "MP08": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp08-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp08-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 1408.452581,
+        "score": {
+          "reward": "0.750000",
+          "reward_max": 2,
+          "core_passed": 21,
+          "core_total": 28,
+          "api_passed": 16,
+          "api_total": 19,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 870218,
+          "output": 24610,
+          "total": 894828,
+          "billing_cache_hit": 352640,
+          "cache_unknown_requests": 0,
+          "sent": 162,
+          "settled": 162,
+          "unknown_usage": 0,
+          "peak_usd": "0.796174720",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 10,
+          "execution_rounds": 48,
+          "fallback": false,
+          "handoffs": 6,
+          "worker_changes": 1,
+          "source_changes": 0,
+          "reads": 191,
+          "writes": 34,
+          "tests": 19,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1408.452581167221,
+          "agent_s": 1380.1421999931335,
+          "verifier_s": 13.914265871047974,
+          "non_agent_other_s": 14.39611530303955,
+          "planning_s": 92.14343881607056,
+          "execution_s": 1283.1775619983673,
+          "agent_other_s": 4.821199178695679,
+          "gateway_wait_only_s": 1042.6265501976013,
+          "gateway_wait_union_s": 1161.9204275608063,
+          "slot_queue_union_s": 956.7944610118866,
+          "upstream_wall_s": 325.8356511592865,
+          "unattributed_agent_s": 11.679998636245728,
+          "gateway_matched_wait_count": 162,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "7177408bc262d8b490e6dc41d98c6ebe97e768aa252893c2cf4dfd94df1f4852",
+          "score_sha256": "d0a78c0b6ac06db01be28078ee7d92713a06753fe721f286714c5b9d8d6bfa0a",
+          "native_events_sha256": "426ee7977de970d41105f0fa41a7e3df884a527c9a6da8f26f0816766dbb82c6"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp08-six-r2"
+    },
+    "MP09": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp09-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp09-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2470.139314,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 39,
+          "api_passed": 0,
+          "api_total": 28,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1035217,
+          "output": 18434,
+          "total": 1053651,
+          "billing_cache_hit": 501376,
+          "cache_unknown_requests": 0,
+          "sent": 264,
+          "settled": 264,
+          "unknown_usage": 0,
+          "peak_usd": "0.799729304",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": true,
+          "handoffs": 14,
+          "worker_changes": 14,
+          "source_changes": 1,
+          "reads": 370,
+          "writes": 30,
+          "tests": 17,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2470.1393139362335,
+          "agent_s": 2432.8476071357727,
+          "verifier_s": 14.542383909225464,
+          "non_agent_other_s": 22.74932289123535,
+          "planning_s": 371.3019132614136,
+          "execution_s": 2054.408568382263,
+          "agent_other_s": 7.137125492095947,
+          "gateway_wait_only_s": 2016.484266757965,
+          "gateway_wait_union_s": 2111.3598866462708,
+          "slot_queue_union_s": 1628.5993509292603,
+          "upstream_wall_s": 404.61605763435364,
+          "unattributed_agent_s": 11.74728274345398,
+          "gateway_matched_wait_count": 264,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "1540705c243e90e1311f7f339ceff6db8291f52b9ee2b9cea53ee402fe34f6a6",
+          "score_sha256": "dfd15510447e7d8c095fc5e6604a9f43f6271cae94d6097d2a44c1f0851e481d",
+          "native_events_sha256": "ea8bc05d5f9d10c665f4db8849ab328fe43c3d519af8f1fb87158be700cb96c8"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp09-six-r2"
+    },
+    "MP10": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp10-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp10-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 1383.691814,
+        "score": {
+          "reward": "0.870968",
+          "reward_max": 2,
+          "core_passed": 27,
+          "core_total": 31,
+          "api_passed": 18,
+          "api_total": 22,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1008316,
+          "output": 24538,
+          "total": 1032854,
+          "billing_cache_hit": 519808,
+          "cache_unknown_requests": 0,
+          "sent": 227,
+          "settled": 227,
+          "unknown_usage": 0,
+          "peak_usd": "0.764872592",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 27,
+          "execution_rounds": 59,
+          "fallback": false,
+          "handoffs": 9,
+          "worker_changes": 5,
+          "source_changes": 2,
+          "reads": 325,
+          "writes": 30,
+          "tests": 16,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1383.6918141841888,
+          "agent_s": 1344.2608971595764,
+          "verifier_s": 19.210124969482422,
+          "non_agent_other_s": 20.220792055130005,
+          "planning_s": 273.00572061538696,
+          "execution_s": 1066.4026508331299,
+          "agent_other_s": 4.85252571105957,
+          "gateway_wait_only_s": 904.4185998439789,
+          "gateway_wait_union_s": 1057.1605429649353,
+          "slot_queue_union_s": 717.2974224090576,
+          "upstream_wall_s": 429.52849435806274,
+          "unattributed_agent_s": 10.31380295753479,
+          "gateway_matched_wait_count": 227,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "21586eb9813cc13a1bd214da06c7d406d09fa83f6919a962d555ceff7d408705",
+          "score_sha256": "0011695fa165063b34af980f6595c9158ad632d03049d1179d631164eae37fd0",
+          "native_events_sha256": "5a2e99fd999f4059a3b42a9ff79adffeda9dff9c736a429b07a294dd20a87fee"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp10-six-r1"
+    },
+    "MP12": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp12-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp12-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2065.108777,
+        "score": {
+          "reward": "0.593750",
+          "reward_max": 2,
+          "core_passed": 19,
+          "core_total": 32,
+          "api_passed": 16,
+          "api_total": 21,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1389307,
+          "output": 35884,
+          "total": 1425191,
+          "billing_cache_hit": 572160,
+          "cache_unknown_requests": 0,
+          "sent": 311,
+          "settled": 311,
+          "unknown_usage": 0,
+          "peak_usd": "1.245909720",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 20,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 17,
+          "worker_changes": 13,
+          "source_changes": 0,
+          "reads": 195,
+          "writes": 84,
+          "tests": 22,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2065.1087770462036,
+          "agent_s": 2040.3707649707794,
+          "verifier_s": 12.217688083648682,
+          "non_agent_other_s": 12.520323991775513,
+          "planning_s": 290.3466784954071,
+          "execution_s": 1745.911269903183,
+          "agent_other_s": 4.112816572189331,
+          "gateway_wait_only_s": 1525.755618095398,
+          "gateway_wait_union_s": 1708.8950135707855,
+          "slot_queue_union_s": 1306.5105924606323,
+          "upstream_wall_s": 503.761349439621,
+          "unattributed_agent_s": 10.853797435760498,
+          "gateway_matched_wait_count": 311,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "3d6b9aedff2c1ef3e516226f25cd349064a4ed74b5ace284941a1fe4cec242b3",
+          "score_sha256": "ed307523df474f409afca55190851ee9152a0dff7165e5bf726c3b601ff4940f",
+          "native_events_sha256": "18f61303f309954319f7493f6ef5de9ca9eb1aa2cd724a895268b6918aa2e795"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp12-six-r2"
+    },
+    "MP13": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp13-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp13-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 859.189556,
+        "score": {
+          "reward": "0.437500",
+          "reward_max": 2,
+          "core_passed": 14,
+          "core_total": 32,
+          "api_passed": 10,
+          "api_total": 21,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1166906,
+          "output": 25490,
+          "total": 1192396,
+          "billing_cache_hit": 501120,
+          "cache_unknown_requests": 0,
+          "sent": 253,
+          "settled": 253,
+          "unknown_usage": 0,
+          "peak_usd": "1.001827200",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 60,
+          "fallback": false,
+          "handoffs": 7,
+          "worker_changes": 1,
+          "source_changes": 0,
+          "reads": 305,
+          "writes": 73,
+          "tests": 17,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 859.1895558834076,
+          "agent_s": 831.2533581256866,
+          "verifier_s": 13.934532880783081,
+          "non_agent_other_s": 14.001664876937866,
+          "planning_s": 120.16911792755127,
+          "execution_s": 705.9717755317688,
+          "agent_other_s": 5.112464666366577,
+          "gateway_wait_only_s": 272.51549911499023,
+          "gateway_wait_union_s": 492.8423969745636,
+          "slot_queue_union_s": 252.12578892707825,
+          "upstream_wall_s": 548.7165093421936,
+          "unattributed_agent_s": 10.021349668502808,
+          "gateway_matched_wait_count": 253,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "afa7cf27004c205c9359a4e6c6bff7f698238bbe1867e33116585fa0dcd2e047",
+          "score_sha256": "97311bb844ac1aac5d16d578cdf76dc093eece8dbb9cc59abafc8c1ea91c2c77",
+          "native_events_sha256": "bc523e34fb549599a73f6ad088eafaaf41762e1899ac8d0ffad983554a239162"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp13-r1"
+    },
+    "MP14": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp14-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp14-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1423.88995,
+        "score": {
+          "reward": "0.500000",
+          "reward_max": 2,
+          "core_passed": 11,
+          "core_total": 22,
+          "api_passed": 8,
+          "api_total": 13,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1392514,
+          "output": 56857,
+          "total": 1449371,
+          "billing_cache_hit": 538240,
+          "cache_unknown_requests": 0,
+          "sent": 303,
+          "settled": 303,
+          "unknown_usage": 0,
+          "peak_usd": "1.376477960",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 10,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 24,
+          "worker_changes": 15,
+          "source_changes": 1,
+          "reads": 358,
+          "writes": 73,
+          "tests": 38,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1423.8899500370026,
+          "agent_s": 1395.7498650550842,
+          "verifier_s": 14.587284088134766,
+          "non_agent_other_s": 13.55280089378357,
+          "planning_s": 48.223491191864014,
+          "execution_s": 1342.8563561439514,
+          "agent_other_s": 4.670017719268799,
+          "gateway_wait_only_s": 394.54233407974243,
+          "gateway_wait_union_s": 665.2908272743225,
+          "slot_queue_union_s": 368.2885088920593,
+          "upstream_wall_s": 988.0246663093567,
+          "unattributed_agent_s": 13.182864665985107,
+          "gateway_matched_wait_count": 303,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "be5833b4299e19c05d5ef8b7b75dd3448a5562948a7a3acd506f850d23278276",
+          "score_sha256": "4ca00623ed6000dc38dce0a8ef7b982333db275234d654ca2db4719b0b9cd759",
+          "native_events_sha256": "dfa86209ec237ed919ed2d3d29c77fbb582929362f04815fbf4abee05bb29ff7"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp14-r1"
+    },
+    "MP15": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp15-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp15-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2556.738419,
+        "score": {
+          "reward": "0.187500",
+          "reward_max": 2,
+          "core_passed": 6,
+          "core_total": 32,
+          "api_passed": 5,
+          "api_total": 21,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1331056,
+          "output": 33996,
+          "total": 1365052,
+          "billing_cache_hit": 608000,
+          "cache_unknown_requests": 0,
+          "sent": 293,
+          "settled": 293,
+          "unknown_usage": 0,
+          "peak_usd": "1.115810080",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": true,
+          "handoffs": 21,
+          "worker_changes": 20,
+          "source_changes": 2,
+          "reads": 352,
+          "writes": 42,
+          "tests": 30,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2556.73841881752,
+          "agent_s": 2521.708309173584,
+          "verifier_s": 12.748514890670776,
+          "non_agent_other_s": 22.28159475326538,
+          "planning_s": 358.80272793769836,
+          "execution_s": 2156.730835199356,
+          "agent_other_s": 6.174746036529541,
+          "gateway_wait_only_s": 1956.5603423118591,
+          "gateway_wait_union_s": 2093.584382534027,
+          "slot_queue_union_s": 1540.2745022773743,
+          "upstream_wall_s": 550.3571925163269,
+          "unattributed_agent_s": 14.79077434539795,
+          "gateway_matched_wait_count": 293,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "4ef6466f8a750838b67baa279f5fedb433e073744bb09a0aa2cb219bf3fa8cf3",
+          "score_sha256": "20afee0e65cc5f91190de434d2d13c954aaf06dcbe9b8ba3a258bde8f4f9c7a3",
+          "native_events_sha256": "fdb09dc58d5f9c453a160fdb718770ccdef44755055a5b81fcb033e5c78b1e31"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp15-six-r2"
+    },
+    "MP16": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp16-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp16-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "latte_xml_protocol_stall",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 727.79787,
+        "score": {
+          "reward": "0.656250",
+          "reward_max": 2,
+          "core_passed": 21,
+          "core_total": 32,
+          "api_passed": 21,
+          "api_total": 21,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 253863,
+          "output": 9882,
+          "total": 263745,
+          "billing_cache_hit": 193024,
+          "cache_unknown_requests": 0,
+          "sent": 43,
+          "settled": 43,
+          "unknown_usage": 0,
+          "peak_usd": "0.127933256",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 7,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 102,
+          "writes": 19,
+          "tests": 1,
+          "active_workers": [
+            "Dev1"
+          ]
+        },
+        "timing": {
+          "e2e_s": 727.7978701591492,
+          "agent_s": 696.8701949119568,
+          "verifier_s": 18.155833959579468,
+          "non_agent_other_s": 12.771841287612915,
+          "planning_s": 460.31463623046875,
+          "execution_s": 232.78412652015686,
+          "agent_other_s": 3.7714321613311768,
+          "gateway_wait_only_s": 586.8245077133179,
+          "gateway_wait_union_s": 586.8245077133179,
+          "slot_queue_union_s": 474.8302183151245,
+          "upstream_wall_s": 104.50068593025208,
+          "unattributed_agent_s": 5.545001268386841,
+          "gateway_matched_wait_count": 43,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "0559e37274663184d3037af85d081e066199824b6987ad86f095ccf27823c6aa",
+          "score_sha256": "0a8897c36513677d0e41994a87c7f0e99da1093db21875fbe0a1a812991d063e",
+          "native_events_sha256": "5c4f511276e23b5547375c2f63fa36bd2a285d3d931d195f59c4c2bed3c38686"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp16-six-r2"
+    },
+    "MP17": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp17-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp17-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "observed_token_protection",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 3538.272339,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 25,
+          "api_passed": 0,
+          "api_total": 16,
+          "integrity": false,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1958075,
+          "output": 42237,
+          "total": 2000312,
+          "billing_cache_hit": 631936,
+          "cache_unknown_requests": 0,
+          "sent": 390,
+          "settled": 390,
+          "unknown_usage": 0,
+          "peak_usd": "1.945567184",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 4,
+          "worker_changes": 0,
+          "source_changes": 2,
+          "reads": 467,
+          "writes": 73,
+          "tests": 18,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 3538.2723388671875,
+          "agent_s": 3508.442982196808,
+          "verifier_s": 13.162344932556152,
+          "non_agent_other_s": 16.667011737823486,
+          "planning_s": 439.107449054718,
+          "execution_s": 3065.5792932510376,
+          "agent_other_s": 3.756239891052246,
+          "gateway_wait_only_s": 2765.7301890850067,
+          "gateway_wait_union_s": 3071.4973924160004,
+          "slot_queue_union_s": 2619.0515298843384,
+          "upstream_wall_s": 730.7070164680481,
+          "unattributed_agent_s": 12.005776643753052,
+          "gateway_matched_wait_count": 390,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "15a3a51ca0b2242ea849286b30133eea6164ba7696f785a1e9d791601a104429",
+          "score_sha256": "1ea5fd36bd6da998fd77f70284d45c80797e93319b99abc880094f69e6f91349",
+          "native_events_sha256": "413d693fb2c0d34ad1b43b409e882ef3e704430ddd8a6adb425e31cc65ff1cce"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp17-six-r2"
+    },
+    "MP18": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp18-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp18-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2223.457893,
+        "score": {
+          "reward": "0.520000",
+          "reward_max": 2,
+          "core_passed": 13,
+          "core_total": 25,
+          "api_passed": 11,
+          "api_total": 16,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1272293,
+          "output": 34678,
+          "total": 1306971,
+          "billing_cache_hit": 588160,
+          "cache_unknown_requests": 0,
+          "sent": 244,
+          "settled": 244,
+          "unknown_usage": 0,
+          "peak_usd": "1.066259480",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 16,
+          "worker_changes": 15,
+          "source_changes": 0,
+          "reads": 315,
+          "writes": 54,
+          "tests": 20,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2223.4578931331635,
+          "agent_s": 2194.271502971649,
+          "verifier_s": 14.900068998336792,
+          "non_agent_other_s": 14.28632116317749,
+          "planning_s": 390.26676082611084,
+          "execution_s": 1799.3122968673706,
+          "agent_other_s": 4.692445278167725,
+          "gateway_wait_only_s": 1747.8184087276459,
+          "gateway_wait_union_s": 1845.7951321601868,
+          "slot_queue_union_s": 1454.1477057933807,
+          "upstream_wall_s": 435.7246673107147,
+          "unattributed_agent_s": 10.728426933288574,
+          "gateway_matched_wait_count": 244,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "76a41c21fbf9dd64370c716655a58bb710bd3ac789e037332e82336d159ca12b",
+          "score_sha256": "47915241962975d184bdd841e9872acba0596a978bb91b784c0b2f3e91424d39",
+          "native_events_sha256": "d9fd6aa2afa467a8b0137f17a389eff673ad6b57c059c1cec9196f5ffcc3acb8"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp18-six-r2"
+    },
+    "MP19": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp19-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp19-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 3366.818001,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 22,
+          "api_passed": 0,
+          "api_total": 13,
+          "integrity": false,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1343960,
+          "output": 108571,
+          "total": 1452531,
+          "billing_cache_hit": 544000,
+          "cache_unknown_requests": 0,
+          "sent": 284,
+          "settled": 284,
+          "unknown_usage": 0,
+          "peak_usd": "1.509824360",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 17,
+          "worker_changes": 17,
+          "source_changes": 19,
+          "reads": 441,
+          "writes": 126,
+          "tests": 63,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 3366.8180010318756,
+          "agent_s": 3342.9548280239105,
+          "verifier_s": 11.26767897605896,
+          "non_agent_other_s": 12.595494031906128,
+          "planning_s": 615.3445889949799,
+          "execution_s": 2723.3286983966827,
+          "agent_other_s": 4.281540632247925,
+          "gateway_wait_only_s": 2481.0266637802124,
+          "gateway_wait_union_s": 2613.992015838623,
+          "slot_queue_union_s": 2136.0176470279694,
+          "upstream_wall_s": 837.9664335250854,
+          "unattributed_agent_s": 23.96173071861267,
+          "gateway_matched_wait_count": 284,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "8436ffa3d58d4e323d0218ccb8ca1a43426c63b76cfca3362359199d9cd27a18",
+          "score_sha256": "7d271139743adf753e8579d6dc7efa26b19311760b33ceb23574c56eaabf0450",
+          "native_events_sha256": "eb57efd5922180230659bf9f18df8620734308d982c9caac74c8145f40e55839"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp19-six-r2"
+    },
+    "MP20": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp20-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp20-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 1246.625329,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 32,
+          "core_total": 32,
+          "api_passed": 21,
+          "api_total": 21,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1319226,
+          "output": 22561,
+          "total": 1341787,
+          "billing_cache_hit": 589952,
+          "cache_unknown_requests": 0,
+          "sent": 285,
+          "settled": 285,
+          "unknown_usage": 0,
+          "peak_usd": "1.077941128",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 92,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 137,
+          "writes": 127,
+          "tests": 4,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1246.6253290176392,
+          "agent_s": 1219.796935081482,
+          "verifier_s": 12.959229946136475,
+          "non_agent_other_s": 13.869163990020752,
+          "planning_s": 125.00664782524109,
+          "execution_s": 1089.8565323352814,
+          "agent_other_s": 4.933754920959473,
+          "gateway_wait_only_s": 481.76691484451294,
+          "gateway_wait_union_s": 703.7331717014313,
+          "slot_queue_union_s": 437.04653096199036,
+          "upstream_wall_s": 728.6890561580658,
+          "unattributed_agent_s": 9.340964078903198,
+          "gateway_matched_wait_count": 285,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "45bbcedd1debc6197aa5d33bc593c1ab9bc43ba4a468a04a0f7aee75f499ac67",
+          "score_sha256": "b764eef9c9198e06b78094c8f3fbf260de07e09e9779ff13c85cb1a8b6a4cb22",
+          "native_events_sha256": "a47e1b7356d15a63bc882f2ab7e2be0bf7907d56428fe4c04de537e3982ae852"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp20-r1"
+    },
+    "MP21": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp21-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp21-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 598.032435,
+        "score": {
+          "reward": "0.680000",
+          "reward_max": 2,
+          "core_passed": 17,
+          "core_total": 25,
+          "api_passed": 12,
+          "api_total": 16,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 609926,
+          "output": 13647,
+          "total": 623573,
+          "billing_cache_hit": 343040,
+          "cache_unknown_requests": 0,
+          "sent": 123,
+          "settled": 123,
+          "unknown_usage": 0,
+          "peak_usd": "0.421425400",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 68,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 257,
+          "writes": 28,
+          "tests": 5,
+          "active_workers": [
+            "Dev1",
+            "Dev2"
+          ]
+        },
+        "timing": {
+          "e2e_s": 598.0324349403381,
+          "agent_s": 554.4838352203369,
+          "verifier_s": 17.38811683654785,
+          "non_agent_other_s": 26.16048288345337,
+          "planning_s": 118.85200309753418,
+          "execution_s": 426.5188465118408,
+          "agent_other_s": 9.112985610961914,
+          "gateway_wait_only_s": 269.3764662742615,
+          "gateway_wait_union_s": 275.8794901371002,
+          "slot_queue_union_s": 55.491456031799316,
+          "upstream_wall_s": 271.79234409332275,
+          "unattributed_agent_s": 13.315024852752686,
+          "gateway_matched_wait_count": 123,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "664c1edccce4a525e90405256073f177420b98a6f5563931fe6380373c209490",
+          "score_sha256": "6506fc6591f2c45054ed026292146e5f0f2257d7e6af0d1732e514bf7a471566",
+          "native_events_sha256": "05470eb3c9843de6fc7872d6d6e6e7844051675e864d2e9c95b77b105ef881c5"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp21-r1"
+    },
+    "MP22": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp22-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp22-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 2369.720279,
+        "score": {
+          "reward": "0.029412",
+          "reward_max": 2,
+          "core_passed": 1,
+          "core_total": 34,
+          "api_passed": 1,
+          "api_total": 21,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 969599,
+          "output": 21939,
+          "total": 991538,
+          "billing_cache_hit": 432384,
+          "cache_unknown_requests": 0,
+          "sent": 237,
+          "settled": 237,
+          "unknown_usage": 0,
+          "peak_usd": "0.815027136",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 1,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 20,
+          "worker_changes": 19,
+          "source_changes": 4,
+          "reads": 282,
+          "writes": 27,
+          "tests": 27,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2369.720278978348,
+          "agent_s": 2342.85817694664,
+          "verifier_s": 13.884232997894287,
+          "non_agent_other_s": 12.977869033813477,
+          "planning_s": 23.408331394195557,
+          "execution_s": 2314.698386669159,
+          "agent_other_s": 4.7514588832855225,
+          "gateway_wait_only_s": 1938.4468314647675,
+          "gateway_wait_union_s": 2049.798053741455,
+          "slot_queue_union_s": 1643.245198726654,
+          "upstream_wall_s": 394.4670181274414,
+          "unattributed_agent_s": 9.944327354431152,
+          "gateway_matched_wait_count": 237,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "4ef6a6b088020623174872f9e425ff57b8801df6b2bcb63b62c61339c89b7e07",
+          "score_sha256": "7d8bf9528a0368231239b01be6866757a12d2595335cad978153ec27286665ef",
+          "native_events_sha256": "68816a8443c70cbdebd4a120e50fe1fa8c8899560fbde0a9a8a26482022fb036"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp22-six-r2"
+    },
+    "MP23": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp23-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp23-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1082.52716,
+        "score": {
+          "reward": "0.600000",
+          "reward_max": 2,
+          "core_passed": 15,
+          "core_total": 25,
+          "api_passed": 11,
+          "api_total": 16,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1090881,
+          "output": 24211,
+          "total": 1115092,
+          "billing_cache_hit": 496512,
+          "cache_unknown_requests": 0,
+          "sent": 222,
+          "settled": 222,
+          "unknown_usage": 0,
+          "peak_usd": "0.902289168",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 14,
+          "worker_changes": 13,
+          "source_changes": 0,
+          "reads": 254,
+          "writes": 38,
+          "tests": 20,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1082.5271599292755,
+          "agent_s": 1056.1923551559448,
+          "verifier_s": 12.96800708770752,
+          "non_agent_other_s": 13.366797685623169,
+          "planning_s": 129.7604444026947,
+          "execution_s": 920.6091313362122,
+          "agent_other_s": 5.822779417037964,
+          "gateway_wait_only_s": 507.9176676273346,
+          "gateway_wait_union_s": 591.222941160202,
+          "slot_queue_union_s": 295.4247224330902,
+          "upstream_wall_s": 534.9556486606598,
+          "unattributed_agent_s": 13.31903886795044,
+          "gateway_matched_wait_count": 222,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "c696787ad5e3526896268bfb252802ea22d00792983bad0691348b9f401e72ca",
+          "score_sha256": "b7ef714a2f07c1f0147f710a39b1901a664ab68d5bc6477df28a5a6dc2bff6a5",
+          "native_events_sha256": "bc9501329406251e2ce15197dce0ce7541f21c0fff88d42356eb1c1176369398"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp23-r1"
+    },
+    "MP24": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp24-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp24-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1101.063713,
+        "score": {
+          "reward": "0.378378",
+          "reward_max": 2,
+          "core_passed": 14,
+          "core_total": 37,
+          "api_passed": 13,
+          "api_total": 26,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1349102,
+          "output": 31118,
+          "total": 1380220,
+          "billing_cache_hit": 526080,
+          "cache_unknown_requests": 0,
+          "sent": 287,
+          "settled": 287,
+          "unknown_usage": 0,
+          "peak_usd": "1.232763840",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 22,
+          "worker_changes": 21,
+          "source_changes": 1,
+          "reads": 501,
+          "writes": 42,
+          "tests": 29,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1101.063712835312,
+          "agent_s": 1074.072755098343,
+          "verifier_s": 13.599539995193481,
+          "non_agent_other_s": 13.391417741775513,
+          "planning_s": 152.26029896736145,
+          "execution_s": 917.5742797851562,
+          "agent_other_s": 4.238176345825195,
+          "gateway_wait_only_s": 459.44327187538147,
+          "gateway_wait_union_s": 622.2706670761108,
+          "slot_queue_union_s": 234.0902054309845,
+          "upstream_wall_s": 603.2020378112793,
+          "unattributed_agent_s": 11.427445411682129,
+          "gateway_matched_wait_count": 287,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "c1c6de4d42040849bf23610d4c68f4771b85ba8e4de80d51c9b716d7e5f247f3",
+          "score_sha256": "a2d9d7d565e2b37d3ec8c26a94fbf995a286c9c4e261d88f05d2b49d1450af05",
+          "native_events_sha256": "19b98777a84b97c70f3cef2957bb3fbac4a18db64699346e73087967bf46cdcd"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp24-r1"
+    },
+    "MP25": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp25-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-mp25-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "latte_xml_protocol_stall",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1960.063315,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 2,
+          "core_passed": 0,
+          "core_total": 25,
+          "api_passed": 0,
+          "api_total": 16,
+          "integrity": false,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 943691,
+          "output": 14002,
+          "total": 957693,
+          "billing_cache_hit": 434176,
+          "cache_unknown_requests": 0,
+          "sent": 194,
+          "settled": 194,
+          "unknown_usage": 0,
+          "peak_usd": "0.747111464",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 66,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 243,
+          "writes": 25,
+          "tests": 2,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1960.0633149147034,
+          "agent_s": 1926.674416065216,
+          "verifier_s": 11.754352807998657,
+          "non_agent_other_s": 21.634546041488647,
+          "planning_s": 341.47696185112,
+          "execution_s": 1579.2363827228546,
+          "agent_other_s": 5.961071491241455,
+          "gateway_wait_only_s": 1635.2424292564392,
+          "gateway_wait_union_s": 1715.2837586402893,
+          "slot_queue_union_s": 1394.4719777107239,
+          "upstream_wall_s": 282.54139137268066,
+          "unattributed_agent_s": 8.890595436096191,
+          "gateway_matched_wait_count": 194,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "c0bff03792554fbd74698ee6c80876d7ce9c5ea7c3655213085fafa98251e065",
+          "score_sha256": "9d9762e1949b70f034c1e0c045ec94487ca24a28a37c43fc92d128ea0a9a5362",
+          "native_events_sha256": "c183299458d019f3e8259a7401e36dfe5b45789865de66b6dc5e7f353797558a"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp25-six-r2"
+    },
+    "MP26": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-mp26-r1",
+        "paid_attempt": "latte-handoff-v2-u59-mp26-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 400.58188,
+        "score": {
+          "reward": "0.717949",
+          "reward_max": 2,
+          "core_passed": 28,
+          "core_total": 39,
+          "api_passed": 21,
+          "api_total": 26,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 641725,
+          "output": 13963,
+          "total": 655688,
+          "billing_cache_hit": 353024,
+          "cache_unknown_requests": 0,
+          "sent": 112,
+          "settled": 112,
+          "unknown_usage": 0,
+          "peak_usd": "0.451911856",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 51,
+          "fallback": true,
+          "handoffs": 2,
+          "worker_changes": 1,
+          "source_changes": 0,
+          "reads": 217,
+          "writes": 38,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 400.58188009262085,
+          "agent_s": 368.91643500328064,
+          "verifier_s": 18.034096002578735,
+          "non_agent_other_s": 13.631349086761475,
+          "planning_s": 113.99846887588501,
+          "execution_s": 250.97337293624878,
+          "agent_other_s": 3.9445931911468506,
+          "gateway_wait_only_s": 90.43573760986328,
+          "gateway_wait_union_s": 105.33336424827576,
+          "slot_queue_union_s": 0.00958871841430664,
+          "upstream_wall_s": 269.8541283607483,
+          "unattributed_agent_s": 8.626569032669067,
+          "gateway_matched_wait_count": 112,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "d2d1044684f18fae1bc72b323145514cae8715bc62eb3dadeef6182a8f293f8f",
+          "score_sha256": "962c61a713080703e219e75ac69aa5f445489167e24b279a962cee037160b6ac",
+          "native_events_sha256": "a02bd7510e04edb54fa721f70a32d026e770e166f16722bcbc9da4446170a6d4"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-mp26-r1"
+    },
+    "MS02": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms02-r1",
+        "paid_attempt": "latte-handoff-v2-u59-ms02-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 235.48416,
+        "score": {
+          "reward": "1.153846",
+          "reward_max": 3,
+          "core_passed": 10,
+          "core_total": 13,
+          "api_passed": 8,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 400186,
+          "output": 6634,
+          "total": 406820,
+          "billing_cache_hit": 272128,
+          "cache_unknown_requests": 0,
+          "sent": 89,
+          "settled": 89,
+          "unknown_usage": 0,
+          "peak_usd": "0.207280832",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 14,
+          "execution_rounds": 38,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 60,
+          "writes": 17,
+          "tests": 5,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 235.48415994644165,
+          "agent_s": 208.39652490615845,
+          "verifier_s": 12.94576907157898,
+          "non_agent_other_s": 14.141865968704224,
+          "planning_s": 33.75176763534546,
+          "execution_s": 169.54244709014893,
+          "agent_other_s": 5.1023101806640625,
+          "gateway_wait_only_s": 24.16927719116211,
+          "gateway_wait_union_s": 58.49115800857544,
+          "slot_queue_union_s": 0.010489940643310547,
+          "upstream_wall_s": 176.0279359817505,
+          "unattributed_agent_s": 8.19931173324585,
+          "gateway_matched_wait_count": 89,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "8e28b76da49a59a1070b01b07738d4eb2a17a534b735b2e7d2244c3fb69603e7",
+          "score_sha256": "9ccb7cdbc63537bed6d634ec0c4acdd6093aa6774df9919f4f9aca4e2e93f8b4",
+          "native_events_sha256": "6b49334ac06ec6ddd27f87e90ac70149213c25e4382a7ece5fec034ec0bf74c5"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms02-r1"
+    },
+    "MS11": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms11-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-ms11-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 411.86007,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 14,
+          "core_total": 14,
+          "api_passed": 10,
+          "api_total": 10,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 236959,
+          "output": 4702,
+          "total": 241661,
+          "billing_cache_hit": 169856,
+          "cache_unknown_requests": 0,
+          "sent": 36,
+          "settled": 36,
+          "unknown_usage": 0,
+          "peak_usd": "0.114669544",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 18,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 34,
+          "writes": 5,
+          "tests": 4,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 411.8600699901581,
+          "agent_s": 380.40014386177063,
+          "verifier_s": 15.012868881225586,
+          "non_agent_other_s": 16.447057247161865,
+          "planning_s": 98.16662883758545,
+          "execution_s": 277.67711424827576,
+          "agent_other_s": 4.556400775909424,
+          "gateway_wait_only_s": 304.5787522792816,
+          "gateway_wait_union_s": 313.66303730010986,
+          "slot_queue_union_s": 257.2598526477814,
+          "upstream_wall_s": 69.09960770606995,
+          "unattributed_agent_s": 6.721783876419067,
+          "gateway_matched_wait_count": 36,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "24d4c9fed69ac6b8bae154ff472e5e3aa66c9f7fbf0a935a20e1b8b31a284d6c",
+          "score_sha256": "13bf6688f2cc8ff421209f99be8ee502f11682d88cc2198883d74a6e7bc65bf0",
+          "native_events_sha256": "cb9b4b7e68fed200ea8c6973951f643aa5b01e392f00ccc9594fa088a5380ee8"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms11-six-r2"
+    },
+    "MS12": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms12-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-ms12-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 1109.918597,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 14,
+          "core_total": 14,
+          "api_passed": 10,
+          "api_total": 10,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 774640,
+          "output": 11850,
+          "total": 786490,
+          "billing_cache_hit": 341760,
+          "cache_unknown_requests": 0,
+          "sent": 133,
+          "settled": 133,
+          "unknown_usage": 0,
+          "peak_usd": "0.633365040",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 54,
+          "fallback": true,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 136,
+          "writes": 16,
+          "tests": 11,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1109.918596982956,
+          "agent_s": 1084.2726480960846,
+          "verifier_s": 11.591771841049194,
+          "non_agent_other_s": 14.054177045822144,
+          "planning_s": 223.82694125175476,
+          "execution_s": 854.39275598526,
+          "agent_other_s": 6.052950859069824,
+          "gateway_wait_only_s": 823.7073700428009,
+          "gateway_wait_union_s": 869.7543559074402,
+          "slot_queue_union_s": 682.6196022033691,
+          "upstream_wall_s": 248.19351720809937,
+          "unattributed_agent_s": 12.371760845184326,
+          "gateway_matched_wait_count": 133,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "546e7b50fcc0f7c37b29cf60e3059986f90c44e518b6e3a0c80a048878522237",
+          "score_sha256": "68d677f62eb8b06dab9d6482876d23009e7913412a64e5e08dae57bae9e5262e",
+          "native_events_sha256": "534c69114fd9d4b0c8484fadfce8c97817763b907d26bd9c17036fc09371bb8f"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms12-six-r1"
+    },
+    "MS14": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms14-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-ms14-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 2315.699558,
+        "score": {
+          "reward": "1.178571",
+          "reward_max": 3,
+          "core_passed": 11,
+          "core_total": 14,
+          "api_passed": 9,
+          "api_total": 10,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 722985,
+          "output": 18419,
+          "total": 741404,
+          "billing_cache_hit": 357376,
+          "cache_unknown_requests": 0,
+          "sent": 164,
+          "settled": 164,
+          "unknown_usage": 0,
+          "peak_usd": "0.571267664",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 77,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 87,
+          "writes": 51,
+          "tests": 11,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 2315.699558019638,
+          "agent_s": 1870.9565291404724,
+          "verifier_s": 432.73565888404846,
+          "non_agent_other_s": 12.007369995117188,
+          "planning_s": 61.14956617355347,
+          "execution_s": 1805.5672039985657,
+          "agent_other_s": 4.2397589683532715,
+          "gateway_wait_only_s": 1558.2077543735504,
+          "gateway_wait_union_s": 1640.7595794200897,
+          "slot_queue_union_s": 1387.4470522403717,
+          "upstream_wall_s": 302.5914554595947,
+          "unattributed_agent_s": 10.15731930732727,
+          "gateway_matched_wait_count": 164,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "59ce871e3b934d018c9d5365d36d576b33d55ed9eed4b3b9bbee83f1f0f2bcae",
+          "score_sha256": "e22a53aa62f160db29f93123f1b0df90021c73e0cfed5237acbe2f01573cf72d",
+          "native_events_sha256": "86361c181e89c101116753d5719312b56f326be979ff5c38bcf2ddcf4f94972c"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms14-six-r2"
+    },
+    "MS23": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms23-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-ms23-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "latte_xml_protocol_stall",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 953.077184,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 14,
+          "core_total": 14,
+          "api_passed": 10,
+          "api_total": 10,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 543814,
+          "output": 11199,
+          "total": 555013,
+          "billing_cache_hit": 232320,
+          "cache_unknown_requests": 0,
+          "sent": 93,
+          "settled": 93,
+          "unknown_usage": 0,
+          "peak_usd": "0.465742200",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 39,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 92,
+          "writes": 16,
+          "tests": 4,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 953.0771839618683,
+          "agent_s": 926.9268908500671,
+          "verifier_s": 14.080806016921997,
+          "non_agent_other_s": 12.06948709487915,
+          "planning_s": 49.24440622329712,
+          "execution_s": 873.8365762233734,
+          "agent_other_s": 3.8459084033966064,
+          "gateway_wait_only_s": 759.4462251663208,
+          "gateway_wait_union_s": 806.9060711860657,
+          "slot_queue_union_s": 658.8280923366547,
+          "upstream_wall_s": 161.5033679008484,
+          "unattributed_agent_s": 5.977297782897949,
+          "gateway_matched_wait_count": 93,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "df76f5a34254950e7aad4af88eb1a489a533bc8ad4b372b1c531458a3108519d",
+          "score_sha256": "3c8c7d8d1630b7cc5d9a13eb7b7a1e59f904249e26b16fa64b5e94628ed93108",
+          "native_events_sha256": "d74178b2a31b5d2466aa1bb2bc11baadcb712b56a7230149b52952567751ba7a"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms23-six-r2"
+    },
+    "MS28": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms28-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-ms28-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 1300.351542,
+        "score": {
+          "reward": "3.000000",
+          "reward_max": 3,
+          "core_passed": 14,
+          "core_total": 14,
+          "api_passed": 10,
+          "api_total": 10,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 435277,
+          "output": 16867,
+          "total": 452144,
+          "billing_cache_hit": 271232,
+          "cache_unknown_requests": 0,
+          "sent": 84,
+          "settled": 84,
+          "unknown_usage": 0,
+          "peak_usd": "0.295266928",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 56,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 66,
+          "writes": 25,
+          "tests": 6,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1300.3515419960022,
+          "agent_s": 1272.5979459285736,
+          "verifier_s": 14.559683084487915,
+          "non_agent_other_s": 13.193912982940674,
+          "planning_s": 65.36492228507996,
+          "execution_s": 1202.2362282276154,
+          "agent_other_s": 4.996795415878296,
+          "gateway_wait_only_s": 1050.6106400489807,
+          "gateway_wait_union_s": 1058.6426043510437,
+          "slot_queue_union_s": 893.2350468635559,
+          "upstream_wall_s": 213.09931826591492,
+          "unattributed_agent_s": 8.887987613677979,
+          "gateway_matched_wait_count": 84,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "4fb0c5701df3b901e77ab9243a1f3d257da00c9104a95564b2420dfc4eefb553",
+          "score_sha256": "42fbb88668559204c4ffbe21aa7568de055084e05f9f8382574f74f96eaf7f3e",
+          "native_events_sha256": "f8f61e938e4424151aa5690641cb6e0f4198d6e9e8e1100209e99aa27292bd8e"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms28-six-r2"
+    },
+    "MS29": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms29-r1",
+        "paid_attempt": "latte-handoff-v2-u59-ms29-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 327.314097,
+        "score": {
+          "reward": "1.269231",
+          "reward_max": 3,
+          "core_passed": 11,
+          "core_total": 13,
+          "api_passed": 7,
+          "api_total": 9,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 338938,
+          "output": 7023,
+          "total": 345961,
+          "billing_cache_hit": 226048,
+          "cache_unknown_requests": 0,
+          "sent": 73,
+          "settled": 73,
+          "unknown_usage": 0,
+          "peak_usd": "0.186771992",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 29,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 59,
+          "writes": 14,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 327.3140971660614,
+          "agent_s": 303.14083790779114,
+          "verifier_s": 12.118347883224487,
+          "non_agent_other_s": 12.054911375045776,
+          "planning_s": 39.57221531867981,
+          "execution_s": 259.39045214653015,
+          "agent_other_s": 4.178170442581177,
+          "gateway_wait_only_s": 155.40143299102783,
+          "gateway_wait_union_s": 196.70848941802979,
+          "slot_queue_union_s": 86.47184252738953,
+          "upstream_wall_s": 140.94222235679626,
+          "unattributed_agent_s": 6.797182559967041,
+          "gateway_matched_wait_count": 73,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "5f4aa20f32f6e7067e588f1544fc4364faf541912d7008dcc76f21cad1e3fceb",
+          "score_sha256": "079d5c66aa4001c6d4e078d6d2eebf94611f43e6afa3f32a10caffd23ff257c7",
+          "native_events_sha256": "2fd29e30bc0aa90c0ba4bbc546c8cbb4ba87610c337a26c80a8ffafbed4315cb"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms29-r1"
+    },
+    "MS30": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms30-r1",
+        "paid_attempt": "latte-handoff-v2-u59-ms30-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "all_tasks_done",
+        "harbor_exception": null,
+        "e2e_seconds": 829.517198,
+        "score": {
+          "reward": "0.428571",
+          "reward_max": 3,
+          "core_passed": 4,
+          "core_total": 14,
+          "api_passed": 3,
+          "api_total": 10,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 487386,
+          "output": 10905,
+          "total": 498291,
+          "billing_cache_hit": 272256,
+          "cache_unknown_requests": 0,
+          "sent": 88,
+          "settled": 88,
+          "unknown_usage": 0,
+          "peak_usd": "0.339134664",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 60,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 64,
+          "writes": 19,
+          "tests": 8,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 829.5171980857849,
+          "agent_s": 383.20443892478943,
+          "verifier_s": 432.4236879348755,
+          "non_agent_other_s": 13.889071226119995,
+          "planning_s": 37.779531717300415,
+          "execution_s": 341.03457713127136,
+          "agent_other_s": 4.390330076217651,
+          "gateway_wait_only_s": 152.69899988174438,
+          "gateway_wait_union_s": 165.22972226142883,
+          "slot_queue_union_s": 39.316640853881836,
+          "upstream_wall_s": 222.16062664985657,
+          "unattributed_agent_s": 8.344812393188477,
+          "gateway_matched_wait_count": 88,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "a2adac0ad02af29a8239b964f26d078cc303a86aad352aba15765efd6a968a38",
+          "score_sha256": "38c43c1b165c06ed2b72ebf6f2cabb8486bf2164b38f4bd6c37df208ca288a11",
+          "native_events_sha256": "6789216f94d130c6c1d9500f3e4f1a7bca4b50f8b10efae361e613be9f4df641"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms30-r1"
+    },
+    "MS41": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms41-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-ms41-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "shared_balance_interruption",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 363.613365,
+        "score": {
+          "reward": "0.000000",
+          "reward_max": 3,
+          "core_passed": 0,
+          "core_total": 15,
+          "api_passed": 0,
+          "api_total": 11,
+          "integrity": true,
+          "strict": false,
+          "public": false,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 274639,
+          "output": 8535,
+          "total": 283174,
+          "billing_cache_hit": 154496,
+          "cache_unknown_requests": 0,
+          "sent": 41,
+          "settled": 41,
+          "unknown_usage": 0,
+          "peak_usd": "0.199185184",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 5,
+          "execution_rounds": 16,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 34,
+          "writes": 5,
+          "tests": 2,
+          "active_workers": [
+            "Dev1",
+            "Dev2"
+          ]
+        },
+        "timing": {
+          "e2e_s": 363.61336517333984,
+          "agent_s": 331.1508140563965,
+          "verifier_s": 16.707659006118774,
+          "non_agent_other_s": 15.754892110824585,
+          "planning_s": 45.94502925872803,
+          "execution_s": 281.00028228759766,
+          "agent_other_s": 4.205502510070801,
+          "gateway_wait_only_s": 209.70458388328552,
+          "gateway_wait_union_s": 228.8024570941925,
+          "slot_queue_union_s": 170.29410123825073,
+          "upstream_wall_s": 111.0374538898468,
+          "unattributed_agent_s": 10.40877628326416,
+          "gateway_matched_wait_count": 41,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "4be5499b1acba215bd86173da80548b96ba97d3b65acf4f5fe1a94430e2839be",
+          "score_sha256": "622eaaed5663bd0cbccf0c4a00533164b7d63a5bcd98c5339e52959b8951cee3",
+          "native_events_sha256": "17a54367a36e7466ad6792b569a7734cddde22a90da59421b4f550c3234ce1ea"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-balance5-ms41-r1",
+      "balance_replay": {
+        "attempt": "latte-handoff-v2-balance5-ms41-r1",
+        "paid_attempt": "latte-handoff-v2-balance5-ms41-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 683.510213,
+        "score": {
+          "reward": "0.600000",
+          "reward_max": 3,
+          "core_passed": 6,
+          "core_total": 15,
+          "api_passed": 4,
+          "api_total": 11,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 918135,
+          "output": 26935,
+          "total": 945070,
+          "billing_cache_hit": 371072,
+          "cache_unknown_requests": 0,
+          "sent": 161,
+          "settled": 161,
+          "unknown_usage": 0,
+          "peak_usd": "0.845112928",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 165,
+          "writes": 43,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 683.5102128982544,
+          "agent_s": 643.5227520465851,
+          "verifier_s": 20.73823308944702,
+          "non_agent_other_s": 19.24922776222229,
+          "planning_s": 32.082783699035645,
+          "execution_s": 605.6173856258392,
+          "agent_other_s": 5.822582721710205,
+          "gateway_wait_only_s": 246.35513019561768,
+          "gateway_wait_union_s": 284.4884810447693,
+          "slot_queue_union_s": 72.93528246879578,
+          "upstream_wall_s": 386.1907591819763,
+          "unattributed_agent_s": 10.976862668991089,
+          "gateway_matched_wait_count": 161,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "bf1e855844701dd75e4d8f85dfe8df4bd201ac3b252715b8cda1f751105b2782",
+          "score_sha256": "3ecd75e273ece0a0ecd5632ff811025f79089e8207aabe292f5e91edae2c3f3e",
+          "native_events_sha256": "47780057c84bfe0fdfb6aeea2035717d666b8afaa3ca5129c9bda1c5658b530a"
+        }
+      }
+    },
+    "MS42": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-ms42-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-ms42-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "max_rounds",
+        "harbor_exception": "NonZeroAgentExitCodeError",
+        "e2e_seconds": 1995.893105,
+        "score": {
+          "reward": "0.656250",
+          "reward_max": 3,
+          "core_passed": 7,
+          "core_total": 16,
+          "api_passed": 5,
+          "api_total": 12,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 1088075,
+          "output": 25281,
+          "total": 1113356,
+          "billing_cache_hit": 677888,
+          "cache_unknown_requests": 0,
+          "sent": 154,
+          "settled": 154,
+          "unknown_usage": 0,
+          "peak_usd": "0.671386672",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 4,
+          "execution_rounds": 100,
+          "fallback": false,
+          "handoffs": 0,
+          "worker_changes": 0,
+          "source_changes": 0,
+          "reads": 118,
+          "writes": 25,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1995.8931050300598,
+          "agent_s": 1926.9190518856049,
+          "verifier_s": 55.91873598098755,
+          "non_agent_other_s": 13.055317163467407,
+          "planning_s": 48.20267844200134,
+          "execution_s": 1873.6973161697388,
+          "agent_other_s": 5.019057273864746,
+          "gateway_wait_only_s": 1620.1859493255615,
+          "gateway_wait_union_s": 1644.5355625152588,
+          "slot_queue_union_s": 1384.3302462100983,
+          "upstream_wall_s": 296.8420572280884,
+          "unattributed_agent_s": 9.891045331954956,
+          "gateway_matched_wait_count": 154,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "18171e3cef6c56f8dbf851d8049170ab9b9ad5a69f458ec07016e3d965a662a1",
+          "score_sha256": "0335657922ba1cb6f9e8d3800e96ae6a0c13525518889c5667095aca4e7206ca",
+          "native_events_sha256": "af3073c1f9605390f730f4623779f9442353d3ecee0393c5b56d0464b68152ba"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-ms42-six-r2"
+    },
+    "N11": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-n11-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-n11-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 1316.666458,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 17,
+          "core_total": 17,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 430636,
+          "output": 6672,
+          "total": 437308,
+          "billing_cache_hit": 199936,
+          "cache_unknown_requests": 0,
+          "sent": 97,
+          "settled": 97,
+          "unknown_usage": 0,
+          "peak_usd": "0.339742304",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 46,
+          "fallback": true,
+          "handoffs": 1,
+          "worker_changes": 1,
+          "source_changes": 0,
+          "reads": 151,
+          "writes": 12,
+          "tests": 7,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1316.6664581298828,
+          "agent_s": 1288.1551749706268,
+          "verifier_s": 14.29840087890625,
+          "non_agent_other_s": 14.212882280349731,
+          "planning_s": 500.9752323627472,
+          "execution_s": 783.1486344337463,
+          "agent_other_s": 4.031308174133301,
+          "gateway_wait_only_s": 1145.414428949356,
+          "gateway_wait_union_s": 1154.0082392692566,
+          "slot_queue_union_s": 977.56520652771,
+          "upstream_wall_s": 136.152685880661,
+          "unattributed_agent_s": 6.588060140609741,
+          "gateway_matched_wait_count": 97,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "0480e0b0596c6547e572b0b3ef3dfb5e7d00460f8d9d024f67b92eca71119908",
+          "score_sha256": "810e833e13fe009f5da433b9febfb18c05a9522ee6a7cc5caafc20b6aaccfd91",
+          "native_events_sha256": "b17b89bd4b99d95e2adab979bff106885d9fc5ded04d00801d87118703bb1693"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-n11-six-r2"
+    },
+    "N17": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-n17-r1",
+        "paid_attempt": "latte-handoff-v2-u59-n17-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 684.418145,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 17,
+          "core_total": 17,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 689252,
+          "output": 13239,
+          "total": 702491,
+          "billing_cache_hit": 382464,
+          "cache_unknown_requests": 0,
+          "sent": 190,
+          "settled": 190,
+          "unknown_usage": 0,
+          "peak_usd": "0.474215016",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 30,
+          "execution_rounds": 90,
+          "fallback": true,
+          "handoffs": 12,
+          "worker_changes": 12,
+          "source_changes": 1,
+          "reads": 200,
+          "writes": 32,
+          "tests": 19,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 684.41814494133,
+          "agent_s": 655.1686968803406,
+          "verifier_s": 13.996011972427368,
+          "non_agent_other_s": 15.253436088562012,
+          "planning_s": 63.84846377372742,
+          "execution_s": 585.2991964817047,
+          "agent_other_s": 6.021036624908447,
+          "gateway_wait_only_s": 272.2600281238556,
+          "gateway_wait_union_s": 328.84314918518066,
+          "slot_queue_union_s": 64.7652051448822,
+          "upstream_wall_s": 371.0864224433899,
+          "unattributed_agent_s": 11.822246313095093,
+          "gateway_matched_wait_count": 190,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "8913fd429a554ab416542c0a7a68ee60da0d0ee53dc0e83d152119ed4cc63879",
+          "score_sha256": "de08ce7b004f4b3521e003cf14a9bc29a0c7a07238a2237a35392434cf000786",
+          "native_events_sha256": "e8369a2e3c36d50fb93b4977b6d0c1b8bd930e0476f62263c20a418811873296"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-n17-r1"
+    },
+    "N22": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-n22-six-r2",
+        "paid_attempt": "latte-handoff-v2-u59-n22-six-r2",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 1946.333009,
+        "score": {
+          "reward": "2.000000",
+          "reward_max": 2,
+          "core_passed": 19,
+          "core_total": 19,
+          "api_passed": 9,
+          "api_total": 9,
+          "integrity": true,
+          "strict": true,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 667996,
+          "output": 19216,
+          "total": 687212,
+          "billing_cache_hit": 276736,
+          "cache_unknown_requests": 0,
+          "sent": 134,
+          "settled": 134,
+          "unknown_usage": 0,
+          "peak_usd": "0.604734944",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 22,
+          "execution_rounds": 60,
+          "fallback": false,
+          "handoffs": 6,
+          "worker_changes": 5,
+          "source_changes": 1,
+          "reads": 125,
+          "writes": 36,
+          "tests": 22,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 1946.333009004593,
+          "agent_s": 1826.4728510379791,
+          "verifier_s": 105.79132103919983,
+          "non_agent_other_s": 14.06883692741394,
+          "planning_s": 223.050359249115,
+          "execution_s": 1598.7369725704193,
+          "agent_other_s": 4.685519218444824,
+          "gateway_wait_only_s": 1534.920110464096,
+          "gateway_wait_union_s": 1569.598733663559,
+          "slot_queue_union_s": 1290.8239755630493,
+          "upstream_wall_s": 258.5976138114929,
+          "unattributed_agent_s": 32.95512676239014,
+          "gateway_matched_wait_count": 134,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "547eb606e4fe4b920e984bc11dcc1be51e88e0f6e3c363b9c29db1a2610ca07d",
+          "score_sha256": "022892a83b7a64f6af136e1e7c430aad60dcc7053e2520f7b031bb696c689959",
+          "native_events_sha256": "e5bb081b0f1becf38b25a5af8e2e6a67697f88c86093d2d1e8527db3029f014e"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-n22-six-r2"
+    },
+    "N24": {
+      "initial": {
+        "attempt": "latte-handoff-v2-u59-n24-six-r1",
+        "paid_attempt": "latte-handoff-v2-u59-n24-six-r1",
+        "cohort": "latte-repair-handoff-v2",
+        "terminal": "public_check_passed",
+        "harbor_exception": null,
+        "e2e_seconds": 771.546458,
+        "score": {
+          "reward": "0.680000",
+          "reward_max": 2,
+          "core_passed": 17,
+          "core_total": 25,
+          "api_passed": 9,
+          "api_total": 12,
+          "integrity": true,
+          "strict": false,
+          "public": true,
+          "scoring_revision": "delivery-bonus-50-v1"
+        },
+        "children": {
+          "observed": true,
+          "configured_worker_roles": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "actual_ids": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ],
+          "method": "Native task-bearing Worker turns and replies; fixed roles, not dynamic spawn evidence"
+        },
+        "usage": {
+          "input": 916737,
+          "output": 31960,
+          "total": 948697,
+          "billing_cache_hit": 448128,
+          "cache_unknown_requests": 0,
+          "sent": 234,
+          "settled": 234,
+          "unknown_usage": 0,
+          "peak_usd": "0.764843112",
+          "observed_thinking": [
+            "disabled"
+          ]
+        },
+        "trace_summary": {
+          "planning_turns": 6,
+          "execution_rounds": 99,
+          "fallback": false,
+          "handoffs": 12,
+          "worker_changes": 12,
+          "source_changes": 6,
+          "reads": 151,
+          "writes": 74,
+          "tests": 33,
+          "active_workers": [
+            "Dev1",
+            "Dev2",
+            "Dev3"
+          ]
+        },
+        "timing": {
+          "e2e_s": 771.5464580059052,
+          "agent_s": 733.5443658828735,
+          "verifier_s": 19.44788408279419,
+          "non_agent_other_s": 18.554208040237427,
+          "planning_s": 19.98544931411743,
+          "execution_s": 708.0560481548309,
+          "agent_other_s": 5.502868413925171,
+          "gateway_wait_only_s": 237.40493941307068,
+          "gateway_wait_union_s": 360.16846466064453,
+          "slot_queue_union_s": 125.42919635772705,
+          "upstream_wall_s": 481.496976852417,
+          "unattributed_agent_s": 14.642449617385864,
+          "gateway_matched_wait_count": 234,
+          "run_started": true
+        },
+        "evidence_digest": {
+          "result_sha256": "1d38aaca5c03e8a2b1c4cbac851202212aee08177877775b41c11b1ea1e793f8",
+          "score_sha256": "026e2a9824154e06921ab98e0188e3154c98b522691776337b45f5d16b3f0b88",
+          "native_events_sha256": "baf34526a38e53ba4e84b2f869a2c68f0a95b8c4722900e5483a21f85260686d"
+        }
+      },
+      "selected_attempt": "latte-handoff-v2-u59-n24-six-r1"
+    }
+  }
+}
