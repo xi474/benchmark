@@ -28,9 +28,9 @@ python3 validate_release.py
 
 ## 结果
 
-[DeepSeek V4 Pro 普通模式 · 六套 Harness 对照（更新 LATTE 修复交接 v2）](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/README.md)。含[59 题矩阵](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/seven-configuration-matrix.json)、五项指标图、耗时 trace 分解和中断前后评分。[更新前的对照与旧 LATTE](results/upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/README.md)。
+[DeepSeek V4 Pro 普通模式 · 官方 Supervisor 与原六套 Harness](results/upstream59-v4pro-supervisor-baseline-restored-20261128/README.md)。主表采用补跑前评分，含[59 题矩阵](results/upstream59-v4pro-supervisor-baseline-restored-20261128/seven-configuration-matrix.json)和对照图。
 
-[上一版对照及 Codex、DSH 的 13 格补跑](results/upstream59-v4pro-supervisor-codex-dsh-rerun-20261128/README.md)保留补跑前报告、矩阵和归档。
+[LATTE 修复交接 v2 · 独立实验记录](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/README.md)保留该版本的配对数据和运行分析。
 
 [LATTE规划5轮与20轮对比：DeepSeek／Qwen各59题](results/latte-plan5-vs20-comparison-20261127/README.md)。含236条记录、118组配对、PNG/SVG及交互图表；明确历史运行条件差异、新版reward和同费率成本估算，旧结果保留。
 

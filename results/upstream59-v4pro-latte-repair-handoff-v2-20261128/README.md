@@ -4,7 +4,7 @@ Upstream59 v2.1.0 · DeepSeek V4 Pro 普通模式 · 每套 59 个冻结题位
 
 主对照的 LATTE 结果已更新为**修复交接 v2**，包含 **5** 个余额中断题的独立补跑。相对原主表的 5 轮版，核心 API 从 **187/803** 升至 **452/803**（**+33.00 个百分点**），严格通过从 **4/59** 升至 **17/59**，reward 从 **23.0255** 升至 **62.5840 / 138**。完整 E2E 中位数 **368 → 1061 秒**，统一峰时模型费用 **$25.49 → $39.56**。
 
-[59 题逐格矩阵](seven-configuration-matrix.json) · [新版全部 attempt、旧评分与用量](latte-attempts.json) · [原六套与 Supervisor 对照](../upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/README.md) · [LATTE 5／20 轮历史结果](../latte-plan5-vs20-comparison-20261127/README.md)
+[59 题逐格矩阵](seven-configuration-matrix.json) · [新版全部 attempt、旧评分与用量](latte-attempts.json) · [原六套与 Supervisor 对照](https://github.com/xi474/benchmark/blob/7d5b59deab63b0314c0ec6ab9bac42820ee0a3dc/results/upstream59-v4pro-supervisor-nanobot-opencode-rerun-20261128/README.md) · [LATTE 5／20 轮历史结果](../latte-plan5-vs20-comparison-20261127/README.md)
 
 ## 六套 Harness 的质量、耗时和成本
 
