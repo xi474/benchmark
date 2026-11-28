@@ -30,7 +30,7 @@ python3 validate_release.py
 
 [DeepSeek V4 Pro 普通模式 · 官方 Supervisor 与原六套 Harness](results/upstream59-v4pro-supervisor-baseline-restored-20261128/README.md)。主表采用补跑前评分，含[59 题矩阵](results/upstream59-v4pro-supervisor-baseline-restored-20261128/seven-configuration-matrix.json)和对照图。
 
-[LATTE 修复交接 v2 · 独立实验记录](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/README.md)保留该版本的配对数据和运行分析。
+[LATTE 修复交接 v2 · 独立实验记录](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/README.md)保留该版本的配对数据、运行分析和三题 XML 修复前后的补跑指标。
 
 [LATTE规划5轮与20轮对比：DeepSeek／Qwen各59题](results/latte-plan5-vs20-comparison-20261127/README.md)。含236条记录、118组配对、PNG/SVG及交互图表；明确历史运行条件差异、新版reward和同费率成本估算，旧结果保留。
 
