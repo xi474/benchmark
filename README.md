@@ -28,6 +28,8 @@ python3 validate_release.py
 
 ## 结果
 
+[原生 DSH 与 DSH-SP 的 59 题对照](results/upstream59-v21-dsh-sp-vs-native-20261128/README.md) · [逐题数据](results/upstream59-v21-dsh-sp-vs-native-20261128/paired.csv) · [指标图](results/upstream59-v21-dsh-sp-vs-native-20261128/comparison.png)。同题比较 reward、严格通过率、API 通过率、完整 E2E、tokens 和估算模型成本。
+
 [DeepSeek V4 Pro 普通模式 · 官方 Supervisor 与原六套 Harness](results/upstream59-v4pro-supervisor-baseline-restored-20261128/README.md)。主表采用补跑前评分，含[59 题矩阵](results/upstream59-v4pro-supervisor-baseline-restored-20261128/seven-configuration-matrix.json)和对照图。
 
 [LATTE 修复交接 v2 · 独立实验记录](results/upstream59-v4pro-latte-repair-handoff-v2-20261128/README.md)保留该版本的配对数据、运行分析和三题 XML 修复前后的补跑指标。
